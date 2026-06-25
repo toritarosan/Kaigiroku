@@ -1,547 +1,314 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>小金井市議会 議事録アーカイブ</title>
-    <style>
-        * { box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6; color: #1a202c; max-width: 860px; margin: 0 auto; padding: 24px 16px;
-            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
-            min-height: 100vh;
-        }
-        .page-header {
-            text-align: center; margin-bottom: 32px; padding: 28px 20px;
-            background: #fff; border-radius: 16px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-        }
-        .page-header h1 {
-            color: #1e3a5f; font-size: 1.7em; margin: 0 0 8px 0;
-            letter-spacing: 0.02em;
-        }
-        .page-header p { color: #64748b; margin: 0; font-size: 0.95em; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小金井市議会 議事録アーカイブ（非公式）</title>
+<meta name="description" content="小金井市議会の本会議・委員会の中継動画をもとに作成した、非公式の文字起こし・要約アーカイブ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* === デジタル庁デザインシステム トークン（抜粋） === */
+:root{
+  --blue-50:#e8f1fe; --blue-700:#264af4; --blue-800:#0031d8; --blue-900:#0017c1; --blue-1000:#00118f;
+  --g-50:#f2f2f2; --g-100:#e6e6e6; --g-200:#cccccc; --g-400:#999999; --g-536:#767676;
+  --g-600:#666666; --g-700:#4d4d4d; --g-800:#333333; --g-900:#1a1a1a; --white:#fff;
+  --primary:var(--blue-900); --primary-soft:var(--blue-50);
+  --navy:#15315a; --navy-soft:#e9eef5;
+  --bg:var(--g-50); --surface:var(--white); --ink:var(--g-900); --text:var(--g-800);
+  --muted:var(--g-600); --line:var(--g-100); --line2:#eceff3; --border:var(--g-200);
+  --radius:8px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.75;-webkit-font-smoothing:antialiased;}
+a{color:inherit;}
+.topbar{height:6px;background:var(--navy);}
+.app{display:grid;grid-template-columns:288px 1fr;min-height:100vh;align-items:start;}
 
-        /* 検索ボックス */
-        .search-box {
-            width: 100%; padding: 12px 18px; font-size: 1em;
-            border: 2px solid #e2e8f0; border-radius: 12px;
-            outline: none; margin: 18px 0 12px 0;
-            background: #f8fafc; transition: border-color 0.2s;
-        }
-        .search-box:focus { border-color: #3b82f6; background: #fff; }
-        .search-box::placeholder { color: #94a3b8; }
+/* ===== Sidebar（白基調） ===== */
+.side{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--surface);
+  border-right:1px solid var(--border);padding:28px 22px 24px;display:flex;flex-direction:column;gap:22px;}
+.side::-webkit-scrollbar{width:8px;} .side::-webkit-scrollbar-thumb{background:var(--g-200);border-radius:4px;}
+.brand .kicker{font-size:.74rem;letter-spacing:.2em;color:var(--navy);font-weight:700;margin:0 0 6px;}
+.brand h1{font-size:1.5rem;font-weight:900;color:var(--navy);margin:0;line-height:1.3;}
+.brand .tag{margin:10px 0 0;color:var(--muted);font-size:.82rem;line-height:1.65;}
+.nbadge{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:.7rem;font-weight:700;
+  letter-spacing:.04em;color:#6e5600;background:#fff0b3;border:1px solid #ffd43d;padding:4px 10px;border-radius:999px;}
 
-        /* フィルタボタン */
-        .filter-bar {
-            display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;
-            justify-content: center;
-        }
-        .filter-btn {
-            padding: 6px 16px; border: 2px solid #e2e8f0; border-radius: 20px;
-            background: #fff; cursor: pointer; font-size: 0.85em; font-weight: 600;
-            color: #475569; transition: all 0.2s;
-        }
-        .filter-btn:hover { background: #f1f5f9; }
-        .filter-btn.active {
-            background: #1e3a5f; color: #fff; border-color: #1e3a5f;
-        }
+.side-search{position:relative;}
+.side-search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--g-536);}
+.side-search input{width:100%;padding:11px 13px 11px 40px;font-size:.9rem;font-family:inherit;color:var(--ink);
+  background:var(--white);border:1px solid var(--border);border-radius:var(--radius);outline:none;transition:.15s;}
+.side-search input::placeholder{color:var(--g-536);}
+.side-search input:focus{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-soft);}
 
-        /* セッションブロック/折りたたみ */
-        details.session-details {
-            margin-bottom: 28px; background: #fff; border-radius: 14px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04); overflow: hidden;
-        }
-        details.session-details > summary.session-title {
-            list-style: none; cursor: pointer;
-            padding: 20px 24px;
-            font-size: 1.25em; color: #1e3a5f;
-            border-bottom: 2px solid transparent;
-            display: flex; align-items: center; gap: 8px;
-            user-select: none;
-            transition: background 0.15s;
-        }
-        details.session-details > summary.session-title::-webkit-details-marker { display: none; }
-        details.session-details[open] > summary.session-title {
-            border-bottom-color: #e2e8f0;
-        }
-        details.session-details > summary.session-title:hover { background: #f8fafc; }
-        .session-toggle-icon {
-            margin-left: auto; font-size: 0.85em; color: #94a3b8;
-            transition: transform 0.2s;
-        }
-        details.session-details[open] .session-toggle-icon { transform: rotate(180deg); }
-        .session-inner { padding: 20px 24px 8px 24px; }
-        .count-badge {
-            font-size: 0.65em; background: #e2e8f0; color: #475569;
-            padding: 2px 10px; border-radius: 12px; font-weight: 600;
-        }
+.side h2{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--g-536);
+  font-weight:700;margin:0 0 8px;padding-left:4px;}
+.facets{display:flex;flex-direction:column;gap:1px;}
+.facet{display:flex;align-items:center;gap:10px;width:100%;background:transparent;border:none;color:var(--text);
+  font-family:inherit;font-size:.9rem;font-weight:500;text-align:left;padding:9px 11px;border-radius:var(--radius);
+  cursor:pointer;transition:.12s;box-shadow:inset 3px 0 0 transparent;}
+.facet:hover{background:var(--g-50);}
+.facet.is-active{background:var(--navy-soft);color:var(--navy);box-shadow:inset 3px 0 0 var(--navy);font-weight:700;}
+.fdot{width:9px;height:9px;border-radius:50%;flex:none;}
+.flabel{flex:1;} .fcnt{color:var(--g-536);font-size:.78rem;font-variant-numeric:tabular-nums;}
+.facet.is-active .fcnt{color:var(--navy);}
 
-        /* カテゴリブロック/折りたたみ */
-        details.category-details { margin-bottom: 18px; }
-        details.category-details > summary.category-title {
-            list-style: none; cursor: pointer;
-            font-size: 1em; margin: 0 0 0 0;
-            display: flex; align-items: center; gap: 6px;
-            user-select: none;
-            padding: 4px 0;
-        }
-        details.category-details > summary.category-title::-webkit-details-marker { display: none; }
-        details.category-details > summary.category-title:hover { opacity: 0.8; }
-        .cat-toggle-icon {
-            margin-left: auto; font-size: 0.8em; color: #94a3b8;
-            transition: transform 0.2s;
-        }
-        details.category-details[open] .cat-toggle-icon { transform: rotate(180deg); }
-        details.category-details > .item-list { margin-top: 10px; }
-        .count-badge-sm {
-            font-size: 0.75em; background: #f1f5f9; color: #64748b;
-            padding: 1px 8px; border-radius: 10px; font-weight: 600; margin-left: 4px;
-        }
+.jump{display:flex;flex-direction:column;gap:1px;}
+.jump-item{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--text);font-size:.84rem;
+  padding:8px 11px;border-radius:var(--radius);transition:.12s;}
+.jump-item:hover{background:var(--g-50);color:var(--primary);}
+.jump-item span:first-child{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.jump-cnt{color:var(--g-536);font-size:.76rem;font-variant-numeric:tabular-nums;}
 
-        /* アイテムカード */
-        .item-list { display: flex; flex-direction: column; gap: 6px; }
-        .item-card {
-            display: flex; align-items: center; gap: 12px;
-            padding: 12px 16px; background: #fafbfc;
-            border: 1px solid #e8ecf0; border-left: 4px solid #3498db;
-            border-radius: 8px; text-decoration: none; color: #2d3748;
-            font-weight: 600; font-size: 0.95em;
-            transition: all 0.2s ease;
-        }
-        .item-card:hover {
-            background: #f0f7ff; transform: translateX(4px);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-        }
-        .item-date {
-            font-size: 0.8em; font-weight: 700; padding: 3px 10px;
-            border-radius: 6px; white-space: nowrap;
-            min-width: 48px; text-align: center;
-        }
-        .item-name { flex: 1; }
+.side-links{margin-top:auto;border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:2px;}
+.side-links a{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--primary);font-size:.85rem;
+  font-weight:700;padding:9px 11px;border-radius:var(--radius);transition:.12s;}
+.side-links a:hover{background:var(--primary-soft);}
+.side-links a .arr{margin-left:auto;}
+.side-cred{color:var(--g-536);font-size:.72rem;line-height:1.6;padding:8px 11px 0;font-weight:400;}
 
-        /* フィルタ非表示 */
-        .item-card.hidden, details.category-details.hidden, details.session-details.hidden { display: none; }
+/* ===== Main ===== */
+main{padding:30px 40px 72px;max-width:940px;}
+.main-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:2px 2px 20px;
+  padding-bottom:14px;border-bottom:3px solid var(--navy);}
+.main-head h2{font-size:1.3rem;font-weight:900;color:var(--navy);margin:0;}
+.main-head .summary{color:var(--muted);font-size:.88rem;}
+.main-head .summary b{color:var(--primary);font-weight:700;}
 
-        /* 検索結果なし */
-        .no-results {
-            text-align: center; padding: 40px; color: #94a3b8;
-            font-size: 1.1em; display: none;
-        }
+.session{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  margin-bottom:14px;overflow:hidden;scroll-margin-top:16px;}
+.session-head{list-style:none;cursor:pointer;display:flex;align-items:center;gap:13px;padding:16px 20px;
+  user-select:none;transition:background .12s;}
+.session-head::-webkit-details-marker{display:none;}
+.session-head:hover{background:var(--g-50);}
+.session-name{font-weight:700;color:var(--navy);font-size:1.06rem;}
+.session-count{font-size:.76rem;font-weight:700;color:var(--g-700);background:var(--g-100);padding:2px 11px;border-radius:999px;}
+.session-count::after{content:"件";font-weight:500;}
+.session-chev{margin-left:auto;color:var(--g-400);font-size:.9rem;transition:transform .2s;}
+.session[open] .session-chev{transform:rotate(180deg);}
+.session[open] .session-head{border-bottom:1px solid var(--line);background:var(--g-50);box-shadow:inset 4px 0 0 var(--navy);}
+.entries{display:flex;flex-direction:column;}
 
-        .footer {
-            margin-top: 40px; font-size: 0.85em;
-            color: #94a3b8; padding: 24px;
-            max-width: 720px; margin-left: auto; margin-right: auto;
-        }
-        .footer a { color: #64748b; }
-        .footer .disclaimer-title {
-            font-size: 1em; font-weight: 600; color: #64748b;
-            margin-bottom: 10px; text-align: center;
-        }
-        .footer .disclaimer-body {
-            text-align: left; line-height: 1.7;
-            background: #f1f5f9; border-radius: 10px; padding: 16px 20px;
-        }
-        .footer .disclaimer-body p {
-            margin: 6px 0;
-        }
-        .footer .disclaimer-body ul {
-            margin: 8px 0 8px 1.2em; padding: 0;
-        }
-        .footer .disclaimer-body li {
-            margin: 4px 0;
-        }
-        .footer .disclaimer-meta {
-            margin-top: 10px; text-align: center; font-size: 0.95em;
-        }
+.entry{display:flex;align-items:center;gap:14px;padding:13px 20px;text-decoration:none;
+  border-top:1px solid var(--line2);transition:background .12s;}
+.entry:first-child{border-top:none;}
+.entry:hover{background:var(--primary-soft);}
+.entry .date{font-variant-numeric:tabular-nums;font-weight:700;font-size:.86rem;color:var(--ink);
+  min-width:42px;text-align:right;}
+.entry .cat{font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:4px;white-space:nowrap;}
+.entry .name{flex:1;color:var(--ink);font-weight:500;font-size:.97rem;}
+.entry .chev{color:var(--primary);font-weight:700;opacity:0;transform:translateX(-4px);transition:.15s;}
+.entry:hover .chev{opacity:1;transform:translateX(0);}
 
-        @media (max-width: 640px) {
-            body { padding: 12px 8px; }
-            .session-block { padding: 16px; }
-            .page-header { padding: 20px 16px; }
-            .page-header h1 { font-size: 1.3em; }
-            .filter-btn { font-size: 0.78em; padding: 5px 10px; }
-        }
-    </style>
+.no-results{display:none;text-align:center;padding:50px 20px;color:var(--muted);}
+.hidden{display:none !important;}
+
+.about{margin-top:24px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);overflow:hidden;}
+.about>summary{list-style:none;cursor:pointer;padding:15px 20px;font-weight:700;color:var(--ink);font-size:.92rem;
+  display:flex;align-items:center;gap:8px;}
+.about>summary::-webkit-details-marker{display:none;}
+.about>summary .s-chev{margin-left:auto;color:var(--g-400);transition:transform .2s;}
+.about[open]>summary .s-chev{transform:rotate(180deg);}
+.about-body{padding:5px 22px 22px;font-size:.86rem;color:var(--text);line-height:1.85;border-top:1px solid var(--line);}
+.about-body ul{margin:8px 0 14px;padding-left:1.2em;} .about-body li{margin:4px 0;}
+.about-body .src{color:var(--muted);font-size:.82rem;border-top:1px dashed var(--border);padding-top:12px;margin-top:8px;line-height:1.95;}
+.about-body a{color:var(--primary);font-weight:700;}
+
+@media (max-width:880px){
+  .app{grid-template-columns:1fr;}
+  .side{position:static;height:auto;overflow:visible;padding:22px 18px;gap:16px;border-right:none;border-bottom:1px solid var(--border);}
+  .side-links{margin-top:6px;}
+  .jump,.side h2.jump-title,.side-cred{display:none;}
+  .facets{flex-direction:row;flex-wrap:wrap;gap:6px;}
+  .facet{width:auto;box-shadow:none;border:1px solid var(--border);padding:7px 12px;}
+  .facet.is-active{box-shadow:none;border-color:var(--navy);background:var(--navy-soft);}
+  main{padding:22px 15px 60px;}
+}
+</style>
 </head>
 <body>
-    <div class="page-header">
-        <h1>📋 小金井市議会 議事録アーカイブ</h1>
-        <p>AIによる自動文字起こし・校正・要約付き議事録</p>
-        <input type="text" class="search-box" id="searchBox" placeholder="🔍 議事録を検索（例: 予算、本会議、3.12 ...）">
+<div class="topbar"></div>
+<div class="app">
+
+  <aside class="side">
+    <div class="brand">
+      <p class="kicker">小金井市議会</p>
+      <h1>議事録アーカイブ</h1>
+      <p class="tag">本会議・委員会等の中継動画をもとに、文字起こし・校正・要約を行った非公式アーカイブです。</p>
+      <span class="nbadge">非公式・AI生成</span>
     </div>
 
-    <div class="filter-bar" id="filterBar">
-        <button class="filter-btn active" data-filter="all">すべて</button>
-<button class="filter-btn" data-filter="本会議" style="--accent:#e74c3c;">🏛️ 本会議</button>
-<button class="filter-btn" data-filter="予算特別委員会" style="--accent:#d97706;">💰 予算特別委員会</button>
-<button class="filter-btn" data-filter="常任委員会" style="--accent:#2563eb;">📋 常任委員会</button>
-<button class="filter-btn" data-filter="議会運営委員会" style="--accent:#7c3aed;">⚙️ 議会運営委員会</button>
-<button class="filter-btn" data-filter="特別委員会・協議会" style="--accent:#059669;">🏗️ 特別委員会・協議会</button>
-
+    <div class="side-search">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="text" id="q" placeholder="会議名・日付で検索…" autocomplete="off">
     </div>
 
-    <div id="contentArea">
-        <details class="session-details">
-  <summary class="session-title">📅 令和8年 第1回定例会<span class="count-badge">28件</span><span class="session-toggle-icon">▼</span></summary>
-  <div class="session-inner">
-  <details class="category-details" data-category="本会議" open>
-    <summary class="category-title" style="color:#e74c3c;">🏛️ 本会議<span class="count-badge-sm">8</span><span class="cat-toggle-icon">▼</span></summary>
-    <div class="item-list">
-      <a href="R8.3.23_本会議.html" class="item-card" data-category="本会議" style="border-left-color:#e74c3c;">
-        <span class="item-date" style="background:#fef2f2;color:#e74c3c;border:1px solid #fecaca;">3.23</span>
-        <span class="item-name">本会議</span>
-      </a>
-      <a href="R8.3.2_本会議.html" class="item-card" data-category="本会議" style="border-left-color:#e74c3c;">
-        <span class="item-date" style="background:#fef2f2;color:#e74c3c;border:1px solid #fecaca;">3.2</span>
-        <span class="item-name">本会議（一般質問）</span>
-      </a>
-      <a href="R8.2.27_本会議.html" class="item-card" data-category="本会議" style="border-left-color:#e74c3c;">
-        <span class="item-date" style="background:#fef2f2;color:#e74c3c;border:1px solid #fecaca;">2.27</span>
-        <span class="item-name">本会議（一般質問）</span>
-      </a>
-      <a href="R8.2.26_本会議.html" class="item-card" data-category="本会議" style="border-left-color:#e74c3c;">
-        <span class="item-date" style="background:#fef2f2;color:#e74c3c;border:1px solid #fecaca;">2.26</span>
-        <span class="item-name">本会議（一般質問）</span>
-      </a>
-      <a href="R8.2.24_本会議.html" class="item-card" data-category="本会議" style="border-left-color:#e74c3c;">
-        <span class="item-date" style="background:#fef2f2;color:#e74c3c;border:1px solid #fecaca;">2.24</span>
-        <span class="item-name">本会議（一般質問）</span>
-      </a>
-      <a href="R8.2.18_本会議.html" class="item-card" data-category="本会議" style="border-left-color:#e74c3c;">
-        <span class="item-date" style="background:#fef2f2;color:#e74c3c;border:1px solid #fecaca;">2.18</span>
-        <span class="item-name">本会議</span>
-      </a>
-      <a href="R8.2.17_本会議.html" class="item-card" data-category="本会議" style="border-left-color:#e74c3c;">
-        <span class="item-date" style="background:#fef2f2;color:#e74c3c;border:1px solid #fecaca;">2.17</span>
-        <span class="item-name">本会議</span>
-      </a>
-      <a href="R8.2.16_本会議.html" class="item-card" data-category="本会議" style="border-left-color:#e74c3c;">
-        <span class="item-date" style="background:#fef2f2;color:#e74c3c;border:1px solid #fecaca;">2.16</span>
-        <span class="item-name">本会議</span>
-      </a>
-    </div>
-  </details>
-  <details class="category-details" data-category="予算特別委員会" open>
-    <summary class="category-title" style="color:#d97706;">💰 予算特別委員会<span class="count-badge-sm">7</span><span class="cat-toggle-icon">▼</span></summary>
-    <div class="item-list">
-      <a href="R8.3.18_予算特別委員会.html" class="item-card" data-category="予算特別委員会" style="border-left-color:#d97706;">
-        <span class="item-date" style="background:#fffbeb;color:#d97706;border:1px solid #fde68a;">3.18</span>
-        <span class="item-name">予算特別委員会</span>
-      </a>
-      <a href="R8.3.16_予算特別委員会.html" class="item-card" data-category="予算特別委員会" style="border-left-color:#d97706;">
-        <span class="item-date" style="background:#fffbeb;color:#d97706;border:1px solid #fde68a;">3.16</span>
-        <span class="item-name">予算特別委員会</span>
-      </a>
-      <a href="R8.3.13_予算特別委員会.html" class="item-card" data-category="予算特別委員会" style="border-left-color:#d97706;">
-        <span class="item-date" style="background:#fffbeb;color:#d97706;border:1px solid #fde68a;">3.13</span>
-        <span class="item-name">予算特別委員会</span>
-      </a>
-      <a href="R8.3.12_予算特別委員会.html" class="item-card" data-category="予算特別委員会" style="border-left-color:#d97706;">
-        <span class="item-date" style="background:#fffbeb;color:#d97706;border:1px solid #fde68a;">3.12</span>
-        <span class="item-name">予算特別委員会</span>
-      </a>
-      <a href="R8.3.11_予算特別委員会.html" class="item-card" data-category="予算特別委員会" style="border-left-color:#d97706;">
-        <span class="item-date" style="background:#fffbeb;color:#d97706;border:1px solid #fde68a;">3.11</span>
-        <span class="item-name">予算特別委員会</span>
-      </a>
-      <a href="R8.3.10_予算特別委員会.html" class="item-card" data-category="予算特別委員会" style="border-left-color:#d97706;">
-        <span class="item-date" style="background:#fffbeb;color:#d97706;border:1px solid #fde68a;">3.10</span>
-        <span class="item-name">予算特別委員会</span>
-      </a>
-      <a href="R8.3.9_予算特別委員会.html" class="item-card" data-category="予算特別委員会" style="border-left-color:#d97706;">
-        <span class="item-date" style="background:#fffbeb;color:#d97706;border:1px solid #fde68a;">3.9</span>
-        <span class="item-name">予算特別委員会</span>
-      </a>
-    </div>
-  </details>
-  <details class="category-details" data-category="常任委員会" open>
-    <summary class="category-title" style="color:#2563eb;">📋 常任委員会<span class="count-badge-sm">5</span><span class="cat-toggle-icon">▼</span></summary>
-    <div class="item-list">
-      <a href="R8.3.18_建設環境委員会.html" class="item-card" data-category="常任委員会" style="border-left-color:#2563eb;">
-        <span class="item-date" style="background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe;">3.18</span>
-        <span class="item-name">建設環境委員会</span>
-      </a>
-      <a href="R8.3.18_厚生文教委員会.html" class="item-card" data-category="常任委員会" style="border-left-color:#2563eb;">
-        <span class="item-date" style="background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe;">3.18</span>
-        <span class="item-name">厚生文教委員会</span>
-      </a>
-      <a href="R8.3.6_総務企画委員会.html" class="item-card" data-category="常任委員会" style="border-left-color:#2563eb;">
-        <span class="item-date" style="background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe;">3.6</span>
-        <span class="item-name">総務企画委員会</span>
-      </a>
-      <a href="R8.3.5_建設環境委員会.html" class="item-card" data-category="常任委員会" style="border-left-color:#2563eb;">
-        <span class="item-date" style="background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe;">3.5</span>
-        <span class="item-name">建設環境委員会</span>
-      </a>
-      <a href="R8.3.4_厚生文教委員会.html" class="item-card" data-category="常任委員会" style="border-left-color:#2563eb;">
-        <span class="item-date" style="background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe;">3.4</span>
-        <span class="item-name">厚生文教委員会</span>
-      </a>
-    </div>
-  </details>
-  <details class="category-details" data-category="議会運営委員会" open>
-    <summary class="category-title" style="color:#7c3aed;">⚙️ 議会運営委員会<span class="count-badge-sm">6</span><span class="cat-toggle-icon">▼</span></summary>
-    <div class="item-list">
-      <a href="R8.3.23_議会運営委員会2.html" class="item-card" data-category="議会運営委員会" style="border-left-color:#7c3aed;">
-        <span class="item-date" style="background:#f5f3ff;color:#7c3aed;border:1px solid #ddd6fe;">3.23</span>
-        <span class="item-name">議会運営委員会2</span>
-      </a>
-      <a href="R8.3.23_議会運営委員会3.html" class="item-card" data-category="議会運営委員会" style="border-left-color:#7c3aed;">
-        <span class="item-date" style="background:#f5f3ff;color:#7c3aed;border:1px solid #ddd6fe;">3.23</span>
-        <span class="item-name">議会運営委員会3</span>
-      </a>
-      <a href="R8.3.23_議会運営委員会1.html" class="item-card" data-category="議会運営委員会" style="border-left-color:#7c3aed;">
-        <span class="item-date" style="background:#f5f3ff;color:#7c3aed;border:1px solid #ddd6fe;">3.23</span>
-        <span class="item-name">議会運営委員会1</span>
-      </a>
-      <a href="R8.3.18_議会運営委員会.html" class="item-card" data-category="議会運営委員会" style="border-left-color:#7c3aed;">
-        <span class="item-date" style="background:#f5f3ff;color:#7c3aed;border:1px solid #ddd6fe;">3.18</span>
-        <span class="item-name">議会運営委員会</span>
-      </a>
-      <a href="R8.3.18_議会運営委員会_10:00～.html" class="item-card" data-category="議会運営委員会" style="border-left-color:#7c3aed;">
-        <span class="item-date" style="background:#f5f3ff;color:#7c3aed;border:1px solid #ddd6fe;">3.18</span>
-        <span class="item-name">議会運営委員会 10:00～</span>
-      </a>
-      <a href="R8.3.3_議会運営委員会.html" class="item-card" data-category="議会運営委員会" style="border-left-color:#7c3aed;">
-        <span class="item-date" style="background:#f5f3ff;color:#7c3aed;border:1px solid #ddd6fe;">3.3</span>
-        <span class="item-name">議会運営委員会</span>
-      </a>
-    </div>
-  </details>
-  <details class="category-details" data-category="特別委員会・協議会" open>
-    <summary class="category-title" style="color:#059669;">🏗️ 特別委員会・協議会<span class="count-badge-sm">2</span><span class="cat-toggle-icon">▼</span></summary>
-    <div class="item-list">
-      <a href="R8.3.17_庁舎等建設及び公共施設マネジメント推進調査特別委員会.html" class="item-card" data-category="特別委員会・協議会" style="border-left-color:#059669;">
-        <span class="item-date" style="background:#ecfdf5;color:#059669;border:1px solid #a7f3d0;">3.17</span>
-        <span class="item-name">庁舎等建設及び公共施設マネジメント推進調査特別委員会</span>
-      </a>
-      <a href="R8.2.25_広報・広聴協議会.html" class="item-card" data-category="特別委員会・協議会" style="border-left-color:#059669;">
-        <span class="item-date" style="background:#ecfdf5;color:#059669;border:1px solid #a7f3d0;">2.25</span>
-        <span class="item-name">広報・広聴協議会</span>
-      </a>
-    </div>
-  </details>
-  </div>
-</details>
-<details class="session-details">
-  <summary class="session-title">📅 令和8年 第2回定例会<span class="count-badge">19件</span><span class="session-toggle-icon">▼</span></summary>
-  <div class="session-inner">
-  <details class="category-details" data-category="本会議" open>
-    <summary class="category-title" style="color:#e74c3c;">🏛️ 本会議<span class="count-badge-sm">6</span><span class="cat-toggle-icon">▼</span></summary>
-    <div class="item-list">
-      <a href="R8.6.23_本会議.html" class="item-card" data-category="本会議" style="border-left-color:#e74c3c;">
-        <span class="item-date" style="background:#fef2f2;color:#e74c3c;border:1px solid #fecaca;">6.23</span>
-        <span class="item-name">本会議</span>
-      </a>
-      <a href="R8.6.9_本会議.html" class="item-card" data-category="本会議" style="border-left-color:#e74c3c;">
-        <span class="item-date" style="background:#fef2f2;color:#e74c3c;border:1px solid #fecaca;">6.9</span>
-        <span class="item-name">本会議</span>
-      </a>
-      <a href="R8.6.8_本会議.html" class="item-card" data-category="本会議" style="border-left-color:#e74c3c;">
-        <span class="item-date" style="background:#fef2f2;color:#e74c3c;border:1px solid #fecaca;">6.8</span>
-        <span class="item-name">本会議</span>
-      </a>
-      <a href="R8.6.5_本会議.html" class="item-card" data-category="本会議" style="border-left-color:#e74c3c;">
-        <span class="item-date" style="background:#fef2f2;color:#e74c3c;border:1px solid #fecaca;">6.5</span>
-        <span class="item-name">本会議</span>
-      </a>
-      <a href="R8.6.4_本会議.html" class="item-card" data-category="本会議" style="border-left-color:#e74c3c;">
-        <span class="item-date" style="background:#fef2f2;color:#e74c3c;border:1px solid #fecaca;">6.4</span>
-        <span class="item-name">本会議</span>
-      </a>
-      <a href="R8.6.2_本会議.html" class="item-card" data-category="本会議" style="border-left-color:#e74c3c;">
-        <span class="item-date" style="background:#fef2f2;color:#e74c3c;border:1px solid #fecaca;">6.2</span>
-        <span class="item-name">本会議</span>
-      </a>
-    </div>
-  </details>
-  <details class="category-details" data-category="予算特別委員会" open>
-    <summary class="category-title" style="color:#d97706;">💰 予算特別委員会<span class="count-badge-sm">2</span><span class="cat-toggle-icon">▼</span></summary>
-    <div class="item-list">
-      <a href="R8.6.17_予算特別委員会.html" class="item-card" data-category="予算特別委員会" style="border-left-color:#d97706;">
-        <span class="item-date" style="background:#fffbeb;color:#d97706;border:1px solid #fde68a;">6.17</span>
-        <span class="item-name">予算特別委員会</span>
-      </a>
-      <a href="R8.6.2_予算特別委員会.html" class="item-card" data-category="予算特別委員会" style="border-left-color:#d97706;">
-        <span class="item-date" style="background:#fffbeb;color:#d97706;border:1px solid #fde68a;">6.2</span>
-        <span class="item-name">予算特別委員会</span>
-      </a>
-    </div>
-  </details>
-  <details class="category-details" data-category="常任委員会" open>
-    <summary class="category-title" style="color:#2563eb;">📋 常任委員会<span class="count-badge-sm">4</span><span class="cat-toggle-icon">▼</span></summary>
-    <div class="item-list">
-      <a href="R8.6.19_厚生文教委員会.html" class="item-card" data-category="常任委員会" style="border-left-color:#2563eb;">
-        <span class="item-date" style="background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe;">6.19</span>
-        <span class="item-name">厚生文教委員会</span>
-      </a>
-      <a href="R8.6.15_総務企画委員会.html" class="item-card" data-category="常任委員会" style="border-left-color:#2563eb;">
-        <span class="item-date" style="background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe;">6.15</span>
-        <span class="item-name">総務企画委員会</span>
-      </a>
-      <a href="R8.6.12_建設環境委員会.html" class="item-card" data-category="常任委員会" style="border-left-color:#2563eb;">
-        <span class="item-date" style="background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe;">6.12</span>
-        <span class="item-name">建設環境委員会</span>
-      </a>
-      <a href="R8.6.11_厚生文教委員会.html" class="item-card" data-category="常任委員会" style="border-left-color:#2563eb;">
-        <span class="item-date" style="background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe;">6.11</span>
-        <span class="item-name">厚生文教委員会</span>
-      </a>
-    </div>
-  </details>
-  <details class="category-details" data-category="議会運営委員会" open>
-    <summary class="category-title" style="color:#7c3aed;">⚙️ 議会運営委員会<span class="count-badge-sm">4</span><span class="cat-toggle-icon">▼</span></summary>
-    <div class="item-list">
-      <a href="R8.6.23_議会運営委員会①.html" class="item-card" data-category="議会運営委員会" style="border-left-color:#7c3aed;">
-        <span class="item-date" style="background:#f5f3ff;color:#7c3aed;border:1px solid #ddd6fe;">6.23</span>
-        <span class="item-name">議会運営委員会①</span>
-      </a>
-      <a href="R8.6.23_議会運営委員会②.html" class="item-card" data-category="議会運営委員会" style="border-left-color:#7c3aed;">
-        <span class="item-date" style="background:#f5f3ff;color:#7c3aed;border:1px solid #ddd6fe;">6.23</span>
-        <span class="item-name">議会運営委員会②</span>
-      </a>
-      <a href="R8.6.19_議会運営委員会協議会.html" class="item-card" data-category="議会運営委員会" style="border-left-color:#7c3aed;">
-        <span class="item-date" style="background:#f5f3ff;color:#7c3aed;border:1px solid #ddd6fe;">6.19</span>
-        <span class="item-name">議会運営委員会協議会</span>
-      </a>
-      <a href="R8.6.16_議会運営委員会.html" class="item-card" data-category="議会運営委員会" style="border-left-color:#7c3aed;">
-        <span class="item-date" style="background:#f5f3ff;color:#7c3aed;border:1px solid #ddd6fe;">6.16</span>
-        <span class="item-name">議会運営委員会</span>
-      </a>
-    </div>
-  </details>
-  <details class="category-details" data-category="特別委員会・協議会" open>
-    <summary class="category-title" style="color:#059669;">🏗️ 特別委員会・協議会<span class="count-badge-sm">3</span><span class="cat-toggle-icon">▼</span></summary>
-    <div class="item-list">
-      <a href="R8.6.19_広報・広聴協議会.html" class="item-card" data-category="特別委員会・協議会" style="border-left-color:#059669;">
-        <span class="item-date" style="background:#ecfdf5;color:#059669;border:1px solid #a7f3d0;">6.19</span>
-        <span class="item-name">広報・広聴協議会</span>
-      </a>
-      <a href="R8.6.18_庁舎等建設及び公共施設マネジメント推進調査特別委員会.html" class="item-card" data-category="特別委員会・協議会" style="border-left-color:#059669;">
-        <span class="item-date" style="background:#ecfdf5;color:#059669;border:1px solid #a7f3d0;">6.18</span>
-        <span class="item-name">庁舎等建設及び公共施設マネジメント推進調査特別委員会</span>
-      </a>
-      <a href="R8.6.10_広報・広聴協議会.html" class="item-card" data-category="特別委員会・協議会" style="border-left-color:#059669;">
-        <span class="item-date" style="background:#ecfdf5;color:#059669;border:1px solid #a7f3d0;">6.10</span>
-        <span class="item-name">広報・広聴協議会</span>
-      </a>
-    </div>
-  </details>
-  </div>
-</details>
-<details class="session-details">
-  <summary class="session-title">📁 閉会中委員会<span class="count-badge">15件</span><span class="session-toggle-icon">▼</span></summary>
-  <div class="session-inner">
-  <div class="item-list">
-    <a href="R7.12.19_本会議.html" class="item-card" data-category="閉会中委員会">R7.12.19 本会議</a>
-    <a href="R7.10.27_建設環境委員会.html" class="item-card" data-category="閉会中委員会">R7.10.27 建設環境委員会</a>
-    <a href="R8.5.22_広報・広聴協議会.html" class="item-card" data-category="閉会中委員会">R8.5.22 広報・広聴協議会</a>
-    <a href="R8.5.18_議会運営委員会.html" class="item-card" data-category="閉会中委員会">R8.5.18 議会運営委員会</a>
-    <a href="R8.5.12_建設環境委員会.html" class="item-card" data-category="閉会中委員会">R8.5.12 建設環境委員会</a>
-    <a href="R8.4.28_厚生文教委員会.html" class="item-card" data-category="閉会中委員会">R8.4.28 厚生文教委員会</a>
-    <a href="R8.4.21_広報・広聴協議会.html" class="item-card" data-category="閉会中委員会">R8.4.21 広報・広聴協議会</a>
-    <a href="R8.4.20_総務企画委員会.html" class="item-card" data-category="閉会中委員会">R8.4.20 総務企画委員会</a>
-    <a href="R8.4.14_庁舎等建設及び公共施設マネジメント推進調査特別委員会.html" class="item-card" data-category="閉会中委員会">R8.4.14 庁舎等建設及び公共施設マネジメント推進調査特別委員会</a>
-    <a href="R8.2.6_庁舎等建設及び公共施設マネジメント推進調査特別委員会.html" class="item-card" data-category="閉会中委員会">R8.2.6 庁舎等建設及び公共施設マネジメント推進調査特別委員会</a>
-    <a href="R8.2.5_本会議.html" class="item-card" data-category="閉会中委員会">R8.2.5 本会議</a>
-    <a href="R8.2.4_建設環境委員会.html" class="item-card" data-category="閉会中委員会">R8.2.4 建設環境委員会</a>
-    <a href="R8.2.2_議会運営委員会.html" class="item-card" data-category="閉会中委員会">R8.2.2 議会運営委員会</a>
-    <a href="R8.2.2_総務企画委員会.html" class="item-card" data-category="閉会中委員会">R8.2.2 総務企画委員会</a>
-    <a href="R8.1.30_広報・広聴協議会.html" class="item-card" data-category="閉会中委員会">R8.1.30 広報・広聴協議会</a>
-  </div>
-  </div>
-</details>
-
+    <div>
+      <h2>会議の種別</h2>
+      <div class="facets" id="facets">
+        <button class="facet is-active" data-cat="all"><span class="fdot" style="background:#0017c1;"></span><span class="flabel">すべて</span><span class="fcnt">62</span></button>
+<button class="facet" data-cat="本会議"><span class="fdot" style="background:#ce0000;"></span><span class="flabel">本会議</span><span class="fcnt">16</span></button>
+<button class="facet" data-cat="予算特別委員会"><span class="fdot" style="background:#e25100;"></span><span class="flabel">予算特別委員会</span><span class="fcnt">9</span></button>
+<button class="facet" data-cat="常任委員会"><span class="fdot" style="background:#264af4;"></span><span class="flabel">常任委員会</span><span class="fcnt">15</span></button>
+<button class="facet" data-cat="議会運営委員会"><span class="fdot" style="background:#6f23d0;"></span><span class="flabel">議会運営委員会</span><span class="fcnt">12</span></button>
+<button class="facet" data-cat="特別委員会・協議会"><span class="fdot" style="background:#1d8b56;"></span><span class="flabel">特別委員会・協議会</span><span class="fcnt">10</span></button>
+      </div>
     </div>
 
-    <div class="no-results" id="noResults">
-        該当する議事録が見つかりません。
+    <div>
+      <h2 class="jump-title">会期</h2>
+      <nav class="jump" id="jump">
+        <a class="jump-item" href="#sess-0" data-target="sess-0"><span>令和8年 第2回定例会</span><span class="jump-cnt">19</span></a>
+<a class="jump-item" href="#sess-1" data-target="sess-1"><span>令和8年 第1回定例会</span><span class="jump-cnt">28</span></a>
+<a class="jump-item" href="#sess-closed" data-target="sess-closed"><span>閉会中の委員会・協議会等</span><span class="jump-cnt">15</span></a>
+      </nav>
     </div>
 
-    <div class="footer">
-        <div class="disclaimer-title">⚠️ 免責事項</div>
-        <div class="disclaimer-body">
-            <p>本サイトに掲載されている議事録は、小金井市議会がYouTubeで公開している本会議・委員会等の動画記録をもとに、AI（Google Gemini）による自動文字起こし・校正・要約を行ったものであり、小金井市議会が作成・承認した<strong>公式の会議録ではありません</strong>。</p>
-            <p style="margin-top: 10px; color: #64748b;">【ご利用にあたっての注意】</p>
-            <ul>
-                <li>AIによる処理のため、発言者名の取り違え、語句の誤変換、内容の欠落等が含まれている可能性があります</li>
-                <li>正確な発言内容の確認には、小金井市議会の公式会議録またはYouTube動画の原本をご参照ください</li>
-                <li>本サイトの内容に基づく判断・行動について、作成者は一切の責任を負いません</li>
-                <li>本サイトの内容を引用・転載する場合は、AI自動生成である旨を併記してください</li>
-            </ul>
+    <div class="side-links">
+      <a href="dashboard.html">発言時間ダッシュボード<span class="arr">→</span></a>
+      <a href="https://www.city.koganei.tokyo.dbsr.jp/" target="_blank" rel="noopener">公式 会議録検索<span class="arr">↗</span></a>
+      <a href="https://www.youtube.com/@koganei_shigikai" target="_blank" rel="noopener">議会 YouTube<span class="arr">↗</span></a>
+      <div class="side-cred">作成・運営：ながとり太郎（小金井市議会議員）</div>
+    </div>
+  </aside>
+
+  <main>
+    <div class="main-head">
+      <h2>議事録一覧</h2>
+      <span class="summary"><b id="rcount">62</b> 件 ／ 令和7年10月〜令和8年6月</span>
+    </div>
+
+    <div id="list">
+<details class="session" id="sess-0" open><summary class="session-head"><span class="session-name">令和8年 第2回定例会</span><span class="session-count">19</span><span class="session-chev" aria-hidden="true">▾</span></summary><div class="entries"><a class="entry" href="R8.6.23_本会議.html" data-cat="本会議" data-text="本会議 6.23 本会議"><span class="date">6.23</span><span class="cat" style="color:#a90000;background:#fdeeee;">本会議</span><span class="name">本会議</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.6.23_議会運営委員会①.html" data-cat="議会運営委員会" data-text="議会運営委員会① 6.23 議会運営委員会"><span class="date">6.23</span><span class="cat" style="color:#5c10be;background:#f1eafa;">議会運営委員会</span><span class="name">議会運営委員会①</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.6.23_議会運営委員会②.html" data-cat="議会運営委員会" data-text="議会運営委員会② 6.23 議会運営委員会"><span class="date">6.23</span><span class="cat" style="color:#5c10be;background:#f1eafa;">議会運営委員会</span><span class="name">議会運営委員会②</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.6.19_厚生文教委員会.html" data-cat="常任委員会" data-text="厚生文教委員会 6.19 常任委員会"><span class="date">6.19</span><span class="cat" style="color:#0031d8;background:#e8f1fe;">常任委員会</span><span class="name">厚生文教委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.6.19_広報・広聴協議会.html" data-cat="特別委員会・協議会" data-text="広報・広聴協議会 6.19 特別委員会・協議会"><span class="date">6.19</span><span class="cat" style="color:#197a4b;background:#e6f5ec;">特別委員会・協議会</span><span class="name">広報・広聴協議会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.6.19_議会運営委員会協議会.html" data-cat="議会運営委員会" data-text="議会運営委員会協議会 6.19 議会運営委員会"><span class="date">6.19</span><span class="cat" style="color:#5c10be;background:#f1eafa;">議会運営委員会</span><span class="name">議会運営委員会協議会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.6.18_庁舎等建設及び公共施設マネジメント推進調査特別委員会.html" data-cat="特別委員会・協議会" data-text="庁舎等建設・公共施設マネジメント推進調査特別委員会 6.18 特別委員会・協議会"><span class="date">6.18</span><span class="cat" style="color:#197a4b;background:#e6f5ec;">特別委員会・協議会</span><span class="name">庁舎等建設・公共施設マネジメント推進調査特別委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.6.17_予算特別委員会.html" data-cat="予算特別委員会" data-text="予算特別委員会 6.17 予算特別委員会"><span class="date">6.17</span><span class="cat" style="color:#ac3e00;background:#ffeee2;">予算特別委員会</span><span class="name">予算特別委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.6.16_議会運営委員会.html" data-cat="議会運営委員会" data-text="議会運営委員会 6.16 議会運営委員会"><span class="date">6.16</span><span class="cat" style="color:#5c10be;background:#f1eafa;">議会運営委員会</span><span class="name">議会運営委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.6.15_総務企画委員会.html" data-cat="常任委員会" data-text="総務企画委員会 6.15 常任委員会"><span class="date">6.15</span><span class="cat" style="color:#0031d8;background:#e8f1fe;">常任委員会</span><span class="name">総務企画委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.6.12_建設環境委員会.html" data-cat="常任委員会" data-text="建設環境委員会 6.12 常任委員会"><span class="date">6.12</span><span class="cat" style="color:#0031d8;background:#e8f1fe;">常任委員会</span><span class="name">建設環境委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.6.11_厚生文教委員会.html" data-cat="常任委員会" data-text="厚生文教委員会 6.11 常任委員会"><span class="date">6.11</span><span class="cat" style="color:#0031d8;background:#e8f1fe;">常任委員会</span><span class="name">厚生文教委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.6.10_広報・広聴協議会.html" data-cat="特別委員会・協議会" data-text="広報・広聴協議会 6.10 特別委員会・協議会"><span class="date">6.10</span><span class="cat" style="color:#197a4b;background:#e6f5ec;">特別委員会・協議会</span><span class="name">広報・広聴協議会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.6.9_本会議.html" data-cat="本会議" data-text="本会議（一般質問） 6.9 本会議"><span class="date">6.9</span><span class="cat" style="color:#a90000;background:#fdeeee;">本会議</span><span class="name">本会議（一般質問）</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.6.8_本会議.html" data-cat="本会議" data-text="本会議（一般質問） 6.8 本会議"><span class="date">6.8</span><span class="cat" style="color:#a90000;background:#fdeeee;">本会議</span><span class="name">本会議（一般質問）</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.6.5_本会議.html" data-cat="本会議" data-text="本会議（一般質問） 6.5 本会議"><span class="date">6.5</span><span class="cat" style="color:#a90000;background:#fdeeee;">本会議</span><span class="name">本会議（一般質問）</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.6.4_本会議.html" data-cat="本会議" data-text="本会議（一般質問） 6.4 本会議"><span class="date">6.4</span><span class="cat" style="color:#a90000;background:#fdeeee;">本会議</span><span class="name">本会議（一般質問）</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.6.2_予算特別委員会.html" data-cat="予算特別委員会" data-text="予算特別委員会 6.2 予算特別委員会"><span class="date">6.2</span><span class="cat" style="color:#ac3e00;background:#ffeee2;">予算特別委員会</span><span class="name">予算特別委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.6.2_本会議.html" data-cat="本会議" data-text="本会議 6.2 本会議"><span class="date">6.2</span><span class="cat" style="color:#a90000;background:#fdeeee;">本会議</span><span class="name">本会議</span><span class="chev" aria-hidden="true">→</span></a></div></details>
+<details class="session" id="sess-1"><summary class="session-head"><span class="session-name">令和8年 第1回定例会</span><span class="session-count">28</span><span class="session-chev" aria-hidden="true">▾</span></summary><div class="entries"><a class="entry" href="R8.3.23_本会議.html" data-cat="本会議" data-text="本会議 3.23 本会議"><span class="date">3.23</span><span class="cat" style="color:#a90000;background:#fdeeee;">本会議</span><span class="name">本会議</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.3.23_議会運営委員会1.html" data-cat="議会運営委員会" data-text="議会運営委員会1 3.23 議会運営委員会"><span class="date">3.23</span><span class="cat" style="color:#5c10be;background:#f1eafa;">議会運営委員会</span><span class="name">議会運営委員会1</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.3.23_議会運営委員会2.html" data-cat="議会運営委員会" data-text="議会運営委員会2 3.23 議会運営委員会"><span class="date">3.23</span><span class="cat" style="color:#5c10be;background:#f1eafa;">議会運営委員会</span><span class="name">議会運営委員会2</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.3.23_議会運営委員会3.html" data-cat="議会運営委員会" data-text="議会運営委員会3 3.23 議会運営委員会"><span class="date">3.23</span><span class="cat" style="color:#5c10be;background:#f1eafa;">議会運営委員会</span><span class="name">議会運営委員会3</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.3.18_予算特別委員会.html" data-cat="予算特別委員会" data-text="予算特別委員会 3.18 予算特別委員会"><span class="date">3.18</span><span class="cat" style="color:#ac3e00;background:#ffeee2;">予算特別委員会</span><span class="name">予算特別委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.3.18_厚生文教委員会.html" data-cat="常任委員会" data-text="厚生文教委員会 3.18 常任委員会"><span class="date">3.18</span><span class="cat" style="color:#0031d8;background:#e8f1fe;">常任委員会</span><span class="name">厚生文教委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.3.18_建設環境委員会.html" data-cat="常任委員会" data-text="建設環境委員会 3.18 常任委員会"><span class="date">3.18</span><span class="cat" style="color:#0031d8;background:#e8f1fe;">常任委員会</span><span class="name">建設環境委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.3.18_議会運営委員会.html" data-cat="議会運営委員会" data-text="議会運営委員会 3.18 議会運営委員会"><span class="date">3.18</span><span class="cat" style="color:#5c10be;background:#f1eafa;">議会運営委員会</span><span class="name">議会運営委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.3.18_議会運営委員会_10:00～.html" data-cat="議会運営委員会" data-text="議会運営委員会 10:00～ 3.18 議会運営委員会"><span class="date">3.18</span><span class="cat" style="color:#5c10be;background:#f1eafa;">議会運営委員会</span><span class="name">議会運営委員会 10:00～</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.3.17_庁舎等建設及び公共施設マネジメント推進調査特別委員会.html" data-cat="特別委員会・協議会" data-text="庁舎等建設・公共施設マネジメント推進調査特別委員会 3.17 特別委員会・協議会"><span class="date">3.17</span><span class="cat" style="color:#197a4b;background:#e6f5ec;">特別委員会・協議会</span><span class="name">庁舎等建設・公共施設マネジメント推進調査特別委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.3.16_予算特別委員会.html" data-cat="予算特別委員会" data-text="予算特別委員会 3.16 予算特別委員会"><span class="date">3.16</span><span class="cat" style="color:#ac3e00;background:#ffeee2;">予算特別委員会</span><span class="name">予算特別委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.3.13_予算特別委員会.html" data-cat="予算特別委員会" data-text="予算特別委員会 3.13 予算特別委員会"><span class="date">3.13</span><span class="cat" style="color:#ac3e00;background:#ffeee2;">予算特別委員会</span><span class="name">予算特別委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.3.12_予算特別委員会.html" data-cat="予算特別委員会" data-text="予算特別委員会 3.12 予算特別委員会"><span class="date">3.12</span><span class="cat" style="color:#ac3e00;background:#ffeee2;">予算特別委員会</span><span class="name">予算特別委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.3.11_予算特別委員会.html" data-cat="予算特別委員会" data-text="予算特別委員会 3.11 予算特別委員会"><span class="date">3.11</span><span class="cat" style="color:#ac3e00;background:#ffeee2;">予算特別委員会</span><span class="name">予算特別委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.3.10_予算特別委員会.html" data-cat="予算特別委員会" data-text="予算特別委員会 3.10 予算特別委員会"><span class="date">3.10</span><span class="cat" style="color:#ac3e00;background:#ffeee2;">予算特別委員会</span><span class="name">予算特別委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.3.9_予算特別委員会.html" data-cat="予算特別委員会" data-text="予算特別委員会 3.9 予算特別委員会"><span class="date">3.9</span><span class="cat" style="color:#ac3e00;background:#ffeee2;">予算特別委員会</span><span class="name">予算特別委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.3.6_総務企画委員会.html" data-cat="常任委員会" data-text="総務企画委員会 3.6 常任委員会"><span class="date">3.6</span><span class="cat" style="color:#0031d8;background:#e8f1fe;">常任委員会</span><span class="name">総務企画委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.3.5_建設環境委員会.html" data-cat="常任委員会" data-text="建設環境委員会 3.5 常任委員会"><span class="date">3.5</span><span class="cat" style="color:#0031d8;background:#e8f1fe;">常任委員会</span><span class="name">建設環境委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.3.4_厚生文教委員会.html" data-cat="常任委員会" data-text="厚生文教委員会 3.4 常任委員会"><span class="date">3.4</span><span class="cat" style="color:#0031d8;background:#e8f1fe;">常任委員会</span><span class="name">厚生文教委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.3.3_議会運営委員会.html" data-cat="議会運営委員会" data-text="議会運営委員会 3.3 議会運営委員会"><span class="date">3.3</span><span class="cat" style="color:#5c10be;background:#f1eafa;">議会運営委員会</span><span class="name">議会運営委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.3.2_本会議.html" data-cat="本会議" data-text="本会議（一般質問） 3.2 本会議"><span class="date">3.2</span><span class="cat" style="color:#a90000;background:#fdeeee;">本会議</span><span class="name">本会議（一般質問）</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.2.27_本会議.html" data-cat="本会議" data-text="本会議（一般質問） 2.27 本会議"><span class="date">2.27</span><span class="cat" style="color:#a90000;background:#fdeeee;">本会議</span><span class="name">本会議（一般質問）</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.2.26_本会議.html" data-cat="本会議" data-text="本会議（一般質問） 2.26 本会議"><span class="date">2.26</span><span class="cat" style="color:#a90000;background:#fdeeee;">本会議</span><span class="name">本会議（一般質問）</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.2.25_広報・広聴協議会.html" data-cat="特別委員会・協議会" data-text="広報・広聴協議会 2.25 特別委員会・協議会"><span class="date">2.25</span><span class="cat" style="color:#197a4b;background:#e6f5ec;">特別委員会・協議会</span><span class="name">広報・広聴協議会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.2.24_本会議.html" data-cat="本会議" data-text="本会議（一般質問） 2.24 本会議"><span class="date">2.24</span><span class="cat" style="color:#a90000;background:#fdeeee;">本会議</span><span class="name">本会議（一般質問）</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.2.18_本会議.html" data-cat="本会議" data-text="本会議 2.18 本会議"><span class="date">2.18</span><span class="cat" style="color:#a90000;background:#fdeeee;">本会議</span><span class="name">本会議</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.2.17_本会議.html" data-cat="本会議" data-text="本会議 2.17 本会議"><span class="date">2.17</span><span class="cat" style="color:#a90000;background:#fdeeee;">本会議</span><span class="name">本会議</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.2.16_本会議.html" data-cat="本会議" data-text="本会議 2.16 本会議"><span class="date">2.16</span><span class="cat" style="color:#a90000;background:#fdeeee;">本会議</span><span class="name">本会議</span><span class="chev" aria-hidden="true">→</span></a></div></details>
+<details class="session" id="sess-closed"><summary class="session-head"><span class="session-name">閉会中の委員会・協議会等</span><span class="session-count">15</span><span class="session-chev" aria-hidden="true">▾</span></summary><div class="entries"><a class="entry" href="R8.5.22_広報・広聴協議会.html" data-cat="特別委員会・協議会" data-text="広報・広聴協議会 5.22 特別委員会・協議会"><span class="date">5.22</span><span class="cat" style="color:#197a4b;background:#e6f5ec;">特別委員会・協議会</span><span class="name">広報・広聴協議会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.5.18_議会運営委員会.html" data-cat="議会運営委員会" data-text="議会運営委員会 5.18 議会運営委員会"><span class="date">5.18</span><span class="cat" style="color:#5c10be;background:#f1eafa;">議会運営委員会</span><span class="name">議会運営委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.5.12_建設環境委員会.html" data-cat="常任委員会" data-text="建設環境委員会 5.12 常任委員会"><span class="date">5.12</span><span class="cat" style="color:#0031d8;background:#e8f1fe;">常任委員会</span><span class="name">建設環境委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.4.28_厚生文教委員会.html" data-cat="常任委員会" data-text="厚生文教委員会 4.28 常任委員会"><span class="date">4.28</span><span class="cat" style="color:#0031d8;background:#e8f1fe;">常任委員会</span><span class="name">厚生文教委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.4.21_広報・広聴協議会.html" data-cat="特別委員会・協議会" data-text="広報・広聴協議会 4.21 特別委員会・協議会"><span class="date">4.21</span><span class="cat" style="color:#197a4b;background:#e6f5ec;">特別委員会・協議会</span><span class="name">広報・広聴協議会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.4.20_総務企画委員会.html" data-cat="常任委員会" data-text="総務企画委員会 4.20 常任委員会"><span class="date">4.20</span><span class="cat" style="color:#0031d8;background:#e8f1fe;">常任委員会</span><span class="name">総務企画委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.4.14_庁舎等建設及び公共施設マネジメント推進調査特別委員会.html" data-cat="特別委員会・協議会" data-text="庁舎等建設・公共施設マネジメント推進調査特別委員会 4.14 特別委員会・協議会"><span class="date">4.14</span><span class="cat" style="color:#197a4b;background:#e6f5ec;">特別委員会・協議会</span><span class="name">庁舎等建設・公共施設マネジメント推進調査特別委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.2.6_庁舎等建設及び公共施設マネジメント推進調査特別委員会.html" data-cat="特別委員会・協議会" data-text="庁舎等建設・公共施設マネジメント推進調査特別委員会 2.6 特別委員会・協議会"><span class="date">2.6</span><span class="cat" style="color:#197a4b;background:#e6f5ec;">特別委員会・協議会</span><span class="name">庁舎等建設・公共施設マネジメント推進調査特別委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.2.5_本会議.html" data-cat="本会議" data-text="本会議 2.5 本会議"><span class="date">2.5</span><span class="cat" style="color:#a90000;background:#fdeeee;">本会議</span><span class="name">本会議</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.2.4_建設環境委員会.html" data-cat="常任委員会" data-text="建設環境委員会 2.4 常任委員会"><span class="date">2.4</span><span class="cat" style="color:#0031d8;background:#e8f1fe;">常任委員会</span><span class="name">建設環境委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.2.2_総務企画委員会.html" data-cat="常任委員会" data-text="総務企画委員会 2.2 常任委員会"><span class="date">2.2</span><span class="cat" style="color:#0031d8;background:#e8f1fe;">常任委員会</span><span class="name">総務企画委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.2.2_議会運営委員会.html" data-cat="議会運営委員会" data-text="議会運営委員会 2.2 議会運営委員会"><span class="date">2.2</span><span class="cat" style="color:#5c10be;background:#f1eafa;">議会運営委員会</span><span class="name">議会運営委員会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R8.1.30_広報・広聴協議会.html" data-cat="特別委員会・協議会" data-text="広報・広聴協議会 1.30 特別委員会・協議会"><span class="date">1.30</span><span class="cat" style="color:#197a4b;background:#e6f5ec;">特別委員会・協議会</span><span class="name">広報・広聴協議会</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R7.12.19_本会議.html" data-cat="本会議" data-text="本会議 12.19 本会議"><span class="date">12.19</span><span class="cat" style="color:#a90000;background:#fdeeee;">本会議</span><span class="name">本会議</span><span class="chev" aria-hidden="true">→</span></a>
+<a class="entry" href="R7.10.27_建設環境委員会.html" data-cat="常任委員会" data-text="建設環境委員会 10.27 常任委員会"><span class="date">10.27</span><span class="cat" style="color:#0031d8;background:#e8f1fe;">常任委員会</span><span class="name">建設環境委員会</span><span class="chev" aria-hidden="true">→</span></a></div></details>
+    </div>
+
+    <div class="no-results" id="noResults">該当する議事録が見つかりませんでした。</div>
+
+    <details class="about">
+      <summary>このサイトについて・免責事項<span class="s-chev" aria-hidden="true">▾</span></summary>
+      <div class="about-body">
+        <p>本サイトの議事録は、小金井市議会がYouTubeで公開している本会議・委員会等の動画記録をもとに、AI（Google Gemini）による自動文字起こし・校正・要約を行ったものです。小金井市議会が作成・承認した<strong>公式の会議録ではありません</strong>。</p>
+        <ul>
+          <li>AIによる処理のため、発言者名の取り違え・語句の誤変換・内容の欠落等が含まれる可能性があります。</li>
+          <li>正確な発言内容は、小金井市議会の公式会議録またはYouTube動画の原本をご確認ください。</li>
+          <li>本サイトの内容に基づく判断・行動について、作成者は一切の責任を負いません。</li>
+          <li>引用・転載の際は、AIによる自動生成である旨を併記してください。</li>
+        </ul>
+        <div class="src">
+          動画原本：<a href="https://www.youtube.com/@koganei_shigikai" target="_blank" rel="noopener">小金井市議会 YouTubeチャンネル</a><br>
+          公式会議録：<a href="https://www.city.koganei.tokyo.dbsr.jp/" target="_blank" rel="noopener">小金井市議会 会議録検索システム</a><br>
+          使用技術：Google Gemini・YouTube字幕・話者音声照合
         </div>
-        <div class="disclaimer-meta">
-            動画原本: <a href="https://www.youtube.com/@koganei_shigikai" target="_blank">小金井市議会YouTubeチャンネル</a><br>
-            作成・運営: ながとり太郎（小金井市議会議員）<br>
-            使用技術: Google Gemini（文字起こし・校正）、YouTube自動字幕
-        </div>
-    </div>
+      </div>
+    </details>
+  </main>
 
-    <script>
-    (function() {
-        var searchBox = document.getElementById('searchBox');
-        var filterBtns = document.querySelectorAll('.filter-btn');
-        var cards = document.querySelectorAll('.item-card');
-        var catBlocks = document.querySelectorAll('.category-block');
-        var sessionBlocks = document.querySelectorAll('.session-block');
-        var noResults = document.getElementById('noResults');
-        var activeFilter = 'all';
+</div>
 
-        function applyFilters() {
-            var query = searchBox.value.toLowerCase().trim();
-            var visibleCount = 0;
-
-            cards.forEach(function(card) {
-                var text = card.textContent.toLowerCase();
-                var cat = card.getAttribute('data-category');
-                var matchSearch = !query || text.indexOf(query) >= 0;
-                var matchFilter = activeFilter === 'all' || cat === activeFilter;
-
-                if (matchSearch && matchFilter) {
-                    card.classList.remove('hidden');
-                    visibleCount++;
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-
-            // カテゴリブロックの表示/非表示（details対応）
-            document.querySelectorAll('details.category-details').forEach(function(block) {
-                var visCards = block.querySelectorAll('.item-card:not(.hidden)');
-                if (visCards.length === 0) {
-                    block.classList.add('hidden');
-                } else {
-                    block.classList.remove('hidden');
-                }
-            });
-
-            // セッションブロックの表示/非表示（details対応）
-            document.querySelectorAll('details.session-details').forEach(function(block) {
-                var visCats = block.querySelectorAll('.item-card:not(.hidden)');
-                if (visCats.length === 0) {
-                    block.classList.add('hidden');
-                } else {
-                    block.classList.remove('hidden');
-                }
-            });
-
-            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
-        }
-
-        searchBox.addEventListener('input', applyFilters);
-
-        filterBtns.forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                filterBtns.forEach(function(b) { b.classList.remove('active'); });
-                btn.classList.add('active');
-                activeFilter = btn.getAttribute('data-filter');
-                applyFilters();
-            });
-        });
-    })();
-    </script>
+<script>
+(function(){
+  var q=document.getElementById('q');
+  var facets=[].slice.call(document.querySelectorAll('.facet'));
+  var entries=[].slice.call(document.querySelectorAll('.entry'));
+  var sessions=[].slice.call(document.querySelectorAll('.session'));
+  var jumps=[].slice.call(document.querySelectorAll('.jump-item'));
+  var noResults=document.getElementById('noResults');
+  var rcount=document.getElementById('rcount');
+  var activeCat='all';
+  var defOpen=sessions.map(function(s){return s.hasAttribute('open');});
+  function apply(){
+    var query=q.value.trim().toLowerCase();
+    var searching=query.length>0||activeCat!=='all';
+    var vis=0;
+    entries.forEach(function(e){
+      var okCat=activeCat==='all'||e.getAttribute('data-cat')===activeCat;
+      var okText=!query||e.getAttribute('data-text').indexOf(query)>=0;
+      var show=okCat&&okText; e.classList.toggle('hidden',!show); if(show)vis++;
+    });
+    sessions.forEach(function(s,i){
+      var any=s.querySelectorAll('.entry:not(.hidden)').length>0;
+      s.classList.toggle('hidden',!any);
+      if(searching){ if(any)s.setAttribute('open','');}
+      else{ defOpen[i]?s.setAttribute('open',''):s.removeAttribute('open'); }
+    });
+    rcount.textContent=vis; noResults.style.display=vis===0?'block':'none';
+  }
+  q.addEventListener('input',apply);
+  facets.forEach(function(c){c.addEventListener('click',function(){
+    facets.forEach(function(x){x.classList.remove('is-active');});
+    c.classList.add('is-active'); activeCat=c.getAttribute('data-cat'); apply();
+  });});
+  jumps.forEach(function(a){a.addEventListener('click',function(ev){
+    var t=document.getElementById(a.getAttribute('data-target'));
+    if(t){ ev.preventDefault(); t.setAttribute('open',''); t.scrollIntoView({behavior:'smooth',block:'start'}); }
+  });});
+})();
+</script>
 </body>
 </html>
