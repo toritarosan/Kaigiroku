@@ -3,1100 +3,202 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>小金井市議会 発言時間推定ダッシュボード</title>
-<meta name="description" content="小金井市議会の議事録から議員ごとの発言文字数・推定発言時間を分析するダッシュボード">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<title>小金井市議会 発言時間ダッシュボード（非公式）</title>
+<meta name="description" content="小金井市議会 第2回定例会の議事録から推定した、議員別の発言時間ダッシュボード（一般質問を除く・非公式）。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg-primary: #0f1117;
-    --bg-secondary: #1a1d2e;
-    --bg-card: #1e2235;
-    --bg-card-hover: #252a42;
-    --accent-1: #6c63ff;
-    --accent-2: #ff6b9d;
-    --accent-3: #00d4aa;
-    --accent-4: #ffb347;
-    --accent-5: #4fc3f7;
-    --text-primary: #e8eaed;
-    --text-secondary: #9aa0b8;
-    --text-muted: #5d6278;
-    --border: #2a2f45;
-    --glow: rgba(108, 99, 255, 0.15);
-  }
+:root{
+  --blue-50:#e8f1fe; --blue-700:#264af4; --blue-800:#0031d8; --blue-900:#0017c1;
+  --g-50:#f2f2f2; --g-100:#e6e6e6; --g-200:#cccccc; --g-400:#999999; --g-536:#767676;
+  --g-600:#666666; --g-700:#4d4d4d; --g-800:#333333; --g-900:#1a1a1a; --white:#fff;
+  --primary:var(--blue-900); --primary-soft:var(--blue-50); --navy:#15315a; --navy-soft:#e9eef5;
+  --amber:#9a6a1e; --amber-soft:#f7f0e2;
+  --bg:var(--g-50); --surface:var(--white); --ink:var(--g-900); --text:var(--g-800);
+  --muted:var(--g-600); --line:var(--g-100); --line2:#eef1f5; --border:var(--g-200); --radius:8px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.75;-webkit-font-smoothing:antialiased;}
+a{color:inherit;}
+.topbar{height:6px;background:var(--navy);}
+.app{display:grid;grid-template-columns:292px 1fr;min-height:100vh;align-items:start;}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+.side{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--surface);border-right:1px solid var(--border);padding:28px 22px 24px;display:flex;flex-direction:column;gap:22px;}
+.side::-webkit-scrollbar{width:8px;} .side::-webkit-scrollbar-thumb{background:var(--g-200);border-radius:4px;}
+.brand .kicker{font-size:.74rem;letter-spacing:.2em;color:var(--navy);font-weight:700;margin:0 0 6px;}
+.brand h1{font-size:1.4rem;font-weight:900;color:var(--navy);margin:0;line-height:1.3;}
+.brand .tag{margin:10px 0 0;color:var(--muted);font-size:.82rem;line-height:1.65;}
+.nbadge{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:.7rem;font-weight:700;letter-spacing:.04em;color:#6e5600;background:#fff0b3;border:1px solid #ffd43d;padding:4px 10px;border-radius:999px;}
+.side h2{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--g-536);font-weight:700;margin:0 0 8px;padding-left:4px;}
+.jump{display:flex;flex-direction:column;gap:1px;}
+.jump a{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--text);font-size:.88rem;padding:8px 11px;border-radius:var(--radius);transition:.12s;}
+.jump a:hover{background:var(--g-50);color:var(--navy);}
+.side-links{margin-top:auto;border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:2px;}
+.side-links a{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--primary);font-size:.85rem;font-weight:700;padding:9px 11px;border-radius:var(--radius);transition:.12s;}
+.side-links a:hover{background:var(--primary-soft);}
+.side-links a .arr{margin-left:auto;}
+.side-cred{color:var(--g-536);font-size:.72rem;line-height:1.6;padding:8px 11px 0;}
 
-  body {
-    font-family: 'Noto Sans JP', sans-serif;
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+main{padding:30px 40px 72px;max-width:1000px;}
+.main-head{margin:2px 2px 22px;padding-bottom:14px;border-bottom:3px solid var(--navy);}
+.main-head h2{font-size:1.4rem;font-weight:900;color:var(--navy);margin:0;}
+.main-head .summary{color:var(--muted);font-size:.9rem;margin-top:4px;}
 
-  /* Background orbs */
-  body::before, body::after {
-    content: '';
-    position: fixed;
-    border-radius: 50%;
-    filter: blur(120px);
-    z-index: 0;
-    pointer-events: none;
-  }
-  body::before {
-    width: 500px; height: 500px;
-    top: -100px; right: -100px;
-    background: radial-gradient(circle, rgba(108,99,255,0.12), transparent 70%);
-  }
-  body::after {
-    width: 400px; height: 400px;
-    bottom: -50px; left: -50px;
-    background: radial-gradient(circle, rgba(255,107,157,0.08), transparent 70%);
-  }
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:30px;}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:15px 18px;}
+.stat .n{font-size:1.6rem;font-weight:900;color:var(--navy);line-height:1.1;}
+.stat .n small{font-size:.9rem;font-weight:700;color:var(--muted);}
+.stat .l{font-size:.78rem;color:var(--muted);margin-top:3px;}
 
-  .app { position: relative; z-index: 1; padding: 24px; max-width: 1440px; margin: 0 auto; }
+section.block{margin-bottom:30px;scroll-margin-top:16px;}
+.block-head{display:flex;align-items:baseline;gap:10px;margin:0 2px 12px;}
+.block-head h3{font-size:1.12rem;font-weight:900;color:var(--ink);margin:0;}
+.block-head .note{font-size:.8rem;color:var(--muted);}
+.bars{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:8px 8px;}
+.bar-row{display:flex;align-items:center;gap:12px;padding:9px 12px;border-top:1px solid var(--line2);}
+.bar-row:first-child{border-top:none;}
+.bar-row .rank{width:22px;text-align:right;font-weight:700;font-size:.82rem;color:var(--g-400);font-variant-numeric:tabular-nums;}
+.bar-row .who{width:104px;font-weight:700;color:var(--ink);font-size:.92rem;flex:none;}
+.bar-row .track{flex:1;height:18px;background:var(--g-50);border-radius:5px;overflow:hidden;}
+.bar-row .fill{display:block;height:100%;border-radius:5px;}
+.bar-row.g .fill{background:linear-gradient(90deg,var(--navy),var(--blue-800));}
+.bar-row.r .fill{background:linear-gradient(90deg,#b98a3c,var(--amber));}
+.bar-row .val{width:172px;flex:none;text-align:right;font-size:.82rem;color:var(--muted);}
+.bar-row .val b{display:block;font-size:.95rem;color:var(--ink);font-weight:700;}
+.bar-row .val .sub{font-size:.74rem;color:var(--g-536);}
+.bar-row.more{justify-content:center;color:var(--muted);font-size:.82rem;font-weight:500;}
 
-  /* Header */
-  .header {
-    text-align: center;
-    margin-bottom: 40px;
-    padding: 40px 20px;
-    background: linear-gradient(135deg, rgba(108,99,255,0.08), rgba(255,107,157,0.05));
-    border-radius: 24px;
-    border: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
-  }
-  .header::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
-  }
-  .header h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--text-primary), var(--accent-5));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 8px;
-  }
-  .header p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    font-weight: 300;
-  }
+.method{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:6px 22px 20px;}
+.method ul{margin:14px 0 0;padding-left:1.2em;font-size:.86rem;line-height:1.85;}
+.method li{margin:5px 0;}
+.method .meetings{list-style:none;padding:0;margin:10px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:2px 16px;}
+.method .meetings li{display:flex;font-size:.82rem;color:var(--text);border-bottom:1px dotted var(--line);padding:4px 0;}
+.method .meetings .md{margin-left:auto;color:var(--g-536);font-variant-numeric:tabular-nums;}
+.method .src{color:var(--muted);font-size:.82rem;border-top:1px dashed var(--border);padding-top:12px;margin-top:16px;line-height:1.9;}
+.method .src a{color:var(--primary);font-weight:700;}
 
-  /* Stats cards */
-  .stats-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-    margin-bottom: 32px;
-  }
-  .stat-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 24px;
-    text-align: center;
-    transition: all 0.3s ease;
-  }
-  .stat-card:hover {
-    background: var(--bg-card-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px var(--glow);
-  }
-  .stat-card .value {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 4px;
-  }
-  .stat-card .label {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-  }
-  .stat-card:nth-child(1) .value { color: var(--accent-1); }
-  .stat-card:nth-child(2) .value { color: var(--accent-2); }
-  .stat-card:nth-child(3) .value { color: var(--accent-3); }
-  .stat-card:nth-child(4) .value { color: var(--accent-4); }
-
-  /* Controls */
-  .controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 24px;
-    align-items: center;
-  }
-  .controls label {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-  }
-  .controls select, .controls input {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    color: var(--text-primary);
-    padding: 10px 16px;
-    border-radius: 10px;
-    font-family: inherit;
-    font-size: 0.9rem;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  .controls select:focus, .controls input:focus {
-    border-color: var(--accent-1);
-  }
-  .controls input[type="search"] {
-    min-width: 240px;
-  }
-  .toggle-group {
-    display: flex;
-    gap: 0;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-  }
-  .toggle-btn {
-    padding: 10px 18px;
-    background: var(--bg-card);
-    color: var(--text-secondary);
-    border: none;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 0.85rem;
-    transition: all 0.2s;
-  }
-  .toggle-btn.active {
-    background: var(--accent-1);
-    color: #fff;
-  }
-  .toggle-btn:hover:not(.active) {
-    background: var(--bg-card-hover);
-  }
-
-  /* Chart containers */
-  .chart-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-bottom: 32px;
-  }
-  @media (max-width: 900px) {
-    .chart-grid { grid-template-columns: 1fr; }
-  }
-  .chart-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 24px;
-    transition: all 0.3s ease;
-  }
-  .chart-card:hover {
-    box-shadow: 0 4px 24px var(--glow);
-  }
-  .chart-card.full-width {
-    grid-column: 1 / -1;
-  }
-  .chart-card h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 16px;
-    color: var(--text-primary);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .chart-card h3 .icon { font-size: 1.2rem; }
-  .chart-wrapper {
-    position: relative;
-    width: 100%;
-    height: 400px;
-  }
-  .chart-wrapper.tall { height: 600px; }
-
-  /* Table */
-  .table-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 24px;
-    margin-bottom: 32px;
-    overflow: hidden;
-  }
-  .table-card h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .table-scroll { overflow-x: auto; }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.9rem;
-  }
-  thead th {
-    background: var(--bg-secondary);
-    padding: 12px 16px;
-    text-align: left;
-    font-weight: 600;
-    color: var(--text-secondary);
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    user-select: none;
-    white-space: nowrap;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-  }
-  thead th:hover { color: var(--accent-5); }
-  thead th.sorted-asc::after { content: ' ▲'; font-size: 0.7rem; }
-  thead th.sorted-desc::after { content: ' ▼'; font-size: 0.7rem; }
-  tbody td {
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--border);
-    white-space: nowrap;
-  }
-  tbody tr {
-    transition: background 0.15s;
-  }
-  tbody tr:hover {
-    background: var(--bg-card-hover);
-  }
-  .rank-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px; height: 28px;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 0.8rem;
-  }
-  .rank-1 { background: linear-gradient(135deg, #ffd700, #ffae00); color: #1a1d2e; }
-  .rank-2 { background: linear-gradient(135deg, #c0c0c0, #a0a0a0); color: #1a1d2e; }
-  .rank-3 { background: linear-gradient(135deg, #cd7f32, #b06828); color: #1a1d2e; }
-  .rank-other { background: var(--bg-secondary); color: var(--text-muted); }
-  .bar-cell { min-width: 160px; }
-  .bar-bg {
-    height: 8px;
-    background: var(--bg-secondary);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  .bar-fill {
-    height: 100%;
-    border-radius: 4px;
-    transition: width 0.5s ease;
-  }
-  .bar-fill.chars { background: linear-gradient(90deg, var(--accent-1), var(--accent-5)); }
-  .bar-fill.secs { background: linear-gradient(90deg, var(--accent-2), var(--accent-4)); }
-
-  /* Role tags */
-  .role-tag {
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 6px;
-    font-size: 0.75rem;
-    font-weight: 500;
-  }
-  .role-giin { background: rgba(108,99,255,0.15); color: var(--accent-1); }
-  .role-riji { background: rgba(0,212,170,0.15); color: var(--accent-3); }
-  .role-other { background: rgba(255,179,71,0.15); color: var(--accent-4); }
-
-  /* Methodology section */
-  .methodology {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 32px;
-    margin-top: 32px;
-  }
-  .methodology h3 { font-size: 1.1rem; margin-bottom: 16px; }
-  .methodology p, .methodology li {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    line-height: 1.8;
-  }
-  .methodology ul { padding-left: 20px; }
-  .methodology .formula {
-    background: var(--bg-secondary);
-    padding: 16px 24px;
-    border-radius: 12px;
-    font-family: monospace;
-    font-size: 0.95rem;
-    color: var(--accent-3);
-    margin: 16px 0;
-    text-align: center;
-  }
-  .note {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    padding: 12px 16px;
-    background: rgba(108,99,255,0.08);
-    border-left: 3px solid var(--accent-1);
-    border-radius: 0 8px 8px 0;
-    margin-top: 16px;
-  }
-  .note-icon { font-size: 1.1rem; flex-shrink: 0; }
-
-  /* Loading */
-  .loading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 200px;
-    color: var(--text-muted);
-  }
-  .spinner {
-    width: 32px; height: 32px;
-    border: 3px solid var(--border);
-    border-top-color: var(--accent-1);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-    margin-right: 12px;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  /* Tooltip */
-  .tooltip-custom {
-    position: fixed;
-    background: rgba(20, 23, 38, 0.95);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 12px 16px;
-    pointer-events: none;
-    z-index: 100;
-    opacity: 0;
-    transform: translateY(4px);
-    transition: opacity 0.2s, transform 0.2s;
-    font-size: 0.85rem;
-    backdrop-filter: blur(12px);
-    max-width: 280px;
-  }
-  .tooltip-custom.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Footer */
-  .footer {
-    text-align: center;
-    padding: 24px;
-    color: var(--text-muted);
-    font-size: 0.8rem;
-  }
+@media (max-width:880px){
+  .app{grid-template-columns:1fr;}
+  .side{position:static;height:auto;overflow:visible;padding:22px 18px;gap:16px;border-right:none;border-bottom:1px solid var(--border);}
+  .side-links{margin-top:6px;} .jump,.side h2.jump-title,.side-cred{display:none;}
+  main{padding:22px 15px 60px;}
+  .bar-row .who{width:78px;font-size:.85rem;} .bar-row .val{width:120px;}
+  .bar-row .val .sub{display:none;}
+}
 </style>
 </head>
 <body>
-<div class="app" id="app">
-  <header class="header">
-    <h1>🏛️ 小金井市議会 発言時間推定ダッシュボード</h1>
-    <p>議事録の文字数とYouTubeタイムスタンプから推定した各議員の発言パターン分析</p>
-  </header>
-
-  <div class="stats-row" id="stats-row">
-    <div class="stat-card"><div class="value" id="stat-speakers">-</div><div class="label">分析対象議員数</div></div>
-    <div class="stat-card"><div class="value" id="stat-chars">-</div><div class="label">総発言文字数</div></div>
-    <div class="stat-card"><div class="value" id="stat-time">-</div><div class="label">推定総発言時間</div></div>
-    <div class="stat-card"><div class="value" id="stat-avg-cps">-</div><div class="label">平均 文字/秒</div></div>
-    <div class="stat-card"><div class="value" id="stat-avg-filler" style="color: var(--accent-5)">-</div><div class="label">平均フィラー率</div></div>
-  </div>
-
-  <div class="controls" id="controls">
-    <div>
-      <label>カテゴリ</label>
-      <div class="toggle-group">
-        <button class="toggle-btn active" data-filter="giin" id="filter-giin">議員のみ</button>
-        <button class="toggle-btn" data-filter="riji" id="filter-riji">理事者のみ</button>
-        <button class="toggle-btn" data-filter="all" id="filter-all">全員</button>
-      </div>
+<div class="topbar"></div>
+<div class="app">
+  <aside class="side">
+    <div class="brand">
+      <p class="kicker">小金井市議会</p>
+      <h1>発言時間ダッシュボード</h1>
+      <p class="tag">議事録の発言文字数から推定した、議員別の発言時間です（一般質問を除く）。</p>
+      <span class="nbadge">非公式・AI生成</span>
     </div>
     <div>
-      <label>並び替え </label>
-      <select id="sort-select">
-        <option value="chars-desc">文字数（多い順）</option>
-        <option value="chars-asc">文字数（少ない順）</option>
-        <option value="time-desc">発言時間（長い順）</option>
-        <option value="time-asc">発言時間（短い順）</option>
-        <option value="cps-desc">文字/秒（速い順）</option>
-        <option value="cps-asc">文字/秒（遅い順）</option>
-      </select>
+      <h2 class="jump-title">セクション</h2>
+      <nav class="jump">
+        <a href="#overview">概要</a>
+        <a href="#giin">議員 発言ランキング</a>
+        <a href="#riji">理事者（部局）</a>
+        <a href="#method">集計方法・対象</a>
+      </nav>
     </div>
-    <div>
-      <label>検索 </label>
-      <input type="search" id="search-input" placeholder="議員名で検索...">
+    <div class="side-links">
+      <a href="index.html">議事録一覧<span class="arr">→</span></a>
+      <a href="https://www.city.koganei.tokyo.dbsr.jp/" target="_blank" rel="noopener">公式 会議録検索<span class="arr">↗</span></a>
+      <a href="https://www.youtube.com/@koganei_shigikai" target="_blank" rel="noopener">議会 YouTube<span class="arr">↗</span></a>
+      <div class="side-cred">作成・運営：ながとり太郎（小金井市議会議員）</div>
     </div>
-  </div>
+  </aside>
 
-  <div class="chart-grid">
-    <div class="chart-card full-width">
-      <h3><span class="icon">📊</span> 議員別 総発言文字数 & 推定発言時間</h3>
-      <div class="chart-wrapper tall">
-        <canvas id="chart-bar"></canvas>
-      </div>
+  <main>
+    <div class="main-head">
+      <h2>発言時間ダッシュボード</h2>
+      <div class="summary">令和8年 第2回定例会（一般質問を除く）／ 対象 15 会議</div>
     </div>
-    <div class="chart-card">
-      <h3><span class="icon">⏱️</span> 文字/秒 分布（発話速度）</h3>
-      <div class="chart-wrapper">
-        <canvas id="chart-cps"></canvas>
-      </div>
-    </div>
-    <div class="chart-card">
-      <h3><span class="icon">🎯</span> 文字数 vs 発言時間（相関）</h3>
-      <div class="chart-wrapper">
-        <canvas id="chart-scatter"></canvas>
-      </div>
-    </div>
-    <div class="chart-card full-width">
-      <h3><span class="icon">🗣️</span> 議員別フィラーワーズ比率（YouTube字幕から直接計測）</h3>
-      <div class="chart-wrapper tall">
-        <canvas id="chart-filler"></canvas>
-      </div>
-    </div>
-  </div>
 
-  <div class="table-card">
-    <h3><span class="icon">📋</span> 詳細データテーブル</h3>
-    <div class="table-scroll" style="max-height: 600px; overflow-y: auto;">
-      <table id="data-table">
-        <thead>
-          <tr>
-            <th data-sort="rank">#</th>
-            <th data-sort="name">議員名</th>
-            <th data-sort="role">区分</th>
-            <th data-sort="chars">総文字数</th>
-            <th>文字数</th>
-            <th data-sort="time">推定時間(分)</th>
-            <th>発言時間</th>
-            <th data-sort="cps">文字/秒</th>
-            <th data-sort="segments">セグメント数</th>
-            <th data-sort="est-time">フィラー補正後(分)</th>
-          </tr>
-        </thead>
-        <tbody id="table-body"></tbody>
-      </table>
+    <div class="stats" id="overview">
+      <div class="stat"><div class="n">15</div><div class="l">対象会議数</div></div>
+      <div class="stat"><div class="n">23 <small>人</small></div><div class="l">発言した議員</div></div>
+      <div class="stat"><div class="n">17.2 <small>時間</small></div><div class="l">議員 総発言（推定）</div></div>
+      <div class="stat"><div class="n">71 <small>部局</small></div><div class="l">理事者（答弁側）</div></div>
     </div>
-  </div>
 
-  <div class="methodology">
-    <h3>📐 分析手法について</h3>
-    <p>本ダッシュボードは、以下の方法で各議員の発言時間を推定しています。</p>
-    <ul>
-      <li><strong>データソース：</strong>AI文字起こし議事録（Markdown形式）に埋め込まれたYouTubeタイムスタンプ</li>
-      <li><strong>発言区間の特定：</strong>「◯議員名」パターンで発言者を識別し、連続するタイムスタンプの差分で発言時間を算出</li>
-      <li><strong>文字/秒レート：</strong>各議員の議事録テキスト文字数 ÷ タイムスタンプ差分秒数</li>
-    </ul>
-    <div class="formula">
-      推定発言時間 = 議事録文字数 ÷ 文字/秒レート<br>
-      フィラー補正後時間 = 推定発言時間 × 議員別補正係数
-    </div>
-    <p>議事録からはフィラーワーズ（「えー」「えっと」「あの」「まあ」等）が除去されています。<br>
-    フィラー比率は、YouTube自動字幕の生データから直接フィラーワーズを検出しカウントした結果です。<br>
-    議員平均フィラー率は約5.7%で、補正係数は1.035〜1.081の範囲です。</p>
-    <div class="note">
-      <span class="note-icon">💡</span>
-      <span>フィラー率は「YouTube字幕中のフィラーワーズ文字数 ÷ 全字幕文字数」で算出。
-      13会議・合計20名以上の議員データに基づきます。自動字幕の認識精度により±1〜2%の誤差があります。</span>
-    </div>
-  </div>
+    <section class="block" id="giin">
+      <div class="block-head"><h3>議員 発言ランキング</h3><span class="note">発言文字数→推定時間（350字/分換算）・降順</span></div>
+      <div class="bars">
+<div class="bar-row g"><span class="rank">1</span><span class="who">片山かおる</span><span class="track"><span class="fill" style="width:100.0%"></span></span><span class="val"><b>2時間23分</b><span class="sub">50,126字 ・ 105発言 ・ 9会議</span></span></div>
+<div class="bar-row g"><span class="rank">2</span><span class="who">森戸よう子</span><span class="track"><span class="fill" style="width:96.2%"></span></span><span class="val"><b>2時間18分</b><span class="sub">48,197字 ・ 55発言 ・ 4会議</span></span></div>
+<div class="bar-row g"><span class="rank">3</span><span class="who">渡辺大三</span><span class="track"><span class="fill" style="width:84.0%"></span></span><span class="val"><b>2時間0分</b><span class="sub">42,083字 ・ 36発言 ・ 3会議</span></span></div>
+<div class="bar-row g"><span class="rank">4</span><span class="who">水上洋志</span><span class="track"><span class="fill" style="width:63.8%"></span></span><span class="val"><b>1時間31分</b><span class="sub">31,996字 ・ 45発言 ・ 6会議</span></span></div>
+<div class="bar-row g"><span class="rank">5</span><span class="who">水谷たかこ</span><span class="track"><span class="fill" style="width:50.0%"></span></span><span class="val"><b>1時間12分</b><span class="sub">25,052字 ・ 78発言 ・ 8会議</span></span></div>
+<div class="bar-row g"><span class="rank">6</span><span class="who">安田けいこ</span><span class="track"><span class="fill" style="width:33.2%"></span></span><span class="val"><b>48分</b><span class="sub">16,665字 ・ 31発言 ・ 4会議</span></span></div>
+<div class="bar-row g"><span class="rank">7</span><span class="who">鈴木成夫</span><span class="track"><span class="fill" style="width:28.2%"></span></span><span class="val"><b>40分</b><span class="sub">14,116字 ・ 26発言 ・ 3会議</span></span></div>
+<div class="bar-row g"><span class="rank">8</span><span class="who">岸田正義</span><span class="track"><span class="fill" style="width:25.9%"></span></span><span class="val"><b>37分</b><span class="sub">12,969字 ・ 30発言 ・ 5会議</span></span></div>
+<div class="bar-row g"><span class="rank">9</span><span class="who">坂井えつ子</span><span class="track"><span class="fill" style="width:24.5%"></span></span><span class="val"><b>35分</b><span class="sub">12,257字 ・ 36発言 ・ 6会議</span></span></div>
+<div class="bar-row g"><span class="rank">10</span><span class="who">清水学</span><span class="track"><span class="fill" style="width:24.0%"></span></span><span class="val"><b>34分</b><span class="sub">12,014字 ・ 28発言 ・ 7会議</span></span></div>
+<div class="bar-row g"><span class="rank">11</span><span class="who">藤川賢治</span><span class="track"><span class="fill" style="width:21.3%"></span></span><span class="val"><b>31分</b><span class="sub">10,685字 ・ 27発言 ・ 7会議</span></span></div>
+<div class="bar-row g"><span class="rank">12</span><span class="who">太田宏徳</span><span class="track"><span class="fill" style="width:21.3%"></span></span><span class="val"><b>30分</b><span class="sub">10,663字 ・ 42発言 ・ 8会議</span></span></div>
+<div class="bar-row g"><span class="rank">13</span><span class="who">ながとり太郎</span><span class="track"><span class="fill" style="width:21.2%"></span></span><span class="val"><b>30分</b><span class="sub">10,629字 ・ 18発言 ・ 4会議</span></span></div>
+<div class="bar-row g"><span class="rank">14</span><span class="who">村上ようすけ</span><span class="track"><span class="fill" style="width:19.2%"></span></span><span class="val"><b>27分</b><span class="sub">9,614字 ・ 20発言 ・ 5会議</span></span></div>
+<div class="bar-row g"><span class="rank">15</span><span class="who">小林正樹</span><span class="track"><span class="fill" style="width:17.9%"></span></span><span class="val"><b>26分</b><span class="sub">8,956字 ・ 33発言 ・ 3会議</span></span></div>
+<div class="bar-row g"><span class="rank">16</span><span class="who">沖浦あつし</span><span class="track"><span class="fill" style="width:16.5%"></span></span><span class="val"><b>24分</b><span class="sub">8,269字 ・ 10発言 ・ 2会議</span></span></div>
+<div class="bar-row g"><span class="rank">17</span><span class="who">河野麻美</span><span class="track"><span class="fill" style="width:15.4%"></span></span><span class="val"><b>22分</b><span class="sub">7,721字 ・ 26発言 ・ 4会議</span></span></div>
+<div class="bar-row g"><span class="rank">18</span><span class="who">吹春やすたか</span><span class="track"><span class="fill" style="width:13.7%"></span></span><span class="val"><b>20分</b><span class="sub">6,878字 ・ 10発言 ・ 5会議</span></span></div>
+<div class="bar-row g"><span class="rank">19</span><span class="who">吉良のりこ</span><span class="track"><span class="fill" style="width:13.2%"></span></span><span class="val"><b>19分</b><span class="sub">6,612字 ・ 23発言 ・ 5会議</span></span></div>
+<div class="bar-row g"><span class="rank">20</span><span class="who">斎藤康夫</span><span class="track"><span class="fill" style="width:10.9%"></span></span><span class="val"><b>16分</b><span class="sub">5,460字 ・ 9発言 ・ 2会議</span></span></div>
+<div class="bar-row g"><span class="rank">21</span><span class="who">遠藤百合子</span><span class="track"><span class="fill" style="width:10.3%"></span></span><span class="val"><b>15分</b><span class="sub">5,181字 ・ 10発言 ・ 4会議</span></span></div>
+<div class="bar-row g"><span class="rank">22</span><span class="who">中井れい子</span><span class="track"><span class="fill" style="width:10.1%"></span></span><span class="val"><b>14分</b><span class="sub">5,053字 ・ 9発言 ・ 4会議</span></span></div>
+<div class="bar-row g"><span class="rank">23</span><span class="who">たゆ久貴</span><span class="track"><span class="fill" style="width:2.0%"></span></span><span class="val"><b>2分</b><span class="sub">855字 ・ 5発言 ・ 2会議</span></span></div>
+      </div>
+    </section>
 
-  <footer class="footer">
-    <p>小金井市議会 議事録分析 — データは令和8年度分 (R8) を対象としています</p>
-  </footer>
+    <section class="block" id="riji">
+      <div class="block-head"><h3>理事者（部局）発言</h3><span class="note">市長・部長・課長等の答弁側。議員とは別集計</span></div>
+      <div class="bars">
+<div class="bar-row r"><span class="rank">1</span><span class="who">市長</span><span class="track"><span class="fill" style="width:100.0%"></span></span><span class="val"><b>39分</b><span class="sub">13,642字 ・ 29発言</span></span></div>
+<div class="bar-row r"><span class="rank">2</span><span class="who">企画財政部長</span><span class="track"><span class="fill" style="width:92.3%"></span></span><span class="val"><b>36分</b><span class="sub">12,598字 ・ 12発言</span></span></div>
+<div class="bar-row r"><span class="rank">3</span><span class="who">地域福祉課長</span><span class="track"><span class="fill" style="width:73.9%"></span></span><span class="val"><b>29分</b><span class="sub">10,081字 ・ 13発言</span></span></div>
+<div class="bar-row r"><span class="rank">4</span><span class="who">子ども家庭部参事</span><span class="track"><span class="fill" style="width:65.2%"></span></span><span class="val"><b>25分</b><span class="sub">8,890字 ・ 8発言</span></span></div>
+<div class="bar-row r"><span class="rank">5</span><span class="who">保育政策調整担当課長</span><span class="track"><span class="fill" style="width:61.4%"></span></span><span class="val"><b>24分</b><span class="sub">8,372字 ・ 11発言</span></span></div>
+<div class="bar-row r"><span class="rank">6</span><span class="who">保育課長</span><span class="track"><span class="fill" style="width:56.6%"></span></span><span class="val"><b>22分</b><span class="sub">7,717字 ・ 10発言</span></span></div>
+<div class="bar-row r"><span class="rank">7</span><span class="who">企画政策課長</span><span class="track"><span class="fill" style="width:37.9%"></span></span><span class="val"><b>15分</b><span class="sub">5,170字 ・ 10発言</span></span></div>
+<div class="bar-row r"><span class="rank">8</span><span class="who">交通対策課長</span><span class="track"><span class="fill" style="width:37.4%"></span></span><span class="val"><b>15分</b><span class="sub">5,097字 ・ 9発言</span></span></div>
+<div class="bar-row r"><span class="rank">9</span><span class="who">地域安全課長</span><span class="track"><span class="fill" style="width:34.3%"></span></span><span class="val"><b>13分</b><span class="sub">4,684字 ・ 11発言</span></span></div>
+<div class="bar-row r"><span class="rank">10</span><span class="who">総務部長</span><span class="track"><span class="fill" style="width:33.0%"></span></span><span class="val"><b>13分</b><span class="sub">4,497字 ・ 7発言</span></span></div>
+<div class="bar-row r"><span class="rank">11</span><span class="who">図書館長</span><span class="track"><span class="fill" style="width:31.5%"></span></span><span class="val"><b>12分</b><span class="sub">4,298字 ・ 6発言</span></span></div>
+<div class="bar-row r"><span class="rank">12</span><span class="who">指導室長</span><span class="track"><span class="fill" style="width:29.1%"></span></span><span class="val"><b>11分</b><span class="sub">3,971字 ・ 6発言</span></span></div>
+<div class="bar-row r"><span class="rank">13</span><span class="who">介護福祉課長</span><span class="track"><span class="fill" style="width:28.6%"></span></span><span class="val"><b>11分</b><span class="sub">3,896字 ・ 3発言</span></span></div>
+<div class="bar-row r"><span class="rank">14</span><span class="who">市民部長</span><span class="track"><span class="fill" style="width:27.9%"></span></span><span class="val"><b>11分</b><span class="sub">3,807字 ・ 6発言</span></span></div>
+<div class="bar-row r"><span class="rank">15</span><span class="who">都市計画課長</span><span class="track"><span class="fill" style="width:26.5%"></span></span><span class="val"><b>10分</b><span class="sub">3,612字 ・ 10発言</span></span></div>
+<div class="bar-row r more">ほか 56 部局・係 （計 68,276字 ≈ 3時間15分）</div>
+      </div>
+    </section>
+
+    <section class="block" id="method">
+      <div class="block-head"><h3>集計方法・対象会議</h3></div>
+      <div class="method">
+        <ul>
+          <li><b>対象</b>：令和8年 第2回定例会の全会議のうち、<b>一般質問（本会議 6/4・6/5・6/8・6/9）を除く</b> 15 会議。</li>
+          <li><b>発言時間</b>：各発言の文字数を合算し、<b>350字/分</b>で時間換算した推定値です（実測ではありません）。</li>
+          <li><b>議員と理事者の分離</b>：発言者ラベルを議員名簿（24人）と照合して議員を特定。市長・部長・課長等の答弁側は「理事者」として別集計しています。</li>
+          <li><b>除外</b>：議長・委員長・座長などの<b>進行</b>、および陳情者・参考人等は、人物を特定できないため集計から除いています。</li>
+          <li>AI文字起こしのため、発言者の取り違えや欠落が含まれる可能性があります。</li>
+        </ul>
+        <h2 style="margin-top:18px;">対象会議一覧</h2>
+        <ul class="meetings"><li>予算特別委員会<span class="md">6.2</span></li><li>本会議<span class="md">6.2</span></li><li>広報・広聴協議会<span class="md">6.10</span></li><li>厚生文教委員会<span class="md">6.11</span></li><li>建設環境委員会<span class="md">6.12</span></li><li>総務企画委員会<span class="md">6.15</span></li><li>議会運営委員会<span class="md">6.16</span></li><li>予算特別委員会<span class="md">6.17</span></li><li>庁舎等建設及び公共施設マネジメント推進調査特別委員会<span class="md">6.18</span></li><li>厚生文教委員会<span class="md">6.19</span></li><li>広報・広聴協議会<span class="md">6.19</span></li><li>議会運営委員会協議会<span class="md">6.19</span></li><li>議会運営委員会①<span class="md">6.23</span></li><li>議会運営委員会②<span class="md">6.23</span></li><li>本会議<span class="md">6.23</span></li></ul>
+        <div class="src">
+          データ：<a href="index.html">議事録アーカイブ</a>（AI文字起こし）／ 公式会議録：<a href="https://www.city.koganei.tokyo.dbsr.jp/" target="_blank" rel="noopener">小金井市議会 会議録検索</a><br>
+          ※本ダッシュボードは非公式の推定値であり、公式記録ではありません。
+        </div>
+      </div>
+    </section>
+  </main>
 </div>
-
-<script>
-// ========== Data & Configuration ==========
-const FILLER_FACTOR = 1.20;
-const FILLER_DATA = {"giin": [{"name": "安田", "is_giin": true, "filler_count": 1149, "filler_chars": 2427, "subtitle_chars": 32575, "transcript_chars": 5124, "filler_ratio": 0.0745, "filler_pct": 7.5, "correction_factor": 1.081, "filler_per_min": 55.6, "segment_count": 4, "meetings_count": 2, "total_seconds": 1240}, {"name": "坂井", "is_giin": true, "filler_count": 1148, "filler_chars": 2484, "subtitle_chars": 35685, "transcript_chars": 5305, "filler_ratio": 0.0696, "filler_pct": 7.0, "correction_factor": 1.075, "filler_per_min": 32.4, "segment_count": 9, "meetings_count": 4, "total_seconds": 2129}, {"name": "公民館長", "is_giin": true, "filler_count": 2483, "filler_chars": 5379, "subtitle_chars": 79277, "transcript_chars": 13053, "filler_ratio": 0.0679, "filler_pct": 6.8, "correction_factor": 1.073, "filler_per_min": 55.3, "segment_count": 10, "meetings_count": 1, "total_seconds": 2692}, {"name": "渡辺", "is_giin": true, "filler_count": 2775, "filler_chars": 5930, "subtitle_chars": 88364, "transcript_chars": 16655, "filler_ratio": 0.0671, "filler_pct": 6.7, "correction_factor": 1.072, "filler_per_min": 47.2, "segment_count": 8, "meetings_count": 4, "total_seconds": 3528}, {"name": "水上", "is_giin": true, "filler_count": 1865, "filler_chars": 4008, "subtitle_chars": 61221, "transcript_chars": 18096, "filler_ratio": 0.0655, "filler_pct": 6.5, "correction_factor": 1.07, "filler_per_min": 25.2, "segment_count": 14, "meetings_count": 5, "total_seconds": 4443}, {"name": "村上", "is_giin": true, "filler_count": 725, "filler_chars": 1596, "subtitle_chars": 24509, "transcript_chars": 2696, "filler_ratio": 0.0651, "filler_pct": 6.5, "correction_factor": 1.07, "filler_per_min": 49.0, "segment_count": 6, "meetings_count": 2, "total_seconds": 888}, {"name": "森戸", "is_giin": true, "filler_count": 11153, "filler_chars": 23841, "subtitle_chars": 383971, "transcript_chars": 65934, "filler_ratio": 0.0621, "filler_pct": 6.2, "correction_factor": 1.066, "filler_per_min": 37.6, "segment_count": 45, "meetings_count": 5, "total_seconds": 17801}, {"name": "吉良", "is_giin": true, "filler_count": 1302, "filler_chars": 2786, "subtitle_chars": 45219, "transcript_chars": 3111, "filler_ratio": 0.0616, "filler_pct": 6.2, "correction_factor": 1.066, "filler_per_min": 51.1, "segment_count": 7, "meetings_count": 2, "total_seconds": 1528}, {"name": "水谷", "is_giin": true, "filler_count": 7360, "filler_chars": 15831, "subtitle_chars": 258813, "transcript_chars": 14501, "filler_ratio": 0.0612, "filler_pct": 6.1, "correction_factor": 1.065, "filler_per_min": 41.4, "segment_count": 22, "meetings_count": 5, "total_seconds": 10666}, {"name": "片山", "is_giin": true, "filler_count": 6824, "filler_chars": 14595, "subtitle_chars": 247295, "transcript_chars": 38166, "filler_ratio": 0.059, "filler_pct": 5.9, "correction_factor": 1.063, "filler_per_min": 37.5, "segment_count": 29, "meetings_count": 5, "total_seconds": 10910}, {"name": "清水", "is_giin": true, "filler_count": 682, "filler_chars": 1489, "subtitle_chars": 25214, "transcript_chars": 4790, "filler_ratio": 0.0591, "filler_pct": 5.9, "correction_factor": 1.063, "filler_per_min": 23.0, "segment_count": 14, "meetings_count": 3, "total_seconds": 1779}, {"name": "岸田", "is_giin": true, "filler_count": 699, "filler_chars": 1535, "subtitle_chars": 26307, "transcript_chars": 3506, "filler_ratio": 0.0583, "filler_pct": 5.8, "correction_factor": 1.062, "filler_per_min": 25.4, "segment_count": 8, "meetings_count": 4, "total_seconds": 1651}, {"name": "小林", "is_giin": true, "filler_count": 1812, "filler_chars": 3829, "subtitle_chars": 67208, "transcript_chars": 12107, "filler_ratio": 0.057, "filler_pct": 5.7, "correction_factor": 1.06, "filler_per_min": 36.1, "segment_count": 10, "meetings_count": 4, "total_seconds": 3013}, {"name": "藤川", "is_giin": true, "filler_count": 2451, "filler_chars": 5221, "subtitle_chars": 103348, "transcript_chars": 25750, "filler_ratio": 0.0505, "filler_pct": 5.1, "correction_factor": 1.053, "filler_per_min": 26.2, "segment_count": 15, "meetings_count": 4, "total_seconds": 5608}, {"name": "河野麻美", "is_giin": true, "filler_count": 674, "filler_chars": 1454, "subtitle_chars": 29248, "transcript_chars": 5509, "filler_ratio": 0.0497, "filler_pct": 5.0, "correction_factor": 1.052, "filler_per_min": 26.5, "segment_count": 6, "meetings_count": 4, "total_seconds": 1525}, {"name": "鈴木", "is_giin": true, "filler_count": 2753, "filler_chars": 5953, "subtitle_chars": 120749, "transcript_chars": 29750, "filler_ratio": 0.0493, "filler_pct": 4.9, "correction_factor": 1.052, "filler_per_min": 24.4, "segment_count": 37, "meetings_count": 5, "total_seconds": 6766}, {"name": "太田", "is_giin": true, "filler_count": 1793, "filler_chars": 3833, "subtitle_chars": 84006, "transcript_chars": 15228, "filler_ratio": 0.0456, "filler_pct": 4.6, "correction_factor": 1.048, "filler_per_min": 21.7, "segment_count": 31, "meetings_count": 6, "total_seconds": 4950}, {"name": "天野", "is_giin": true, "filler_count": 448, "filler_chars": 971, "subtitle_chars": 22644, "transcript_chars": 6153, "filler_ratio": 0.0429, "filler_pct": 4.3, "correction_factor": 1.045, "filler_per_min": 21.7, "segment_count": 6, "meetings_count": 3, "total_seconds": 1240}, {"name": "中井", "is_giin": true, "filler_count": 1131, "filler_chars": 2393, "subtitle_chars": 70835, "transcript_chars": 13577, "filler_ratio": 0.0338, "filler_pct": 3.4, "correction_factor": 1.035, "filler_per_min": 16.7, "segment_count": 23, "meetings_count": 5, "total_seconds": 4073}, {"name": "遠藤", "is_giin": true, "filler_count": 848, "filler_chars": 1789, "subtitle_chars": 51993, "transcript_chars": 12341, "filler_ratio": 0.0344, "filler_pct": 3.4, "correction_factor": 1.036, "filler_per_min": 16.7, "segment_count": 18, "meetings_count": 4, "total_seconds": 3043}], "riji": [{"name": "保育課長", "is_giin": false, "filler_count": 1054, "filler_chars": 2271, "subtitle_chars": 28677, "transcript_chars": 3085, "filler_ratio": 0.0792, "filler_pct": 7.9, "correction_factor": 1.086, "filler_per_min": 51.5, "segment_count": 6, "meetings_count": 2, "total_seconds": 1228}, {"name": "児童青少年課長", "is_giin": false, "filler_count": 3034, "filler_chars": 6694, "subtitle_chars": 84260, "transcript_chars": 8811, "filler_ratio": 0.0794, "filler_pct": 7.9, "correction_factor": 1.086, "filler_per_min": 62.6, "segment_count": 13, "meetings_count": 2, "total_seconds": 2908}, {"name": "高齢福祉担当課長", "is_giin": false, "filler_count": 2231, "filler_chars": 4725, "subtitle_chars": 63213, "transcript_chars": 11743, "filler_ratio": 0.0747, "filler_pct": 7.5, "correction_factor": 1.081, "filler_per_min": 67.1, "segment_count": 7, "meetings_count": 1, "total_seconds": 1996}, {"name": "市長", "is_giin": false, "filler_count": 4276, "filler_chars": 9310, "subtitle_chars": 126810, "transcript_chars": 20915, "filler_ratio": 0.0734, "filler_pct": 7.3, "correction_factor": 1.079, "filler_per_min": 42.3, "segment_count": 19, "meetings_count": 8, "total_seconds": 6068}, {"name": "健康課長", "is_giin": false, "filler_count": 1398, "filler_chars": 3024, "subtitle_chars": 42030, "transcript_chars": 5998, "filler_ratio": 0.0719, "filler_pct": 7.2, "correction_factor": 1.078, "filler_per_min": 47.3, "segment_count": 7, "meetings_count": 1, "total_seconds": 1775}, {"name": "地域福祉課長", "is_giin": false, "filler_count": 3176, "filler_chars": 6814, "subtitle_chars": 95951, "transcript_chars": 2275, "filler_ratio": 0.071, "filler_pct": 7.1, "correction_factor": 1.076, "filler_per_min": 64.1, "segment_count": 4, "meetings_count": 1, "total_seconds": 2971}, {"name": "環境課長", "is_giin": false, "filler_count": 599, "filler_chars": 1321, "subtitle_chars": 19109, "transcript_chars": 4344, "filler_ratio": 0.0691, "filler_pct": 6.9, "correction_factor": 1.074, "filler_per_min": 43.9, "segment_count": 5, "meetings_count": 1, "total_seconds": 818}, {"name": "保育政策調整担当課長", "is_giin": false, "filler_count": 184, "filler_chars": 408, "subtitle_chars": 5935, "transcript_chars": 1588, "filler_ratio": 0.0687, "filler_pct": 6.9, "correction_factor": 1.074, "filler_per_min": 38.6, "segment_count": 3, "meetings_count": 1, "total_seconds": 286}, {"name": "公共施設マネジメント推進担当課長", "is_giin": false, "filler_count": 205, "filler_chars": 470, "subtitle_chars": 6888, "transcript_chars": 3080, "filler_ratio": 0.0682, "filler_pct": 6.8, "correction_factor": 1.073, "filler_per_min": 21.3, "segment_count": 4, "meetings_count": 1, "total_seconds": 578}, {"name": "道路管理課長", "is_giin": false, "filler_count": 451, "filler_chars": 984, "subtitle_chars": 14546, "transcript_chars": 2457, "filler_ratio": 0.0676, "filler_pct": 6.8, "correction_factor": 1.073, "filler_per_min": 40.8, "segment_count": 5, "meetings_count": 1, "total_seconds": 664}, {"name": "子ども家庭部長", "is_giin": false, "filler_count": 2133, "filler_chars": 4605, "subtitle_chars": 70007, "transcript_chars": 7256, "filler_ratio": 0.0658, "filler_pct": 6.6, "correction_factor": 1.07, "filler_per_min": 48.5, "segment_count": 11, "meetings_count": 3, "total_seconds": 2637}, {"name": "自立生活支援課長", "is_giin": false, "filler_count": 1618, "filler_chars": 3541, "subtitle_chars": 55644, "transcript_chars": 10682, "filler_ratio": 0.0636, "filler_pct": 6.4, "correction_factor": 1.068, "filler_per_min": 51.6, "segment_count": 8, "meetings_count": 2, "total_seconds": 1883}, {"name": "交通対策課長", "is_giin": false, "filler_count": 746, "filler_chars": 1609, "subtitle_chars": 25551, "transcript_chars": 3749, "filler_ratio": 0.063, "filler_pct": 6.3, "correction_factor": 1.067, "filler_per_min": 33.4, "segment_count": 7, "meetings_count": 2, "total_seconds": 1339}, {"name": "不明", "is_giin": false, "filler_count": 1926, "filler_chars": 4131, "subtitle_chars": 67444, "transcript_chars": 8762, "filler_ratio": 0.0613, "filler_pct": 6.1, "correction_factor": 1.065, "filler_per_min": 44.4, "segment_count": 10, "meetings_count": 3, "total_seconds": 2601}, {"name": "委員長", "is_giin": false, "filler_count": 4590, "filler_chars": 9967, "subtitle_chars": 164494, "transcript_chars": 14605, "filler_ratio": 0.0606, "filler_pct": 6.1, "correction_factor": 1.065, "filler_per_min": 28.4, "segment_count": 85, "meetings_count": 6, "total_seconds": 9709}, {"name": "環境政策課長", "is_giin": false, "filler_count": 2347, "filler_chars": 5048, "subtitle_chars": 82981, "transcript_chars": 4979, "filler_ratio": 0.0608, "filler_pct": 6.1, "correction_factor": 1.065, "filler_per_min": 34.7, "segment_count": 9, "meetings_count": 2, "total_seconds": 4060}, {"name": "事務局次長", "is_giin": false, "filler_count": 525, "filler_chars": 1145, "subtitle_chars": 18655, "transcript_chars": 469, "filler_ratio": 0.0614, "filler_pct": 6.1, "correction_factor": 1.065, "filler_per_min": 19.9, "segment_count": 3, "meetings_count": 1, "total_seconds": 1582}, {"name": "緑と公園係長", "is_giin": false, "filler_count": 427, "filler_chars": 920, "subtitle_chars": 15384, "transcript_chars": 1355, "filler_ratio": 0.0598, "filler_pct": 6.0, "correction_factor": 1.064, "filler_per_min": 36.2, "segment_count": 3, "meetings_count": 1, "total_seconds": 708}, {"name": "都市計画課長", "is_giin": false, "filler_count": 266, "filler_chars": 568, "subtitle_chars": 9547, "transcript_chars": 3020, "filler_ratio": 0.0595, "filler_pct": 5.9, "correction_factor": 1.063, "filler_per_min": 27.0, "segment_count": 8, "meetings_count": 2, "total_seconds": 592}, {"name": "都市整備部長", "is_giin": false, "filler_count": 263, "filler_chars": 550, "subtitle_chars": 15469, "transcript_chars": 3011, "filler_ratio": 0.0356, "filler_pct": 3.6, "correction_factor": 1.037, "filler_per_min": 16.7, "segment_count": 9, "meetings_count": 3, "total_seconds": 943}, {"name": "生涯学習部長", "is_giin": false, "filler_count": 680, "filler_chars": 1419, "subtitle_chars": 39687, "transcript_chars": 4837, "filler_ratio": 0.0358, "filler_pct": 3.6, "correction_factor": 1.037, "filler_per_min": 13.9, "segment_count": 7, "meetings_count": 4, "total_seconds": 2941}, {"name": "企画財政部長", "is_giin": false, "filler_count": 2506, "filler_chars": 5352, "subtitle_chars": 162801, "transcript_chars": 32610, "filler_ratio": 0.0329, "filler_pct": 3.3, "correction_factor": 1.034, "filler_per_min": 14.9, "segment_count": 7, "meetings_count": 4, "total_seconds": 10077}, {"name": "福祉保健部長", "is_giin": false, "filler_count": 1926, "filler_chars": 4052, "subtitle_chars": 130596, "transcript_chars": 13200, "filler_ratio": 0.031, "filler_pct": 3.1, "correction_factor": 1.032, "filler_per_min": 13.7, "segment_count": 34, "meetings_count": 5, "total_seconds": 8428}, {"name": "議長", "is_giin": false, "filler_count": 343, "filler_chars": 724, "subtitle_chars": 30818, "transcript_chars": 5837, "filler_ratio": 0.0235, "filler_pct": 2.3, "correction_factor": 1.024, "filler_per_min": 5.2, "segment_count": 29, "meetings_count": 6, "total_seconds": 3946}, {"name": "総務部長", "is_giin": false, "filler_count": 502, "filler_chars": 1054, "subtitle_chars": 49458, "transcript_chars": 7788, "filler_ratio": 0.0213, "filler_pct": 2.1, "correction_factor": 1.022, "filler_per_min": 8.5, "segment_count": 23, "meetings_count": 4, "total_seconds": 3554}, {"name": "吹春座長", "is_giin": false, "filler_count": 6, "filler_chars": 13, "subtitle_chars": 659, "transcript_chars": 322, "filler_ratio": 0.0197, "filler_pct": 2.0, "correction_factor": 1.02, "filler_per_min": 1.4, "segment_count": 4, "meetings_count": 1, "total_seconds": 252}, {"name": "環境部長", "is_giin": false, "filler_count": 277, "filler_chars": 580, "subtitle_chars": 29822, "transcript_chars": 9110, "filler_ratio": 0.0194, "filler_pct": 1.9, "correction_factor": 1.02, "filler_per_min": 5.9, "segment_count": 12, "meetings_count": 4, "total_seconds": 2831}, {"name": "市民部長", "is_giin": false, "filler_count": 259, "filler_chars": 538, "subtitle_chars": 31350, "transcript_chars": 15800, "filler_ratio": 0.0172, "filler_pct": 1.7, "correction_factor": 1.017, "filler_per_min": 4.6, "segment_count": 10, "meetings_count": 4, "total_seconds": 3400}, {"name": "学校教育部長", "is_giin": false, "filler_count": 402, "filler_chars": 830, "subtitle_chars": 47987, "transcript_chars": 3974, "filler_ratio": 0.0173, "filler_pct": 1.7, "correction_factor": 1.018, "filler_per_min": 8.0, "segment_count": 9, "meetings_count": 4, "total_seconds": 2999}], "summary": {"matched_meetings": 13, "total_giin": 20, "avg_filler_pct": 5.7}}; // 20% filler word correction
-
-// Classification: council members vs. officials
-const OFFICIAL_KEYWORDS = [
-  '部長', '課長', '係長', '室長', '局長', '市長', '副市長', '教育長',
-  '指導室', '推進担当', '推進課', '文化課', '保健', '福祉', '保険',
-  '管理課', '対策課', '計画課', '安全課', '事務局', '議長', '委員長',
-  '座長', '次長', '係長', '担当部長', '会計', '消防', '支援課'
-];
-
-const CHAIR_KEYWORDS = ['議長', '委員長', '座長'];
-
-function classifyRole(name) {
-  if (CHAIR_KEYWORDS.some(k => name.includes(k))) return 'chair';
-  if (OFFICIAL_KEYWORDS.some(k => name.includes(k))) return 'riji';
-  if (name === '不明' || name.includes('（呼ぶ声）')) return 'other';
-  return 'giin';
-}
-
-function getRoleLabel(role) {
-  switch(role) {
-    case 'giin': return '議員';
-    case 'riji': return '理事者';
-    case 'chair': return '議事進行';
-    case 'other': return 'その他';
-    default: return '';
-  }
-}
-
-function getRoleClass(role) {
-  if (role === 'giin') return 'role-giin';
-  if (role === 'riji') return 'role-riji';
-  return 'role-other';
-}
-
-// Merge duplicate speaker names
-const NAME_MERGE_MAP = {
-  '河野 麻美': '河野麻美',
-  '河野麻美': '河野麻美',
-  '河野': '河野麻美',
-  '森戸よう子': '森戸',
-  '森戸よう子委員': '森戸',
-  '森戸委員': '森戸',
-  '片山かおる': '片山',
-  '片山かおる委員': '片山',
-  '渡辺大三': '渡辺',
-  '渡辺大三議員': '渡辺',
-  '渡辺大三委員': '渡辺',
-  '渡辺委員': '渡辺',
-  '水上洋志': '水上',
-  '水上委員': '水上',
-  '水上委員長': '水上',
-  '坂井えつ子': '坂井',
-  '坂井えつ子委員': '坂井',
-  '小林正樹': '小林',
-  '吹春やすたか': '吹春',
-  '吹春やすたか委員': '吹春',
-  '藤川賢治': '藤川',
-  '藤川委員': '藤川',
-  '村上ようすけ': '村上',
-  '村上委員': '村上',
-  '岸田正義': '岸田',
-  '遠藤委員': '遠藤',
-  '沖浦あつし': '沖浦',
-  '沖浦委員': '沖浦',
-  '清水学': '清水',
-  '清水委員': '清水',
-  'ながとり太郎': 'ながとり',
-  'ながとり太郎委員': 'ながとり',
-  '安田けいこ': '安田',
-  '天野かな': '天野',
-  '天野委員': '天野',
-  '水谷たかこ': '水谷',
-  '森戸よう子議員': '森戸',
-  '中井委員': '中井',
-  '太田委員': '太田',
-  '鈴木委員': '鈴木',
-  '坂井委員': '坂井',
-  '水谷委員': '水谷',
-  '吉良のりこ': '吉良',
-  '藤川賢治委員': '藤川',
-};
-
-// Load and process data
-async function loadData() {
-  const INLINE_DATA = {"森戸": {"total_chars": 141732, "total_seconds": 30825, "total_minutes": 513.75, "chars_per_second": 4.6, "segments": 94}, "委員長": {"total_chars": 116711, "total_seconds": 43746, "total_minutes": 729.1, "chars_per_second": 2.67, "segments": 563}, "渡辺": {"total_chars": 99761, "total_seconds": 13820, "total_minutes": 230.33, "chars_per_second": 7.22, "segments": 45}, "市長": {"total_chars": 85154, "total_seconds": 12927, "total_minutes": 215.45, "chars_per_second": 6.59, "segments": 81}, "片山": {"total_chars": 81788, "total_seconds": 14586, "total_minutes": 243.1, "chars_per_second": 5.61, "segments": 83}, "清水": {"total_chars": 70681, "total_seconds": 11595, "total_minutes": 193.25, "chars_per_second": 6.1, "segments": 111}, "藤川": {"total_chars": 61703, "total_seconds": 11138, "total_minutes": 185.63, "chars_per_second": 5.54, "segments": 42}, "企画財政部長": {"total_chars": 58563, "total_seconds": 11035, "total_minutes": 183.92, "chars_per_second": 5.31, "segments": 47}, "水谷": {"total_chars": 48518, "total_seconds": 8081, "total_minutes": 134.68, "chars_per_second": 6.0, "segments": 72}, "小林": {"total_chars": 45905, "total_seconds": 8262, "total_minutes": 137.7, "chars_per_second": 5.56, "segments": 52}, "水上": {"total_chars": 45818, "total_seconds": 8539, "total_minutes": 142.32, "chars_per_second": 5.37, "segments": 35}, "岸田": {"total_chars": 43974, "total_seconds": 6819, "total_minutes": 113.65, "chars_per_second": 6.45, "segments": 39}, "鈴木": {"total_chars": 42628, "total_seconds": 8310, "total_minutes": 138.5, "chars_per_second": 5.13, "segments": 71}, "福祉保健部長": {"total_chars": 42286, "total_seconds": 7247, "total_minutes": 120.78, "chars_per_second": 5.83, "segments": 89}, "議長": {"total_chars": 39635, "total_seconds": 16854, "total_minutes": 280.9, "chars_per_second": 2.35, "segments": 353}, "坂井": {"total_chars": 38721, "total_seconds": 6856, "total_minutes": 114.27, "chars_per_second": 5.65, "segments": 74}, "総務部長": {"total_chars": 36207, "total_seconds": 6110, "total_minutes": 101.83, "chars_per_second": 5.93, "segments": 76}, "天野": {"total_chars": 34883, "total_seconds": 5921, "total_minutes": 98.68, "chars_per_second": 5.89, "segments": 51}, "太田": {"total_chars": 33042, "total_seconds": 6104, "total_minutes": 101.73, "chars_per_second": 5.41, "segments": 65}, "コミュニティ文化課長": {"total_chars": 30465, "total_seconds": 6005, "total_minutes": 100.08, "chars_per_second": 5.07, "segments": 40}, "遠藤": {"total_chars": 28363, "total_seconds": 5033, "total_minutes": 83.88, "chars_per_second": 5.64, "segments": 32}, "河野": {"total_chars": 26806, "total_seconds": 3869, "total_minutes": 64.48, "chars_per_second": 6.93, "segments": 37}, "ながとり": {"total_chars": 25338, "total_seconds": 4570, "total_minutes": 76.17, "chars_per_second": 5.54, "segments": 25}, "都市整備部長": {"total_chars": 24172, "total_seconds": 4557, "total_minutes": 75.95, "chars_per_second": 5.3, "segments": 64}, "市民部長": {"total_chars": 23686, "total_seconds": 3886, "total_minutes": 64.77, "chars_per_second": 6.1, "segments": 31}, "中井": {"total_chars": 23125, "total_seconds": 5030, "total_minutes": 83.83, "chars_per_second": 4.6, "segments": 32}, "環境部長": {"total_chars": 22623, "total_seconds": 4003, "total_minutes": 66.72, "chars_per_second": 5.65, "segments": 41}, "不明": {"total_chars": 22462, "total_seconds": 4945, "total_minutes": 82.42, "chars_per_second": 4.54, "segments": 23}, "村上": {"total_chars": 21737, "total_seconds": 3819, "total_minutes": 63.65, "chars_per_second": 5.69, "segments": 29}, "沖浦": {"total_chars": 16698, "total_seconds": 3282, "total_minutes": 54.7, "chars_per_second": 5.09, "segments": 8}, "座長": {"total_chars": 16622, "total_seconds": 4711, "total_minutes": 78.52, "chars_per_second": 3.53, "segments": 71}, "学校教育部長": {"total_chars": 16275, "total_seconds": 2732, "total_minutes": 45.53, "chars_per_second": 5.96, "segments": 30}, "高齢福祉担当課長": {"total_chars": 16179, "total_seconds": 2572, "total_minutes": 42.87, "chars_per_second": 6.29, "segments": 10}, "渡辺委員": {"total_chars": 16133, "total_seconds": 2384, "total_minutes": 39.73, "chars_per_second": 6.77, "segments": 7}, "吹春": {"total_chars": 15402, "total_seconds": 2356, "total_minutes": 39.27, "chars_per_second": 6.54, "segments": 22}, "指導室長": {"total_chars": 15378, "total_seconds": 2904, "total_minutes": 48.4, "chars_per_second": 5.3, "segments": 14}, "たゆ": {"total_chars": 15051, "total_seconds": 2553, "total_minutes": 42.55, "chars_per_second": 5.9, "segments": 17}, "片山かおる": {"total_chars": 14430, "total_seconds": 2818, "total_minutes": 46.97, "chars_per_second": 5.12, "segments": 11}, "森戸よう子": {"total_chars": 14306, "total_seconds": 3010, "total_minutes": 50.17, "chars_per_second": 4.75, "segments": 16}, "企画政策課長": {"total_chars": 14026, "total_seconds": 2007, "total_minutes": 33.45, "chars_per_second": 6.99, "segments": 14}, "吹春やすたか": {"total_chars": 13883, "total_seconds": 2301, "total_minutes": 38.35, "chars_per_second": 6.03, "segments": 13}, "健康課長": {"total_chars": 13791, "total_seconds": 2778, "total_minutes": 46.3, "chars_per_second": 4.96, "segments": 20}, "情報システム課長": {"total_chars": 12933, "total_seconds": 2372, "total_minutes": 39.53, "chars_per_second": 5.45, "segments": 15}, "自治体DX推進担当課長": {"total_chars": 12703, "total_seconds": 2310, "total_minutes": 38.5, "chars_per_second": 5.5, "segments": 10}, "安田": {"total_chars": 12338, "total_seconds": 2038, "total_minutes": 33.97, "chars_per_second": 6.05, "segments": 10}, "渡辺大三": {"total_chars": 11694, "total_seconds": 1548, "total_minutes": 25.8, "chars_per_second": 7.55, "segments": 10}, "公民館長": {"total_chars": 11682, "total_seconds": 2289, "total_minutes": 38.15, "chars_per_second": 5.1, "segments": 11}, "岸田正義": {"total_chars": 11422, "total_seconds": 1673, "total_minutes": 27.88, "chars_per_second": 6.83, "segments": 15}, "子ども家庭部長": {"total_chars": 11382, "total_seconds": 1851, "total_minutes": 30.85, "chars_per_second": 6.15, "segments": 26}, "沖浦あつし": {"total_chars": 10994, "total_seconds": 1774, "total_minutes": 29.57, "chars_per_second": 6.2, "segments": 10}, "生涯学習部長": {"total_chars": 10929, "total_seconds": 1610, "total_minutes": 26.83, "chars_per_second": 6.79, "segments": 22}, "環境政策課長": {"total_chars": 10472, "total_seconds": 1705, "total_minutes": 28.42, "chars_per_second": 6.14, "segments": 18}, "ごみ対策課長": {"total_chars": 9902, "total_seconds": 1539, "total_minutes": 25.65, "chars_per_second": 6.43, "segments": 7}, "地域福祉課長": {"total_chars": 9837, "total_seconds": 1625, "total_minutes": 27.08, "chars_per_second": 6.05, "segments": 14}, "沖浦委員": {"total_chars": 9473, "total_seconds": 1772, "total_minutes": 29.53, "chars_per_second": 5.35, "segments": 3}, "水谷たかこ": {"total_chars": 9312, "total_seconds": 8599, "total_minutes": 143.32, "chars_per_second": 1.08, "segments": 13}, "児童青少年課長": {"total_chars": 9194, "total_seconds": 2513, "total_minutes": 41.88, "chars_per_second": 3.66, "segments": 10}, "吉良": {"total_chars": 9030, "total_seconds": 1562, "total_minutes": 26.03, "chars_per_second": 5.78, "segments": 17}, "河野麻美": {"total_chars": 8944, "total_seconds": 1391, "total_minutes": 23.18, "chars_per_second": 6.43, "segments": 14}, "水上委員": {"total_chars": 8657, "total_seconds": 1607, "total_minutes": 26.78, "chars_per_second": 5.39, "segments": 7}, "下水道課長": {"total_chars": 8442, "total_seconds": 1638, "total_minutes": 27.3, "chars_per_second": 5.15, "segments": 6}, "高齢支援担当課長": {"total_chars": 8274, "total_seconds": 1603, "total_minutes": 26.72, "chars_per_second": 5.16, "segments": 1}, "自立生活支援課長": {"total_chars": 8241, "total_seconds": 1483, "total_minutes": 24.72, "chars_per_second": 5.56, "segments": 7}, "副市長": {"total_chars": 8068, "total_seconds": 1468, "total_minutes": 24.47, "chars_per_second": 5.5, "segments": 9}, "坂井えつ子": {"total_chars": 7762, "total_seconds": 1443, "total_minutes": 24.05, "chars_per_second": 5.38, "segments": 8}, "教育長": {"total_chars": 7497, "total_seconds": 1183, "total_minutes": 19.72, "chars_per_second": 6.34, "segments": 4}, "交通対策課長": {"total_chars": 7038, "total_seconds": 1162, "total_minutes": 19.37, "chars_per_second": 6.06, "segments": 16}, "藤川賢治": {"total_chars": 6882, "total_seconds": 1301, "total_minutes": 21.68, "chars_per_second": 5.29, "segments": 10}, "森戸委員": {"total_chars": 6709, "total_seconds": 1474, "total_minutes": 24.57, "chars_per_second": 4.55, "segments": 8}, "生涯学習課長": {"total_chars": 6553, "total_seconds": 1146, "total_minutes": 19.1, "chars_per_second": 5.72, "segments": 9}, "水上洋志": {"total_chars": 6410, "total_seconds": 1160, "total_minutes": 19.33, "chars_per_second": 5.53, "segments": 7}, "国民健康保険係長": {"total_chars": 6342, "total_seconds": 1566, "total_minutes": 26.1, "chars_per_second": 4.05, "segments": 3}, "都市計画課長": {"total_chars": 6335, "total_seconds": 1047, "total_minutes": 17.45, "chars_per_second": 6.05, "segments": 13}, "陳情者": {"total_chars": 6330, "total_seconds": 1317, "total_minutes": 21.95, "chars_per_second": 4.81, "segments": 2}, "清水学": {"total_chars": 6188, "total_seconds": 981, "total_minutes": 16.35, "chars_per_second": 6.31, "segments": 13}, "男女共同参画担当課長": {"total_chars": 5885, "total_seconds": 939, "total_minutes": 15.65, "chars_per_second": 6.27, "segments": 8}, "納税課長": {"total_chars": 5774, "total_seconds": 1254, "total_minutes": 20.9, "chars_per_second": 4.6, "segments": 10}, "安田けいこ": {"total_chars": 5630, "total_seconds": 985, "total_minutes": 16.42, "chars_per_second": 5.72, "segments": 3}, "地域安全課長": {"total_chars": 5432, "total_seconds": 785, "total_minutes": 13.08, "chars_per_second": 6.92, "segments": 14}, "天野委員": {"total_chars": 5391, "total_seconds": 932, "total_minutes": 15.53, "chars_per_second": 5.78, "segments": 3}, "道路管理課長": {"total_chars": 5174, "total_seconds": 983, "total_minutes": 16.38, "chars_per_second": 5.26, "segments": 9}, "清水委員": {"total_chars": 5141, "total_seconds": 1029, "total_minutes": 17.15, "chars_per_second": 5.0, "segments": 7}, "学務課長": {"total_chars": 5126, "total_seconds": 1261, "total_minutes": 21.02, "chars_per_second": 4.07, "segments": 4}, "斎藤": {"total_chars": 5118, "total_seconds": 1128, "total_minutes": 18.8, "chars_per_second": 4.54, "segments": 6}, "保育課長": {"total_chars": 4834, "total_seconds": 961, "total_minutes": 16.02, "chars_per_second": 5.03, "segments": 8}, "コミュニティ文化推進課長": {"total_chars": 4641, "total_seconds": 883, "total_minutes": 14.72, "chars_per_second": 5.26, "segments": 1}, "職員課長": {"total_chars": 4579, "total_seconds": 867, "total_minutes": 14.45, "chars_per_second": 5.28, "segments": 7}, "小林正樹": {"total_chars": 4567, "total_seconds": 782, "total_minutes": 13.03, "chars_per_second": 5.84, "segments": 6}, "村上委員": {"total_chars": 4492, "total_seconds": 899, "total_minutes": 14.98, "chars_per_second": 5.0, "segments": 2}, "環境課長": {"total_chars": 4395, "total_seconds": 685, "total_minutes": 11.42, "chars_per_second": 6.42, "segments": 5}, "渡辺大三議員": {"total_chars": 3979, "total_seconds": 567, "total_minutes": 9.45, "chars_per_second": 7.02, "segments": 1}, "環境係長": {"total_chars": 3929, "total_seconds": 630, "total_minutes": 10.5, "chars_per_second": 6.24, "segments": 3}, "保険年金課長": {"total_chars": 3855, "total_seconds": 694, "total_minutes": 11.57, "chars_per_second": 5.55, "segments": 6}, "吉良のりこ": {"total_chars": 3846, "total_seconds": 694, "total_minutes": 11.57, "chars_per_second": 5.54, "segments": 8}, "庁舎等建設担当部長": {"total_chars": 3796, "total_seconds": 638, "total_minutes": 10.63, "chars_per_second": 5.95, "segments": 7}, "広報秘書課長": {"total_chars": 3706, "total_seconds": 719, "total_minutes": 11.98, "chars_per_second": 5.15, "segments": 9}, "公共施設マネジメント推進担当課長": {"total_chars": 3633, "total_seconds": 547, "total_minutes": 9.12, "chars_per_second": 6.64, "segments": 5}, "企画政策課主査": {"total_chars": 3577, "total_seconds": 546, "total_minutes": 9.1, "chars_per_second": 6.55, "segments": 6}, "森戸よう子委員": {"total_chars": 3404, "total_seconds": 664, "total_minutes": 11.07, "chars_per_second": 5.13, "segments": 3}, "ながとり太郎": {"total_chars": 3101, "total_seconds": 566, "total_minutes": 9.43, "chars_per_second": 5.48, "segments": 3}, "藤川委員": {"total_chars": 3083, "total_seconds": 508, "total_minutes": 8.47, "chars_per_second": 6.07, "segments": 3}, "渡辺大三委員": {"total_chars": 2892, "total_seconds": 425, "total_minutes": 7.08, "chars_per_second": 6.8, "segments": 1}, "議会事務局次長": {"total_chars": 2879, "total_seconds": 539, "total_minutes": 8.98, "chars_per_second": 5.34, "segments": 7}, "坂井えつ子委員": {"total_chars": 2815, "total_seconds": 409, "total_minutes": 6.82, "chars_per_second": 6.88, "segments": 1}, "庁舎建設担当部長": {"total_chars": 2697, "total_seconds": 389, "total_minutes": 6.48, "chars_per_second": 6.93, "segments": 5}, "選挙管理委員会事務局長": {"total_chars": 2695, "total_seconds": 404, "total_minutes": 6.73, "chars_per_second": 6.67, "segments": 4}, "遠藤委員": {"total_chars": 2569, "total_seconds": 449, "total_minutes": 7.48, "chars_per_second": 5.72, "segments": 3}, "水上委員長": {"total_chars": 2530, "total_seconds": 670, "total_minutes": 11.17, "chars_per_second": 3.78, "segments": 12}, "次長": {"total_chars": 2439, "total_seconds": 494, "total_minutes": 8.23, "chars_per_second": 4.94, "segments": 10}, "天野かな": {"total_chars": 2341, "total_seconds": 412, "total_minutes": 6.87, "chars_per_second": 5.68, "segments": 7}, "村上ようすけ": {"total_chars": 2338, "total_seconds": 464, "total_minutes": 7.73, "chars_per_second": 5.04, "segments": 4}, "まちづくり推進課長": {"total_chars": 2323, "total_seconds": 408, "total_minutes": 6.8, "chars_per_second": 5.69, "segments": 4}, "子育て支援課長": {"total_chars": 2297, "total_seconds": 351, "total_minutes": 5.85, "chars_per_second": 6.54, "segments": 4}, "緑と公園係長": {"total_chars": 2258, "total_seconds": 365, "total_minutes": 6.08, "chars_per_second": 6.19, "segments": 6}, "水道課長": {"total_chars": 2247, "total_seconds": 425, "total_minutes": 7.08, "chars_per_second": 5.29, "segments": 4}, "河野委員": {"total_chars": 2156, "total_seconds": 353, "total_minutes": 5.88, "chars_per_second": 6.11, "segments": 4}, "保育政策調整担当課長": {"total_chars": 2100, "total_seconds": 349, "total_minutes": 5.82, "chars_per_second": 6.02, "segments": 4}, "たゆ久貴": {"total_chars": 2090, "total_seconds": 353, "total_minutes": 5.88, "chars_per_second": 5.92, "segments": 1}, "児童少年課長": {"total_chars": 2078, "total_seconds": 433, "total_minutes": 7.22, "chars_per_second": 4.8, "segments": 2}, "管財課長": {"total_chars": 2075, "total_seconds": 384, "total_minutes": 6.4, "chars_per_second": 5.4, "segments": 5}, "ながとり委員": {"total_chars": 2026, "total_seconds": 406, "total_minutes": 6.77, "chars_per_second": 4.99, "segments": 1}, "水谷たかこ委員": {"total_chars": 1981, "total_seconds": 279, "total_minutes": 4.65, "chars_per_second": 7.1, "segments": 1}, "広報課長": {"total_chars": 1956, "total_seconds": 391, "total_minutes": 6.52, "chars_per_second": 5.0, "segments": 4}, "システム課長": {"total_chars": 1925, "total_seconds": 311, "total_minutes": 5.18, "chars_per_second": 6.19, "segments": 1}, "消防防犯係長": {"total_chars": 1910, "total_seconds": 319, "total_minutes": 5.32, "chars_per_second": 5.99, "segments": 4}, "経済課長": {"total_chars": 1837, "total_seconds": 352, "total_minutes": 5.87, "chars_per_second": 5.22, "segments": 5}, "指導係長": {"total_chars": 1713, "total_seconds": 320, "total_minutes": 5.33, "chars_per_second": 5.35, "segments": 1}, "木村": {"total_chars": 1635, "total_seconds": 333, "total_minutes": 5.55, "chars_per_second": 4.91, "segments": 1}, "（呼ぶ声）": {"total_chars": 1614, "total_seconds": 2439, "total_minutes": 40.65, "chars_per_second": 0.66, "segments": 61}, "沖浦さん": {"total_chars": 1614, "total_seconds": 287, "total_minutes": 4.78, "chars_per_second": 5.62, "segments": 2}, "森戸よう子議員": {"total_chars": 1608, "total_seconds": 324, "total_minutes": 5.4, "chars_per_second": 4.96, "segments": 2}, "庁舎建設担当課長": {"total_chars": 1561, "total_seconds": 393, "total_minutes": 6.55, "chars_per_second": 3.97, "segments": 6}, "鈴木成夫": {"total_chars": 1547, "total_seconds": 292, "total_minutes": 4.87, "chars_per_second": 5.3, "segments": 2}, "統括指導主事": {"total_chars": 1530, "total_seconds": 287, "total_minutes": 4.78, "chars_per_second": 5.33, "segments": 2}, "清水学委員": {"total_chars": 1518, "total_seconds": 241, "total_minutes": 4.02, "chars_per_second": 6.3, "segments": 1}, "人事制度担当課長": {"total_chars": 1496, "total_seconds": 275, "total_minutes": 4.58, "chars_per_second": 5.44, "segments": 4}, "秘書課長": {"total_chars": 1387, "total_seconds": 254, "total_minutes": 4.23, "chars_per_second": 5.46, "segments": 1}, "沖浦あつし委員": {"total_chars": 1361, "total_seconds": 253, "total_minutes": 4.22, "chars_per_second": 5.38, "segments": 2}, "建設担当課長": {"total_chars": 1356, "total_seconds": 218, "total_minutes": 3.63, "chars_per_second": 6.22, "segments": 1}, "自治生活支援課長": {"total_chars": 1295, "total_seconds": 185, "total_minutes": 3.08, "chars_per_second": 7.0, "segments": 1}, "酒井委員": {"total_chars": 1260, "total_seconds": 232, "total_minutes": 3.87, "chars_per_second": 5.43, "segments": 3}, "防災課長": {"total_chars": 1206, "total_seconds": 161, "total_minutes": 2.68, "chars_per_second": 7.49, "segments": 3}, "みどり公園課長": {"total_chars": 1137, "total_seconds": 226, "total_minutes": 3.77, "chars_per_second": 5.03, "segments": 3}, "緑と公園課長": {"total_chars": 1133, "total_seconds": 229, "total_minutes": 3.82, "chars_per_second": 4.95, "segments": 1}, "事務局次長": {"total_chars": 1116, "total_seconds": 265, "total_minutes": 4.42, "chars_per_second": 4.21, "segments": 5}, "事務局": {"total_chars": 1091, "total_seconds": 221, "total_minutes": 3.68, "chars_per_second": 4.94, "segments": 4}, "庁舎等建設担当課長": {"total_chars": 999, "total_seconds": 262, "total_minutes": 4.37, "chars_per_second": 3.81, "segments": 4}, "市民課": {"total_chars": 999, "total_seconds": 162, "total_minutes": 2.7, "chars_per_second": 6.17, "segments": 1}, "交通対策係長": {"total_chars": 986, "total_seconds": 189, "total_minutes": 3.15, "chars_per_second": 5.22, "segments": 2}, "区画整理課長": {"total_chars": 936, "total_seconds": 127, "total_minutes": 2.12, "chars_per_second": 7.37, "segments": 2}, "子ども家庭センター長": {"total_chars": 924, "total_seconds": 154, "total_minutes": 2.57, "chars_per_second": 6.0, "segments": 3}, "太田宏徳": {"total_chars": 914, "total_seconds": 129, "total_minutes": 2.15, "chars_per_second": 7.09, "segments": 4}, "議会事務局長": {"total_chars": 849, "total_seconds": 163, "total_minutes": 2.72, "chars_per_second": 5.21, "segments": 1}, "担当部長": {"total_chars": 757, "total_seconds": 124, "total_minutes": 2.07, "chars_per_second": 6.1, "segments": 2}, "太田委員": {"total_chars": 726, "total_seconds": 173, "total_minutes": 2.88, "chars_per_second": 4.2, "segments": 1}, "白井市長": {"total_chars": 719, "total_seconds": 126, "total_minutes": 2.1, "chars_per_second": 5.71, "segments": 2}, "清掃事業所長": {"total_chars": 706, "total_seconds": 129, "total_minutes": 2.15, "chars_per_second": 5.47, "segments": 1}, "地域包括ケア担当課長": {"total_chars": 704, "total_seconds": 160, "total_minutes": 2.67, "chars_per_second": 4.4, "segments": 1}, "緑と公園課係長": {"total_chars": 692, "total_seconds": 96, "total_minutes": 1.6, "chars_per_second": 7.21, "segments": 1}, "会計管理者": {"total_chars": 691, "total_seconds": 97, "total_minutes": 1.62, "chars_per_second": 7.12, "segments": 2}, "消防課係長": {"total_chars": 658, "total_seconds": 128, "total_minutes": 2.13, "chars_per_second": 5.14, "segments": 1}, "庁建設担当部長": {"total_chars": 649, "total_seconds": 95, "total_minutes": 1.58, "chars_per_second": 6.83, "segments": 1}, "自立生活課長": {"total_chars": 623, "total_seconds": 101, "total_minutes": 1.68, "chars_per_second": 6.17, "segments": 1}, "広報広聴課長": {"total_chars": 610, "total_seconds": 147, "total_minutes": 2.45, "chars_per_second": 4.15, "segments": 2}, "中井委員": {"total_chars": 606, "total_seconds": 129, "total_minutes": 2.15, "chars_per_second": 4.7, "segments": 1}, "遠藤百合子": {"total_chars": 602, "total_seconds": 99, "total_minutes": 1.65, "chars_per_second": 6.08, "segments": 1}, "介護福祉課長": {"total_chars": 601, "total_seconds": 94, "total_minutes": 1.57, "chars_per_second": 6.39, "segments": 1}, "たゆ委員": {"total_chars": 591, "total_seconds": 124, "total_minutes": 2.07, "chars_per_second": 4.77, "segments": 1}, "自治体DX推進課長": {"total_chars": 586, "total_seconds": 101, "total_minutes": 1.68, "chars_per_second": 5.8, "segments": 1}, "酒井": {"total_chars": 581, "total_seconds": 110, "total_minutes": 1.83, "chars_per_second": 5.28, "segments": 2}, "人事制度等担当課長": {"total_chars": 575, "total_seconds": 128, "total_minutes": 2.13, "chars_per_second": 4.49, "segments": 2}, "建設担当部長": {"total_chars": 572, "total_seconds": 32, "total_minutes": 0.53, "chars_per_second": 17.88, "segments": 1}, "DX推進担当課長": {"total_chars": 570, "total_seconds": 62, "total_minutes": 1.03, "chars_per_second": 9.19, "segments": 1}, "森戸よう子【ですが、今年度は第2小学校と": {"total_chars": 536, "total_seconds": 133, "total_minutes": 2.22, "chars_per_second": 4.03, "segments": 1}, "水谷たかこ副委員長": {"total_chars": 520, "total_seconds": 62, "total_minutes": 1.03, "chars_per_second": 8.39, "segments": 1}, "道路管理課工事係長": {"total_chars": 510, "total_seconds": 97, "total_minutes": 1.62, "chars_per_second": 5.26, "segments": 1}, "小林委員": {"total_chars": 497, "total_seconds": 96, "total_minutes": 1.6, "chars_per_second": 5.18, "segments": 2}, "財政課長": {"total_chars": 488, "total_seconds": 61, "total_minutes": 1.02, "chars_per_second": 8.0, "segments": 1}, "課長": {"total_chars": 487, "total_seconds": 96, "total_minutes": 1.6, "chars_per_second": 5.07, "segments": 1}, "男女共同参画担当": {"total_chars": 475, "total_seconds": 93, "total_minutes": 1.55, "chars_per_second": 5.11, "segments": 1}, "水上洋志議員": {"total_chars": 466, "total_seconds": 61, "total_minutes": 1.02, "chars_per_second": 7.64, "segments": 1}, "庶務課長": {"total_chars": 459, "total_seconds": 63, "total_minutes": 1.05, "chars_per_second": 7.29, "segments": 1}, "保健担当課長": {"total_chars": 432, "total_seconds": 63, "total_minutes": 1.05, "chars_per_second": 6.86, "segments": 1}, "保育施策調整担当": {"total_chars": 428, "total_seconds": 63, "total_minutes": 1.05, "chars_per_second": 6.79, "segments": 1}, "吹春座長": {"total_chars": 422, "total_seconds": 192, "total_minutes": 3.2, "chars_per_second": 2.2, "segments": 5}, "自治体ＤＸ推進担当課長": {"total_chars": 419, "total_seconds": 97, "total_minutes": 1.62, "chars_per_second": 4.32, "segments": 2}, "保育政策担当課長": {"total_chars": 400, "total_seconds": 64, "total_minutes": 1.07, "chars_per_second": 6.25, "segments": 1}, "事務局長": {"total_chars": 399, "total_seconds": 63, "total_minutes": 1.05, "chars_per_second": 6.33, "segments": 2}, "〇〇課長": {"total_chars": 382, "total_seconds": 65, "total_minutes": 1.08, "chars_per_second": 5.88, "segments": 1}, "保育施策調整担当課長": {"total_chars": 378, "total_seconds": 61, "total_minutes": 1.02, "chars_per_second": 6.2, "segments": 1}, "高齢者医療係長": {"total_chars": 356, "total_seconds": 102, "total_minutes": 1.7, "chars_per_second": 3.49, "segments": 3}, "吹春委員長": {"total_chars": 340, "total_seconds": 154, "total_minutes": 2.57, "chars_per_second": 2.21, "segments": 2}, "片山委員": {"total_chars": 330, "total_seconds": 70, "total_minutes": 1.17, "chars_per_second": 4.71, "segments": 2}, "議会事務局係長": {"total_chars": 325, "total_seconds": 71, "total_minutes": 1.18, "chars_per_second": 4.58, "segments": 1}, "局長": {"total_chars": 315, "total_seconds": 68, "total_minutes": 1.13, "chars_per_second": 4.63, "segments": 2}, "清水学いて、やっぱりやってみて、これが問": {"total_chars": 298, "total_seconds": 62, "total_minutes": 1.03, "chars_per_second": 4.81, "segments": 1}, "委員長ということなんですが、いかがでしょ": {"total_chars": 288, "total_seconds": 67, "total_minutes": 1.12, "chars_per_second": 4.3, "segments": 1}, "議会事務局": {"total_chars": 287, "total_seconds": 50, "total_minutes": 0.83, "chars_per_second": 5.74, "segments": 1}, "会計課長": {"total_chars": 286, "total_seconds": 62, "total_minutes": 1.03, "chars_per_second": 4.61, "segments": 1}, "消防団係長": {"total_chars": 270, "total_seconds": 66, "total_minutes": 1.1, "chars_per_second": 4.09, "segments": 1}, "みどりと公園係長": {"total_chars": 264, "total_seconds": 32, "total_minutes": 0.53, "chars_per_second": 8.25, "segments": 1}, "人事制度担当長": {"total_chars": 261, "total_seconds": 42, "total_minutes": 0.7, "chars_per_second": 6.21, "segments": 1}, "水谷副委員長": {"total_chars": 260, "total_seconds": 31, "total_minutes": 0.52, "chars_per_second": 8.39, "segments": 1}, "議会運営委員長": {"total_chars": 257, "total_seconds": 31, "total_minutes": 0.52, "chars_per_second": 8.29, "segments": 1}, "総務企画委員長": {"total_chars": 225, "total_seconds": 31, "total_minutes": 0.52, "chars_per_second": 7.26, "segments": 1}, "水谷委員": {"total_chars": 222, "total_seconds": 56, "total_minutes": 0.93, "chars_per_second": 3.96, "segments": 1}, "建設課長": {"total_chars": 211, "total_seconds": 31, "total_minutes": 0.52, "chars_per_second": 6.81, "segments": 1}, "経営課長": {"total_chars": 210, "total_seconds": 43, "total_minutes": 0.72, "chars_per_second": 4.88, "segments": 1}, "担当課長": {"total_chars": 177, "total_seconds": 31, "total_minutes": 0.52, "chars_per_second": 5.71, "segments": 1}, "岸田委員": {"total_chars": 176, "total_seconds": 31, "total_minutes": 0.52, "chars_per_second": 5.68, "segments": 1}, "岸田正義議員": {"total_chars": 138, "total_seconds": 31, "total_minutes": 0.52, "chars_per_second": 4.45, "segments": 1}, "市民税課長": {"total_chars": 124, "total_seconds": 32, "total_minutes": 0.53, "chars_per_second": 3.88, "segments": 1}, "市民課長": {"total_chars": 112, "total_seconds": 31, "total_minutes": 0.52, "chars_per_second": 3.61, "segments": 1}};
-  return processData(INLINE_DATA);
-}
-
-function processData(rawSummary) {
-  // Merge names
-  const merged = {};
-  for (const [name, stats] of Object.entries(rawSummary)) {
-    const canonName = NAME_MERGE_MAP[name] || name;
-    if (!merged[canonName]) {
-      merged[canonName] = { total_chars: 0, total_seconds: 0, segments: 0 };
-    }
-    merged[canonName].total_chars += stats.total_chars;
-    merged[canonName].total_seconds += stats.total_seconds;
-    merged[canonName].segments += stats.segments;
-  }
-
-  // Build data array
-  const data = [];
-  for (const [name, stats] of Object.entries(merged)) {
-    const role = classifyRole(name);
-    const cps = stats.total_seconds > 0 ? stats.total_chars / stats.total_seconds : 0;
-    const estMinutes = stats.total_seconds / 60;
-    const fillerMinutes = estMinutes * FILLER_FACTOR;
-    
-    data.push({
-      name,
-      role,
-      chars: stats.total_chars,
-      seconds: stats.total_seconds,
-      minutes: estMinutes,
-      cps: Math.round(cps * 100) / 100,
-      segments: stats.segments,
-      fillerMinutes: Math.round(fillerMinutes * 100) / 100,
-    });
-  }
-
-  return data;
-}
-
-// ========== State ==========
-let allData = [];
-let filteredData = [];
-let currentFilter = 'giin';
-let currentSort = 'chars-desc';
-let searchQuery = '';
-let charts = {};
-
-// ========== Rendering ==========
-function applyFilters() {
-  let data = [...allData];
-
-  // Filter by role
-  if (currentFilter === 'giin') {
-    data = data.filter(d => d.role === 'giin');
-  } else if (currentFilter === 'riji') {
-    data = data.filter(d => d.role === 'riji' || d.role === 'chair');
-  }
-  // 'all' shows everything
-
-  // Search
-  if (searchQuery) {
-    data = data.filter(d => d.name.includes(searchQuery));
-  }
-
-  // Sort
-  const [sortKey, sortDir] = currentSort.split('-');
-  const mul = sortDir === 'desc' ? -1 : 1;
-  data.sort((a, b) => {
-    let va, vb;
-    switch(sortKey) {
-      case 'chars': va = a.chars; vb = b.chars; break;
-      case 'time': va = a.minutes; vb = b.minutes; break;
-      case 'cps': va = a.cps; vb = b.cps; break;
-      default: va = a.chars; vb = b.chars;
-    }
-    return (va - vb) * mul;
-  });
-
-  filteredData = data;
-  renderAll();
-}
-
-function updateStats() {
-  const giinData = allData.filter(d => d.role === 'giin');
-  document.getElementById('stat-speakers').textContent = giinData.length;
-  const totalChars = giinData.reduce((s, d) => s + d.chars, 0);
-  document.getElementById('stat-chars').textContent = totalChars.toLocaleString();
-  const totalMins = giinData.reduce((s, d) => s + d.minutes, 0);
-  document.getElementById('stat-time').textContent = Math.round(totalMins) + '分';
-  const avgCps = totalChars / giinData.reduce((s, d) => s + d.seconds, 0);
-  document.getElementById('stat-avg-cps').textContent = avgCps.toFixed(2);
-  if (typeof FILLER_DATA !== 'undefined' && FILLER_DATA.summary) {
-    document.getElementById('stat-avg-filler').textContent = FILLER_DATA.summary.avg_filler_pct + '%';
-  }
-}
-
-function renderTable() {
-  const tbody = document.getElementById('table-body');
-  const maxChars = Math.max(...filteredData.map(d => d.chars), 1);
-  const maxSecs = Math.max(...filteredData.map(d => d.seconds), 1);
-
-  tbody.innerHTML = filteredData.map((d, i) => {
-    const rank = i + 1;
-    const rankClass = rank <= 3 ? `rank-${rank}` : 'rank-other';
-    const roleTag = `<span class="role-tag ${getRoleClass(d.role)}">${getRoleLabel(d.role)}</span>`;
-    const charPct = (d.chars / maxChars * 100).toFixed(1);
-    const secPct = (d.seconds / maxSecs * 100).toFixed(1);
-
-    return `<tr>
-      <td><span class="rank-badge ${rankClass}">${rank}</span></td>
-      <td><strong>${d.name}</strong></td>
-      <td>${roleTag}</td>
-      <td>${d.chars.toLocaleString()}</td>
-      <td class="bar-cell"><div class="bar-bg"><div class="bar-fill chars" style="width:${charPct}%"></div></div></td>
-      <td>${d.minutes.toFixed(1)}</td>
-      <td class="bar-cell"><div class="bar-bg"><div class="bar-fill secs" style="width:${secPct}%"></div></div></td>
-      <td>${d.cps}</td>
-      <td>${d.segments}</td>
-      <td>${d.fillerMinutes.toFixed(1)}</td>
-    </tr>`;
-  }).join('');
-}
-
-function renderBarChart() {
-  const ctx = document.getElementById('chart-bar').getContext('2d');
-  const top20 = filteredData.slice(0, 25);
-
-  if (charts.bar) charts.bar.destroy();
-
-  charts.bar = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: top20.map(d => d.name),
-      datasets: [
-        {
-          label: '総文字数',
-          data: top20.map(d => d.chars),
-          backgroundColor: 'rgba(108, 99, 255, 0.7)',
-          borderColor: 'rgba(108, 99, 255, 1)',
-          borderWidth: 1,
-          yAxisID: 'y',
-          order: 2,
-        },
-        {
-          label: '推定発言時間（分）',
-          data: top20.map(d => d.minutes),
-          type: 'line',
-          borderColor: 'rgba(255, 107, 157, 1)',
-          backgroundColor: 'rgba(255, 107, 157, 0.1)',
-          borderWidth: 3,
-          pointBackgroundColor: '#ff6b9d',
-          pointRadius: 5,
-          pointHoverRadius: 8,
-          fill: true,
-          yAxisID: 'y1',
-          order: 1,
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      interaction: { mode: 'index', intersect: false },
-      plugins: {
-        legend: { labels: { color: '#9aa0b8', font: { family: 'Noto Sans JP' } } },
-        tooltip: {
-          backgroundColor: 'rgba(20, 23, 38, 0.95)',
-          borderColor: '#2a2f45',
-          borderWidth: 1,
-          titleColor: '#e8eaed',
-          bodyColor: '#9aa0b8',
-          callbacks: {
-            label: function(ctx) {
-              if (ctx.datasetIndex === 0) return `文字数: ${ctx.parsed.y.toLocaleString()}`;
-              return `発言時間: ${ctx.parsed.y.toFixed(1)}分`;
-            }
-          }
-        },
-      },
-      scales: {
-        x: {
-          ticks: { color: '#9aa0b8', font: { size: 11, family: 'Noto Sans JP' }, maxRotation: 45 },
-          grid: { color: 'rgba(42, 47, 69, 0.5)' },
-        },
-        y: {
-          type: 'linear', position: 'left',
-          title: { display: true, text: '文字数', color: '#9aa0b8' },
-          ticks: { color: '#9aa0b8', callback: v => v.toLocaleString() },
-          grid: { color: 'rgba(42, 47, 69, 0.3)' },
-        },
-        y1: {
-          type: 'linear', position: 'right',
-          title: { display: true, text: '推定時間（分）', color: '#ff6b9d' },
-          ticks: { color: '#ff6b9d' },
-          grid: { drawOnChartArea: false },
-        },
-      },
-    },
-  });
-}
-
-function renderCpsChart() {
-  const ctx = document.getElementById('chart-cps').getContext('2d');
-  const giinOnly = filteredData.filter(d => d.role === 'giin');
-  const sorted = [...giinOnly].sort((a, b) => b.cps - a.cps);
-  const top15 = sorted.slice(0, 15);
-
-  if (charts.cps) charts.cps.destroy();
-
-  const colors = top15.map((d, i) => {
-    const hue = 240 + (i * 12);
-    return `hsla(${hue % 360}, 70%, 65%, 0.8)`;
-  });
-
-  charts.cps = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: top15.map(d => d.name),
-      datasets: [{
-        label: '文字/秒',
-        data: top15.map(d => d.cps),
-        backgroundColor: colors,
-        borderColor: colors.map(c => c.replace('0.8', '1')),
-        borderWidth: 1,
-        borderRadius: 6,
-      }],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      indexAxis: 'y',
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          backgroundColor: 'rgba(20, 23, 38, 0.95)',
-          borderColor: '#2a2f45',
-          borderWidth: 1,
-          callbacks: {
-            label: ctx => `${ctx.parsed.x} 文字/秒`,
-            afterLabel: (ctx) => {
-              const d = top15[ctx.dataIndex];
-              return `総文字数: ${d.chars.toLocaleString()}\n推定時間: ${d.minutes.toFixed(1)}分`;
-            }
-          }
-        },
-      },
-      scales: {
-        x: {
-          title: { display: true, text: '文字/秒', color: '#9aa0b8' },
-          ticks: { color: '#9aa0b8' },
-          grid: { color: 'rgba(42, 47, 69, 0.3)' },
-          min: 0,
-        },
-        y: {
-          ticks: { color: '#e8eaed', font: { size: 12, family: 'Noto Sans JP' } },
-          grid: { display: false },
-        },
-      },
-    },
-  });
-}
-
-function renderScatterChart() {
-  const ctx = document.getElementById('chart-scatter').getContext('2d');
-
-  if (charts.scatter) charts.scatter.destroy();
-
-  const giinData = filteredData.filter(d => d.role === 'giin');
-  const rijiData = filteredData.filter(d => d.role === 'riji' || d.role === 'chair');
-
-  charts.scatter = new Chart(ctx, {
-    type: 'scatter',
-    data: {
-      datasets: [
-        {
-          label: '議員',
-          data: giinData.map(d => ({ x: d.chars, y: d.minutes, name: d.name })),
-          backgroundColor: 'rgba(108, 99, 255, 0.6)',
-          borderColor: 'rgba(108, 99, 255, 1)',
-          borderWidth: 1,
-          pointRadius: 7,
-          pointHoverRadius: 11,
-        },
-        {
-          label: '理事者/進行',
-          data: rijiData.map(d => ({ x: d.chars, y: d.minutes, name: d.name })),
-          backgroundColor: 'rgba(0, 212, 170, 0.5)',
-          borderColor: 'rgba(0, 212, 170, 1)',
-          borderWidth: 1,
-          pointRadius: 5,
-          pointHoverRadius: 9,
-        }
-      ],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { labels: { color: '#9aa0b8' } },
-        tooltip: {
-          backgroundColor: 'rgba(20, 23, 38, 0.95)',
-          borderColor: '#2a2f45',
-          borderWidth: 1,
-          callbacks: {
-            label: (ctx) => {
-              const d = ctx.raw;
-              return `${d.name}: ${d.x.toLocaleString()}文字 / ${d.y.toFixed(1)}分`;
-            }
-          }
-        },
-      },
-      scales: {
-        x: {
-          title: { display: true, text: '総文字数', color: '#9aa0b8' },
-          ticks: { color: '#9aa0b8', callback: v => (v/1000).toFixed(0) + 'K' },
-          grid: { color: 'rgba(42, 47, 69, 0.3)' },
-        },
-        y: {
-          title: { display: true, text: '推定発言時間（分）', color: '#9aa0b8' },
-          ticks: { color: '#9aa0b8' },
-          grid: { color: 'rgba(42, 47, 69, 0.3)' },
-        },
-      },
-    },
-  });
-}
-
-function renderFillerChart() {
-  const ctx = document.getElementById('chart-filler').getContext('2d');
-  if (charts.filler) charts.filler.destroy();
-
-  if (typeof FILLER_DATA === 'undefined' || !FILLER_DATA.giin) return;
-
-  const giinData = FILLER_DATA.giin.sort((a, b) => b.filler_pct - a.filler_pct);
-
-  const colors = giinData.map(d => {
-    const pct = d.filler_pct;
-    if (pct >= 7) return 'rgba(255, 107, 157, 0.8)';
-    if (pct >= 5.5) return 'rgba(255, 179, 71, 0.8)';
-    return 'rgba(0, 212, 170, 0.8)';
-  });
-
-  const borderColors = giinData.map(d => {
-    const pct = d.filler_pct;
-    if (pct >= 7) return 'rgba(255, 107, 157, 1)';
-    if (pct >= 5.5) return 'rgba(255, 179, 71, 1)';
-    return 'rgba(0, 212, 170, 1)';
-  });
-
-  charts.filler = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: giinData.map(d => d.name),
-      datasets: [
-        {
-          label: 'フィラー率 (%)',
-          data: giinData.map(d => d.filler_pct),
-          backgroundColor: colors,
-          borderColor: borderColors,
-          borderWidth: 1,
-          yAxisID: 'y',
-        },
-        {
-          label: 'フィラー回数/分',
-          data: giinData.map(d => d.filler_per_min),
-          type: 'line',
-          borderColor: 'rgba(79, 195, 247, 1)',
-          backgroundColor: 'rgba(79, 195, 247, 0.1)',
-          borderWidth: 2,
-          pointBackgroundColor: '#4fc3f7',
-          pointRadius: 4,
-          fill: true,
-          yAxisID: 'y1',
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      interaction: { mode: 'index', intersect: false },
-      plugins: {
-        legend: { labels: { color: '#9aa0b8', font: { family: 'Noto Sans JP' } } },
-        tooltip: {
-          backgroundColor: 'rgba(20, 23, 38, 0.95)',
-          borderColor: '#2a2f45',
-          borderWidth: 1,
-          titleColor: '#e8eaed',
-          bodyColor: '#9aa0b8',
-          callbacks: {
-            afterBody: function(tooltipItems) {
-              const idx = tooltipItems[0].dataIndex;
-              const d = giinData[idx];
-              return [
-                `補正係数: ×${d.correction_factor}`,
-                `分析セグメント: ${d.segment_count}`,
-                `分析会議数: ${d.meetings_count}`,
-              ];
-            }
-          }
-        },
-      },
-      scales: {
-        x: {
-          ticks: { color: '#9aa0b8', font: { size: 11, family: 'Noto Sans JP' }, maxRotation: 45 },
-          grid: { color: 'rgba(42, 47, 69, 0.5)' },
-        },
-        y: {
-          type: 'linear', position: 'left',
-          title: { display: true, text: 'フィラー率 (%)', color: '#9aa0b8' },
-          ticks: { color: '#9aa0b8', callback: v => v + '%' },
-          grid: { color: 'rgba(42, 47, 69, 0.3)' },
-          suggestedMax: 10,
-        },
-        y1: {
-          type: 'linear', position: 'right',
-          title: { display: true, text: 'フィラー回/分', color: '#4fc3f7' },
-          ticks: { color: '#4fc3f7' },
-          grid: { drawOnChartArea: false },
-        },
-      },
-    },
-  });
-}
-
-function renderAll() {
-  renderTable();
-  renderBarChart();
-  renderCpsChart();
-  renderScatterChart();
-  renderFillerChart();
-}
-
-// ========== Event Handlers ==========
-function setupEvents() {
-  // Filter toggles
-  document.querySelectorAll('.toggle-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      currentFilter = btn.dataset.filter;
-      applyFilters();
-    });
-  });
-
-  // Sort select
-  document.getElementById('sort-select').addEventListener('change', (e) => {
-    currentSort = e.target.value;
-    applyFilters();
-  });
-
-  // Search
-  document.getElementById('search-input').addEventListener('input', (e) => {
-    searchQuery = e.target.value.trim();
-    applyFilters();
-  });
-
-  // Table header sort
-  document.querySelectorAll('thead th[data-sort]').forEach(th => {
-    th.addEventListener('click', () => {
-      const key = th.dataset.sort;
-      let sortKey, direction;
-      switch(key) {
-        case 'chars': sortKey = 'chars'; break;
-        case 'time': sortKey = 'time'; break;
-        case 'cps': sortKey = 'cps'; break;
-        case 'segments': sortKey = 'chars'; break;
-        default: sortKey = 'chars';
-      }
-      // Toggle direction
-      if (currentSort.startsWith(sortKey + '-desc')) {
-        currentSort = sortKey + '-asc';
-      } else {
-        currentSort = sortKey + '-desc';
-      }
-      document.getElementById('sort-select').value = currentSort;
-      applyFilters();
-    });
-  });
-}
-
-// ========== Init ==========
-async function init() {
-  const data = await loadData();
-  if (!data) {
-    document.getElementById('app').innerHTML = '<div class="loading"><p>データの読み込みに失敗しました。speech_analysis.json が同じディレクトリに必要です。</p></div>';
-    return;
-  }
-
-  allData = data;
-  updateStats();
-  applyFilters();
-  setupEvents();
-}
-
-init();
-</script>
 </body>
 </html>
