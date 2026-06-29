@@ -21,15 +21,18 @@
   .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
        letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
   .top .sq{width:9px;height:9px;background:var(--pop);}
-  .top a{color:var(--muted); text-decoration:none;}
-  .top a:hover{color:var(--pop);}
 
   .hero{padding:16px 0 24px;}
   .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
   .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
            letter-spacing:.01em; margin:0; color:var(--ink);}
-  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px;
-             display:inline-block;}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
 
   /* 要約 */
   .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
@@ -93,8 +96,7 @@
 
   <section class="sum reveal">
     <p class="lab">A I 要 約</p>
-    <div>
-      <p>ご提示いただいた会議録に基づき、要約を作成します。本会議では、議案の審議（質疑・討論・採決）が行われました。</p>
+    <p>ご提示いただいた会議録に基づき、要約を作成します。本会議では、議案の審議（質疑・討論・採決）が行われました。</p>
 <h3>提出議案の一覧</h3>
 <p>以下の計22件（補正予算および条例等）の審議が行われました。</p>
 <ul>
@@ -146,8 +148,6 @@
 </li>
 <li>いじめ防止に関する陳情（採択）、放射能測定名称に関する陳情（採択）、インボイス特例継続に関する陳情（採択）、非核三原則堅持意見書（可決）、生活保護費再減額反対意見書（可決）、原発再稼働反対意見書（可決）など、各会派の立場から活発な討論を経て採決されました。※駅前再開発に関する公共フロア設置陳情等は不採択となりました。</li>
 </ul>
-    </div>
-  </details>
   </section>
 
   <section class="media reveal">
@@ -201,7 +201,12 @@
 <div class="turn chair reveal">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=W9sxsDzh-d0&t=671s" data-timestamp="671"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:11</a>　ご異議なしと認め、質疑を終了し、厚生文教委員長の報告を終了します。次に、建設環境委員長の報告を求めます。4番清水学委員長。<br />
-<a class="ts yt-btn" href="https://www.youtube.com/watch?v=W9sxsDzh-d0&t=702s" data-timestamp="702"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:42</a>　会委員長報告を行います。</div><div class="say">建設環境委員会は令和7年12月10日及び17日の計2回にわたり開催し、議案1件、陳情2件、所管事務調査2件の計5件を審査いたしましたので、その審査の概要と結果につきましてご報告申し上げます。なお、所管事務調査、循環型社会の形成及び温室効果ガス削減に関する調査及び、所管事務調査、都市計画道路に関する調査の以上2件につきましては、引き続き調査する必要があると認め、継続調査と決定しております。</div>
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=W9sxsDzh-d0&t=702s" data-timestamp="702"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:42</a></div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">建設環境委員長</span></div>
+  <div class="say">会委員長報告を行います。</div><div class="say">建設環境委員会は令和7年12月10日及び17日の計2回にわたり開催し、議案1件、陳情2件、所管事務調査2件の計5件を審査いたしましたので、その審査の概要と結果につきましてご報告申し上げます。なお、所管事務調査、循環型社会の形成及び温室効果ガス削減に関する調査及び、所管事務調査、都市計画道路に関する調査の以上2件につきましては、引き続き調査する必要があると認め、継続調査と決定しております。</div>
 </div>
 
 <div class="turn reveal">
