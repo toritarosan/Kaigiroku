@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小金井市議会 非公式会議録 — URL一覧（NotebookLM用）</title>
+<meta name="description" content="会議録ページのURL一覧。ページを追加すると自動で最新化されます（NotebookLM等への取り込み用）。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#15315a;--navy-soft:#e9eef5;--blue:#0017c1;--blue-soft:#e8f1fe;
+  --bg:#f2f2f2;--surface:#fff;--ink:#1a1a1a;--text:#333;--muted:#666;--line:#e6e6e6;--border:#ccc;--radius:8px;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased;}
+.topbar{height:6px;background:var(--navy);}
+.wrap{max-width:880px;margin:0 auto;padding:28px 20px 60px;}
+.kicker{font-size:.74rem;letter-spacing:.2em;color:var(--navy);font-weight:700;margin:0 0 6px;}
+h1{font-size:1.5rem;font-weight:900;color:var(--navy);margin:0 0 6px;line-height:1.3;}
+.lead{color:var(--muted);font-size:.9rem;margin:0 0 18px;}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:14px 0;}
+.count{font-weight:700;color:var(--navy);}
+.count b{font-size:1.3rem;}
+button{font-family:inherit;font-size:.86rem;font-weight:700;color:#fff;background:var(--blue);border:none;padding:9px 16px;border-radius:var(--radius);cursor:pointer;transition:.12s;}
+button:hover{filter:brightness(1.08);}
+button.sub{background:var(--surface);color:var(--blue);border:1px solid var(--blue);}
+.chk{font-size:.84rem;color:var(--text);display:inline-flex;align-items:center;gap:6px;cursor:pointer;}
+textarea{width:100%;height:200px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.78rem;line-height:1.6;
+  color:var(--ink);background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px;resize:vertical;}
+.note{font-size:.78rem;color:var(--muted);margin:8px 0 0;}
+.sec{margin-top:26px;}
+.sec h2{font-size:.95rem;color:var(--navy);border-left:4px solid var(--navy);padding-left:9px;margin:0 0 10px;}
+ol{margin:0;padding-left:1.6em;}
+li{margin:3px 0;font-size:.88rem;}
+li a{color:var(--blue);text-decoration:none;}
+li a:hover{text-decoration:underline;}
+.date{color:var(--muted);font-variant-numeric:tabular-nums;margin-right:8px;}
+.ofcl{display:inline-block;font-size:.62rem;font-weight:700;color:#fff;background:var(--navy);padding:1px 6px;border-radius:999px;margin-left:6px;}
+.msg{padding:14px;background:#fff7e6;border:1px solid #ffd591;border-radius:var(--radius);color:#874d00;font-size:.85rem;}
+.foot{margin-top:30px;border-top:1px solid var(--line);padding-top:12px;font-size:.8rem;color:var(--muted);}
+.foot a{color:var(--blue);}
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+<div class="wrap">
+  <p class="kicker">小金井市議会 非公式会議録</p>
+  <h1>会議録ページ URL一覧</h1>
+  <p class="lead">NotebookLM等に取り込むための、各会議録ページのURL一覧です。<b>このページはリポジトリの現在のファイルを直接読み込むため、会議ページを追加すると自動的に最新化されます。</b></p>
+
+  <div id="status" class="msg">読み込み中…（GitHubから最新のページ一覧を取得しています）</div>
+
+  <div id="main" style="display:none;">
+    <div class="bar">
+      <span class="count"><b id="num">0</b> 件</span>
+      <button id="copy">URLを全部コピー</button>
+      <label class="chk"><input type="checkbox" id="onlyofcl"> 公式版のみ</label>
+      <button class="sub" id="reload">再取得</button>
+    </div>
+
+    <div class="sec">
+      <h2>URL（改行区切り・NotebookLM等へ貼り付け用）</h2>
+      <textarea id="ta" readonly spellcheck="false"></textarea>
+      <p class="note" id="copied"></p>
+    </div>
+
+    <div class="sec">
+      <h2>一覧（クリックで開く）</h2>
+      <ol id="list"></ol>
+    </div>
+  </div>
+
+  <div class="foot">
+    出典：<a href="index.html">小金井市議会 非公式会議録（トップ）</a><br>
+    ※ 取得に失敗する場合は、GitHubの利用制限（1時間あたりの取得回数）に達している可能性があります。少し時間をおいて再取得してください。
+  </div>
+</div>
+
+<script>
+(function(){
+  var REPO="toritarosan/Gijiroku1";
+  var BASE="https://toritarosan.github.io/Gijiroku1/";
+  var EXCLUDE={"index.html":1,"dashboard.html":1,"urls.html":1,"notebooklm.html":1};
+  var statusEl=document.getElementById("status"), mainEl=document.getElementById("main");
+  var dbsrSet={};
+
+  function parseDate(p){ // R8.6.23_... → [8,6,23]
+    var m=p.match(/^R(\d+)\.(\d+)\.(\d+)/);
+    return m? (parseInt(m[1])*10000+parseInt(m[2])*100+parseInt(m[3])) : 0;
+  }
+  function enc(p){ return p.split("/").map(encodeURIComponent).join("/"); }
+  function label(p){ var b=p.replace(/\.html$/,""); var m=b.match(/^R\d+\.\d+\.\d+_(.+)$/); return m? m[1].replace(/_/g," ") : b; }
+  function dstr(p){ var m=p.match(/^R(\d+)\.(\d+)\.(\d+)/); return m? ("R"+m[1]+"."+m[2]+"."+m[3]) : ""; }
+
+  function render(files){
+    var onlyOfcl=document.getElementById("onlyofcl").checked;
+    if(onlyOfcl) files=files.filter(function(p){return dbsrSet[p.replace(/\.html$/,"")];});
+    var urls=files.map(function(p){return BASE+enc(p);});
+    document.getElementById("num").textContent=files.length;
+    document.getElementById("ta").value=urls.join("\n");
+    var ol=document.getElementById("list"); ol.innerHTML="";
+    files.forEach(function(p){
+      var li=document.createElement("li");
+      var a=document.createElement("a"); a.href=BASE+enc(p); a.target="_blank"; a.rel="noopener"; a.textContent=label(p);
+      var d=document.createElement("span"); d.className="date"; d.textContent=dstr(p);
+      li.appendChild(d); li.appendChild(a);
+      if(dbsrSet[p.replace(/\.html$/,"")]){ var s=document.createElement("span"); s.className="ofcl"; s.textContent="公式"; li.appendChild(s); }
+      ol.appendChild(li);
+    });
+  }
+
+  var ALL=[];
+  function load(){
+    statusEl.style.display="block"; statusEl.textContent="読み込み中…"; mainEl.style.display="none";
+    // sources.json（公式マーク）→任意
+    fetch(BASE+"sources.json?_="+Date.now()).then(function(r){return r.ok?r.json():null;}).then(function(j){
+      dbsrSet={}; if(j&&j.dbsr) j.dbsr.forEach(function(b){dbsrSet[b]=1;});
+    }).catch(function(){}).finally(function(){
+      fetch("https://api.github.com/repos/"+REPO+"/git/trees/main?recursive=1")
+      .then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status); return r.json(); })
+      .then(function(data){
+        ALL=data.tree.filter(function(t){return t.type==="blob"&&t.path.indexOf("/")<0&&/\.html$/.test(t.path)&&!EXCLUDE[t.path]&&/^R\d/.test(t.path);})
+          .map(function(t){return t.path;})
+          .sort(function(a,b){return parseDate(b)-parseDate(a);});
+        statusEl.style.display="none"; mainEl.style.display="block";
+        render(ALL);
+      })
+      .catch(function(e){ statusEl.className="msg"; statusEl.textContent="取得に失敗しました（"+e.message+"）。GitHubの取得回数制限の可能性があります。少し待って「再取得」してください。"; });
+    });
+  }
+  document.getElementById("copy").addEventListener("click",function(){
+    var ta=document.getElementById("ta"); ta.select();
+    navigator.clipboard.writeText(ta.value).then(function(){
+      document.getElementById("copied").textContent="コピーしました（"+ta.value.split("\n").filter(Boolean).length+"件）。";
+    }).catch(function(){ document.execCommand("copy"); document.getElementById("copied").textContent="コピーしました。"; });
+  });
+  document.getElementById("onlyofcl").addEventListener("change",function(){render(ALL);});
+  document.getElementById("reload").addEventListener("click",load);
+  load();
+})();
+</script>
+</body>
+</html>
