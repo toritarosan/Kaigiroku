@@ -21,15 +21,18 @@
   .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
        letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
   .top .sq{width:9px;height:9px;background:var(--pop);}
-  .top a{color:var(--muted); text-decoration:none;}
-  .top a:hover{color:var(--pop);}
 
   .hero{padding:16px 0 24px;}
   .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
   .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
            letter-spacing:.01em; margin:0; color:var(--ink);}
-  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px;
-             display:inline-block;}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
 
   /* 要約 */
   .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
@@ -88,29 +91,18 @@
   <header class="hero reveal">
     <p class="date">令和8年3月18日</p>
     <h1>厚生文教委員会</h1>
-    <span class="src">YouTube字幕＋AI校正による記録（非公式）</span>
+    <span class="srcbadge"><span class="dot"></span>本文＝小金井市議会 公式会議録（DBSR）</span><span class="src official">本文は公式会議録を一字一句そのまま掲載。要約はAIによる補助、タイムスタンプ・動画はYouTube連携（いずれも非公式の付加情報）。　|　<a href="https://www.city.koganei.tokyo.dbsr.jp/320280?Template=document&amp;Id=10410#one" target="_blank" rel="noopener">公式会議録の原典 ↗</a></span>
   </header>
 
   <section class="sum reveal">
     <p class="lab">A I 要 約</p>
-    <div>
-      <h3>提出議案の一覧</h3>
+    <h3>提出議案等一覧</h3>
 <ul>
 <li>議案第23号 小金井市障害者交通手当条例</li>
 </ul>
 <h3>議案の審議ごとの要約</h3>
 <h4>議案第23号 小金井市障害者交通手当条例</h4>
-<ul>
-<li><strong>森戸委員の意見</strong></li>
-<li>本改正によって手当の利用対象がバスや電車などにも拡大された一方、手当額が3,000円から2,200円（障害者3級は1,100円）に大幅に引き下げられる点を問題視した。</li>
-<li>障害者団体から要望書が提出されているものの、市長からの検討時期や対応策が明確にされていないと指摘した。</li>
-<li>手当額を3,000円に据え置いたまま対象拡大を実施した場合、現状から約1,670万円の予算増額で対応可能であるとし、約45億円の財政調整基金を活用して支給すべきだと主張した。</li>
-<li>日本共産党として、本会議において一定の措置や修正を含めた提案を行う意向を表明した。</li>
-<li><strong>採決結果</strong></li>
-<li>質疑および討論を終了し、採決の結果、異議なしにより原案のとおり可決された。</li>
-</ul>
-    </div>
-  </details>
+<p>委員から、本条例改正により、障害者交通手当の対象がバスや電車などにも拡大されたものの、手当額が3,000円から2,200円（障害者3級は1,100円）に引き下げられることに対し、障がい者団体からも要望書が出されているとの意見があった。また、予算特別委員会で市長が検討する旨を述べたが、具体的な時期が不明であること、3,000円の手当を維持するには約1,670万円の増額が必要であり、財政調整基金を活用して支給すべきであるとの意見が述べられた。日本共産党としては、本会議で一定の措置や修正を提案する意向が示された。質疑、討論の後、本件は原案のとおり可決された。</p>
   </section>
 
   <section class="media reveal">
@@ -119,59 +111,75 @@
     <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
   </section>
 
-<div class="turn chair reveal">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=H7ZZDJo0CPM&t=123s" data-timestamp="123"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:03</a>　おはようございます。</div><div class="say">ただいまから厚生文教委員会の会議を開きます。</div><div class="say">直ちに本日の議事に入ります。当委員会に付託されております案件は、前回の委員会で保留といたしました議案1件です。</div><div class="say">以上1件につきましては、厚生文教委員会審査予定表のとおり行うことといたします。</div><div class="say">直ちに議案第23号小金井市障害者交通手当条例を議題といたします。</div><div class="say">部局発言がありましたら、これを求めます。</div><div class="say">これから質疑を行います。森戸委員。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say">おはようございます。ただいまから厚生文教委員会の会議を開きます。</div>
+  <div class="say">直ちに本日の議事に入ります。</div>
+  <div class="say">当委員会に付託されております案件は、前回の委員会で保留といたしました議案１件です。以上１件につきましては、厚生文教委員会審査予定表のとおり行うことといたします。</div>
+  <div class="say">直ちに、議案第23号、小金井市障害者交通手当条例を議題といたします。</div>
+  <div class="say">部局から発言がありましたら、これを求めます。</div>
+  <div class="say">（「特にございません」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say">これから質疑を行います。</div>
 </div>
 
 <div class="turn reveal">
   <div class="meta"><span class="name">森戸委員</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=H7ZZDJo0CPM&t=155s" data-timestamp="155"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:35</a>　質疑というよりも意見にとどめて、意見というかね、ちょっと申し上げておきたいと思います。</div><div class="say">この障害者の福祉、そしてガソリン助成についてはですね、障害者にとっては移動の重要な手段であり、その手当として非常に重要な役割を果たしてきています。</div><div class="say">今回の改正はですね、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=H7ZZDJo0CPM&t=188s" data-timestamp="188"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:08</a>　タクシー、ガソリンだけでなく、バスや電車などにも利用できるようにということで、対象の拡大はされましたが、残念ながらですね、その手当そのものが3000円が2200円、そして障害者3級の方は1100円と大幅に引き下げる内容になっています。</div><div class="say">これではですね、対象は広げたものの、内容が引き下げ</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=H7ZZDJo0CPM&t=218s" data-timestamp="218"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:38</a>　ということで、障害者団体からも「これでは困る」という要望書も市長に出されていると聞いております。</div><div class="say">予算委員会の中で市長は、どういう方法があるかも含めて検討したいということでしたが、いつまでにどう検討するのかということについては、何も明らかになっておりません。</div><div class="say">そういう点では、この令和8年度、非常に</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=H7ZZDJo0CPM&t=251s" data-timestamp="251"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:11</a>　障害者にとっては厳しい1年になるということだと思います。</div><div class="say">条例の質疑の中でもですね、これを3000円でこれまでどおりの対象にするということになれば、4980万円ぐらいに総額はなるという話でした。</div><div class="say">現状が3200万円ですから、約</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=H7ZZDJo0CPM&t=282s" data-timestamp="282"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:42</a>　1670万円ぐらいの予算を増額すればですね、これ3000円のままで実現できるということでありましてね。</div><div class="say">私はやはりですね、1670万円をですね、やりくりして出していくべきだと。</div><div class="say">とりわけ財政調整基金が45億円、この年度末ですかね、財政調整基金が</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=H7ZZDJo0CPM&t=315s" data-timestamp="315"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:15</a>　あります。これらを活用してですね、しっかりと障害者の皆さんに支給できるようにしていくべきだと思います。</div><div class="say">そういう点で、今日採決をするわけですが、日本共産党としては本会議でですね、一定の措置、また修正も含めて提案することを意見として述べておきたいと思います。</div><div class="say">以上です。</div>
+  <div class="say">質疑というよりも、意見にとどめて、意見というか、ちょっと申し上げておきたいと思います。</div>
+  <div class="say">この障がい者の福祉タクシー、そして、ガソリン助成については、障がい者にとっては移動の重要な手段であり、その手当てとして非常に重要な役割を果たしてきています。今回の改正は、タクシー、ガソリンだけでなく、バスや電車などにも利用できるようにということで対象の拡大はされましたが、残念ながら、手当そのものが、3,000円が2,200円、そして、障害者３級の方は1,100円と大幅に引き下げる内容になっています。これでは、対象は広げたものの、内容が引下げということで、障がい者団体からもこれでは困るという要望書も市長に出されていると聞いております。</div>
+  <div class="say">予算特別委員会の中で市長は、どういう方法があるかも含めて検討したいということでありましたが、いつまでにどう検討するのかということについては、何も明らかになっておりません。そういう点では、令和８年度、障がい者にとっては非常に厳しい１年になるということだと思います。</div>
+  <div class="say">条例の質疑の中でも、これを3,000円でこれまでどおりの対象にするということになれば、総額で4,980万円ぐらいになるという話でした。現状が3,200万円ですから、約1,670万円の予算を増額すれば、3,000円のままで実現できるということでありまして、私はやはり1,670万円をやりくりして、出していくべきだと。この年度末、財政調整基金が45億円あります。これらを活用して、しっかりと障がい者の皆さんに支給できるようにしていくべきだと思います。</div>
+  <div class="say">そういう点で、今日採決をするわけですが、日本共産党としては、本会議で一定の措置、また、修正も含めて提案することを意見として申し述べておきたいと思います。</div>
 </div>
 
-<div class="turn chair reveal">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=H7ZZDJo0CPM&t=349s" data-timestamp="349"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:49</a>　他にございますか。大丈夫ですか。</div><div class="say">それでは、採決に移りますがよろしいでしょうか。じゃあ休憩しないでいきますね。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say">他にございますか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn voice reveal">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">はい。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say">本件につきまして、委員長報告に載せる意見・要望がございましたら、発言をお願いいたします。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">本件につきまして、委員長報告に載せる意見、要望がございましたら発言をお願いいたします。</div><div class="say">以上で本件に対する質疑を終了することにご異議ありませんか。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say">以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn voice reveal">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">異議なし。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、質疑を終了いたします。</div>
+  <div class="say">これから討論を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">ご異議なしと認めます。したがって、質疑を終了いたします。</div><div class="say">これから討論を行います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=H7ZZDJo0CPM&t=380s" data-timestamp="380"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:20</a>　本件に対する討論を終了することにご異議ありませんか。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say">本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn voice reveal">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">異議なし。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、討論を終了いたします。</div>
+  <div class="say">それでは、直ちに採決いたします。</div>
+  <div class="say">お諮りいたします。本件は原案のとおり可決することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">ご異議なしと認めます。したがって、討論を終了いたします。</div><div class="say">それでは直ちに採決いたします。</div><div class="say">お諮りいたします。本件は原案のとおり可決することにご異議ありませんか。</div>
-</div>
-
-<div class="turn voice reveal">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">異議なし。</div>
-</div>
-
-<div class="turn chair reveal">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">ご異議なしと認めます。したがって、本件は原案可決と決定いたしました。</div><div class="say">以上で本日の日程は全部終了いたしました。</div><div class="say">本日は以上で厚生文教委員会を閉会いたします。お疲れ様でございました。した。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、本件は原案可決と決定いたしました。</div>
+  <div class="say">以上で、本日の日程は全部終了いたしました。</div>
+  <div class="say">本日は、以上で厚生文教委員会を閉会いたします。</div>
+  <div class="say">午前10時16分閉会</div>
 </div>
 
 </div>
