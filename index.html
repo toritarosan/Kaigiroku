@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 分割ビュー(本番風グループ/色分け)：左クリック→右ペインに新マガジン版（本番非影響） -->
+<!-- 分割ビュー：サイドバー下部リンク3つ＋クレジット復元 -->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -66,6 +66,12 @@ body{margin:0;background:var(--bg);color:var(--text);
 .entry.is-active .name{font-weight:700;color:var(--navy);}
 .nores{display:none;text-align:center;padding:40px 20px;color:var(--muted);font-size:.85rem;}
 
+.side-links{border-top:1px solid var(--line);padding:10px 14px 12px;display:flex;flex-direction:column;gap:2px;}
+.side-links a{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--primary);font-size:.84rem;font-weight:700;padding:9px 11px;border-radius:var(--radius);transition:.12s;cursor:pointer;}
+.side-links a:hover{background:var(--primary-soft);}
+.side-links a .arr{margin-left:auto;}
+.side-cred{color:var(--g-536);font-size:.72rem;line-height:1.6;padding:8px 11px 0;font-weight:400;}
+
 .preview{height:100%;background:#fff;overflow:hidden;display:flex;flex-direction:column;}
 .preview iframe{width:100%;flex:1;border:0;display:block;background:#fff;}
 .backbar{display:none;}
@@ -110,6 +116,12 @@ body{margin:0;background:var(--bg);color:var(--text);
 <details class="session" id="sess-closed"><summary class="session-head"><span class="session-name">閉会中の委員会・協議会等</span><span class="session-count">15</span><span class="chev">▾</span></summary><div class="entries"><button class="entry" data-cat="特別委員会・協議会" data-href="R8.5.22_広報・広聴協議会.html" data-text="広報・広聴協議会 5.22 特別委員会・協議会" title="特別委員会・協議会"><span class="date">5.22</span><span class="cdot" style="background:#1d8b56;"></span><span class="name">広報・広聴協議会</span></button><button class="entry" data-cat="議会運営委員会" data-href="R8.5.18_議会運営委員会.html" data-text="議会運営委員会 5.18 議会運営委員会" title="議会運営委員会"><span class="date">5.18</span><span class="cdot" style="background:#6f23d0;"></span><span class="name">議会運営委員会</span></button><button class="entry" data-cat="常任委員会" data-href="R8.5.12_建設環境委員会.html" data-text="建設環境委員会 5.12 常任委員会" title="常任委員会"><span class="date">5.12</span><span class="cdot" style="background:#264af4;"></span><span class="name">建設環境委員会</span></button><button class="entry" data-cat="常任委員会" data-href="R8.4.28_厚生文教委員会.html" data-text="厚生文教委員会 4.28 常任委員会" title="常任委員会"><span class="date">4.28</span><span class="cdot" style="background:#264af4;"></span><span class="name">厚生文教委員会</span></button><button class="entry" data-cat="特別委員会・協議会" data-href="R8.4.21_広報・広聴協議会.html" data-text="広報・広聴協議会 4.21 特別委員会・協議会" title="特別委員会・協議会"><span class="date">4.21</span><span class="cdot" style="background:#1d8b56;"></span><span class="name">広報・広聴協議会</span></button><button class="entry" data-cat="常任委員会" data-href="R8.4.20_総務企画委員会.html" data-text="総務企画委員会 4.20 常任委員会" title="常任委員会"><span class="date">4.20</span><span class="cdot" style="background:#264af4;"></span><span class="name">総務企画委員会</span></button><button class="entry" data-cat="特別委員会・協議会" data-href="R8.4.14_庁舎等建設及び公共施設マネジメント推進調査特別委員会.html" data-text="庁舎等建設・公共施設マネジメント推進調査特別委員会 4.14 特別委員会・協議会" title="特別委員会・協議会"><span class="date">4.14</span><span class="cdot" style="background:#1d8b56;"></span><span class="name">庁舎等建設・公共施設マネジメント推進調査特別委員会</span></button><button class="entry" data-cat="特別委員会・協議会" data-href="R8.2.6_庁舎等建設及び公共施設マネジメント推進調査特別委員会.html" data-text="庁舎等建設・公共施設マネジメント推進調査特別委員会 2.6 特別委員会・協議会" title="特別委員会・協議会"><span class="date">2.6</span><span class="cdot" style="background:#1d8b56;"></span><span class="name">庁舎等建設・公共施設マネジメント推進調査特別委員会</span></button><button class="entry" data-cat="本会議" data-href="R8.2.5_本会議.html" data-text="本会議 2.5 本会議" title="本会議"><span class="date">2.5</span><span class="cdot" style="background:#ce0000;"></span><span class="name">本会議</span></button><button class="entry" data-cat="常任委員会" data-href="R8.2.4_建設環境委員会.html" data-text="建設環境委員会 2.4 常任委員会" title="常任委員会"><span class="date">2.4</span><span class="cdot" style="background:#264af4;"></span><span class="name">建設環境委員会</span></button><button class="entry" data-cat="常任委員会" data-href="R8.2.2_総務企画委員会.html" data-text="総務企画委員会 2.2 常任委員会" title="常任委員会"><span class="date">2.2</span><span class="cdot" style="background:#264af4;"></span><span class="name">総務企画委員会</span></button><button class="entry" data-cat="議会運営委員会" data-href="R8.2.2_議会運営委員会.html" data-text="議会運営委員会 2.2 議会運営委員会" title="議会運営委員会"><span class="date">2.2</span><span class="cdot" style="background:#6f23d0;"></span><span class="name">議会運営委員会</span></button><button class="entry" data-cat="特別委員会・協議会" data-href="R8.1.30_広報・広聴協議会.html" data-text="広報・広聴協議会 1.30 特別委員会・協議会" title="特別委員会・協議会"><span class="date">1.30</span><span class="cdot" style="background:#1d8b56;"></span><span class="name">広報・広聴協議会</span></button><button class="entry" data-cat="本会議" data-href="R7.12.19_本会議.html" data-text="本会議 12.19 本会議" title="本会議"><span class="date">12.19</span><span class="cdot" style="background:#ce0000;"></span><span class="name">本会議</span></button><button class="entry" data-cat="常任委員会" data-href="R7.10.27_建設環境委員会.html" data-text="建設環境委員会 10.27 常任委員会" title="常任委員会"><span class="date">10.27</span><span class="cdot" style="background:#264af4;"></span><span class="name">建設環境委員会</span></button></div></details>
       <div class="nores" id="nores">該当する会議がありません</div>
     </nav>
+    <div class="side-links">
+      <a id="dashlink" href="dashboard.html">発言時間ダッシュボード<span class="arr">→</span></a>
+      <a href="https://www.city.koganei.tokyo.dbsr.jp/" target="_blank" rel="noopener">公式 会議録検索<span class="arr">↗</span></a>
+      <a href="https://www.youtube.com/@koganei_shigikai" target="_blank" rel="noopener">議会 YouTube<span class="arr">↗</span></a>
+      <div class="side-cred">作成・運営：ながとり太郎（小金井市議会議員）</div>
+    </div>
   </aside>
   <section class="preview">
     <button class="backbar" id="back">← 会議一覧に戻る</button>
@@ -149,6 +161,12 @@ document.querySelectorAll('.entry').forEach(e=>{
 });
 document.getElementById('back').addEventListener('click',()=>{
   document.body.classList.remove('show-detail');
+});
+document.getElementById('dashlink').addEventListener('click',(e)=>{
+  e.preventDefault();
+  document.querySelectorAll('.entry').forEach(x=>x.classList.remove('is-active'));
+  frame.src='dashboard.html';
+  document.body.classList.add('show-detail');
 });
 document.querySelectorAll('.facet').forEach(f=>{
   f.addEventListener('click',()=>{
