@@ -49,10 +49,11 @@ header.h a.back:hover{text-decoration:underline;}
 .card .badge{font-size:.6rem;font-weight:700;color:#fff;background:var(--navy);padding:1px 7px;border-radius:999px;letter-spacing:.04em;}
 .card .badge.sokuho{background:#a06a00;}
 .card .cat{font-size:.68rem;color:var(--muted);}
-.card .snip{margin:8px 0 0;font-size:.84rem;color:var(--text);line-height:1.7;
+.card .who{margin:7px 0 0;font-size:.76rem;color:var(--navy);font-weight:700;}
+.card .snip{margin:5px 0 0;font-size:.84rem;color:var(--text);line-height:1.7;
   display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
-.card .snip mark{background:#fff2b3;color:inherit;padding:0 1px;border-radius:2px;}
-.card .meta2{margin:7px 0 0;font-size:.72rem;color:var(--muted);}
+.card .snip mark{background:#ffe066;color:inherit;padding:0 1px;border-radius:2px;}
+.card .jump{margin:7px 0 0;font-size:.72rem;color:var(--pop);font-weight:700;}
 .empty{text-align:center;padding:48px 16px;color:var(--muted);font-size:.9rem;}
 .loading{text-align:center;padding:48px 16px;color:var(--muted);font-size:.9rem;}
 .footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.74rem;line-height:1.8;}
@@ -75,7 +76,7 @@ header.h a.back:hover{text-decoration:underline;}
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
       <input type="text" id="q" placeholder="例: 学童保育　給食費　議案第40号　ながとり" autocomplete="off" autofocus>
     </div>
-    <p class="hint">スペース区切りで複数語のAND検索。発言者名・議案番号・キーワードに対応。検索結果をクリックすると会議録の該当箇所へジャンプし、語を黄色く強調します。</p>
+    <p class="hint">スペース区切りで複数語のAND検索。発言者名・議案番号・キーワードに対応。検索結果をクリックすると会議録の<strong>その発言箇所へ直接ジャンプ</strong>し、語を黄色く強調します。</p>
     <div class="facets" id="catFacets"></div>
     <div class="facets" id="srcFacets">
       <button class="facet is-active" data-src="all">すべて</button>
@@ -105,68 +106,100 @@ header.h a.back:hover{text-decoration:underline;}
       catFacets=document.getElementById('catFacets');
 
   function norm(s){ return (s||"").toLowerCase().normalize('NFKC'); }
-  function esc(s){ return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function esc(s){ return (s||"").replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function reEsc(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
 
-  function highlight(text, terms){
+  function highlight(text, rawTerms){
     var out=esc(text);
-    terms.forEach(function(t){
+    rawTerms.forEach(function(t){
       if(!t) return;
-      var re=new RegExp(t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
+      var re=new RegExp(reEsc(esc(t)),'gi');
       out=out.replace(re,function(m){return '<mark>'+m+'</mark>';});
     });
     return out;
   }
 
-  function snippet(rec, terms, hay){
-    var pos=-1, first=null;
-    terms.forEach(function(t){ var p=hay.indexOf(t); if(p>=0&&(pos<0||p<pos)){pos=p;first=t;} });
-    if(pos<0){ return esc(rec.text.slice(0,160))+'…'; }
-    var start=Math.max(0,pos-50), end=Math.min(rec.text.length,pos+110);
-    var raw=(start>0?'…':'')+rec.text.slice(start,end)+(end<rec.text.length?'…':'');
-    return highlight(raw, terms);
+  // 1つの文字列(発言/要約)から、検索語の最初の出現周辺を切り出して強調
+  function snippet(text, rawTerms){
+    if(!text) return '';
+    var lt=text.toLowerCase(), pos=-1;
+    rawTerms.forEach(function(t){ var p=lt.indexOf(t.toLowerCase()); if(p>=0&&(pos<0||p<pos)) pos=p; });
+    if(pos<0) return esc(text.slice(0,150))+(text.length>150?'…':'');
+    var start=Math.max(0,pos-50), end=Math.min(text.length,pos+120);
+    return (start>0?'…':'')+highlight(text.slice(start,end), rawTerms)+(end<text.length?'…':'');
+  }
+
+  function hay(r){
+    if(r._hay) return r._hay;
+    var t=r.title+' '+r.speakers.join(' ')+' '+r.giann.join(' ')+' '+(r.summary||'');
+    for(var i=0;i<r.turns.length;i++){ t+=' '+r.turns[i][0]+' '+r.turns[i][1]; }
+    r._hay=norm(t); return r._hay;
+  }
+
+  // 検索語が最も多く含まれる「発言ターン or 要約」を特定（ジャンプ先＆スニペット元）
+  function bestLoc(r, terms){
+    var bi=-1, bscore=-1;
+    for(var i=0;i<r.turns.length;i++){
+      var h=norm(r.turns[i][0]+' '+r.turns[i][1]), sc=0;
+      for(var k=0;k<terms.length;k++){ if(h.indexOf(terms[k])>=0) sc++; }
+      if(sc>bscore){ bscore=sc; bi=i; if(sc===terms.length) break; }
+    }
+    var hs=norm(r.summary||''), ss=0;
+    for(var j=0;j<terms.length;j++){ if(hs.indexOf(terms[j])>=0) ss++; }
+    if(bscore<=0 && ss<=0)
+      return {hash:'', text:(r.summary||(r.turns[0]&&r.turns[0][1])||r.title), who:''};
+    if(bscore>=ss)
+      return {hash:'#t'+bi, text:r.turns[bi][1], who:r.turns[bi][0]};
+    return {hash:'#summary', text:r.summary, who:'（AI要約）'};
   }
 
   function render(){
-    if(!DATA){ return; }
+    if(!DATA) return;
     var query=q.value.trim();
     var terms=query?norm(query).split(/\s+/).filter(Boolean):[];
     var rawTerms=query?query.split(/\s+/).filter(Boolean):[];
-    // 該当箇所へジャンプ＋ハイライト（ブラウザ標準 Text Fragments）。最大3語。
-    var frag=rawTerms.length ? '#:~:text='+rawTerms.slice(0,3).map(encodeURIComponent).join('&text=') : '';
+    var qparam=rawTerms.length?('?q='+encodeURIComponent(rawTerms.join(' '))):'';
+
     var list=DATA.records.filter(function(r){
       if(activeCat!=='all' && r.cat!==activeCat) return false;
       if(activeSrc==='official' && !r.official) return false;
       if(activeSrc==='sokuho' && r.official) return false;
       if(!terms.length) return true;
-      r._hay=r._hay||norm(r.title+' '+r.speakers.join(' ')+' '+r.giann.join(' ')+' '+r.text);
-      return terms.every(function(t){ return r._hay.indexOf(t)>=0; });
+      var h=hay(r);
+      return terms.every(function(t){ return h.indexOf(t)>=0; });
     });
-    // 関連度（語の総出現数）→ 日付降順
     if(terms.length){
-      list.forEach(function(r){
-        var c=0; terms.forEach(function(t){ var i=0; while((i=r._hay.indexOf(t,i))>=0){c++;i+=t.length;} });
-        r._score=c;
-      });
+      list.forEach(function(r){ var h=hay(r),c=0; terms.forEach(function(t){var i=0;while((i=h.indexOf(t,i))>=0){c++;i+=t.length;}}); r._score=c; });
       list.sort(function(a,b){ return (b._score-a._score)||(b.sortkey-a.sortkey); });
     } else {
       list.sort(function(a,b){ return b.sortkey-a.sortkey; });
     }
+
     status.textContent = query
       ? list.length+' 件の会議で「'+query+'」が見つかりました'
       : '全 '+DATA.records.length+' 会議（キーワードを入力すると本文を検索します）';
     if(!list.length){ results.innerHTML='<div class="empty">該当する会議が見つかりませんでした。</div>'; return; }
+
     var html=list.slice(0,80).map(function(r){
-      var snip = terms.length ? snippet(r, terms, r._hay) : esc(r.text.slice(0,150))+'…';
-      var hitSpeakers = terms.length ? r.speakers.filter(function(s){var ns=norm(s);return terms.some(function(t){return ns.indexOf(t)>=0;});}) : [];
-      return '<a class="card" href="'+encodeURI(r.file)+frag+'">'
+      var href=encodeURI(r.file), who='', snip='';
+      if(terms.length){
+        var loc=bestLoc(r, terms);
+        href=encodeURI(r.file)+qparam+loc.hash;
+        who=loc.who;
+        snip=snippet(loc.text, rawTerms);
+      } else {
+        snip=esc((r.summary||(r.turns[0]&&r.turns[0][1])||'').slice(0,150))+'…';
+      }
+      return '<a class="card" href="'+href+'">'
         +'<div class="row1">'
           +'<span class="date">'+esc(r.date)+'</span>'
           +'<span class="ttl">'+esc(r.meeting)+'</span>'
           +(r.official?'<span class="badge">公式</span>':'<span class="badge sokuho">速報</span>')
           +'<span class="cat">'+esc(r.cat)+'</span>'
         +'</div>'
+        +(who?'<p class="who">'+esc(who.replace(/^◯/,''))+' の発言</p>':'')
         +'<p class="snip">'+snip+'</p>'
-        +(hitSpeakers.length?'<p class="meta2">発言者一致：'+esc(hitSpeakers.slice(0,6).join('、'))+'</p>':'')
+        +(terms.length?'<p class="jump">▶ クリックでこの箇所へジャンプ</p>':'')
       +'</a>';
     }).join('');
     if(list.length>80) html+='<div class="empty">上位80件を表示しています。語を追加して絞り込んでください。</div>';
@@ -176,9 +209,9 @@ header.h a.back:hover{text-decoration:underline;}
   function buildCatFacets(){
     var cats={}; DATA.records.forEach(function(r){cats[r.cat]=(cats[r.cat]||0)+1;});
     var order=["本会議","予算特別委員会","決算特別委員会","総務企画委員会","厚生文教委員会","建設環境委員会","議会運営委員会","広報・広聴協議会","特別委員会","協議会・その他"];
-    var html='<button class="facet is-active" data-cat="all">すべて</button>';
-    order.forEach(function(c){ if(cats[c]) html+='<button class="facet" data-cat="'+c+'">'+c+'</button>'; });
-    catFacets.innerHTML=html;
+    var h='<button class="facet is-active" data-cat="all">すべて</button>';
+    order.forEach(function(c){ if(cats[c]) h+='<button class="facet" data-cat="'+c+'">'+c+'</button>'; });
+    catFacets.innerHTML=h;
     [].forEach.call(catFacets.querySelectorAll('.facet'),function(b){
       b.addEventListener('click',function(){
         [].forEach.call(catFacets.querySelectorAll('.facet'),function(x){x.classList.remove('is-active');});

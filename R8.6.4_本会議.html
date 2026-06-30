@@ -77,6 +77,12 @@
     .hero{padding:14px 0 22px;} .sum{padding:18px;}
     .turn{padding:12px 0;} .say{font-size:15.5px;}
   }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
 </style>
 </head>
 <body>
@@ -91,7 +97,7 @@
     <span class="src">YouTube字幕＋AI校正による記録（非公式）</span>
   </header>
 
-  <section class="sum reveal">
+  <section class="sum reveal" id="summary">
     <p class="lab">A I 要 約</p>
     <div>
       <p>ご提示いただいた会議録の要約は以下の通りです。</p>
@@ -199,73 +205,73 @@
     <p class="cap">動画を再生しながら会議録を読めます（YouTube・3本）</p>
   </section>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t0">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=143s" data-timestamp="143"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:23</a>おはようございます。定刻でありますが、本会議開会前にご報告したいことがありますので、よろしくお願いします。</div><div class="say">この度、吹春やすたか議員が全国市議会議長会より永年勤続表彰を受賞されました。10年の期にわたり市議会議員として市政の発展に尽くされた功績を称えられたものです。おめでとうございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=178s" data-timestamp="178"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:58</a>続きまして、全国市議会議長会より斎藤議長に感謝状が授与されました。斎藤議長は正副議長として、議会運営の重責を担われ、同会の使命達成に尽力された功績が誠に顕著であると認められたものでございます。</div><div class="say">先ほどお二人には、議長室にて表彰及び感謝状、記念品の授与を取り行いましたので、ここでご報告いたします。大変におめでとうございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=216s" data-timestamp="216"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:36</a>ありがとうございます。続きまして市長から発言を求められておりますので、お願いします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t1">
   <div class="meta"><span class="name">市長</span></div>
   <div class="say">はい、おはようございます。昨日からの台風6号の件について、簡単でございますが、ご報告をさせていただきたいと思います。防災安全担当部長。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t2">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say">はい。昨日6月3日の台風6号に関しまして被害状況等を確認いたしましたので、速報にはなりますがご報告いたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=251s" data-timestamp="251"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:11</a>まず本市における警報等の概要でございますが、午前7時41分野川沿いにレベル4氾濫危険警報が発令されました。以降、午前8時44分にレベル4大雨警報、午後の14時28分に大雨警報が解除され、15時ちょうどに氾濫危険情報が解除されたものでございます。</div><div class="say">現状把握している段階では、市内に特段の被害は生じなかったものと認識しております。この間、地域安全課ではホームページへの情報掲載や自主避難所の</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=285s" data-timestamp="285"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:45</a>開設の可能性を考慮しまして、三宅坂集会所、UI管理センターに職員を派遣し、開設を準備するなどの対応を取り、市内の状況を注視しつつ、関係部署及び関係機関と情報を共有し、状況把握に努めましたが、事前の予報に至らず、河川の推移も低下し始めたことから開設には至らなかったものでございます。報告は以上でございます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t3">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">以上です。ありがとうございました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=332s" data-timestamp="332"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:32</a>じゃあお願いします。</div><div class="say">おはようございます。ただいまから本日の会議を開きます。日程第1、一般質問を行います。通告順に発言を許可します。17番吹春やすたか議員の発言を許可します。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t4">
   <div class="meta"><span class="name">吹春やすたか議員</span></div>
   <div class="say">はい。おはようございます。昨日の台風大変でしたけれども、これからも頑張って市政のために努力してまいりたいと存じます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=367s" data-timestamp="367"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:07</a>まず最初、ちょっと皆様にお伝えしたいことがあるんですけれども、通告いたしました、今回大きな1番と大きな2番で準備をさせていただきました。順番入れ替えまして、まず最初大きな2番の方から質問させていただき、2番の括弧1、括弧2、括弧3と進めて、それで2番が終わったところで大きな1番の質問ですが、それも括弧1と2の順番入れ替えて質問させていただければと存じます。このことにつきましては担当部局とは</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=398s" data-timestamp="398"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:38</a>ちゃんと調整済ましておりますので、よろしくお願いいたします。それでは質問に入らせていただきます。今回大きく2つの質問をさせていただきます。</div><div class="say">どちらもですね、とても命にかかわる部分もあるかと思いますし、市民の財産を守るためにはとっても必要なことと思っておりますので質問させていただきます。まず最初、災害に対する備えは市民の命を守るための至急の課題である、所管課の尽力により備えは形をなしてきたと私は判断しております。確認を含め</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=430s" data-timestamp="430"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:10</a>これからの展開について質問と思います。ということで、大きな2番、特に自然大災害が発生した場合十分に準備できているだろうかとして、まず括弧1、消防の要となる消防団員は改選期を迎えました。でも十分な人数が確保できただろうか、非常に疑問に思うところでございます。</div><div class="say">まずこのことについてお尋ねいたします。防災安全担当部長。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t5">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=461s" data-timestamp="461"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:41</a>はい。まず小金井市消防団につきましてご説明させていただきます。</div><div class="say">小金井市消防団の組織といたしましては、本部に団長、副団長、本部分団長を置き、5つの各分団に15名とする定員、合計定員83名で構成されております。その任期は1期2年となっておりまして、令和8年4月直近の改選時点では、本部3名、第1分団9名、第</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=493s" data-timestamp="493"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:13</a>2分団12名、第3分団13名、第4分団12名、第5分団14名の合計63名となっております。</div><div class="say">定員に達しておりませんことから、引き続き募集の告知や消防団活動の周知につきましては、とらえて積極的に行ってまいりたいと考えております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t6">
   <div class="meta"><span class="name">吹春やすたか議員</span></div>
   <div class="say">はい。ご答弁いただきました。今、それぞれの組織としての人数の方、各分団についてご報告いただいたんですけども、第〇分団</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=529s" data-timestamp="529"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:49</a>14名とのご報告をいただいたわけですけども、6月1日に1人入りまして15名になりました。ありがとうございます。これからも市民の安全と安心のために努力していく所存でございますが、やっぱり人数が少ない部分においてとっても心配になる部分があるかと思います。</div><div class="say">それでお尋ねしますけども、今回改選期だったわけですけれども、小金井市としてはこの改選期にどのような取り組みをされたのかお尋ねいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t7">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=567s" data-timestamp="567"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:27</a>今回の改選期の募集におきましては、市報の1月15日号で消防団の特集記事を掲載のほか、市ホームページやX、武蔵小金井駅南口ロータリーの懸垂幕の掲示、また、コミュニティバス内のポスター掲示、公共掲示板、各分団詰所の広報掲示板やのぼりを設置しまして周知を図りました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=598s" data-timestamp="598"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:58</a>また、市内の専門学校であるテクノスカレッジのご協力をいただきまして、学生の方向けにポスター掲示を行っております。ほか、市職員に対しましても庁内広報や新入職員研修を通じて、消防団活動への理解と入団促進を行ってまいりました。</div><div class="say">さらに小金井郵便局のご協力によりまして、配達のオートバイの2台の部分にですね、団員募集のステッカーを貼っていただくなど地域との</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=630s" data-timestamp="630"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:30</a>連携も強化いたしております。今後も消防団の重要性を広く周知し、団員の確保に全力を尽くして考えております。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t8">
   <div class="meta"><span class="name">吹春やすたか議員</span></div>
   <div class="say">ご答弁いただきましてありがとうございます。今伺っただけでも色々なことをやっていただいたなと。これまでの改選期と違った角度でも取り組んでいただいておりましたし、また具体的に他団体や他の組織の協力にも働きかけていただいたところは、私は大変高く評価できるところだと思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=660s" data-timestamp="660"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:00</a>さらにこれをですね、きっかけとしてまたさらに広めていただいて、ぜひ次の改選期の時には、5つの分団全ての分団が15人の団員が揃うような形で迎えていただければと存じます。</div><div class="say">それで質問の中に盛り込ませていただいたんですけども、やっぱり昨日のような突然の台風、季節外れの突然の台風が来たわけですけども、その時、議会は休会だったわけです。私は本当に午前中気が気じゃなかったです。いつ出動命令が出る</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=691s" data-timestamp="691"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:31</a>だろうか。もし出動命令が出た際、午前中だしな、何名集まれるんだろうと、そのこととっても気になったりとかしておりました。</div><div class="say">幸いながらそういった事態に至らなかったわけですけども、やっぱりここは人材的なものでいなければ考え方を変えて、退団された方にも応援していただくこといかがかと思って質問準備させていただきました。通告は、また退団された方の施策についていかがかとお尋ねしておりますが、すみません。このことについて、退団された方には以前</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=725s" data-timestamp="725"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:05</a>ご答弁いただいた中では、上級を経験させ、上級の事項などを考えているということお伺いしたわけですけども、それ以降のご見解ありましたらお願いいたします。防災安全担当部長。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t9">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say">退団への施策についてでございます。退団団員の中でも経験豊富な知識及び技術を持って退団された消防団員の方々を対象といたしまして、消防災害支援隊を発足してございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=757s" data-timestamp="757"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:37</a>各分団5名で構成されており、市内に震度5強以上の地震が発生し、市内全域に被害が拡大していると予想される場合、家族等のご事情が許す範囲で、最寄りの消防団詰所に参集し、消防の活動のサポートを行うものとなってございます。ご提案いただいておりますことにつきましては、引き続き検討してまいりたいと考えているところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=789s" data-timestamp="789"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:09</a>以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t10">
   <div class="meta"><span class="name">吹春やすたか議員</span></div>
   <div class="say">はい。ご答弁いただきました。ぜひともですね、せっかくの能力の高い方がいらっしゃる、市内に存在していらっしゃるわけですから、なんとかして連携を取れるようにこれからも政策のほう考えていただければと存じますので、どうぞよろしくお願いいたします。消防団について以上でございます。</div><div class="say">次に避難所における災害時のトイレ対策がこれからどうなるのか、災害を防ぐための対応が十分かどうかもお尋ねいたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=822s" data-timestamp="822"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:42</a>能登半島地震なんですけれども、災害関連死の方増えております。2026年の5月末の時点でのデータでは、災害関連死で亡くなった方が510人と、500人を超えるような状態になってしまいました。これはやっぱりトイレのことだったりとか、あと医療面のことだったりとか、色々な意味で衛生状態が悪化していたのでこんな結果も招いてしまっているんだろうなと思いますが、2016年に起きました熊本地震の際には災害関連死で亡くなりになった方って</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=854s" data-timestamp="854"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:14</a>278人だったんですね。その倍以上の方が亡くなってらっしゃるわけです。やっぱりここはちゃんとした準備を整えておかなければならないわけですけども、それでこのトイレ対策について、災害発生時のトイレ対策についてお尋ねをいたします。</div><div class="say">今現状どういうふうになっているかだけ答えていただければ大丈夫ですのでお願いいたします。防災安全担当部長。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t11">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say">災害時のトイレ対策につきましては、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=884s" data-timestamp="884"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:44</a>これまで避難所におけるマンホールトイレの整備や携帯トイレ等の備蓄を進めてきたところでございます。</div><div class="say">災害時のトイレ環境は、議員指摘の通り令和6年能登半島地震においても大きな課題として認識されており、トイレ環境の悪化は災害関連死につながる要因の1つであると考えております。市といたしましては、災害時のトイレ環境のさらなる向上を図るため、現在トイレトラックの導入について検討を</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=916s" data-timestamp="916"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:16</a>進めているところでございます。トイレトラックにつきましては、災害時におけるトイレの数量確保や快適性の向上に資するだけではなく、平時において災害時のトイレ問題に関する普及啓発も合わせて行うことで、市民の方の防災意識の向上やご家庭での携帯トイレ等の備蓄促進につなげていくことが重要であると考えております。</div><div class="say">またこうした啓発活動を通じて在宅避難</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=947s" data-timestamp="947"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:47</a>を促進し、避難所への過度な集中を抑制することは、避難所の生活環境の改善や災害関連死の防止につながるものと考え取り組んでおります。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t12">
   <div class="meta"><span class="name">吹春やすたか議員</span></div>
   <div class="say">ご答弁いただきました。災害時のトイレ対策政策について私かなり充実してきたと思っております。トイレトラックの導入についてもこれから検討して、具体的な形で進めていただけるということ、大変私としては喜ばしい</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=978s" data-timestamp="978"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:18</a>ございます。特に私としてはこのトイレトレーラーを最初の1番最初に提案させていただいたんですけど、その時がですね、平成30年でした。2018年の2月の議会場において質問させていただいて、提案という形で質問させていただいております。</div><div class="say">それから何度もこれ質問してきたんですけど、やっと形になったなというところですけども、私は災害が発生した時、トイレ対策においてのトイレトラック、トイレトレーラーなどは1つの意味でのゴールでは</div><div class="say">◯吹春やすたか議員<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=1039s" data-timestamp="1039"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:19</a>　こうした啓発活動を通じてというふうなところにかなり大きな意味が含まれていると思うんですね。というのは、今まで災害現場で私個人数で伺った時に、トイレトレーラーを拝見した時に「わあっとすごい、これが本物だ」と思って感動したことを覚えているんですけれども、それ以外にも東京都内におきまして、トイレトレーラーが一般に使えるようにという形で展示されているところに複数回伺ったことがございます。その時に私は、「あ、トイレトラック導入したんだ」と思ったと同時に、周りの方が「え、なんでこれが必要なの？」という方が大変多いんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=1069s" data-timestamp="1069"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:49</a>　やっぱりそこについては、啓発活動、なぜトイレトレーラーが必要なのか、なぜトイレトラックが必要なのかということをちゃんと啓発活動していくことの必要性がかなりあると思いますし、またトイレの中で頂いた携帯トイレなどの備蓄促進についても、やっぱりしっかりと進めていっていただかなければならないことだと思っております。ただ今のところ、まだトイレトラックについて具体的な導入についての検討がなされているということですので、今回ここまでの質問にしておきますけれども、やっぱり啓発活動や在宅避難を促進すること、これが避難所の緩和につながることを考えると、かなり大きな一歩、政策の一つになるかと思いますので、この辺についても充実させていただくことをよろしくお願いいたします。えー、そして、（発言者不明）さんに移らせていただきます。</div><div class="say">災害に対する新しい対策をメディアですることが非常に多くなりました。近年はそれらについてどのような見解や意見をお持ちなのかをお尋ねいたします。まず単純に見解についてお尋ねします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t13">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=1116s" data-timestamp="1116"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:36</a>災害対策に関する資機材につきましては、近年様々な製品が登場しており、市といたしましても展示会への参加や事業者からの情報収集に努めているところでございます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=1148s" data-timestamp="1148"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:08</a>　えー、L字型止水板ですとか、近年の製品でマンホールトイレ用の囲いにつきまして、災害時の生活環境の向上や、被害の軽減に関する資機材の一つであると認識をいたしております。L字型の止水板につきましては、土嚢や水嚢の代わりにL字型の樹脂の防水板やパネルを連結させて使用するものとなっており、軽量で事前に土や水を袋詰めする準備が不要であるなどのメリットがあるものと認識しておりますが、製品によりまして設置面が平らである必要がある。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=1178s" data-timestamp="1178"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:38</a>　または、マンホールの噴出防止については形状として土嚢の方が適しているなどの他、費用面でも一定数を備えるための課題があるものと考えております。また現在市が避難所に備えているマンホールトイレにつきましては、テント型の個室となっております。<br />
@@ -280,7 +286,7 @@
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=1499s" data-timestamp="1499"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:59</a>　冒頭にですね、犯罪に関し高齢者が犠牲となるニュースを頻繁に目にする現状の政策で小金井市民は市民を守れるだろうかとして、還付金詐欺型犯罪から間違えたごめんなさい。</div><div class="say">改めてですね、電話を使った詐欺事件が多発しているが対抗措置はいかがか。この電話を使った詐欺事件についてお尋ねしたいと思います。今市がとっている対抗措置について、お示ししていただければと思いますがよろしくお願いいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t14">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=1531s" data-timestamp="1531"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:31</a>はい。電話による詐欺被害等を防止するためにまず不審な電話に出ないということが最も重要です。ナンバーディスプレイ機能や留守番電話機能を活用し、不審な電話には応答しないなどの対策で被害を未然に防ぐことができます。</div><div class="say">その他市では高齢者世帯などを対象に自動通話録音機を無償にて対応いたします。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=1561s" data-timestamp="1561"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:01</a>　近年の電話機は機種自体に防犯機能を持つものも販売されており、全国防犯協会連合会の推奨する優良防犯電話の推奨品目録においても紹介されているところでございます。市の無償対応のご相談には、ご自宅の電話機がすでに対応機能を備えていたことが分かったので、申請は行わないというようなご連絡を後日いただいた事例もございました。</div><div class="say">一定程度そのような機能の有効性について周知も広がりつつあり、活用されているものと推察いたしておりますが、引き続き非常に有効な手段であることから当面の間、貸与事業は継続してまいりたいと考えております。以上です。</div><div class="say">◯吹春やすたか議員<br />
@@ -293,13 +299,13 @@
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=2151s" data-timestamp="2151"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:51</a>　ですが、その前にまず　「トクリュウ」について、まあどういったものかお答えいただければと存じます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t15">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=2184s" data-timestamp="2184"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:24</a>はい。えー、匿名・流動型犯罪（トクリュウ）とは、先輩や後輩、友人、知人といった人間関係に基づく緩やかなつながりで集団を構成しており、SNS上の闇バイト募集で結びついたメンバー同士が役割を細分化させ、その都度メンバーを入れ替えながら、特殊詐欺をはじめとする犯罪を敢行しているという点に流動性があるというものでございます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=2215s" data-timestamp="2215"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:55</a>　また各罪により得た収益をさらなる犯罪の活動資金に充てているほか、収益を吸い上げる中核的人物は匿名性の高い通信手段を悪用しながら犯罪ごとに実行役に指示するなど、匿名化・組織化されている点に匿名性があることからトクリュウと呼ばれておりまして、その資金獲得活動といたしましては、特殊詐欺や投資・ロマンス　詐欺、強盗、スカウト事案、悪質リフォーム、オンラインカジノ関連など多岐にわたるものとされております。</div><div class="say">えー、これらにつきまして、警視庁では匿名・流動型犯罪対策本部が令和7年10月に発足しているところ認識しております。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t16">
   <div class="meta"><span class="name">吹春やすたか議員</span></div>
   <div class="say">ご答弁ありがとうございます。えーとね、トクリュウは本当に怖いですよね。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=2249s" data-timestamp="2249"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:29</a>　複数回同じところが狙われてるということも実際に紹介されているわけですけれども。</div><div class="say">これ、なんでそうなっちゃうんだろうと思ったんですけども、闇バイトと呼ばれている人がリクルート、集められて、それで1つの組織じゃないらしいんですよ。で、実行部隊が複数あると、それを次々行かせ、どれかが成果を出すだろうということで行かせているらしいんです。<br />
@@ -308,123 +314,123 @@
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=2345s" data-timestamp="2345"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:05</a>　実際に一度詐欺被害に遭った、あるいは未遂で終わった、そういった、あるいは　ミスで終わったが資産情報を話してしまった家が、後に強盗の標的になるケースもあります。</div><div class="say">情報を渡さないことが自身と財産を守るための最も重要な防衛となりますと、これ警察の発表でございます。それでお尋ねしますが、現在小金井市ではこの防犯について、特にトクリュウ対策についてどのような政策をとっていらっしゃるんでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t17">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=2376s" data-timestamp="2376"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:36</a>はい。えー、トクリュウ型犯罪はその犯罪手法の多様性や変化の速さから、いかに適切な情報を早期に市民の皆様に周知できるかという点が非常に重要となります。えー、この点につきまして、警視庁が作成している防犯アプリである「デジポリス」の活用を促進しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=2408s" data-timestamp="2408"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:08</a>　また警視庁の生活安全総務課や小金井警察署からのメール配信を小金井安全メールに自動転送するシステムを用いまして、安全メールにご登録をいただくことにより一元的に警察の情報も得ていただくように活動をしておるところでございます。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t18">
   <div class="meta"><span class="name">吹春やすたか議員</span></div>
   <div class="say">ご答弁いただきましてありがとうございます。今頂いたご答弁の中に「デジポリス」って言葉が出てまいりましたけど、もうご存知の方たくさんいらっしゃるかと存じますがこれですよね。あの地域安全課が発信しているXでも「デジポリスに登録してください」<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=2440s" data-timestamp="2440"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:40</a>　っていうの出ておりますし、市報だったりとか、あとは　色々な集まりがあったりとかするとこのチラシを配ったりとかされているようです。</div><div class="say">私はやっていただいてるのはありがたいことだと思っております。もちろん思ってます。でも、これ実際私の周りのご高齢の皆さんに聞いてみたんですよ。「デジポリスって知ってます」って。「知らん」って方がほとんどでした。</div><div class="say">あと比較的年齢の若い方にも聞いて、「あー、聞いてるけど登録はしてないや」とおっしゃる方がほとんどだったんですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=2472s" data-timestamp="2472"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:12</a>　ですので、まあちょっと今思っているのが、これせっかく案内されるのであれば、特に私、ここ（地域）の方たちともいろんな集まりで話をされる中で、あの、何かこうダウンロードしたいアプリがあったりとかすると「登録までやってくんないか」って言われることよくあるんですよ。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=2504s" data-timestamp="2504"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:44</a>　なのでやっぱりこれ、意見要望として捉えていただければ大丈夫ですけど、もし地域安全課だけでなく、色々なご高齢の方たちとか集めて何かイベントなどを開催される時に配られるのであれば、もうその場で登録できますよという形でやっておいた　方が一番有効的な、一番有効効果があるんじゃないかと思思いますし、特にこのデジポリスの一番私がお勧めする点としては、海外からかかってくる電話を自動で着信拒否できるんですよね。登録されてる番号であれば。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=2535s" data-timestamp="2535"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:15</a>　で、登録されてる番号っていうのは、先ほど私にかかってきた海外からかかってきた番号を警察に連絡しまして、警察の方で手続きを取って自動着信拒否の方に設定して入れてしまうということであれば、まあ対抗策としてその程度しかないかと思うんですけども、何もしないよりはそうやって1つ1つ番号を潰していくことの方がとっても大切かと思いますし、えー、しかももちろん電話番号変わってきたらまたそれで登録すればいいだけのことかなと思ってますので、是非とも進めていっていただければと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=2565s" data-timestamp="2565"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:45</a>　えー、やっぱり犯罪に関わる方たちはすごく知恵を絞ってらっしゃって、褒めてるわけじゃないですよ。色々と手を変え品を変えやってくる。じゃあそれに対して守る側としても色々考えながら、情報収集しながら、一番最初の詐欺がどれなのか、やはり細かな手を打たなければならないと思います。</div><div class="say">最後の質問になりますけども、えー、これからの小金井市としての犯罪に対する見解についてお願いいたしします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t19">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=2612s" data-timestamp="2612"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:32</a>はい。えー、様々な犯罪が日々新たに出現している昨今の状況に鑑みまして、防犯対策について「十分」と申し上げることは非常に困難なことではございますが、パトロールを含め日頃の対策を継続しながら地域の皆様の防犯意識の向上にも取り組んでいくことが肝要であると考え、そのように継続していきたいと考えてます。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t20">
   <div class="meta"><span class="name">吹春やすたか議員</span></div>
   <div class="say">はい。私にとっては力強いご答弁だと受け止めました。ありがとうございます。それでですね、今回こうなぜこの質問しようと思ったかと言いますと、やっぱり犯罪に対しては守らなければならない。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=2644s" data-timestamp="2644"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:04</a>　自分たちで自分たちの街を守らなければならないなと強く思うところでございますし、あと例えばデジポリスだったりとか、えー、こういった詐欺電話がかかってくるっていうことはある程度予見して、あらかじめかかってくる可能性がある　よっていうことをあらかじめ知っていれば対応がかなり強くできると思うんですよ。</div><div class="say">地域によって「あそこはあそこに電話をかけてもなかなか繋がらない」「なかなか効果が得られないよな」と犯罪グループが思わせるような街になっていけばいいかと思いますので、これはさらに、さらなる今まで以上の周知徹底をお願いしたいということと、それと、まあ結果として犯罪者がこの街に寄りつかないような街にしていくことがとても大切なことかと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=2674s" data-timestamp="2674"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:34</a>　まあ防犯に対する考えというのは市民の皆様とっても敏感になってらっしゃってて、かなり強化、えー、強化の部分も出ていると私は感じているところですけれども、またさらなる被害が出ないように是非ともこれは頑張っていただければと思ってるところですので、どうぞよろしくお願いします。ということで私の一般質問をさせていただきます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=2707s" data-timestamp="2707"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:07</a>次に、4番清水学議員の発言を許可します。</div><div class="say">おはようございます。今日は質問を1個に絞りまして、「不安から安心へ、お節介が紡ぐ地域の見守り力を再度考える」というテーマで質問をしてまいります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=2739s" data-timestamp="2739"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:39</a>　まず、昨日の台風6号では先ほどもご報告がございましたけれども、昼夜を問わず市民の安全安心のために対応に当たられました職員の皆様に、本当に改めて感謝申し上げます。ありがとうございます。また、そのような状況の中で答弁もいただきまして、重ねて御礼を申し上げます。</div><div class="say">ご迷惑をおかけいたしました。</div><div class="say">それでは、「不安から安心へ、お節介が紡ぐ地域の見守り力を再度考える」につきまして、質問をしてまいりたいですし、一緒に考えてまいりたいと思います。今回は提案が多めになるかと思っておりますので、今日は聞いていただいて次につなげていきたいと考えておりますので、よろしくお願いいたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=2801s" data-timestamp="2801"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:41</a>　今回、先ほど吹春議員からも質問がありました今日このテーマを取り上げた理由は、元々、私、小金井の地域力を高めて子供たちや高齢者の皆さんを温かく見守るためには、お節介の力しかないと考えておりましたし、この議会の場でも折に触れて、見て見ぬ振りをしない、お互いにちょっとお節介を焼き合える温かいコミュニティの大切さを何度も訴えてまいりました。これこそがこの小金井の地域づくりだと私は考えていますので、今回この防犯に関する原点でもあるお節介につきまして取り上げてまいります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=2831s" data-timestamp="2831"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:11</a>　先ほどもご紹介を吹春議員からありましたけれども、市内の住宅においても、闇バイトによる強盗予備事件が発生して、市内で容疑者が逮捕されるといった事件がありまして、また、別の実行役の男らが再び敷地内に侵入して相次いで現行犯逮捕されるという事態が発生をいたしました。今回の事案についてはまだ詳細は分かりませんけれども、こういった市内で複数の逮捕者が出ているということは、決して他人事ではないということでございます。</div><div class="say">犯罪への対応についてはもちろん警察に任せるほかありません。また、この不安を払拭する、また小金井を安全安心な街にしていくにはですね、私が先ほども申し上げた通り、地域のお節介の力というものがお役に立ってくるのではないかと考えております。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=2862s" data-timestamp="2862"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:42</a>　市民の1人ひとりが怯えるのではなく、地域でお節介を焼き合って強固な繋がりという防犯インフラを築くことで、この小金井の安全を守り抜くその必要性を共有したくて、今日この質問をさせていただきますので、順次質問に入ってまいります。</div><div class="say">まず、「警察署との連携・犯罪を寄せつけない街づくりについて」ということで、今日はまず、小金井警察署との連携で市がどういうことをやっているのか、学校がどういうことに取り組んでいるのかということを確認した上で、提案の方に入ってまいります。ですので、まずカッコ1から参ります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=2892s" data-timestamp="2892"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:12</a>　本年5月24日に市内で発生した強盗予備事件に関して、市が小金井警察署から第一報を受けた日、また町内共有のタイミングなど、どのようにして情報を得たのか、またその情報を得てどのように動いたのか確認をしてまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t21">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=2924s" data-timestamp="2924"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:44</a>はい。5月24日に市内で発生しました強盗予備事件についてでございますが、この件について小金井警察署から市に対しましては、情報提供はいただいてございません。そのため市といたしましても、報道により情報を把握したところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=2954s" data-timestamp="2954"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:14</a>　また、この件には限りませんが、小金井警察署に事件の関係を問い合わせましても、状況によるものとは存じますが、基本的には捜査情報に関する情報の提供はいただけないというのが現状でございます。また、この事案に関する初動対応ということですが、現在市内のどの地域で発生した事件・事案であるかなどということも公表はされておりません。</div><div class="say">また、市としましても、警察に問い合わせました際に、念のため現状で市に行ってほしい対策などにつきまして確認をさせていただきましたが、現在のところは特段ないので何かがあれば連絡をさせていただくというような回答をいただきました。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=2987s" data-timestamp="2987"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:47</a>　ですので、警察の捜査が継続しているという認識でおりますので、基本的には通常の防犯業務を継続しているところでございます。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t22">
   <div class="meta"><span class="name">清水学議員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3023s" data-timestamp="3023"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:23</a>はい。警察も今、引き続き捜査をしているということですので、情報は特にないということが分かりました。では、市としてなんですけれども、直近1年から2年の間で市民の方から不審者、またそういった下見などを行っている行為の通報相談件数とあれば伺いたいのと、その対応についてお伺いをいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t23">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3063s" data-timestamp="3063"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:03</a>はい。市に対しまして市民の方から直接寄せられた不審者等の情報につきましてでございますが、特段の集計は行っていないところではありますが、もしご連絡いただきます際には情報を伺いました上で、合わせて小金井警察署へ通報もしているところでございます。</div><div class="say">このような通報を受けまして、小金井警察署でも対応を検討いただいたり、アポ電情報などの配信につながっているものと認識しております。また、必要に応じて庁内の関係課への情報提供も行い、その上で青色防犯パトロール車でパトロールを実施しております。</div><div class="say">直近で、栃木県での強盗殺人事件等の報道がなされました5月中旬以降につきまして、不安のご連絡をいただいたケースもございました。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t24">
   <div class="meta"><span class="name">清水学議員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3100s" data-timestamp="3100"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:40</a>はい。今、栃木県の事件をきっかけにご不安な声があったということなんですけども、そういった場合に市はどのように対応されているのでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t25">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3133s" data-timestamp="3133"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:13</a>はい。先ほど申し上げました通り、お話をお伺いし、警察へのご連絡もお願いした上で、周辺地域のパトロールをさせていただきました。合わせて、包括連携協定に基づきまして、協定先である小金井郵便局、明治安田生命保険相互会社営業所の方に、市内の見守りですとか、不審者への一層の注意をお願いしたところでございます。</div><div class="say">以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t26">
   <div class="meta"><span class="name">清水学議員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3164s" data-timestamp="3164"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:44</a>はい、ありがとうございます。地域の事業者の皆様にもご協力をいただいているということも改めて確認ができました。今ご紹介いただいた包括連携協定については後ほどまた触れていきたいと考えております。</div><div class="say">例えば、急に具体的になっちゃうんですけども、例えば今回の事件後、また今後の防犯強化に向けて、例えば小金井市の消防団の皆さんに夜間パトロールの協力など依頼したらどうかなと考えていまして、というのも消防団の皆さん月に定期的にポンプ車で巡回をして巡行しておりますので、例えば普段同じルートを通ってる場合も、時々道を変えて、あのカンカンと鳴る音というのはかなり防犯力につながると考えていますので、そういったご相談もできるんじゃないかなと考えているんですけども、今のところの見解を伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t27">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3201s" data-timestamp="3201"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:21</a>はい。消防団の夜間パトロールの協力依頼についてでございます。消防団はご案内の通り、毎月3回程度受け持ち区域をポンプ車により巡回を行っております。分団により点検等のため必要な箇所を回る決まったコースを設定しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3235s" data-timestamp="3235"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:55</a>　コースを工夫して防犯パトロールをととのご提案でございますが、消防団本部や各分団に相談し、ポンプ車が巡回可能な道路幅ですとか、近隣状況等をご検討いただき、可能な範囲で実施できればというふうになります。まずは消防団に相談させていただきたいと考えております。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t28">
   <div class="meta"><span class="name">清水学議員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3267s" data-timestamp="3267"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:27</a>はい、ありがとうございます。やっぱり私も消防団に入っていたことがあるので、同じルート結構通るんですけど、たまにルートを変えると新たな気づきとか、「ここ曲がりにくいよね」っていう、そういった消防団活動においても有益なことがあるし、あのカンカンという警鐘は本当にこの安心・安全のシンボルだと思ってますし、何かこの街で犯罪を犯そうとしている人たちがその音を聞いたら、「逃げなきゃ」というふうに思う場合も多いかと思いますので、ぜひ前向きにご協議いただければと思いますのでよろしくお願いいたします。</div><div class="say">それでは続いてカッコ2の、「小金井市としての特殊詐欺対策と市民不安への対応について」に移ってまいります。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3302s" data-timestamp="3302"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:02</a>　まず最初なんですけれども、現在市が市民に向けて実施している闇バイト、強盗や住居侵入に関する注意喚起、啓発活動の直近の実績と内容を伺ってまいります。また、それに合わせて現在も行っている防犯機器補助金の令和7年度の実績についても伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t29">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3332s" data-timestamp="3332"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:32</a>はい。現在市が実施している特殊詐欺対策に資する取り組みでございますが、昨年度から実施している防犯機器等購入補助が該当いたします。</div><div class="say">防犯機器の中でも侵入を防ぐための機器、例えば防犯カメラや防犯カメラ付きインターホンなどが対象となる補助金で、昨年度は予算上2250件を措置いたしましたところ、935件の申請がございました。お問い合わせを多数いただく中では、戸建ての方のご利用が中心となっていたように考えられるところでございます。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t30">
   <div class="meta"><span class="name">清水学議員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3362s" data-timestamp="3362"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:02</a>はい。今ご答弁でもございました通り935件とありましたけれども、執行率、パーセンテージにするとどんなものなのか伺いたいのとですね、また小戸建てが多い利用があるということでしたけども、私の周りでもこの補助について反応がとても良かったので、この現状についても伺いたいと考えておりますのでご答弁お願いします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t31">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3393s" data-timestamp="3393"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:33</a>はい。執行率につきましては26.8%となっております。申請件数自体は予算措置上の想定の40%程度ですので、補助上限に満たないご申請が一定程度あったものと考えております。</div><div class="say">また、小戸建てが中心になりました要因といたしましては、やはり防犯砂利ですとか屋外に設置するものもございますので、マンションの方などではそういった面で制約があったりですとか、また管理組合などの方で一定程度ご対策をいただいている部分もあるのかと推測しているところでございます。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t32">
   <div class="meta"><span class="name">清水学議員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3426s" data-timestamp="3426"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:06</a>はい、ありがとうございます。私もマンションに住んでいますので、なかなか取り付けにくいなっていう、理事会の承認が必要だったりするので、そういったところもあるんじゃないかなと思ってますし、そもそもマンションには基本的にそういうものがついているので必要ないということもあって、なので別にこの執行率が低いから悪いってことじゃなくて、多分必要とされている人には行き渡っているんじゃないかなと私も考えております。</div><div class="say">ので、あとはもう意見要望にするんですけども、先ほども申し上げた通りこの補助ってすごく利用しやすいという声が高いので、引き続きの周知をお願いしたいのと、この間も聞いたんですけど、一方でその防犯カメラを例えば警察にこの映像を提供した時に、夜に車が光る、車が通るとライトが当たると画面全体がこう白くなっちゃったりするので、なかなかその警察も「ここが大事なんですよ」<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3487s" data-timestamp="3487"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:07</a>　っていうところが白くなっちゃったりするっていうことを聞いたので、ま、これはカメラの性質にもよるのかなと思うんですけども、そのあたりも、より本当に必要な時に必要なものが撮れるカメラっていうのをやはり値段が高いので買うか買わないかってなっちゃうんですけども、そのあたりも考えていかなきゃいけないんじゃないかなというふうに今思っているところでありますので、お伝えをしておきます。</div><div class="say">そして2問目に参ります。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3519s" data-timestamp="3519"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:39</a>　市内でもこの特殊詐欺による強盗事件が発生したことでですね、市民の不安を少しでも解消し、見守りの目を増やすために、市としても市が持つあらゆる広報媒体を活用していく必要があると考えております。先ほどもご紹介いただいた通り、安全安心メールだとか、Twitter、あ、Xですね、といったこともフル活用し</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3553s" data-timestamp="3553"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:13</a>いると思うんですけども、改めてその状況について伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t33">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say">はい。東京都作成のチラシを関係部署へ配布し、各所への周知啓発に努めているほか、ご案内、先ほども申し上げました通り、小金井市安全安心メールで注意喚起を促しております。このメールにつきましては、市のX（旧Twitter）ですとかLINEとも連動しており、メールを配信すると自動で同じ内容が投稿される仕組みとなっているところから、このどれかいずれかをご登録の方という方にも、周知が行き渡るように工夫をしているところでございます。</div><div class="say">また、市報につきましては年末特別号などを設けておりますが、注意喚起を目的とした完結した記事のようなものの掲載については今後必要に応じて所管部署と検討してまいりたいと考えております。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t34">
   <div class="meta"><span class="name">清水議員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3585s" data-timestamp="3585"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:45</a>ありがとうございます。先ほど今もご答弁あった通り、その市報についてもですね、私としては後でも質問するんでいいんですけど、直近の市報のどっか目立つところにその注意喚起の記事があっても良かったんじゃないかなとは思っているんですけれども、そういった検討とかはなかったのかなというところを伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t35">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say">はい。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3617s" data-timestamp="3617"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:17</a>　5月24日の事件発生後、直近の市報こがねいなどを活用してというご提案かと思います。状況といたしましては担当課が持つ情報が極めて限定的でありましたことや、小金井署に問い合わせた結果なども踏まえまして、日頃から行っている防犯活動は継続しつつといったところでございます。</div><div class="say">以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t36">
   <div class="meta"><span class="name">清水議員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3647s" data-timestamp="3647"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:47</a>はい、ありがとうございます。あの、そうなんですよね。SNSとか公式LINEとかっていうのは、LINEの場合は高齢者の方も見てるけれども、そのSNSやメールというのはなかなか高齢者の方にも届きにくいといった場合に、やっぱりこの紙媒体というのは非常に有効なものになると私考えておりますので、やっぱりそういった紙媒体の市報というのは活用はした方が良かったんじゃないかなというふうに考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3678s" data-timestamp="3678"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:18</a>　もちろんその市報がリニューアルされて以降ですね、担当の職員の皆さんが非常に努力と工夫をされて見やすく目立ち、市民が思わず手に取りたくなるような掲載スタイル・フォームになってると思っております。それは本当に素晴らしいなと思っておりますので、1人の読者としても感謝をしているんですけども、今回の事件ってのは市民の命と安全に直結する一大事だったので、やはりその注意喚起を載せる検討がなされても良かったんじゃないかなということは申し上げておきます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3710s" data-timestamp="3710"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:50</a>　あと、また今後の掲載予定の市内の記事、町内の記事っていうのが順番待ちになってるってことも承知はしているので、少し今後事態が落ち着いて、人々の記憶が薄れかけてきた絶妙なタイミングを見計らってですね、改めて我が家の防犯、地域の防犯特集というようなものを改めて組んでいただいて、市民の防犯意識をもう一度呼び覚ますような特集を組んでいただくことは改めて考えてると思うんですけど、改めてお願いをいたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3743s" data-timestamp="3743"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:23</a>　で、続いてなんですけれども、防災行政無線についてちょっとご提案というか見解も伺いたいなと改めて思っております。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3775s" data-timestamp="3775"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:55</a>　例えば市内で犯罪を犯そうとしている人、またそういう住民の注意喚起を目的にこの防災行政無線っていうのは活用した方がいいんじゃないかと私も考えていて、以前もこの他の委員も言ってたんですけど、防災行政無線を使って周知をするとか他の自治体もやってますので、そういったものはどうかという提案もさせていただいたんですけども、改めて市の見解を伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t37">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say">はい。小金井市の防災行政無線の運用基準では、放送対象を地震・火災・台風等の非常事態に関する事項や、人命に関わるものなど特に緊急重要な事項としております。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3807s" data-timestamp="3807"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:27</a>　実績といたしましては、東日本大震災時の計画停電や、新型コロナウイルス感染症流行時に活用した事例がございます。</div><div class="say">どのような放送が適当か含め、今後の研究とさせていただければと考えております。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t38">
   <div class="meta"><span class="name">清水議員</span></div>
   <div class="say">はい。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3840s" data-timestamp="3840"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:00</a>　あの、意見で終わりますけども、運用の厳格な基準があるってことは過去にも提案をしてきたので分かっておりますけれども、やっぱりその先ほど吹春さんも言ってましたけど、町に犯罪を寄せつけないとか、犯罪を徹底的にやりにくくさせるっていった意味でもですね、その行政として持っているツールをやっぱ最大限活用するっていうのは考えなきゃいけないことだと考えておりますので、それ申し上げておきます。</div><div class="say">先日、ちょっと岩手の久慈に行ってきましたけれども、その時ちょうど久慈の町に熊が出没をしまして、大体毎日出てると言ってたんですけども、その時にその熊の出没情報が入ると防災行政無線を使って、「この地域に熊が出没しましたのでご注意ください」<br />
@@ -432,122 +438,122 @@
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3934s" data-timestamp="3934"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:34</a>　苦情の電話を受けんのは私じゃないので大変心苦しいんですけども、やっぱりそういったことは緊急時の柔軟な無線活用について、防災行政無線の活用については引き続き前向きに検討いただきたいということはお願いをしておきます。</div><div class="say">で、続いて先ほどもご紹介があったアポ電だとか不審者に関する相談について、そもそも相談があるのかないのか、あるなら概要・件数について伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t39">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say">はい。市民からのお問い合わせにつきましては、集計などで数のカウントを行っていないもののですね、地域安全課においても肌感覚ではございますが、週に数件程度受けているような状況でございます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=3980s" data-timestamp="3980"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:20</a>　内容といたしましては、給付金があるからと電話があったが、市に何々かと、核の家の名称になることが多いんですけれども、「誰々という職員はいるのか」というものが非常に多くございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4012s" data-timestamp="4012"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:52</a>　本市に存在しない部署名である場合もありますし、実際該当する課の名前はあっても在籍しない職員の名前であることが多く、内容をお伺いしますが、ほとんどはそのようなご連絡は市から行わないということで、典型的な詐欺被害であるということを認識しております。</div><div class="say">でお伺いしました上で、そのような状況であるということをお伝えし、合わせて小金井署への情報提供をお願いしております。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t40">
   <div class="meta"><span class="name">清水議員</span></div>
   <div class="say">ありがとうございます。あの、警察署との連携についてもありがとうございます。ちょっとずれるんですけど、この犯罪をしにくい町にするために、市内を巡回している青色防犯パトロール車。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4043s" data-timestamp="4043"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:23</a>　これが今年更新されるということで、今年度予算の安全安心まちづくり対策費の基金購入費に400万ほどで盛り込まれておりました。</div><div class="say">平成20年ぐらいに確かこれ購入されて、いよいよ更新タイミングということですので、例えばスピーカーとかちょっと聞きづらいなと私思ってたんですけども、そういったせっかく新しくなるのでそういったところも更新されるんじゃないかなと期待をしておりますので、その更新を機に防犯機能、広報機能の向上がすることも期待をしております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4077s" data-timestamp="4077"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:57</a>　で、先ほども議員からの質問にあった、その固定電話向けの自動通話録音機の普及について伺うんですけども、これまでの対応実績、実際に機器を導入した市民の皆さんからの声などがありましたら伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t41">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say">はい。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4109s" data-timestamp="4109"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:29</a>　高齢者世帯等の自動通話録音機の無償貸与につきましては、市内在住の概ね65歳以上の方が居住する世帯が対象となりまして、平成29年度に開始以降令和7年度末までの累計で106件を対応しております。こちらは詐欺電話の受信を防ぐためのものですので、導入後どの程度防止できたかということの効果の測定はできかねるのですが、ご申請をいただく方からは「このようなことがありがたい」などというお声を伺っているところでございます。</div><div class="say">以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t42">
   <div class="meta"><span class="name">清水議員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4140s" data-timestamp="4140"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:00</a>ありがとうございます。私も実際に設置した方の声を聞くと、そもそもそういう不審な電話がかかってこない、かかってこなくなるというか、電話の着信音が鳴らなくなるシステムなので、どれだけ電話がなくなったかわかんないんですけど、とりあえず余計な電話が減ったっていうのを言っていたので、これは非常に有効なツールだと思ってますので、引き続き周知の方よろしくお願いをいたします。</div><div class="say">では続いて、学校での取り組みについて伺ってまいります。3番ですね。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4170s" data-timestamp="4170"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:30</a>　小中学校における現代型犯罪から子供を守る取り組みについて伺ってまいります。まず丸1です。現在小中学校が行っている闇バイトやSNS犯罪等の対策について伺います。</div><div class="say">実施している具体的な注意や家庭への周知の取り組みを伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t43">
   <div class="meta"><span class="name">学校教育部長</span></div>
   <div class="say">はい。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4202s" data-timestamp="4202"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:02</a>　学校では、闇バイトやSNSの犯罪等の参加につきまして、直接的な指導はしておりませんが、東京都教育委員会が発行しております「ギガワーク東京」や、1人1台端末で使用できます「学びポケット」のコンテンツであります「ネットモラル」などの教材を活用し、情報モラルにつきまして児童生徒に指導しておるところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4235s" data-timestamp="4235"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:35</a>　また、セーフティ教室や薬物乱用防止教室、また命の安全教育など、児童生徒が犯罪から身を守るための教育活動も行っており、特にセーフティ教室等の取り組みにつきましては、学校公開に合わせまして保護者の方々にも広く公開しているところでございます。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t44">
   <div class="meta"><span class="name">清水議員</span></div>
   <div class="say">多種な取り組みをなされていることがわかりました。で、その取り組みを受けて生徒の反応、または保護者の声がありましたら伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t45">
   <div class="meta"><span class="name">学校教育部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4277s" data-timestamp="4277"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:17</a>学校公開におきましてセーフティ教室を行った児童からは、「携帯電話でメッセージをやり取りする際に、相手の気持ちを考えて伝えたい」などの感想があったところでございます。また、セーフティ教室の保護者のアンケートを見ますと、自宅で子供と話し合うきっかけとなってよかったという声などが上がっておるところでございます。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t46">
   <div class="meta"><span class="name">清水議員</span></div>
   <div class="say">ありがとうございます。今、自宅で子供と話し合うきっかけとなったというような声も上がったというふうに伺いましたけれども、そういった声を踏まえてですね、学校側で改善した取り組みがありましたら伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t47">
   <div class="meta"><span class="name">学校教育部長</span></div>
   <div class="say">はい。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4308s" data-timestamp="4308"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:48</a>　具体的に改善しました取り組みはございませんが、セーフティ教室につきましては、児童生徒の実態や保護者の声を参考にしまして決めておるところでございます。今後とも児童生徒及び保護者の声を大切にし教育活動を充実させてまいりたいと、そ</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4376s" data-timestamp="4376"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:56</a>　学校教育部長長期休業前には、子供が悩みを抱えた時の相談先の一覧表も配布しておるところでございます。実際にSNSを活用しました児童生徒間のトラブルにつきましては、教職員が相談を受けまして対応することがございます。引き続き、トラブルの予兆を早期に察知するための、学校の相談体制を充実させてまいりたい、そのように考えておるところでございます。</div><div class="say">以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t48">
   <div class="meta"><span class="name">清水委員</span></div>
   <div class="say">はい。ぜひ引き続きよろしくお願いいたします。では、（2）に参ります。この取得アプリ、SNS、また「簡単に稼げる」などの動画、現代型犯罪から守るためのネットリテラシー教育は今後の取り組みについて伺います。</div><div class="say">現代型犯罪の罠を見抜く、そういった教育の具体的な授業や取り組みについてお伺いいたします。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t49">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">学校教育部長。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t50">
   <div class="meta"><span class="name">学校教育部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4407s" data-timestamp="4407"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:27</a>　教育委員会では、ネットリテラシー教育につきまして、デジタルシティズンシップ教育といたしまして、子供たちがインターネットやデジタル機器を安全かつ適切に使う力を身につけると共に、デジタル社会の一員といたしまして責任ある行動ができますよう、教育の柱の1つといたしまして推進しており、先ほどご答弁も申し上げましたセーフティ教室につきましても、デジタルシティズンシップ教育の一環として行っておるものと、そのような状況でございます。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t51">
   <div class="meta"><span class="name">清水委員</span></div>
   <div class="say">ありがとうございます。先日、とある週刊誌で「なぜ若者たちは特殊詐欺に簡単に騙されてしまうのか」という記事がありました。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4475s" data-timestamp="4475"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:35</a>　詳細は省きますけれども、皆さんもご存知の通り、最初は決して強盗とは思わないで、ポチッと募集をして、例えば「荷物を運ぶだけ」とか「ホワイト案件」という偽装をして近づいてきて、そのうち、身分証明書を出せと言われて出したら、脅されて「家族に言うぞ」というような、もうズブズブな、どうしても逃げられない状況になってしまうというのが状況の1つなのかなと考えておりまして、だからこそ、一人で抱えない、何かあったらすぐ相談できる環境が必要だと私は考えて、今の質問をさせていただきました。</div><div class="say">で、向こうも向こうでやはりいろいろ手口を変えてきてですね、近年警察も捜査方法を変えて、今までやっていなかった仮想身分捜査というものが行われるようになってきたということでございます。特殊詐欺側の勧誘口がそれによって変わってきて、もう今まではSNSで闇バイトを探すというところから、この間の栃木の事件もそうだったんですけども、直接知り合いに頼む。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4541s" data-timestamp="4541"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:41</a>　これが一番警察も 関与できないところだと向こうも動いてですね、直接知り合いに声をかけるといった変化も起きているということでありましたけれども、この情勢の変化とかそれに対する取り組みの必要性というものは、学校としてどう認識しておりますでしょうか。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t52">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">学校教育部長。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t53">
   <div class="meta"><span class="name">学校教育部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4573s" data-timestamp="4573"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:13</a>　はい。現在ですね、毎月生活指導主任研修会におきまして、小金井署の方に来ていただき、近隣の事件や犯罪等の状況、また傾向等につきまして教えていただいております。近年の情勢の変化に対しまして、教育委員会といたしましても、引き続きデジタルシティズンシップ教育や、学校の相談体制のさらなる充実に取り組んでいく必要があるものと認識しておるところでございます。</div><div class="say">また、学校運営協議会の場を活用しまして、保護者の間でも話題にしていただけるよう取り組んでまいりたい、そのように考えておるところでございます。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t54">
   <div class="meta"><span class="name">清水委員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4607s" data-timestamp="4607"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:47</a>　ありがとうございます。子供たちが犯罪の誘惑に対して物事を正しく判断をしてきっぱりと断る能力、もしくは万が一脅迫された場合にも周囲や先生、保護者に相談できる、助けを求める力を身につけることが必要と考えておりますけれども、先ほどのご答弁でも「いつでも相談してよいよ」という体制を作っていくということでしたけれども、これからの取り組みについて伺います。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t55">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">学校教育部長。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t56">
   <div class="meta"><span class="name">学校教育部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4639s" data-timestamp="4639"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:19</a>　はい。周囲や先生、保護者に相談できる能力、いわゆるSOSを発する力につきましては、東京都教育委員会が作成しました資料等に基づきまして、動画教材を活用しながら全中学校ではSOSの出し方に関する教育を実施しております。</div><div class="say">今後は、物事を正しく判断をし、きっぱりと断る能力につきまして、各学校におきまして児童生徒に身につけさせる資質、能力の1つでございます思考力、判断力、表現力等をより一層高めていく必要がございます。また、道徳の授業では人としての生き方や他者との関わり方につきまして、子供たちが主体的に考え、議論を通して価値観をさらに深めていけるよう取り組んでまいります。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4702s" data-timestamp="4702"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:22</a>　教育委員会といたしましても、子供たちが適切な力を身に つけられるよう、引き続き学校への指導助言を行ってまいりたい、そのように考えておるところでございます。</div><div class="say">以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t57">
   <div class="meta"><span class="name">清水委員</span></div>
   <div class="say">ありがとうございます。SOSの出し方に関する教育につきまして、改めてその詳細、どんなことをやってるのか伺いたいと思います。また、生徒・児童の反応ありましたら伺います。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t58">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">学校教育部長。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t59">
   <div class="meta"><span class="name">学校教育部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4735s" data-timestamp="4735"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:55</a>　はい。SOSの出し方に関します教育につきましては、子供たちが心身の不調やいじめ、また虐待などの危機的状況に直面した際、抱え込まずに信頼できる大人や専門機関へ適切に助けを求めるスキルを身につけさせるための教育でございます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4769s" data-timestamp="4769"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:29</a>　DVD教材も用意しており、学級活動や保健体育などの学習と関連させ、各学校ではいずれかの学年におきまして年間1単位時間以上を実施 しておるところでございます。</div><div class="say">また、校長の講話や学級指導、また相談窓口の連絡先等の配布時などに、全ての子供を対象に毎年度繰り返し実施しておるところでもございます。その効果もありまして、児童生徒が実際に信頼できる大人に相談することができている実態もございますので、引き続きSOSの出し方に関します教育を推進してまいりたい、そのように考えておるところでございます。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t60">
   <div class="meta"><span class="name">清水委員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4801s" data-timestamp="4801"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:01</a>　はい。児童生徒が実際に信頼できる大人に相談できる実態も出てきているということですので、我々大人でさえ「助けて」っていうのはなかなか言いづらいんですよ。いろいろ見えがあったり、恥ずかしさとかがあったりするので、余計子供ってそういうのって出しづらいんじゃないかなと思うので、ぜひ引き続きの取り組みをお願いいたします。</div><div class="say">で、最後（4）番、地域を防犯インフラとして捉えた地域と行政の連携について取り上げてまいります。これ提案で終わる場合もございますけれども、行政の方にもお答えをいただいて、話を進めてまいりたいと思います。この4番というのは、私冒頭「お節介」っていうのを言ったんですけども、昔はお節介って、昔って私生まれる前かもしれないけど、別にやろうと思ってお節介をやってんじゃなくて、日常会話のそぶりとしてお節介をしてたと思うんですよ。</div><div class="say">「あんたも大きくなったわね」とか「なんか食べすぎなんじゃないの」<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4864s" data-timestamp="4864"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:04</a>　とかいろいろそういうのがあったりもしたんですけど、そういう お節介っていうのがだいぶハラスメント的なものになりつつあって、そういうお節介がどんどん減ってきちゃって、「余計なお世話よ」とか「私に関わらないでよ」とか、そうなって今があるんじゃないかなと思ってるので。やっぱりこの昭和のお節介っていうのはやはり今の時代に合わないんじゃないかなと。<br />
@@ -555,65 +561,65 @@
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4927s" data-timestamp="4927"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:07</a>　今回の強盗予備事件のような脅迫犯罪を未然に防ぐためというよりも、犯罪を起こしにくくするためにも、今も頑張っていただいている町会・自治会、また商店会といった地域を、犯罪を寄せつけないための防犯インフラ、重要な 防犯インフラとして捉え、行政がその活動実態を正確に把握することが必要不可欠であると考えておりますので、まず聞いてまいります。まず1つ、町会・自治会のことについてなんですけども、市は現在各町会・自治会がどのような見守り活動を行っているのか、その活動の有無、また活動内容をどの程度把握しているのか伺います。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t61">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">防災安全担当部長。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t62">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4959s" data-timestamp="4959"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:39</a>　はい。まず地域の町会・自治会の皆様方には防犯や防火パトロールを始め、子供や高齢者の見守り活動を行っていただいている団体さんがあるものと認識しております。また、日々の活動の中での皆様の気づきや声かけなどの地域のつながり、地域力が何よりの防犯であることから感謝申し上げております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=4993s" data-timestamp="4993"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:13</a>　原則といたしまして、月2回以上継続して防犯パトロールを行う構成員が10人以上の防犯活動実施団体の方にはご申請によりまして、ビブスや腕章、帽子や合図灯、また表示などのパトロールグッズである防犯資材を支給いたしておりますが、実施報告などはいただいておりませんので、詳細な実施状況の把握はいたしておりません。規定に基づきまして、団体の皆様のペースで活動をいただいているものと考えております。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t63">
   <div class="meta"><span class="name">清水委員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5024s" data-timestamp="5024"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:44</a>　はい。今もご紹介いただいた通り、私もこの質問をやり取りしてて初めて知ったんですけども、月2回以上を継続して行っている防犯パトロールをやってる団体には様々な資材をお送りしているということですので、私としてはせっかく「自分たちの町は自分たちで守る」という強い思いで熱意を持って活動してくださってる団体なので、この月2回の回数要件っていうのはちょっと改めて考えてもいいんじゃないかなと思っております。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5057s" data-timestamp="5057"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:17</a>　というのを、例えば私であれば年末年始にそれぞれ6回ずつやってたりする、集中して やってたりする場合もあるので、そういったところもぜひその資材をお送りする対象に含むような検討がなされてもいいんじゃないかなと思ってますので。</div><div class="say">これあの、今日ちょっと私も初めてやり取りしたことだったので、自分の中の課題にもしたいと思ってますし、今後の交渉というか、お願いする1つにもなってまいりますのでよろしくお願いいたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5089s" data-timestamp="5089"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:49</a>　で、あとその先ほど答弁でもあった実際にパトロールされている住民の皆さんは現場の気づきを、活動状況のヒアリングなどを通じて行政が定期的に集約をして、現場の気づきや活動状況のヒアリングなど市が定期的に集約をして警察や他の地域へと還元していく仕組みこそが今求められている本当の情報共有であって、これが本物の地域防犯インフラになると考えていますので、ぜひもうちょっと積極的にその各団体からヒアリングをして、「どうですか」とか「どんなことやってんですか」<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5120s" data-timestamp="5120"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:20</a>　っていうのを自分たちの行政の材料にするような形で 取り組んでいっていただきたいということはお伝えしておきます。</div><div class="say">続いて商店街の見守り活動についてお伺いします。地域の人の流れを最もよく知るのが商店街でございますので、独自の防犯や見守りの取り組みについて市はどの程度把握しているのか伺います。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t64">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">防災安全担当部長。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t65">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5155s" data-timestamp="5155"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:55</a>　はい。商店会を形成する商店の方々は、商店を行き交う多くの方々と接していることから、地域の状況をよく把握していただいていると認識しております。店主や従業員の方などが、商店会を行き交う方々に挨拶などを通じて声をかけるなど、日常でよく見かける光景も見守り活動の1つとなると考えておりますし、いつもと違う状況や普段見かけない人物、またそこから不審な行動に気づくことができることは、商店会にいらっしゃる方々の見守りにつながっている 【</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5216s" data-timestamp="5216"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:56</a>自体が地域の防犯及び見守りの機能として大きく寄与するものと考えております。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t66">
   <div class="meta"><span class="name">清水学議員</span></div>
   <div class="say">はい。今、町会・自治会、あと商店会の取り組みの見解も伺ったのですが、やはり最後のご答弁にもあった通り、その地域の防犯及び見守りの機能として大きく寄与するということがあるので、やはりこれはそれぞれの団体が、地域の防犯インフラとして活動していただいているということは、本当に私からも感謝を申し上げます。</div><div class="say">で、やはり大事なのがその日常的な顔の見える関係であって、ご答弁にもありましたけど、やはり挨拶する間柄というのが非常に簡単なようで簡単ではないこの挨拶というのが、すごく地域防犯インフラの肝なんだということは申し上げておきたいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5247s" data-timestamp="5247"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:27</a>あの、そういった取り組みもされていると思いますので、後ほど聞きますけども、1つここで提案があるのがですね、小金井では、職員さんが自発的に地域課題の解決に参画をする「地域に飛び出す公務員を応援する首長連合」への関連予算も可決をされたところでございます。</div><div class="say">このことはですね、私はとてもいいことだというふうに討論でも申し上げてまいりました。市長もいろいろとこれからの動きについては考えていらっしゃると思うんですけども、例えば先ほどあった財政支援とか物資の支給といった支援からですね、さらに一歩踏み出して、市職員の皆さんが自ら、例えば町会・自治会とか例えば商店街の見守り活動の現場に飛び出して、地域住民と一緒に合同防犯パトロールをするといったようなことがですね、取り組みを検討してはいかがかなと考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5307s" data-timestamp="5307"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:27</a>もちろんこれ、業務外でありますから、市として職員さんには強制できないものということは分かっております。ただ、ただその私もこういった討論でも言ったんですけど、自発的に職員さんが参加するということが職員さんが得るものが多いんじゃないかと。やれって言われてやるんじゃなくて、自発的に行くことが実りのあるものにつながるんだと私考えております。</div><div class="say">今、町で何が起きているのか。市民が町のためにどんな努力をして、何に苦労して、どんなことに感動しているのか、これを職員さんが肌で知る。この実体験こそが市役所で働く本当の醍醐味なんじゃないかなと私考えておりますので、これはご提案をしておきますのでよろしくお願いいたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5339s" data-timestamp="5339"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:59</a>続いて丸2番です。「見て見ぬふりをしない。最近どう大丈夫と声をかけ合える小金井らしい地域づくり・おせっかいへの取り組み」について。あと丸3番「今後の地域力を生かした犯罪を寄せつけない街づくり、地域と行政がどのように連携していくか」についてまとめてお伺いをいたします。</div><div class="say">まず先ほども大事だと申し上げた挨拶を基本とする小金井らしい防犯地域づくりの認識について伺ってまいります。私の小金井らしさの原点というのは挨拶活動にあると考えております。</div><div class="say">例えば、小金井市立本町小学校においては日頃から地域の皆さんが子供たちと挨拶活動を行っています。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5401s" data-timestamp="5401"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:30:01</a>　そして子供たちや地域の皆さんの強い願いから「挨拶ストリート」が誕生いたしました。そこには「挨拶ストリート、みんなが明るく挨拶を、みんなで明るい街づくり」という輝かしい標語と共に、本町小学校、小金井市、小金井警察署の3者がしっかりと名をつらね、一体となり町を守る素晴らしい実績が出ております。</div><div class="say">挨拶は全ての見守りの基本であり、挨拶を交わすことで初めて人に興味・関心を持つことができ、その興味・関心があってこそ人の変化や街の変化に気づくことができると確信をしております。これら挨拶を基本とする小金井らしい防犯地域づくりに対する私の見解を述べておきます。市の例えばこういうことやってるよとか、基本的な見解があれば伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t67">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5433s" data-timestamp="5433"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:30:33</a>はい。議員、ご承知かとは思うんですけれども、「コガネイちゃん挨拶運動」につきましては、今年度も継続して行っておりまして、市内の小学校の朝、門のところに立って挨拶をさせていただいたりですとか、また帰りの時間帯のパトロールなども含め地域の皆様方と一緒に展開をしているところでございます。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t68">
   <div class="meta"><span class="name">清水学議員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5481s" data-timestamp="5481"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:21</a>ありがとうございます。コガネイちゃん挨拶運動は非常に毎年度行っておりまして、これからも行っていくということですので、非常にいい活動だと思いますので、これからもよろしくお願いをいたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5512s" data-timestamp="5512"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:52</a>　やっぱり私、挨拶、挨拶って言ってるんですけども、これって誰かに求めるものじゃなくて、まず自分がすることだと思っておりますので、私も含めてなんですけど、先手の挨拶に努めていきたいと思ってますので、是非皆さんもよろしくお願いいたします。求めるんじゃなくて、自分がやっていかないと周りは変わっていきませんのでよろしくお願いいたします。</div><div class="say">あとですね、千葉県流山市では日常の行動、例えば挨拶、花の水やり、犬の散歩、ウォーキングなどに防犯の視点を加える「プラス防犯」というものを市報等で、行政指導で広く推奨しています。小金井においてもこういったものをやった方がいいんじゃないかなと考えているんですけども、見解を伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t69">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5545s" data-timestamp="5545"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:25</a>はい。現在市内でも、ワンワンパトロールなどに取り組んでいただいていらっしゃる皆様が、ワンワンパトロールは東京都が主となっておりまして、小金井市では小金井警察署、小金井市防犯協会さんがワンワンパトロールの登録など行っております。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t70">
   <div class="meta"><span class="name">清水学議員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5577s" data-timestamp="5577"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:57</a>警察や防犯協会さんが推進してくださっているワンワンパトロールの存在というのは大変心強く感謝しております。是非ですね、そういったものをやはり市も主導してですね、市民1人1人がプラス防犯の意識を持ってもらって、行政がカバーしきれない隙間を市民自らが自分たちの町を守る当事者としてその隙間を埋めていく。そのためにも市として主体的に展開していただきたいということは申し上げておきます。</div><div class="say">あ、はい、提案で終わります。</div><div class="say">えっと、千葉県では特殊詐欺等の抑止に向けて事業者が通常業務を行いながら不審情報を通報する「プラス防犯協力事業者登録制度」を新たに創設をしております。これは街中での不審者情報や犯罪発生の通報等を行える人の目を増やすため、事業者が地域において業務活動を行いながら不審者情報などの通報等にご協力をいただく制度でありまして、これはとてもいい取り組みだと思って考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5641s" data-timestamp="5641"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:01</a>　<a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5610s" data-timestamp="5610"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:30</a>で、小金井市においても先ほどもご答弁でご紹介いただいた通り、明治安田生命保険相互会社さんと日本郵便株式会社さんとの間で地域の安全安心に関することが盛り込まれている包括連携協定が結ばれております。例えばその他にも市内にある法政大学さんや東京学芸大学さん、東京農工大学さん、総合学院テクノスカレッジさんと包括的共同連携協定に関する協定などといった関係性も構築をされております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5674s" data-timestamp="5674"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:34</a>　ですので、例えば市内を歩く学生さんにも地域の見守りの一助になっていただくよう、例えば項目を追加するなどですね、見守りの目を増やしていってもいいのではないかと考えております。また商店街や小売店などが加わる高齢者等の見守りに関する包括連携協定、現在82団体の皆さんにもご協力をいただいているんですけども、現在は高齢者の見守りという内容になっております。</div><div class="say">そこでこの既存の82団体の包括協定の目的に例えばプラス防犯の観点を加えてご協力をお願いするとか、また千葉県が導入している新たに本市独自のプラス防犯協力事業者登録制度などを創設してですね、日常業務の中で発見をしたそういった怪しい動きをする方々、違和感、気づきというのをリアルタイムで共有し合える関係性も検討の価値はあるのではないかと考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5706s" data-timestamp="5706"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:06</a>あの、今日は提案で終わっているところもあるんですけれども、是非この「令和のおせっかい」というのを、おせっかいって言葉は僕すごい好きで、それをただ昭和のおせっかいは先ほど申し上げた通り、その人の気持ちの範囲内でやってたものを、やっぱり仕組みとしてやっていくということが令和のおせっかいで必要だと私思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5738s" data-timestamp="5738"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:38</a>地域のおせっかいが地域の安全を守るという考えをこれからも提案してまいりますし、小金井の中に、お互いに温かいおせっかいし合える人と仕組みを増やしていけるのか、また今後具体的に提案してまいります。以上で一般質問も終わります。ありがとうございました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5770s" data-timestamp="5770"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:10</a></div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t71">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">次に9番、小林正樹議員の発言を許可します。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t72">
   <div class="meta"><span class="name">小林正樹議員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5800s" data-timestamp="5800"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:40</a>はい、こんにちは。公明党の小林正樹でございます。いつもこう3番目にエントリーするとですね、こう時間が早まってこのタイミングになるので、少しおせっかいかもしれませんが、議会運営に協力する形でですね、今日も質問を午前と午後に分けてしたいと思います。</div><div class="say">そこで、大きな1番、2番、3番とありますが、2番と3番を午前中には質問させていただきたいと思いますのでご了解いただければと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5831s" data-timestamp="5831"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:11</a>本日も市民の皆さんの関心の高いテーマ3点に絞っての質問となりますので、どうぞよろしくお願いをいたします。まず冒頭ですね、先ほど話も出ておりますが、台風6号について、市内においては大きな被害がなかったということで、担当部長の方からご報告がありました。安心をいたしました。</div><div class="say">とともにですね、全国で被害に遭われた皆様にはお見舞いを申し上げるところであります。対応に当たられた全ての皆様に感謝を申し上げる次第でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5863s" data-timestamp="5863"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:43</a>　それでは、丸2の災害級の暑さの対策ということで質問をしたいと思います。猛暑というのはもう本当にこの季節の課題ではなくて、市民の生命、健康、地域経済に関わる災害級のリスクであるということが言われております。気象庁では、酷暑という用語をですね、本年4月の17日に正式に定めました。</div><div class="say">1日の最高気温が40度を超える日。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5896s" data-timestamp="5896"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:16</a>　これを指す気象用語でありまして、今までの猛暑日、これは35度以上ということでしたが、この40度を超える日が頻発していることから、新たな言い方はないかということで募集をしまして、この「酷暑」という名前に決定をしたということであります。</div><div class="say">このような中で、今年も昨年以上に暑くなるということは当然予想がされるわけでございます。<br />
@@ -621,292 +627,292 @@
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5958s" data-timestamp="5958"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:39:18</a>　昨年の取り組みと課題についてご答弁いただければと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t73">
   <div class="meta"><span class="name">福祉保健部長</span></div>
   <div class="say">令和7年度は前年度に引き続き、熱中症による人の健康にかかる被害の発生を防止するための暑さをしのぐ場として涼み処を6月16日から9月30日まで設置いたしました。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=5990s" data-timestamp="5990"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:39:50</a>　昨年度は市内の薬局にご協力をいただき、涼み処として新たに実施し、設置数も令和6年度の17箇所から31箇所に拡充することができました。また施設にのぼり旗を設置し、市民の方が分かりやすいような工夫もいたしました。</div><div class="say">令和7年は例年以上に気温が高く9月に入っても暑い日が続いたことから今年度は涼み処の期間を延長し、6月1日から10月21日までを実施期間とすることにいたしました。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t74">
   <div class="meta"><span class="name">小林正樹議員</span></div>
   <div class="say">課題とそれに対する対応についてお話をいただきましたけども、小金井市の中にはこの「熱中症対策本部」というものがあるかと思います。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6027s" data-timestamp="6027"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:27</a>　この活動状況とですね、今年度の対応に対するどういう議論が行われて、どういう決定がされたのか、これについてご答弁いただければと思います。は本市の熱中症対策を総合的かつ効果的に推進するために設置し、本部長を市長とし、副市長、教育長、各部の部長職で構成されています。</div><div class="say">令和8年度はまず4月17日に下部組織の部会を開き、続いて5月26日に本部</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6059s" data-timestamp="6059"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:59</a>開催し、休憩所の実施期間及び熱中症対策の取り組みについて協議いたしました。今年度は新たな取り組みとして、今年度限りではございますが、東京都の補助金を活用して低所得世帯等向けにエアコン購入費補助を行っております。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t75">
   <div class="meta"><span class="name">小林議員</span></div>
   <div class="say">はい、ご答弁いただきました。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6091s" data-timestamp="6091"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:41:31</a>　今の休憩所の開設の期間ですとか、エアコンの購入費補助、これについて、そういった組織というのは、文化会ではないですけど、その対策本部の中の会議体として、事前に協議を重ねていただいて、4月の17日に正式に決定、エアコンの補助については、3月の議会で議決しているものではありますが、そういったものを対策本部を生かしながら、今年もどうするかということをしっかりと検討していただいたということで、捉えてよろしいでしょうか。</div><div class="say">はい。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6122s" data-timestamp="6122"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:02</a>　それで、休憩所については、ホームページなどにも載っておりますが、この中に給水スポットがあるところについては表示があります。まずこれについて確認をしておきたいと思いますが、水スポット、ウォーターサーバーの整備状況ともうここ数年使われている中で、利用の声というか、そういったものについてご答弁いただければと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t76">
   <div class="meta"><span class="name">環境部長</span></div>
   <div class="say">はい、環境部長です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6153s" data-timestamp="6153"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:33</a>ウォーターサーバー、マイボトル専用給水機につきましては、マイボトル利用促進による廃棄物の発生抑制、リデュースを最優先とした3Rの推進に向け、給水器のレンタル事業を行っているタンド株式会社との間で協定を締結し、令和5年12月より市内14箇所の施設で設置をしています。設置場所につきましては庁内で設置希望を募りまして設置をさせていただいていたところです。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6187s" data-timestamp="6187"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:43:07</a>　なお、令和8年度の協定内容の見直しにあたりまして、現在のように無償で提供いただける設置数の上限が15箇所と定められたところですので、今後の設置につきましては地域のバランス等を勘案し、適切な配置を検討していく必要があると考えています。</div><div class="say">またウォーターサーバーの評判ということですが、設置当初は使用方法が分からず、排水が溢れてしまうトラブルなどが生じたこともございましたが、最近は安定した使用状況が保たれています。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6218s" data-timestamp="6218"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:43:38</a>　また水とマイボトルを持参して定期的に給水されている市民の方もお見受けいたしますし、本庁舎や第2庁舎においては職員の利用頻度も向上してきており、概ね好意的に受け止めていただけているものと考えてございます。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t77">
   <div class="meta"><span class="name">小林議員</span></div>
   <div class="say">ご答弁いただきましてありがとうございます。8年度の協定内容の見直しによって、最大15箇所ということで、今14箇所が設置をされているということでありました。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6250s" data-timestamp="6250"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:10</a>　今年あの本庁舎の1階にも設置をされておりますので、使われている職員の皆様、また来庁者の方も多いのかなと思っております。</div><div class="say">また、ああいうものを常温ですよね。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6281s" data-timestamp="6281"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:41</a>　なんだけども、ああいうものを市がしっかりと設置をして、ご利用いただいている姿というか、状況自体も非常にこのマイボトルを推進するという意味では非常にいい流れではないかなとこのように考えておりますが、今後、そういった協定の締結見直しなどもありましたが、さらなる取り組みとして、このウォーターサーバーをどのように展開していこうと考えているか伺いたいと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t78">
   <div class="meta"><span class="name">環境部長</span></div>
   <div class="say">はい、環境部長です。</div><div class="say">はい。マイボトルの利用啓発にあたりましてはマイボトル専用給水機の設置の他、令和5年5月にマイボトルの普及及びステンレス製ボトルの再利用と環境に配慮した社会の形成を目指すことを目的として象印マホービン株式会社との間で協定を締結し、使用済みステンレスボトルの回収を継続しております。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6314s" data-timestamp="6314"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:14</a>　また同社の協力のもと職員有志によるオリジナルデザインのマイボトル、こちらの受注販売を行ってからもう一定期間が経過してございますので、改めて同様の取り組みを行うことなども含めまして効果的な普及啓発に努めてまいりたいと考えています。</div><div class="say">以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t79">
   <div class="meta"><span class="name">小林議員</span></div>
   <div class="say">はい、ありがとうございます。それでは次のクーリングシェルター（休憩所）<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6346s" data-timestamp="6346"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:46</a>　のさらなる取り組みというところで、質問したいと思いますが、6月1日号の市報ですね、熱中症対策ということで特集記事が含まれておりました。昨年の市報などを見返してみますと、この休憩所がどこにあるのかというのが、言葉ではなくて、お出かけする時に、この期間、区間に休憩所があるんだなということを把握をして移動していった方が心の準備になるというか、そういったことも言われております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6377s" data-timestamp="6377"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:46:17</a>　やはり店舗や公共施設がずっとないところを長く歩くと、本当に体調の変化にも及ぼすということもありまして、地図で示せないのかという、昨年知っている人は知っているけども、分からない人には分からなかったというようなお声も聞こえてきたところでございます。市報に改めてどの地図を掲載できないのか伺いたいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6413s" data-timestamp="6413"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:46:53</a></div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t80">
   <div class="meta"><span class="name">福祉保健部長</span></div>
   <div class="say">休憩所については実施期間中にも場所が増えることもありますので、市のホームページで設置場所等の情報を掲載している他、6月1日号の市報には熱中症の特集記事を掲載し、紙面から市のホームページにアクセスできるようにしております。市報等による地図の掲載についてはご提案として受け止めさせていただきます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t81">
   <div class="meta"><span class="name">小林議員</span></div>
   <div class="say">ありがとうございます。ご提案ということでありますが、ご一考いただければなと思っております。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6444s" data-timestamp="6444"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:47:24</a>　地図はそういったことでまたご検討いただければなと思うんですが、その一覧ですね、こういったものを公共施設そういったところに置けないか。</div><div class="say">今ホームページからダウンロードできますけども、休憩所を利用されるような、必要とされるような方というのは、あまりスマホだとかホームページを利用されない方もいらっしゃると思います。こういったものがどこへ行っても分かるようにしておくことは必要かと思います。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6476s" data-timestamp="6476"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:47:56</a>　ただ実際昨年、民間でご協力いただいたところなどのお話も聞くと、なかなか営業中ということもあって、どんどん来ればいいっていうことでもない。</div><div class="say">あんまりそのお仕事に邪魔にもできないけども、できればうまく使っていただきたいというところだと思いますので、まずはその公共施設のラインナップだけでも分かるようにするとか、そういったことを公共施設も活用してPRできないのかと思いますが、いかがでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t82">
   <div class="meta"><span class="name">福祉保健部長</span></div>
   <div class="say">これについては関係施設とも協議の上、できることについて検討したいと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t83">
   <div class="meta"><span class="name">小林議員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6506s" data-timestamp="6506"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:26</a>よろしくお願いいたします。また、集会施設等を新たな休憩所にできないのかということで伺いたいと思いますが、先ほどウォーターサーバーの方で14箇所設置があるということになっておりますが、現在休憩所になっているところでは、公共のウォーターサーバーというのは9箇所、ウォーターサーバーが置いてあって休憩所になっているところと重なっているところは9箇所になるわけです。そうすると、残りの5箇所というところは休憩所になっていないということになるわけでありまして、こういったところもしっかりと休憩所として設置というか認定をしていくべきだと思いますが、いかがでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t84">
   <div class="meta"><span class="name">福祉保健部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6549s" data-timestamp="6549"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:09</a>はい。休憩所については令和6年度は17箇所、令和7年度は31箇所、令和8年度は現時点で33箇所と年々拡充しているところでございます。休憩所として設置するためには市民の方がどなたでも休息できるスペースが必要ですが、公共施設の中には休憩所として活用スペースがないことなど実施に向けて課題があり、休憩所として全てを開設することは難しいと判断しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6581s" data-timestamp="6581"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:41</a>　一方で、担当課としても場所の拡充は課題として捉えており、令和8年度は民間施設2施設を新たに休憩所として設置することができました。今後も市民の暑さ対策として利用できる施設が増えるよう検討してまいりたいと存じます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6612s" data-timestamp="6612"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:12</a></div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t85">
   <div class="meta"><span class="name">小林議員</span></div>
   <div class="say">おそらく休憩所のスペースというところは、法的な決まりとかそういったものはなかったのかなと私の記憶の中であるんですが、5人、10人がそこに集まって談笑するとか、そういう目的のものではございませんので、1人でも2人でも短時間でも休憩できるような場所というところを、やはりこの目印を置いて分かるようにしておくと必要ではないかと思っております。そういった意味では、あらゆる公共施設などをですね、ミニ休憩所でも結構なんです。他の名前でも結構ですけども、気軽にお立ち寄りいただけるような工夫というものをすることに大きなメリットがあるのではないかなと思いますが、いかがでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t86">
   <div class="meta"><span class="name">福祉保健部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6644s" data-timestamp="6644"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:44</a>休憩所の拡充は課題とも捉えておりますため、今後とも公共施設、民間施設ともに休憩所として工夫ができないかご協力いただけるよう協議してまいりたいと存じます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t87">
   <div class="meta"><span class="name">小林議員</span></div>
   <div class="say">是非ご検討いたします。次の質問に参りますが、もちろん休憩所というのは飲食を提供するような場所ではありません。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6677s" data-timestamp="6677"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:51:17</a>　なので、悩ましいところではありますが、必要性のある方に対して、今経口補水液ですとか麦茶を今年からは置いていくというようなこともございました。</div><div class="say">塩分を一緒に水分と一緒に取るということでより効果的だということは皆さんご存知のことかと思います。そういったことからすると、必要のある方に対して、塩分タブレットなどを提供できるように、休憩所にこう配置をしておく、配備をしておく。こういった必要性があろうかと思いますが、いかがでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t88">
   <div class="meta"><span class="name">福祉保健部長</span></div>
   <div class="say">はい。休憩所では議員ご紹介の通り、暑さ対策グッズの他、経口補水液などをお配りしているところです。ただいまご説明もいただきましたが、体調不良になった方への一時的な対応を行うために配備しているもので、予防を含めた対策についてはご自身で行っていただきたいという設定としております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t89">
   <div class="meta"><span class="name">小林議員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6732s" data-timestamp="6732"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:52:12</a>保健師さんなども含めてご検討のところだと思います。このような意見があったということで、必要で対策であれば、是非取り入れて、これからでも今年の夏に間に合うように対応いただきたいと、このようにお願いをして、この部分については終わりたいと思います。続きまして、全小中学校にミストシャワーと冷凍庫の設置をしないかということでお伺いをいたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6764s" data-timestamp="6764"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:52:44</a>　文科省でも学校における熱中症事故防止のために水分補給や体温を冷却できる環境整備というものは求められているということはご存知のことかと思います。ミストシャワーについては、体温を冷ますということは当然だとは思いますけども、以前にも独自で設置をしていただいていたそんな学校の事例もあったかなと思っておりますが、改めて全小中学校にミストシャワーを設置できないのかということを要望させていただきたいと思います。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6796s" data-timestamp="6796"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:53:16</a>　また合わせて冷凍庫については、登校時に首に巻いてきた保冷剤ですとか、クールネックリングなど、それを再凍結することで下校時にも使用することが可能になります。</div><div class="say">最近では本年度から立川市において全校に対して希望を募ってその希望台数を配備するということは決定していると伺っているところでございます。小金井市でもこのような取り組みできないのか、要望したいと思いますが、いかがでしょうか</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6890s" data-timestamp="6890"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:54:50</a>エアコンの設置、または普通教室のエアコンの更新など、対応しておるところでございます。また、いくつかの学校におきましては、業務主査が作成しましたミストシャワーを、初口の一部ではございますけども、設置しておる学校もあるところでございます。事例におきまして、現在、登校時の熱中症対策といたしまして、保冷剤付きのランドセルの背当てパッドや、クールタオル、またクールネックリングなどの活用や、また、それを冷却します冷凍庫の設置を行っているというふうな自治体につきましては、私どもの方でも把握はしておるところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6922s" data-timestamp="6922"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:22</a>　ご質問の冷凍庫の設置に向けましては、現状、電力の確保や、設置場所のスペースが課題と考えられ、またクールネックリングなどの冷却物の管理につきましては、特に小学校の低学年につきましては、教員の対応が必要になってくることも考えられ、導入にあたりましては、校長や教員と丁寧な調整が必要になってくるものと考えております。なお、最近の猛暑の状況から、熱中症予防の対策につきましては、強く求められていることにつきまして、教育委員会といたしましても認識しておるところでございます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6954s" data-timestamp="6954"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:54</a>　引き続き学校に対しまして、熱中症の予防につきまして指導、助言をしていくとともに、教育委員会といたしましても、取り組みが充実するよう検討してまいりたい、そのように答弁させていただきたいと存じます。</div><div class="say">以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t90">
   <div class="meta"><span class="name">小林正樹議員</span></div>
   <div class="say">ご答弁いただきましてありがとうございます。初めての提案ということもございます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=6985s" data-timestamp="6985"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:56:25</a>　で、私も何人かですね、体育祭とかそういった場面で、小中学校の責任者の方々に意見交換をさせていただきましたけども、やはり、今言われたようにですね、冷却グッズの管理というのが、想像以上に手間がかかるんだよと、あのお子さんはっていうような、そんなようなお話伺ったところであります。</div><div class="say">立川市でも同じかもしれませんが、現場としっかりとコミュニケーションを取って、必要なところにというところで対応されてるかと思います。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=7015s" data-timestamp="7015"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:56:55</a>　小金井もですね、現場の声を聞いていただきながら、必要な対応であれば措置をしていただきたいと、この点お願いをして、終わりたいと思います。</div><div class="say">避難所ともなる体育館の冷房の非常電源についてということで伺いたいと思います。令和元年より、全校に順次バズーカ式のスポットエアコンを設置していただいて感謝を申し上げる次第であります。しかし、このエアコンの電源が電気となっておりまして、災害時に停電が発生した場合には十分に機能しないということは、皆様周知の事実であったと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=7047s" data-timestamp="7047"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:57:27</a>　しかしながらこの学校の体育館は地域の一時避難所ともなっておりまして、多くの市民の方が避難をされる場所であります。夏の停電時には熱中症のリスクも増大することが懸念されるわけでありますが、災害時の空調確保について実効性のある対策を今行うべきではないかと考えます。まず避難所ともなる体育館の冷房機の導入経緯、また設置状況についてお伺いしたいと思いまして。</div><div class="say">はい。学校教育部長です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t91">
   <div class="meta"><span class="name">学校教育部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=7079s" data-timestamp="7079"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:57:59</a>はい。現在、市立小中学校におけます体育館の冷房につきましては、業務用のいわゆるバズーカ式スポットエアコンを導入しており、特定の場所を効率的かつ強力に冷却することで、電力の使用量の抑制にも配慮し運用しておるところでございます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=7110s" data-timestamp="7110"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:58:30</a>　導入の経過といたしましては、令和元年度に第4小学校におきまして設置をしたことを皮切りに、令和2年度には残りの小学校の8校を、令和3年度には中学校全5校と、順次整備を進めてまいりました。</div><div class="say">規模にもよりますが、各校におきましては4台から7台程度のバズーカ式スポットエアコンを現状設置している状況でございます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=7141s" data-timestamp="7141"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:59:01</a>　電磁におけます対応可能な空調設備につきましては、内蔵型の発電機によりまして自家発電を行うタイプなど多様な方式が存在するものと認識はしておるところでございますが、一方で、現在設置しております体育館の空調設備につきましては、現状、導入からの経過年数が比較的浅く、また、更新や機種の見直しを行うにあたりましては多額の費用と期間を要するものと、現状考えておるところでございます。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t92">
   <div class="meta"><span class="name">小林正樹議員</span></div>
   <div class="say">ご答弁ありがとうございます。結構時間使ってしまいましたので、午前中は最後の質疑になろうかと思いますが、現在の体育館のエアコンは、比較的、今新しく、停電対応のエアコンへ更新することは難しい状況であると言われておりました。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=7179s" data-timestamp="7179"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:59:39</a>　これについては私も理解するところでありますけども、その上で、展示会などでも色々とご相談をしてみますと、既存のエアコンに、運転切り替え盤といいましょうか、分電盤の二股みたいなことだと私は想像してるんですが、この運転切り替え盤を設置をして、停電時には発電機や蓄電池からも電力を供給できる、こういう技術があるようでございます。</div><div class="say">停電時の運転対応が可能になると考えますが、小金井市でもこの運転切り替え盤の設置を進めてはいかがかと思いますが、いかがでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t93">
   <div class="meta"><span class="name">学校教育部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=7218s" data-timestamp="7218"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:00:18</a>はい。議員ご指摘の通り、停電時の対応といたしましては、既存の空調設備を活用しつつ、運転切り替え盤を設置し、停電時に発電機や蓄電池等から電源供給を行う仕組みを構築することにつきましては、技術的な選択肢の1つであると認識しておるところでございます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=7249s" data-timestamp="7249"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:00:49</a>　実際におきましても、本市と同様の空調設備を活用しまして、体育館の付近に、基盤のコンクリートを打設の上、大型の自家発電機を設置するとともに、運転切り替え盤を追加することにより、停電時対策を講じている都内の自治体があることにつきましては、教育委員会といたしましても確認しているところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=7280s" data-timestamp="7280"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:01:20</a>　このような仕組みの構築にあたりましては、大型発電機の設置場所の確保や蓄電池の確保等が必要になるほか、既存設備との接続に関わります、電気設備の改修や安全対策につきましても慎重な検討が求められるところもございます。また、学校側のご理解を始め、設置のスペースやコスト面におけます課題も想定されるところでございます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=7312s" data-timestamp="7312"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:01:52</a>　避難所としての機能を有します体育館におけます、停電時の空調確保のあり方につきましては、市民の安全安心を確保する防災対策の一環として、全体で総合的かつ横断的に検討対応を図るべき重要な課題であると教育委員会としては認識しておるところでございます。</div><div class="say">以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t94">
   <div class="meta"><span class="name">小林正樹議員</span></div>
   <div class="say">ありがとうございます。課題の共有ができたかと思います。ご答弁あったように、運転切り替え盤を設置するだけでは安心にはならないということでありまして、先ほど言われたのが他市の取り組みかなとは思いますが、大型の発電機の設置まで想定すると、やはりスペースやコストが大きな課題になるということも理解しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=7344s" data-timestamp="7344"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:02:24</a>　今回は、そういった課題を共有できたということでありまして、地域安全課とも連携をしていただいて、最適な解について、常に意識をバージョンアップしていただきたい、ブラッシュアップしていただきたいとお願いして、この大きな3番、2番については質問を終わります。ありがとうございます。ここで昼休憩のため休憩いたします。</div><div class="say">再開は13時5分。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=lspMsIVd3mY&t=7383s" data-timestamp="7383"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:03:03</a>　再開でございます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t95">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=175s" data-timestamp="175"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:55</a>お揃いですので再開します。再開いたします。休憩前に引き続き一般質問を行います。9番、小林正樹議員の発言を許可します。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t96">
   <div class="meta"><span class="name">小林正樹議員</span></div>
   <div class="say">こんにちは。</div><div class="say">午前中に引き続き、大きな3番、大きな1番という順番で質問をさせていただきたいと思いますのでお願いいたします。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=206s" data-timestamp="206"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:26</a>　初めに、3番目ですが、再び問うということで、小学校の朝の居場所について伺います。共働き世帯の増加に伴い、保育園から小学校入学後、子供の登校時間と保護者の出勤時間が合わない、いわゆる小一の壁が課題となっております。</div><div class="say">特に朝の時間帯は、子供を家に残すということについて安全面への不安も大きいと言われております。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=240s" data-timestamp="240"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:00</a>　昨年はですね、第3小学校ではこのボランティアで、学校の協力を得て、平日9日間7時半から8時までの30分間において朝の校庭開放を試行実施されておりました。それを踏まえまして昨年の第2回定例会でも質疑をさせていただいたところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=270s" data-timestamp="270"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:30</a>　<a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=302s" data-timestamp="270"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:30</a>方法に合わせてどこが所管するかなどについて関係部署において研究することから始める必要があると考えている、総合教育会議や子ども家庭部との協議の場など関係部署が集まる場所などで協議をするところから始めて、担当部署が決まったところで人数調査に取り組むことになろうかと考えているということで、ある意味、前向きな検討ということも捉えられるような答弁であったと認識しておりますが、しかしその後ですね、1年間あまり大きなご報告等がないままに過ぎてまいりましたので、新年度を迎えた本日ですね、改めて伺うところでございます。朝の校庭開放について昨年の答弁を踏まえた検討状況について伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t97">
   <div class="meta"><span class="name">生涯学習部長</span></div>
   <div class="say">はい。それでは、昨年度の答弁を踏まえまして、この間の取り組みと現状についてご答弁します。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=333s" data-timestamp="333"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:33</a>　小学生の朝の居場所に関する本市のこの間の取り組みといたしましては、子供の居場所づくりの推進に関する指針を所管する子ども家庭部と教育委員会の関係部署により、連絡会議を行い、事業の目的や、子ども家庭庁の実態調査結果、他市の状況等を共有し、課題等について意見交換を行いました。</div><div class="say">現状といたしましては、この4月に子ども家庭部の体制に変更があったことなども踏まえ、改めて主たる所管となる部署や、事務分担の整理等について協議を進めるべく、調整を行っている段階でございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t98">
   <div class="meta"><span class="name">小林正樹議員</span></div>
   <div class="say">ご答弁ありがとうございます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=365s" data-timestamp="365"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:05</a>　4月の人事異動ということでありましたが、昨年の6月に質問した内容でありますので、それもどうかなというところはありますけども、次の1の質問に入ってまいりたいと思います。何点か質問すると申し上げておりますが、2点ですね、まとめて伺いますのでよろしくお願いいたします。</div><div class="say">資料を提出してきましてありがとうございます。自治体における朝の子供の居場所事業の実施状況についてであります。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=395s" data-timestamp="395"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:35</a>　こちらを見ますと、昨年からですね、大きく進んで他自治体でもすでに実施されているところが6市、試行実施が7市、合わせて13市ということで半数の自治体が何らかの朝の居場所づくりについて取り組みを進めていることがわかります。</div><div class="say">これだけ多くの自治体が取り組みを検討し進めている中で、小金井市では1年間あまり大きな進展がなかったということは、正直残念なところでございます。この間の朝の校庭開放の状況、小金井市の中の状況について把握しているのか、また直接要望</div><div class="say">校におきまして、PTAの方々が中心となって、自主的に朝の校庭開放を実施していると伺っております。こちらの取り組みは、主に体を動かすことを目的に、毎日ではなく週2回程度、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=458s" data-timestamp="458"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:38</a>　完全にボランティアにより行っているとのことです。教育委員会では朝の居場所について直接的な要望は聞いておりませんが、小学校では8時以降の登校をお願いしているところ、それよりもかなり早い時間に登校し、開門を待っている児童が一定数いることについては、各学校で把握しているところでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t99">
   <div class="meta"><span class="name">子ども家庭部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=490s" data-timestamp="490"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:10</a>　はい。朝の居場所確保事業の形態につきましては、先進自治体の事例を見ても地域の実情に合わせ様々でございますが、共通する課題といたしましては、実施場所の確保と担い手の確保がございます。子どもの居場所づくりを推進し、保育園から小学校への接続として学童保育所を所管している子ども家庭部といたしましては、保護者の働き方の多様化や共働き家庭の増加を踏まえ、朝の居場所の確保についてもその必要性につきましては認識しているところでございます。</div><div class="say">引き続き実情に</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=522s" data-timestamp="522"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:42</a>　あった事業の方向性等について教育委員会と協議してまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t100">
   <div class="meta"><span class="name">小林正樹</span></div>
   <div class="say">ご答弁ありがとうございます。2番目の質問については、子ども家庭部の方での答弁ということに変わったわけでありますが、なかなかこの所管というのは難しいところでありますが、やはりこの後お話ししますが、三鷹市などの取り組みを見てみましても、この学校との色々な朝の開門の調整ですとか、雨の日、校舎のどこまで入れるのかとか、そういったことも検討が必要になることから</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=554s" data-timestamp="554"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:14</a>　すると、教育委員会が行って対応した方がいいのではないかなというような考えもありますし、なかなか難しいところだなというところも感じておりますが、この所管を決めないことには、やるもやらないも議論が進んでいかないということでありまして、いつまでにこの所管を決めてニーズ調査を行っていこうということなのか、これを改めて伺いたいと思いますが、いかがでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t101">
   <div class="meta"><span class="name">子ども家庭部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=586s" data-timestamp="586"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:46</a>　はい。現状といたしまして、いつまでにと明確にご答弁差し上げることは難しいところでございますが、朝の居場所の必要性については認識しておりますし、また他市を見ましても実施自治体が増えてきているという状況を考えまして、可能な限り速やかに決定してまいりたいと考えてございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t102">
   <div class="meta"><span class="name">小林正樹</span></div>
   <div class="say">ありがとうございます。可能な限り速やかにということでありますので、来年の第2回定例会で同じ質問にならないように、ご検討いただければ幸いでございます。それでは（2）になりますが、5月22日に、公明党といたしまして、三鷹市の第3小学校の、これちょうど第3小学校だったんですが、朝の校庭開放を視察に伺わせていただきました。</div><div class="say">当日は三鷹市の教育委員会及び学校長、副校長先生にもご対応をいただき、朝早くからご対応をいただいたことに感謝を申し上げるところでございます。三鷹市では令和5年の11月から朝の校庭開放をスタートしております。子どもの居場所の確保と保護者の負担軽減に努め、また朝から体を動かすことができる環境を</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=651s" data-timestamp="651"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:51</a>　整備して子どもたちの体力向上を図ることを目的としております。いくつかの学校ですでにボランティアでも行っていたという取り組みがあって、そのことを市でやらないかということで議会でその年の6月に質問があって、11月にすぐに事業化に至ったというお話でございます。三鷹市では現在15校の小学校で行われておりまして、基本的には校庭、雨の日などは体育館などということで7時半から8時半までの</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=682s" data-timestamp="682"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:22</a>　開門時間までの間で校庭内で自由に過ごすことができるということであります。登録制ではなくて行きたい日だけ行けばいいという仕組みのようでございます。非常に手間のかからない、ご家庭にとっても受容的な取り組みとして行われているようでありました。</div><div class="say">見守りの事業者はシルバー人材センターに委託し、見守り体制は1校あたり2名を配置しております。東京都の補助も活用されているそうでありまして、学校の近所の会員さんが</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=715s" data-timestamp="715"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:55</a>　5、6名のチームになっていて、順番で「今日は誰と誰」というようなシフトで入っているということで、まあ、夕方ですとか休日のそういう知り合いが増えるという意味でも功を奏しているということかと思います。またシルバー人材センターでは、児童の見守りや怪我等への対応を行うためにマニュアルに基づき、必要に応じて学校で情報共有する会議もあるそうです。あいにく当日視察をした時だったものですから校庭を走り回る姿は見れませんでしたが、校庭を解放して、途中から多くの児童が集まってきている様子を見ることができました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=757s" data-timestamp="757"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:37</a>　校長先生からは、朝から体を動かす子が増え、運動量増加に寄与しているとの声が上がっているとのことでしたが、この間大きな怪我もなく、おそらく朝体を動かすことで授業に集中できている。また異年齢での交流にも大きく寄与しているものと考えるとこであります。本市でも大変に参考になる取り組みではないかなと思って持ち帰ったところでありますが、小金井市においてもシルバー人材センターなどと連携して朝の居場所の整備を早急に進めていかないのか伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t103">
   <div class="meta"><span class="name">子ども家庭部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=791s" data-timestamp="791"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:11</a>　保護者の多様化する働き方に対応し、子どもの安全で安心な朝の居場所を確保する事業につきましては、校庭を借りて解放し、また自治体によっては図書室を利用するなど、シルバー人材等に委託する方法につきましては、三鷹市以外にも複数の自治体が採用していることは認識してございます。一方で、安全性の確保、また校庭開放の場合、悪天候の場合、どこを</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=823s" data-timestamp="823"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:43</a>　解放するのかという課題がございますので、本市で取り入れる場合には、慎重な検討と学校との調整が必要になると考えてございます。引き続き他市の事例等を研究しつつ、本市の実情に沿った事業について検討してまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t104">
   <div class="meta"><span class="name">小林正樹</span></div>
   <div class="say">ありがとうございます。様々な取り組み方法があり、この資料を見ましても、小金井市にあった取り組みが必要だと考えます。そのためにも所管を早急に決めていただいて、是非とも</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=854s" data-timestamp="854"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:14</a>　検討を前に進めていただきたいとこのようにお願いをして、3番目の質問を終わりたいと思います。それでは大きな1点目、中東情勢の緊迫化に伴うナフサショックから地域経済と市内事業者を守る対策について質問したいと思います。イラン情勢をはじめとする中東地域の不安定化を受け、石油化学製品の基礎原料であるナフサの供給不安や価格高騰への懸念が広がっております。</div><div class="say">これらは現状では幅広い分野に</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=886s" data-timestamp="886"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:46</a>　影響し、すでに市内中小事業者からも大きな影響が出ていると直接お声を伺っておりますので、生の声も交えて整理しながら質問をさせていただきたいと思います。ナフサについて細かな説明は省きたいと思いますが、日本ではナフサの約4割を中東から、約2割をその他の地域からそれぞれ輸入調達をしておりました。で、残りの4割の国産分につきましても、その元となる原料は中東からの輸入に頼っているという状況であり</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=917s" data-timestamp="917"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:17</a>　ます。ですので、このナフサショック、供給不安というところにおいては、イラン情勢の悪化で原油輸送の要めであるホルムズ海峡が事実上封鎖され、日本全体で入手できるナフサの量は通常時と比べて約2割程度へと減少していること。また国内で生成する約4割も先ほど申し上げたように中東からの原油に頼っていることから、供給が滞れば製品の値上げも含め国民生活に様々な影響が</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=950s" data-timestamp="950"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:50</a>　及びかねないということでございます。品不足の影響としてはもうすでに出ておりまして、消費者が購入する身近な製品にも出ております。お菓子メーカーのカルビーは、ポテトチップスなどの主力14品目の包装を白黒に切り替えて販売するといち早く発表して話題となっておりました。</div><div class="say">最新情報では不二家がこの焼き菓子の、あのこういう帽子をかぶったご婦人の焼き菓子のパッケージの色数を減らすことも発表</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=981s" data-timestamp="981"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:21</a>　いたしました。台所用洗剤などの家庭用の、また業務用でも使われてる製品の全品目の15%以上を値上げ発表。経済ニュースを見てますと、都内の整骨院の軟膏を入れるこのプラスチックの容器、これが見通しが立たなくなって、「洗って持ってきてください。</div><div class="say">そこに詰めます」というような呼びかけを始めるんだという方が</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1011s" data-timestamp="1011"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:51</a>　インタビューに答えられておりました。我々は3月27日から4月13日の間、全国でアンケート調査を実施して1万2000件の声をお預かりをいたしました。生活者目線、事業者目線両面で98.2%の方々が物価高を実感されており、電気代、ガソリン代の負担を求める声も非常に多かったところであります。</div><div class="say">その声をまとめて、4月28日には木原官房</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1041s" data-timestamp="1041"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:21</a>　長官へ提言を提出をしたところであります。3月使用分で終了した電気・ガス料金の引き下げの再開や、各種燃料の価格抑制、物価高の負担が重い低所得や子育て世帯への給付金支給、法人向けには倒産防止へのセーフティネット保証の拡充や、従業員への休業手当を助成する雇用調整助成金の要件緩和や助成率の引き上げ、またコロナ禍同様の</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1075s" data-timestamp="1075"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:55</a>　特例措置と共に緊急の資金繰り支援を行うこと。また石油製品ナフサに由来する基礎化学品の安定供給を始め、医薬品や医療基盤物資などのサプライチェーン全体の在庫状況を可視化し、局面に応じた優先供給、こういったものも行う必要があるという内容を申し入れたところであります。政府はナフサは足りていると強調するばかりですが、現場に行くと</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1106s" data-timestamp="1106"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:26</a>　足りないという声に溢れ、国民の不安は収まるところではありません。このような状況下で市民の暮らしを守るべき最前線の基礎自治体としては政府の対応を待つのではなく、できる手立てを尽くしていく必要があると考えます。現在、資材の供給不足などが経済に与えている影響などについてご答弁ください。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t105">
   <div class="meta"><span class="name">市民部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1146s" data-timestamp="1146"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:06</a>　はい。報道等でも取り上げられておりますように、中東地域における情勢の悪化が続いており、その影響としてナフサをはじめとする石油化学原料の供給が不安定化し、生活必需品をめとした様々な分野において物価上昇が見られる状況となっていることは承知しております。本市といたしましても、こうした国際情勢の変化が国内の原材料調達に影響を及ぼしている状況が継続されることで、地域経済への影響も出てくるものと考え注視しており、市内事業者の方や商店会事務局の方とお話しをした際には、現在は確保できている資材についても今後の供給がどのように変化するのか</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1177s" data-timestamp="1177"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:37</a>　不安があること。従来の発注先では安定的な調達が難しくなり、やむを得ず別の仕入れ先へ切り替えて対応している事例があること。さらには発注を行っても必要量が全て納品されないことがあるといった声を把握しているところです。</div><div class="say">こうした事業者の皆様の状況を踏まえますと、原材料価格の高騰や供給の不安定化の影響が出始めているとまさに考えております。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t106">
   <div class="meta"><span class="name">小林正樹</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1208s" data-timestamp="1208"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:08</a>　ありがとうございます。非常に懸念しているということでありました。政府は昨日、2024年の補正予算を閣議決定し、国会に提出をいたしました。一般会計歳出総額は3兆1000億円です。</div><div class="say">で、財源は全て赤字国債ということでありまして、驚いたのがこの3兆約1000億円の中の2兆5000億円が使い道を決めずに編成されている予備費ということであります。国民生活を守るため、どの政策にいくら予算を当てる</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1239s" data-timestamp="1239"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:39</a>　のか明らかにした上で国会で審議をし、議決をすることが財政民主主義の基本的な要件であります。したがって具体的な対策を書いた政策案では国民の不安は到底払拭できないという考えを持っております。野党3党が求めてきた電気・ガス代支援が実施されることは評価する一方、低所得者や夏休み、支出が増える子育て世帯への迅速な対応</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1301s" data-timestamp="1301"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:41</a>調達そのものが困難な状況になっております。納期の見通しすら立たない状況が続いております。東京都内にある建設業の方、このような声を上げられておりました。入荷が困難な材料は心材や塗料、油など様々である。</div><div class="say">流通が滞っている上、価格も高騰している。中でも特に不足しているのが防水剤と言います。約2ヶ月前からほとんど手に入らない。その影響でマンション屋上での防水工事が完全にストップしており、再開のめどが立たない。</div><div class="say">外装工事が終わっていても防水工事へ進めず完工できないため、完工後に支払われる費用がいつまで経っても入らず金銭的にも厳しい状況が続いている。建設業界ではこのような状況があと1ヶ月以上続けば倒産など死活問題になる事業者が</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1333s" data-timestamp="1333"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:13</a>増えていくだろうと。国には必要な手を一刻も早く打ってもらいたいということであります。小金井市内においても建設事業者、資材メーカー、資材屋さんなどからもヒアリングをいたしましたが、今入ってきている材料は春先に受注発注したもので、その後メーカーから厳しい通知が多数届いているということも伺っております。</div><div class="say">多くの資材が、数量や納期調整中及び納期未回答、新規注文に対しては、受付を一時停止、キャンセルなど、本当に厳しい状況で、一覧表を見させていただきましたが、これでどうやって事業を進めていくんだというような状況</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1364s" data-timestamp="1364"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:44</a>であります。コロナ禍を超える厳しい状況であり、仕事にならずお給料が払えなければ若い職人さんなどはこの業界から離れてしまい、ますます現場は人手不足になり、ひいては、その利用者である市民の方にも大きな影響に及ぶということであります。職員販売を行っている店舗でも資材が入荷しにくくなっており、価格転嫁や別の工夫が強いられるというお声も聞いております。</div><div class="say">商工会の総大会の後でもこの件が大きな話題になり、議長もそのことをご発言されたと伺ってるところであります。しかし政府は当面の石油やナフサといった原材料の確保はできていて流通過程での滞りが生じているだけと強弁を繰り返すばかりであります。読売新聞の世論調査で</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1426s" data-timestamp="1426"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:46</a>は、ナフサの供給に問題ないとの政府説明に納得できないというのは64％、納得できると言われている25％を大きく上回っております。この政府の説明に対して納得できないと言われているのは内閣支持層の方々でも57％と半数を超えている。そういった実態であります。</div><div class="say">専門家も政府が言われている「1年を超えて継続できる」というのは国際市場などで調達が現状を維持できた場合の</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1462s" data-timestamp="1462"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:22</a>見込みであって何か確約があるわけではなく、民間事業者はこの現状を冷静に見て、様々な対応を取られているということでございます。今まで、この国に届いていた市民の声というものがなぜ届かなくなっているのか。選挙で大きく勝ったということもあるでしょう。</div><div class="say">また政権の枠組みが変わったということもあるのかもしれませんけれども、しっかりと国民に寄り添った対応をお願いしたいと思います。</div><div class="say">市内事業者への緊急の実態調査、影響調査を行うべきだと思いますが、いかがでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t107">
   <div class="meta"><span class="name">市民部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1496s" data-timestamp="1496"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:56</a>現時点におきましては、市内事業者の皆様の状況について商工会事務局の方からお話を伺い、日常的に情報収集を行うことや商工会事務局と連携することで市内事業者の方々が直面している課題や不安につきまして把握するよう努めております。また事業者の方とお話しする機会もありますので、どのような影響が生じるかにつきましても直接情報を得るように努めて</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1526s" data-timestamp="1526"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:26</a>いるところです。一方で今回の原材料価格の高騰や供給不安は国際情勢の影響を大きく受けており、短期間で状況が変化する可能性も否定できません。そのため本市としても国や東京都、さらには他市の動向や対応状況について注視し、必要な情報を適宜収集していくことが重要であると認識しているところです。</div><div class="say">こうした状況を踏まえ、現段階では商工会事務局と協力しながら情報収集を</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1557s" data-timestamp="1557"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:57</a>継続し、事業者の方の実情を適切に把握していくことが必要であると考えております。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t108">
   <div class="meta"><span class="name">小林正樹</span></div>
   <div class="say">ありがとうございます。これらの影響は市の発注する工事等についても同様であります。先日も念願の第一小学校の建て替えについて市内事業者のご協力も得られるということが議決されたところであります。</div><div class="say">これに限らないわけでありますが、発注事業者の資材価格高騰や供給の遅延の実態も把握し、それを踏まえた契約変更や工期の調整についても市は柔軟に</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1591s" data-timestamp="1591"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:31</a>調整に応じる必要があると考えますが、いかがでしょうか。答弁、端的に進めていただければと思います。よろしくお願いします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t109">
   <div class="meta"><span class="name">総務部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1591s" data-timestamp="1591"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:31</a>はい。本市の工事請負契約において添付しております約款では、賃金または物価の変動に基づく契約金額の変更について、賃金水準または物価水準の変動により契約金額が不適当になったと認められる場合、いわゆる物価スライドに関して契約金額の変更を請求できる旨が定められており、発注者と受注者が協議して</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1622s" data-timestamp="1622"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:02</a>変更できることとなっております。また特別な要因により工期内に主要な工事の日本国内における価格に著しい変動が生じた場合や予期することができない特別の事情により工期内に日本国内において急激なインフレーションまたはデフレーションが生じ、契約金額が著しく不適当となった場合も、発注者と受注者とが協議して変更額を定めることができる旨も合わせて記載されております。</div><div class="say">市といたしましては工期を通じて受注者との継続的な意思疎通を行うことで、約款にも記載のように必要に応じた協議を行い、様々な状況に対応してまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t110">
   <div class="meta"><span class="name">小林正樹</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1660s" data-timestamp="1660"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:40</a>ありがとうございます。丁寧な対応をお願いしたいと思います。緊急資金繰り支援と相談窓口の強化について伺います。様々な、国で行わなければならないことについては我々も国に対して要請をしているところであります。</div><div class="say">東京都においても無担保で1000万円を限度に融資をするつなぎ融資制度が創設され、今月29日から受付を開始されたということはご存知のことかと思います。小金井市としても、手元の資金が不足して支払いができずに、倒産</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1693s" data-timestamp="1693"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:13</a>してしまう黒字倒産を何としても防がなくてはなりません。そのためには例えば資金繰りを支援する緊急資金繰り支援や、相談窓口の強化、こういったものをしっかりと行っていくべきだと考えますが、いかがでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t111">
   <div class="meta"><span class="name">市民部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1693s" data-timestamp="1693"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:13</a>本市におきましてはホームページにおきまして、中東地域の情勢悪化等の影響を受ける中小事業者向け相談窓口のご案内を行っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1723s" data-timestamp="1723"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:43</a>中小企業・小規模事業者向けに開設された中小企業庁の相談窓口のご案内と、それから中小企業の経営や資金繰りに関する相談に対応する東京都の相談窓口のご案内を行っております。本市に限られた課題ではなく国際情勢の影響を受けて広域的に生じている問題であると認識しております。まずは専門的な知識を有し、相談体制が十分に整備されている国や東京都の相談窓口を案内し、事業者の支援につなげることが重要だと考えております。</div><div class="say">今後につき</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1753s" data-timestamp="1753"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:13</a>ましても国や東京都の動向を踏まえつつ商工会と協力しながら事業者の方が抱える不安や課題に対して適切な情報提供、相談が行えるよう取り組んでまいります。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t112">
   <div class="meta"><span class="name">小林正樹</span></div>
   <div class="say">ありがとうございます。相談についてはよくわかりました。それがどこでどうやっているかということも、しっかりと改めて伝えていただければと思います。それで資金繰りの方については、改めて伺いたいと思いますが、小規模事業者に対するこの融資や支援金などの</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1783s" data-timestamp="1783"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:43</a>具体策というものは、今現在では具体的に市として独自で行うことは考えられていないということでよろしいのかということです。また、合わせて聞いてしまいますが、小金井市は物価高騰対策として、昨年度末に議決した、市民1人につき5000円の現金支給というですね、物価対応生活応援給付金がありますけども、今後さらなる状況変化に対して、何か</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1815s" data-timestamp="1815"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:15</a>考えられる手段というものは想定されているのでしょうか。また物価高にあって、医療や介護現場の支援も急務であり、このことは市民生活にも直接的に影響を及ぼすことになります。医療用のグローブやマスク、注射器の在庫による発注困難や品薄に伴う値上げが続き、収支収束にめどが立たないのが状況です。</div><div class="say">医療介護の現場では公定価格がありますので、他の業界のように価格転嫁がすぐにできないということで経営は非常にご苦労されているというお声も伺うところでありますが、この点についてどのようなお考えを持っているのか伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t113">
   <div class="meta"><span class="name">市民部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1857s" data-timestamp="1857"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:57</a>国や東京都におきまして現在、必要な対応策を検討しているところという認識でおります。市といたしましても市内事業者への支援策を直ちに見極めることは難しい状況ですが、国や東京都が講じる支援制度、さらには他市の検討状況などを注視しながら状況の推移を見極めながら適切に判断してまいりたいと考えております。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t114">
   <div class="meta"><span class="name">企画財政部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1888s" data-timestamp="1888"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:28</a>市民への物価高騰対策としては、物価高騰対応重点支援地方創生臨時交付金などの国庫支出金、財政調整基金等の一般財源も活用し、物価高騰対応生活応援給付金など、生活者支援においても取り組んできたところであります。今回の中東情勢の影響を受け、国及び東京都において燃料価格等に関する対策、その影響を受ける中小事業者等への支援など補正予算にて措置する動きがあることは把握しているところでございます。生活者支援の面におき</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1919s" data-timestamp="1919"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:59</a>ましても、国及び東京都、自治体の動向も注視しつつ、情報収集等に努め適切に対応してまいりたいと存じます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t115">
   <div class="meta"><span class="name">福祉保健部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1919s" data-timestamp="1919"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:59</a>市内の介護施設につきましては3月にはガソリン料金を含む物価高騰対策継続支援を実施したところです。また医療機関に対しては東京都が物価高騰対策として支援金を支出しております。状況についてお答えいたしました。</div><div class="say">中東情勢の悪化が長期化した場合の影響は未知数との報道もございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1959s" data-timestamp="1959"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:39</a>状況に応じて支援できるよう努めてまいります。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t116">
   <div class="meta"><span class="name">小林正樹</span></div>
   <div class="say">ご答弁をいただきました。最後に市長にご見解を伺いたいと思いますが、先ほど申し上げたように国の補正予算については3兆円のうちの、2兆5000億円というものは予備費として上がっていて中身が決まっていないというような、そういった、なかなか現場の意識が届いていないような進み方だと思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=1989s" data-timestamp="1989"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:09</a>重点支援地方交付金も1000億円ということで入っておりますけども、今の現状が続いていくと、この1000億円というのは十分な金額ではないなというようには思っております。ただこういったものも十分に生かしていただきながら市内の様々な課題について手当てをしていただきたいし、またこれを増額するようなことについても、国にしっかりと市長会などを通じて意見を上げていただきたいとこのように思いますが、今の市内の事業者、医療</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=2021s" data-timestamp="2021"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:41</a>関係者、農業関係者、市民そういった方の辛い思いなどを受け止めて、何かお考えがあれば市長の方からお聞かせいただければと思います</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t117">
   <div class="meta"><span class="name">市長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=2092s" data-timestamp="2092"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:52</a>と思っているところでございます。で、国や東京都の動きをまず確認したいと思います。国の方では予算の付き合い方が決まっていないというお話もございましたが、しっかり国と連携を取り、情報をしっかり取りながら、我々としても国の予算を使わせていただいて何ができるかということを考えたいと思っております。</div><div class="say">東京都に対しては、5月の下旬に中東情勢だけではないのですが、それも含めた物価高騰対策として緊急要望を市長会通じて出させていただいております。それも含めて東京都の方で今、補正予算が組まれておりますが、少し先ほど紹介しましたように、その中では医療や介護や福祉関係の支援金なんかも盛り込まれているところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=2123s" data-timestamp="2123"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:23</a>ただ、直接の中東情勢に関する対応というところで行きますと、まだまだ課題があるのだろうということで、昨日具体的には申し上げませんが、ある会合で某都議会議員もいらっしゃいましたので、複数いらっしゃいましたので、ちょっと状況をお話を聞かせていただきました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=2153s" data-timestamp="2153"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:53</a>　すると、なかなかやはり市が関わってやるような補正予算というのはあまり見受けられないなという話もございましたが、なお、東京都とも含めて色々情報を取りながら、市として何をすべきかということは考える必要はあるかなと思っております。</div><div class="say">いずれにしましても、今の段階で何をするということは申し上げられませんし、やはり国の全体の社会の情勢、海外情勢を踏まえた社会の大きな問題となっておりますので、他の自治体の動向もしっかり情報を収集しながら、我々としてできることは考えていきたいと、このように考えております。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t118">
   <div class="meta"><span class="name">鈴木成夫議員</span></div>
   <div class="say">市長からご答弁をいただきました。ありがとうございます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=2184s" data-timestamp="2184"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:24</a>　あの、財源あってのことだと思いますけれども、今の状況であります。確認の状況もありますので、場合によってはですね、市がしっかりと支出をして、その場を乗り切るということも先行して行わなければならないこともあろうかなと思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=2215s" data-timestamp="2215"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:55</a>　場合によってはそのコロナを超える現状だと言われている業態もあるようでございますし、医療介護の関係でいけば市民全体が困ることでもございますので、しっかりと情報を収集して、他市の状況を乗り遅れるようなことないように手立てをお願いしたいとお願いいたしまして、質問を終了いたします。ありがとうございました。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t119">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">次に20番鈴木成夫議員の発言を許可します。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t120">
   <div class="meta"><span class="name">鈴木成夫議員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=2246s" data-timestamp="2246"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:26</a>どうも皆さんこんにちは。未来のこがねい、20番鈴木成夫から、第2回定例会の一般質問通告書に沿ってさせていただきたいと思います。よろしくお願いいたします。</div><div class="say">本日通告させていただいた項目は大きく2つであります。まず1番目から入っていきたいと思います。市民サービスの質を向上しようということで取り上げさせていただきますのは、まず丸1のところであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=2277s" data-timestamp="2277"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:57</a>　市の包括管理委託契約の現状について、色々な包括管理委託ありますが、私は今回は道路の管理のところにスポットを当てて質問をしてまいりたいと思っております。というのは、街を歩いているとやはりあちこち道路の傷んでいるところがあります。業者さんに委託をして道路改修をして改善を図っているというところは分かるわけです。</div><div class="say">そういった中で、包括管理委託を検討すること、実現することによってサービスの質が上がるのではないかということで質問をするわけであります。ちょうど昨日は台風の対応ということで先ほどからご報告もありましたが、おそらく都市整備部道路管理のところでもご苦労いただいていたのかなと思っておりまして、職員の皆さんのこうした取り組みには感謝を申し上げるところであります。</div><div class="say">で、まず伺っていきたいのはこの現状について伺っていくわけでありますが、今この検討の状況、現状などお聞かせいただきたいんですが、お願いします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t121">
   <div class="meta"><span class="name">都市整備部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=2350s" data-timestamp="2350"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:10</a>はい。状況につきましては、近年厳しさを増す財政状況や人材不足を背景といたしまして、業務の効率化や予防保全を目的に維持管理業務を複数年かつ広域エリアで一括して民間事業者に委ねる包括管理委託を導入する自治体が、提出資料の通り増えてきているところでございます。</div><div class="say">本市におきましても新たなインフラ管理手法の1つとして、多市の先行事例の情報収集を進めており、その効果や導入にあたっての課題について現在庁内において調査研究を進めている段階でございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t122">
   <div class="meta"><span class="name">鈴木成夫議員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=2392s" data-timestamp="2392"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:52</a>現状ご説明をいただいたわけであります。また資料もご提出いただきましてありがとうございます。で、この道路や街路樹の管理について現状はどういう契約状況について、現状どうなっているのかというところについてお聞かせいただけないでしょうか。部長。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t123">
   <div class="meta"><span class="name">都市整備部長</span></div>
   <div class="say">はい。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=2424s" data-timestamp="2424"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:24</a>　まず道路の管理につきましては、道路等維持補修工事として市内の土木業者10社と単価契約を締結しており、日々のパトロールや市民からの通報に基づく比較的小さな補修に迅速に対応しているところでございます。</div><div class="say">また、道路清掃や雨水ます清掃につきましてもそれぞれ入札により個別に契約を行っております。なお、路面改修などの比較的規模の大きな工事につきましては、設計を行った上で入札により発注しているところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=2456s" data-timestamp="2456"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:56</a>　次に街路樹の管理につきましては、街路樹管理委託として入札により2社と契約を締結し、計画的な定期剪定に加え、倒木や枯損木の伐採といった突発的な対応につきましても順次実施していただいております。</div><div class="say">このように現状におきましては地域の事業者との緊密な連携により必要な対応を機動的に行える体制を構築しているところでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t124">
   <div class="meta"><span class="name">鈴木成夫議員</span></div>
   <div class="say">現状についてご説明をしていただいたわけであります。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=2488s" data-timestamp="2488"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:28</a>　&gt;　<a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=2488s" data-timestamp="2488"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:28</a>確かに地元の建設業者さんも含めこういった業者さんとの連携というところは欠かせないと思っておりますし、昨日の台風もそうですけど、突発的な様々な対応が迫られているのが道路管理ですとか、あるいは強風の場合は街路樹の心配もしなくてはいけないということで、毎日緊張を強いられている職場なのかなというふうに思っておりまして、こういった仕事に当たられている職員の皆さんのご苦労、本当に感謝を申し上げるわけであります。</div><div class="say">なかなかこういった現場の大変さというのが表に出てきにくい。一方でそういった職員さんのこれまで培ってきたノウハウですとか情熱に支えられている仕事なのかなというふうに思っているということはお伝えしておきたいと思います。</div><div class="say">で、先ほど部長のご答弁の中にも予防保全という考え方がありました。で、私もご提出いただいた資料でもそうですが、府中市さんは道路管理、包括管理の先駆者であるかなと思っておりまして、少し調査をしたわけであります。</div><div class="say">そうすると、やはり、例えば道路の補修についても包括管理をしたことによって、市民の通報件数が一定数減ってきたと。<br />
@@ -914,14 +920,14 @@
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=2614s" data-timestamp="2614"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:34</a>　で、あの時はファシリティマネジメントのところも含めて質問されてたかなと思っています。で、これも同様かなと思って予防保全の考え方なんですよね。</div><div class="say">これがトータルで市民サービスの向上につながっていくのかなと思って今回取り上げたわけです。</div><div class="say">ということで考えた時に、道路や街路樹の包括管理委託を本市では検討できるのかどうか、色々なリスクがあると思うんですよ。予算や職員の問題、こういったリスクを踏まえて部局どういった見解をお持ちなのか確認させてください。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t125">
   <div class="meta"><span class="name">都市整備部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=2652s" data-timestamp="2652"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:12</a>はい。包括管理委託につきましては事務負担の軽減といったメリットがある一方で、本市に導入した場合いくつかの大きな課題が生じると現時点では分析しているところでございます。</div><div class="say">第1に財政面の課題でございます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=2683s" data-timestamp="2683"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:43</a>　他市の事例を参考に本市の行政面積等を踏まえて試算したところ、現行の管理体制と比較して年間で1億円を超えるコスト増となる可能性があることが判明しており、費用対効果について慎重な見極めが必要でございます。</div><div class="say">第2に非常時・災害時の体制リスクでございます。包括管理委託化に伴い人員削減が進めば、台風や大雨、突発的な事案等の発生時に現場での初動対応や事業者への指示調整を担う市側の体制が不足する懸念がございます。</div><div class="say">第3に職員の技術力と地元業者への影響でございます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=2716s" data-timestamp="2716"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:16</a>　現場対応や積算監督業務の機会が失われることで若手職員の技術力低下を招く恐れがございます。また、発注の大型化により市内の中小事業者が下請けに回ることで経営が圧迫され、結果として災害時や豪雨などの緊急時に迅速に現場へ駆けつけていただいている地元の協力体制が弱体化するリスクもございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=2747s" data-timestamp="2747"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:47</a>　これらを踏まえますと、多額の追加コストや各種リスクを抱えてまで包括管理委託へ移行するよりも、現状の迅速かつ確実な管理体制を維持し、さらに改善を図っていくことが現段階では本市にとって最適であると考えております。</div><div class="say">本市といたしましては、引き続き他市の動向を注視しつつ、現在の体制の強みを最大限に生かした道路・街路樹管理に努めてまいりたいと考えております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t126">
   <div class="meta"><span class="name">鈴木成夫議員</span></div>
   <div class="say">はい、ご答弁いただきました。現状の見解ということでは受け止めざるを得ないのかなと思っています。繰り返しますけど、やはり地元の業者さんは大切ですし、災害時の対応もとっても大切だと思っております。</div><div class="say">で、その上で色々考えるわけですが、ただ今予算面での話があったかなと思っています。で、少し私これいただいた資料だったので調べてみたんです。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=2799s" data-timestamp="2799"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:39</a>　で、本人提出資料見てもらいたいんですけど、資料でご提出いただいた4市、府中市、町田市、調布市と小金井市で、これ市域の面積と決算ベースで支出額、そして土木費の割合を割り出してみたんです。</div><div class="say">ご覧の通りの結果なんですよ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=2829s" data-timestamp="2829"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:09</a>　例えばご説明いただいた例えば府中市さんの場合の予測されていましたが、土木費の割合で見るとそれほど府中市さんが抜きに出て土木費の割合が高いわけではないということがお分かりいただけるかなと思います。</div><div class="say">これをどう見ていくかだと思っています。まあ小金井市の場合、財政的にも土木費については非常にスリムな予算の構成になっているということは分かっております。<br />
@@ -929,19 +935,19 @@
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=3052s" data-timestamp="3052"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:52</a>　で、やっぱりこの道路ですとか街路樹管理に対する市民の要望っていうのは日々相当数が寄せられてると思っています。で、包括管理のメリットはここを専門にコールセンターを作ってさばいていくということですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=3083s" data-timestamp="3083"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:23</a>　で、ただ今メリットデメリットについてご説明をいただいたわけですが、やっぱりその職員の負担の軽減も合わせて今部長からお話があった包括管理委託のデメリットをメリットに変えていく。つまり現状の職員体制を維持していくことは今後は厳しくなってくるということは重ねて申し上げたいと思っています。そういったところを踏まえてこの分野、市民サービス向上に向けた、つまり苦情として上がってくる前に予防保全の手が打てる体制を作っておくべきというのがこの質問の趣旨であります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=3114s" data-timestamp="3114"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:54</a>　いうことを踏まえて、市民サービス向上に向けた検討を継続するべきということはお伝えしておきますし、今後も検討するように要望しておきます。今日このポイントについては以上です。</div><div class="say">で、次にいきます。次の項目は、あ、そうそう。それで、市民サービスの向上ということで言うと、学校やスポーツ施設の予約を統合して利便性を図るべきではないかという質問であります。で、特にですね、公共予約システムの、特にスポーツ施設における予約の方法と現状の運用についてまずはご説明をお願いします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=3155s" data-timestamp="3155"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:35</a></div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t127">
   <div class="meta"><span class="name">生涯学習部長</span></div>
   <div class="say">はい。本市で導入している公共施設予約システム、特にスポーツ施設の予約方法等の現状についてご説明いたします。</div><div class="say">スポーツ施設を始めとする公共施設は、小金井市公共施設予約システムによりインターネットを通じて予約することができます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=3187s" data-timestamp="3187"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:07</a>　スポーツ施設につきましては、小金井市総合体育館、栗山公園健康運動センター、上水公園運動施設、小金井市庭球場がこのシステムを通じて予約可能で、個人で の利用や団体での貸し切り利用など、様々な用途で活用されております。</div><div class="say">予約方法は、スポーツ施設の場合、施設ごとに多少異なりますが、市内の方の場合、利用希望の12ヶ月前に抽選予約を行い、抽選後は空いているところが随時予約可能となります。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=3218s" data-timestamp="3218"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:38</a>　原則としてこれらの施設を利用する際は事前に利用者登録が必要となり、登録はシステム上で入力を行い、その後本人確認等の手続きを経て完了 いたします。また施設の有効活用を促進するため予約キャンセルに関するルール等の周知徹底を図っているところでございます。</div><div class="say">以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t128">
   <div class="meta"><span class="name">鈴木成夫</span></div>
   <div class="say">ご答弁いただきました。それではですね、学校における体育館ですとか校庭など施設の現状はどういう状況でしょうか。お願いします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t129">
   <div class="meta"><span class="name">学校教育部長</span></div>
   <div class="say">はい。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=3248s" data-timestamp="3248"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:08</a>　<br />
@@ -949,12 +955,12 @@
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=3311s" data-timestamp="3311"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:11</a>　また以前には主に副校長が当該事務を担って おりましたが、現在では副校長補佐や事務の支援員さんが事務の全般を担い、副校長につきましては各種調整を担当している学校が多い。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t130">
   <div class="meta"><span class="name">鈴木成夫</span></div>
   <div class="say">ま、あの、学校も非常に多忙であると思っていて、特に副校長先生の忙しさ、本当に大変だなと思っているわけであります。今、ご答弁の中でいただきました。学校設備の予約に関する状況についてはよく分かったわけであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=3351s" data-timestamp="3351"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:51</a>今ご説明がありましたように副校長先生の関与が少なくなったとはいえ、やはりここは学校の教員の皆さんの負担軽減そしてまた利用する団体の皆さんにとっても利便性の向上に向けて何らかの対策を講じる必要があるのかなと思っています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=3383s" data-timestamp="3383"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:23</a>　他の自治体では、ま、この学校施設や設備の貸し出しに予約システムを導入して、さらには鍵の管理もスマートボックスを利用してDXを推進しているところもあるんですね。これ総務企画委員会で視察した一宮だったかな。そういった鍵の管理をDX化しているお話を聞いてきたりしていますので、DXをこういったところでもDX化を進めてみたらどうかなと思うんですが、検討してみないかということですがいかがでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t131">
   <div class="meta"><span class="name">学校教育部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=3414s" data-timestamp="3414"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:54</a>はい。市立小中学校の体育館及び校庭の貸し出しにつきましては、現在、学校及び地域の関係者等によりますと、紙や電話等を中心とした方法で運用しており、学校関係者の皆様に一定の事務負担が生じているものと認識しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=3445s" data-timestamp="3445"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:25</a>　学校関係者の負担軽減やご利用者の利便性向上の観点からも、議員ご指摘の通り、公共施設予約システムの活用など、学校施設におけますデジタル化の推進は有効な方策の1つであると認識しております。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=3475s" data-timestamp="3475"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:55</a>　現状各学校の利用状況を改めて確認いたしますと、すでに地域のスポーツ団体等が長年継続してご利用しているケースが多く、毎年度同様の団体が同じ時間帯をご利用していることから、新規団体に対する空きの枠が限られているといった実態があるところ もございます。</div><div class="say">本市におきましても、スポーツで、すでに予約システムを導入しており、オンラインによります申し込みや抽選機能の導入などによりまして、利便性の向上が図られている現状もございますことから、学校施設にも応用することにつきましては、今後の検討の課題の1つであると考えております。<br />
@@ -962,67 +968,67 @@
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=3571s" data-timestamp="3571"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:31</a>　また鍵の受け渡しなどにつきまして、鍵をデジタル管理で受け渡しをします、いわゆるスマートボックス等の導入を行う場合にあたりましては、費用対効果や安全管理、 システムのトラブル時の対応、さらに高齢者の利用者への配慮なども含め、慎重な検討が必要であるというふうな形で思っておるところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=3601s" data-timestamp="3601"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:01</a>　現状では運用面、制度面の課題である一方、デジタル化の必要性は十分認識しておりますことから、今後につきましては利用実態や課題を踏まえながら、また東京都等の動向等も踏まえ、他市事例も参考にし、また究極的にはあの学校側のご意見というところがあると思ってございますので、そういったものも踏まえて考えてまいりたいと、そのように答弁させていただきたいと存じます。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t132">
   <div class="meta"><span class="name">鈴木成夫</span></div>
   <div class="say">はい、ご答弁いただきました。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=3631s" data-timestamp="3631"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:31</a>　DXの推進ということでは、やはりその、つまりこの学校施設ということについては、まずはその学校側の負担の軽減というところと利用者側にとっても 使い勝手が向上するというところが目指していくべきその方向なのかなとは思っています。鍵の受け渡しもそうですが、その施設利用のあり方をやっぱり考えていく1つのきっかけというか、考えてもらいたいなと思っています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=3664s" data-timestamp="3664"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:04</a>　それぞれ小中学校14校ありまして、学校ごとにそれぞれの文化っていうか、風土というか、その学校ごとのその違いというところがあるということは承知をしておりますし、そこは尊重していく部分というのは必要かなと思っています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=3695s" data-timestamp="3695"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:35</a>　ただ、全てこれを教員が今担っている状況、教職員の皆さんが担っている状況というところでは、こういったDX化を測っていくことによって負担の軽減を図っていくということもできるわけですから、もちろん制度面や様々課題の解消ということが必要になってくるということはよく分かりますが、学校の意見も踏まえて考えてまいりたいというご答弁でした。まさにそうですね。学校どんなところで現場がご苦労されてるのかというところも含めて、改善を図っていただきたいということで要望しておきます。</div><div class="say">よろしくお願いいたします。</div><div class="say">と、それでは、大きな項目の2番目であります。「りんごの棚」を拡大しないかということであります。「りんごの棚」とは何ぞという話であります。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=3727s" data-timestamp="3727"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:07</a>　障害者週間行事に毎年私、関わらせてもらってるんですけど、3年くらい前からだと思うんですが、市立図書館も団体の活動展示のところに展示をさせていただいてるんですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=3760s" data-timestamp="3760"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:40</a>　これまでのハンデキャップサービスの紹介だけではなくて、大きくて触って楽しめる絵本の紹介などがされておりまして、とってもいいなとずっと思っていたんです。</div><div class="say">各地の事例などを調べてみると「りんごの棚」というのがあるんですよ。これは通告書にも書かせていただいたんですが、特別なニーズのある子供に向けた図書館サービスのことなんですね。これを、シンプルな質問なんです。市内全ての図書館に拡大しないか。つまりこれ今は本館にあるんです。で</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=3823s" data-timestamp="3823"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:43</a>その「りんごの棚」導入に至った経過をご説明いただきたいんですが、お願いします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t133">
   <div class="meta"><span class="name">生涯学習部長</span></div>
   <div class="say">はい。りんごの棚の導入に至る経過についてご説明いたします。図書館では、新たな教育委員会の教育目標において、「全ての子供が主体的に学び合い、多様性を包摂し、想像力豊かに未来を切り開くことを願う」との文言が採択された経過を踏まえ、多様性を包摂する取り組みの一条として、本館2階の児童書コーナーの中に、りんごの棚を設置いたしました。</div><div class="say">このりんごの棚とは、特別なニーズのある子供を対象とした公共図書館サービスの1つで、スウェーデンの図書館からスタートし、現在は世界各国の様々な図書館で普及しています。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=3855s" data-timestamp="3855"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:15</a>　このコーナーには展示絵本や触る絵本の他、大活字本やLブックと呼ばれる写真やピクトグラムを用いた本、また、ふりがなや短い文章を使って内容を理解しやすいように工夫された本など、スウェーデン語で「レトレット」、英語では「イージー・トゥ・リード」とされる優しく読みやすい、特別なニーズに対応する本をまとめて配架することとなってございます。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t134">
   <div class="meta"><span class="name">鈴木議員</span></div>
   <div class="say">えっと、そうなんですよね。あの展示だけじゃなくて、触る絵本ですとか、大きいサイズの絵本だったりするんですよね。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=3896s" data-timestamp="3896"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:56</a>　これね、見ていていいなと思ったのは、今、だいぶ知られるようになってきたと思うんですけど、あの読み書きに困難を抱えるお子さんにとっても非常にいいかなと思っていて、どうしてもそこの、その読んだり書いたりすることに苦手意識を持ってるお子さんにとっては、こういった図書と触れ合うことによって、少しでもこの興味が向いていったらいいなと、思うわけです。</div><div class="say">で、まだこれ、この小金井のりんごの棚って、開設してから時間が経っていないと思うんですが、今、利用状況、そして反応などどんなものがあるのかということを聞いてみたいわけですが、いかがでしょう。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t135">
   <div class="meta"><span class="name">生涯学習部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=3946s" data-timestamp="3946"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:46</a>はい。図書館といたしましても、当該コーナーを立ち上げたばかりでございますので、重立った反応を確認するには至ってございません。しかしながら、児童室を訪れる子育て世代の方々が、「こんなコーナーもあるね」と興味を持っていただいたり、実際にLLブックを手に取ってご覧いただくなどの光景は、日常的に目にする機会も少なくないものとの報告も受けてございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t136">
   <div class="meta"><span class="name">鈴木議員</span></div>
   <div class="say">そうなんですね。立ち上げたばっかりなので。そうですよね。まだまだ知られていないところがあると思っていて、ただ本当にとっても素晴らしい取り組みだなと思っています。で、小金井では読み書きに困難を抱える子供たちへの支援も始まっているところでありまして、こういったところにも、「あ、こういったものがあるよ」ということを知ってもらって活用してもらいたいなという思いは持っております。</div><div class="say">で、今年の4月に始まったばかりの取り組みであります。で、実施されたことで明らかになった課題などがあれば教えていただきたいんですが、いかがでしょう。<a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=4017s" data-timestamp="4017"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:57</a></div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t137">
   <div class="meta"><span class="name">生涯学習部長</span></div>
   <div class="say">はい。図書館といたしましては、まだまだ関連する資料数が少ないと言わざるを得ない状況が課題であると認識してございます。この点につきましては、例えば展示本やLLブックなどは、市場に流通する量がそもそも少なく、購入できる機会が限られていることや、金額的にも比較的高価であるという現状がございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=4048s" data-timestamp="4048"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:28</a>　このため、書籍購入の中で該当書籍の在庫を速やかに購入の可否を判断できるよう、担当職員の専門性の向上に努めているところでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t138">
   <div class="meta"><span class="name">鈴木議員</span></div>
   <div class="say">はい、ありがとうございます。課題はあるわけですよね。ということを考えると、予算の問題も無視できないというところもあるのかなと思っています。で、今のご答弁踏まえてですね、こういったりんごの棚を図書館全館に拡大していけたらいいなと思うわけでありますが、今後の展望などお聞かせいただけないでしょうか？<a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=4084s" data-timestamp="4084"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:04</a></div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t139">
   <div class="meta"><span class="name">生涯学習部長</span></div>
   <div class="say">はい。市内の各分館でも同様の取り組みを進めてはどうかとのご質問でございます。現在、図書館の各分館では、読書バリアフリーの観点から展示本などを蔵書し、特別なニーズを持つ方々に少しでも分かりやすい配置とするため、分館ごとに工夫を行って配架している状況でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=4115s" data-timestamp="4115"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:35</a>　各分館におきましては館内のスペース的な課題もあり、直ちに新たなコーナーを立ち上げることは難しい状況にございますが、図書館事業を委託してございますNPO法人とも、今後ご要望の趣旨を踏まえ、意見交換等を行ってまいりたいと思います。そして、それらの経過も踏まえまして、地域の実情なども考慮しながら、特別なニーズを持つ子や日本語を母国語としない子供たちにも魅力ある蔵書となるよう、今後も努力してまいりたいと考えてございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t140">
   <div class="meta"><span class="name">鈴木議員</span></div>
   <div class="say">はい。読書バリアフリーという今ご答弁でしたり、日本語を母国語としない子供たちにもというお話だったかなと思っています。これもやはりその多様性を包摂というところにつながっていくのかなと思うわけであります。</div><div class="say">ということで伺っていくと、こういった取り組みを学校図書館に拡大できないかということを当然聞きたくなるわけですが、この部分についてはいかがでしょう。<a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=4148s" data-timestamp="4148"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:08</a></div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t141">
   <div class="meta"><span class="name">学校教育部長</span></div>
   <div class="say">はい、学校教育部長です。教育部長の方からもお話がございました通り、本市におきましては、後年度新たな教育目標というものを定めまして、多様性の包摂という具体的な名称を加えさせていただきました。それにあたりまして図書館がいち早く行動をしていただき、そちらの方の内容につきましては教育委員会の管理職に情報の提供があったところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=4180s" data-timestamp="4180"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:40</a>　それらを踏まえまして教育長の方から5月開催しました校長会におきまして、市立図書館における取り組みを紹介するとともに、指導主事の方から各学校の学校図書館におきましても設置に向けました準備を進めるよう提案を行ったところでございます。教育委員会といたしましては、各学校の実情に応じまして運営に関わります助言等、支援を行いながら既存の蔵書を活用した段階的な設置を想定しておるところでございます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=4212s" data-timestamp="4212"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:12</a>　このりんごの棚に並んだ本を必要とする子供たちが読書に親しみ、また周りの子供たちがりんごの棚を通じまして様々な人がいることを理解し、一緒に読書を楽しむ雰囲気を児童室及び小金井市立図書館と連携しながら作り上げていきたいと考えているところでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t142">
   <div class="meta"><span class="name">鈴木議員</span></div>
   <div class="say">はい、ご答弁いただきました。そうなんですよね。教育委員会でも、校長会ですとか指導主事からご案内いただいてるというご答弁でした。そうなんですよね。だからやっぱり子供たちに見てもらって「りんごの棚って何だろう」って興味を持ってもらいたい。</div><div class="say">そして、これを必ずや必要なお子さんというものがいると私は思っていまして、こういったお子さんたちにも、児童生徒にも本に親しんでほしい。そして、ここから交流が広がればいいなという風に思うわけであります。ま、ご答弁の中にもありましたが、やはりこういった動きのもとになっているのはやはり教育委員会の新しい教育目標の、この多様性を包摂するといった文言、ここから始まった一連の動きなのかなと思って、これまで頂いた答弁非常にありがたくというか、頼もしくというか受け止めるわけであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=4242s" data-timestamp="4242"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:42</a>　で、今後の展開について、どうしても最後には教育長に、現在の展望やその思いなど、本日お誕生日ということもありまして聞かせていただきたいなと思うわけですが、いかがでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t143">
   <div class="meta"><span class="name">教育長</span></div>
   <div class="say">ありがとうございます。ただ今から両部長からの答弁の通りでございますが、私の考えも述べさせていただきたいという風に思います。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=4275s" data-timestamp="4275"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:15</a>　私はこのりんごの棚の設置は本市の教育にとって極めて重要な意義を持つものと捉えております。</div><div class="say">教育目標に掲げた多様性の包摂とは、子供たちが日常の学校生活の中で自分とは異なる認知の特性や個性を持つ友人を尊重し、互いに認め合い共に学ぶことによって実現されるものです。私はこの理念を深く理解し、子供たちの日常の中でしっかりと実践していくことが何より重要であると考えております。<br />
@@ -1030,99 +1036,99 @@
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=4341s" data-timestamp="4341"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:21</a>　学校図書館は、AIがこれだけ進展したこの世の中であっても、子供たちにとっては最も身近な知の拠点であり、心の居場所にならなければなりません。</div><div class="say">各学校におかれましては単なる物理的なコーナー設置にとまらず、そこをきっかけとして多様な子供たちが共に本を囲み、対話が生まれるような温かい図書館作りに努めていただきたいと考えております。教育委員会といたしましても、市立図書館との緊密な連携をし、全ての子供たちが個々の特性に関わらず等しく読書の楽しさを享受できる環境を現場の教職員と共に1歩ずつ、誠実に築き上げていきたいと考えているところです。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t144">
   <div class="meta"><span class="name">鈴木議員</span></div>
   <div class="say">教育長からもご答弁いただきましてありがとうございました。多様性を包摂するといった教育目標をスタートにして、市立図書館でこういったスペースを設置していただいたと。またこれに答える形で、教育委員会の方でも校長会や指導主事から周知をしていただいたということで、各学校に学校ごとの違いがあって私はいいと思っています。</div><div class="say">ただ今教育長からあった言葉で非常に印象に残る言葉といたしましては、「他者の存在を知る窓口」って、とってもそうなんですよね。色々な違いを持った友達が学校にはいるということをやっぱり知ってほしい。で、これが多様性を包摂、インクルーシブの入り口になっていくのかなと思っておりまして、この多様性を包摂するといったこの言葉が、こういった形で具体的に学校や教育、図書館の現場で動き出したということには非常に嬉しく思っておりますし、今後もこういった取り組みが広く学校や市民に向けて広がっていくことを期待いたしまして、本日の私の一般質問、少し早いですがおしまいとさせていただきます。</div><div class="say">ありがとうございました。<a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=4372s" data-timestamp="4372"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:52</a></div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t145">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">次に11番沖浦あつし議員の発言を許可します。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t146">
   <div class="meta"><span class="name">沖浦議員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=4406s" data-timestamp="4406"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:26</a>はい、みらいのこがねいでございます。通告の順に質問してまいります。よろしくお願いします。3万（※原文ママ）で終わればということで頑張ってまいります。</div><div class="say">市内の既存公共物にフォーカスして財源確保、街おこし、市のPRなど度々提案をしておりますが、今回は下水道マンホールに着目をして質問を行いたいと思います。道路には電気やガス、消火栓などと共に下水道マンホールも市内の至る所に設置されています。ここから「マンホール」と言ったら、この下水道マンホールのことと思ってください。</div><div class="say">マンホールは車道の真ん中、交差点の真ん中にあるものだと思っていた節が私もあるのですけれども、意外と歩道にも設置されていることが分かりました。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=4720s" data-timestamp="4720"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:40</a>　下水道自体が動いたりしているわけではないので、そのマンホールの位置から今までのその街並みの変遷を感じることや、ここだけそのマンホールの蓋のデザインが違うのは何かあったのかなとか、マンホールにロマンを感じ　て、潜在的な注目が集まる気持ちがなんとなく分かってきました。市のホームページにも載っている小金井市の下水道台帳施設平面図という図面を見ながら、駅の周辺や歩道にマンホールが設置されているところを歩いてみたのですが、現状の確認や、様々なデザインのマンホールがどのような経緯でそうなったのか伺ってまいりたいと思っております。</div><div class="say">まず、マンホールの現在の取り扱いですが、対応年数、更新時期と言いますか、何年程度で年間どのくらいの数のマンホールが更新されているのでしょうか。政策費用や1回の制作ロット数はどのくらいのものでしょうか。鉄蓋の現在の仕様はどの種類、デザインになるのでしょうか。</div><div class="say">カラーホールの制作費用は通常のものと比べてどのくらい費用がかかるのか、まとめてご答弁ください。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t147">
   <div class="meta"><span class="name">環境部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=4785s" data-timestamp="4785"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:45</a>下水道マンホールの蓋につきましては、古いものですとコンクリートの蓋もありますが、現在購入しているマンホールの蓋は鉄蓋、鋳鉄蓋になります。対応年数は車道で15年、その他が30年となっています。劣化状況を勘案して計画的に毎年100枚ほどの交換工事を実施しておりますが、その他に不具合などが見られた日頃の補修の際に、年に数十枚から100枚ほど交換をしているのが実情です。</div><div class="say">現在購入している蓋につきましては、既製品に支障をきたす仕様としています。今年度はまだ契約をしてございませんので、令和7年度の実績でお答えしますと、税込でおよそ1枚7万円程度となっております。鋳鉄のマンホールは上蓋と受け枠セットで1枚あたりの重量が86キロほどになりますので、輸送運搬を考慮し、1回の発注あたり60枚ほどを上限としています。</div><div class="say">また現在購入している蓋の仕様は、製造業者が保有している既製品ですので市のオリジナルものではございません。蓋を製造するには金型が必要となってまいりますが、既製品は金型を他の自治体が発注するものと共有しておりますので、原価計算の中には含まれてはいるでしょうが、市のオリジナルを作る時のような別途費用がかかる状態ではないと考えています。</div><div class="say">オリジナルのカラーデザインホール蓋を作成するとなりますと、カラー塗装費用の他に別途、金型が必要になってまいります。金型も他自治体と共有できたりなど一定数の受注が確約されていれば、原価計算の中で若干小額になるでしょうが、数枚しか作成しないのであれば1種類の数枚であっても合計100万円以上の費用になると見込んでございます。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t148">
   <div class="meta"><span class="name">沖浦あつし</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=4909s" data-timestamp="4909"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:49</a>ご答弁いただきました。マンホールの鉄蓋をただ見ただけでは、どれが新しいものか分からなかったのですが、現在は既製品として購入設置しているものというのが、私の本人資料の1番の写真のものかなと思っております。多分大丈夫ですよね。（頷いておられます）</div><div class="say">私は一見、この桜のデザインの方が新しいものなのかなと思っていました。写真の丸2番になるのですが、なぜかと言うと、写真の3番の方、桜のデザインのカラー版のマンホールの蓋が各所に見られるカラーでした。カラーデザインは人の目を引きますし、また人の目を引きつける目的があって設置しているのであれば、基本的には車道と分離しているような歩道に設置するものではないかと思いきや、そうではないところにもあったりして、そこで過去の取り組みにどのような経緯、背景があったのかを伺いたいのです。</div><div class="say">桜のデザインのカラーマンホールや、先ほど写真の4番になりますけれども、いわゆるデザインマンホール、大水くんのマンホールですね、設置した時に、どこならばこういうものが設置できるか、安全面や人がよく通る場所などどのような検討がなされたのでしょうか、答弁いただきたいと思います。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=5005s" data-timestamp="5005"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:25</a>　につきましては令和元年度に設置したもので、下水道事業の周知を図るため制作したものになります。東京都の観光部門の交付金があったことから、市の財源負担なしで設置をしてございます。</div><div class="say">設置にあたりましては予算上数枚しか作成できないことや、また市民の方に安全に見てもらうことを考慮いたしまして、車道と歩道が区別されている道路の歩道上とすることを条件としています。その要件を満たす箇所としまして、武蔵小金井駅北口・南口、東小金井駅北口・南口、新小金井駅北口のロータリーの歩道部分に設置することといたしました。</div><div class="say">しかしながら、東小金井駅南口のロータリーには下水道本管が埋設されていないことから、南側につきましては駅入口から少し離れたところ、駅周辺の都市計画道路の歩道に設置をしてございます。桜のマンホール蓋につきましては詳細の記録が手元に残っておりませんので不明な点も多いのですが、モノクロのマンホールもあり、当時は市内全域至るところに設置する標準のものとして桜のマンホール蓋を設置していたものと推察しています。</div><div class="say">劣化状況がひどくないものは今でも市内に点在してございます。当時市内全域に標準マンホール蓋として設置していく中で、商店街の道路や拡幅した道路の歩道などにカラーのインターロッキング舗装した際にはマンホールも交換しますので、インターロッキングのカラーに合わせてマンホール蓋もカラーを採用したと伝え聞いているところです。以上です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=5098s" data-timestamp="5098"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:58</a>ご答弁いただきました。大水くんのマンホールは、市民の方に安全に見てもらうことを考慮して駅近くの歩道上へ設置。桜のマンホールは市内全域に設置していく中で、劣化状況がひどくないものは今も点在している。</div><div class="say">その中で、街中の桜マンホールは当時からインターロッキング舗装の際に合わせて、道路が歩車分離になっていないようなところにも点在しているのはそのような理由ではないかという伝聞をいただきました。</div><div class="say">大水くんのマンホールの設置の時に検討されたように、安全に見てもらうことを念頭に人の目に止まるような場所を考えるとその歩車分離の歩道で、駅前ロータリーやその周辺、例えば緑中央通りや東大通りの歩道が適するのかなということで私も歩いてみたのですが、ここでもいいのではないかというところが、私の主観ですけれども大体50箇所ぐらいあるんですよね。思ったより多かったなと思うのですが、厳選しても20箇所ぐらいはいけるかなというところがありました。ただ、その比較的新しいであろう規制品のマンホールと、比較的古いであろう桜のマンホールが混在しているっていうのが確かに、おっしゃる通り現状でした。</div><div class="say">ここからちょっと仮の話になりますけれども、大水くんのマンホールのようなカラーデザインマンホールを、今後ある適切な場所に設置したいと考えた時に、その場所にすでに設置されているマンホールが劣化状況によりちょうど交換時期になっているのであればちょうどいいのですが、そうでない新しいマンホールの蓋である時は考えどころになりますよね。ここで考えたのですが、同じ大きさであれば、例えばその違う場所に取り付けていたものと交換して取り付けることっていうのは可能だったりするのでしょうか。ご答弁お願いします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t149">
   <div class="meta"><span class="name">環境部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=5228s" data-timestamp="5228"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:08</a>特殊なものを除きまして下水道のマンホールの蓋の大きさはほとんど同じになりますが、皆様がイメージする上蓋と蓋の受け枠、こちらがセットになってマンホール蓋というのは構成されています。受け枠が同じであれば上蓋だけ交換することができないわけではございませんが、マンホール蓋の劣化状況により交換を行っておりますので、管理上、上蓋と受け枠の設置時期が違うと使用年数の把握が複雑になってまいりますので、上蓋と受け枠をセットで交換しているというのが通常になります。</div><div class="say">稀に上だけ交換する場合を想定するのであれば、蓋に表示している汚水、雨水などの蓋の在庫がなくなってしまって、緊急的に合流などの他の表示のものを一時的に代替し、蓋の購入後、上だけを交換するということはあるかもしれません。そのような緊急事態を除きましては、通常は使用年数の管理もございますのでセットで交換をさせていただいているというのが通常です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t150">
   <div class="meta"><span class="name">沖浦あつし</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=5288s" data-timestamp="5288"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:08</a>ご答弁いただきました。受け枠までセットで付け替えることが原則であるということで、都合よく上蓋だけを付け替えることはしていないということでありました。</div><div class="say">ここからマンホール広告は実現可能なのかということを探りたいのですが、大水くんのマンホールのようにデザインの金型を作って鉄蓋を制作する方式というのは、マンホール広告には現在あまり採用されていないようなのですよね。先ほどのご答弁でも、やっぱり数枚作成するだけで100万円ぐらいかかるということですし、先ほどのご答弁によると付け替えとかできない理由等で、その応用性の乏しさというものが気になっているのではないかなと考えてます。</div><div class="say">平成30年度から全国で初めてマンホールの蓋を活用した広告事業をスタートした埼玉県所沢市では、デザインプレート式マンホールと言いまして、広告デザイン、フルカラーですね、が印刷された専用シートをステンレス製プレートに貼り付けた後、当該プレートを専用の鉄蓋とボルトで固定する方式です。</div><div class="say">大阪府の高槻市では、この方式の他、プリントシール式マンホールもあり、広告デザイン、フルカラーが印刷されたポリウレタン製のプリントシールを専用の鉄蓋に貼り付けし、表面をエンボス加工を施し広告事業を実施しています。愛知県豊川市では、既存のマンホールの蓋の上部にステンレス製プレートに印刷シートを貼り付け、表面にエンボス仕上げをしたものを設置する方法でマンホール広告を実施しております。</div><div class="say">この3つ並べたんですけれども、写真だけではその質感とかがちょっと分からないということがあって、私もどのように表現したらいいかということがなかなか大変でございますが、こういう何種類かの方式で、わざわざデザインの金型を作らずとも色々なことに使え、応用が利くものということで、今事例にあげたようなマンホール広告がございます。本市としましては、こういうものを導入する予定はありますでしょうか。例えば「まるまるの町、小金井市」とかですね、このように大水くんマンホールに似たような形で市のPRとしても使えると考えますが、その点をお願いします</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=5552s" data-timestamp="5552"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:32</a>　ト式もシール式も表面を加工して対スリップ性を持たせているということは確認してございます。とはいえ、表面加工もいつか摩耗していくと考えられ、それは鋳鉄物であるよりも短い期間で進行するのではないかということを懸念します。管理上、交換期間を長く確保できるという観点で、既存物である鋳鉄蓋を現状採用してまいりたいと考えております。</div><div class="say">以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t151">
   <div class="meta"><span class="name">沖浦議員</span></div>
   <div class="say">ご答弁いただきました。対スリップ性を考えると交換期間を長く確保する観点から鋳鉄ということですね。あの、他自治体で事業に用いているところの摩耗モードとかを参考にして、交換期間とかを設定して回転させていくということも考え方としてはあるかと思います。</div><div class="say">一応ここでまた今一度確認したいんですが、マンホールの蓋を活用した、いわゆるマンホール広告をするために、所管課として捉えている必要条件というのは何であるのか、ご答弁いただきたいと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t152">
   <div class="meta"><span class="name">環境部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=5599s" data-timestamp="5599"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:19</a>　安全性のほか、マンホール蓋にデザインを施す上で、もう1つ注意しなければならないことにつきまして、屋外広告物に該当するということになります。小金井市内においては、屋外広告物は東京都の許可が必要になってまいります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=5632s" data-timestamp="5632"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:52</a>　地方自治体の公共的目的を持ったものは許可が不要となる場合もあるようですが、東京都屋外広告物条例による規制があり、道路という極めて公共性の高い場所に営利目的の広告を設置することは極めて難しいという認識です。</div><div class="say">屋外広告物条例は、政令指定都市などを除きまして都道府県が条例を制定することとなっており、道路上の屋外広告物の有料広告の可否は東京都の判断によることになります。</div><div class="say">知っている限りでは、東京都内の下水道では有料広告を採用している団体がないのが現状となっています。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t153">
   <div class="meta"><span class="name">沖浦議員</span></div>
   <div class="say">ご答弁いただきました。マンホール広告と言っても、その有料広告として取り扱うか、あるいは公共的な目的、いわゆるデザインマンホール蓋として取り扱うかということで、許容度の差があるということでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=5675s" data-timestamp="5675"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:35</a>　有料広告のマンホール広告というのは現時点ではなかなか難しい状況であることが、ご答弁によって分かってきました。</div><div class="say">今回私がこのテーマを取り上げたのは、令和9年度から下水道の基本料金が上がる予定となっている以上、財源確保を図っていく姿勢を見せるべきではないかと考えたからでした。</div><div class="say">有料広告が直接的にできなくても、例えばゆかりのあるアニメキャラクターでマンホールの蓋にデザインをして、観光人口、訪問人口を増やすような手法は、東京都内の自治体でもいろんなところで実施されています。一例を一番最後に載せておりますけれども。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=5739s" data-timestamp="5739"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:39</a>　あとは、私のこの今考えてる頭の中なんですけれども、交換時期が迫ってきたマンホールが駅周辺等にある場合に、その新しいマンホールの設置費用の寄付を募って、例えば今後何があるかというと、令和10年にすごい区切りの年を迎えますよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=5773s" data-timestamp="5773"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:13</a>　市制70周年はもちろんのこと、50周年を迎える小金井阿波踊り、同じく50回を迎える小金井薪能、有効都市締結59周年を迎える三宅村。例えばその広告の中に「三宅まで180km」とか、なぜそういうものを出しているのかというのは、以前にも一般質問でさせていただきましたけれども、そういうことで公共目的の形でいろんなことが多分できると思うんですよ。</div><div class="say">そういったことのためにも、いわゆるデザインマンホールと言った方がいいのかなと、この質問を通じて思いましたけれども、こういうことへの取り組みというのは大いに検討するべきではないでしょうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=5804s" data-timestamp="5804"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:44</a>　最後の質問になりますが、いかがでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t154">
   <div class="meta"><span class="name">環境部長</span></div>
   <div class="say">議員ご指摘の通り、下水道事業の財政運営におきましては、新たな財源確保については重要な課題と認識してございます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=5848s" data-timestamp="5848"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:28</a>　他の自治体においてはクラウドファンディングで、例えばアニメキャラクターのマンホールを設置する際にクラウドファンディングが5分で埋まったですとか、そういった事例があることも承知してございます。</div><div class="say">他自治体の事例も含めまして、屋外広告物に該当する・しないなども含めて、他の財源などとの兼ね合いも含めまして情報収集を続け、今後の研究課題としてまいりたいと思います。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t155">
   <div class="meta"><span class="name">沖浦議員</span></div>
   <div class="say">ありがとうございます。前向きなご答弁をいただいたと思います。私も今回いろいろやり取りをさせていただく中で、その市内のマンホールの歴史とか、設置している考え方というのを確認できる良い機会になりましたので、引き続きよろしくお願いいたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=5880s" data-timestamp="5880"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:00</a>　ということで次のテーマに行きたいと思います。まずは各自治体の無料相談会に対する予算要望に今年度ご対応いただいたことに感謝申し上げます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=5912s" data-timestamp="5912"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:32</a>　本市の行政における第三者附属機関、様々設置されておりますが、このテーマでは第三者機関として主に3つの審査会を題材にした上で、審査のさらなる公正性、客観性の担保のために様々な分野の専門性を反映していこうということで、本市の現状を確認していきたいと思っております。</div><div class="say">最初に申し上げておきますが、個別事案に関することや、現任の委員の方に注文をつけるようなことは一切ありませんので、この点よろしくお願いいたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=5943s" data-timestamp="5943"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:39:03</a>　まず部局の方から、提出資料とあと本人資料の裏面、こちらを見ながら質問していきたいと思います。</div><div class="say">附属機関・執行機関の委員調べを出していただきました。ありがとうございます。資料の真ん中のラインにあります、固定資産評価審査委員会についてでございます。</div><div class="say">本人資料の一番上、地方税法には、その設置根拠と共にどのような方を委員として選任するかが明記されております。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=5975s" data-timestamp="5975"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:39:35</a>　固定資産評価審査委員会の委員は地方税法423条で、「1つ、当該市町村の住民」「1つ、市町村税の納税義務があるもの」「1つ、固定資産の評価について学識経験を有するもの」<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=6008s" data-timestamp="6008"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:08</a>　のうちから、当該市町村の議会の同意を得て市町村長が選任するとありますが、現在の委員はどのような構成で選んでいるのでしょうか。お答えください。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t156">
   <div class="meta"><span class="name">総務部長</span></div>
   <div class="say">はい。提出しました「附属機関・執行機関の委員状況調べ」の資料をご覧ください。固定資産評価審査委員会の委員は現在3人となってございます。</div><div class="say">選任につきましては議会でご審議、ご同意をいただいている通りでございますが、不動産関連の専門家である宅地建物取引士、税務の専門家である税理士、それから当該委員会が類似する審査機関でありますことから、その専門的知見を有するものとして選任した弁護士、以上の3者で構成をしてございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t157">
   <div class="meta"><span class="name">沖浦議員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=6041s" data-timestamp="6041"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:41</a>ご答弁いただきました。「資料を見れば分かるでしょう」というご答弁だったと思います。確かにその選任同意の議案には住所が小金井市という項目が示されておりまして、私が先ほど1つずつその選任の要件というのを述べたのですが、おそらくそれのいずれも満たしている方々であるということだと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=6072s" data-timestamp="6072"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:41:12</a>　あえてこの質問をなぜしたかと言うと、固定資産の評価について学識経験を有するものとして職業が3者3様であることです。固定資産評価審査に対して様々な分野での専門性が反映されているのではないかということが客観的に見て取れるからです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=6104s" data-timestamp="6104"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:41:44</a>　一方で、部局提出資料の左側、「情報公開・個人情報保護審査会」、右側の「行政不服審査会」<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=6134s" data-timestamp="6134"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:14</a>　の委員の職業を見た上でですが、この2つの審査会の委員の委嘱の要件は、本人資料で抜粋で挙げております通り、情報公開・個人情報保護審査会については条例で「情報公開及び個人情報保護に関し優れた識見を有するもののうちから」とされており、行政不服審査会については行政不服審査法の施行に関する条例で「審査会の権限に属する事項に関し公正な判断をすることができ、かつ法律または行政に関して優れた識見を有するもののうちから」とありますが、これらの優れた識見を持つのは職業としては弁護士だけに限っているという認識であるのか、見解をいただきたいと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t158">
   <div class="meta"><span class="name">総務部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=6169s" data-timestamp="6169"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:49</a>委嘱するにあたっての要件ということでございますが、情報公開・個人情報保護審査会の委員は、小金井市情報公開・個人情報保護審査会条例第2条第2項で「情報公開及び個人情報保護に関し優れた識見を有するもののうちから市長が委嘱する」と。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=6199s" data-timestamp="6199"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:43:19</a>　行政不服審査会の委員は、ただ今ご紹介ありましたが、小金井市行政不服審査法の施行に関する条例第6条第1項で、「審査会の権限に属する事項に関し公正な判断をすることができ、かつ法律または行政に関して優れた識見を有するもののうちから市長が委嘱する」と規定をしてございます。</div><div class="say">従いまして、特段条例上何らかの資格を必要とするというような制限を設けているものではございません。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=6230s" data-timestamp="6230"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:43:50</a>　なお、情報公開・個人情報保護審査会の委員につきましては、これまで弁護士の方、大学教授をされた学者にお願いをしてきたところですが、現在は弁護士3名体制となっております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t159">
   <div class="meta"><span class="name">沖浦議員</span></div>
   <div class="say">ご答弁いただきました。条例上資格や職業について何か制限を設けているものではないということですよね。その調査として、情報公開・個人情報保護審査会の委員については現時点では弁護士3名体制であるが、現任期の当初は大学教授にも委嘱をされていたとのことでした。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=6262s" data-timestamp="6262"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:22</a>　情報公開・個人情報保護に対して、様々な分野での専門性を反映しようとされていたのではないかと考えるわけです。では、行政不服審査会への様々な分野での専門性の反映はということになっていくわけですが、その前に、このような項目が公開されているものなのか確認します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=6293s" data-timestamp="6293"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:53</a>　市の政策を検討・協議するような審議会や検討委員会においては、名簿やどのカテゴリーから選ばれた方が、例えば学識経験者とか関連団体の推薦とか市民公募とか、そういうものが書かれているものは多くあります。</div><div class="say">では、今回取り上げた3つの審査会のそれぞれの委員名簿、職業の公開状況を具体的に伺いたいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=6330s" data-timestamp="6330"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:30</a></div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t160">
   <div class="meta"><span class="name">総務部長</span></div>
   <div class="say">情報公開・個人情報保護審査会につきましては、市のホームページの情報公開・個人情報保護審査会のページに委員氏名、選出区分、任期を掲載してございます。</div><div class="say">合わせて情報公開条例・個人情報保護制度の運用状況を掲載しておりますが、そこには大学教授、弁護士というように役職等を記載してございます。固定資産評価審査委員会の委員の選任にあたっては、議会の同意が必要となるところ、その議案に経歴等を掲載してございます。また、就任後には市報に氏名・任</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=6394s" data-timestamp="6394"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:46:34</a>公表しても良いのではないでしょうか。見解を伺いたいと思います。</div><div class="say">情報公開・個人情報保護審査会につきましては、先ほどご説明しました通り、市のホームページに委員の氏名や任期等を掲載してございます。今後についてですけれども、この行政不服審査会につきましても同様に掲載、公開していくことを検討してまいりたいと考えているところでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t161">
   <div class="meta"><span class="name">沖浦あつし</span></div>
   <div class="say">ご答弁いただきました。ありがとうございます。よろしくお願いいたします。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=6428s" data-timestamp="6428"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:47:08</a>　この点、一番分かりやすく、見やすくホームページに公表しているのは、お隣の小平市でありまして、小平市行政不服審査会と検索すると、その小平市ホームページの当該ページの冒頭に氏名・職業が載せてございますので、参考としてお伝えいたします。</div><div class="say">さて、ここからが本題でございます。昨年6月の国会におきまして、行政書士法の重要な改正があり、本年1月1日から施行されたものを紹介いたします。<br />
@@ -1133,25 +1139,25 @@
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=6712s" data-timestamp="6712"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:51:52</a>　また、議員立法であるこの行政書士法の今回の改正にあたっては衆議院で賛成多数で可決、両院の府と呼ばれる参議院では全会一致で可決する結果でありました。</div><div class="say">説明が長くなりましたが、ここで質問です。令和8年1月1日の行政書士法の改正に伴う事務の取り扱い等について、総務省の通達や事務連絡はどのようなものがあったか、また、本市として本改正による対応はどのようなものであったか伺いたいと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t162">
   <div class="meta"><span class="name">総務部長</span></div>
   <div class="say">総務省自治行政局長から、各都道府県知事宛てに令和7年6月13日付で「行政書士法の一部を改正する法律の公布について」という文書が発出されていることは承知してございます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=6747s" data-timestamp="6747"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:52:27</a>　通知の内容につきましては、特定行政書士が行政庁に対して不服申し立て手続きの代理等をすることができる範囲についての拡大であり、審査庁となる部署としてはその内容を把握する必要があるところでございます。これまで本市において行政書士を代理人とした審査請求は記録にございませんが、審査庁となりうる担当部署には情報共有をしていきたいと考えております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t163">
   <div class="meta"><span class="name">沖浦あつし</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=6785s" data-timestamp="6785"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:53:05</a>ご答弁いただきました。念のためその審査請求という言葉、これは何かということでございますが、国や本市のような地方自治体の行政機関による処分や不作為に不服がある場合にその見直しを求める手続きとして認められている制度でございます。権利利益の救済機能の点と、あと裁判所へ訴えを起こすことに比べて時間や手数料がかからず、簡易迅速な手続きが可能な点が利点であると一般的に言われています。</div><div class="say">本日資料にも載せましたが、審査請求があった際の手続きについて、審理員という役割を担う職員と第三者機関の行政不服審査会が登場します。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=6815s" data-timestamp="6815"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:53:35</a>　審理員についてですが、処分庁と審査請求人との双方の主張から事実関係を調査する独立性、公正性が求められるため、問題となった処分に関与していない職員が指名されることになっています。公正中立な立場で実質的な審理を行い、審査庁がどのような裁決を下すべきか、客観的な視点を保ち意見を取りまとめる権限と責任を持つと解されます。</div><div class="say">ここで質問です。審査請求手続きの審理員の候補は、名簿を作り公表するということになっていると思いますが、本市は当該名簿を備えているのでしょうか？また、審理員候補はどのような役職の方々でしょうか？またその理由についてもご答弁願います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t164">
   <div class="meta"><span class="name">総務部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=6880s" data-timestamp="6880"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:54:40</a>審理員となるべき者の名簿につきましては行政不服審査法第17条では、審査庁となるべき行政庁は審理員となるべき者名簿を作成するよう努めるとともに、これを作成した時は当該審査庁となるべき行政庁及び関係の事務所における備え付け、その他の適当な方法により公にしておかなければならないとしてございます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=6910s" data-timestamp="6910"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:10</a>　本市につきましては審理員となるべき者の名簿につきまして特段作成はしておりません。従いましてその都度、事案に応じて審査庁に所属する職員のうちから適任と考えるものを指名してございます。</div><div class="say">つきましては審理員制度が創設される以前から不服申し立てを実質的に審査してきました実績のある法務担当課長を審理員に指名しているものでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t165">
   <div class="meta"><span class="name">沖浦あつし</span></div>
   <div class="say">ご答弁いただきました。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=6944s" data-timestamp="6944"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:44</a>　法務担当課長が審理員制度が創設される前から実質的な対応をされてきたことに対しては、大変重責を担われてきたなと敬意を表します。それでもですね、たった1人というのは大変すぎませんか。</div><div class="say">休暇もとれないのではないかとむしろ心配してしまいます。審理員候補の名簿を公表している自治体では、部長級がほぼ全員のところもあれば、専門的知見を有する者を任用している自治体もあります。<br />
@@ -1162,67 +1168,67 @@
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=7131s" data-timestamp="7131"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:58:51</a>　その下の東京都立川市では、行政不服審査会条例、施行規則により、行政不服審査会の委員に、これ特定と書いてはないんですけど特定だと思います。特定行政書士1名選任しています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=7164s" data-timestamp="7164"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:59:24</a>　また先ほど例を上げたお隣小平市では、資格や職業を特定する規定はないものの行政不服審査会に特定行政書士や元行政職員を選任しています。様々な分野、専門性を反映することでさらなる審査の公正性、客観性を高めるものと理解しますが、行政書士法改正に伴う特定行政書士の専門性の反映として審理員候補者への、また、行政不服審査会の委員への就任について本市としてどのようにお考えでしょうか。ご答弁ください。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t166">
   <div class="meta"><span class="name">総務部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=7195s" data-timestamp="7195"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:59:55</a>現状、適切な審理が行われているとの認識であり、現時点で変更しなければならない理由はないと考えるところではございますが、その都度事案に応じて審査庁に所属する職員のうちから適任と考えるものを指名していきたいと考えているところでございます。引き続き条例に規定する通り、公正な判断をすることができ、かつ法律または行政に関して優れた識見を有するもののうちから委嘱していきたいと考えているところでございます</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=7258s" data-timestamp="7258"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:00:58</a>雑化した制度における、市民と行政の架け橋だと、そういうコメントもされております。行政ではできないこと、様々なプレイヤーのおかげでこの行政運営が成り立っているともおっしゃっております。色々が彩ると、市長自身も語られております。</div><div class="say">この今回の答弁を聞いて、市長の見解もお伺いしておきたいと思っております。お願いします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t167">
   <div class="meta"><span class="name">沖浦議員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=7303s" data-timestamp="7303"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:01:43</a>はい。私のあの挨拶の言葉をしっかり聞いていただいてありがとうございます。あの、行政書士はですね、観光省に提出する書類作成や、許認可手続きに関する専門的な知識を有する、行政に通ずる国家資格者として、市民活動に深く関わっていると認識をしております。</div><div class="say">その専門の活用には様々なものと考えております。本市におきましては、各種審議会を始め、設置目的に応じ学識経験者、各種関係団体、市民代表等、多様な視点を有する人材の参画が有用だと考えておるところでございます。今後につきましても、各機関の設置目的や審議内容を踏まえながら、専門性等に適切に応じた、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=7336s" data-timestamp="7336"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:02:16</a>適正な人材登用に進めていただきたいと考えておりますが、今回あの改めて改正行政書士法の要点とかポイントについても様々お教えいただきました。我々としてもそれは把握してるところではございますが、他市の登用の状況なんかも当然見ながらですね、我々も人材の活用という点、人材の育成というところは非常に頭を抱えているところでございますので、是非ともですね、専門的にどう活用できるかな一層、しっかり考えていきたいなと思うところでございます。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t168">
   <div class="meta"><span class="name">沖浦あつし</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=7368s" data-timestamp="7368"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:02:48</a>ご答弁いただきました。ありがとうございます。今回このテーマを取り上げたのは先ほど申し上げました通り、この行政書士法のその改正っていうのが、今までずっとその創設の時からですね、議員立法でなされてきたということもございます。</div><div class="say">今回その国会の参議院の全会一致の賛成でこの改正されたものでもございますし、このことはですね、議員である私どもの方から行政の方にお伝え、お知らせをしていかなければいけない内容だということで取り上げさせていただきました。様々なその専門性がですね、反映されるような小金井市政になっていってほしいという思い、願いを込めまして、私の一般質問を終わりたいと思います。今日はどうもありがとうございました。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t169">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yWqZdODiqHE&t=7399s" data-timestamp="7399"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:03:19</a>ここで3時休憩のため暫時休憩いたします。3時35分再開。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=194s" data-timestamp="194"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:14</a>再開します。休憩前に引き続き一般質問を行います。1番太田宏徳議員の発言を許可します。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t170">
   <div class="meta"><span class="name">太田宏徳</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=231s" data-timestamp="231"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:51</a>はい。2年生議員、2年目の議員として初の一般質問ということで、あの昨年の一般質問は本当に緊張して一睡もできず臨んだのを覚えております。今年は3時間寝れましたので、頑張っていきたいと思います。</div><div class="say">本日のテーマは、大きな1「特流型犯罪による特殊詐欺の対策に地域コミュニティの活性化」を扱わせていただきます。この特流型犯罪につきましては、3人の議員が同じテーマということで、しかもよりによって初日に集中して私が最後ということで、締めくくりをさせていただければと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=264s" data-timestamp="264"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:24</a>非常に重なっている部分が多いかと思うんですけれども、新人議員ゆえ、ちょっと対応できずすみません。よろしくお願いいたします。まず、特流型犯罪による特殊詐欺への対策。</div><div class="say">近年、匿名・流動型犯罪グループ、いわゆるトクリュウによる特殊詐欺や強盗等が全国的な社会問題となっております。市内においてもアポ電による注意が相次いでいるほか、トクリュウが関与をしたとされる事件も発生しており、市民の不安は高まっております。特殊詐欺は高齢者を狙ったオレオレ詐欺や還付金詐欺だけでなく、SNS型投資詐欺など若年層にも被害が広がっております。</div><div class="say">市民の安全安心を守るため、特殊詐欺被害防止に向けた市の取り組みについて伺います。市内の犯罪件数の直近5年間の</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=330s" data-timestamp="330"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:30</a>推移と傾向は、特殊詐欺の認知件数、被害者の年代別傾向及び被害額の推移について市が把握している状況をお示し願います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t171">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=360s" data-timestamp="360"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:00</a>はい。一部重複してしまうところがございますが、心を込めてお答えします。警視庁のホームページにおきまして、東京都内の市区町村別に犯罪の種別ごとに年間の統計が公表されておりますので、こちらを参照いたしますと、小金井市における犯罪の認知件数の総数につきまして、少し5年より遡りますが、平成30年度が800件、平成31年度が758件となっておりましたものが、令和2年度から5年度まででは概ね500件から600件で推移しておりまして、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=393s" data-timestamp="393"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:33</a>また令和6年度から709件で、令和7年度直近が600件となっております。特にそのうち侵入窃盗として自転車の窃盗が顕著に増減をしている傾向がございます。これらの数字からは、新型コロナウイルス感染症の影響により人流の抑制や活動の自粛等が一定程度影響していたのではないかと推察されるところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=423s" data-timestamp="423"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:03</a>またこちらの統計データにつきましては、犯罪の種別としての掲載がされておりまして、詐欺の件数としては毎年30件から40件程度発生しております。ですが、その内訳につきましては、特殊詐欺によるものかどうかの明記はございませんが、一定程度含まれているものと認識しております。また被害者の年代別や被害額についてもそちらの方では公表されておりませんので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=453s" data-timestamp="453"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:33</a>本市に関するデータとして明記はないものになりますが、東京都の全体的な傾向といたしましては、詐欺に関しまして、従来は多くのケースで高齢者の方が被害に遭われていたものが、近時におきましては20代、30代の若い年齢層の方でも詐欺被害に遭う事例が増えているというところは警察からも聞き及んでいるところでございます。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t172">
   <div class="meta"><span class="name">太田宏徳</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=484s" data-timestamp="484"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:04</a>はい。特殊詐欺の詳細な認知件数や被害額については、警察が所管する部分であり、市として把握できている情報には限界があることは理解しました。一方で市民への注意喚起や被害防止策については市が行う重要な役割であることから、以下について伺います。</div><div class="say">アポ電が連続して確認されている事案への対応について、市内で連続して確認されているアポ電事案について、市の認識と対策を伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t173">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=515s" data-timestamp="515"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:35</a>はい。市ではまずホームページにおきまして「今すぐできる特殊詐欺対策のご案内」というコーナーを作成しておりまして、情報の提供をしております。一例といたしまして警視庁の「デジポリス」という防犯アプリをご紹介しておりますが、こちらをご活用いただきますと、国際電話のブロック機能も備えておりまして、海外の電話番号から発信される国際電話詐欺を防止することができるなどの機能がございます。</div><div class="say">また、本市で実施しております高齢者世帯等の自動通話録音機の無償貸与についてもご紹介しております。こちらは市内在住の概ね65歳以上の方が居住する世帯が対象となっておりまして、平成29年度に開始以降、令和7年度末までの累計で106件の貸与をいたしております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=579s" data-timestamp="579"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:39</a>返却の期限などは定めておりませんので、ご不要になるまでお使いいただくことが可能でございます。この録音機は、電話機の呼び出し音が鳴る前に発信者に対して会話を自動録音するという警告メッセージが流れるものですので、導入したことによる効果というのはなかなか明らかになりにくいのですが、申請にいらっしゃる方からは、どのようなものを選べば良いか分からない中で、市から無償で貸与してもらえるということについて、ありがたいというようなお声を伺うことがございます。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t174">
   <div class="meta"><span class="name">太田宏徳</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=645s" data-timestamp="645"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:45</a>アポ電の発生状況については、警察が把握する情報であり、市として把握できる範囲に限りがあることは理解いたしました。そのような中でも市ホームページによる情報発信やデジポリスの周知、自動通話録音機の無償貸与、被害防止に向けた取り組みを継続していただいていることは評価いたします。特に自動通話録音機については、令和7年度までに累計106件を貸与しているとのことであり、高齢者世帯の安心につながる取り組みであると考えます。</div><div class="say">今後も警察と連携しながら、アポ電などの不審電話情報について迅速な注意喚起に努めていただくとともに、録音機の利用促進やデジポリスの周知についても、引き続き取り組んでいただくよう要望いたします。市の防犯安全対策の取り組みについて、特殊詐欺被害防止に向けた啓発や市が行っている防犯機器等購入補助について、申し込みの現状、予算に対する執行率等もお示し願います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t175">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=725s" data-timestamp="725"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:05</a>はい。特殊詐欺被害防止のための取り組みといたしましては、その性質上非常に短期間で詐欺の手法が移り変わるものであるため、その情報をいかに正しくお伝えすることができるかということが何にも勝る啓発になると考えております。警視庁の生活安全総務課や小金井警察署からのメール配信につきましては、市の小金井安全メールに自動転送することとしており、合わせて地域安全課のX（旧Twitter）やLINEにも同時に反映するような取り組みをいたしております。</div><div class="say">また防犯機器購入補助事業につきましては、昨年9月から3月までの申請件数は935件で、予算執行率としては26.8%となりました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=756s" data-timestamp="756"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:36</a>今年度につきましても5月から受付を始めておりまして、お問い合わせも多数いただいているところでございます。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t176">
   <div class="meta"><span class="name">太田宏徳</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=788s" data-timestamp="788"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:08</a>ご答弁ありがとうございました。再質問になりますけれども、防犯機器等購入補助事業について再質問いたします。昨年9月から3月までの申請件数が935件であった一方、予算執行率は26.8%との答弁でした。</div><div class="say">市民の防犯意識の高まりから多くの申請があったものと受け止めておりますが、一方で執行率との間には開きがあるように感じます。この執行率となった要因について、市としてどのように分析しているのか伺います。また今後さらに多くの市民に制度を活用していただくため、周知方法や制度についてどのように取り組んでいくか、考えを合わせてお伺いいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t177">
   <div class="meta"><span class="name">防災安全担当部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=827s" data-timestamp="827"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:47</a>はい。予算上は2250件につきまして、補助上限額の3万円分を措置したものでございますので、申請件数は想定の約40%程度となります。それに比して執行率が26.8%であった理由といたしましては、補助上限額までのご申請に至らなかった方が一定程度いらっしゃったものによると推察いたします。</div><div class="say">補助率が1/2ですので、ご申請いただいた皆様が6万円を超える機器を購入されたわけではなかったということになろうかと考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=860s" data-timestamp="860"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:20</a>物品によりましては比較的安価に購入できるものなどもありますので、そういったものを上手に組み合わせていただいたのではないかとも考えております。また、補助対象となる機器の購入等の期間を、今回も令和7年4月以降の分の受付をしておりまして、昨年度中にご申請をなさらなかった方にもご申請をいただくことができるように本年度取り組んでおります。周知方法につきましては、市報には今年度は4月1日号に掲載をしておりますが、市報やホームページ等をですね、若干時間差をつけながら、あらゆる媒体でタイミングを捉えて目に付くような取り組みの方を工夫しているところでございます。</div><div class="say">以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t178">
   <div class="meta"><span class="name">太田宏徳</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=921s" data-timestamp="921"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:21</a>ご答弁ありがとうございました。執行率が26.8%となった理由については、予算規模や申請内容との関係によるものであることを理解いたしました。一方で、申請件数は935件とのことであり、市民の防犯意識の高まりがうかがえます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=952s" data-timestamp="952"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:52</a>　また本事業については、東京都の防犯機器等購入補助制度に対する市独自の支援の必要性を、我が会派としてもこれまで要望してまいりました。その後、市において補助制度を実施いただいたことは、市民の防犯対策を後押しする取り組みとして評価いたします。特に、最近では市内においても特殊詐欺が関与したとされる事件も発生しており、市民の皆様の防犯に対する関心や不安はこれまで以上に高まっているものと感じております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=985s" data-timestamp="985"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:25</a>　こうした状況を踏まえますと、防犯機器等購入補助事業は単なる設備購入支援にとどまらず、市民の不安軽減や、地域防犯力の向上にもつながる重要な事業であると考えます。そのような中、防犯カメラや録音機能付きインターホンなどの防犯機器の導入を支援する本事業は、市民の安全安心の確保に大きく寄与するものと考えます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=1016s" data-timestamp="1016"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:56</a>　引き続き、広報やホームページなど様々な媒体を活用しながら、制度の周知に努めていただくとともに、市民ニーズも踏まえながら、より活用しやすい制度となるよう取り組んでいただくことを要望いたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=1051s" data-timestamp="1051"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:31</a>　今後の強化策として、特殊詐欺につきましては、高齢者を狙ったオレオレ詐欺や還付金詐欺に加え、近年ではSNS型投資詐欺やロマンス詐欺など、若年層も被害に遭う事例が増えております。市においては、自動通話録音機の貸与や防犯機器等購入補助事業、また安全安心メール等による情報発信など、被害防止に向けた取り組みを進めていただいておりますが、犯罪の手口は日々変化しております。<br />
@@ -1231,12 +1237,12 @@
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=1177s" data-timestamp="1177"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:37</a>　そこで、自治会が担う役割を改めて確認するとともに、加入促進に向けた取り組みや、未加入者を含めた地域情報の共有のあり方についてお伺いします。</div><div class="say">自治会の役割、また今の役割の違いについて伺います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=1217s" data-timestamp="1217"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:17</a></div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t179">
   <div class="meta"><span class="name">企画財政部長</span></div>
   <div class="say">町会・自治会は住民相互の連絡、地域環境の整備、集会施設の管理等、住民福祉の向上や地域コミュニティの醸成に寄与するとともに、行政と地域住民を結ぶ基礎的な組織として様々な行政サービスを共同で行うなど、重要な役割を担っていただいております。これまでは地域の祭事やイベントの開催、清掃美化活動等、地域を維持するための役割が中心でしたが、近年では、各地で自然災害や多様な犯罪等が発生していることを受けて防犯、防災活動や見守り活動など、地域で安心安全に生活できる環境を構築するための役割が大きくなっていると認識しております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t180">
   <div class="meta"><span class="name">太田宏徳</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=1250s" data-timestamp="1250"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:50</a>ご答弁ありがとうございました。自治会が地域住民福祉の向上や、地域コミュニティの醸成、防災、防犯、見守り活動など、地域で安心して暮らしていくための重要な役割を担っていることを改めて確認することができました。また、近年は防災や見守りなどの役割がより重要になっているとの認識も共有できたものと考えます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=1284s" data-timestamp="1284"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:24</a>　一方で、かつては地域情報の伝達や様々な地域活動への参加など自治会を通じて地域と関わる機会が多く、加入することが当然と受け止められていた面もあったと思います。しかし、現在は行政サービスの充実や情報取得手段の多様化により、自治会に加入しなくても日常生活を送ることができる環境になっております。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=1315s" data-timestamp="1315"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:55</a>　だからこそ、加入率の低下を単に課題として捉えるだけではなく、自治会活動の意義や魅力をどのように伝えていくのか、また加入の有無に関わらず、地域と関わる人をどのように増やしていくのかという視点が重要であると考えます。</div><div class="say">その点も踏まえながら、次の質問に移ります。<br />
@@ -1248,7 +1254,7 @@
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=1542s" data-timestamp="1542"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:42</a>　自治会活性化に向けた行政の取り組みについて、町会・自治会活動の活性化に向けて、加入か未加入かの2択ではなく、多様な関わり方を認め、加入を前提としない緩やかな地域の仕組みが必要ではないか、市にお伺いします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t181">
   <div class="meta"><span class="name">企画財政部長</span></div>
   <div class="say">現状、町会・自治会の活動について詳しく知らない方はまだまだ多いと認識をしております。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=1586s" data-timestamp="1586"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:26</a>　そのような中で、興味がある活動だけまずは参加してみるということは、町会・自治会がどのような活動をしているのかを知るきっかけの一つとして有効であると感じるところです。町会・自治会との情報交換の場である、町会長・自治会長連絡会などの場において、ご意見を伺いながら、どのような手法が取れるのか、町会・自治会の皆様と一緒に考えてまいりたいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=1620s" data-timestamp="1620"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:00</a>　、まずは興味のある活動から参加してみることが、活動を知るきっかけとして有効であるとの認識が示されました。この点は私も大変重要な視点であると考えております。現在は加入するかしないかの2択になりがちですが、例えば、防災訓練だけ参加する方、地域清掃だけ参加する方、子供の見守り活動に協力する方など、地域との関わり方は様々であっていいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=1653s" data-timestamp="1653"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:33</a>　特に若い世代の中には自治会への加入にはハードルを感じる一方で、地域活動そのものには関心を持つ方も少なくありません。そうした方々が地域との接点を持つ入り口として、イベント単位やテーマ単位で参加できる仕組みは有効ではないかと考えます。<br />
@@ -1256,19 +1262,19 @@
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=1756s" data-timestamp="1756"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:16</a>　一方で、行政情報に限らず、地域の情報を得たいと思っている市民の方も多く、そのような方々に対して地域との接点を作る意味でも、どのように情報を伝えていくかという点については、課題として捉えております。3月に策定されました第5次小金井市基本構想後期基本計画におきましても、施策の方向性として地域活動への参加促進を掲げておりますので、まずは市としてどのような方法が取れるのか検討してまいりたいと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t182">
   <div class="meta"><span class="name">太田宏徳</span></div>
   <div class="say">地域活動の情報発信について、市としても課題意識を持っていること、また地域との接点作りの必要性について認識されていることが確認できました。私も地域活動に関心はあるものの、どこでどのような活動が行われているのか分からないという市民は少なくないと感じております。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=1804s" data-timestamp="1804"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:04</a>　特に若い世代や転入者の中には自治会への加入にはためらいがあっても、防災訓練や清掃活動、夏祭り、子供の見守り活動などには参加してみたいという方もいるのではないでしょうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=1835s" data-timestamp="1835"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:35</a>　武蔵野市では、市民が主体となって地域活動に参加しやすいコミュニティ作りが進められており、自治会加入の有無に関わらず、地域との接点を持てる仕組みづくりが行われております。小金井市においても自治会が果たしている役割を大切にしながら、武蔵野市のコミュニティ構想が持つ「参加したい時に参加できる」「必要な情報にアクセスできる」といった要素を取り入れていくことは有効ではないかと考えております。そのため、まずは地域活動の情報にアクセスできる環境を整えることが重要であると考えます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=1868s" data-timestamp="1868"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:08</a>先ほど地域活動への参加促進を市として検討していくとのご回答でしたけれども、その具体的な手法の一つとして、防災訓練や地域清掃、夏祭りなどの地域活動について、市のホームページ等を活用し、自治会加入の有無に関わらず市民が閲覧できる形</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=1899s" data-timestamp="1899"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:39</a>　情報発信を行うことについて、市の考えを伺います。なお、藤沢市では市ホームページ内に自治会町内会ポータルサイトを設置し、自治会オンライン版の閲覧や、市内各自治会町内会のホームページへのリンクを通じて年間行事や地域活動、防災活動などの情報を広く発信しております。また電子回覧板の活用事例やLINEを活用した連絡網の構築など、自治会活動のデジタル化の先進事例についてもYouTube動画で紹介し、自治会活動の見える化や参加促進につなげております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=1963s" data-timestamp="1963"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:43</a>　私もこのYouTube動画を拝見させていただきましたけれども、この自治会の皆さん、電子回覧板にしたことによってのメリットといいますか、電子回覧板にして本当に良かったよって、こう心からのお声とか様々聞くこともできますし、何がどう変わるのか、こういうことも確認できます。また、ある自治会のデジタル化の先進事例についてもYouTube動画で説明しておりまして、そのホームページの作り方とかそういった具体的な事例が紹介されております。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=1994s" data-timestamp="1994"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:14</a>　これ、是非とも自治会の連絡会でも今日取り上げていただいてもいい動画ではないかなと思いますので、　是非とも研究していただければと思います。</div><div class="say">また小金井市においても一部自治会でデジタル回覧板の活用が始まっておりますが、こうした先行事例も参考にしながら、市ホームページ上に自治会活動のポータル的な情報発信の仕組みを設けることで、地域活動への促進や、将来的な自治会加入につなげることができると考えますが、市の見解を伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t183">
   <div class="meta"><span class="name">企画財政部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=2026s" data-timestamp="2026"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:46</a>　市の媒体におきまして、市以外が行う地域情報の発信を行うにあたりましては、対象をどこまでにするかなど、情報の取り扱いに関する一定のルールが必要になるとともに、情報の収集方法や周知の仕方についても検討が必要であると考えております。ご紹介いただきました藤沢市などの例も含めまして、現段階ではご提案として受け止めさせていただき、どのような手法が取れるのか、これからの検討課題とさせていただきたいと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t184">
   <div class="meta"><span class="name">太田宏徳</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=2065s" data-timestamp="2065"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:25</a>　ご答弁ありがとうございました。市の媒体で地域情報を発信するにあたっては、掲載対象や情報の取り扱いに関するルール、情報収集や発信方法の整理が必要であることは理解いたしました。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=2098s" data-timestamp="2098"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:58</a>　一方で自治会加入率の低下が進む中、地域活動の情報が自治会加入者のみに届く状況では、地域活動に参加したいと考えている市民や、　新たに地域とのつながりを持ちたい市民に情報が届きにくいという課題があります。</div><div class="say">ご答弁にもありましたように、藤沢市では自治会町内会ポータルサイトを設置し、市民が地域活動の情報にアクセスできる環境を整えております。<br />
@@ -1277,13 +1283,13 @@
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=2259s" data-timestamp="2259"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:39</a>　続きまして、外国人住民に対する地域情報提供の工夫について、　自治会に加入していない外国人住民も増えている中、地域情報や防災情報をどのように届けるかが課題となっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=2291s" data-timestamp="2291"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:11</a>　ゴミ出しルール、災害情報、避難所情報、子育て情報、地域イベント案内などについて、優しい日本語や他言語化に加え、LINE、WhatsApp、Facebook等のデジタル媒体を活用した情報発信を強化するべきと考えますけれども、市の見解を伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t185">
   <div class="meta"><span class="name">企画財政部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=2323s" data-timestamp="2323"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:43</a>　生活に関する情報を全般的に掲載している市のホームページにおきまして、今年1月に行ったリニューアルにおいて、他言語対応の拡大と優しい日本語自動変換サービスを導入し、アクセシビリティの向上を図りました。一方、リアルタイムに情報が発信できる公式LINEやXでは、日本語での発信が基本となっており、外国人住民に対する情報の伝達については、まだ課題があると認識をしております。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=2354s" data-timestamp="2354"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:14</a>　ゴミ出しルールや子育て情報など、個別で担当している事業の情報は、それぞれの担当課において外国人住民に対する情報提供にそれぞれ取り組んでいることから、担当課と連携しながら、より分かりやすく適切な情報発信に務めて　まいりたいと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t186">
   <div class="meta"><span class="name">太田宏徳</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=2386s" data-timestamp="2386"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:46</a>　はい、ご答弁いただきました。実際、市ホームページを見ますと、他言語対応や優しい日本語への自動変換サービスの導入など、外国人住民の情報発信に取り組まれていることは理解いたします。また公式LINEやXについては、日本語での発信が基本となっており、外国人住民への情報伝達に課題があるとの認識も示されました。</div><div class="say">外国人住民の方々にとってゴミ出しルールや災害時の避難情報、子育て情報などは生活に直結する重要な情報であります。情報が届かないことは本人にとって不利益となるだけでなく、地域とのつながりを持つ機会を失うことにもなります。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=2416s" data-timestamp="2416"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:16</a>　今後は他言語化や優しい日本語の　活用に加え、外国人住民が利用しやすいデジタル媒体も意識しながら、必要な情報を適切に届けていただきたいと思います。</div><div class="say">再質問になります。市ホームページの多言語対応や優しい日本語への自動変換サービスの導入については評価しております。<br />
@@ -1292,12 +1298,12 @@
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=2515s" data-timestamp="2515"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:55</a>　これは先ほど紹介した自治会町内会ポータルサイトと同様に、情報を多言語化することだけではなく、必要な情報にたどり着き　やすくすることが重要であるという観点からも伺うものであります。</div><div class="say">そこで外国人住民向けの情報を集約した専用ページやポータル的な入り口の整備について市の見解を伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t187">
   <div class="meta"><span class="name">企画財政部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=2547s" data-timestamp="2547"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:27</a>　外国人向けの専用ページ、またポータルサイトということについてでございます。こちらにつきましては、現時点でなかなか検討できていないところでございますので、他自治体の状況等も研究させていただきながら、どのような手法が取れるのかということで考えていきたいと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t188">
   <div class="meta"><span class="name">太田宏徳</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=2578s" data-timestamp="2578"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:58</a>　ご答弁ありがとうございました。是非とも検討していただければと。藤沢市のホームページも見ていただいて検討していただければと思います。現在も各担当課において外国人向けの情報提供に取り組まれていることは理解いたしました。</div><div class="say">一方で外国人住民の方にとっては、必要な情報が存在していることとその情報に容易にたどり着けることは必ずしも同じではありません。特に来日直後の方や日本の行政制度に不慣れな方にとっては、どのページを見れば良いのか分からないということ自体が大きな障壁になる場合があります。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=2610s" data-timestamp="2610"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:30</a>　その意味では、　他言語化や優しい日本語の取り組みに加え、必要な情報を分かりやすく整理し、1つの入り口からアクセスできるようにすることも重要であると考えます。</div><div class="say">先ほど紹介した藤沢市の外国人住民の方へのページは、その1つの参考事例になると思います。<br />
@@ -1305,17 +1311,17 @@
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=2702s" data-timestamp="2702"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:02</a>　市におかれましては地域活動への参加促進や情報発信の充実を通じて、誰もが地域と繋がりやすい環境を進めていただくことを要望し、　私の本日の一般質問を終わります。</div><div class="say">以上です。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t189">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-YdCCYvNeGM&t=2737s" data-timestamp="2737"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:37</a>　お諮りします。本日の会議は議事の都合によりこの程度にとどめ、これをもって延会することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t190">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t191">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">異議なしと認め延会することと決定しました。本日はこれをもって延会します。</div>
 </div>
@@ -1351,5 +1357,53 @@
     addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
   </script>
 
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
 </body>
 </html>

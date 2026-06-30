@@ -81,6 +81,12 @@
     .hero{padding:14px 0 22px;} .sum{padding:18px;}
     .turn{padding:12px 0;} .say{font-size:15.5px;}
   }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
 </style>
 </head>
 <body>
@@ -95,7 +101,7 @@
     <span class="srcbadge"><span class="dot"></span>本文＝小金井市議会 公式会議録（DBSR）</span><span class="src official">本文は公式会議録を一字一句そのまま掲載。要約はAIによる補助、タイムスタンプ・動画はYouTube連携（いずれも非公式の付加情報）。　|　<a href="https://www.city.koganei.tokyo.dbsr.jp/360709?Template=document&amp;Id=10366" target="_blank" rel="noopener">公式会議録の原典 ↗</a><span class="genmeta">本文は公式会議録と一致確認済み（verbatim）。要約はAIによる生成で、小金井市議会の公式見解ではありません。<br>最終生成日 2026-06-30</span></span>
   </header>
 
-  <section class="sum reveal">
+  <section class="sum reveal" id="summary">
     <p class="lab">A I 要 約</p>
     <h3>提出議案等一覧</h3>
 <ul>
@@ -171,7 +177,7 @@
     <p class="cap">動画を再生しながら会議録を読めます（YouTube・3本）</p>
   </section>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t0">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=177s" data-timestamp="177"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:57</a>おはようございます。ただいまから本日の会議を開きます。</div>
   <div class="say">日程第１、一般質問を行います。</div>
@@ -180,7 +186,7 @@
   <div class="say">（１７番吹春やすたか議員登壇）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t1">
   <div class="meta"><span class="name">１７番（吹春やすたか議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=196s" data-timestamp="196"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:16</a>おはようございます。それでは、令和８年第１回定例会一般質問を自由民主党小金井の吹春やすたかが務めさせていただきます。</div>
   <div class="say">今回、私は通告書を出させていただく際に、今まで取り組んでまいりました災害に関すること、それと、今もまだ私は現役の団員であります消防団について触れさせていただくこととさせていただいております。質問としては、主に小金井市で発災時に市民の命を守るための施策を充実させないかとして、（１）から（４）までの四つのことで質問させていただきますので、どうぞよろしくお願いいたします。</div>
@@ -190,12 +196,12 @@
   <div class="say">今現在、市役所では市の職員の方々を対象として震災火災避難訓練を行っていらっしゃるわけですけれども、その精度を更に高めるために、小金井消防署で行っている震災訓練を参考にして市職員対象の精度を高めることに役立てませんかと提案させていただきました。まず最初に、今年度の震災火災訓練の状況についてお尋ねいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t2">
   <div class="meta"><span class="name">総務部長（鈴木　功）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=424s" data-timestamp="424"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:04</a>おはようございます。市職員の震災火災訓練は、毎年小金井消防署のご協力の下で実施をしておりまして、本年度も２月13日の金曜日、本庁舎９名、第二庁舎49名、市民の方３名が参加する形で実施をいたしております。今年度の内容といたしましては、昨年の総務企画委員会で吹春議員からご提案をいただきました布担架訓練のほか、街角防災訓練車、例年の煙ハウス訓練、初期消火訓練等を実施しており、当日は庁内放送でご来庁の市民の方にもご協力を呼びかけているところでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t3">
   <div class="meta"><span class="name">１７番（吹春やすたか議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=462s" data-timestamp="462"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:42</a>ご答弁いただきましてありがとうございます。</div>
   <div class="say">訓練の概要について教えていただいたわけですけれども、いま一度私の方から説明させていただきますが、まず、訓練されたのは２月13日の金曜日、つい先日のことですよね。その後に小金井市議会においても震災避難訓練を実施いたしましたけれども、その前に行われたということですが、時間は午前９時40分から午前11時30分まででした。そして、出火場所として設定したのが、本庁舎２階の湯沸室、それと第二庁舎の６階の同じところ、湯沸室で火が出たという想定の下、そして避難に向かわれた場所というのが本庁舎の駐車場でやられたということでございます。</div>
@@ -207,13 +213,13 @@
   <div class="say">それで、先ほど来、繰り返させていただきますが、火災訓練はとても重要であることは分かっております。今後も継続してほしいと思いますが、本来、火災と震災は、先ほど申し上げましたとおり別々な要素がございます。市職員を対象とした震災訓練として、小金井消防署でも実施している机上訓練などを参考とした取組を考えてみていただけないかと思いますけれども、いかがでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t4">
   <div class="meta"><span class="name">総務部長（鈴木　功）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=1182s" data-timestamp="1182"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:42</a>震災訓練についてご提案をいただきました。現在の震災火災訓練におきましても、実施に当たっては小金井消防署へ内容等を事前にご相談し、アドバイスをいただいて決めております。今回ご提案をいただきました震災訓練の強化につきましても、消防署の方でどのような通常訓練、机上訓練を実施されているのか、視察等をさせていただけるものか等、まずはご相談をさせていただきたいと考えます。</div>
   <div class="say">市の庁舎の安全管理の側面から、引き続き市役所庁舎における市職員の訓練の精度を高めてまいりたいと考えております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t5">
   <div class="meta"><span class="name">１７番（吹春やすたか議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=1228s" data-timestamp="1228"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:28</a>ご答弁いただきましてありがとうございます。</div>
   <div class="say">これは当然のことながら、今、早速その訓練を拝見しに行きますとお答えしづらいところもあるかと思いますけれども、私としては、繰り返しになりますが、今の訓練のままでいいんだろうかととても危惧するところがあるんです。そのためには、例えば何かを足して何かを引く、そういう話ではなくて、どう考えてどのように動くかということがとても大事だなと思いますので、総体的な意味で私は申し上げているんですけれども、その上で一つの大きな意味での刺激になるところがあると思いまして提案させていただいているところですので、今ある訓練が駄目と言っているわけでございません。今ある訓練から更にいいものへと変えていただくために、ぜひとも参考にしていただければと思います。</div>
@@ -223,13 +229,13 @@
   <div class="say">そして、施政方針の中で白井市長がトイレ防災という言葉を使って表現してくださっています。私はトイレ防災という言葉を使ったことはなかったんですけれども、確かに一部新聞などでは、東京都の方針ではトイレ防災についてなどといった表現があったので確認してみました。そうすると、トイレ防災というのは、地震や水害などの災害時に断水や下水管の破損で水洗トイレが使えなくなってしまった場合を指し、排せつ環境の維持をする備えのことだということがトイレ防災だそうです。でも大体内容としては皆様にお分かりいただけていることかと思いますけれども、施政方針に示された、「大規模災害発生時に重要となるトイレ防災については、クラウドファンディングを活用したトイレカーの導入に向け検討いたします」とありますけれども、まず最初にお尋ねしますが、このトイレカーは恐らくトイレトラックかなと私は思っているんですが、これについて具体的なスケジュールと進め方というのがおありになるんでしょうか。それと、トイレカー、トイレトレーラーもそうですし、トイレトラックもそうですけれども、独特なのはデザインなんですが、それらについても何か今のところご検討されている部分があったら教えていただけないでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t6">
   <div class="meta"><span class="name">総務部長（鈴木　功）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=1549s" data-timestamp="1549"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:49</a>トイレカー、トイレトラックの導入につきましては、災害時における衛生環境の確保及び被災者の健康維持の観点から重要な取組の一つであると認識をしております。一方で、導入に当たりましては、車両の仕様、平時の活用方法、維持管理費用、運用体制の構築、クラウドファンディングの実施手法や目標額の設定など、整理すべき課題が多岐にわたっております。そのため、現時点において具体的なスケジュールは未定でございますが、他市の状況も参考にしながら、本市にとって最適な導入方法について慎重に検討を進めてまいります。</div>
   <div class="say">また、デザインについてですが、現状といたしまして、トイレカー、トイレトラック自体の導入に係る運用方法等の課題解決に向けた検討を進めている段階であり、具体的なデザインについてまでは至っておりません。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t7">
   <div class="meta"><span class="name">１７番（吹春やすたか議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=1606s" data-timestamp="1606"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:46</a>ご答弁いただきましてありがとうございます。まだ今のところ何も表に出せるものがない状態であるということが分かりました、しようがないかと思います。</div>
   <div class="say">二つ目を伺ったところですけれども、私、トイレトラック、若しくはトイレトレーラーが導入される際にはデザインについてとても期待しております。どんなデザインになるんだろうなと、いろいろあるかと思いますけれども、それらについてもこれからいろんな意味で発表がなされるかと思いますが、期待しておりますのでよろしくお願いいたします。</div>
@@ -239,12 +245,12 @@
   <div class="say">トイレトレーラーについてお伺いいたしましたけれども、ここでいま一度、災害関連死について確認しながらお尋ねしたいと思います。今現在、小金井市におきましては避難所運営協議会も徐々に立ち上がって、避難所運営について新しい次のフェーズに入ったところかと私は思っています。そこでまずお尋ねいたしますが、避難所を開設される際、設営に関する手順を順に教えていただけないでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t8">
   <div class="meta"><span class="name">総務部長（鈴木　功）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=1945s" data-timestamp="1945"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:25</a>避難所の開設に当たりましては、避難所の安全が確認された後に、避難所開設キットを活用しまして、受付や避難スペース、トイレや物資保管場所などの受入れ体制を整備いたします。避難者の受入れが始まった後は、名簿の作成や健康状態の把握を行い、高齢者や障がいのある方など要配慮者への配慮を行います。さらに保健師や医療機関と連携し、生活環境の改善や健康管理に努めることで災害関連死の防止に取り組んでまいります。引き続き関連機関と連携し、より安全で円滑な避難所運営に努めてまいりたいと考えております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t9">
   <div class="meta"><span class="name">１７番（吹春やすたか議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=1989s" data-timestamp="1989"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:09</a>ご答弁いただきました。</div>
   <div class="say">今、頂いたご答弁だと、とてもうまくまとまっているんですけれども、避難所を開設するような状態に陥ったとき、避難所の安全を確認し、避難所開設キットを活用して、受付、避難スペース、トイレや物資保管場所など受入れ体制の整備をしますとあります。これは簡単にうまくいくんだろうかととても思うんですよ。それだけの訓練がなされているかどうか、ちょっと不安になるところでありますしです。これが駄目、あれが駄目と言っているわけじゃないんですけれども、本当にこれはうまくいくんだろうか。現場は大混乱すると思います。それを思うととても不安になるところであるということでお話をさせていただいております。</div>
@@ -254,12 +260,12 @@
   <div class="say">そこで一つお尋ねしますが、もう一度お尋ねいたしますけれども、大震災等発災時、トイレの開設は急がなければならないと思われます。先ほどいただいた開設時には、トイレの開設というのは結構後ろの方だったと私は思っています。トイレパニックが起こることも考えるなどして、トイレ開設の順番というのをあらかじめ前の方に持ってくる必要がある。順番としてプライオリティー高めに持っていく必要があるのではないかと思われます。そのための準備と施策を整えていく必要があると思いますけれども、いかがでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t10">
   <div class="meta"><span class="name">総務部長（鈴木　功）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=2326s" data-timestamp="2326"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:46</a>今、ご指摘いただきましたとおり、発災時にはトイレの開設は避難者の衛生確保や健康維持の観点から迅速に行う必要がございます。現行の手順におきましても、避難所開設キットを活用し、受付や避難スペースの整備と並行してトイレの設置が行えますよう準備を進めております。今後も実際の運用を想定した手順の検証や訓練を通じまして、より迅速かつ円滑にトイレを開設できる体制の整備に努めてまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t11">
   <div class="meta"><span class="name">１７番（吹春やすたか議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=2363s" data-timestamp="2363"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:23</a>ご答弁いただきましてありがとうございます。</div>
   <div class="say">誰が設置するのかということも含めて考えると、準備にとても手間暇がかかることだと思いますし、必ずしもあらかじめ予定していた方たちが予定していたようなタイミングで避難所に来てくださるとはいえませんし、また、その方たちが健康な状態であるかということも分からない状態であるかと思います。</div>
@@ -269,60 +275,60 @@
   <div class="say">それで今回、皆さんに資料で提出させていただきました。私の手元にはカラーでありますけれども、プラダンハウスというのをご覧いただければと存じます。これは名前のとおり、プラスチックと段ボールでできた家形の簡単なものでございます。簡易トイレを設置して、そこの上にこれを設置して使うことも可能でございます。ですけれども、せっかくマンホールトイレがあるのであれば、プライバシー保護のために使っていただければとても便利ではないかと思われます。それで、マンホールトイレの設置と使用について、補助や補強となるこのプラダンハウスなど、こういったものの導入について検討はいかがでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t12">
   <div class="meta"><span class="name">総務部長（鈴木　功）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=2608s" data-timestamp="2608"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:28</a>避難所の利用のしやすさや安全など、配慮の面で更なる改善の余地も考えられますので、今後の研究材料の一つとして参考とさせていただきたいと考えております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t13">
   <div class="meta"><span class="name">１７番（吹春やすたか議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=2621s" data-timestamp="2621"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:41</a>ありがとうございます。避難者の利用のしやすさや安全面など配慮の面での改善、そうですね、配慮の面での改善はいいことだと私は思っておりますので、配慮ですよね。</div>
   <div class="say">実際、私が聞いてきたことなんですけれども、以前は被災地に伺ったときに、女性の方たちの性被害やそういったことがあることもなかなか言う方がいらっしゃらなかったです。東京に帰ってきた後、それをＳＮＳ上で発信していたときに僕に電話をくださる方が何人もいらっしゃって、こういうことが起こったんだ、言いづらいだろうけれどもあなたの発言の中で混ぜてほしいということも託されたこともありました。ところが随分様子が変わってまいりまして、普通にインターネット上で震災被災地での性被害のことも載るようになっていますし、先日視察で訪れた場所でもおっしゃっているところがありました。こんなことが起こったと。大体、人がいない時間帯、暗い時間帯で電気もつかないようなところ、設置されていないようなところで起こってしまっているのが現状でございます。だからこそやはり私はこういったところ、このプラダンハウスには電気がついてないようでしたら電気つければ、ＬＥＤをつければいいかと思いますので、そういったものを設置することによって随分変わってくるかと思いますので、ご検討をぜひお願いしたいと思います。</div>
   <div class="say">それに関する質問ですけれども、災害が発災したとき、避難所で女性を守るための施策も重要かと思います。女性を守るための環境改善については市で考えていらっしゃることや予定されていることがあったら教えてください。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t14">
   <div class="meta"><span class="name">総務部長（鈴木　功）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=2746s" data-timestamp="2746"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:46</a>地域防災計画で示されました避難所運営における多様なニーズへの配慮の方針を踏まえ、トイレや更衣スペースの配置、プライバシーの確保、役割分担の公平性などに配慮し、女性を含む避難者が安心して過ごせる環境の整備に努めているところでございます。今後も避難所の環境改善につきましては、状況を踏まえつつ、丁寧に検討、対応してまいりたいと考えております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t15">
   <div class="meta"><span class="name">１７番（吹春やすたか議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=2775s" data-timestamp="2775"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:15</a>ありがとうございます。ご答弁いただきました。</div>
   <div class="say">また、ここでも多様なニーズの配慮の方針を加えてあります。配慮に努めていただくというのはとても私はいいことだと思いますので、ぜひとも続けていただきますようお願いいたします。</div>
   <div class="say">次の（３）の火災についての質問に移らせていただきます。先日、小金井市内でも大きな火災が発生してしまいました。そして、残念なことにお亡くなりになる方がいらっしゃいました。小金井市はこれまで1,800数日間、火災が発生してお亡くなりになる方がいない状態がずっと続いていたわけですけれども、その数字もそこで途絶えてしまったわけです。とても大きな火災でした。昼間だったんですけれども、私は消防団の団員１人として出動命令が出ていまして、スマートフォンで受け取っていたわけですけれども、それが次から次へと情報が入ってくる。命令が入ってくる。それを拝見しているうちに、これはただならないことが起こっているなと。いてもたってもいられない気持ちになりました。とある事務所にいたんですけれども、我慢できなくなって、私が所属している第５分団のポンプ車が出動していることは分かっておりましたので、自分の車で現場まで行ったんですけれども、仕事中で呼び戻されてしまったということだったんですけれども、そういったときにも団員の一人としてしっかりと活動したいなと思っているところではあるんですけれども、火災についてですけれども、火災についても様々な形で、消防団だったり地域の自主防災会だったり、火災を起こさないように火の用心などの活動をされていらっしゃるかと思うんですけれども、まず現状からお尋ねしますけれども、小金井市での火災に対する広報活動というのはいかがされているでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t16">
   <div class="meta"><span class="name">総務部長（鈴木　功）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=2912s" data-timestamp="2912"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:32</a>本市における火災予防に関する広報活動につきましては、市報や市ホームページ、ＳＮＳ等を通じて防火防災に関する情報提供や注意喚起を行っているほか、春と秋の火災予防運動期間に、消防団を始め、消防署や消防関係機関等と連携し、啓発活動などを実施しております。今後につきましても、季節ごとの火災発生傾向などを踏まえながら、関係機関と連携し、より効果的な広報、啓発に努めてまいりたいと考えております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t17">
   <div class="meta"><span class="name">１７番（吹春やすたか議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=2946s" data-timestamp="2946"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:06</a>今の現状についてご報告いただきましてありがとうございます。</div>
   <div class="say">火災は本当に以前からみんなが一番出してはならない災害の一つだと認識されているかと思うんですけれども、今回、一般質問について検討していた際に、何かいい方法はないんだろうか、お亡くなりになる方が出るだけではなく、火災そのものを抑えるために何かいい方法はないだろうかということでいろいろな方に相談させていただいたところ、東京消防庁で防火防災診断というサービスを行っていることが分かりました。これがなかなかいいんですけれども、これは有効な施策だなということに気が付いたんですが、この防火防災診断についてですけれども、火災を防ぐために、また火災を出さないために有効な施策だと私は思いました。なので、この施策をぜひ広めていただくために周知と実施についてお願いしたいんですけれども、いかがでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t18">
   <div class="meta"><span class="name">総務部長（鈴木　功）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=3023s" data-timestamp="3023"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:23</a>東京消防庁の防火防災診断につきましては、高齢者や身体が不自由な方などの要配慮者世帯を対象として、ご本人の了解を得た上で消防職員が対象者のお宅を個別に訪問し、火災、地震等の災害や家庭内事故による被害の発生危険について、その改善方法のアドバイスなどを行う取組であり、非常に有効な施策であると認識をしております。現時点で市として実施する予定はございませんが、消防署と連携して周知等に努めてまいりたいと考えます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t19">
   <div class="meta"><span class="name">１７番（吹春やすたか議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=3059s" data-timestamp="3059"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:59</a>ご答弁いただきましてありがとうございます。</div>
   <div class="say">今、頂いたご答弁でちょっと分かりづらかった部分もあるかと思うので補足をさせていただきながら説明いたしますけれども、対象となっていらっしゃる方たちは高齢者の方だったりとか身体に不自由がある方、要配慮者の世帯を対象とされています。その方たちから要請があったら消防署職員の方たちが直接お伺いして、ご家庭で使っていらっしゃる家電の状況、要するにコンセントの配置であったりとか、そういったものを拝見しながら、ここはこのようにした方がいいですよなどとアドバイスすると。これはすごく効果があると思うんですよ。今、皆さんが家電製品をたくさん使っていらっしゃるじゃないですか。私ももちろん使っていますけれども、たこ足配線がたくさんあります。これは意外と危険なんですよ。消防署の方に伺いました。どんな組合せで使っている形で一番火災が発生したときに目につかれますかと立ち話的に聞いたところ、返ってきた答えがびっくりしたんですけれども、炊飯ジャーとトースターを同時に使っている方が意外と多い。そうするとトラッキング火災などが起こりやすいということがあるそうです。それだったりとか、あと、今、ヘアドライヤーは以前に比べてかなり高出力のものが多いですよね。そうすると、一時的ですけれども、常日頃気がつかないんですけれども、使うときだけ一気に電力消費量が上がってしまって、コンセントが耐えきれなくなって火災が発生してしまうということがある。それらのことはなかなか気がつかないかと思うんですけれども、プロの方からご指導いただければ、ご助言いただければかなり改善ができるかと思うんです。これは有効な施策かなと思いますので、地域安全課に確認していただいたところ、まだ小金井市としては周知広報活動をしていない、具体的な取組もないということですので、ぜひともこれから取り組んでいただきまして、何とか小金井市内におきまして火災を出すことがないように進めていただければと思うところでございます。</div>
   <div class="say">それでは、質問の（４）に移らせていただきます。消防団に関することでございます。ちょうど改選期でございます。今度の４月に消防団は新しく生まれ変わるわけでございますけれども、そのことについてまずお尋ねしいたします。小金井市消防団の人員的現状を教えていただけないでしょうか。来期に向け今期はどのような施策を講じているか。要するに募集についてです。募集についてどのような施策を講じているかも教えてください。また、入団希望者や興味のある方たちからの反応など、お答えいただけるものがあれば教えていただけないでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t20">
   <div class="meta"><span class="name">総務部長（鈴木　功）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=3249s" data-timestamp="3249"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:09</a>人員の状況につきましては、前期改選時の令和４年４月時点で全団員数が65名、今期改選時の令和６年４月時点で全団員数が65名となっております。各団の内訳といたしましては、本団が前期５名、今期が６名、第１分団が前期11名、今期５名、第２分団が前期11名、今期15名、第３分団が前期13名、今期14名、第４分団が前期11名、今期11名、第５分団が前期14名、今期14名となっております。消防団の広報につきましては、各種広報媒体を始め、防災フェスタや地域の防災訓練など、様々な機会を通じて周知に努めているところでございます。</div>
   <div class="say">今回の改選期の募集におきましては、市報１月15日号で消防団の特集記事を掲載し、多くの方からご好評をいただいたところでございます。他にも、市のホームページ、Ｘ、武蔵小金井駅南口ロータリーの懸垂幕の掲示、ＣｏＣｏバスへのポスター掲出、広報掲示板、各分団詰所の広報掲示板やのぼり旗の設置をして周知を行ってきてございます。特定の層に向けた取組といたしましては、学生向けに総合学院テクノスカレッジのご協力を得てポスター掲示を行っているほか、市の職員に対しても庁内広報や新入職員研修を通じて消防団活動への理解と入団促進を図ってまいりました。さらに新たな取組といたしまして、小金井郵便局において団員募集の説明会を実施するなど、地域機関との連携も強化しております。今後もこうした既存の媒体と新たな連携施策を組み合わせ、消防団の重要性を広く周知し、団員の確保に全力を尽くしてまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t21">
   <div class="meta"><span class="name">１７番（吹春やすたか議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=3381s" data-timestamp="3381"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:21</a>詳しく説明いただきましてありがとうございます。</div>
   <div class="say">消防団の第１分団から第５分団まで、各分団が15人を予定しておりますので、合わせて75人であるところ、現状は65人であるということでございます。各団運営においてはとても苦しいところかと思われます。ぜひとも地域の皆様や後援会の皆様においてはご尽力いただきまして、何とか15人の人員が充足できるようにしていただきたいところでございます。</div>
@@ -330,12 +336,12 @@
   <div class="say">そこで、最後の質問としてお尋ねいたしますけれども、入団者を募る、若しくは探す地域の方たちにとても大変な印象がありますし、その大変さについても十分理解ができるところでございます。市としてご対応いただいた市報での特集など、これはもう少し定期的なものにしていただくことはできないのかなと私は思うんですよ。２年に１回だから、地域の方たちとしても、ああ、そんな時期だとなっちゃうのもあると思いますし、できれば、僕としては、人が足りない、いないのであれば、ずっと募集していてもいいんじゃないかと思うんですよ。だっていないんですから。実際に65名で今年はやっているわけですよね。10人足りない。10人足りないというと１個分団で足りないのが半分以上です。それを思うと、ずっとそういった施策をやっていただくことが大事かと思うんですけれども、いかがでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t22">
   <div class="meta"><span class="name">総務部長（鈴木　功）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=3574s" data-timestamp="3574"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:34</a>消防団は地域防災の要として、火災対応はもとより、災害時の初動対応や地域の防災力向上に大きな役割を担っており、その重要性は極めて高いものと認識をしているところでございます。また一方で、議員ご指摘のとおり、団員に欠員が生じている中、新たな団員の確保が地域住民の皆様にとって大きな負担となっている現状についても十分受け止めております。市といたしましても、消防団活動の意義を広く市民に周知し、入団への機運を醸成していくことは大変重要であるものと考えております。今後も機会を捉えた情報発信を行うとともに、より効果的な周知、募集の在り方を模索しながら、消防団の組織力強化に向けた広報活動に努めてまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t23">
   <div class="meta"><span class="name">１７番（吹春やすたか議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=3629s" data-timestamp="3629"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:29</a>ありがとうございます。ご答弁いただきました。</div>
   <div class="say">今、頂いたご答弁の中で、最後の方、今後も機会を捉えた情報発信を行うと、ありがとうございます。どの機会を好機として捉えていただくかについてはご判断をお任せするところかと思いますけれども、ぜひとも続けていただければと思いますし、義務感だけを感じさせる募集の仕方じゃなくて、楽しさだったりとか、これについては僕は表現していただいているかなというところで好感を持っているんですけれども、もっとそれを表現していただければいいかなと思っているところでございます。</div>
@@ -343,13 +349,13 @@
   <div class="say">─────── ◇ ───────</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t24">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=3780s" data-timestamp="3780"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:00</a>次に、12番吉良のりこ議員の発言を許可します。</div>
   <div class="say">（１２番吉良のりこ議員登壇）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t25">
   <div class="meta"><span class="name">１２番（吉良のりこ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=3787s" data-timestamp="3787"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:07</a>皆さん、おはようございます。よろしくお願いします。</div>
   <div class="say">本日は、小金井市で持続可能な生活支援、生活サポート事業の取組を構築するために市ができることについてを通告内容とさせていただきました。</div>
@@ -362,215 +368,215 @@
   <div class="say">介護認定を受ける前の段階にある高齢者がフレイルや社会的孤立に陥らないために、市としては、さくら体操、シニア運動教室などを行っていただいていますが、参加率、介護予防効果を市はどのように分析していらっしゃいますでしょうか。その他に、介護予防、外出促進の取組を考えていらっしゃるのかもお伺いいたしたいと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t26">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=3973s" data-timestamp="3973"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:13</a>本市では、介護認定前の高齢者がフレイルや社会的孤立に陥らないよう、多様な介護予防、外出促進の取組を総合的に進めています。</div>
   <div class="say">さくら体操は、コロナ禍で一時的に参加者が減少したものの、現在は回復傾向にあり、地域の交流の場として定着しております。</div>
   <div class="say">また、シニア運動教室については大変人気が高く、令和８年度当初予算案において実施拠点の拡大と新たにｅスポーツクラスを設けるための経費を計上しております。これにより参加者の受皿を更に広げ、多様なニーズに応える教室運営を進めてまいります。シニア運動教室では開始時と終了時に体力測定を実施しており、一定の運動機能の向上が確認されるなど、介護予防効果も把握しているところです。さらに生活支援コーディネーターによる通いの場づくりや地域の居場所を紹介する応援マップ等の周知を通じて外出機会の拡大と社会参加を促進しています。こうした取組を重ねることで、高齢者が住み慣れた地域で元気に暮らし続けられるよう健康寿命の延伸に向けた施策を今後も推進してまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t27">
   <div class="meta"><span class="name">１２番（吉良のりこ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=4053s" data-timestamp="4053"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:33</a>ありがとうございます。</div>
   <div class="say">さくら体操やシニア運動教室、老人クラブなどは、心身ともに前向きで比較的元気なご高齢者と出会える絶好の機会であると考えます。地域デビューや居場所マップなどの情報をより積極的に発信をするとともに、ヘルパー不足が進む現状を踏まえ、自分たちの地域は自分たちで支えるという視点から、生活支援ボランティアの必要性についても丁寧にお伝えいただきたいと思います。その上で、地域としてどのような支え合いが可能かをともに考える機会としていただければと思います。</div>
   <div class="say">２番目の質問に移ります。高齢者の早期把握についての仕組みについて伺います。昨年第２回定例会の一般質問で、現在小金井市では見守りネットワークとして、民生委員、民間事業者との見守り協定による新聞や牛乳、配食などがありますが、ＩＣＴによる見守り事業を採用しないかと、Amazonのアレクサを一例に提案させていただきました。来年度からＩＣＴ機器による見守り事業を開始する予定でございますが、開始予定時期や内容などはどんなものか伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t28">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=4124s" data-timestamp="4124"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:44</a>本市では、既存の見守りに加え、令和８年度当初予算案にＩＣＴ機器であるハローライトを活用した見守り支援事業を計上し、令和８年10月からの事業開始を予定しております。この見守り事業では、ハローライト電球の点灯状況を感知し、異変時には家族へ通知し、家族が確認できない場合には委託する民間事業者が代理訪問する体制を整備します。既存の見守り事業と組み合わせることで、高齢者が安心して暮らせる環境づくりを一層進めてまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t29">
   <div class="meta"><span class="name">１２番（吉良のりこ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=4161s" data-timestamp="4161"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:21</a>ありがとうございます。事業の詳細については予算特別委員会でお聞きしたいと思います。</div>
   <div class="say">おひとり暮らしの高齢者の異常、異変の早期発見につながり、ご本人や離れて暮らす家族にとっても大変安心につながるサービスですので、ＩＣＴ事業にもいろいろあります。今後もより市民の方のニーズに合ったものを取り入れていってくださることを期待しております。</div>
   <div class="say">次の質問に移ります。介護予防サービスについて伺います。介護予防サービスとは、要支援１、２状態となった高齢者を対象に状態の改善と悪化の予防を目的とするサービスです。小金井市が発行している介護保険利用の手引きには、体は使わないでいると徐々に機能が低下して、ますます状態を悪化させ、介護が必要となってしまうケースが多いという結果を紹介しています。そこで、できないことを補助するだけでなく、利用者本人のできることを増やし、自立を目指して生活機能の維持・向上につなげていくために小金井市としてはどのような支援を行っているのでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t30">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=4227s" data-timestamp="4227"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:27</a>本市では、要支援期を自立に向けた重要な段階と位置付け、地域包括支援センターが相談により生活課題を整理し、個別にケアプランを作成しています。介護予防・日常生活支援総合事業では、デイサービスや生活支援を柔軟に利用できる体制を整え、必要以上の介助に頼らず、生活機能を維持できるよう支援しています。こうした取組を通じ、自立支援を今後も進めてまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t31">
   <div class="meta"><span class="name">１２番（吉良のりこ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=4259s" data-timestamp="4259"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:59</a>要支援期の方が必要以上の介助に頼らず生活機能を維持できるように地域包括支援センターが相談に乗りながらケアプランなどを作成されているとのことでした。</div>
   <div class="say">その介護予防や自立支援を進める上で、医療介護専門職だけでなく、地域活動や住民の関わりをどのように位置付けているのでしょうか。市の考えを教えてください。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t32">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=4285s" data-timestamp="4285"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:25</a>本市では、介護予防や自立支援を進める上で、専門職の支援と地域住民のつながりを重要な両輪と位置付けています。通いの場やサロンなどは、フレイル予防や孤立防止、高齢者の生きがいづくりに大きく寄与しており、専門職だけでは補い切れない日常的な見守りも住民主体の活動が支えています。市としても、誰もが参加しやすい居場所づくりや地域活動の活性化に引き続き取り組んでまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t33">
   <div class="meta"><span class="name">１２番（吉良のりこ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=4316s" data-timestamp="4316"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:56</a>ありがとうございます。</div>
   <div class="say">その居場所づくり、地域活動の活性を引き続き支援していただけるということで、その居場所づくりや地域活動の活性化に取り組む地域包括支援センターについて、次の大きな枠組み２にて質問をしてまいります。</div>
   <div class="say">大きな枠組み２、地域包括支援センターの役割と、高齢者本人だけでなく家族も含めた支援の在り方について伺います。地域包括支援センターには高齢者の相談総合相談窓口として重要な役割を担っていただいています。小金井市の地域包括支援センターと市の業務、役割分担の状況を伺っていきたいと思います。小金井市と地域包括支援センターのタスク分けと連携、また情報共有の手段を含め、相談業務、ケアマネジメント、地域づくりのそれぞれが十分に機能していると考えていらっしゃいますでしょうか。お答えください。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t34">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=4377s" data-timestamp="4377"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:57</a>本市では、地域包括支援センターを高齢者の総合相談窓口と位置付け、市が事業運営や虐待対応への判断、助言などを担い、地域包括支援センターが個別相談、介護予防ケアマネジメント、地域づくりを担当する形で役割分担を行っています。情報共有は定例会議、個別ケース会議に加え、ＩＣＴも活用し、一体的な支援につなげています。相談業務、ケアマネジメント、地域づくりは一定機能していると認識しておりますが、複雑化する相談や地域ニーズに対応するため、今後も地域包括支援センターの機能強化と連携の充実を図り、支援体制の質の向上に取り組んでまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t35">
   <div class="meta"><span class="name">１２番（吉良のりこ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=4425s" data-timestamp="4425"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:45</a>ありがとうございます。地域包括支援センターが一定機能しているが、複雑化する相談や地域ニーズに対応する必要があるとのご答弁でした。私もその必要性を強く感じております。</div>
   <div class="say">例えば大東市では、地域包括支援センターがケアプランを原則として多く抱えず、職員１人当たり勉強目的で１、２件のみ担当し、基本的には居宅介護支援事業者へ委託することで相談対応や地域づくりに注力できる体制を整えていました。一例として、元気でまっせ体操という、小金井市で言うならばさくら体操に値するものなんですが、この元気でまっせ体操の会場を市内にご高齢者の徒歩圏内に点在させるために、地域包括支援センターの職員が地域開拓をしていっているそうです。例えばデパートなどの商業施設やお寺、薬局などのスペースを使って高齢者が体操ができるように使わせてもらう交渉などをして回っているそうです。要支援者でも歩いて通える、市内各所にこういった体操会場をつくっていく。地域包括支援センター職員が仕事を抱えていたらこのような発想も行動もする余裕がないと思います。このような役割分担の考え方について、市の見解をお答えください。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t36">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=4515s" data-timestamp="4515"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:15</a>地域包括支援センターでは、8050問題など複雑化、複合化した相談や他機関連携が増えており、相談業務にも時間を確保することが重要であると認識しております。吉良議員からは大東市の取組についてご紹介いただいたところです。本市の地域包括支援センターでは、四つの圏域それぞれに生活支援コーディネーターを１人配置しており、本市においても大東市と同様に地域の居場所づくりなど、地域づくりにも注力できる職員体制を構築しているところです。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t37">
   <div class="meta"><span class="name">１２番（吉良のりこ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=4554s" data-timestamp="4554"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:54</a>ありがとうございます。地域づくりと相談業務に注力できる職員体制を構築されているとのご答弁でした。</div>
   <div class="say">小金井市で今年度から開始した重層的支援体制整備状況について伺ってまいります。ひとり暮らし高齢者や老老介護世帯に加え、就職氷河期世代、就労支援が必要な方、また、ひきこもりなどを含む8050問題のように、高齢者だけではなく、家族の課題が生活全体に影響するケースが増えていると認識しております。市や地域包括支援センターのみでは対応が難しい40代から50代当事者への支援が現在どのように進んでいるのか教えてください。また、支援が必要な人をどのように把握し、関係機関と連携をしているのか。現状と課題についてもお伺いいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t38">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=4607s" data-timestamp="4607"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:47</a>本市では、重層的支援体制整備事業の今年度からの開始に合わせ、市や地域包括支援センターと関係機関が連携して、8050問題を含む複合的課題に対応しています。40代から50代までのひきこもりの方や就労が困難な方には、必要に応じて訪問支援などのアウトリーチを行い、支援につながりにくい当事者の把握に努めています。一方で、相談のつながりにくさや支援継続が課題であり、地域との連携強化と丁寧な関与を進めてまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t39">
   <div class="meta"><span class="name">１２番（吉良のりこ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=4648s" data-timestamp="4648"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:28</a>ありがとうございます。当事者の相談のつながりにくさや支援継続に課題があるとのご答弁をいただきました。</div>
   <div class="say">先日視察した大阪府大東市では、地域包括支援センターが元小学校を活用した施設でカフェのような入りやすい雰囲気をつくり、フリースペースと個室を使い分けることで相談内容に応じた対応を行っていました。住民が気軽に立ち寄れる運営を行うことで、困り事が深刻化する前に相談につながる工夫がされていました。</div>
   <div class="say">小金井市においても、市民の方とお話ししていると、地域包括支援センターは敷居の高さを感じていて、かなり症状が悪化してから相談に行くところで、少し怖いイメージがあるという声をお聞きしました。それが本人も家族も多少の心配事があってもかなり悪化するまで相談に行くことを先延ばしにしてしまうことにつながっていると考えます。地域包括支援センターを支援につながる前段階の相談拠点として位置付け、施設の在り方や空間づくりの工夫、運営方法の見直し、相談のしやすさを高めるための情報発信として検討する考えはおありでしょうか。お答えください。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t40">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=4724s" data-timestamp="4724"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:44</a>本市の地域包括支援センターには多様な相談が寄せられており、困り事が深刻化する前から気軽に相談できる環境づくりが重要と認識しております。一部の市民の方からは、敷居が高い、ちょっとした不安だけでは行きにくい場所といった声も頂いているところです。議員からは大東市の事例をご紹介いただきました。本市の委託事業者においては、長年の運営の中で様々な配慮をしてきていると認識しておりますけれども、市として相談しやすさをより高めるにはどのようなことができるかは研究課題とさせていただきます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t41">
   <div class="meta"><span class="name">１２番（吉良のりこ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=4765s" data-timestamp="4765"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:25</a>ありがとうございます。</div>
   <div class="say">地域包括支援センターが早期相談につながるよう研究課題と位置付けてくださるとのことでした。本当に地域包括支援センターの皆さんは頑張ってくださっていると思います。こちらが要なので、今後、ひとり暮らし高齢者や老老介護世帯が増加する中で、地域包括支援センターを支援が必要な人が来るのを待つ場所ではなく、地域住民と日常的につながり、支え合いを循環させる拠点へと転換していく必要があると考えております。市の基本的な考えを教えてください。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t42">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=4801s" data-timestamp="4801"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:01</a>本市では、ひとり暮らし高齢者の増加を踏まえ、地域包括支援センターを日常的に住民とつながる拠点として強化していく必要があると考えております。地域包括支援センターは、相談支援、介護予防ケアマネジメント、権利擁護、地域づくりを担う中核機関であり、通いの場や見守り活動との連携を通じて早期の相談につなげる役割が期待されています。今後も地域との接点を広げ、支え合いが循環する体制づくりを進めてまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t43">
   <div class="meta"><span class="name">１２番（吉良のりこ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=4839s" data-timestamp="4839"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:39</a>ありがとうございます。地域包括支援センターが介護支援ボランティアポイント事業や友愛活動事業など地域住民による支え合いの取組とどのように接続していくかが重要であると考えております。</div>
   <div class="say">一つ目に、生活支援を必要とする高齢者と支援可能な地域ボランティア住民をつなぐコーディネート機能は現在誰がどのように行っているのでしょうか。</div>
   <div class="say">また二つ目に、地域住民が何をどこまで支援していいのかが分かるよう、地域包括支援センターが関与した活動内容の整理や役割分担を行う必要があると考えておりますが、そちらの市の見解も伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t44">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=4881s" data-timestamp="4881"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:21</a>まず、介護支援ボランティアポイント事業や友愛活動事業と地域住民による支援の取組との接続についてです。介護支援ボランティアポイント事業は、活動する方の健康増進や介護予防を目的としており、友愛活動事業は、ボランティアの友愛活動員が訪問や電話でお話し相手をして見守りも行うものであり、それぞれの活動目的や事業の内容に照らして、ご紹介のありました地域住民による支え合いとの接続につきましては慎重に検討すべきものと考えております。</div>
   <div class="say">また、ご質問にありました生活支援を必要とする高齢者と地域ボランティアを個別にマッチングする仕組みですが、本市では現在そのような仕組みを制度としては設けておりません。生活支援コーディネーターが地域情報や地域資源の把握などを行うことはありますが、ご質問にありましたような地域包括支援センターが関与した体系的なコーディネートは実施していない状況です。地域包括支援センターが活動内容の整理や役割分担を明確化する仕組みも、現在の状況を勘案すると、現時点では特段の枠組みを設ける状況にないものと認識しております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t45">
   <div class="meta"><span class="name">１２番（吉良のりこ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=4935s" data-timestamp="4935"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:15</a>地域包括支援センターが関与した体系的なコーディネートは現在実施していないということでした。現在小金井市で行われている友愛活動は、訪問や電話でのお話し相手や見守りという内容とのこと、また、介護ボランティアポイント事業は、老人ホームなどの施設での活動や、さくら体操や認知症カフェでのお手伝いということで認識しております。市内四つの地域包括支援センターに１人ずつ配置されている生活支援コーディネーターが地域情報や地域資源の把握などを行うけれども、体系的なコーディネートは実施してないということが分かりました。</div>
   <div class="say">そこで次に、大きな枠組み三つ目の地域づくりと住民による支え合いの取組について掘り下げていきたいと思います。３、地域づくりと住民による支え合いの取組について。今後ひとり暮らし高齢者や老老介護世帯が増加する中、行政や専門職だけで全てを支えることは、人員面、財政面から限界が来ていると考えます。一方で、高齢化の進行に伴い、支援体制の整備は急務であるため、地域住民が無理なく参加でき、やりがいや達成感を持って継続できる支え合いの仕組みを構築する必要があると思います。ボランティアという善意に依存せず、持続可能な制度として設定し、担い手確保に取り組むことが重要であり、これは単なる個別事業ではなく、家族に頼れない高齢者が地域で暮らし続けるまちをどう実現していくか。市の将来像に関わる課題であります。この点について市の基本的な考えを伺ってまいります。</div>
   <div class="say">まず、地域づくりについて伺います。通いの場、サロンの数や質をどう確保しているのでしょうか。また、スタート支援、運営者への助成や評価の仕組みなどをお示しください。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t46">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=5090s" data-timestamp="5090"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:50</a>本市では、生活支援コーディネーターが集いの場やサロンを把握し、応援マップを通じて高齢者が参加しやすい居場所を案内することで地域の通いの場づくりを支援しています。さらに今年度は新たに地域デビューガイドを作成しました。このガイドは、応援マップが主に高齢者向けの通いの場を紹介しているのに対し、就労、ボランティア、学び、趣味など多世代が参加できる幅広い地域活動をテーマ別に紹介している点が特徴です。これらのツールを活用し、誰もが地域につながりやすい環境づくりを進め、通いの場の数や質を確保してまいります。</div>
   <div class="say">なお、これらの地域の通いの場は高齢者の自主的な活動として運営されており、本市としては立ち上げ時の支援に関する相談や情報提供などのサポートを行っておりますが、運営者への助成や活動内容を評価する仕組みは設けておりません。今後も地域の自主性を尊重しつつ、誰もが参加しやすい環境づくりに向けて支援を進めてまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t47">
   <div class="meta"><span class="name">１２番（吉良のりこ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=5164s" data-timestamp="5164"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:04</a>地域の通いの場は高齢者の自主的な活動として運営されており、市としては立ち上げ時の相談や情報提供などの支援は行っているけれども、運営者への助成や活動内容の評価はせず、地域の自主性を尊重しつつ、誰もが参加しやすい環境づくりを支援しているとのご答弁でした。ありがとうございます。</div>
   <div class="say">それでは、ひきこもりがちな高齢者をどう地域へつなげていくのか。また、課題も併せて示していただきたいと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t48">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=5200s" data-timestamp="5200"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:40</a>本市では、応援マップやイベント情報の提供に加え、令和７年度にはお元気サミットなどで地域デビュー講演会を開催し、外出が難しい方の参加のきっかけづくりを進めています。また、生活支援コーディネーターが個別に声かけなどを行い、地域デビューのあとひと押しを担っています。とりわけ男性の高齢者は社会参加、地域デビューのハードルが高い傾向にあるため、興味を持ちやすい活動の工夫が必要と認識しています。例えばｅスポーツの体験会や料理教室、ものづくり系の企画など、参加しやすいプログラムを企画、開催し、社会参加につながる仕組みづくりを進めてまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t49">
   <div class="meta"><span class="name">１２番（吉良のりこ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=5246s" data-timestamp="5246"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:26</a>ご答弁にありました令和７年度お元気サミット地域デビュー講演会を私も見させていただきました。実際に元新聞社にお勤めの男性がリタイア後に奥様に、このままあなたは毎日家にいるのという言葉をきっかけに、地域デビュー、少しずつ外に目を向け始めたと。聞いていて、一生懸命働いてきた方がちょっとかわいそうかなと思ったんですが、その男性は少しずつ地域でできること、そういったことを１個１個始めていった中で、地域の方とつながって自分の居場所ができ始めて、今は生き生きと活動されて、講演もされているということでした。特に男性の方は女性と違って培ってきたネットワークが地域にない、そういった男性の方がどう地域で居場所、やりがい、仲間をつくっていくかということは、今、取り組んでいらっしゃる地域デビューマップとか応援マップ、こういったものは一つの手がかりになると思います。こちらの方は、より皆さんが行きたい、やりたいと思うようなものをつくっていっていただきたいと思います。</div>
   <div class="say">次の質問に移ります。最初の方の質問で、要支援状態になった高齢者がサービスを受けるだけの存在になるのではなく、自立を目指して生活機能の維持向上につなげていくための市の支援を伺いました。今度は、介護認定を受ける前段階にある高齢者が気軽にかつ継続的に生活支援につながる仕組みを市としてどのように体系的に整備していくのか、お考えを教えてください。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t50">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=5349s" data-timestamp="5349"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:29:09</a>本市では、生活支援コーディネーターによる通いの場づくりや住民主体の活動支援を推進し、地域で気軽に相談支援につながる体制整備を進めています。併せて本市では、日常生活援助が必要な方を対象に掃除や衣類の衣替えなどの生活支援サービスを利用できる事業や、ごみ出しについてもごみ対策課の方でお手伝いをしてくださるということもあります。必要以上の介助に頼らず生活機能を維持できるよう支援しております。生活支援ニーズの多様化を踏まえ、継続的に利用しやすい生活支援については今後の研究課題とさせていただきます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t51">
   <div class="meta"><span class="name">１２番（吉良のりこ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=5394s" data-timestamp="5394"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:29:54</a>ありがとうございます。シルバー人材センターが実施している特別生活援助をご紹介いただきました。虚弱な方を対象にした要支援になる前の方も利用できて、これはヘルパーは使わないということで伺いました。</div>
   <div class="say">私が考えているのは、介護保険を使う前の地域包括支援センターに行く一歩前の方で、生活の中でこういったものがあったらいいなというものに困っている方を少しでも自分の力で何とかがやっていき、自分らしく生きていけるためにということを考えていまして、シルバー人材センターの方も本当に頑張っていただいてありがたいと思います。要介護になる前の段階の方が少しの生活支援があれば介護保険を使わなくて生活していけるというケースにおいて、ボランティアによる生活援助はとても大切だと思っております。しかし、ボランティアの方々の善意に過度に依存するのではなくて、やりがいや達成感、地域とのつながりを実感できる仕組みづくりが重要と考えております。市の認識を伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t52">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=5473s" data-timestamp="5473"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:13</a>住民が継続して参加できるためには、善意だけに依存せず、役割の明確化や参加のしやすさ、達成感が得られる仕組みづくりが重要であると本市においても認識しております。介護支援ボランティアポイント事業の実施などにより、ボランティア活動に応じたさくらポイントの付与など、活動にやりがいを感じ、地域とのつながりを生むような仕組みづくりを進めているところです。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t53">
   <div class="meta"><span class="name">１２番（吉良のりこ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=5501s" data-timestamp="5501"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:41</a>ありがとうございます。</div>
   <div class="say">現在実施している介護支援ボランティアポイント事業について、参加者数や活動内容を市としてはどのように評価しているのかお答えください。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t54">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=5516s" data-timestamp="5516"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:56</a>令和６年度決算では、登録者数は高齢化や体調の変化により減少した一方で、実際に活動した人数は増加しました。これは新型コロナウイルス感染症の影響も落ち着き、特別養護老人ホームなど入所系施設での受入れが広がったことで活動機会が回復したことが背景にあります。今後は登録者と活動者の両方を増やすため、活動内容の選択肢を広げ、参加しやすい仕組みづくりを進めてまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t55">
   <div class="meta"><span class="name">１２番（吉良のりこ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=5548s" data-timestamp="5548"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:28</a>ありがとうございます。登録者と活動者の両方を増やすために取り組んでいってくださるということでした。</div>
   <div class="say">今後、地域の支え合いを持続可能なものとするために、市はどのような担い手像を想定しているのか伺っていきたいと思います。昨年度の決算審査で指摘させていただきました65歳未満への参加対象拡大について、その後の検討状況と今後の検討スケジュールを伺いたいと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t56">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=5582s" data-timestamp="5582"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:02</a>地域の支え合いを持続可能なものとするため、若年層から高齢層まで幅広い年代でその担い手になることが重要と考えております。介護支援ボランティアポイント事業の参加対象拡大については、昨年度の決算審査も含め、議会でのご質疑の中で複数の議員の方々からも若い世代の参加促進をご提案いただきました。担当としては、まず介護現場に触れる機会を広げることが有効と判断し、来年度から対象年齢を65歳以上から40歳以上へ引き下げる方向で制度見直しを進めております。今後も受入れ体制や安全性の確保に努め、事業の効果向上に取り組んでまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t57">
   <div class="meta"><span class="name">１２番（吉良のりこ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=5631s" data-timestamp="5631"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:51</a>40歳以上に引き下げる方向で制度見直しを進めてくださっているとのことで、ありがとうございます。より若い方に関わっていただき、介護を身近に感じていただくということは、将来介護の仕事に携わる道にもつながるかもしれないので、40歳への引下げは前進と評価しておりますが、将来的にはより幅広い世代が関われる制度設計も検討していただきたいと思います。</div>
   <div class="say">次に、ボランティア内容について伺います。特に介護認定が低く、福祉サービスが受けられていない層のために、介護保険を利用しなくても買物、病院やちょっとした外出の付添いなど、生活の中でちょっとした、でもあったら助かる内容のサービスを求める声があることを市は認識していらっしゃるでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t58">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=5680s" data-timestamp="5680"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:40</a>買物や通院の付添いなど介護保険では対応しにくいちょっとした生活支援のニーズがあることは市としても認識しております。先ほども答弁しましたとおり、本市では日常生活援助が必要な方を対象に掃除など日常生活支援サービスを利用できる事業を行っているところです。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t59">
   <div class="meta"><span class="name">１２番（吉良のりこ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=5705s" data-timestamp="5705"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:05</a>行政が全てを担うのではなく、地域住民が無理なく参加し、やりがいや達成感を持って継続できる支え合いの仕組みを市として構築していく必要があると私は考えております。そのためには、活動内容を限定した生活支援メニューの明確化やポイント報酬など、参加意欲につながる仕組みを組み合わせて、地域住民が担い手となる生活支援制度を設計していくことが重要です。例えば大阪府大東市では、安いお金でボランティアによるちょっとしたお手伝いを利用できる仕組みや、ボランティアに対しては市内でお買物時に使えるお買物ポイントによる報酬、また自分がボランティアをした時間だけ将来高齢になったときにボランティアによる支援をしてもらえる時間貯金制度を導入して住民参加を促しています。とてもユニークなシステムだと思うんですけれども、本市としてもこのように介護保険制度を補完する形で、まずはモデル的に地域住民による生活支援と見守りを組み合わせて実施し、効果や課題を丁寧に検証した上で段階的に制度拡充していく考えはおありでしょうか。見解をお答えください。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t60">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=5785s" data-timestamp="5785"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:25</a>ご紹介のありました大東市のように、活動内容を限定した生活支援メニューやポイント制度、報酬制度、時間貯金制度など、参加意欲を高める工夫は持続性や公平性の観点からも研究すべき事例であると考えています。また、地域住民による生活支援と見守りを組み合わせた事業は、介護保険制度を補完し、地域の支え合いを広げる上で一定の効果が期待できる取組であると受け止めています。</div>
   <div class="say">一方で、大東市で進められてきた事業を地域性の違う本市で直ちに導入することは難しいという面もございます。これらの課題を踏まえつつ、大東市も含めた他自治体の先行事例も参考にしながら、住民参加による生活支援の在り方について今後の研究課題として慎重に検討を進めてまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t61">
   <div class="meta"><span class="name">１２番（吉良のりこ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=5844s" data-timestamp="5844"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:24</a>いろいろな課題がありますが、現在小金井市で行われているファミリーサポートは、小さなお子さんがいらっしゃる家庭に地域住民の有償ボランティアが訪問してお子さんのケアをする事業です。こうした既存の運用ノウハウを今後高齢者支援分野へ応用できないか、具体的な検討をお願いしたいと思っております。こちらは意見で終わります。</div>
   <div class="say">最後に、市長に伺います。これらの取組は個別事業の積み重ねではなく、小金井市として家族に頼れないひとり暮らしの高齢者が住み慣れた地域や自宅で暮らし続けられるまちをどう作っていくかという市の将来像や行政運営の方向性そのものに関わる課題であると考えます。この点について市長の基本的な考えをお示しください。お願いします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t62">
   <div class="meta"><span class="name">市長（白井　亨）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=5897s" data-timestamp="5897"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:17</a>様々大東市の事例なんかもご紹介をいただきながら問題提起をいただいております。吉良議員の方で一般質問の中で様々なご指摘、ご意見、ご主張いただいたことについては至極ごもっともだなと思っておりまして、私もかねてから地域人材、地域の担い手の不足ということ、それから、既に超高齢社会ですけれども、更にそれが深刻化する中においていかに助け合い、支え合いの地域を作っていくかという、それについて非常に重要なご指摘、ご意見を頂いたと認識をしております。</div>
   <div class="say">ひとり暮らし高齢者が増える中で、住み慣れた地域で暮らし続けるまちを実現することが市政の最も重要な使命の一つであると考えているところでございます。その実現に向けては、医療、介護、生活支援、見守りが連動する地域包括ケアシステム、これを更に発展させ、地域全体で支え合いを循環させる仕組みを構築すること、これが欠かせないと考えております。</div>
@@ -578,7 +584,7 @@
   <div class="say">本市としてもこれまで積み重ねてきた取組、これも大切にしながら、地域の力が自然といかされるまちづくりを一歩ずつ進め、誰もが最後までこのまちで暮らしたいと思える小金井市の実現に全力で取り組んでまいりたいと考えております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t63">
   <div class="meta"><span class="name">１２番（吉良のりこ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=6026s" data-timestamp="6026"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:26</a>ありがとうございます。若い方もそういった話合いなどをやっていらっしゃるということで、本当にありがたい、うれしいニュースです。</div>
   <div class="say">今回提案させていただいた地域包括支援センターを核として地域住民の方の力を借りながら、高齢になっても、ひとり暮らしでも住み続けられるまちづくりというのを提案させていただきましたけれども、行政の力だけで賄えるものではなくて、市長もおっしゃったとおり、様々な団体や市民の力をお借りしながら進められるものであります。逆に市にしかできないこともあるので、こちらの方は積極的に仕組みづくりに取り組んで進めていっていただきたいと思います。</div>
@@ -586,13 +592,13 @@
   <div class="say">─────── ◇ ───────</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t64">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=6070s" data-timestamp="6070"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:41:10</a>次に、９番小林正樹議員の発言を許可します。</div>
   <div class="say">（９番小林正樹議員登壇）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t65">
   <div class="meta"><span class="name">９番（小林正樹議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=6091s" data-timestamp="6091"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:41:31</a>皆さん、こんにちは。小金井市議会公明党の小林正樹でございます。せっかくの機会ですので、残時間をお借りいたしまして質問させていただきます。12時を少し回るかもしれませんが、ご了解いただければと思いますので、お願いいたします。</div>
   <div class="say">今回も市民の方の関心の高いテーマ１点に絞りまして質問させていただきますが、道路交通法改正のたびに質問には取り上げさせていただいております。この青色切符については遠藤議員が半年前にも取り上げていらっしゃることは皆様も記憶に新しいと思いますが、当時はまだ市の方にも情報が十分に届いていないということもありましたので、今回はそれを踏まえまして、いよいよ４月から導入ということでございますので、改めて質問させていただきたいと思いますので、ご了解をいただければと思います。</div>
@@ -601,102 +607,102 @@
   <div class="say">私の手元の資料によりますと、小金井市内においても、令和６年中の状況となりますが、年間165件の事故が発生しており、そのうち自転車が関与する事故は104件、そのうちの71件は第１当事者、加害者に当たる部分でありまして、37件は第２当事者、いわゆる単純な加害者ではなくて被害者、若しくは一緒にお見合いになるような事故、そういうもの、また重複４件ということで、全体で63％と高い割合となっております。小金井市における自転車が関与する事故の特徴などについてご見解を伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t66">
   <div class="meta"><span class="name">都市整備部長（若藤　実）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=6303s" data-timestamp="6303"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:03</a>本市の事故の特徴でございます。小金井警察に確認をしたところ、小金井警察署管内では交通事故件数はそれほど多くはありませんが、交通事故全体に占める自転車事故の割合が多いのが特徴ということでございます。自転車事故のうち、単独事故が多く、特に高齢者の事故が増えており、事故の原因といたしましては、バランスを崩したりハンドル操作の誤りによるものが多いということでございます。単独事故以外となりますと、自転車同士、また自転車と車両、自転車と人の出会い頭での衝突事故が多いということでありまして、警察によりますと、一時停止や信号を守る、また左側通行といった交通ルールを遵守することにより、大半の衝突事故を防ぐことができるという見解でございました。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t67">
   <div class="meta"><span class="name">９番（小林正樹議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=6369s" data-timestamp="6369"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:46:09</a>ご答弁ありがとうございます。</div>
   <div class="say">大枠としては、全国の状況と小金井市の状況は似たような状況かなと思います。割合の大きい高齢者の事故という意味では、道路環境の悪さというか、そういったところにもよるものも多いかなと感じるところでありますが、それ以外の事故では、交通ルールが守られないケースが大半ということでございました。</div>
   <div class="say">警察や市担当による具体的な交通事故防止の取組について、どのようなことをされているのか伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t68">
   <div class="meta"><span class="name">都市整備部長（若藤　実）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=6405s" data-timestamp="6405"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:46:45</a>交通事故防止の取組についてでございますが、小金井警察に確認をしたところ、小学校の新入生の保護者を対象とした交通ルールに関する説明会、小学校３年生を対象とした自転車教室のほか、市内事業者、悠友クラブ、町内会などを対象とした出前講座、通学時における交通安全の呼びかけなどを行っているということでございます。担当といたしましては、小金井警察とともに連携をしながら、スケアードストレイトによる交通安全教室の実施や小学校を対象とした通学路点検など、交通安全の向上に向けた取組を行ってございます。</div>
   <div class="say">また担当では、安全・安心に自転車をご利用いただけるよう、自転車乗車時のヘルメットが努力義務化されたことに伴い、令和５年度と令和６年度において自転車用ヘルメット購入助成事業を実施してきたところでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t69">
   <div class="meta"><span class="name">９番（小林正樹議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=6473s" data-timestamp="6473"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:47:53</a>ご答弁ありがとうございます。自転車用のヘルメットの購入助成についてもありがとうございます。なかなか着用者が広がっていないという状況もありますが、感謝申し上げます。</div>
   <div class="say">今週末には緑小学校においてもコミュニティスクールなどが主催となって大人の自転車乗り方教室というものを開催いただけるようでございますが、こういったように地域での大人向けの出前講座などの重要性というのは私も感じるところであります。</div>
   <div class="say">さて、先日、東小金井北口商店会の新年会の席でも、１月に発生した高齢者の死亡事故について、二度とこのようなことが地域で起きないように安全対策を呼びかけてほしいという切実なお声も伺ったところでございます。東大通りでの高齢者の事故について詳しく情報を頂ければと思いますが、いかがでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t70">
   <div class="meta"><span class="name">都市整備部長（若藤　実）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=6533s" data-timestamp="6533"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:53</a>東大通りでの事故についてでございます。１月24日、土曜日の午後５時半頃になります。東大通りにて乗用車と歩行者が衝突する死亡事故が発生しました。東大通りを北上する乗用車が横断歩道のないところを横切っている歩行者と衝突をしたとのことでございます。小金井警察に確認をしたところ、翌日以降、当該エリアを中心にパトロールでの巡回、東小金井駅北口ロータリーでサインカーを用いての注意喚起、近隣のスーパー等で啓発チラシの配布などを行ったと伺ってございます。担当といたしましても、同様の事故が発生しないよう小金井警察など関係機関と連携して取り組んでまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t71">
   <div class="meta"><span class="name">９番（小林正樹議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=6589s" data-timestamp="6589"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:49</a>ありがとうございます。</div>
   <div class="say">自転車は関与していない事故ということでありましたけれども、東大通りの両サイドの歩道のガードレールがちょうど両方切れているという場所でありまして、車の出入りのためにちょうどそこのガードレールを空けざるを得ないというような位置でもあったと思います。自転車などもふいに渡ってしまう可能性がある場所だということも想像がつきます。今回は警察もパトロールですとかサインカーを用いての注意喚起、近隣スーパーでの啓発チラシなど、様々な対応をしていただいていることに感謝申し上げますが、引き続きこういった地域で交通事故が起きないように市としても更に取組を進めていただきたいと、このようにお願いしておきたいと思います。</div>
   <div class="say">では、（イ）に入ります。自転車に対して交通反則通告制度、いわゆる青切符が導入されることについて、市民の間に不安や疑問が広がっております。市への問合せはどのぐらい、どのような内容が来ているのか伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t72">
   <div class="meta"><span class="name">都市整備部長（若藤　実）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=6667s" data-timestamp="6667"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:51:07</a>テレビや新聞などで青切符に関する報道があった際には、交通対策課宛てに数件の問合せがありまして、反則金の内容、特に自転車が歩道を走行する際のルールに関するお問合せが多いところでございまして、今後も多くなるものと感じてございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t73">
   <div class="meta"><span class="name">９番（小林正樹議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=6689s" data-timestamp="6689"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:51:29</a>ありがとうございます。</div>
   <div class="say">本日、一般質問で取り上げるに当たりまして、今回、LINEとかGoogleフォームを使って多くの皆さんにどのような不安をお持ちなのか、また自転車運転に関するルールについてどのような疑問があるのか広くアンケートを取らせていただきました。頂戴したご意見などを交えて、具体的に幾つか伺っておきたいと思います。まずは交通反則通告制度、青切符とはそもそもどのような制度なのか。その導入の背景などについても伺いたいと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t74">
   <div class="meta"><span class="name">都市整備部長（若藤　実）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=6731s" data-timestamp="6731"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:52:11</a>交通反則通告制度についてでございます。これまでは自転車の交通違反で検挙されますと、刑事手続による処理が行われまして、裁判を受けた後、罰金を納付するという流れでございましたが、交通違反通告制度、いわゆる青切符制度が導入されますと、運転者が反則行為をした場合には、一定期間内に反則金を納めると刑事裁判等の審判を受けずに事件が終結することになり、違反者に交付される用紙が青色のため青切符制度と言われてございます。</div>
   <div class="say">導入理由といたしましては、近年の自転車を取り巻く交通事故の情勢が厳しく、自転車に対する取締りを強化しており、自転車も車両の仲間として交通ルールを皆さんに遵守していただくため、青切符制度が導入されたものと認識をしてございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t75">
   <div class="meta"><span class="name">９番（小林正樹議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=6799s" data-timestamp="6799"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:53:19</a>ありがとうございます。</div>
   <div class="say">また、私が調べたところでは、背景としては、即刑事手続になると時間や手間もかかることで不起訴となるケースもあることなどから、ルールが見直されたと承知しております。制度導入後は反則金を支払うことで刑事手続には進まず済むようになるため、これは前科がつくものではないということであります。</div>
   <div class="say">次に、反則行為とは何なのか。また、その対象は何かということを伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t76">
   <div class="meta"><span class="name">都市整備部長（若藤　実）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=6834s" data-timestamp="6834"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:53:54</a>代表的な反則違反行為といたしましては、信号無視、一時不停止、右側通行、携帯電話使用、遮断踏切立入りなどが対象となっており、運転免許の有無に関わらず16歳以上が対象となります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t77">
   <div class="meta"><span class="name">９番（小林正樹議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=6862s" data-timestamp="6862"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:54:22</a>ありがとうございます。</div>
   <div class="say">16歳以上が対象ということでありまして、今日お配りさせていただきました資料の名前の書いていない方、このフロー図がある方の左の方を見ていただくと分かりますように、信号無視は6,000円、一時不停止は5,000円、右側通行、また歩道走行に対する反則金、これも6,000円、携帯電話の使用保持、これは１万2,000円で、遮断踏切立入りが7,000円、また、制動装置不良、ブレーキ不良ですとか無灯火、これは5,000円、また、二人乗りは3,000円ということであります。ただし飲酒運転や妨害運転、いわゆるあおり運転ですとか交通の危険が伴う携帯電話の使用など、重大な違反行為については従前どおり刑事手続、いわゆる赤切符で検挙されますので、皆様ご注意ください。</div>
   <div class="say">それでは、次の３問目になりますが、取締りを受けたらどうするのか、反則金を納付しない場合はどうなるのかということでご答弁いただきたいと思いますが、今の右側のフロー図なども見ながら答弁を聞いていただければと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t78">
   <div class="meta"><span class="name">都市整備部長（若藤　実）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=6949s" data-timestamp="6949"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:49</a>取締りに際しましては、警察から交通反則告知書と納付書が交付され、金融機関窓口で反則金を納付すると手続終了となりますが、納付しない場合は刑事裁判などの刑事手続に移行するものでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t79">
   <div class="meta"><span class="name">９番（小林正樹議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=6971s" data-timestamp="6971"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:56:11</a>ありがとうございます。</div>
   <div class="say">それでは４問目ですが、よく聞かれるのは、運転免許を持っている人は点数が引かれるのかと。運転免許を持っている人の方が罪が重くなるんじゃないかと疑われることが多いんですが、この点についていかがでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t80">
   <div class="meta"><span class="name">都市整備部長（若藤　実）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=6988s" data-timestamp="6988"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:56:28</a>運転免許につきましては点数は付されない、いわゆる減点はされないということでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t81">
   <div class="meta"><span class="name">９番（小林正樹議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=7000s" data-timestamp="7000"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:56:40</a>ありがとうございます。</div>
   <div class="say">それでは、Ｑ５は、議長のご許可もいただいてパネルを用意させていただきました、見なくても分かるんですが、北大通りに公民館があって、スーパーがあって、保育園があって、この場所がありますね。ここに限らずよくあるケースなんですが、緑の矢印、ここから出てきて、すぐ次の道に行きたいという場合がありますよね。北側から来て、すぐ西側の通りから上がりたい。議事録に残すとそういう文面になるんですが、この場合、どれが正しいのかということで伺いたいと思いますが、一つは、北側からこの北大通りに出てきて、歩道を西側に向かって自転車でゆっくり走る。（不規則発言あり）やりますね。２番目、この歩道を自転車を降りて歩いていくと。これが２番。３番目として、これは私はよくやるんですけれども、一旦東に行って、横断歩道を渡って、車道を西側に向かって走って、そうするとまた次の信号があるんで、この信号を渡っていく。私はよくこの辺をぐるぐるしているんですが、このパターン。４番目、これはなかなかちゅうちょするんですが、そのまま北大通りを横断して、横断歩道も何もないところですよ、横断して、反対側を西側に向かって自転車で進んで渡っていく。（不規則発言あり）横断歩道がないところをそのまま渡って、公民館の正面に向かって渡っていく。手を挙げるといろいろ後で支障が出るので聞きませんけれども、これについて市の見解を伺いたいと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t82">
   <div class="meta"><span class="name">都市整備部長（若藤　実）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=7162s" data-timestamp="7162"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:59:22</a>一般的な事例といたしまして小金井警察に確認をしたところ、まず最初、青をゆっくり北側の歩道走ることについてでございますが、道路交通法上、自転車は原則として車道の左端を走行することとされていますので、指導・警告の対象になるということでございます。</div>
   <div class="say">二つ目、青を自転車を降りて北側歩道を自転車を押して歩くことは問題がございません。</div>
@@ -704,19 +710,19 @@
   <div class="say">続きまして、最後になります。黄色を横断歩道を道路横断して西に進む場合は、横断の際、北大通りを走る車両を確認の上、横断して車道の左端を走行する場合は問題がありませんということでございますが、自転車を運転している対象や交通事情などによって一概に申し上げることは難しいところがございますので、一般的な交通ルールということでご理解をいただきたいと存じます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t83">
   <div class="meta"><span class="name">９番（小林正樹議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=7252s" data-timestamp="7252"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:00:52</a>ありがとうございます。</div>
   <div class="say">この例を取っても非常に混乱されているところもあると思いますが、一概には言えないけれどもと言われましたけれども、これは基本だと思います。北側の歩道を走るということは、これは違反の対象ということ。また、自転車は軽車両ですので、そのまま横断するということ、これはなかなか勇気が要るんですけれども、これは渡っていいということでありますので、よろしくお願いいたします。自転車が歩道を通行できるのは、自転車歩道通行可と示されている場所や、ご存じのとおり運転者が13歳未満、70歳以上、また身体に不自由のある場合、また車道の幅が狭い場合や車の交通量が著しく多い場合など安全の確保が難しい場合を言います。</div>
   <div class="say">具体的にまた改めて伺いますが、どのような場合に違反の対象となるのかということで、先ほど通告の対象ということを言いましたけれども、違反の対象となるのは具体的にどのような場面なのかということで伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t84">
   <div class="meta"><span class="name">都市整備部長（若藤　実）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=7340s" data-timestamp="7340"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:02:20</a>具体的にはということでございますが、警察官が交通違反を認知した場合、直ちに取り締まるのではなく、基本的には指導・警告を行うことになります。ただし、その違反が交通事故の原因となるような悪質、危険な違反であったときには取締りの対象になるということでございます。例えば横断歩道にスピードを出して突っ込んでいくような、そんな場合には、そのような行為などが対象になり得るというところでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t85">
   <div class="meta"><span class="name">９番（小林正樹議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=7377s" data-timestamp="7377"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:02:57</a>ありがとうございます。</div>
   <div class="say">改めて伺いますが、要するに、資料のフローでも分かるように、代表的な行為として、先ほど挙げられた信号無視とか一時不停止、右側通行、携帯電話の使用、遮断踏切立入りなど、警告に従わないで違反を続けた場合ですとか、車両や歩行者に具体的な危険を生じさせた場合、交通事故に直結する危険な運転行為など、信号無視やそういった事故を招くような悪質な場合はこの青色切符の対象となり、それ以外はまず指導・警告が行われるという理解でよろしいでしょうか。</div>
@@ -724,14 +730,14 @@
   <div class="say">また、併せて聞きますが、改めて歩道を走る場合には該当歩道の中央から車道寄りの部分を徐行して走らなければならないということ。また、歩行者の通行を妨げるときには一時停止しなければならない。徐行というものは、道路交通法21条１項20号に書かれているように、車両等が直ちに停止することができるような速度ということでありまして、歩行者の速度が時速４キロと考えた場合には、時速６キロから８キロ、これが徐行であるというように書かれておりますが、こういった理解でよろしいか伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t86">
   <div class="meta"><span class="name">都市整備部長（若藤　実）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=7516s" data-timestamp="7516"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:05:16</a>まず、最初の悪質危険な違反は別として、指導・警告が行われるという理解でよろしいでしょうかということでございます。実際の運用は、交通管理者である警察がそのときの状況等を踏まえ判断することになりますが、令和７年９月に警察庁交通局が作成しました自転車への青切符導入に関する自転車ルールブックによりますと、単に歩道を通行しているといった違反については、これまでと同様に通常指導・警告が行われることになり、青切符導入後も取扱いに変更がないこととされてございます。</div>
   <div class="say">続きまして、子どもを乗せている自転車に対して、13歳以上の者が対象となるのかということでございます。自転車ルールブックによりますと、自転車は車道通行が原則となります。子どもを載せている自転車であっても、原則は車道を通行していただくことになります。例外といたしましては、三つございます。先ほどもご案内があったかと思いますけれども、一つは道路標識、道路標示で歩道を通行できるとされているとき。二つ目が13歳未満の方若しくは70歳以上の方または身体障がいのある方が運転をするとき。三つ目といたしまして、車道または交通の状況に照らして、自転車の運行の安全を確認するため、自転車が歩道を運行することがやむを得ないと認められるときは歩道を通行できることとされております。実際の運用につきましては、先ほども申し上げましたとおり、交通管理者である警察がそのときの状況等を踏まえ判断することとなります。</div>
   <div class="say">また、自転車ルールブックによりますと、自転車で歩道を通行する場合は、歩道の中央から車道寄りの部分を徐行しなければなりません。このとき、自転車の進行が歩行者の通行を妨げることとなる場合には一時停止をしなければならないということでございます。徐行につきましては、先ほども議員からご案内ございましたが、直ちに停止することができるような速度とされてございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t87">
   <div class="meta"><span class="name">９番（小林正樹議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=7673s" data-timestamp="7673"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:07:53</a>ありがとうございます。</div>
   <div class="say">ママチャリについては、これは原則は車道を通行してくださいというご答弁でありましたけれども、なかなか小金井市の道路なんかは難しいと思いますよね。ただ、今まで質疑にあったように、当然安全運転を心がける中で通行していただければ、即青切符というようなことではないということであります。そのような理解でいます。</div>
@@ -743,12 +749,12 @@
   <div class="say">（ウ）です。制度導入が市民生活に与える影響を本市としてどのように認識しているのかということで教えていただければと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t88">
   <div class="meta"><span class="name">都市整備部長（若藤　実）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=7820s" data-timestamp="7820"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:10:20</a>昨今の状況としまして、自転車は通勤・通学で使用されているほかに、配達業務の増加、シェアサイクルの普及など、身近で環境に優しい自転車の活用が推進される一方で、自転車関連の事故が増加しており、交通ルールの理解が十分ではない自転車利用者も多くなっているものと認識をしてございます。このような状況の中、検挙後の手続を簡易・迅速に処理することにより、実効性のある取締りを行うため、青切符制度が導入されたものと認識をしています。しかしながら、青切符導入の一番の目的は、交通ルールを守って安全・安心に自転車を利用してもらうことであると考えており、警察庁が令和７年９月に公表した自転車ルールブックにおいても、取締りを強化するというよりは、市民の皆様に改めて自転車に関するルールを確認いただきまして、安全かつ安心にご利用いただくために青切符の制度が導入された旨、記載をしてございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t89">
   <div class="meta"><span class="name">９番（小林正樹議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=7890s" data-timestamp="7890"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:11:30</a>ありがとうございます。</div>
   <div class="say">よく年末なんかになると一方通行のところにいらっしゃる様子がうかがえます。今回については、ルールを確認いただいて、安全かつ安心に自転車を利用いただくことが大目的だということで改めて確認をいたしました。私もそのとおりだと思います。自転車は軽車両であるという認識ということをしっかりとやっていきたいと思います。また、事故に遭わないということはもちろんですが、加害者にならないために交通ルールを厳守していくということも大切だと思います。</div>
@@ -756,40 +762,40 @@
   <div class="say">資料でお配りをしている、先ほど見ていただいた裏面になりますが、埼玉県警では分かりやすいピクトグラムを用いて、外国人の方にも、また子どもにも分かるような工夫を取り入れている事例がございます。小金井市でもこれらを参考にして分かりやすい周知に努めるべきだと思いますが、いかがでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t90">
   <div class="meta"><span class="name">都市整備部長（若藤　実）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=7975s" data-timestamp="7975"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:12:55</a>周知についてでございます。青切符導入のタイミングに合わせまして市報やホームページで周知をしたいと考えてございます。ピクトグラムなどを活用した分かりやすい周知の方法という提案でございます。ご提案いただきました、子どもから高齢者、外国人の方も分かりやすく理解できるような内容で周知できるよう取り組んでまいりたいと考えてございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t91">
   <div class="meta"><span class="name">９番（小林正樹議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=8003s" data-timestamp="8003"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:13:23</a>ありがとうございます。</div>
   <div class="say">ぜひ楽しみにしておきたいと思いますが、今回の法改正を契機として、歩行者の安全、自転車事故の防止と市民生活の利便性の両立に向けて、小金井市として今後どのように主体的に取り組まれていくのか伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t92">
   <div class="meta"><span class="name">都市整備部長（若藤　実）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=8024s" data-timestamp="8024"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:13:44</a>青切符が導入されるということで、自転車の運転マナーに関する注目が高まってございます。公民館においては、春から変わる道路交通法、学ぼう自転車の安全な乗り方という講座を開催すると伺ってございます。担当といたしましても、この機会を捉えまして、自転車のみならず、歩行者、車、二輪車等が共存して安全で快適な移動ができるよう、東京都、小金井警察、庁内関係課などとも連携をしまして、交通ルールや運転マナーについて周知を図ってまいりたいと思ってございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t93">
   <div class="meta"><span class="name">９番（小林正樹議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=8061s" data-timestamp="8061"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:14:21</a>最後ですが、今は車道が走りにくく、危険で歩道を走らざるを得ない状況も多々見受けられます。交通ルールを守って安全に運転していただくためにも、繰り返しお願いをさせていただきますが、走行しやすい道路環境の整備も併せて進めていただければと思います。</div>
   <div class="say">今後、本市における自転車ネットワークを構築するためにも、道路の整備、また（仮称）自転車総合計画の作成、これはずっと議会でもお話が出ておりますが、これもスピードアップをして行うべきではないかと思いますが、いかがでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t94">
   <div class="meta"><span class="name">都市整備部長（若藤　実）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=8118s" data-timestamp="8118"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:15:18</a>快適かつ安全に運転するためには、走行しやすい道路環境の整備は欠かせないものと認識をしてございます。国や東京都、近隣市においても、自転車活用推進計画や自転車ネットワーク計画を策定している状況は認識をしておりまして、議員からご案内がございましたが、本市の特性や現状を踏まえた（仮称）自転車総合計画の策定に向けて、引き続き検討してまいりたいと思ってございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t95">
   <div class="meta"><span class="name">９番（小林正樹議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=8154s" data-timestamp="8154"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:15:54</a>答弁ありがとうございます。</div>
   <div class="say">本日、質問を通しまして、少し安心できる部分と、改めてこのルールをしっかりと見直していかなければならないことが確認できたと思います。あくまでも目的は市民の皆さんの安心と安全でありますので、今後も我々も協力しながら努めてまいりたいと思いますので、どうぞよろしくお願いいたします。ありがとうございます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t96">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IUaokxR1LYQ&t=8184s" data-timestamp="8184"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:16:24</a>ここで昼食のため、おおむね１時間休憩いたします。</div>
   <div class="say">午後０時13分休憩</div>
@@ -797,14 +803,14 @@
   <div class="say">午後１時15分開議</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t97">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=174s" data-timestamp="174"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:54</a>再開します。</div>
   <div class="say">次に、３番天野かな議員の発言を許可します。</div>
   <div class="say">（３番天野かな議員登壇）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t98">
   <div class="meta"><span class="name">３番（天野かな議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=193s" data-timestamp="193"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:13</a>ご指名いただきましたみらいのこがねいの天野でございます。すみませんちょっと体調の都合により、もしかしたら質疑の際に座らせていただくかもしれませんが、ご容赦いただけますと幸いです。</div>
   <div class="say">本日、私が取り上げますテーマは、大きく二つございます。今後の学校の建設計画についてと、財務情報の提示方法における今後の方針についてです。</div>
@@ -814,25 +820,25 @@
   <div class="say">改めて前提条件について整理をさせていただきたく、次の３点を伺います。１点目、７年前の計画に対しての1.75倍の増加であるのか。２点目、労務単価、資材単価、物価上昇率、共通仮設、現場管理費、設計条件、標準仕様、発注方式等を踏まえた試算の前提。３点目、併せて現設計において工期は何か月想定で、働き方改革等による工期延伸リスクをどう織り込んでいるかについて、ご答弁をお願いいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t99">
   <div class="meta"><span class="name">学校教育部長（大澤秀典）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=378s" data-timestamp="378"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:18</a>まず、1.75倍の増加につきましては、令和３年３月に作成しました学校施設長寿命化計画の当時の標準的な学校施設の建て替え費用と、第一小学校校舎改築等工事の１回目の入札時の事業費でございます、総額約49億6,000万円との比較に基づきまして算出した数字でございます。</div>
   <div class="say">続きまして、試算の前提につきましては、今回の改定版（案）におけます長寿命化コストの見通しでは、令和７年９月時点での第一小学校校舎改築等工事の２回目の入札時の事業費でございます総額約54億8,000万円の平米単価を基に建て替え単価や長寿命化改修の単価等を設定しておりまして、各学校の床面積に乗じまして算出しておるところでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t100">
   <div class="meta"><span class="name">都市整備部長（若藤　実）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=442s" data-timestamp="442"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:22</a>工期に関連する部分でございます。学校の建て替え事業の工期につきましては、校舎改築に加えて、校庭整備や既存校舎の解体工事などの関連工事を含めました建て替え工事の全体として、おおむね３年半程度を要するものと見込んでございます。</div>
   <div class="say">また、工期の設定に当たりましては、建設業における働き方改革を踏まえ、週休２日を前提とするとともに、猛暑による作業不能日数等も考慮しております。一方で、資材や人材の不足による資材の調達や製作期間の長期化、時間外労働の上限規制の適用、建設業従事者の高齢化や民間事業の動向など、工期延伸につながる要因は複雑かつ流動的となっており、全てのリスクを事前に見込むことは難しいと認識をしてございます。このため、工事着手後に、設計時点では想定し得なかった施工条件や周辺環境の変化等が生じた場合には、必要に応じて設計変更等を行い、工期の変更を行うものと考えてございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t101">
   <div class="meta"><span class="name">３番（天野かな議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=524s" data-timestamp="524"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:44</a>ご答弁ありがとうございます。1.75倍の増加は現時点での平米単価によるもので、工期延伸の全リスクを見込むことは難しいとのことでした。</div>
   <div class="say">冒頭申し上げましたとおり、今後も工事費は上振れしていくことが見込まれています。上振れする要因自体はご認識いただいているかもしれませんが、現時点の更なる工事費の上振れを前提に置く一方で、何をどう見込むかについてはルールがあり、行政裁量として対応するのは難しい部分があると理解しています。市として現状見込んでいるものや見込むことができる範囲や条件について、可能な範囲でご説明をお願いいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t102">
   <div class="meta"><span class="name">都市整備部長（若藤　実）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=569s" data-timestamp="569"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:29</a>工事費の算定に当たりましては、東京都の積算基準に倣い、できる限り直近の公共工事設計労務単価や公共単価を使用するとともに、見積り徴取や刊行物等の物価資料を活用することにより、工事予定価格が実勢価格と大きく乖離することのないよう努めているところでございます。</div>
   <div class="say">一方で、近年の急激な物価上昇に対しましては、公共単価の改定が必ずしも即時に反映されていない場合があることに加えまして、建設業界における人手不足等の影響により、市場の実態と積算上の価格との間に乖離が生じやすい状況にあることも認識をしているところでございます。</div>
@@ -840,20 +846,20 @@
   <div class="say">このように、工事費につきましては、複数の要因が複雑に影響をしており、それらの変動を現時点において定量的に把握することが困難であることから、将来の工事費を具体的な金額として見込むことは難しいものと認識をしてございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t103">
   <div class="meta"><span class="name">３番（天野かな議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=681s" data-timestamp="681"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:21</a>ご答弁ありがとうございます。仕組み上、公定価格に基づいた金額から上下認められた範囲しか動かせず、入札不調が実際に起きた上で、議会での議決を経ないと予算の積み増し等も難しいものと理解いたしました。</div>
   <div class="say">続きまして、今後の学校運営を取り巻く環境変化も絡めて確認を進めさせていただきます。ＡＩ時代の変化、教育現場の業務、学び方、施設利用、設計、積算、施工の省力化可能性等が、学校施設整備の計画前提に影響し得ることが想定されます。例えば教員１名に対して生徒35人で一つの学級が構成される現状も変化していく可能性がございます。教員が生徒に授業を行う、指導するという形ではなく、ＡＩと相談しながら問題を解いていく、映像講義のショートクリップを見る、教員は成績やカリキュラムの管理をＡＩにサポートされながら行うといった世界になる可能性が、諸外国における各種論文等を踏まえても高いと考えており、そうした前提に立つと、教員１人が見る生徒数は違う数字になるでしょうし、その形態によって必要となる教室の広さや設備等についても変わってくると考えております。</div>
   <div class="say">５年、10年といったスパンでは間違いなく大きな変化がある中で、それも2022年以降のＬＬＭの急速な発展を前提としない中での計画ですと、かなりの修正が必要になるだろうと考えております。そうした変化は一旦置いておくにしても、小金井市学校施設長寿命化計画改定版（案）の中にも記載がありますが、多様な学習、活動を支える施設の整備として、ＩＣＴ化を進めるための学習環境の整備は急務です。そうした点につきまして、今後、文部科学省等の通知に従って対応していくことになると考えますが、現時点の計画において、計画検討の出発点、検討内容が建て替え計画にどの程度反映されているかについて教えてください。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t104">
   <div class="meta"><span class="name">学校教育部長（大澤秀典）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=813s" data-timestamp="813"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:33</a>今後、更なる生成ＡＩの発展が考えられますことから、社会の変化とともに学校におけます授業や教員の働き方も変化していくことが考えられます。現在、学校におけますＡＩを含めましたＩＣＴの活用といたしましては、授業におけます調べ学習や意見交換、また、教員が行います教材の研究やテストの自動採点など、様々な場面で活用されておるところでございます。この先のＡＩの発展や社会の変化につきまして予想することは大変難しいところではございますが、ＡＩの活用につきましては、現在、文部科学省が作成しております初等中等教育段階におけます生成ＡＩの利活用に関するガイドラインを踏まえました様々な研究がなされているところでございます。教育委員会といたしましては、ＡＩの活用に関します先行研究につきましての情報収集に努めますとともに、引き続き社会変化に対応しました授業変革や働き方改革を推進してまいりたいと考えておるところでございます。</div>
   <div class="say">なお、ＡＩの活用によります教育環境の変化や施設面での対応につきましては、学校施設長寿命化計画の中では、施設の維持管理や更新を適切に行っていくために策定しているものでございますことから、各学校の建て替え時等におけます基本方針や基本構想、また、基本計画や設計等の中で検討していくものと考えておるところでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t105">
   <div class="meta"><span class="name">３番（天野かな議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=919s" data-timestamp="919"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:19</a>ご答弁ありがとうございます。</div>
   <div class="say">長寿命化計画はあくまで建て替えの優先度を決めている計画であり、施設の具体の部分は１校１校の建て替え時に話を進めていくのが基本であるということでした。ただし、長期的に考えても、先ほど申し上げましたとおり、変化の波は遅かれ早かれ到来することが想定され、建て替え計画にも少なからず影響してくるかと考えます。その際は、段階整備や使用の柔軟性確保をどう位置付けるかを含めて検討していく必要があると考えております。</div>
@@ -861,26 +867,26 @@
   <div class="say">１点目、教員不足やＡＩ時代の到来に備えた今後の学校運営の在り方を検討する所管。２点目、その学校運営の在り方を建て替え計画に反映していく所管。３点目、今後中長期にかかる建て替え費用の分析及び算出をする所管。４点目、所管や判断が複数にまたがる場合の役割分担について、ご答弁をお願いいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t106">
   <div class="meta"><span class="name">学校教育部長（大澤秀典）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=998s" data-timestamp="998"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:38</a>学校運営に関しますことにつきましては、教育委員会学校教育部の所管となるものでございます。ご質問をいただきました教員不足やＡＩ時代の到来に備えた今後の学校運営に関しましては学務課と指導室が、施設の建て替えやその費用に関しましては庶務課が中心となって対応していくものでございます。</div>
   <div class="say">また、所管が複数にまたがる場合や、他部との調整が必要になる場合につきましては、私や、学校教育部の課長職におきまして適切に調整を図り、対応していくものと認識しておるところでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t107">
   <div class="meta"><span class="name">３番（天野かな議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=1041s" data-timestamp="1041"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:21</a>ご答弁ありがとうございます。</div>
   <div class="say">建て替え費用の分析及び算出については庶務課、それを財政計画に落とし込んで今後の中長期方針を検討していく所管は企画財政部の方々も関わってくるかと考えております。今後、各課をまたいでの横串体制の更なる強化が求められることになるかと思います。特に、現在進めてくださっている第一小学校の建て替えがうまくいけば良いですが、仮に入札不調に終わった場合は、その後のスケジュールも変わってくるかと思いますし、今後の建設業界の状況によっては建て替え方針や費用のかけ方についても見直す必要が出てくるかと考えます。その際に判断主体及び連携体制が成立していなければ、議論をスムーズに進めることができないことも想定されますので、リスクを見込んでの組織体制の確立にも並行して取り組んでいただければと思います。</div>
   <div class="say">ここで今後の建設業界について、市の認識を確認させていただきます。まず、建設業界の人手不足、工期延伸、入札不調の増加等について、市の認識についてご答弁をお願いいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t108">
   <div class="meta"><span class="name">都市整備部長（若藤　実）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=1120s" data-timestamp="1120"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:40</a>建設業界におきましては、資材価格や労務費の高騰に加え、建設業従事者の高齢化による技能者不足、民間工事の増加による、人材確保をめぐる競争の激化、働き方改革の進展に伴う労働時間規制などが重なり、人手不足が一層深刻化しているものと認識をしてございます。</div>
   <div class="say">また、近年の猛暑による作業不能日数の増加も相まって、適切な工期設定が困難な状況となっております。これらの要因は、学校を含む工事全般において入札不調や工期延伸の増加につながる可能性があると考えてございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t109">
   <div class="meta"><span class="name">３番（天野かな議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=1170s" data-timestamp="1170"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:30</a>ご答弁ありがとうございます。</div>
   <div class="say">皆様も既にご認識の内容であるかと存じますが、整理の意味も込めて、私からも補足申し上げます。</div>
@@ -893,14 +899,14 @@
   <div class="say">入札不調・工期遅延・更なる工事費拡大が起こり得る蓋然性について、市の見解を伺います。あわせて、その場合の意思決定をどのような手順で行う整理になっているかもご答弁をお願いできればと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t110">
   <div class="meta"><span class="name">都市整備部長（若藤　実）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=1473s" data-timestamp="1473"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:33</a>現在の建設業界を取り巻く状況を踏まえますと、今後におきましても、入札不調や工期遅延、工事費の上昇といったリスクが一定程度継続する可能性があるものと認識をしておりまして、引き続き、最新の公共単価や物価資料の活用、適切な工期設定、事業内容の精査等を行うことにより、発注内容が建設業界の実態と大きく乖離することのないよう努めてまいりたいと思ってございます。</div>
   <div class="say">また、契約後に生じた物価変動等につきましては、工事請負契約約款に基づく、いわゆるスライド条項を適切に運用し、必要に応じて契約金額の変更を行うことで円滑な施工の確保に努めてまいります。</div>
   <div class="say">なお、工事の積算に当たりましては、東京都の積算基準に基づき行っており、特に補助金を充当する工事につきましては、補助要件との関係からも、当該積算基準を逸脱した積算を行うことは事実上困難であると認識をしてございます。このため、入札不調等のリスクを見込んで、市が独自に工事費を上乗せすることにつきましては、相応の合理的理由がない限り難しいものと考えてございまして、公平性及び透明性の確保の観点からも、積算基準の範囲内での対応となるものと認識をしてございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t111">
   <div class="meta"><span class="name">３番（天野かな議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=1578s" data-timestamp="1578"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:18</a>ご答弁ありがとうございます。改めて意思決定からどのような手順で契約を進めるかご説明いただきました。</div>
   <div class="say">今後は、スライド条項だけでは対応し切れない部分が出てくるかと思います。実際スライド条項について、条例の範囲を超えますと議会の議決が必要となりますし、大型工事であれば、基本的には専決処分の範囲内に収まらないのではと考えますので、議会内で否決されるリスクを踏まえて入札側が判断することになると理解しております。</div>
@@ -908,13 +914,13 @@
   <div class="say">次に、建て替え必要性についてのすり合わせをさせていただきたく質問を進めます。学校の建て替えの必要性、安全性、機能、教育環境、維持管理の観点について、市としての現状認識を整理して伺います。優先順位の考え方や根拠も可能な範囲でお示しください。よろしくお願いします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t112">
   <div class="meta"><span class="name">学校教育部長（大澤秀典）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=1654s" data-timestamp="1654"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:34</a>学校施設長寿命化計画につきましては、今後の学校施設を将来にわたって長く使い続けるために、施設の維持管理や更新を適切に行っていくことを目的としておるものでございます。本計画の改定版の（案）では、六つの学校施設の目指すべき姿とそれに対応します学校施設整備方針を掲げており、コンクリート強度が低圧縮強度であり、長寿命化に適さない建物がございます７校につきましては、優先的に建て替える方針となっておるところでございます。</div>
   <div class="say">また、学校施設が目指すべき姿の1)として安全・安心な施設、2)として教育環境・生活環境の充実、3)として防災拠点としての施設、4)として全ての人に優しい施設、5)として地域とともにある施設、6)として環境に優しい施設を掲げており、長寿命化という観点では1)の安全安心な施設の考え方がその影響が大きいものと考えますが、どれが優先的というよりは並列のものと考えておるところでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t113">
   <div class="meta"><span class="name">３番（天野かな議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=1736s" data-timestamp="1736"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:56</a>ご答弁ありがとうございます。</div>
   <div class="say">ここまでの質疑より、建て替えの優先順位については安全性及び教育環境を優先度高く認識していることに加え、予算の算出方法や今後の費用見通しの算出については市としてできることが限られている状況にあることも理解いたしました。市として限界があるという点につきましては、国や都に働きかけていく必要性の高さを改めて認識したところでございますが、これまでご説明差し上げた前提条件を踏まえますと、建て替え計画が更に後ろ倒しになる可能性が高いと考えます。</div>
@@ -922,13 +928,13 @@
   <div class="say">そこで伺います。仮に建て替えが財務的に厳しい、あるいは入札環境により計画どおり進まない場合に備え、防災上のリスクを建て替えや修繕で対策する、代替となる防災拠点を考える、影響を受け続ける児童たちを考慮し、トイレの改修等の設備の部分について先行して実施する段階整備の実施を検討する等のバックアッププランの必要性について、市としてどのような見解をお持ちかご答弁をお願いできますでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t114">
   <div class="meta"><span class="name">学校教育部長（大澤秀典）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=1827s" data-timestamp="1827"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:27</a>まずは現状の入札状況や、第一小学校校舎改築等工事の進捗が遅れていることから、今後の建て替え計画におきまして、大変ご心配をおかけしている点につきましては大変申し訳なく思っておるところでございます。現時点におきましては、大変厳しい状況との認識はございますが、まずは第一小学校の建て替えを進めてまいりたいと考えておるところでございます。</div>
   <div class="say">一方で、状況によりましては、今後の計画につきまして計画を見直しせざるを得ない場合もあるかもしれませんが、その際には、関係部署とも協議の上、適切な対応を図ってまいりたいと、そのように考えておるところでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t115">
   <div class="meta"><span class="name">３番（天野かな議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=1873s" data-timestamp="1873"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:13</a>ご答弁ありがとうございます。外部環境によるものが大きく、できる打ち手も限られる中ですので、状況を見ながら建設的に対応していければと考えております。</div>
   <div class="say">これまでの質疑を踏まえますと、入札金額の設定における市の裁量には限界があり、入札不調が起きた後でなければ予算の積み増しが難しいという現状が見てとれます。昨今のインフラや需給の逼迫に対し、既存の制度や算定根拠が追いつかず、入札不調が常態化する懸念は拭えません。杞憂に終わればいいですが、これが現実となれば、工事期間の延伸のみならず、竣工スケジュールが年単位で遅延する事態も想定されます。</div>
@@ -939,32 +945,32 @@
   <div class="say">まず、総務省の方針等を踏まえ、全国的に複式簿記、発生主義に基づく財務情報整備が進んでいることは先ほど申し上げましたが、小金井市として国の要請、背景をどのように認識し、現状どこまで対応しているか、対応されている場合は、いつのタイミングで財務情報が公開されているかもご答弁をお願いいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t116">
   <div class="meta"><span class="name">企画財政部長（梅原啓太郎）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=2138s" data-timestamp="2138"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:38</a>国では、地方公会計制度の整備促進につきまして、現金主義会計による予算・決算制度を補完するものとして、現金主義会計では見えにくいコストやストックを把握することで、中長期的な財政運営への活用の充実が期待できるものとして整備を推進していくことが重要であるとしているところでございます。本市におきましては、平成15年度決算から総務省統一基準等に基づく企業会計的な手法を活用した財務書類を、平成20年度決算から総務省方式改訂モデルに基づく財務書類を作成し、財務情報の提供に努めてきたところでございます。</div>
   <div class="say">しかしながら、総務省方式改訂モデルでは既存の決算統計データを活用した簡便な作成方式であること。公共施設等のマネジメントにも資する固定資産台帳の整備が必ずしも前提とされていないこと。また、多くの自治体では、総務省方式改訂モデルを採用しているものの、基準モデルやその他の方式等の基準が混在していること等の課題がございました。そのような中で、平成26年度に国より発生主義複式簿記の導入により複式仕分を行うことで、現金支出を伴わない減価償却等の目に見えないコストの見える化を図ること。さらには、事業別、施設別等のフルコスト情報での分析が可能となること。ＩＣＴを活用した固定資産台帳の整備を前提とすることで、資産、負債等のストック情報の把握が容易になり、公共施設等のマネジメントへの活用が期待されること。統一的な基準により財務書類を作成することで、団体間での比較可能性を確保すること等、これまでの課題の解消を目的とした財務書類の作成に関する統一的な基準が示され、平成27年１月23日付け総務大臣通知により、原則として平成27年度から平成29年度までの３年間で、全ての地方公共団体において統一的な基準に基づき財務書類を作成すること、特に公共施設等の老朽化対策にも活用可能な固定資産台帳を早期に整備するよう通知がされたものでございます。</div>
   <div class="say">本市では、固定資産台帳の整備、財務書類の作成について適切かつ効率的に進めるため、平成27年度より国等で実施された説明会や研修会への参加、公会計システムの導入に向けた検討を行うとともに、会計事務所に作成支援を委託し、平成28年度決算より統一的な基準に基づき、貸借対照表、行政コスト計算書、純資産変動計算書及び資金収支計算書の財務４表を作成、年度末までに公表しているものでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t117">
   <div class="meta"><span class="name">３番（天野かな議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=2332s" data-timestamp="2332"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:52</a>ご答弁ありがとうございます。</div>
   <div class="say">本市においても、総務省通知に基づき、令和８年度決算より統一的な基準に基づき、債務４表、貸借対照表、いわゆるＢＳ、行政コスト計算書、いわゆるＰＬ、純資産変動計算書及び資金収支計算書、いわゆる企業でいうところのキャッシュフロー計算書を作成公表しているとのことでした。</div>
   <div class="say">続きまして、未対応部分がある場合、未対応の理由と解消の見通しについても含め、ご答弁をお願いいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t118">
   <div class="meta"><span class="name">企画財政部長（梅原啓太郎）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=2366s" data-timestamp="2366"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:26</a>国の要請事項といたしましては、複式簿記を導入し、実際の歳入歳出情報に基づき、伝票単位の取引で仕分を行うこと。資産の状況を的確に把握するため、資産ごとに取得から除却、売却に至るまでの経過を管理する固定資産台帳を整備すること。団体間での比較可能性を確保するため、総務省の定める統一的な基準による財務書類の整備の３点となっており、いずれも対応済みでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t119">
   <div class="meta"><span class="name">３番（天野かな議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=2402s" data-timestamp="2402"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:02</a>ご答弁ありがとうございます。</div>
   <div class="say">続きまして、単式と複式とでメリット、デメリットがあるかと思います。現金主義、単式簿記と発生主義、複式簿記の違い、また、議会の投資判断という観点でのメリット、デメリットについて、市の理解についてご答弁をお願いいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t120">
   <div class="meta"><span class="name">企画財政部長（梅原啓太郎）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=2425s" data-timestamp="2425"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:25</a>総務省作成の統一的な基準による地方公会計マニュアルによれば、現金主義、単式簿記は現金の収支に着目した会計処理の原則で、経済取引の記帳を現金の収入、支出として一面的に行う簿記の手法で官庁会計とされております。</div>
   <div class="say">一方、発生主義、複式簿記は、経済事象の発生に着目した会計処理の原則で、経済取引の基調を借り方と貸方に分けて二面的に行う簿記の手法で、企業会計とされております。地方公共団体の会計制度は単式簿記による現金主義会計を採用しており、現金がどれだけ収入されて、どれだけ支出されたかを記録するもののため、客観的で確実に確認できることから、執行統制、執行管理が厳密に行えること。帳簿への記録は専門的知識を必要とせず比較的容易に行えることから、運用負担が軽いこと。また、現金の用途が明確に把握できるため、説明責任を果たしやすいこと等が特徴として挙げられます。</div>
@@ -972,7 +978,7 @@
   <div class="say">投資判断という観点において、まずは官庁会計である現金主義会計に基づく収支バランス、コスト比較等に基づく判断が必要でございます。しかしながら、発生主義会計において把握可能な資産、負債等のストック情報による資産形成度、負債の状況、より正確なコスト把握等、現金主義会計で把握ができない情報を補完できるものと認識をしております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t121">
   <div class="meta"><span class="name">３番（天野かな議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=2558s" data-timestamp="2558"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:38</a>ご答弁ありがとうございます。</div>
   <div class="say">今のご説明を受けまして、現在導入されている単式簿記の課題を簡単にご説明いたしますと、単式簿記により、今、財布に現金があるか、お金をどれだけ使ったかが分かり、単年度ベースでの予算執行の増勢、使い過ぎの防止への判断はつきます。一方で、資産の劣化、いわゆる減価償却や将来の負債が見えない。複数年度を比較したときに、何が毎年かかる費用で何が一次要因なのかが見えづらくなるというところに課題がございます。前者については、例えますと、崩壊寸前の橋も単式簿記上はコストゼロに見えてしまうリスクがございます。後者につきましては、例えば借入れの返済期間と耐用年数が異なる資産について、返済額が見え、返済完了後は利用可能なのに費用がかからないように見えるなど、実態と状況が異なってしまいます。</div>
@@ -980,51 +986,51 @@
   <div class="say">続きまして、単式簿記の財務会計管理に利用しているシステムは何か、費用を足すことで複式簿記化ができるのかと、どういった仕様なのかご答弁をお願いいたします。また、公開予定がある場合は時期と、複式簿記、資産台帳との連携方針などはシステムへ少しずつでも反映していく予定なのかも併せてご答弁をお願いいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t122">
   <div class="meta"><span class="name">企画財政部長（梅原啓太郎）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=2714s" data-timestamp="2714"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:14</a>財務会計につきましてはジャパンシステム株式会社、公会計につきましては株式会社システムディの単独システムを単年度契約にて使用をしております。統一的な基準に基づく財務書類を作成する際には、出納閉鎖期間終了後、財務会計システムから収入支出の執行データを出力し、そのデータを公会計システムに取り込み、その他現金を伴わない取引情報を含め、期末一括仕訳を行っております。</div>
   <div class="say">平成29年度に公会計システムを導入する際には、先行している他自治体への視察、様々な企業のシステムを比較検討したところでございますが、中には財務会計システムと公会計システムが統合されたシステムを使用し、日々の収入、支出の伝票起票時に併せて仕訳データを入力することで日々仕訳に対応している自治体もございました。しかしながら、経費面では、単独システムであれば導入に当たり数百万円で済むところ、統合されたシステムでは財務会計システムの入替えも想定しなければならず、その導入経費負担が数千万円と大きく膨らむことが想定されること。また、日々仕訳に対応するためには、全職員が仕分の知識を有し、伝票起票の都度仕訳処理を行わなければならない事務負担等を考慮し、期末一括仕訳に対応するシステムを導入した経過にございます。</div>
   <div class="say">統合されたシステムを導入し、日々仕訳を行うことにより、検証精度、早期の財務書類の作成、開示が可能となり望ましいものと考えるところでございますが、全国的に見ても、約９割の自治体が期末一括仕訳という状況で、事務負担や経費負担は大きな課題と考えておりますので、当面は現行システムによる期末一括仕訳を継続し、動向を見守りたいと考えております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t123">
   <div class="meta"><span class="name">３番（天野かな議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=2843s" data-timestamp="2843"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:23</a>ご答弁ありがとうございます。理想としては日々仕訳で複式簿記に対応する形が望ましいが、導入経費や現場の負担を鑑みると課題が大きく、当面は現行方式を継続しつつ動向を見守りたいということかと思います。</div>
   <div class="say">現場の負担についてもう少し明確にさせていただきたく、単式簿記から複式簿記への仕訳、集計作業は現状どの部署がどういった手順で行ってくださっているのか、手順書、ルールは整備されており属人化されていないか、ご答弁をお願いいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t124">
   <div class="meta"><span class="name">企画財政部長（梅原啓太郎）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=2878s" data-timestamp="2878"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:58</a>統一的な基準に基づく財務書類の作成は、現在財政課で行っております。決算年度の出納閉鎖後の６月から、固定資産台帳や資産負債の内訳等補助簿を作成するための各課調査から開始をいたします。その後、決算統計作業終了後の７月中旬頃より資産負債の内訳や固定資産の状況等の補助簿を作成、仕訳作業に取りかかり、10月以降、新年度予算編成に入るため一旦作業は中断をいたしますが、２月中旬頃より再度作業を再開し、試算表を作成の上、３月末までに完成する手順でございます。</div>
   <div class="say">財政課では、予算・決算のほか、地方交付税や地方債の申請協議、国、都からの調査対応等もあり、現状、財務書類の作成は１名の職員で行っております。しかしながら、総務省作成のマニュアルのほか、委託により作成した手順書、システムオペレーションマニュアルのほか、前任者からの引継ぎメモ等、属人化されないよう情報を整理し、誰が担当となっても作成できるよう取り組んでいるところでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t125">
   <div class="meta"><span class="name">３番（天野かな議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=2959s" data-timestamp="2959"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:19</a>ご答弁ありがとうございます。単式簿記から複式簿記への仕訳、集計作業は財務課の職員１名で行っており、属人化されないようマニュアル化も整備されているとのことでした。</div>
   <div class="say">先ほどのご答弁にもありましたが、複式簿記のための日々仕訳に対応するためには、全職員が仕訳の知識を有し、伝票起票の都度仕訳処理を行わなければならず、事務負担にご懸念があるとのことでした。仕訳や定型集計は、来年度、再来年度にはＡＩ等で省力化が見込まれる領域かと考えております。議会の投資判断に資する資料として、複式簿記側の提示を現行でも可能な範囲から開示していただくお考えはあるか、お考えがある場合は、まず何から着手し、いつ頃までにどの資料を出せる見込みか、市の見解をご答弁お願いいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t126">
   <div class="meta"><span class="name">企画財政部長（梅原啓太郎）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=3016s" data-timestamp="3016"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:16</a>統一的な基準に基づく財務書類につきましては、一般会計及び地方公営事業会計以外の特別会計から成る一般会計等財務書類、地方公営事業会計を含めた全体財務書類、一部事務組合や土地開発公社等関係団体を含めた連結財務書類を作成し、あわせて、一般会計等に係る財務指標を算出、分析の上、年度末までに公表しているところでございますが、連結したものにつきましては、一部事務組合等の作成状況にもよるため公表時期を分けることとし、一般会計等及び全体財務書類を作成でき次第公表できるよう取り組んでいるところでございます。</div>
   <div class="say">また、議員ご提案のＡＩの活用による省力化につきましては、公会計専用のシステムを導入したことにより定型的な仕訳、集計作業の自動化、ＡＩ活用による効率化と同等の効果が得られているのではないかと思うところでございます。総務省が作成した統一的な基準による地方公会計マニュアルＱ＆Ａ集では、地方公共団体が作成する財務書類等については、監査委員による審査や議会への報告が義務付けられているものではないものの、有意義な取組とされているところですが、財務書類を作成する人員に限りがあることや、当初予算の編成、決算統計等、他業務との兼ね合いもあり、また、日々仕訳による早期の作成についても課題が大きいところであり、更なる早期の公表が難しい状況でございますが、他市の取組状況等も参考になるべく早く作成、公表ができるよう研究してまいりたいと考えております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t127">
   <div class="meta"><span class="name">３番（天野かな議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=3128s" data-timestamp="3128"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:08</a>ご答弁ありがとうございます。複式簿記の導入につきましては課題が大きく、早期の導入は難しいが、重要性についてはご理解いただいているという答弁であるかと理解いたしました。</div>
   <div class="say">ＡＩによりシステム開発領域自体が昨年から今年にかけて大きな過渡期にあるそうで、同じコストでもできることが大きく広がったり、機能追加の速度が上がったり、そもそもシステム自体にＡＩが組み込まれることでできることが広がったりするとのことですので、ぜひ定期的に状況をご確認いただければと考えております。私自身もＡＩなどを利用しながらＡＩについて学んでいる身ですが、適切に使えばリスク低く柔軟にいろいろなことができるツール、例えば、実際に裏側で手を動かして作業までこなしてくれるＡＩエージェントも大きなコストをかけることなく利用することができます。そうしたツールの使い方も各所で研究が進んでおり、どう使えばいいかといった発信も各所で進んでおりますが、ご認識いただきたいのが、半年ごとにＡＩがどんどん賢くなっている状況であり、最新の大手ＡＩモデルを用いますと、情報の整理収集やファイルの集約等が半自動で実行できることを確認しており、人間が行うよりも低コストで大量にミス少なく実行できそうという状況だそうです。どういった仕訳を切るべきかという判断につきましてはＡＩに任せるのは難しい部分があるかと思いますが、単式ベースで仕訳された結果をルールに基づいて複式簿記化していくことや、定常的な費用と一時的な費用を切り分けたり、国が出している統計的な予測データ等を踏まえながら将来予測における前提を設定して、それに基づいて歳入や歳出の予測を作成したり、それを市民の皆様が分かりやすいように可視化したりといった部分について、今まで考えられなかったレベルで簡単で高速にいろいろなことができるようになりつつあるというお話も伺っております。そうしたことも踏まえて、ぜひいろいろと研究や実験を進めていただければと考えております。</div>
   <div class="say">ここまで単式簿記と複式簿記のメリット、デメリットを中心に質問を進めた上で、複式簿記の必要性と導入の難しさについてご答弁をいただきましたが、最後の質問として、中期的に維持が難しい施設の移転、集約判断、学校整備の投資判断、いずれも複式簿記、発生主義側の見方がないと比較考量が難しいと考えます。市として同様の認識でしょうか。認識されているのであれば、議会提示資料を今後どう改善していくかを検討されているか、ご答弁をお願いいたします。あわせて、改善の検討体制を可能な範囲でご答弁をお願いできればと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t128">
   <div class="meta"><span class="name">企画財政部長（梅原啓太郎）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=3288s" data-timestamp="3288"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:48</a>公共施設等の投資判断に当たり、貸借対照表を用いた資産の状況、資産と負債の比率を指標化することによる将来世代と現世代との費用分担の適正化、負債の状況把握による財政の持続可能性と予算編成や財政計画策定に当たっての普通建設事業費の規模判断、固定資産台帳を活用した施設類型別の面積や減価償却率に基づく老朽化判断と優先順位付け等、本市の公共施設等に関する方針の検討、また、個別施設の検討に当たり、減価償却率に基づく改修の優先順位付け、整備に当たってのモデルケース別ライフサイクルコスト比較等、統一的な基準に基づく財務書類を作成したことにより得られる情報は有効に活用できるものと考えております。</div>
   <div class="say">しかしながら、他自治体との比較に当たっての情報収集体制、事業別決算からの施設別決算への組替え等、課題が多いのも事実でございます。統一的な基準による地方公会計制度は始まってまだ歴史も浅いため、その活用方法は他自治体も試行錯誤を繰り返している状況と考えております。財務書類をどのように活用していくのか、どう資料を改善していくのか、まだまだ研究の途上であり、施設所管課等も交えながら、引き続き研究する必要があるものと考えているところでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t129">
   <div class="meta"><span class="name">３番（天野かな議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=3392s" data-timestamp="3392"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:32</a>ご答弁ありがとうございます。</div>
   <div class="say">建物の寿命や将来のコストを数字で出せるようになったことは大きな進歩であるが、他自治体のデータを集めて比較する体制が整っていないこと。今のシステムは、事業ごとの計算が中心で、丸々小学校、丸々公民館といった単位でのコストを出すには手間がかかること、全国的に見ても新しい制度であり、他自治体も手探り状態のため、財政課だけでなく実際に施設を管理している部署とも相談しながら研究を進めていくというご答弁であったかと思います。</div>
@@ -1033,13 +1039,13 @@
   <div class="say">─────── ◇ ───────</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t130">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=3534s" data-timestamp="3534"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:54</a>次に、13番村上ようすけ議員の発言を許可します。</div>
   <div class="say">（１３番村上ようすけ議員登壇）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t131">
   <div class="meta"><span class="name">１３番（村上ようすけ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=3542s" data-timestamp="3542"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:02</a>れいわ新選組小金井の村上ようすけです。通告に基づきまして、３問質問いたします。</div>
   <div class="say">１、障害者就労の現状と今後の対応について。障害者就労は、国や地方公共団体、民間企業等、多岐にわたる機関、組織が関わっており、制度も複雑で対象者も多い、社会的に重要度の高いテーマと言えます。５年ごとに厚生労働省が実施している障害者雇用実態調査の令和５年度公表最新データでは、対象である常用労働者５人以上を雇用する事業主で働く人数は合計で110万7,000人で、５年前に比べて25万6,000人増。内訳は、身体が52万6,000人、知的が27万5,000人、精神が21万5,000人、発達が９万1,000人となっており、平均勤続年数は身体が12年２か月で前回比２年増、知的が９年１か月で１年８か月増、精神が５年３か月で２年１か月増、発達が５年１か月で３年９か月増と、全ての種別で増加しています。正社員率は、身体が59.3％で6.8％増、知的が20.3％で0.5％増、精神が32.7％で7.2％増、発達が36.6％で13.9％増と、こちらも全種別で増加しています。</div>
@@ -1053,12 +1059,12 @@
   <div class="say">３番目に、制度財政上の課題があります。雇用施策に関しては、雇用者数拡大による納付金の減少と大企業への調整金の増加による財政逼迫の問題が挙げられ、福祉施策では、就労移行支援において一般就労への移行が低調な事業所が存在すること。Ａ型については、最低賃金を支払えるだけの収益を上げられる生産活動が行われておらず、経営改善が必要な事業所が全体の半数強であること。Ｂ型については、工賃向上の取組になじまない利用者が増えていること等が指摘されています。障害者就労支援を取り巻く社会環境、支援の現状と課題全般についてどう受け止めているか、ご見解をお伺いします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t132">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=4075s" data-timestamp="4075"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:55</a>本市におきましては、障害者の一般就労の機会の拡大を図るとともに、障害者が安定して働き続けられるよう、平成19年に障害者就労支援センターを設置し、就労面の支援と生活面の支援を一体的に行っております。障害者就労支援センターにおいて事業を実施するに当たり課題となっていることにつきましては、昼夜が逆転してしまっている方、あるいは規則正しい生活が困難なことにより就労が難しい方や、病状の理解が正しくされていないことから適切な医療や支援を受けることができず就労が安定しない方など、生活面の課題を抱えている方が多くいらっしゃることから、生活面の支援に多くの時間と労力を費やし、就労につなげるのが困難なことが課題と挙げられます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t133">
   <div class="meta"><span class="name">１３番（村上ようすけ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=4136s" data-timestamp="4136"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:56</a>ご答弁いただきました。ぜひ、担当部局におかれましては、障害者就労を取り巻くアップデートされた情報を把握していただいて、改善推進の方向性、可能性について感度を高めてお取組をいただきたいと思います。</div>
   <div class="say">次に、事業主でもある小金井市役所の障害者就労に関してであります。令和元年の障害者雇用促進法の一部改正により、国及び地方公共団体には、障害者である職員の活躍を推進するための障害者活躍推進計画を作成し、公表することが義務付けられております。この背景には、平成30年に多くの公的機関において雇用率の不適切な計上があり、法定雇用率を達成していない状況だったことが明らかになったことがあります。厚生労働省が令和５年４月に作成した推進計画の作成手引の冒頭にも、民間の事業主に対して率先垂範する観点からも、公務部門においては法定雇用率の達成にとどまらず、障害者雇用を継続的に進めることが重要であると明記されています。</div>
@@ -1066,51 +1072,51 @@
   <div class="say">まずは、具体的な目標設定の１番目である実雇用率についてです。これは必須目標であり、障害者雇用促進法に基づき、任免状況としてホームページに記載させているものとは別物であり、手引でも法律上最低限満たすべき水準ではなく、障害者の活躍推進のためにどの程度の雇用者数、実雇用率を目指すかという視点の言わば意思ある目標設定であると指摘されています。最新の令和７年７月公表データによれば、実雇用率は2.91％で、法定の2.8％を上回っており、本年７月の引上げ後の3.0％達成に近い状況かと思われます。推進計画上の目標設定は法定雇用率以上となっていますが、この点につき最低限の基準とした理由、また、昨年の公表に関して、通報基準日以降に修正した理由についてお伺いいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t134">
   <div class="meta"><span class="name">総務部長（鈴木　功）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=4346s" data-timestamp="4346"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:26</a>障害者の雇用の促進等に関する法律第40条第１項では、６月１日時点の障害者である職員の任免状況を東京労働局に通報することとされており、同条第２項の規定においては、通報した内容を公表することとなっております。令和７年６月１日時点での雇用率は2.64％であり、法定雇用率に達しておりませんでしたが、７月１日時点では雇用率が2.91％となり、法定雇用率を達成したことから、その旨を公表したところでございます。</div>
   <div class="say">次に、現状の障害者雇用の状況です。先ほどご紹介がありましたが、法定雇用率が令和８年７月に現在の2.8％から3.0％に引上げとなり、随時、障害のある方を対象とした採用試験を正規職員、会計年度任用職員月給制にて実施しておりますが、選考状況や職員の退職等もございますので、3.0％の法定雇用率の達成見込みについては、現時点では予測が難しい状況にございます。障害者雇用における考え方ですが、職員の任用に関しては、退職や任期満了等に伴い、年々変動するため、障害者雇用においても継続的な人事管理が求められていると認識しております。</div>
   <div class="say">障害者雇用につきましては、一義的には法定雇用率を守ることが重要であると考えており、また、それ以上の雇用率となることも視野に、引き続き対応してまいりたいと考えております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t135">
   <div class="meta"><span class="name">１３番（村上ようすけ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=4449s" data-timestamp="4449"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:09</a>ご答弁いただきました。率の拡大だけが目的ではありませんが、雇用者数の拡大が労働環境整備の起点となりますので、引き続き積極的な取組をお願いいたします。</div>
   <div class="say">次に、新たに必須とされた定着に関する目標になります。手引においては、可能な限り定量的なものにするとあり、採用後６か月及び１年の定着率または平均勤続年数等の設定も考えられるとなっていますが、市においては定性目標である不本意な離職者を極力生じさせないとなっています。これは手引のひな形のままでもあるのですが、他市では１年後の定着率100％としている事例もあります。今後はメッセージを込めた定量目標の方が意思が伝わってふさわしいと思いますが、ご見解をお伺いします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t136">
   <div class="meta"><span class="name">総務部長（鈴木　功）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=4505s" data-timestamp="4505"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:05</a>定量的な目標設定のご意見について、その趣旨は理解するところでございます。しかしながら、本市の職員のうち、障害のある方は令和７年７月１日時点で20人であり、各年度における採用数も少数でありますことから、定着率等の定量的な数値は１人の状況で大きく変動してしまいます。よって、目標として有効性の確保が難しいことから、厚生労働省の障害者活躍推進計画の作成手引の内容も踏まえ、このような目標設定としているところでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t137">
   <div class="meta"><span class="name">１３番（村上ようすけ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=4544s" data-timestamp="4544"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:44</a>ご答弁いただきました。こちらも数量よりも全体的な環境整備促進がポイントですので、各職場での体制強化についての更なる発信、推進をお願いいたします。</div>
   <div class="say">次に、満足度、ワークエンゲージメント、仕事への積極的関与の状態に関する目標設定です。手引によりますと、当事者へのアンケート調査によりデータを収集し、原因、課題等を整理及び分析するとともに、その目標を設定することが望ましいとあります。市では、満足度及び仕事のやりがいが前年度を上回ることとするという目標設定になっており、これもひな形のとおりですが、趣旨にのっとり定量目標を設定している他市の事例もあります。アンケートは手引のひな形に近いものかについて、そして仕事のやりがいはどのような設問で聞いているのか、今後、定量目標を設定するという考えはあるかについてご答弁をお願いいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t138">
   <div class="meta"><span class="name">総務部長（鈴木　功）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=4606s" data-timestamp="4606"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:46</a>ご紹介いただきましたとおり、第２次小金井市職員障害者活躍推進計画では、満足度、仕事のやりがいに関する目標として、満足度及び仕事のやりがいが前年度の基準を上回ることとするとしており、毎年４月時点で在籍している障害者である職員に対してアンケート調査を実施しております。</div>
   <div class="say">アンケート調査の内容につきましては、厚生労働省の障害者活躍推進計画の作成手引を参考に作成しており、例としまして、満足度については、「仕事に満足している」の１問が考えられますとされていること。ワークエンゲージメントについて質問を一つに絞り、または総括的な問いを設ける場合、「仕事にやりがいを感じている」または「生き生きと働いているが考えられます」とされていること等があり、それらを踏まえ、厚生労働省が国の行政機関に対して実施を依頼した職場等の満足度に関するアンケート調査を参考に、市の実情に合わせた内容といたしました。</div>
   <div class="say">具体の質問項目といたしましては、小金井市に就職し、現在働いていることについての全体評価、現在の仕事への満足度について、現在の仕事へのやりがいについて、物理的な作業環境について、勤務する上での障害への配慮についての５項目となっております。また、定量的目標設定については、目標値としての有効性の確保や障害のある職員個人への配慮等も踏まえる必要があることから、現時点におきましては貴重なご意見と受け止め、今後、研究課題としたいと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t139">
   <div class="meta"><span class="name">１３番（村上ようすけ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=4715s" data-timestamp="4715"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:35</a>ご答弁いただきました。</div>
   <div class="say">満足度については、本人のみということで資料提供をいただいております。数字だけを見ますと、５段階の注意が多く、必ずしも高くない印象ですが、重要なのは当事者の受け止めをベースに、どう環境を整備するかについて職場全体で考え、改善していただくことにあります。現状を受け止め、次のアクションを検討実行していただきたいと思います。</div>
   <div class="say">次に、手引に毎年少なくとも１回実施状況を公表しなければならない。具体的には目標に対する実績等のできるだけ幅広い情報をホームページへの掲載等により公表することが必要である。加えて、ロールモデルとなる障害者の事例についても具体的に把握し、個人情報の保護に十分配慮した上で公表することも重要であるとありますが、市においては公表はしていないとのことでした。その理由、今後の対応についてご見解をお伺いします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t140">
   <div class="meta"><span class="name">総務部長（鈴木　功）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=4778s" data-timestamp="4778"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:38</a>職員障害者活躍推進計画全般の状況の公表につきましては、計画に掲げる三つの目標の状況に係る公表かと思います。厚生労働省の障害者活躍推進計画の作成手引において、前年度の実施状況や目標に対する実績等のできるだけ幅広い情報をホームページへの掲載等により公表することが必要であるとされていることは認識してございます。</div>
   <div class="say">一方で、個人情報の保護に十分配慮した上で公表することも重要であるともされており、それらの趣旨を踏まえ、採用に関する目標である実雇用率については毎年の状況をホームページにて公表しておりますが、定着に関する目標につきましては、本市の障害のある職員の数や各年度における離職者及び新規採用者も少数であること、及び障害者である職員への配慮を踏まえると、公表については慎重な検討が必要となるものと考えております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t141">
   <div class="meta"><span class="name">１３番（村上ようすけ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=4841s" data-timestamp="4841"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:41</a>ご答弁いただきました。こちらも公表そのものが目的ではなくて、まだまだ不十分な環境整備を全体として認識して改善を図っていくことが主眼ですので、継続的な環境整備に努めていただければと思います。</div>
   <div class="say">振り返りますと、量の拡大は大きく進展してきた一方、全ての障害者一人ひとりが能力、適性を生かして活躍し、社会人として自己実現を果たすというゴールはまだまだ遠いというのが現状と考えます。就労マッチングの前提となるアセスメントを起点とする求職者支援と事業主の環境整備による働きたい職場の拡充、フォロー体制の強化をより強く推進していくためには、今後、行政、企業、支援機関が連携して社会改革として取り組んでいくような意思が必要と感じます。市として取り組むべき課題は何かを考えますと、まずは市役所が率先して障害者雇用のモデルとなるよう、業務の切り出し創出を始め、職場環境を整備し、活躍のロールモデルを確立、発信できるよう取り組むことが挙げられます。</div>
@@ -1118,20 +1124,20 @@
   <div class="say">最後に、先月、厚生文教委員会の行政視察で伺った滋賀県野洲市のやすワーク事業、これは市役所内にハローワークを設置し、就労支援と生活支援を一体的に提供し、就労を目指すという取組で、ハローワークの職員が１名常駐されているとのことでした。障害者就労のみの対応ではありませんが、小金井市でも将来的に可能な取組だと受け止めました。福祉行政は個別対応を基本とし、財政制約もあるため、一歩踏み込んだ対応が難しいと思っていましたが、視察では、意思があれば市民に寄り添った前進が可能であること、また、関係機関の連携が重要なことを学びました。今後の取組として期待される市役所の雇用モデル化、障害者就労支援センターの機能強化、ハローワークの市役所内設置についてご見解をお伺いします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t142">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=4997s" data-timestamp="4997"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:17</a>まず、障害者就労支援センターの機能の強化ということですけれども、障害者就労支援センターでは、障害特性により定期的な勤務や一定時間以上の労働が困難な方の就労の場を確保するため、令和６年度より超短時間就労の取組を行っております。具体的には１日僅かな時間であれば働くことが可能な障害のある方と、１人を雇うほどではないが、ちょっと人手が足りないという事業所をマッチングさせるという取組でございます。令和６年度には小金井市商工会などにもご協力をいただき、１日僅かな時間で不定期でも行えるような作業を提供していただくよう、市内の事業所に呼びかけたところではございますが、事業所側ではどのような作業なら依頼することが可能なのかのイメージがわかないということもあり、なかなか成果が上がらなかった状況がございます。</div>
   <div class="say">そこで、令和７年度からは、市内にどのような障害特性があり、どのような作業ができ、どの程度の勤務が可能な方がいるのかを調査した上でリスト化し、そのリストを基に事業所へ呼びかけを行う方針といたしました。今後は手始めとしては、市内の就労継続支援Ｂ型事業所にご協力いただき、リストの作成を行う方向で進めているところでございます。</div>
   <div class="say">また、野洲市の例で、ハローワークの設置をしないかということですけれども、ハローワークは仕事を探している方、働き手を求めている事業主の方を支援する機関と理解しておりますが、障害のある方への就労支援として市役所へ窓口を設置する可能性についてハローワーク立川に問い合わせたところ、障害のある方への就労支援としての一体的実施施設事業は行っていないということでした。ハローワークは複数の自治体を広域的に管轄する国の機関であることから、国の施策に沿った事業、あるいは市の計画上特に必要があるなど特別な理由がないと、個別の自治体から職員派遣を依頼するのは難しいのではないかと、現状では考えております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t143">
   <div class="meta"><span class="name">総務部長（鈴木　功）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=5133s" data-timestamp="5133"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:33</a>ご提案の趣旨について十分理解できるところではございますが、一方で、障害のある職員の働き方は極めて多様であり、特定の事例をロールモデルとすることは慎重な対応が必要と考えております。また、職員個人への配慮からも、特定のケースを発信することは難しいものと認識をしております。</div>
   <div class="say">市といたしましては、その障害特性や個性に応じて能力を有効に発揮できることが重要であることを踏まえ、個々の障害の特性に合わせた合理的配慮等の取組により、障害者雇用の理解促進に努めてまいりたいと考えております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t144">
   <div class="meta"><span class="name">１３番（村上ようすけ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=5173s" data-timestamp="5173"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:13</a>ご答弁いただきました。</div>
   <div class="say">まず、就労センターについてですが、就労支援進展の二つの方向性である働きやすさの拡大と、業務改善創出による働き方の改善への機能強化が質問の趣旨でした。可能性拡大への支援強化をぜひ目指していただきたいと思います。</div>
@@ -1146,40 +1152,40 @@
   <div class="say">マンション管理計画の現状と課題について述べてきました。市民生活への影響が大きいにもかかわらず、顕在化しにくいこの問題全般についての受け止め、ご見解をお伺いいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t145">
   <div class="meta"><span class="name">都市整備部長（若藤　実）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=5675s" data-timestamp="5675"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:35</a>小金井市内には200棟以上のマンションが存在しており、今後の建物の老朽化や住民の高齢化等が懸念されることから、これまでも国や東京都等と連携をしてまいりました。令和２年に施行された東京におけるマンションの適正な管理の促進に関する条例では、昭和58年12月31日以前に建築されているマンションを対象に、マンション管理状況届の提出を義務化しているところでございます。これにより、市内では48棟のマンションが対象となってございまして、東京都マンション管理士会と連携をし、対応をしてきたところでございます。</div>
   <div class="say">また、令和４年のマンションの管理の適正化の推進に関する法律の改正に伴いまして、市では、小金井市におけるマンションの管理不全予防、適正管理の促進及び老朽マンション等の円滑な再生の促進に向けて施策を具体化するとともに、国や東京都、関係団体などの多様な主体やまちづくり、防災、福祉などの関連する政策分野との連携を図ることにより、施策を総合的かつ計画的に推進するために、小金井市マンション管理適正化推進計画を策定いたしました。本計画では、議員からもご紹介がありましたが、社会的な背景を基に、小金井市が目指すマンションの居住の将来像や施策展開の基本方針等を整理した上で、マンション施策の目標と具体的な施策展開等を示し、意識啓発等を図ってまいりました。</div>
   <div class="say">また、本計画の策定に合わせて、マンション管理計画認定制度も始めたところでございます。マンション管理認定制度につきましては、マンションの管理組合が策定された自らのマンションの管理計画の内容が一定の基準を満たした場合に、市による認定を受けることができる制度でございまして、この制度によりまして、管理組合による管理の適正化に向けた自主的な取組が推進されるほか、認定を受けることによりまして、市場価値の向上等も見込まれるとのメリットが期待されるところでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t146">
   <div class="meta"><span class="name">１３番（村上ようすけ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=5841s" data-timestamp="5841"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:21</a>経過等はご答弁のとおりかと思います。管理適正化の市民生活への影響の大きさ、特に修繕積立金計画の重要度、そのために認定制度が有効であることに理解を深めていただきたいと思います。</div>
   <div class="say">次に、市の認定制度の現状であります。</div>
   <div class="say">市では、認定制度についてはホームページに掲載するとともに、まちづくり推進課の窓口でも国土交通省資料をコピーしたものを配布して告知に努めています。直近まで手頃で分かりやすい広告物がないのが課題でしたが、つい最近、東京都作成のパンフレットが届き、配布を開始したとのことです。しかし、資料のとおり、市内に現在200棟以上あるマンションのうち、認定制度を取得しているマンションは９棟、戸数にして273戸にとどまっています。国や都の働きかけも重要かと思いますが、小金井市としてこの現状をどう受け止めて、どのようなアクションが必要と考えられているか、ご見解をお伺いします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t147">
   <div class="meta"><span class="name">都市整備部長（若藤　実）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=5909s" data-timestamp="5909"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:29</a>マンションの管理の適正化の推進に関する法律第５条第１項では、マンション管理組合等の努力といたしまして、管理組合はマンション管理適正化指針の定めるところに留意をして、マンションを適正に管理するよう自ら努めるとともに、国及び地方公共団体が講ずるマンションの管理の適正化の推進に関する施策に協力するよう努めなければならないと規定をされてございます。</div>
   <div class="say">市といたしましては、議員からもご紹介をされたように、積立金不足等も含めまして、マンションの管理が適正に行われるように小金井市マンション管理適正化推進計画を策定し、マンション管理計画認定制度を始めたところでございます。マンション管理計画認定制度は、マンションの管理組合による管理適正化に向けた自主的な取組の推進を目的としてございまして、あくまで任意での取組となってございます。したがいまして、現時点では、この制度を活用して市内の全てのマンションの管理状況等を把握することまでは考えてございません。本市におけるマンション管理計画の認定件数につきましては、資料として提出をさせていただいたとおり、公開されている件数といたしまして、昨年度末時点で４件、今年度も令和８年１月末時点までで更に５件追加されてございまして、合計９件となっているところでございます。件数につきましては多くないような印象を受けるかもしれませんが、多摩地域全体でも188件となってございまして、26市の平均が約７件ということからも、決して少ない件数ではないものと認識をしてございます。</div>
   <div class="say">なお、東京都の条例に基づくマンション管理状況届につきましては、市内において対象となってございます48棟のうち45棟から届出を受け、状況を把握しているところでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t148">
   <div class="meta"><span class="name">１３番（村上ようすけ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=6054s" data-timestamp="6054"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:54</a>ご答弁いただきました。</div>
   <div class="say">先ほど述べたんですけども、この問題は、国土交通省も、市民生活への影響が大きいと認識して制度をつくって、改善が進まない状況を踏まえて促進を強化しているというところでございますので、市としても、他市同様、認定がまだ少ないということをご認識いただいて、でき得る取組を強化していただきたいと思います。そのためには、やはり周知の強化が鍵になると思っておりまして、パンフレットの活用も必要なんですけども、やはり各管理組合への直接の働きかけが必要なのではないのかなと思っております。以前の議会答弁では管理組合のリストがないとのことでしたが、この点についてご見解をお伺いいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t149">
   <div class="meta"><span class="name">都市整備部長（若藤　実）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=6104s" data-timestamp="6104"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:41:44</a>マンションに限ったことではございませんが、それぞれの財産は自らで適切に管理されていることを前提として考えてございます。マンション管理計画認定制度につきましても、マンション管理組合による管理適正化に向けた自主的な取組の推進等を目的としており、あくまで任意での取組であることや、現状におきましても、多摩部の平均よりも高い認定状況になっていること等を鑑みまして、現時点では現状以上に積極的に周知していくことは考えてございません。</div>
   <div class="say">なお、都条例に基づくマンション管理状況届につきましては、先ほどもご答弁申し上げましたが、義務化されていることから、引き続き、東京都マンション管理士会と連携をいたしまして働きかけをしてまいりたいと考えてございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t150">
   <div class="meta"><span class="name">１３番（村上ようすけ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=6167s" data-timestamp="6167"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:47</a>ご答弁ありがとうございました。情報ではリストはあるとのことですので、働きかけはしてほしいなと思っております。</div>
   <div class="say">また、東京都のマンション管理状況届についてですけども、これは届出対象が昭和58年以前に新築された６戸以上のものということになっておりまして、築40年以上が対象ですので、これは長期修繕計画は任意事項となっているんです。なので、令和５年度の都の検討会でも長期修繕計画については必須事項に位置付けと明記されていますので、要は対象の内容もアップデートが必要な内容となっていますので、今回これ以上は触れませんけども、認定制度への取組の必要性を再度強調しておきたいと思います。</div>
@@ -1191,45 +1197,45 @@
   <div class="say">前回の定例会でポイント還元事業の庁内検討過程や、関係団体及び市内事業者との事前事後のヒアリング状況について質問がありました。また、臨時議会では、市長から様々な状況に応じて物価高騰対応や消費喚起のための生活者支援策の内容を今後も検討実施していく旨発言がございました。これは国の意向を踏まえ、状況に応じて対象者を全市民とするか、非課税世帯等に限定するか、事業者支援の要素を含めるかどうか、内容や金額をどうするかといった選択をするということかと思いますが、この選択判断をデータ分析や外部を含めた関係者の意見をベースにどう決定するか、そして実行策の検証をどう次にいかしていくかが課題になります。ポイント施策の総括について資料要求しておりましたが、検証中とのことですので、内容については改めて質問させていただきますけども、まずお伺いしたいのは、この施策の総括は、あらかじめどのようなスケジュール内容で実施する計画であったのかについてです。いかがでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t151">
   <div class="meta"><span class="name">市民部長（深澤　亘）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=6420s" data-timestamp="6420"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:47:00</a>ご紹介ありましたキャッシュレス決済ポイント還元事業についてです。実施期間を令和７年11月としまして、物価高騰対策、市民生活の応援及び地域経済の活性化を図るため消費喚起、事業者支援につながる事業としまして、このキャッシュレス決済ポイント還元事業を実施したところでございます。</div>
   <div class="say">実施期間は終了しておりますが、事業全体ではまだ終了していないのが状況です。施策が決定した時点におきまして、利用された方へのポイント還元付与については、各決済事業者において１月頃まで実施されること。その後、各決済事業者からのデータ収集、集計、整理などにも時間を要すること。同時に、商工会から事業実施に当たり事業を委託した事業者が今回対象となったＰａｙＰａｙなどの各決済事業者から利用状況等のデータを収集し、報告書を作成する事務があること、そのような事業の一連の流れを踏まえまして、年度末から商工会事務局と事業を検証してまいりたいと考えていたところです。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t152">
   <div class="meta"><span class="name">１３番（村上ようすけ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=6488s" data-timestamp="6488"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:08</a>ご答弁いただきました。年度末から開始される検証のご報告をお待ちしたいと思います。</div>
   <div class="say">次に、この施策のプランニングにおいて、小金井地域応援券発行事業の総括はどのようにいかされたのでしょうか。ちなみに当該施策は総額約５億8,400万円の予算で、全市民１人当たり4,000円の地域応援券を発行して市内対象店で消費いただく内容で、実額合計で５億円、財源は新型コロナウイルス対策交付金約４億5,000万円に一般財源約１億3,000万円を加えたものでした。ご答弁をお願いいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t153">
   <div class="meta"><span class="name">市民部長（深澤　亘）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=6530s" data-timestamp="6530"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:50</a>ご紹介いただきました小金井地域応援券発行事業につきましては、令和４年度に新型コロナウイルス感染症により停滞している市内の消費を喚起し、新しい生活様式におけるキャッシュレス決済普及促進と地域経済の活性化を図るために実施した事業でございます。カードタイプの小金井地域応援券を全市民に配布し、１人4,000円分を市内取扱い店舗361店舗でできる仕組みでございました。小金井地域応援券発行事業の実施時期はコロナ禍ということもございまして、事業決定までのプロセス等につきましては今回のキャッシュレス決済ポイント還元事業の検討段階とは異なる状況でございます。</div>
   <div class="say">一方で、どちらの事業につきましても国の交付金を活用する事業であったことから、事業決定までにおきましては迅速な対応が求められています。その中で、事業を検討するに当たりましては、一つ目、事業の目的や事業の対象をどのように考えていくか。二つ目、事業にかかる費用は市に割り当てられる交付金の額において実施できる事業であるのか。三つ目、準備期間としてはどのくらい期間を要するのか。四つ目、事務量がどの程度になるのか。また、応援職員を必要とするのかなど、このように事務的なところを中心として事業を検討するに当たっての判断にいかせているのではないかと考えているところです。</div>
   <div class="say">今後の事業におきましても、過去の事業を参考としながら、国や都の交付金やそのときの社会情勢、近隣自治体の動向などにも注視しながら事業を進めてまいりたいと存じます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t154">
   <div class="meta"><span class="name">１３番（村上ようすけ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=6628s" data-timestamp="6628"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:28</a>ご答弁いただきました。プロセス管理のイメージについては後ほどお伺いいたします。</div>
   <div class="say">続きまして、今回案の生活者支援策に絞って質問いたします。</div>
   <div class="say">本施策は、物価高から暮らしと職場を守るため、地域の実情に応じて物価高の影響を緩和する重点支援地方交付金のうち、4,000億円の食料品の物価高騰に対しての特別加算を活用しています。また、１人当たり3,000円程度想定の目安と、例として、プレミアム商品券や、いわゆるおこめ券、現物給付等が示されました。そして、この経済対策は米価格の高騰等、生鮮食品を除いた消費者物価上昇率が年間で3.1％となり、大企業を中心に大幅な賃上げがあったにもかかわらず実質賃金はマイナスが続き、物価高騰対策や消費税の減税廃止の要望が継続的に高まる中、ようやく年末に成立した補正予算によって実現したものです。今回、全員給付は前提として、ポイントは１にスピード、２に間接費用の軽減、３に市としての意思と捉えていました。現金給付は間接費用率が下がるイメージですが、実際には地域応援券の真水部分が５億円に対し約8,500万円で16.9％、今回施策は真水６億3,000万円に対し約１億3,000万円で20.9％となっています。過去の施策の総括を踏まえて、どのような議論、意見集約によって政策決定したのか。間接費用についても十分議論されたと思いますが、その点も含めてできる限り具体的なプロセスをお伺いいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t155">
   <div class="meta"><span class="name">企画財政部長（梅原啓太郎）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=6736s" data-timestamp="6736"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:52:16</a>決定までの具体的なプロセスについてでございます。今回の物価高騰対策における生活者支援につきましては、物価高騰は市民がひとしく影響を受けていることから、全市民に公平に、できるだけ早く届けられるように、そして事務的経費や事務負担も抑えることを基本的な方針として検討してまいりました。そして、まず初めに現金給付を候補としたところでしたが、システムにおける対応等においてスケジュールのめどが立たない状況であったことから、別の方法を含め検討を行うこととなりました。各課からエントリーされていた事業のうち、プレミアム商品券についても検討し、関係各所とも調整を行ったところですが、全市民に公平に届けることができる生活者支援をメインに行うという考えから見送ることといたしました。その後、ギフトカードを配布する方向で調整することとなりましたが、この間の調整等の中で現金給付についても可能性が見いだせたことから、ギフトカードと現金給付で検討し直すこととなりました。ギフトカードについては調達に時間がかかることや、送付体制や金券保管に課題があること、事務的経費が現金給付より高いことなどがあり、一方で現金はそれぞれの実情に応じて、どういう状況や場所でも使うことができるという使い勝手のよさであったり、スケジュールや事務的経費の面からもメリットがあることが確認できたことから、最終的に現金給付に決定をしたものでございます。</div>
   <div class="say">今回の決定プロセスでは、様々な手法において、慎重に事務的経費やスケジュール、スキームなどの課題等を整理し、場合によっては検討し直したりしたことが決定が遅れた大きな要因と認識しているところでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t156">
   <div class="meta"><span class="name">１３番（村上ようすけ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=6863s" data-timestamp="6863"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:54:23</a>ご答弁いただきました。諸事情があったとのことですが、やはり一番求められているのはスピードだったと思いますので、今後に向け準備改善をお願いしたいと思います。</div>
   <div class="say">最後になります。今後の経済対策案作成の在り方についてです。日本経済はバブル崩壊以降、失われた30年状況からいまだ抜け出せない状況です。賃上げが物価高騰に追いつかず、実質賃金はマイナス。円安や増税、社会保険料や公共料金のアップといったリスクの増加も想定される中、格差の拡大も指摘されています。このような環境下にあっては、生活支援や経済活性化のための臨時施策は、少なくともしばらくは必要不可欠であります。財源は国支出が主となりますが、今回のように地方自治体が地域の実情に応じ、様々な経済対策ができるような設計の重点支援地方交付金配布が実現される可能性は高いものと考えます。状況に応じた迅速で的確な政策選択を実行することが肝要であり、そのためには、国施策の骨子予算を踏まえて、実施策の総括、検討をベースに、事前に施策の大枠を準備し、決定に至るプロセスにおいて外部の関係団体からの情報意見をヒアリングするとともに、議会に対してもプロセスの見える化をすべきと考えます。例えば施策の対象、種類、メリット、デメリットを組み合わせたマトリックスで大枠を事前につくっておけば、決定のプロセスが早くなると思いますが、いかがでしょうか、ご見解をお伺いいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t157">
   <div class="meta"><span class="name">企画財政部長（梅原啓太郎）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=6967s" data-timestamp="6967"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:56:07</a>議員がおっしゃいますように、このケースではこの施策を実施するといった選択肢を事前に準備しておけば、より早く政策決定ができるのではないかという点については、そのとおりだと思います。</div>
   <div class="say">今回の案件につきましては、臨時交付金の交付限度額を踏まえながら、様々な方法において、メリット、デメリット、課題等を整理しながら慎重に検討し、再度検討し直した結果、決定に時間がかかったという経過がございます。したがって、物価高騰による市民生活への支援の場合であれば、臨時交付金の交付限度額に応じて対象者や給付方法等を迅速かつ柔軟に選択できるような複数のプランを事前に候補として準備した上で、その実現可能性、課題についても整理しておけば、今回のような再度検討し直すようなこともなく対応できていたのかもしれません。</div>
@@ -1237,13 +1243,13 @@
   <div class="say">また、政策決定に至るまでに外部からヒアリングしたり、そのプロセスを見える化することについてのご提案につきましては、その政策の内容によるところがあると思いますが、本日の段階ではご提案として受け止めさせていただきます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t158">
   <div class="meta"><span class="name">１３番（村上ようすけ議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=7067s" data-timestamp="7067"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:57:47</a>ご答弁いただきました。</div>
   <div class="say">施策の精度を高めるためのＰＤＣＡの強化、プロセス管理の見える化は重要と考えますので、今後の改善を要望して、質問を終了いたします。ありがとうございました。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t159">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=r3Q-TCEXpdQ&t=7082s" data-timestamp="7082"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:58:02</a>ここで３時休憩のため、おおむね30分休憩いたします。</div>
   <div class="say">午後３時10分休憩</div>
@@ -1251,14 +1257,14 @@
   <div class="say">午後３時40分開議</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t160">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=DRkLMoi7B94&t=176s" data-timestamp="176"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:56</a>再開します。</div>
   <div class="say">次に、６番ながとり太郎議員の発言を許可します。</div>
   <div class="say">（６番ながとり太郎議員登壇）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t161">
   <div class="meta"><span class="name">６番（ながとり太郎議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=DRkLMoi7B94&t=182s" data-timestamp="182"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:02</a>こんにちは。小金井をおもしろくする会、ながとり太郎でございます。今回、通告の内容に従いまして一般質問を行わせていただきます。</div>
   <div class="say">主に分けて三つございます。</div>
@@ -1276,13 +1282,13 @@
   <div class="say">このように、私は総業務量というのは右肩上がりになっていくと考えているんですけれども、これを前提にしてお伺いしまして、小金井市では2040年までに必要な業務を遂行するために、職員の定員管理についてどのようにお考えになっているかお伺いいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t162">
   <div class="meta"><span class="name">企画財政部長（梅原啓太郎）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=DRkLMoi7B94&t=646s" data-timestamp="646"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:46</a>今後の定員管理の考え方についてお答えいたします。本市では、平成29年４月策定の行財政改革プラン2020において類似団体最少の職員数を掲げ適正化に努めてまいりましたが、令和４年８月に策定した行財政改革2025及び令和５年６月に策定しました小金井市定員管理計画では、総務大臣主催の自治体戦略2040構想研究会の報告を踏まえ、人口減少社会へ対応し、市民サービスを持続的かつ安定的に提供していくために必要な職員数を示しております。現在策定作業中の行財政改革2030を踏まえた次期の定員管理計画におきましても、現定員管理計画と同様に、引き続き、単なる人員削減ではなく、デジタルの活用や公民連携アウトソーシングを前提とした業務の再構築を進めてまいります。</div>
   <div class="say">行政需要につきましては、都等からの事務移管や社会情勢の変化、公共施設の老朽化対応など、多岐にわたる要素を注視し、持続可能な組織体制の構築に努めてまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t163">
   <div class="meta"><span class="name">６番（ながとり太郎議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=DRkLMoi7B94&t=703s" data-timestamp="703"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:43</a>ありがとうございます。</div>
   <div class="say">単なる人員削減ではなく、デジタルの活用や公民連携アウトソーシングなどを前提としたということで、その部分についての対策をきちんと考えていらっしゃるということは分かりました。</div>
@@ -1298,13 +1304,13 @@
   <div class="say">したがって、デジタル技術、ＤＸを単なるツールではなくて、労働力を補うデジタルレイバーとして定員管理と同時に考慮して、業務を、例えば課単位ではなくて、組織全体のタスク単位で整理して、そして１個１個積み上げて、デジタルが大体可能な領域を事前に把握していくことで、適正な人員配置につなげるべきだと思いますが、見解を伺ってまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t164">
   <div class="meta"><span class="name">企画財政部長（梅原啓太郎）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=DRkLMoi7B94&t=1082s" data-timestamp="1082"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:02</a>人員配置への反映についてでございます。行財政改革2025では、ＲＰＡ等の活用により、事務の簡素化、高効率化を目指しております。ながとり議員がご指摘の業務をタスクとして捉える視点は、デジタル化の効果を的確に把握し、職員が本来担うべき業務へ注力するために重要な要素と認識しております。</div>
   <div class="say">現時点において、デジタル技術の導入効果を直接的に定員計画上の数値として算入することは想定しておりませんが、デジタル化によって生み出された時間を質の高いサービスへどう転換できたかを精査し、適切な人員配置の検討材料とするための研究を進めてまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t165">
   <div class="meta"><span class="name">６番（ながとり太郎議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=DRkLMoi7B94&t=1125s" data-timestamp="1125"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:45</a>タスクとして捉える重要性を認識していただいたということですので、私の指摘と方向性は同じだと思っております。適切な人員配置の検討材料として、ぜひ研究を進めていただきたいと思います。</div>
   <div class="say">デジタルレイバー自体は、本来はＢＰＲを全庁的に行って算出しないと出ない数値ではあるんですけれども、少なくともＤＸを、何となくというと失礼かもしれませんけれど、何となくということではないとは思いますが、全体的に推進するのではなくて、ＤＸ自体が人間の行っている業務の定量的な代替手段であるということを念頭に置くか置かないかで大きな違いが生み出されてくると思いますので、引き続き研究をお願いいたします。</div>
@@ -1312,13 +1318,13 @@
   <div class="say">デジタルレイバーの前提となるＤＸについて、ＤＸ推進計画のパブリックコメントが終了し、次はアクションプランの策定に向かうと思うんですけれども、デジタル技術の導入に当たっては具体的なＤＸと定員管理計画の一体的な推進をするべきではないかと思います。現在は、ＢＰＲの検討、デジタル技術の導入、それらに対する必要な人材の検討が別個のプロセスとして進んでいる印象を受けます。実際には分かりません、私がそういう印象を受けるだけです。デジタルによる補完効果を最大限に引き出しているとは言えない状況だと考えています。ＤＸ担当と行政経営、人事担当が一体となって、デジタルの検討、導入をデジタルレイバーの思想をもって捉えることができる体制を構築すべきだと思いますが、これについてはいかがでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t166">
   <div class="meta"><span class="name">企画財政部長（梅原啓太郎）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=DRkLMoi7B94&t=1252s" data-timestamp="1252"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:52</a>組織の連携体制についてでございます。ＤＸによる業務変革の効果を定員管理や職員の配置に連動させるためには、ＤＸ担当、行政経営担当、人事担当が共通の認識を持つ必要がございます。本市では、現在、行財政再建推進本部を中心に、全庁的な意思決定を行っておりますが、今後は、ながとり議員がご提案のデジタルの視点も参考にしつつ、各担当間における更なる緊密な連携を図ってまいります。</div>
   <div class="say">また、こうした一体的なマネジメントを可能とする組織の在り方につきましても、より一体的かつ柔軟な経営判断が可能となる体制を研究してまいりたいと考えております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t167">
   <div class="meta"><span class="name">６番（ながとり太郎議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=DRkLMoi7B94&t=1309s" data-timestamp="1309"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:49</a>大変前向きなご答弁をありがとうございます。デジタルレイバーの視点を大事にしていただけるということでしたので、大変うれしく思っております。より一体的な、かつ柔軟な組織体制に向けた研究を要望いたします。</div>
   <div class="say">ここで行財政改革2030に記載がありましたので、申し訳ないんですが、読み上げます。「職員が十分に業務見直しの必要性を実感できていない。厳しい財政状況が続く中、本市の職員体制は、決して余裕を持たせたものではないことから、特に少人数職場において予想外の退職があったり、長期病休者又は産休・育休者が発生したりすると、即座に業務が回らなくなることがあります。しかし、大抵の職場では、残された職員と、代替として投入される会計年度任用職員の頑張り等により、その状況を何とか乗り越えてしまうことが多いから」と続いていくんですけれども、これは職員一人ひとりの働きを定量化するという感覚が少なくて、対象者の業務量が客観的に把握されていないからのようにも思えます。</div>
@@ -1334,25 +1340,25 @@
   <div class="say">福祉保健部などにおいては、様々な審議会、協議会、また、日常の応対の中で障がいのある方々、あるいはその支援者などから情報やご意見を受けることがあると思っておりますけれども、施策や計画を行う過程、障がい者や諸団体、その他の関係する個人から受ける要望や意見にはどのようなものがあるでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t168">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=DRkLMoi7B94&t=1781s" data-timestamp="1781"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:41</a>ご意見やご要望そのものにつきましては、多岐にわたり様々でございますので、具体的に紹介するのは難しいですが、ご要望やご意見を頂く機会としましては、施策や計画を行う過程であれば、説明会やパブリックコメント、ヒアリング等がございます。</div>
   <div class="say">また、日常的なものであれば、各種団体からの要望書や、その回答に際しての懇談会、市長への市民の声のほか、電話、窓口、メール等により直接寄せられることもございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t169">
   <div class="meta"><span class="name">６番（ながとり太郎議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=DRkLMoi7B94&t=1815s" data-timestamp="1815"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:15</a>要望や意見の内容と問うたんですけれど、それをお答えいただいていないので分からないですが、ご答弁によりますと、要望書、懇談会、市民の声、窓口、電話、メール等ということなんですよね。メールを除けば電子媒体がないので、手軽さとか気軽さということを鑑みると、ちょっとしたバリアになったとか、あまり市に対する意見・要望などは把握しているものはないのではないかなと想像はします。今後、小金井市が障がいのある方々の移動のしやすさを後押ししていく過程において、インターネットを活用した情報収集とか、更に拡充させる方向でお願いできればと思っております。</div>
   <div class="say">国土交通省は、令和７年５月に建築プロジェクトの当事者参画ガイドラインというのを公開しておりまして、バリア情報の整備における当事者参画の重要性を打ち出しています。本市では、障害福祉計画の策定などに当たり、障がいのある方々が日常的に感じている移動のバリアを、障がいのある方、あるいは関係者、支援者、関連団体から聞いたものをデータとして蓄積していますでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t170">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=DRkLMoi7B94&t=1898s" data-timestamp="1898"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:38</a>令和４年12月に実施した障害福祉計画策定のためのアンケートでは、障がいのある人向けの調査票において、外出のとき不便に感じたり困ることは何ですかという問いを設けており、複数回答ありで集計した結果としまして、「特にない」が44.3％、また、関連する回答では、「歩道が整備されていない」が10.9％、公共施設や店舗が障がい者仕様になっていない、つまりバリアフリー化が進んでいないトイレ、段差、階段、案内表示等を含んでおります、これが10.1％でした。</div>
   <div class="say">関係団体へは別途ヒアリングも行っておりますが、高齢化に伴い、外出に支障が出ているというご意見は頂いたものの、環境整備を直接的な理由とするものではございませんでした。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t171">
   <div class="meta"><span class="name">６番（ながとり太郎議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=DRkLMoi7B94&t=1960s" data-timestamp="1960"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:40</a>ありがとうございます。アンケートが行われたということですよね。</div>
   <div class="say">特にないが44.3％ということなので、大きなバリアを感じている方が物すごく多くいらっしゃるということではないとは思うんですけれども、そもそも令和４年以降はこうしたアンケートはまだとられていませんし、アンケート自体、まだ非常に手間がかかって、頻繁に行うこともできません。また、自由記述以外には設定項目にしか答えられないだろうなということを考えると、インターネットなどを利用して、常時データを蓄積する必要性はあるのではないかと感じております。</div>
@@ -1362,13 +1368,13 @@
   <div class="say">それを前提にして、こうした既存の民間プラットフォームの活用連携は検討できないでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t172">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=DRkLMoi7B94&t=2166s" data-timestamp="2166"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:06</a>移動のバリアとなる段差の高さ、傾斜の角度、通行困難な度合いについては、人によって感じ方に個人差があり、ある方にとっては困難な段差でも、他の方にとっては通行可能という状況も想定できます。また、事故、災害等により状況が変わる場合や、整備工事によって改善されるなど、情報を頂いた時点から状況が変わることもございます。</div>
   <div class="say">以上のことから、頂いた情報を蓄積して可視化することは、障がいのある方の外出を必要以上に制限してしまう可能性もあり、移動が困難な状況を把握できるのであれば、必要に応じて整備を検討することが優先であると考えております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t173">
   <div class="meta"><span class="name">６番（ながとり太郎議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=DRkLMoi7B94&t=2223s" data-timestamp="2223"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:03</a>ありがとうございます。一定程度理解するんですけれども、状況が変わるからこそ、可能な限りリアルタイムな形で情報の把握をするということは必要なのではないかとは思います。また、制限する可能性があるということも、一定程度理解はするんですけれども、市民のニーズに対して市で直接できることを増やしていける状況でもないことを考えると、障がいのある方を始めとして市民とともに考えていくという姿勢も大事なのではないでしょうか。頂いた情報を蓄積して可視化することは障がいのある方の外出を必要以上に制限してしまうという部分については、私は市民とともに考えていくことが重要ではないかと思っておりまして、継続的に改善していただければと思います。</div>
   <div class="say">３点目であります。市民参加型の「マッピングパーティー」の開催であります。</div>
@@ -1376,12 +1382,12 @@
   <div class="say">収集したデータは都市計画マスタープランの人・モノの円滑な移動を支えるまちという基本目標の達成に向けた基礎データとしても活用できるのではないでしょうか。収集したデータをオープンデータとして公開し、民間アプリとの連携を図ることで、取組が継続的な価値を生む仕組みをつくるという考えはございませんでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t174">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=DRkLMoi7B94&t=2350s" data-timestamp="2350"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:10</a>先行自治体の事例を参考に研究させていただきます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t175">
   <div class="meta"><span class="name">６番（ながとり太郎議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=DRkLMoi7B94&t=2357s" data-timestamp="2357"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:17</a>一言で終わってしまいました。研究ということで、分かりました。</div>
   <div class="say">先ほど言いましたけれど、府中市では定期的にマッピングパーティーを開催していますし、中央区、千代田区、中野区、文京区などでは、インターネット上で通りにくさをマッピングして実際に公開しています。あとは、Googleや民間のアプリを使うとそういったこともごく簡単にできますし、先ほど申し上げましたが、バイブコーディングすればできてしまうということもありますので、ハード整備にはすごく時間と予算がかかると思うんですけれども、どこにバリアがあるかとか、どのルートを通ったら楽なのか、安心なのかということの情報の力で解消できるバリアも多々あると思っています。小金井市はすごく小さいので、そういったことも情報としては把握しやすいのかなと思っていますので、既存のLINE、それから民間アプリ、市民の力を組み合わせることで、大きなコストをかけずにリアルタイムに構成される移動のバリア解消の仕組みを構築できると考えますので、ぜひとも研究をお願いいたします。</div>
@@ -1392,50 +1398,50 @@
   <div class="say">これを踏まえて、街頭消火器の意義と活用の状況について教えてください。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t176">
   <div class="meta"><span class="name">総務部長（鈴木　功）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=DRkLMoi7B94&t=2535s" data-timestamp="2535"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:15</a>街頭消火器は、火災発生直後の初期段階において、市民の皆様が迅速に消火活動を行うことを可能とするものであり、被害の最小化を図る上で重要な役割を担っております。特に木造住宅が密集する地域や、消防車両の進入に制約がある狭隘な道路沿いなどにおいては、その即時性が被害軽減に大きく寄与するものと認識をしております。実際に過去の火災事例におきましても、街頭消火器を活用したという報告を受けております。</div>
   <div class="say">市といたしましては、引き続き、街頭消火器の適切な維持管理に努めてまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t177">
   <div class="meta"><span class="name">６番（ながとり太郎議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=DRkLMoi7B94&t=2577s" data-timestamp="2577"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:57</a>ありがとうございます。地域防災計画では、住民の備えとして所在確認とか集合訓練なんかも書いてあるところで、私は実際にこれがどう運用されているかまでは分からないので申し訳ないんですけれども、これを踏まえて、やはり市として住民の認知度、どこにあるかということは非常に重要だと思っておりまして、市としてもこの街頭消火器の効用、それから実際に使われた事例というものを把握しておられて、非常に大切なものだというお考えがあるということなので、引き続き拡充をしていただければと思っております。</div>
   <div class="say">次に、資料を地域安全課から出していただいたんですけれども、市内の街頭消火器の設置状況について、これは数字だけなんですけれどもありまして、いろいろな町で必ずしも120メートルとかそういうことではなくて、私が見た地図でも偏って置かれていたりして、それ自身は別に問題視しているわけではなくて、いろいろと置き場の都合だったりとか、それから必要性だったりとかがあるということなので、これについては深く言及しないです。これだけの627本という本数があるということであります。</div>
   <div class="say">街頭消火器の設置状況と位置の把握はしているかどうか、ご答弁をお願いします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t178">
   <div class="meta"><span class="name">総務部長（鈴木　功）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=DRkLMoi7B94&t=2669s" data-timestamp="2669"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:29</a>市内の街頭消火器の設置状況につきましては、先ほどご紹介がありましたが、原則として約120メートルの間隔を基準とし、初期消火活動が容易な道路に面した場所を選定して設置しております。現在、市内全域で627基を配置しており、個々の設置場所や管理状況につきましては専用の管理台帳により管理をしております。また併せて、住宅地図上に全ての設置位置を落とし込み、正確な位置情報を把握できる体制を整えております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t179">
   <div class="meta"><span class="name">６番（ながとり太郎議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=DRkLMoi7B94&t=2708s" data-timestamp="2708"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:08</a>ありがとうございます。審議資料にもありますとおり、600本を超える消火器があるということで、あとは本数とともに設置場所も正確に把握されて、管理されているということが分かりました。その位置が正確に把握されているということであれば、設置場所の周知と、実際に使える形での啓発ができるのではないかと考えております。そうすると防災力の底上げに直結すると考えられるんですけれども、街頭消火器の設置場所を市として公開していただけないでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t180">
   <div class="meta"><span class="name">総務部長（鈴木　功）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=DRkLMoi7B94&t=2742s" data-timestamp="2742"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:42</a>街頭消火器の設置場所につきましては、現在のところ、防犯上の観点等から広く一般には公開をしていないところでございます。他自治体におきまして、防災マップ等で市を公開している事例もあり、いざというときの初期消火の迅速化という点では、地域住民の皆様が設置場所を事前に把握しておくことは極めて有効であると認識をしております。</div>
   <div class="say">一方で、街頭消火器は不特定多数が通行する屋外に設置されている性質上、位置情報の公開がいたずらや盗難、さらには不適切な使用を誘発するおそれも否定できず、維持管理上の大きな懸念事項と捉えております。</div>
   <div class="say">今後につきましては、限定的な情報提供など、防犯対策と周知を両立させる手法について、他の自治体の運用状況を参考に研究してまいります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t181">
   <div class="meta"><span class="name">６番（ながとり太郎議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=DRkLMoi7B94&t=2795s" data-timestamp="2795"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:35</a>全面公開が難しい、いたずらとか盗難リスクがあるということは理解しました。そういうことであれば、例えば避難所とか、公民館とか、自治会向けの配布地図から開始する。実際に私が見たときは、消防署の方は配置の地図を持っているんですよね。なので、町名、何丁目単位、正確な位置を示さなくても、例えばここの辺りには何本あるとかぐらいの情報でもいいかと思うので、あとは訓練参加者限定で地図を配布するとか、いろいろな活用方法があると思いますので、ここにありますよと。私も街頭消火器の存在は知っていましたけれども、やはりそれを強く意識したことはなかったので、市民の方々にそれを周知していただく、できれば、私はマップで公開すればいいと思いますけれども、それができないのであれば、今言ったような方法で、何らかの形で公開できればと思います。</div>
   <div class="say">先ほど大田区、消火器で検索していただきたいと言ったんですけれども、大田区ではちゃんとウェブサイトが、ウェブサイトではないか、記事かもしれませんけれど、街頭消火器の周知を写真付きで行って、そして街頭消火器の位置もオープンデータとして公開されています。いたずら、盗難リスクが大田区でどうなっているかは分からないんですけれども、ぜひとも最終的には小金井市でもこういったものを公開して、地域の防災意識の向上を図っていただければと思っております。</div>
   <div class="say">かなり早く終わりましたけれど、以上で私の一般質問を終わります。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t182">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=DRkLMoi7B94&t=2911s" data-timestamp="2911"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:31</a>お諮りします。本日の会議は議事の都合によりこの程度にとどめ、これをもって延会することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t183">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=DRkLMoi7B94&t=2917s" data-timestamp="2917"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:37</a>ご異議なしと認め、延会することと決定しました。</div>
   <div class="say">本日はこれをもちまして延会します。</div>
@@ -1473,5 +1479,53 @@
     addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
   </script>
 
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
 </body>
 </html>

@@ -77,6 +77,12 @@
     .hero{padding:14px 0 22px;} .sum{padding:18px;}
     .turn{padding:12px 0;} .say{font-size:15.5px;}
   }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
 </style>
 </head>
 <body>
@@ -91,7 +97,7 @@
     <span class="src">YouTube字幕＋AI校正による記録（非公式）</span>
   </header>
 
-  <section class="sum reveal">
+  <section class="sum reveal" id="summary">
     <p class="lab">A I 要 約</p>
     <div>
       <h3>提出議案の一覧</h3>
@@ -132,7 +138,7 @@
     <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
   </section>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t0">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=129s" data-timestamp="129"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:09</a>　おはようございます。もう時間過ぎていますので、委員会に入ります。<br />
 今日、2件審査があります。基本的には、質疑とは特にないという形で、休憩して取り扱いすると。</div><div class="say">陳情第116号の</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=160s" data-timestamp="160"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:40</a>　取り扱いは、持ち帰りを表明していただくということで、中井さんから順々に、最後副委員長まで表明していただくという形でやりたいと思っております。その先の話は、それを持った上でということで、お願いします。<br />
@@ -142,14 +148,14 @@
 大丈夫ですか？はい。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t1">
   <div class="meta"><span class="name">森戸よう子</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=270s" data-timestamp="270"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:30</a>　陳情じゃないですか。で、議題にして、で、休憩して取り扱い。うん。<br />
 となりますので、そこでお願いしますということです。<br />
 ということでよろしいですか？じゃあ始めます。はい、おはようございます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t2">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">ただ今から厚生文教委員会の会議を開きます。直ちに本日の議事に入ります。<br />
 当委員会に付託されております案件は、前回の委員会で保留といたしました陳情2件です。以上2件につきましては、厚生</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=302s" data-timestamp="302"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:02</a>　文教委員会審査予定表の順序で行うことといたします。<br />
@@ -158,222 +164,222 @@
 中井さんからお願いします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t3">
   <div class="meta"><span class="name">中井れい子</span></div>
   <div class="say">すいません。公明党としては、丸1番で。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t4">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=370s" data-timestamp="370"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:10</a>　はい。<br />
 持ち帰りは丸でどうかというところでしたので、その丸1ということでよろしいですか。はい。はい。<br />
 次、水谷さん。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t5">
   <div class="meta"><span class="name">水谷たかこ</span></div>
   <div class="say">はい。おもしろくする会は、ちょっと1、2、3では合意できないです。正副案でしたらそのままで大丈夫でしたけど、以上です。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t6">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">はい。次、吉良さん。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t7">
   <div class="meta"><span class="name">吉良のりこ</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=402s" data-timestamp="402"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:42</a>　みらいのこがねいとしては2箇所ほど懸念、気になる箇所はありますが、1の案でよろしければ、1でお願いいたします。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t8">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">はい、1ではい。村上さん。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t9">
   <div class="meta"><span class="name">村上ようすけ</span></div>
   <div class="say">はい。では新選組は、現状の正副案では合意できないというところで、5番目の項目について、共産党さんから別意見がありましたので、他の項目と同じ扱いではなく、必要に応じて結果の</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=432s" data-timestamp="432"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:12</a>　再考または再選定の検討を協議すべきであるとの意見もあったと付記して、最終的には、意見をつけて採択するということで合意できればいいなという風に思っております。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t10">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">番号で言うと何番になりますか？ごめんなさい。ちょっと番号がね、これに対して。うん。すいません。すいません。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=462s" data-timestamp="462"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:42</a>　今、村上さんがおっしゃったのは多分丸3番だと思うんですけども、丸1、2については、村上さんだけに、賛成かどうかっていうちょっとそこら辺は明確にしていただける。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t11">
   <div class="meta"><span class="name">村上ようすけ</span></div>
   <div class="say">あ、ちょっと確認します。すいません。改めてはい。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=492s" data-timestamp="492"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:12</a>　もう正副案って今ないんですよ。分案が出た時点でそれは合意をしていないという形になりますので。ということで一旦最初の持ち帰りをしていただいたので。うん。</div><div class="say">だから1、2、3が合意できるかどうかを今この時点で表明をしていただくということです。だから。どれでもいいよっていう方もいれば、これだったらいいよっていう方も。はい。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t12">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">そうすいません。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t13">
   <div class="meta"><span class="name">村上ようすけ</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=524s" data-timestamp="524"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:44</a>　丸1です。はい。丸1。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t14">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">はい。ありがとうございます。片山さん。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t15">
   <div class="meta"><span class="name">片山かおる</span></div>
   <div class="say">はい。私、多分2番も提案したと思うんですけれども、1番でもいいのかなとも思っておりますので、1か2かで。はい。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t16">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=549s" data-timestamp="549"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:09</a>　たゆさん。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t17">
   <div class="meta"><span class="name">たゆ久貴</span></div>
   <div class="say">はい。たゆは丸1でした。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t18">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=559s" data-timestamp="559"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:19</a>　あ、で、自民党は丸1でよろしくお願いします。はい。はい。<br />
 あとちょっとですね。あ、ちょっと。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=593s" data-timestamp="593"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:53</a>　水谷さんは正副案でも駄目だし、てこと？正副案だったらいい？正副案だったらいいっていうことですか？うん。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t19">
   <div class="meta"><span class="name">たゆ久貴</span></div>
   <div class="say">すいません。1の駄目な、駄目なっていうか、ちょっとどんなところがね。うん。<br />
 今大体1ってことになってるけど、ちょっとどこが難しいのか、もし折り合いがつくんでしたら折り合いつけていければと思いますが、委員長の方、いかがでしょうか？</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t20">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=632s" data-timestamp="632"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:32</a>　もし何かその点コメントできるのであればお願いします。水谷さん。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t21">
   <div class="meta"><span class="name">水谷たかこ</span></div>
   <div class="say">はい。まず、今回の陳情書に関しては、指定管理者の選定におけるということで、生涯学習の所管する案件だったわけですけれども、まず1でその死亡事故に関わる問題だという風に書かれているので、そこが今回の陳情ではそこまでは触れていない</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=664s" data-timestamp="664"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:04</a>　ということと、あとはその4番についてはもうおっしゃる通りですし、その他の項目も検討できる範囲ではしたんですけれども、なかなか判断ができないというものがあったので、今いただいている1の案だと、その判断できなかったことについての記載がないものですから、このままだと全て陳情項目1から5を、全体陳情の内容を採択したという風にも読めるので、なんらかその1から3や5に</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=695s" data-timestamp="695"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:35</a>　ついては、なかなか懸念、難しいことがあったということが分かる形にしたいという趣旨です。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t22">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=727s" data-timestamp="727"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:07</a>　はい。うん。<br />
 まあね、どうしましょうかね。うん。だから、その辺り。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t23">
   <div class="meta"><span class="name">水谷たかこ</span></div>
   <div class="say">はい。ということだと、そこら辺をちょっと調整をすればできない話ではないなと思っていて、多分1番はですね、委員長の</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=761s" data-timestamp="761"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:41</a>　4番目の委員長の、文章の制服の文章の上から3行目。「ただし4番目の陳情項目については今後の改善を行うことが重要であると判断し」というところと丸1はほとんど同じなんですよね。だからここは残しておくということと、それから前段の文章で、「当該陳情は民設民営保育所の死亡</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=796s" data-timestamp="796"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:16</a>　事故に関わる問題であり」っていうここが問題であるとしたら、もう少しなんか文言を変えることができればいいかなと思ってるんですが。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t24">
   <div class="meta"><span class="name">藤川賢治</span></div>
   <div class="say">はい。藤川です。なんですけれども、死亡事故というのを死亡を取って事故っていう単純にそれだけでも読む人が見れば分かると思うのでどうですかね。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t25">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=828s" data-timestamp="828"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:48</a>　うん。はい。はい。水谷さん。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t26">
   <div class="meta"><span class="name">水谷たかこ</span></div>
   <div class="say">陳情者は重大事故っていう言い方をしてるんですよね。あ、重大事故。うん。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t27">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">うん。うん。だから、この死亡事故って本当はあれなんだけど、重大事故ということでどうだろうか。<br />
 その言い方というか、水谷さんがおっしゃってるのは民設民営学童の事故と、そのなんだ、今回の陳情は、事業者さんは一緒だけれども、その事業者のやっている事業の中の事故っていうので、そこの部分の言い方っていうことになる。事故に対する何か表現の仕方とか、そこ今全体のその言い方のことを言っているのかなと私は感じたんですが、ということで。はい。</div><div class="say">はい。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t28">
   <div class="meta"><span class="name">水谷たかこ</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=895s" data-timestamp="895"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:55</a>　先ほど水谷さんは死亡っていう、そういう言葉が入っている、文言が入っているということが気になるという風に受け取れたんですけど。</div><div class="say">はい。水谷です。はい。正確に言いますと、今回の指定管理者選定における重大事故というその事故を指し示しているものは、その1年前の溺れたというその事故のことを指していて、で、今ご提案いただいている丸1のことだと、直接所管であの亡くなった事故っていうことに関わる陳情だと</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=928s" data-timestamp="928"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:28</a>　いう風にちょっと受け止めたので、そこがということです。<br />
 文言の調整っていうことであれば、まだ可能性はあります。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t29">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">これどうしますか？今日この調整をこの委員会でずっとやることは僕はすべきではないと思っているので、1回これを継続にするっていう、取り扱いとしては、になって、何を後でやろうっていうのが決まってればいいっていうそんな感じかな。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=967s" data-timestamp="967"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:07</a>　今の流れだと。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t30">
   <div class="meta"><span class="name">森戸よう子</span></div>
   <div class="say">はい。この委員長の意見を付すというところは一致をして採択をする方向だと思うんですよね。そこは一致してると。ただ問題は文言がどうかっていうところなんですかね。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t31">
   <div class="meta"><span class="name">水谷たかこ</span></div>
   <div class="say">はい。水谷です。はい。文言で合意ができれば委員長の意見を付すことに合意できるけれども、まず意見を付すことに合意がスタートではなくて。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t32">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=1001s" data-timestamp="1001"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:41</a>　じゃ、逆ですね。はい。はい。はい。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t33">
   <div class="meta"><span class="name">水谷たかこ</span></div>
   <div class="say">そしたら、その文言が今日時点ではまだ調整ができないので、継続をして、引き続き閉会中のところで、閉会中の間に調整し合ってスムーズに閉会中で結論を出すということであれば、それはそうかなと思ってます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t34">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">うん。そうしたら、この1番っていうのは、森戸さんに提出したものなんですよね。で、森戸さん、水谷さん、一緒であれば、制服でちょっとこう、その、話をするなりなんかそういう場を持ちましょうか。はい。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=1033s" data-timestamp="1033"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:13</a>　あ、はい。ということでね、じゃあ、それはまた後でそこの調整を2者調整とさせていただくということで、一旦この案件に関しては継続で委員会にお諮りいたしますので、よろしくお願いします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=1073s" data-timestamp="1073"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:53</a>　再開いたします。<br />
 お諮りいたします。本件は現時点での質疑を終了し、引き続き審査する必要があると認め、継続審査といたしたいと思います。これにご異議ありませんか？</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t35">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t36">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">ご異議なしと認めます。よって、本件は継続審査と決定いたしました。</div><div class="say">次に、陳情第16号「公立中学校における平和教育及び校外学習の政治的中立性と安全確保を求める陳情書」を議題といたします。部局から発言がありましたらこれを求めます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=1109s" data-timestamp="1109"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:29</a>　ございませんか。<br />
 これから質疑を行います。特にございませんか。では、採決の方に移ります。8ページ。<br />
 本件につきまして委員長報告に載せる意見要望がございましたら発言をお願いいたします。</div><div class="say">以上で本件に対する質疑を終了することにご異議ありませんか？</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t37">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t38">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=1142s" data-timestamp="1142"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:02</a>　ご異議なしと認めます。よって、質疑を終了いたします。これから討論を行います。<br />
 本件に対する討論を終了することにご異議ありませんか？</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t39">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t40">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">ご異議なしと認めます。よって、討論を終了いたします。それでは直ちに採決いたします。お諮りいたします。<br />
 本件は採択の上、市長及び教育委員会に送付することにご異議ありませんか？</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t41">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議あり。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t42">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">ご異議がありますので、本件は起立採決をいたします。<br />
 本件は採択の上、市長及び教育委員会に送付することに賛成の皆さんの起立を求めます。<br />
 起立少数です。したがって、本件は〇〇と決定いたしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LfU6V6jBZQY&t=1190s" data-timestamp="1190"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:50</a>　以上で本日の日程は全部終了いたしました。本日は以上で厚生文教委員会を閉会いたします。お疲れ様でございました。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t43">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">どうもありがとうございます。</div>
 </div>
@@ -409,5 +415,53 @@
     addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
   </script>
 
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
 </body>
 </html>

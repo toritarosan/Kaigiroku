@@ -80,6 +80,12 @@
     .hero{padding:14px 0 22px;} .sum{padding:18px;}
     .turn{padding:12px 0;} .say{font-size:15.5px;}
   }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
 </style>
 </head>
 <body>
@@ -94,7 +100,7 @@
     <span class="src">YouTube字幕＋AI校正による記録（非公式）</span>
   </header>
 
-  <section class="sum reveal">
+  <section class="sum reveal" id="summary">
     <p class="lab">A I 要 約</p>
     <p>ご提示いただいた会議録全文を俯瞰し、議案の審議および人事案件の提出等が行われているため、ルール①に従い要約を作成します。</p>
 <h3>提出議案・報告事項の一覧</h3>
@@ -160,79 +166,79 @@
     <p class="cap">動画を再生しながら会議録を読めます（YouTube・4本）</p>
   </section>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t0">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=192s" data-timestamp="192"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:12</a>　おはようございます。本日から第2回定例会ですが、開会前に市長から発言を求められておりますので。副市長ですか。副市長、おはようございます。管理職の人事についてご報告申し上げます。</div><div class="say">令和8年5月28日付けをもちまして、管理職の人事異動を発令いたしました。庁舎建設担当部長兼子ども家庭部長の辻でございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t1">
   <div class="meta"><span class="name">副市長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=226s" data-timestamp="226"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:46</a>　どうぞよろしくお願いいたします。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t2">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">以上です。はい、じゃあお願いします。おはようございます。</div><div class="say">ただいまから令和8年第2回小金井市議会定例会を開会します。本日の会議を開きます。5月28日に本定例会に関し議会運営委員会を開催していますので、議会運営委員長の報告を求めます。16番、水上洋志議員。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t3">
   <div class="meta"><span class="name">水上洋志</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=264s" data-timestamp="264"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:24</a>　はい。議会運営委員会の報告をいたします。議会運営委員会は、令和8年第2回定例会に関し5月28日に開催し協議いたしましたので、その結果についてご報告申し上げます。</div><div class="say">本定例会に付議されます市長提出案件は、当初予算案件として報告3件、専決処分の報告及び承認2件、諮問1件、令和8年度補正予算1件、人事案件15件、条例の制定1件、条例の一部改正5件、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=297s" data-timestamp="297"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:57</a>　規約の変更1件、また後日送付案件として5月27日に送付済みの契約案件3件の、以上32件となっております。さらに議員提出案件として、意見書14件、決議6件の提出が予定されております。次に5月26日から5月28日正午までの一般質問通告者は22人でございました。</div><div class="say">以上のことから本定例会の会期及び会議案件の付託先、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=329s" data-timestamp="329"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:29</a>　委員会などについて協議いたしました。その結果、本定例会の会期については本日6月2日から6月23日までの22日間とすることに決定し、その間の会議及び案件の付託先委員会については、それぞれお手元に配布しております通りの通り決定いたしました。また本定例会に提出されております令和8年度補正予算1件の審査のため、委員14人で構成する予算特別、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=360s" data-timestamp="360"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:00</a>　委員会を議長発議により設置することと決定いたしました。なお本定例会中に審査を予定しております陳情の受付期限は6月3日の午後5時までですので、念のため申し添えておきます。以上で議会運営委員会の報告を終了いたします。</div><div class="say">長の報告に対し質疑はありますか。質疑を終了することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t4">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t5">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、質疑を終了し、議会運営委員長の報告を終了します。お諮りします。議会運営委員長の報告通り決定することにご異議ありませんか。</div><div class="say">◯（呼ぶ声）<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=398s" data-timestamp="398"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:38</a>　異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t6">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、議会運営委員長の報告通り決定しました。日程第1、会議録署名議員の指名を行います。会議録署名議員は、会議規則第118条の規定により議長において、16番水上洋志議員、17番安田けいこ議員を指名します。日程第2、会期の決定を議題とします。お諮りします。今定例会の会期は本日、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=430s" data-timestamp="430"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:10</a>　6月2日から6月23日までの22日間とすることにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t7">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t8">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、会期は本日6月2日から6月23日までの22日間と決定しました。日程第3、議長報告を行います。議長報告はあらかじめ文書で配布しています。ただいまから質疑を行います。以上で質疑を終了することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t9">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t10">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め質疑を終了します。以上で議長報告を終了します。日程第、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=465s" data-timestamp="465"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:45</a>　4、一部事務組合議会活動状況報告を行います。一部事務組合議会活動状況報告は、前回令和8年第1回定例会報告から本年5月12日までに開催された一部事務組合議会等の報告を行うもので、あらかじめ文書で配布しております。本件報告に対する質問通告は6月1日の正午までと、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=498s" data-timestamp="498"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:18</a>　なっておりましたが、通告はありませんでした。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=532s" data-timestamp="532"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:52</a>　従って、昭和病院企業団議会活動状況報告、小金井市衛生組合議会活動状況報告、東京多摩広域資源循環組合議会活動状況報告、東京都十一市競輪事業組合議会活動状況報告、東京都六市競艇事業組合議会活動状況報告、東京都六市ボートレース事業組合、　都後期高齢者医療広域連合議会活動状況報告、浅川清流環境組合議会活動状況報告、以上8件の一部事務組合議会等活動状況報告を終了します。日程第5、第7陳情第78号「現設計での庁舎建設の教訓を踏まえ、」</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=563s" data-timestamp="563"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:23</a>　「速やかに新しい設計の準備を始めることを求める陳情」から、日程第27陳情第11号「栗山公園トイレ建て替えにおいて女性専用トイレを最低でも一基確保することを求める陳情」の23件を一括して議題とします。以上23件について各委員長の報告を求めます。庁舎等建設及び公共施設マネジメント推進調査特別委員長の報告を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t11">
   <div class="meta"><span class="name">吹春やすたか</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=597s" data-timestamp="597"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:57</a>　はい。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t12">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">吹春委員。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t13">
   <div class="meta"><span class="name">吹春やすたか</span></div>
   <div class="say">庁舎等建設及び公共施設マネジメ</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t14">
   <div class="meta"><span class="name">庁舎等建設特別委員長</span></div>
   <div class="say">ント推進調査特別委員会委員長報告を行います。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=629s" data-timestamp="629"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:29</a>　庁舎等建設及び公共施設マネジメント、　は、令和8年4月14日に開催し、陳情21件、調査1件の計22件を審査いたしましたので、その審査の概要と結果につきましてご報告申し上げます。なお、8陳情第4号「その6 庁舎・新福祉会館建設事業の合理的な内訳を求める陳情書」、8陳情第5号「その6 論点を整理し重要課題に絞り込んだ同一条件比較案見直し案資料の整備と文書回答を求める陳情書」、8陳情第6号「その7 合理的リスクの予測を踏まえた水害対策の前提条件成立性限界の同一条件比較を求める陳情」、8陳情第7号「その8 公共建築の公平性確保のため構造方式の選択理由の明確化と免震統一を含む同一条件比較資料の提出を求める陳情書」につきましては、引き続き審査する必要があると認め、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=692s" data-timestamp="692"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:32</a>　継続審査と決定しております。また、庁舎等建設及び公共施設マネジメントの推進にかかる諸問題の調査につきましては、引き続き調査する必要があると認め継続調査と決定しております。第7陳情第78号「現設計での庁舎等建設の教訓を踏まえ、速やかに新しい設計の準備を始めることを求める陳情」につきましては、令和7年9月9日の本会議において当委員会に付託され、9月18日、11月12日、令和8年2月6日、3月17日、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=723s" data-timestamp="723"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:03</a>　及び4月14日の計5回にわたり委員会で審査を行いました。4月14日の委員会では質疑を終了し、起立採決の結果、起立少数により不採択すべきものと決定いたしました。第7陳情第91号「2回の入札不調に至った原因究明を求める陳情書」につきましては、令和7年9月9日の本会議において当委員会に付託され、9月18日、11月12日、令和8年2月6日、3月17日及び4月14日の計5回にわたり委員会で審査を行いました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=754s" data-timestamp="754"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:34</a>　なお、18日の委員会では陳情者からの発言の申し出がありましたので、審査に先立ち委員会協議会を開催し発言していただきました。令和8年4月14日の委員会では質疑を終了し、起立の結果、起立少数により不採択すべきものと決定いたしました。第7陳情第92号「市民要望の反映と設計条件・入札条件の見直しを求める陳情書」<br />
@@ -247,53 +253,53 @@
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=1256s" data-timestamp="1256"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:56</a>　長の報告に対する質疑を行います。</div><div class="say">質疑を終了することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t15">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t16">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、質疑を終了し、庁舎等建設及び公共施設マネジメント推進調査特別委員長の報告を終了します。</div><div class="say">次に、建設環境委員長の報告を求めます。</div><div class="say">4番、清水学委員長。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t17">
   <div class="meta"><span class="name">清水学</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=1288s" data-timestamp="1288"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:28</a>　はい。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t18">
   <div class="meta"><span class="name">建設環境委員長</span></div>
   <div class="say">建設環境委員会委員長報告を行います。</div><div class="say">建設環境委員会は令和8年5月12日に開催し、陳情6件、所管事務調査2件の計8件を審査いたしましたので、その審査の概要と結果につきましてご報告申し上げます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=1319s" data-timestamp="1319"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:59</a>　なお、所管事務調査、循環型社会の形成及び温室効果ガス削減に関する調査及び所管事務調査、都市計画道路に関する調査の以上2件につきましては、引き続き調査する必要があると認め、継続調査と決定いたしております。</div><div class="say">陳情第37号　東小金井駅の北口の交通安全対策を求める陳情。</div><div class="say">本件につきましては令和7年6月24日の本会議において当委員会に付託され、8月5日、9月12日、10月27日、令和8年2月4日及び5月12日の計5回の委員会で審査を行いました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=1352s" data-timestamp="1352"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:32</a>　5月12日の委員会では質疑を終了し、起立採決の結果、起立少数により不採択すべきものと決定いたしました。</div><div class="say">陳情第80号　武蔵小金井駅、東小金井駅の初電の開業時刻を早めることを求める陳情。</div><div class="say">本件につきましては令和7年9月9日の本会議において当委員会に付託され、9月12日、10月27日、令和8年2月4日及び5月12日の計4回の委員会で審査を行いました。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=1384s" data-timestamp="1384"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:04</a>　委員会では特段の質疑もなく、起立採決の結果、起立多数により採択の上、市長に送付すべきものと決定いたしました。</div><div class="say">陳情第103号　緑町団地北側交差点の交通安全を求める陳情。</div><div class="say">本件につきましては令和7年10月7日の本会議において当委員会に付託され、10月27日、令和8年2月4日及び5月12日の計3回の委員会で審査を行いました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=1416s" data-timestamp="1416"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:36</a>　5月12日の委員会では質疑を終了し、採決の結果、採択の上、市長に送付すべきものと決定いたしました。</div><div class="say">陳情第104号　連雀通り、小金井警察署から小金井消防署の歩道における自転車の速度抑制等に向けた具体的措置を求める陳情。</div><div class="say">本件につきましては令和7年10月7日の本会議において当委員会に付託され、10月27日、令和8年2月4日及び5月12日の計3回の委員会で審査を行いました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=1448s" data-timestamp="1448"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:08</a>　5月12日の委員会では質疑を終了し、起立採決の結果、起立多数により採択の上、市長に送付すべきものと決定いたしました。</div><div class="say">陳情第105号　メガソーラー・サステナブル・パーク小金井の駐車場を施設の休業日等は一般有料駐車場として活用することを求める陳情。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=1478s" data-timestamp="1478"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:38</a>　本件につきましては令和7年10月7日の本会議において当委員会に付託され、10月27日、令和8年2月4日及び5月12日の計3回の委員会で審査を行いました。</div><div class="say">5月12日の委員会では質疑を終了し、採決の結果、採択の上、市長に送付すべきものと決定いたしました。</div><div class="say">陳情第11号　栗山公園トイレ建て替えにおいて女性専用トイレを最低でも1基確保することを求める陳情。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=1510s" data-timestamp="1510"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:10</a>　本件につきましては令和8年3月23日の本会議において当委員会に付託され、5月12日の委員会では審査を行いました。</div><div class="say">同日の委員会では質疑を終了し、起立採決の結果、起立少数により不採択すべきものと決定いたしました。</div><div class="say">以上で建設環境委員会の報告を終了いたします。長の報告に対する質疑を行います。</div><div class="say">質疑を終了することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t19">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t20">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、質疑を終了し、建設環境委員長の報告を終了します。</div><div class="say">お諮りします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=1541s" data-timestamp="1541"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:41</a>　ご報告いただきました日程第5から日程第27の23件は、討論採決を一次保留することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t21">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t22">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、日程第5から日程第27の23件は、討論採決を一次保留することと決定しました。</div><div class="say">日程第28、専決処分の報告及び承認について（小金井市税条例の一部を改正する条例）を議題とします。</div><div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t23">
   <div class="meta"><span class="name">市長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=1572s" data-timestamp="1572"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:12</a>　おはようございます。専決処分の報告及び承認についてご報告申し上げます。</div><div class="say">本件は地方自治法第179条第1項の規定に基づき、令和8年4月1日に小金井市税条例の一部を改正する条例を別紙の通り処分いたしましたので、同条第3項の規定により報告し、その承認を求めるものであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=1603s" data-timestamp="1603"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:43</a>　細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご承認申し上げます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t24">
   <div class="meta"><span class="name">市民部長</span></div>
   <div class="say">おはようございます。</div><div class="say">それでは、専決処分を行いました小金井市税条例の一部を改正する条例につきましてご説明をさせていただきます。</div><div class="say">説明に当たりましては、提出させていただいた資料1「条例要綱」に沿って説明をさせていただきます。</div><div class="say">まず、1趣旨についてです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=1635s" data-timestamp="1635"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:15</a>　本件は地方税法等の一部を改正する法律の一部を改正する法律の施行に伴い、小金井市税条例の一部について所要の改正を行ったものとなります。</div><div class="say">令和8年度税制改正となります。地方税法等の一部を改正する法律の一部を改正する法律につきましては、令和8年3月31日参議院総務委員会で可決、同日参議院本会議で可決し交付されたものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=1665s" data-timestamp="1665"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:45</a>　この改正法が一部の規定を除きまして、翌日の令和8年4月1日から施行されることに伴い、小金井市税条例の一部を改正する必要が生じましたが、議会の議決すべき事件につきまして特に緊急を要するため、小金井市議会を招集する時間的余裕がないことが明らかであると認め、地方自治法第179条第1項の規定に基づき、令和8年4月1日に市長の専決処分を行ったところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=1698s" data-timestamp="1698"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:18</a>　なお、今回の改正内容につきましては、令和8年4月1日を施行期日にするものに限るものとし、その他施行期日以後に到来するものにつきましては別途議会に提案することとし、専決処分の厳格な運用に努めているところでございます。</div><div class="say">それでは、2改正内容について1つずつご説明いたします。</div><div class="say">まず（1）をご覧ください。こちらは自動車購入時の負担軽減を図るため、軽自動車税の環境性能割を廃止するものでございます。</div><div class="say">なお、減収分につきましては当面の間、国からの地方特例交付金で手当てされます。</div><div class="say">次に（2）をご覧ください。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=1730s" data-timestamp="1730"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:50</a>　こちらは個人住民 税所得割の納税義務者が、自己の同族会社である法人との合計で株式等の保有割合が3分の1以上となる内国法人から支払いを受ける上場株式等につきまして、引き続き総合課税の対象として配当割の対象とするものです。</div><div class="say">次に（3）をご覧ください。<br />
@@ -301,443 +307,443 @@
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=1792s" data-timestamp="1792"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:52</a>　こちらは肉用牛の売却による事業所得にかかる課税の特例適用期限を3年間 延長します。</div><div class="say">肉用牛経営の安定を図る観点から、課税の特例措置の期限を延長するものでございます。</div><div class="say">次に（5）をご覧ください。こちらは軽自動車税のグリーン化特例について、特例期限、75％軽減を2年間延長するものでございます。</div><div class="say">次に（6）をご覧ください。こちらは優良住宅の造成等のために土地等を譲渡した場合の長期譲渡所得にかかる課税の特例について、適用期限を3年間延長するものです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=1824s" data-timestamp="1824"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:24</a>　最後、（7）をご覧ください。その他所用の規定の整備を行うものとなります。</div><div class="say">なお、今ご説明しました改正内容による影響は、現時点では特段ないものと見込んでおります。</div><div class="say">3施行期日です。この条例は令和8年4月1日から施行しております。</div><div class="say">次に4経過措置です。（1）は固定資産税にかかる経過措置を、（2）は軽自動車税にかかる経過措置をそれぞれ規定をしております。</div><div class="say">最後に5、その他です。軽自動車税の環境性能割の廃止に伴い小金井市税条例等の一部を改正する条例の規定を整備するものです。</div><div class="say">説明は以上となります。よろしくご審議ご承認お願いいたします。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t25">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">質疑を行います。 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=1867s" data-timestamp="1867"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:07</a></div><div class="say">質疑を終了することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t26">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t27">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、質疑を終了します。</div><div class="say">お諮りします。</div><div class="say">本件は委員会付託を省略し、討論採決を一次保留することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t28">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t29">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、本件は委員会付託を省略し、討論採決を一次保留することと決定しました。</div><div class="say">日程第29、第3号専決処分の報告及び承認について（小金井市都市計画税条例の一部を改正する条例）を議題とします。</div><div class="say">提案理由の説明を求めます。 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=1904s" data-timestamp="1904"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:44</a></div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t30">
   <div class="meta"><span class="name">市長</span></div>
   <div class="say">第3号専決処分の報告及び承認についてご報告申し上げます。</div><div class="say">本件は地方自治法第179条第1項の規定に基づき、令和8年4月1日に小金井市都市計画税条例の一部を改正する条例を別紙の通り専決処分いたしましたので、同条第3項の規定により報告し、その承認を求めるものであります。</div><div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご承認申し上げます。 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=1935s" data-timestamp="1935"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:15</a></div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t31">
   <div class="meta"><span class="name">市民部長</span></div>
   <div class="say">それでは、専決処分を行いました小金井市都市計画税条例の一部を改正する条例につきましてご説明させていただきます。</div><div class="say">説明に当たりましては、提出させていただいた資料1「条例要綱」に沿って説明をさせていただきます。合わせて資料2の新旧対照表もご覧ください。</div><div class="say">1趣旨についてです。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t32">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=1965s" data-timestamp="1965"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:45</a>　本条例の一部について所要の改正を行ったものとなります。</div><div class="say">先ほどの第2号と同様、令和8年度税制改正となる地方税法及び地方税法等の一部を改正する法律の一部を改正する法律について、令和8年3月31日参議院本会議で可決となり、同日に公布されました。</div><div class="say">この改正法が一部の規定を除き翌日の令和8年4月1日から施行されたことに伴い、小金井市都市計画条例の一部を改正する必要が生じましたが、議会の議決すべき事件について特に緊急を要するため小金井市議会を招集する時間的余裕がないことが明らかであると認め、地方自治法第179条第1項の規定に基づき、令和8年4月1日に市長の専決処分を行ったところでございます。</div><div class="say">なお、今回の改正内容につきましては、令和8年4月1日を施行期日とするものに限るものとし、その他施行期日以後に到来するものにつきましては別途議会に提案することとし、専決処分の厳正な運営に努めているところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2028s" data-timestamp="2028"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:48</a>　それでは、改正内容についてご説明いたします。</div><div class="say">都市計画税の課税標準額の特例措置にかかる規定が整備されたことに伴い、所要の規定の整備を行うものです。</div><div class="say">なお、改正による影響は現時点では特段ないものと見込んでおります。</div><div class="say">次に、3、施行期日についてです。</div><div class="say">この条例は令和8年4月1日から施行するものです。</div><div class="say">次に、4、経過措置として、都市計画税に関する経過措置を規定しております。</div><div class="say">説明は以上となります。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2060s" data-timestamp="2060"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:20</a>　よろしくご審議の上、ご承認お願い　申し上げます。</div><div class="say">質疑を行います。</div><div class="say">質疑を終了することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t33">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t34">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、質疑を終了します。</div><div class="say">お諮りします。</div><div class="say">本件は委員会付託を省略し、討論採決を一時保留することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t35">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t36">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、本件は委員会付託を省略し、討論採決を一時保留することと決定しました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2090s" data-timestamp="2090"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:50</a>　日程第30、陳情第4号、人権擁護委員候補者の推薦についてを議題とします。</div><div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t37">
   <div class="meta"><span class="name">市長</span></div>
   <div class="say">陳情第4号、人権擁護委員候補者の推薦についてを上程申し上げます。</div><div class="say">現在、本市に置かれております擁護委員の方が令和8年9月30日をもって任期満了となります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2121s" data-timestamp="2121"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:21</a>　これに伴って法務省から後任の候補者の推薦依頼がありましたので、人権擁護委員法第6条第3項の規定に基づき、後任の候補者を推薦いたすものであります。</div><div class="say">今回、候補者として推薦いたしますのは、住所、小金井市、氏名、裕二、年齢66歳、職業、団体職員であります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2154s" data-timestamp="2154"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:54</a>　候補者は法務省人権擁護局や地方法務局の人権擁護課長としての経験もあり、人権への関心も高く熱意ある活動で基本的人権の擁護の普及高揚に寄与した経歴があり、人権擁護について深い理解と経験をお持ちでありますので、今回推薦するものであります。</div><div class="say">以上、よろしくご審議の上、ご同意賜りますようお願い申し上げます。</div><div class="say">質疑を行います。</div><div class="say">質疑を終了することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t38">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t39">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、質疑を終了します。</div><div class="say">お諮りします。</div><div class="say">本件は委員会付託を省略し、討論採決を一時保留することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t40">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t41">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、本件は委員会付託を省略し、討論採決を一時保留することと決定しました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2184s" data-timestamp="2184"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:24</a>　日程第31、議案第32号、監査委員の選任に関し同意を求めることについてを議題とします。</div><div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t42">
   <div class="meta"><span class="name">市長</span></div>
   <div class="say">議案第32号、監査委員の選任に関し同意を求めることについてをご提案申し上げます。</div><div class="say">監査委員の任期が令和8年6月8日をもって任期満了となるので、後任を再任するため本案を提出するものであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2217s" data-timestamp="2217"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:57</a>　住所、立川市、氏名、谷子、年齢62歳、職業、弁護士。</div><div class="say">よろしくご審議の上、ご同意賜りますようお願い申し上げます。</div><div class="say">質疑を行います。</div><div class="say">質疑を終了することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t43">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t44">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、質疑を終了します。</div><div class="say">お諮りします。</div><div class="say">本件は委員会付託を省略し、討論採決を一時保留することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t45">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t46">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、本件は委員会付託を省略し、討論採決を一時保留することと決定しました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2249s" data-timestamp="2249"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:29</a>　日程第32、議案第33号、農業委員会委員の任命に関し同意を求めることについてから、日程第45、議案第46号、農業委員会委員の任命に関し同意を求めることについてまでの以上14件を一括して議題とすることにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t47">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t48">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">異議なしと認め、日程第32から日程第45までの以上14件を一括して議題とします。</div><div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t49">
   <div class="meta"><span class="name">市長</span></div>
   <div class="say">議案第　<a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2281s" data-timestamp="2281"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:01</a>　33号から議案第46号、農業委員会委員の任命に関し同意を求めることについてをご提案申し上げます。</div><div class="say">農業委員会委員を任命するため、本案を提出するものであります。</div><div class="say">なお、任期は令和8年7月20日から令和11年7月19日までとなります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2311s" data-timestamp="2311"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:31</a>　今回、任命に関し同意を求めます議案第33号としまして、住所、小金井市、氏名、安倍マサ、年齢26歳、職業、団体役員であります。</div><div class="say">次に、議案第34号としまして、住所、小金井市、氏名、江頭ミキ、年齢46歳、職業、自営業であります。</div><div class="say">次に、議案第35号としまして、住所、小金井市、氏名、大久保克実、年齢47歳、職業、農業、自営業であります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2342s" data-timestamp="2342"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:02</a>　次に、議案第36号としまして、住所、小金井市、氏名、大沢孝志、年齢76歳、職業農業であります。</div><div class="say">次に、議案第37号としまして、住所、小金井市、氏名、鴨下茂夫、年齢73歳、職業、農業であります。</div><div class="say">次に、議案第38号としまして、住所、小金井市、氏名、鴨下道夫、年齢66歳、職業、農業であります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2373s" data-timestamp="2373"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:33</a>　次に、議案第39号としまして、住所、小金井市、氏名、小山茂、年齢74歳、職業、農業であります。</div><div class="say">次に、議案第40号としまして、住所、小金井市、氏名、島田茂行、年齢64歳、職業、農業であります。</div><div class="say">次に、議案第41号としまして、住所、小金井市、氏名、鈴木浩、年齢71歳、職業、農業、造園業であります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2407s" data-timestamp="2407"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:07</a>　次に、議案第42号としまして、住所、小金井市、氏名、鈴木義之、年齢60歳、職業、農業、自営業であります。</div><div class="say">次に、議案第43号としまして、住所、小金井市、氏名、高橋金一、年齢65歳、職業、農業であります。</div><div class="say">次に、議案第44号としまして、住所、小金井市、氏名、土屋直樹、年齢56歳、職業、農業であります。</div><div class="say">次に、議案第45号としまして、住所、小金井市、氏名、橋本利一、年齢69歳、職業、農業、自営業であります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2441s" data-timestamp="2441"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:41</a>　次に、議案第46号としまして、住所、小金井市、氏名、松島蒼井、年齢61歳、職業、無職であります。</div><div class="say">以上14件につきまして、よろしくご審議の上、ご同意賜りますようお願い申し上げます。</div><div class="say">質疑を行います。</div><div class="say">質疑を終了することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t50">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t51">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、質疑を終了します。</div><div class="say">お諮りします。</div><div class="say">以上14件は委員会付託を省略し、討論採決を一時保留することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t52">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2473s" data-timestamp="2473"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:13</a></div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t53">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、以上14件は委員会付託を省略し、討論採決を一時保留することと決定しました。</div><div class="say">日程第46、議案第54号、小金井市立小金井第1小学校校舎改築等工事、建築工事請負契約についてを議題とします。</div><div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t54">
   <div class="meta"><span class="name">市長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2505s" data-timestamp="2505"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:45</a>　議案第54号、小金井市立小金井第1小学校校舎改築等工事、建築工事請負契約についてをご提案申し上げます。</div><div class="say">小金井市立小金井第1小学校校舎改築等工事、建築工事を施行する必要があるため本案を提出するものであります。</div><div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご決議賜りますようお願い申し上げます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2535s" data-timestamp="2535"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:15</a></div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t55">
   <div class="meta"><span class="name">総務部長</span></div>
   <div class="say">はい。まず、提案理由の説明の前に、小金井市立小金井第1小学校校舎改築等工事における発注方法及び契約方法についてご説明いたします。</div><div class="say">初めに発注方法です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2566s" data-timestamp="2566"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:46</a>　本案件につきましては建設工事を一括しての発注ではなく、3件に分けた分離発注方式、すなわち建築工事、機械設備工事、電気設備工事の3つに分け契約手続きを行いました。</div><div class="say">また3件とも価格と価格以外の要素である会社の技術や信頼性及び社会性を総合的に評価して落札者を決定する総合評価方式による制限付き一般競争入札により実施しております。</div><div class="say">では細部についてご説明いたします。</div><div class="say">初めに契約の目的でございます。</div><div class="say">小金井市立小金井第1小学校校舎改築等工事、建築工事でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2597s" data-timestamp="2597"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:17</a>　工事概要といたしまして、新校舎建設工事、敷地南側外構整備工事及び既存体育館改修工事で、既存校舎を使用しながら工事を行い、令和10年7月31日までに新校舎の引き渡しを受けるものでございます。</div><div class="say">詳細は本人資料の1に記載の通りでございます。</div><div class="say">次に、契約の方法でございます。</div><div class="say">制限付き一般競争入札、総合評価方式による契約です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2628s" data-timestamp="2628"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:48</a>　入札の経過と詳細につきましては本人資料の2に記載の通りとなっております。</div><div class="say">3、契約金額です。</div><div class="say">落札金額39億400万円に消費税及び地方消費税3億9440万円を加えた43億3840万円となります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2661s" data-timestamp="2661"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:21</a>　4、契約の相手方につきましては松井建設共同企業体、構成企業につきましては本人資料の3に記載してございますが、代表企業が松井建設株式会社、構成企業は関建設工業株式会社でございます。</div><div class="say">詳細は本人資料の3をご覧ください。</div><div class="say">5、工期でございます。</div><div class="say">契約締結日の翌日から令和10年8月31日まででございます。</div><div class="say">説明は以上となります。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div><div class="say">質疑を行います。　<a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2692s" data-timestamp="2692"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:52</a></div><div class="say">質疑を終了することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t56">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t57">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、質疑を終了します。</div><div class="say">お諮りします。</div><div class="say">本件は委員会付託を省略し、討論採決を一時保留することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t58">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t59">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、本件は委員会付託を省略し、討論採決を一時保留することと決定しました。</div><div class="say">日程第47、議案第55号、小金井市立小金井第1小学校校舎改築等工事、機械設備工事請負契約についてを議題とします。</div><div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t60">
   <div class="meta"><span class="name">市長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2727s" data-timestamp="2727"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:27</a>　議案第55号、小金井市立小金井第1小学校校舎改築等工事、機械設備工事請負契約についてをご提案申し上げます。</div><div class="say">小金井市立小金井第1小学校校舎改築等工事、機械設備工事を施工する必要があるため本案を提出するものであります。</div><div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご決議賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t61">
   <div class="meta"><span class="name">総務部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2758s" data-timestamp="2758"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:58</a>　はい。細部についてご説明いたします。</div><div class="say">初めに契約の目的でございます。</div><div class="say">小金井市立小金井第1小学校校舎改築等工事、機械設備工事でございます。</div><div class="say">工事の概要といたしまして、新校舎建設工事、敷地南側外構整備工事及び既存体育館改修工事に伴う機械設備工事で、既存校舎を使用しながら工事を行い、令和10年7月31日までに新校舎の引き渡しを受けるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2789s" data-timestamp="2789"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:29</a>　詳細は本人資料の1に記載の通りとなっております。</div><div class="say">次に、契約の方法でございます。</div><div class="say">制限付き一般競争入札、総合評価方式による契約です。</div><div class="say">入札の経過と詳細につきましては本人資料の2に記載の通りとなっております。</div><div class="say">3、契約金額です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2819s" data-timestamp="2819"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:59</a>　落札金額7億9004万7000円に消費税及び地方消費税7900万4700円を加えた、8億6954万6700円となります。</div><div class="say">4、契約の相手方につきましては武蔵野暖房株式会社でございます。</div><div class="say">詳細は本人資料の3をご覧ください。</div><div class="say">5、工期になります。</div><div class="say">契約締結日の翌日から令和10年8月31日まででございます。</div><div class="say">説明は以上でございます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2849s" data-timestamp="2849"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:29</a>　よろしくご審議の上、ご同意賜りますようお願い申し上げます　。</div><div class="say">質疑を行います。</div><div class="say">質疑を終了することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t62">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t63">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、質疑を終了します。</div><div class="say">お諮りします。</div><div class="say">本件は委員会付託を省略し、討論採決を一時保留することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t64">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t65">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、本件は委員会付託を省略し、討論採決を一時保留することと決定しました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2880s" data-timestamp="2880"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:00</a>　日程第48、議案第56号、小金井市立小金井第1小学校、校舎改築工事、電気設備工事請負契約についてを議題とします。</div><div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t66">
   <div class="meta"><span class="name">市長</span></div>
   <div class="say">議案第56号、小金井市立小金井第1小学校校舎改築等工事、電気設備工事請負契約についてをご提案申し上げます。</div><div class="say">小金井市立小金井第1小学校校舎改築等工事、電気設備工事を施工する必要があるため本案を提出するものであります</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=2941s" data-timestamp="2941"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:01</a>　初めに契約の目的でございます。小金井市立小金井第一小学校校舎改築等工事電気設備工事でございます。工事の概要といたしまして、校舎建設工事、敷地南側外構整備工事及び既存体育館改修工事に伴う電気設備工事で、既存校舎を使用しながら工事を行い、令和10年7月31日までに校舎の引き渡しを受けるものでございます。</div><div class="say">詳細は議案資料の1に記載の通りとなってございます。</div><div class="say">次に契約の方法でございます。制限付き一般競争入札総合評価方式による契約となっております。入札の経過等詳細につきましては議案資料の2に記載の通りとなっております。</div><div class="say">契約金額です。落札金額7億600万円に消費税及び地方消費税、7060万円を加えた7億7660万円となります。</div><div class="say">契約の相手方につきましては日東電工株式会社でございます。詳細は議案資料の3をご覧ください。</div><div class="say">工期でございます。契約確定日の翌日から令和10年8月31日まででございます。説明は以上となります。よろしくご審議の上ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t67">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">質疑を行います。質疑を終了することにご異議ありませんか？</div><div class="say">◯（呼ぶ声）<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=-3PepTgqtIg&t=3006s" data-timestamp="3006"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:06</a>　ご異議なしと認め、質疑を終了します。お諮りします。本件は委員会付託を省略し、討論採決を一時保留することにご異議ありませんか？　本件は委員会付託を省略し、討論採決を一時保留することと決定しました。</div><div class="say">議会運営委員会等を開催するため、しばらく休憩いたします。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t68">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=66s" data-timestamp="66"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:06</a>　再開いたします。ここで先ほど保留しました日程第5から日程第48までの44件の保留を解き、順次議題とし討論採決を行います。</div><div class="say">○陳情第78号「庁舎建設に関する調査を踏まえ、速やかに新しい設計の準備を始めることを求める陳情」。これから討論を行います。</div><div class="say">◯（呼ぶ声）<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=99s" data-timestamp="99"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:39</a>　本件に対する討論を終了することにご異議ありませんか？</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t69">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め討論を終了します。直ちに採決します。本件は起立採決をします。本件についての庁舎等建設及び公共施設マネジメント推進調査特別委員長の報告は不採択です。お諮りします。本件は不採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div><div class="say">◯（呼ぶ声）<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=133s" data-timestamp="133"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:13</a>　起立少数。よって本件は不採択と決定しました。</div><div class="say">○陳情第85号「2回の入札不調に至った要因の究明を求める陳情」。これから討論を行います。本件に対する討論を終了することにご異議ありませんか？</div><div class="say">ご異議なしと認め討論を終了します。直ちに採決します。本件は起立採決をします。本件についての庁舎等建設及び公共施設マネジメント推進調査特別委員長の報告は不採択です。お諮りします。本件は不採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=166s" data-timestamp="166"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:46</a>　起立少数。よって本件は不採択と決定しました。</div><div class="say">○陳情第92号「市民要望の反映と設計条件、入札条件の見直しを求める陳情」。これから討論を行います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=197s" data-timestamp="197"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:17</a>　本件に対する討論を終了することにご異議ありませんか？</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t70">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め討論を終了します。直ちに採決します。本件は起立採決をします。本件についての庁舎等建設及び公共施設マネジメント推進調査特別委員長の報告は不採択です。お諮りします。本件は不採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div><div class="say">◯（呼ぶ声）<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=230s" data-timestamp="230"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:50</a>　起立少数。よって本件は不採択と決定しました。</div><div class="say">○陳情第93号「予算上限130億円未満に収めるための提案を求める陳情」。これから討論を行います。本件に対する討論を終了することにご異議ありませんか？</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t71">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め討論を終了します。直ちに採決します。本件は起立採決をします。本件についての庁舎等建設及び公共施設マネジメント推進調査特別委員長の報告は不採択です。お諮りします。</div><div class="say">◯（呼ぶ声）<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=262s" data-timestamp="262"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:22</a>　本件は不採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div><div class="say">起立少数。よって本件は不採択と決定しました。</div><div class="say">○陳情第94号「新たなスタートを新たな体制で始めることを求める陳情」。これから討論を行います。本件に対する討論を終了することにご異議ありませんか？</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t72">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め討論を終了します。直ちに採決します。本件は起立採決をします。本件についての庁舎等建設及び公共施設マネジメント推進調査特別委員長の報告は不採択です。お諮りします。</div><div class="say">◯（呼ぶ声）<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=303s" data-timestamp="303"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:03</a>　本件は不採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div><div class="say">起立少数。よって本件は不採択と決定しました。</div><div class="say">○陳情第106号「2度の入札の意味を深く受け止め、シナリオA・B・Cの選択を行わないことを求める陳情」。これから討論を行います。本件に対する討論を終了することにご異議ありませんか？</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t73">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=335s" data-timestamp="335"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:35</a>　ご異議なしと認め討論を終了します。直ちに採決します。本件は起立採決をします。本件についての庁舎等建設及び公共施設マネジメント推進調査特別委員長の報告は不採択です。お諮りします。本件は不採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t74">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">起立少数。よって本件は不採択と決定しました。</div><div class="say">○陳情第107号「シナリオD、誰も否定しない市民の笑顔が生まれる環境を整える案の検討と入札要綱の早期作成を求める陳情」。これから討論を行います。本件に対する討論を終了することにご異議ありませんか？</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t75">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=368s" data-timestamp="368"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:08</a>　ご異議なしと認め討論を終了します。直ちに採決します。本件は起立採決をします。本件についての庁舎等建設及び公共施設マネジメント推進調査特別委員長の報告は不採択です。お諮りします。</div><div class="say">◯（呼ぶ声）<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=399s" data-timestamp="399"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:39</a>　本件は不採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div><div class="say">起立少数。よって本件は不採択と決定しました。</div><div class="say">○陳情第110号「9月18日特別委員会における議員各位の質疑及び回答に対する補足を求める陳情」。これから討論を行います。本件に対する討論を終了することにご異議ありませんか？</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t76">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=433s" data-timestamp="433"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:13</a>　ご異議なしと認め討論を終了します。直ちに採決します。本件は起立採決をします。本件についての庁舎等建設及び公共施設マネジメント推進調査特別委員長の報告は不採択です。お諮りします。本件は不採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t77">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">起立少数。よって本件は不採択と決定しました。</div><div class="say">○陳情第118号「設計ではない見直し案を通して、設計と説明する機会を求める陳情」。これから討論を行います。本件に対する討論を終了することにご異議ありませんか？</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t78">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=464s" data-timestamp="464"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:44</a>　ご異議なしと認め討論を終了します。直ちに採決します。本件は起立採決をします。本件についての庁舎等建設及び公共施設マネジメント推進調査特別委員長の報告は不採択です。お諮りします。本件は不採択の上、市長に送付することに賛成</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=496s" data-timestamp="496"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:16</a>　の皆さんの起立を求めます。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t79">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">起立少数。よって本件は不採択と決定しました。</div><div class="say">○陳情第122号その1「小金井市新庁舎・新福祉会館建設事業12月議会における部局の方針予測と課題分析に関する陳情」。これから討論を行います。本件に対する討論を終了することにご異議ありませんか？</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t80">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=528s" data-timestamp="528"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:48</a>　ご異議なしと認め討論を終了します。直ちに採決します。本件は起立採決をします。本件についての庁舎等建設及び公共施設マネジメント推進調査特別委員長の報告は不採択です。お諮りします。本件は不採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t81">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">起立少数。よって本件は不採択と決定しました。</div><div class="say">○陳情第123号その2「小金井市新庁舎・新福祉会館建設事業市民の願いが生きづく庁舎へ行政に求められる判断と建築の公共的価値に関する陳情」。これから討論を行います。本件に対する討論を終了することにご異議ありませんか？</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t82">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=561s" data-timestamp="561"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:21</a>　ご異議なしと認め討論を終了します。直ちに採決します。本件は起立採決をします。本件についての庁舎等建設及び公共施設マネジメント推進調査特別委員長の報告は不採択です。お諮りします。本件は不採択の上、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=594s" data-timestamp="594"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:54</a>　市長に送付することに賛成の皆さんの起立を求めます。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t83">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">起立少数。よって本件は不採択と決定しました。</div><div class="say">○陳情第124号その3「新庁舎・新福祉会館建設事業における執行権の適正化と合意形成プロセスの改善に関する提言に関する陳情」。これから討論を行います。本件に対する討論を終了することにご異議ありませんか？</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t84">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=625s" data-timestamp="625"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:25</a>　ご異議なしと認め討論を終了します。直ちに採決します。本件は起立採決をします。本件についての庁舎等建設及び公共施設マネジメント推進調査特別委員長の報告は不採択です。お諮りします。本件は不採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t85">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">起立少数。よって本件は不採択と決定しました。</div><div class="say">○陳情第125号その4「小金井市新庁舎・新福祉会館建設事業課題の本質と変革への提言に関する陳情」。これから討論を行います。本件に対する討論を終了することにご異議ありませんか？</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t86">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=657s" data-timestamp="657"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:57</a>　ご異議なしと認め討論を終了します。直ちに採決します。本件は起立採決をします。本件についての庁舎等建設及び公共施設マネジメント推進調査特別委員長の報告は不採択です。お諮りします。本件は不採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t87">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">起立少数。よって本件は不採択と決定しました。</div><div class="say">○陳情第126号「庁舎及び福祉会館の設計の見直しに関する陳情書その1」。これから討論を行います。本件に対する討論を終了することにご異議ありませんか？</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t88">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=698s" data-timestamp="698"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:38</a>　ご異議なしと認め討論を終了します。直ちに採決します。本件は起立採決をします。本件についての庁舎等建設及び公共施設マネジメント推進調査特別委員長の報告は不採択です。お諮りします。本件は不採択の上、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=731s" data-timestamp="731"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:11</a>　市長に送付することに賛成の皆さんの起立を求めます。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t89">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">起立少数。よって本件は不採択と決定しました。</div><div class="say">○陳情第127号「庁舎及び福祉会館の設計の見直しに関する陳情その2」。これから討論を行います。本件に対する討論を終了することにご異議ありませんか？</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t90">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め討論を終了します。直ちに採決します。本件は起立採決をします。本件についての庁舎等建設及び公共施設マネジメント推進調査特別委員長の報告は不採択です。お諮りします。</div><div class="say">◯（呼ぶ声）<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=772s" data-timestamp="772"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:52</a>　本件は不採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div><div class="say">起立少数。よって本件は不採択と決定しました。</div><div class="say">○陳情第128号「庁舎及び福祉会館の設計の見直しに関する陳情その3」。これから討論を行います。本件に対する討論を終了することにご異議ありませんか？</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t91">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め討論を終了します。直ちに採決します。本件は起立採決をします。本件についての</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=805s" data-timestamp="805"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:25</a>　庁舎等建設及び公共施設マネジメント推進調査特別委員長の報告は不採択です。お諮りします。本件は不採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t92">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">起立少数。よって本件は不採択と決定しました。</div><div class="say">○陳情第129号「庁舎及び福祉会館の設計の見直しに関する陳情その4」。これから討論を行います。本件に対する討論を終了することにご異議ありませんか？</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t93">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=840s" data-timestamp="840"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:00</a>　ご異議なしと認め討論を終了します。直ちに採決します。本件は起立採決をします。本件についての庁舎等建設及び公共施設マネジメント推進特別委員長の報告は不採択です。お諮りします。本件は不採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t94">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">起立少数。よって本件は不採択と決定しました。</div><div class="say">○陳情第37号「東小金井駅野川北口の交通安全対策を求める陳情」。これから討論を行います。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t95">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=874s" data-timestamp="874"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:34</a>　本件に対する討論を終了することにご異議ありませんか？</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t96">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め討論を終了します。直ちに採決します。本件は起立採決をします。本件についての建設環境委員長の報告は不採択です。お諮りします。本件は不採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=906s" data-timestamp="906"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:06</a>　起立少数。よって本件は不採択と決定しました。</div><div class="say">○陳情第80号「武蔵小金井駅、東小金井両駅の改札の朝の開場時刻を早めることを求める陳情」。これから討論を行います。本件に対する討論を終了することに</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=939s" data-timestamp="939"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:39</a>　ご異議ありませんか？</div><div class="say">ご異議なしと認め討論を終了します。直ちに採決します。本件は起立採決をします。本件についての建設環境委員長の報告は不採択です。お諮りします。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=1038s" data-timestamp="1038"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:18</a>　本件は委員長報告通り、不採択の上　についての建設環境委員長の報告は採択です。</div><div class="say">お諮りします。委員長報告通り採択の上、市長に送付することにご異議ありませんか。</div><div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t97">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、本件は採択の上、市長に送付することと決定しました。</div><div class="say">陳情第104号、小金井市から小金井消防署の歩道における自転車の速度抑制等に向けた具体的措置を求める陳情。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t98">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t99">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、討論を終了します。直ちに採決します。本件は起立採決をします。本件についての建設環境委員長の報告は採択です。お諮りします。本件は委員長報告通り採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=1090s" data-timestamp="1090"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:10</a></div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t100">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">起立多数。よって本件は採択の上、市長に送付することと決定しました。</div><div class="say">陳情第105号、メタウォーターサステナブルパーク小金井の駐車場を施設の休業日等は一般有償駐車場として活用することを求める陳情。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=1122s" data-timestamp="1122"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:42</a>討論を終了します。直ちに採決します。本件についての建設環境委員長の報告は採択です。お諮りします。委員長報告通り採択の上、市長に送付することにご異議ありませんか。ご異議なしと認め、本件は採択の上、市長に送付することと決定しました。</div><div class="say">陳情第108号、栗山公園トイレ建替えにおいて女性専用トイレを最低でも1基確保することを求める陳情。これから討論を行います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=1155s" data-timestamp="1155"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:15</a>本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、討論を終了します。直ちに採決します。本件は起立採決をします。本件についての建設環境委員長の報告は採択です。お諮りします。本件は採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div><div class="say">起立少数。よって本件は不採択と決定しました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=1191s" data-timestamp="1191"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:51</a>専決第2号、専決処分の報告及び承認について（小金井市税条例の一部を改正する条例）。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、討論を終了します。</div><div class="say">直ちに採決します。お諮りします。本件について承認することにご異議ありませんか。ご異議なしと認め、本件は承認することと決定しました。</div><div class="say">専決第3号、専決処分の報告及び承認について（小金井市都市計画税条例の一部を改正する条例）。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、討論を終了します。直ちに採決します。お諮りします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=1239s" data-timestamp="1239"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:39</a>本件について承認することにご異議ありませんか。ご異議なしと認め、本件は承認することと決定しました。</div><div class="say">諮問第4号、人権擁護委員候補者の推薦について。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、討論を終了します。直ちに議会の意見を決定します。お諮りします。本件は議会として異議ない旨の意見を提出することにご異議ありませんか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=1271s" data-timestamp="1271"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:11</a>ご異議なしと認め、本件は議会として異議ない旨の意見を提出することと決定しました。</div><div class="say">議案第32号、監査委員の選任に関し同意を求めることについて。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、討論を終了します。直ちに採決します。お諮りします。本件について同意することにご異議ありませんか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=1301s" data-timestamp="1301"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:41</a>ご異議なしと認め、本件は同意することと決定いたしました。</div><div class="say">議案第33号、農業委員会委員の任命に関し同意を求めることについて。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、討論を終了します。直ちに採決します。お諮りします。</div><div class="say">本件について同意することにご異議ありませんか。ご異議なしと認め、本件は同意することと決定いたしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=1335s" data-timestamp="1335"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:15</a>議案第34号、農業委員会委員の任命に関し同意を求めることについて。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、討論を終了します。</div><div class="say">お諮りします。本件について同意することにご異議ありませんか。ご異議なしと認め、本件は同意することと決定しました。</div><div class="say">議案第35号、農業委員会委員の任命に関し同意を求めることについて。これから討論を行います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=1367s" data-timestamp="1367"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:47</a>本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、討論を終了します。直ちに採決します。お諮りします。本件について同意することにご異議ありませんか。ご異議なしと認め、本件は同意することと決定しました。</div><div class="say">議案第36号、農業委員会委員の任命に関し同意を求めることについて。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、討論を終了します。直ちに採決します。お諮りします。本件について同意することにご異議ありませんか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=1404s" data-timestamp="1404"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:24</a>ご異議なしと認め、本件は同意することと決定しました。</div><div class="say">議案第37号、農業委員会委員の任命に関し同意を求めることについて。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、討論を終了します。直ちに採決します。お諮りします。</div><div class="say">本件について同意することにご異議ありませんか。ご異議なしと認め、本件は同意することと決定しました。</div><div class="say">議案第38号、農業委員会委員の任命に関し同意を求めることについて。これから討論を行います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=1440s" data-timestamp="1440"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:00</a>本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、討論を終了します。直ちに採決します。お諮りします。本件について同意することにご異議ありませんか。ご異議なしと認め、本件は同意することと決定しました。</div><div class="say">議案第39号、農業委員会委員の任命に関し同意を求めることについて。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、討論を終了します。直ちに採決いたします。</div><div class="say">お諮りします。本件について同意することにご異議ありませんか。ご異議なしと認め、本件は同意することと決定しました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=1481s" data-timestamp="1481"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:41</a>議案第40号、農業委員会委員の任命に関し同意を求めることについて。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、討論を終了します。</div><div class="say">直ちに採決します。お諮りします。本件について同意することにご異議ありませんか。ご異議なしと認め、本件は同意することと決定しました。</div><div class="say">議案第41号、農業委員会委員の任命に関し同意を求めることについて。これから討論を行います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=1514s" data-timestamp="1514"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:14</a>本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、討論を終了します。直ちに採決します。お諮りします。本件について同意することにご異議ありませんか。ご異議なしと認め、本件は同意することと決定しました。</div><div class="say">議案第42号、農業委員会委員の任命に関し同意を求めることについて。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、討論を終了します。直ちに採決します。お諮りします。本件について同意することにご異議ありませんか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=1551s" data-timestamp="1551"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:51</a>ご異議なしと認め、本件は同意することと決定しました。</div><div class="say">議案第43号、農業委員会委員の任命に関し同意を求めることについて。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、討論を終了します。直ちに採決します。お諮りします。</div><div class="say">本件は同意することにご異議ありませんか。ご異議なしと認め、本件は同意することと決定しました。</div><div class="say">議案第44号、農業委員会委員の任命に関し同意を求めることについて。これから討論を行います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=1581s" data-timestamp="1581"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:21</a>本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、討論を終了します。直ちに採決します。お諮りします。本件について同意することにご異議ありませんか。ご異議なしと認め、本件は同意することと決定しました。</div><div class="say">議案第45号、農業委員会委員の任命に関し同意を求めることについて。これから討論を行います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=1614s" data-timestamp="1614"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:54</a>本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、討論を終了します。直ちに採決します。お諮りします。本件について同意することにご異議ありませんか。ご異議なしと認め、本件は同意することと決定しました。</div><div class="say">議案第46号、農業委員会委員の任命に関し同意を求めることについて。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、討論を終了します。直ちに採決します。お諮りします。本件について同意することにご異議ありませんか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=1650s" data-timestamp="1650"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:30</a>ご異議なしと認め、本件は同意することと決定しました。</div><div class="say">議案第54号、小金井市立小金井第一小学校校舎改築等工事建築工事請負契約について。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、討論を終了します。直ちに採決します。お諮りします。本件について可決することにご異議ありませんか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=1683s" data-timestamp="1683"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:03</a>ご異議なしと認め、本件は可決することと決定いたしました。</div><div class="say">議案第55号、小金井市立小金井第一小学校校舎改築等工事機械設備工事請負契約について。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、討論を終了します。直ちに採決します。お諮りします。本件について可決することにご異議ありませんか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=1718s" data-timestamp="1718"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:38</a>ご異議なしと認め、本件は可決することと決定しました。</div><div class="say">議案第56号、小金井市立小金井第一小学校校舎改築等工事電気設備工事請負契約について。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、討論を終了します。直ちに採決します。</div><div class="say">お諮りします。本件について可決することにご異議ありませんか。ご異議なしと認め、本件は可決することと決定しました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=1753s" data-timestamp="1753"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:13</a>日程第49、報告第3号、小金井市都市開発公社の経営状況についてを行います。報告を求めます。ご報告申し上げます。本案は地方自治法第243条の3第2項の規定により報告するものであります。</div><div class="say">細部につきましては担当部長から説明させていただきますのでよろしくお願い申し上げます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=1788s" data-timestamp="1788"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:48</a></div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t101">
   <div class="meta"><span class="name">都市整備部長</span></div>
   <div class="say">それでは細部につきましてご説明いたします。1ページをご覧ください。事業報告でございます。令和7年度におきましては都市計画道路3・4・8号線の事業用地1箇所を取得いたしました。</div><div class="say">また、都市計画道路3・4・8号線事業用地1箇所を処分いたしましたのでご報告いたします。次に2ページをご覧ください。庶務に関する事項でございます。理事会につきましては5回開催し議案11件を審議いたしました。</div><div class="say">評議員会につきましては3回開催し諮問10件を審議していただきました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=1819s" data-timestamp="1819"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:19</a>次に3ページをご覧ください。事業実績でございます。先ほど事業報告のところでお伝えしました通り、都市計画道路3・4・8号線事業用地の取得及び処分内容を記載しております。</div><div class="say">次に4ページから10ページをご覧ください。決算報告書でございます。内容につきましては資料をご覧いただきたいと存じます。次に11ページをご覧ください。監査結果でございます。令和7年度の決算監査を令和8年4月10日に行いまして、関係諸帳簿の記帳状況及び証拠書類の整備状況も適正である旨の報告書をいただいております。</div><div class="say">なお、令和8年5月7日に開催いたしました評議員会での本件に関する評議状況でございますが、賛成10、反対4で承認され、その後、理事会におきまして議決を得ております。以上で説明を終了し報告とさせていただきます。よろしくお願い申し上げます。</div><div class="say">質疑を行います。質疑を終了することにご異議ありませんか。ご異議なしと認め、質疑を終了します。以上で報告第3号を終了します。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t102">
   <div class="meta"><span class="name">企画財政部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=1977s" data-timestamp="1977"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:57</a>サ部につきましては担当部長から説明させていただきますのでよろしくお願い申し上げます。</div><div class="say">それでは、についてご報告いたします。本件につきましては、令和7年度において繰越明許費の御議決をいただきました歳出予算の経費について、その必要額を所定の様式による繰越計算書をもって報告をさせていただくものでございます。</div><div class="say">1枚おめくりいただき、令和7年度、小金井市一般会計繰越明許費繰越計算書をご覧ください。全8件の翌年度繰越額の合計は合計欄の通り15億9613万3472円となるもので、その財源内訳につきましては未収入の国庫支出金が7億4581万9000円、都支出金が3955万6886円、地方債が5億2870万円、一般財源が2億8205万7586円となるものでございます。</div><div class="say">1枚おめくりいただきまして、資料1「令和7年度小金井市一般会計繰越明許費」実施調書、もう1枚おめくりいただきますと資料2「繰越明許の打ち分けについて」となってございます。資料2「繰越明許の打ち分けについて」をご覧ください。</div><div class="say">1、コンビニ交付システム修正委託料戸籍附票記載対応分につきましては、国の補正予算に合わせて一般会計補正予算第11回において繰り越したものでございます。財源は全額国からの未収入特定財源で、一般財源は0となるものでございます。</div><div class="say">続きまして2、物価高騰対応生活応援給付金給付事業につきましては、年度内に給付が完了しない見込みであることから一般会計補正予算第9回において繰り越したものでございます。財源は未収入の国庫支出金が6億3000万円、一般財源が1億408万3890円でございます。</div><div class="say">続きまして3、戸籍情報システム修正委託料社会保障・税番号制度対応につきましては、国の補正予算に合わせて一般会計補正予算第11回において繰り越したものでございます。財源は全額国からの未収入特定財源で、一般財源は0となるものでございます。</div><div class="say">続きまして4、物価高対応子育て応援手当につきましては、年度内に給付が完了しない見込みであることから一般会計補正予算第11回において繰り越したものでございます。財源は全額国からの未収入特定財源で、一般財源は0となるものでございます。</div><div class="say">続きまして5、市道第136号線電線共同溝設置に伴う引き込み路設置委託料につきましては、事業の進捗において年度内に事業が完了しない見込みであることから一般会計補正予算第11回において繰り越したものでございます。財源は未収入の国庫支出金が462万円、都支出金が378万円、一般財源が2930万9196円でございます。</div><div class="say">続きまして6、都道134号線用地取得事業につきましては、事業の進捗において年度内に事業が完了しない見込みであることから一般会計補正予算第11回において繰り越したものでございます。財源は全額東京都からの未収入特定財源で、一般財源は0となるものでございます。</div><div class="say">続きまして7、緑小学校校舎増築に伴う法令手続き等委託料につきましては、事業の進捗において年度内に事業が完了しない見込みであることから一般会計補正予算第11回において繰り越したものでございます。財源は全額一般財源となるものでございます。</div><div class="say">続きまして8、第一小学校改築等工事につきましては、事業の進捗において年度内に支出が完了しない見込みであることから一般会計補正予算第10回において繰り越したものでございます。財源は未収入の国庫支出金が1億467万3000円、地方債が5億2870万円、一般財源が1億4632万7000円でございます。以上で地方自治法第146条第2項による報告とさせていただきますのでよろしくお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t103">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">質疑を行います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=2237s" data-timestamp="2237"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:17</a>質疑を終了することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t104">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t105">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め終了します。以上で報告第4号を終了します。</div><div class="say">日程第5、報告第5号「令和7年度小金井市情報公開条例及び個人情報保護制度の運用状況について」を行います。報告を求めます。ご報告申し上げます。</div><div class="say">本件は小金井市情報公開条例第20条の規定に基づき、同条例施行規則第9条第2項に定める事項及び小金井市個人情報保護条例第10条の規定に基づき同条例施行規則第25条第2項に定める事項に関する令和7年度の運用状況について報告するものであります。細部につきましては担当部長から説明させていただきますのでよろしくお願い申し上げます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t106">
   <div class="meta"><span class="name">総務部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=l50-Sx5RE28&t=2303s" data-timestamp="2303"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:23</a>本件につきましては情報公開条例第20条及び個人情報保護条例第10条の規定により、制度の運用状況について議会への報告と市民への公表を行うものであります。報告書の1ページをご覧ください。まず1、情報公開条例の実施状況になります。</div><div class="say">各実施機関の市政情報の公開についての実施状況についてご説明いたします。</div><div class="say">表1「市政情報の実施機関別公開の請求及び決定内容」をご覧ください。令和7年度の公開請求件数は83件で前年より41件減っております。その請求に対する可否の状況は記載の通りでございます。なお、審査請求につきましては6件ございました。</div><div class="say">報告書の2ページをご覧ください。2、個人情報保護制度の運用状況になります。</div><div class="say">表2「個人情報ファイルの作成状況」をご覧ください。個人情報ファイルとは市が保有する個人情報について、特定の個人を容易に検索できるよう体系化したものを、その存在及び概要を明らかにするために整備した帳簿になります。個人情報保護法により本人の数が1000人以上のものについて作成が義務づけられ、各課の作成傾向としては主に法令規定による事業ごとに作成されております。</div><div class="say">令和7年度末の作成数は94件でございます。</div><div class="say">続きまして3ページの表3「個人情報取り扱い登録簿の作成状況」になります。帳簿の定義は表でご説明した個人情報ファイルと同じですが、本人の数が1000人未満のものについて個人情報保護条例により作成が義務づけられ、各課の作成傾向としては主に条例規定による事業ごとに作成されております。令和7年度末の作成数は129件となってございます。</div><div class="say">次に（2）保有個人情報の目的外利用の状況ですが、当該内容につきましては9ページの次に資料としまして「令和7年度目的外利用等報告内訳」を添付しております。なお、目的外利用等の合計は499件となっております。</div><div class="say">次に4ページの表4「保有個人情報の市の機関別開示等の請求数及び決定内容」になります。開示、訂正、利用停止の請求の状況並びにこの請求に対する可否の状況は記載の通りとなっております。なお、審査請求につきましてはございませんでした。</div><div class="say">次に3、情報公開・個人情報保護審査会の運営状況でございます。表5「情報公開決定及び個人情報開示等決定に対する審査請求の状況」でございます。令和7年度中は審査請求3件について諮問の取り下げがございましたが、令和7年3月、8月及び9月に審査請求のあった6件について諮問をいたしました。</div><div class="say">次に表6「情報公開・個人情報保護審査会の答申請求のあった案件のうち5件につきまして、令和7年度に答申決定を行いました。内容は記載の通りとなっております。</div><div class="say">続きまして7ページの表7「情報公開・個人情報保護審査会の開催状況」でございます。情報公開請求及び個人情報開示請求の決定に対する審査請求の審議を行うため、令和7年度において審査会を6回開催いたしました。</div><div class="say">次に4、情報公開・個人情報保護審議会の運営状況でございます。9ページをご覧ください。令和7年度における審議会は1回開催いたしました。開催状況につきましては表8「情報公開・個人情報保護審議会の開催状況」に記載をしております。</div><div class="say">情報公開及び個人情報にかかる報告、情報公開条例及び個人情報保護条例の運用状況報告などを行いました。</div><div class="say">最後になりますが9ページ5、情報公開・個人情報保護制度の充実を目指してでございます。適正な運用の確保に資するため、令和7年度におきましては例年通り新入職員を対象にした基礎的研修を行うとともに、管理監督者向けにコンプライアンス推進・個人情報保護合同研修を行い、また正規職員及び再任用職員を対象に改正個人情報保護制度にかかる動画研修等を実施してございます。</div><div class="say">なお、市民の皆様への公表につきましては6月15日号の市報及びホームページにて公表を予定しております。報告は以上でございます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t107">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">質疑を行います。</div><div class="say">質疑を終了することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t108">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t109">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め終了します。以上で報告第5号を終了します。ここで、休憩のため、概ね1時間休憩いたします。5分からですね。5分からスタートでお願いします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=cTPJAb_81QM&t=199s" data-timestamp="199"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:19</a>再開いたします。日程第52、議案第31号「令和8年度小金井市一般会計補正予算（第2回）」を議題とします。提案理由の説明を求めます。ご提案申し上げます。本案は歳入歳出予算の総額に歳入歳出それぞれ2億1116万5000円を追加し、歳入歳出予算の総額を歳入歳出それぞれ548億7614万9000円とするものであります。</div><div class="say">この歳入歳出予算の補正の款項の区分及び当該区分ごとの金額等は第1表「歳入歳出予算補正」の通りであります。</div><div class="say">次に債務負担行為の追加は第2表「債務負担行為補正」の通りであります。以上の通り補正するため本案を提出するものであります。詳細につきましては担当部長から説明させていただきますのでよろしくご審議の上、御可決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t110">
   <div class="meta"><span class="name">企画財政部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=cTPJAb_81QM&t=264s" data-timestamp="264"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:24</a>それでは、歳入につきましてご説明いたします。予算書本文の1ページをお開きください。</div><div class="say">第2回補正予算を編成する項目につきましては、第1条の歳入の補正及び第2条の債務負担行為の補正の2項目でございます。初めに歳入予算でございますが、事項別明細書の101ページをお開きください。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=cTPJAb_81QM&t=297s" data-timestamp="297"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:57</a>款15国庫支出金、右側説明欄3「生活困窮者就労準備支援事業費等補助金」25万7000円につきましては、歳出の基幹システムに要する経費及び生活保護事務に要する経費を対象とする10/10の補助金でございます。</div><div class="say">右側説明欄5「重層的支援体制整備事業交付金」6000円につきましては、歳出の地域包括支援センター運営に要する経費を対象とする38.5%の交付金でございます。</div><div class="say">右側説明欄6「障害者総合支援事業費補助金」16万4000円につきましては、歳出の基幹システムに要する経費を対象とする1/2の補助金でございます。</div><div class="say">右側説明欄9「親子支援による虐待予防実証モデル事業費補助金」1459万7000円につきましては、歳出の親子支援実証モデル事業に要する経費を対象とする10/10の補助金でございます。</div><div class="say">続きまして、款16都支出金、右側説明欄2「民生委員及び民生委員協議会経費負担金」2016万円につきましては、歳出の民生委員等に要する経費を対象とする10/10の負担金でございます。</div><div class="say">右側説明欄18「重層的支援体制整備事業交付金」3000円につきましては、歳出の地域包括支援センター運営に要する経費を対象とする19.25%の交付金でございます。</div><div class="say">右側説明欄20「子ども・子育て居場所創設包括補助事業補助金」118万3000円につきましては、歳出の子どもの権利推進に要する経費を対象とする10/10の補助金でございます。</div><div class="say">右側説明欄24「在宅医療推進強化事業補助金」1000万円につきましては、歳出の在宅医療推進強化事業に要する経費を対象とする10/10の補助金でございます。12・13ページをお開きください。</div><div class="say">右側説明欄27「地域におけるケアプランデータ連携システム活用促進事業補助金」836万円につきましては、歳出のケアプランデータ連携システム活用促進事業に要する経費を対象とする10/10の補助金でございます。</div><div class="say">右側説明欄25「多様な他者との関わりの機会の創出事業費補助金」960万4000円につきましては、歳出の乳児等通園支援事業に要する経費、保育園維持管理に要する経費及び保育園運営に要する経費を対象とする10/10の補助金でございます。</div><div class="say">右側説明欄29「医療的ケア児保育支援事業費補助金」27万4000円につきましては、歳出の保育園運営に要する経費を対象とする3/4の補助金でございます。</div><div class="say">右側説明欄35「保育所等物価高騰緊急対策事業補助金」1239万9000円につきましては、歳出の物価高騰対策に要する経費を対象とする10/10の補助金でございます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=cTPJAb_81QM&t=489s" data-timestamp="489"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:09</a>　の補助金でございます。右側説明欄13、笑顔と学びの体験活動プロジェクト子供企画型補助金35万8000円につきましては、歳出のその他教育指導等に要する経費を対象とする10の補助金でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=cTPJAb_81QM&t=522s" data-timestamp="522"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:42</a>　続きまして、款18寄付金、右側説明欄3、頑張れ小金井寄付金クラウドファンディング分500万円につきましては、災害用トイレカーの整備にあたり、頑張れ小金井寄付金、ふるさと納税を活用したクラウドファンディングを実施するものでございます。続きまして、款19繰入金、右側説明欄1、財政調整基金繰入金1億円につきましては、財源補填するもので、繰入額の合計は14億8000万円となり、年度末の現在高見込み額は約63億8700万円となるものでございます。<br />
@@ -761,114 +767,114 @@
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=cTPJAb_81QM&t=1377s" data-timestamp="1377"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:57</a>　ただ今ご説明いたしました歳入歳出予算を款項に区分の上、2億116万5000円を追加し、予算の総額をそれぞれ548億7614万9000円とするものでございます。</div><div class="say">4ページをお開きください。第2表債務負担行為補正で3件を追加するものでございます。1件目、地域包括支援センター北施設借上げ料その2につきましては、建物の所有者である東京都住宅供給公社より管理費の増額改定が通知されたことから契約変更する必要が生じた</div><div class="say">令和8年度から令和9年度、限度額を2932万1000円とするものでございます。3件目、GHPエアコン借上げ料その2、令和8年度導入分につきましては、給食の愛汚染防止等、給食や学習等を行う専用スペースを確保する必要が生じたため、ランチルームにエアコンを設置するもので、期間を令和9年度から令和18年度、限度額を1392万6000円とするものでございます。なお、36ページの債務負担に関する補正を後ほどご覧ください。</div><div class="say">以上で説明とさせていただき、よろしくご審議の上、ご賛同いただけますようお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t111">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=cTPJAb_81QM&t=1487s" data-timestamp="1487"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:47</a>　これから歳入出一括で質疑を行うこととしますが、本件は予算特別委員会に付託し審査する予定です。本会議では対抗的な質疑を行うなど、議事の進行に特段のご協力をお願いします。また、資料要求については各議員から資料要求書を提出していただくことになっております。</div><div class="say">資料要求をされる方は6月3日、水曜日の10時までにお願いいたします。歳入出一括で質疑を行います。渡辺大議員。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t112">
   <div class="meta"><span class="name">渡辺大</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=cTPJAb_81QM&t=1519s" data-timestamp="1519"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:19</a>　はい。えっとですね、1点だけ伺いたいというふうに思うんですけれども、今回の予算を拝見しておりまして、連日かなり報道されておりますけれど、中東情勢の悪化に伴うナフサ不足の関係で、かなりいろんな影響が出ているということでありますが、この補正予算をずっと最初から最後まで読ませていただいた中では、特段そのことに関連する費目などは出てこないのかなというふうに見ているんですけれども。現状、例えば小金井市もいろいろと発注しているわけですけれども、この補正予算には出てこないけれども、今後、定例会中も含めて、こういったナフサ不足に起因して何か補正を措置しなければいけないような状況というのは既に生まれているけれども、この予算には出ていないということなのか、あるいはまだ現状そういう補正が必要になるような状況というのは出ていないということなのか、そのあたりはどう考えておけばいいか。</div><div class="say">具体的に何かあるならば、こういうことは起きているけど、この補正ではまだ措置できていないというようなことで、ちょっとご説明をいただきたいのと。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=cTPJAb_81QM&t=1582s" data-timestamp="1582"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:22</a>　あと、かなり全業種とまでは言わないんですけれども、建築関連を中心にかなり業者の方からも悲鳴 が上がっております。で、こういったものに関して、この業者の方々への支援などに関しても、この補正予算の中にはまだ予算としては組まれていないということになるんですけれども、この定例会中もしくは閉会中なども含めて、こういった業者の方への支援なども含めた何らかの予算措置、施策ということに関しては、現在検討している状況にあるのか、現時点ではそういう考えはないということなのか、そのあたりだけちょっと教えていただければと思います。</div><div class="say">以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t113">
   <div class="meta"><span class="name">財政課長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=cTPJAb_81QM&t=1614s" data-timestamp="1614"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:54</a>　はい。それでは渡辺議員からの質問で、いわゆる中東情勢に伴う予算措置についてということでございます。今現状、工事請負費に限らず修繕料、委託料、様々な費目があるかと思いますが、中東情勢に伴う値上がりにより、今年度の執行が難しくなったもの、もしくは予算に不足が生じているものというのは、それなりには出てきています。</div><div class="say">ただ金額的には少額で済んでいるということもあり、年度当初の流用なり、もしくは執行計画の変更なりということで十分対応ができておりまして、まだ補正予算に計上しなければならないような大きな影響はないというふうに考えてございます。それと、今回の補正予算においてなんですけれども、予備費を約1億円積み増しさせていただいております。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=cTPJAb_81QM&t=1676s" data-timestamp="1676"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:56</a>　これは、修繕料というのが年度当初で約1億円程度予算を組んでおりまして、やはり修繕 というのはあくまで現状回復、壊れてしまったものを直すという性質上、工事やその他、いわゆる投資的な経費というものとは違いまして、どうしても今年度中にやらなければいけない、対応しなければいけないものが多く含まれているだろうということもあり、そういったものにつきまして対応ができるよう予備費については約1億円積み増しをさせていただいて、十分対応できるように備えているというような状況でございます。</div><div class="say">以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t114">
   <div class="meta"><span class="name">市長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=cTPJAb_81QM&t=1710s" data-timestamp="1710"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:30</a>　えっと、渡辺大議員の方からは、この中東情勢を受けて、事業者支援、特に建設業協会の方々からいろんなお声も聞かれていると思うので、まあそれを含めて何か考えていることはあるのかという、こういうご質問でございました。えっと、具体的には多分一般質問でいろいろ聞かれると思うんですけども、今お答えできることはとしましては、この定例会の中で、さらに追加で何か出すっていうことを今予定していることはございません。はい。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=cTPJAb_81QM&t=1742s" data-timestamp="1742"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:02</a>　で、細かいところまた一般質問でいろいろやり取りはあると思うんですが、昨日、土木組合さんの方から面談を求められ、4月下旬に出された要請書に基づいてちょっと詳しく説明がしたいということで、面談の時間を取らせていただきました。で、やはり現場では非常に困っているということで、どういう状況が起こっているかというのを詳しく聞かせていただいたところではございます。で、一方、市としても他の地域の事業者からもいろいろ声は聞いておりますが、まだちょっと状況を見ながらですね、一自治体として何ができるかっていうのをちょっと考えないといけないなとは思っているところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=cTPJAb_81QM&t=1803s" data-timestamp="1803"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:03</a>　組合さんの方は、東京都や国へも既に働きかけているということで、私自身も個別に国などもしくはそういった国会議員などに相談させていただいたりとかしておりますので、ちょっとまず大きな枠組みでどうなのかっていうことを含めてですね、いろんな状況を見ながら、今後必要な措置というのがあれば判断していくことになろうかなと思いますが、ちょっと現段階においては今お答えした状況でございますので、これ以上申し上げることはできません。以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t115">
   <div class="meta"><span class="name">渡辺大</span></div>
   <div class="say">はい、ありがとうございます。えっとまず、本市への影響ということでは今ご説明いただいて、一定の予備費で備えてあるということでありました。また状況のどこまでどうなるかちょっと読みにくいところあるんですけれども、また状況の変化などもありましたら適宜ご報告いただきたいということはお願いしておきたいというふうに思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=cTPJAb_81QM&t=1836s" data-timestamp="1836"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:36</a>で、ご答弁の話は今市長からご答弁いただいたところでありますけれど、市長もよくご記憶のように、以前、この業者さんの支援に関してはもう周りの市が全部やったのに小金井市だけ遅れてしまって、もうドーナツ化現象みたいになったことがあって、恥ずかしい思いをしたことなどもありまして、是非今回に関してはですね、東京都の方の動きも少し注目しておかなければなりませんけれども、近隣自治体に遅れることなく十分な対策が小金井市においても取られるように、市長においてはご留意いただければありがたいと思いますし、また何か行うことになれば時期を逸してはいけないものだというふうに思っておりますので、この定例会中なのか閉会中なのか、9月議会を待たずでもやらなければいけないことが生じれば直ちに動けるような体制は取っていただきたいということだけお願いして、細かなことはこの場ではもう質問はいたしません。以上です。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t116">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=cTPJAb_81QM&t=1866s" data-timestamp="1866"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:06</a>　ほかにございますか。質疑を終了することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t117">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t118">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め質疑を終了します。お諮りします。本件は14人の委員で構成する予算特別委員会を設置し、これに付託の上審査することに、ご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t119">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t120">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、本件は14人の委員で構成する予算特別委員会を設置し、これに付託の上審査することと決定しました。お諮りします。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=cTPJAb_81QM&t=1927s" data-timestamp="1927"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:07</a>　<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=cTPJAb_81QM&t=19、 <a href=" data-timestamp="1927"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:07</a>2番中井れい子議員、4番清水学議員、5番水谷たかこ議員、7番安田けいこ議員、11番沖浦あつし議員、12番遠藤百合子議員、14番藤川賢治議員、16番水上洋志議員、17番ながとり太郎議員、18番吉良のりこ議員、20番鈴木成夫議員、23番片山かおる議員、24番森戸よう子議員、以上 14人を指名することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t121">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t122">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、ただいま指名しました14人の皆さんを予算特別委員に選任することと決定しました。ここで、ただいま設置されました予算特別委員会の正副委員長互選のためしばらく休憩します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=72s" data-timestamp="72"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:12</a>　お揃いのようですので始めます。再開します。休憩中に予算特別委員会の正副委員長互選が行われていますので、その結果をご報告します。予算特別委員長に24番森戸よう子議員、同副委員長に12番遠藤百合子議員、以上の通り決定しましたのでお知らせします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=104s" data-timestamp="104"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:44</a>　日程第5、議案第47号小金井市子供の権利の日を制定する条例を議題とします。提案理由の説明を求めます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=135s" data-timestamp="135"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:15</a>　ご提案申し上げます。</div><div class="say">小金井市子供の権利に関する条例が掲げる街づくりを目指し、子供の権利の普及を推進し、11月20日を小金井市子供の権利の日に制定するため本案を提出するものであります。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=135s" data-timestamp="135"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:15</a>　細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご賛同いただけますようお願い申し上げます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t123">
   <div class="meta"><span class="name">子供家庭部長</span></div>
   <div class="say">それでは細部につきまして説明させていただきます。本条例は小金井市子供の権利に関する条例が掲げる街づくりを目指し、子供の権利の普及を推進し、11月20日を小金井市子供の権利の日と制定するものでございます。条文の構成でございますが、前文を置いております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=166s" data-timestamp="166"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:46</a>　昨年度の小金井をおもしろくする会において参加された中学生の皆さんが検討してくれたものでございます。子供の権利の普及、意見を表明する権利と子供の声を尊重する社会の実現に向けての子供たちからのメッセージとなっております。具体的な条文が入ってまいります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=197s" data-timestamp="197"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:17</a>　第1条の目的では、小金井市子供の権利の日を定めることにより、前文の趣旨、小金井市子供の権利に関する条例に掲げる子供の権利の普及、意見を表明する権利等を推進し、子供が生き生きと健やかに安心して暮らせるまち、みらいのこがねいを作ることを目的として規定しております。第2条、子供の権利の日では、子供の権利の日を11月20日としております。第3条の事業では、第1条に規定する子供の権利の日制定の目的を達成していくため、子供の権利の普及啓発等のイベント等を通じて、自然体で子供の権利を考える機会を創出する事業について規定しているものでございます。</div><div class="say">第4条は委任規定で、この条例の施行に関して必要な事項は市長が別に定めることとしております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t124">
   <div class="meta"><span class="name">渡辺大</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=263s" data-timestamp="263"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:23</a>　に関しては、所管の常任委員会で各委員の方から十分な質疑が行われるものと思っているんです。ちょっと執行体制についてだけ伺いたいんですが、市長に直接ちょっと伺いたいんですが、今日の本会議開会前にですね、一定の人事に関しての報告がなされたところでございますが、今般ですね、この先ほど小金井市の権利の日の条例に関してですね、そこで説明されたのは、庁舎建設担当部長が、この子ども家庭部という職を兼任されて説明されたということになるわけなんです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=294s" data-timestamp="294"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:54</a>　ですけど、なぜこういう人事に年度途中になっているのかということについて伺っておきたいというふうに思います。これは、庁舎建設担当部長も自らFacebookだったんでしょうか、SNSで、こういった兼任をされたのは初めてじゃないかなということで書かれていたので、それが、私は1いちその人のものを全部チェックする趣味はないんですが、それをきちんとチェックされていた議員さんがいたようでですね、それがまた私のところにいちいち送付されてくるわけでございますけれども。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=324s" data-timestamp="324"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:24</a>　で、それで私も疑問に思ったのは、言ってみるとですね、庁舎建設担当部長っていうのは、歴史的経緯で言うと小金井市は部長の数が人口比に比べて非常に多くて、17人もいたんですね、部長が。それで削減をずっと求めてまいりまして、一旦10名まで減らすことができたんですね。様々な部長職を部長じゃなくしていったんです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=355s" data-timestamp="355"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:55</a>　ところがですね、この庁舎建設ということが現実味を帯びてきた時に、部局の方というか、当時の市長から相談があって、庁舎建設担当部長に関しては、この庁舎建設ができるまでということで、言ってみると臨時で次元的に置かれる職ということでどうだろうかっていうお話があったんで、私はずっと部長職削減をやってきたんですが、庁舎建設は非常に重たいので、仕事も山積するし、しかも終わりがありますよね、庁舎の竣工までですからということで、その点に関しては私は理解をいたしますということで、庁舎建設担当部長というのが設置され、11名の部長職になったという経過があったかなというふうに思っているんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=387s" data-timestamp="387"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:27</a>　ということで、庁舎建設担当部長に関しては、そのような非常に重要なテーマで、それの非常に、まあ一言で言ったらかなりの業務が本来あるわけなんですよね。なので、今回それで、子ども家庭部参事ということで、兼任というこの人事に関しては、非常に納得がいかないところがあって、するっと冒頭で人事の説明があったんですが、なぜこういう人事になったのか。この子どもの兼任の非常勤の執行体制にも関わることなので、きちんと説明をしていただきたい。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=418s" data-timestamp="418"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:58</a>　聞くところによれば、まずその児童青少年課長が長期欠勤状態になったということを受けて、事務取り扱いということで子ども家庭部長がその事務取り扱いということですよね。普通はそれはこれまでもあったんですよ。課長職が年度途中で何らかの理由で欠勤になってしまって、長期欠勤になってしまって、部長職が事務取り扱いをやったことは山ほど事例があります。</div><div class="say">このこと自体はいいんですよ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=449s" data-timestamp="449"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:29</a>　ただ、その事務取り扱いの、子ども家庭部長の上にですよ、今度はその子ども家庭部参事ということで、この児童青少年課長の一部業務の上にですね、庁舎建設担当部長が子ども家庭部参事という部長職として乗ることになるわけなんですね。ということになると、なぜこういう不自然な人事になるのか。子ども家庭部長が、児童青少年課長が復帰されるまでの間の事務取り扱いという、これまで通りの対応ではなぜダメだったのか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=482s" data-timestamp="482"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:02</a>　しかもですね、今日こうして小金井市子どもの権利の日条例というものがもう上程されたわけですよね。これからこういうものを作るとかいうことじゃなくて、もうこれで条例ということでは、ここであの市長の案としては完成系になってるわけですから。それに、全然別のところの部長職を持ってきて担当部長で置くということに関してはどういうことなのかが全く分からない。</div><div class="say">これからこの条例が可決されれば、この子どもの権利の日の関係のいろんなイベントなども開かれたりもすると思うんですが、これらに関してもですね、今の形で言うと、庁舎建設担当部長が子ども家庭部参事という名目のもとでこれを仕切ることになるわけですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=512s" data-timestamp="512"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:32</a>　で、私は庁舎建設担当部長はもう庁舎建設が今こういう状況になってるわけですから、やるべきことは山積してるわけであって、他の部のイベントにまで手を出してる余裕が本当にあるのかというようなことに関して非常に疑問に思っているんです。やることは山積してるんじゃないですか。もし我々はもういろんなこと、こういうこと検討してくれ、ああいうこと検討してくれって言ってますけどね。</div><div class="say">イベント担当部長やってる場合じゃないんじゃないかと思うんですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=543s" data-timestamp="543"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:03</a>　そのなぜ子ども家庭部長じゃダメなのか。また聞くところによれば児童青少年課長は一定の期間では復職する見込みもあるというふうに聞いておりますが、もしそれまでの間ならこういう不規則な人事をやる必要はいよいよないし、もし戻ってこられないというならばしかるべき課長職を誰か当てる必要があるでしょうしね。先般の選挙管理委員会の事務局長がああいう形で兼任したことも相当疑問に思っていたんですが、今回もこういう、ちょっと小金井市の長い歴史の中でも私こういうのあまり見たことないですよ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=574s" data-timestamp="574"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:34</a>　部長職がその部の課長職がいなくなったんで事務取り扱いになって、これはある。ただその上に部の部長さんが、担当部長ですよね。言ってみた参事ですから。で乗っかってるっていう、こういうものは見たこともないので、なぜこういう人事になるのか。</div><div class="say">私は庁舎建設担当部長は非常に公務員としても優秀な方だというふうに思っております。著書も数多くございます。でもね、あんまりこういう便利使いみたいなの良くないんじゃないか。前もなんかありましたよね。優秀な人には仕事が集中するとは言うんですけれどもね。</div><div class="say">こういうような人事やってるのか本当に人事政策上いいのかどうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=604s" data-timestamp="604"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:04</a>　他の職員育たないですよ。何でもかんでも困った時の〇〇さん（※聞き取れない箇所の推測）みたいになっちゃいますよ。こんなことやってたらダメなんです。こんな人事やってたら。</div><div class="say">ちゃんとこれ説明してくださいよ。私の言ってること間違ってますか、人事政策として。あのちょっとそうじゃないんだという説明をしていただけないでしょうかね。疑問に思ってる人、私以外にもここ中にたくさんいらっしゃると思いますよ。</div><div class="say">きちんとその点に関しては説明しておいていただきたいと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t125">
   <div class="meta"><span class="name">市長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=636s" data-timestamp="636"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:36</a>　はい。えっと、渡辺大さんから色々ご質問いただきました。で、人事に関することなので、本来であればあまり細かく説明すべきではないとは思いますが、その点は、お話しできる範囲で説明をさせていただくことはご了承いただきたいと思います。</div><div class="say">特殊な事情が発生しましたので、この児童青少年課の事務を担う人間を配置しなければならないということになりました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=667s" data-timestamp="667"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:07</a>　今回ですね、子ども家庭部参事という異例な取り扱いというお話もございましたが、子ども家庭部児童青少年課所管事務の業務のうち、青少年の健全育成事業及び関係団体に関する業務、これ子どもの権利の日に関することに限るということ及び学童保育に関する業務を所掌するということを、規則で整理をいたしました。ですので、所掌を明確にしたところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=699s" data-timestamp="699"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:39</a>　で、なぜこういう人事になったかというところはございましたが、正直、緊急的な特別な事情が発生しましたので、児童青少年課の業務、課長の業務を誰かが担わなければならないということになりました。で、細かいところはすいませんが、今回その状況の中で、学童含め児童青少年課の業務というのは多岐に渡る、そして難しい業務を抱えておりますので、それを担う人材というのを、我々として考えたこととなります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=730s" data-timestamp="730"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:10</a>　ただし、渡辺さんがおっしゃったように庁舎建設に関する公的説明とマネジメントを含めて部長として当然、担っていただかないといけないことは、重要な部分をやっていただいておりますので、私としては、あくまで緊急的な一時的な対応だというふうに認識をしております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=761s" data-timestamp="761"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:41</a>　この定例会迎えるにあたり、今回、子どもの権利の日の条例を皆様に提案してご説明してご可決いただければならないという状況もありましてですね、私としては一時的な対応として取らせていただいた措置でございます。この間、その後の体制について含めて検討をしておるところでございますので、ご理解いただければと思います。以上です、渡辺さん。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t126">
   <div class="meta"><span class="name">渡辺大</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=791s" data-timestamp="791"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:11</a>　行政の人事権というのは市長にありまして、我々市議会議員にあるわけではありません。ただ、やっぱりいろんな人事がこうあった時に、人事に関して疑問に思う点があった時には、こういう点は疑問に思いますよとか、人事政策上本当にこういうやり方がいいんでしょうかということに関しては、やっぱりこれは与党とか野党ではなくて、気づいた時に問題提起をしておくべきかなというふうにはやっぱり思ったんですね。先般の選挙管理委員会の時にあんまり言わなかったんですけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=822s" data-timestamp="822"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:42</a>　ちょっと今回の件は、不自然な点が非常に多すぎるなと思うのと、何て言ったらいいんでしょうかね。困ったことになった時に、この人にはやっぱ頼んじゃおうっていうことになってると他の人が育たないと思うんですよね。また本人だって、子ども家庭部の部長として様々な仕事もやってこられて、この度その子ども家庭部を離れて庁舎の担当になられたと思ったらですね、また元のところにこのことだけやってって言って、無理なやり方でしょ。</div><div class="say">こういう人事はやっぱり良くないと私は思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=853s" data-timestamp="853"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:13</a>　ただ人事権は市長にありますが、こういう考え方を持ってる議員もいるということに関しては、やっぱり頭の片隅には置いておいていただきたいし、今後人事が行われる時に関しては、私何も前例踏襲で全部やると言ってるわけじゃなくて、前例がないからやるなとかそういう気はないんですけれども、人事政策上本当にいいのかどうかとか、こう人を育てるという観点でどうかとか、いろんなことを総合的に勘案していただいて人事はやっていただきたい。その時のね、昔ある国会議員がですね</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t127">
   <div class="meta"><span class="name">渡辺大三</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=885s" data-timestamp="885"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:45</a>　もうやめられた人なんですけど、とにかく間に合わせ人事なんですよ。何かあると全部間に合わせ人事やってね、いた人がいてですね、あの、なんとか、え、衆議院議員の間に合わせ人事って呼ばれたんですけど、ま、そういう風になっちゃいけないという風にやっぱ思っていてですね、やっぱりこの人事政策を色々考えるにあたってはですね、ま、様々な観点から、ま、その場を乗り切ればいいということじゃなくてですね、様々な観点から是非考察してやっていただきたいということだけは述べて、あの、おきたいと思いますし、この不自然なこの状況に関しては、え、ま、児童青少年課長の復職などもあると思うので、あの、一刻、ま、早く解消していただく、え、いうことについては、ま、お願いをしておきたいと思いますが、ま、今日は意見にとめておきたいと思います。以上です。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t128">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">他にございますか。え、質疑を終了することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t129">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t130">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め質疑を終了します。本件は厚生文教委員会に付託します。</div><div class="say">日程第54、え、議案第48号、小金井市税条例の一部を改正する条例を議題とします。え、提案理由の説明を求めます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=949s" data-timestamp="949"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:49</a>　小金井市税条例の一部を改正する条例をご提案申し上げます。</div><div class="say">地方税法等の一部を改正する法律の施行に伴う、え、地方税法の改正により所要の改正を行うため案を提出するものであります。細部につきましては担当部長から説明させていただきますのでよろしくご審議の上ご決定いただきますようお願い申し上げます。</div><div class="say">市民部長。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t131">
   <div class="meta"><span class="name">市民部長</span></div>
   <div class="say">はい。え、それでは小金井市税条例の一部を改正する条例につきましてご説明をさせていただきます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=980s" data-timestamp="980"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:20</a>　資料1の条例要綱に沿って、え、説明をさせていただきますので、そちらをご覧ください。</div><div class="say">1趣旨についてでございます。え、令和8年度税制改正となる地方税法等の一部を改正する法律が令和8年3月31日に公布され、同年4月1日に一部規定を除きまして施行されたことに伴い小金井市税条例の一部を改正するものでございます。<br />
@@ -878,27 +884,27 @@
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=1108s" data-timestamp="1108"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:28</a>　え、本改正は特定の暗号資産取引にかかる所得につきまして他の所得と区分して課税する仕組みを導入するものであり市民税においては当該所得に対し一律3%の所得割を課すこととするものでございます。こちらは金融商品取引法及び資金決済に関する法律の一部を改正する法律の施行の日の属する年の翌年の1月1日から施行となります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=1139s" data-timestamp="1139"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:59</a>　次にかこ5再生可能エネルギー電気の利用の促進に関する特別措置法に規定する一定の発電設備に共通する設備に適用する課税標準額の特例として市町村の条例で定める割合を定める改正でございます。今回の改正は国の制度見直しに伴い対象設備の区分に応じた課税標準の割合を条例において新たに定めまたは見直すものでございます。こちらは本条例の公布の日からの施行となります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=1169s" data-timestamp="1169"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:29</a>　次にかこ6、高齢者障害者等の移動等の円滑化の促進に関する法律に規定する一定のバリアフリー改修が行われた劇場や音楽堂等にかかる固定資産税及び都市計画税の減額措置として市町村の条例で定める割合を新設する改正でございます。こちらは本条例の公布の日からの施行となります。え、(7)その他所要の規定の整備を行うものとなります。</div><div class="say">なお経過措置としまして市民税に関する経過措置と固定資産税にかかる経過措置を記載しております。また改正による影響は現時点では特段ないと見込んでおります。説明は以上となります。よろしくご審議の上ご可決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t132">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">質疑を行います。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=1202s" data-timestamp="1202"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:02</a>　え、質疑を終了することにご異議ありませんか。え、なしと認め質疑を終了します。本件は総務企画委員会に付託します。</div><div class="say">日程第55、え、議案第49号、小金井市都市計画税条例の一部を改正する条例を議題とします。提案理由の説明を求めます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=1233s" data-timestamp="1233"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:33</a>　小金井市都市計画税条例の一部を改正する条例をご提案申し上げます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=1233s" data-timestamp="1233"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:33</a>本件は地方税法等の一部を改正する法律の施行に伴い地方税法の改正により所要の改正を行うため本案を提出するものであります。細部につきましては担当部長から説明させていただきますのでよろしくご審議の上ご意見ありますようお願い申し上げます。</div><div class="say">市民部長。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t133">
   <div class="meta"><span class="name">市民部長</span></div>
   <div class="say">はい。え、それでは小金井市都市計画税条例の一部を改正する条例につきましてご説明をさせていただきます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=1264s" data-timestamp="1264"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:04</a>　え、説明にあたりましては提出させていただいた資料1の条例要綱に沿って説明をさせていただきます。合わせて資料2の新旧対照表もご覧ください。</div><div class="say">まず1趣旨です。令和8年度地方税法等の一部を改正する法律の施行に伴い小金井市都市計画税条例の一部について所要の改正を行うものでございます。え、本改正にあたりましては地方税法の改正に合わせ令和8年4月1日施行の改正事項につきましては一部を除き市長の専決処分として先ほどご報告しご承認をいただいたところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=1295s" data-timestamp="1295"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:35</a>　今回の条例改正は先決を行わなかった部分について所要の改正を行うものでございます。</div><div class="say">え、2改正内容です。高齢者障害者等の移動等の円滑化の促進に関する法律に規定する一定のバリアフリー改修が行われた劇場や音楽堂等にかかる固定資産税及び都市計画税の減額措置について市町村の条例で定める割合を1/3とするものでございます。なお税収への影響はございません。</div><div class="say">え、次に3施行期日です。この条例は公布の日から施行するものです。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=1326s" data-timestamp="1326"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:06</a>　次に4経過措置として都市計画税にかかる経過措置を記載しております。え、説明は以上となります。よろしくご審議の上ご可決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t134">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">質疑を行います。質疑を終了することにご異議ありませんか。え、ご異議なしと認め質疑を終了します。本件は総務企画委員会に付託します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=1357s" data-timestamp="1357"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:37</a>　日程第56、議案第50号、小金井市特定教育・保育施設及び特定地域型保育事業の運営に関する基準を定める条例の一部を改正する条例を議題とします。え、提案理由の説明を求めます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=1390s" data-timestamp="1390"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:10</a>　小金井市特定教育・保育施設及び特定地域型保育事業の運営に関する基準を定める条例の一部を改正する条例をご提案申し上げます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=1390s" data-timestamp="1390"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:10</a>　児童福祉法等の一部を改正する法律の一部の施行に伴う子ども家庭庁関係内閣府令の整備等に関する内閣府令の施行に伴う特定教育・保育施設及び特定地域型保育事業並びに特定子ども・子育て支援施設等の運営に関する基準の改正により規定を整備する必要があるため本案を提出するものであります。細部につきましては担当部長から説明させていただきますのでよろしくご審議の上ご決定ありますようお願い申し上げます。部長。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t135">
   <div class="meta"><span class="name">子ども家庭部長</span></div>
   <div class="say">え、それでは、え、小金井市特定教育・保育施設及び特定地域型保育事業の運営に関する基準を定める条例の一部を改正する条例についてご説明いたします。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=1423s" data-timestamp="1423"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:43</a>　児童福祉法等の一部を改正する法律の一部施行に伴う子ども家庭庁関係内閣府令の整備等に関する内閣府令の施行に伴い特定教育・保育施設及び特定地域型保育事業並びに特定子ども・子育て支援施設等の運営に関する基準が改正されたことにより規定を整備する必要があるため一部改正を行うものです。</div><div class="say">え、議案資料の新旧対照表をご覧ください。<br />
@@ -907,93 +913,93 @@
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=1516s" data-timestamp="1516"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:16</a>　え、以上で説明を終わらせていただきます。</div><div class="say">よろしくご審議の上ご可決賜りますようよろしくお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t136">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">質疑を行います。質疑を終了することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t137">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t138">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め質疑を終了します。本件は厚生文教委員会に付託します。</div><div class="say">日程第57、議案第51号、小金井市家庭的保育事業等の、え、設備及び運営に関する基準を定める条例の一部を改正する条例を議題とします。え、提案理由の説明を求めます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=1550s" data-timestamp="1550"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:50</a>　小金井市家庭的保育事業等の設備及び運営に関する基準を定める条例の一部を改正する条例をご提案申し上げます。</div><div class="say">児童福祉法等の一部を改正する法律の一部の施行に伴う子ども家庭庁関係内閣府令の整備等に関する内閣府令の施行に伴う家庭的保育事業等の設備及び運営に関する基準の改正により、え、規定を整備する必要があるため本案を提出するものであります。細部につきましては担当部長から説明させていただきますのでよろしくご審議の上ご決定ありますようお願い申し上げます。部長。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t139">
   <div class="meta"><span class="name">子ども家庭部長</span></div>
   <div class="say">はい。え、それでは小金井市家庭的保育事業等の設備及び運営に関する基準を定める条例の一部を改正する条例についてご説明いたします。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=1619s" data-timestamp="1619"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:59</a>　児童福祉法等の一部を改正する法律の一部施行に伴う子ども家庭庁関係内閣府令の、え、整備等に関する内閣府令の施行に伴い家庭的保育事業等の設備及び運営に関する基準が改正されたことにより規定を整備する必要があるため一部改正を行うものです。</div><div class="say">議案資料の新旧対照表をご覧ください。児童福祉法等の一部を改正する法律の一部の施行に伴い3歳以上児限定小規模保育事業が創設されたことから内閣府令に準じて規定の追加整理等を行うものとなります。この条例は公布の日から施行するものとしております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=1650s" data-timestamp="1650"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:30</a>　改正による影響ですが、本市には、え、対象となる事業所がございませんので、え、特段の影響はなく財政的措置も不要となります。以上で説明を終わらせていただきます。よろしくご審議の上ご可決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t140">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">質疑を行います。質疑を終了することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t141">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t142">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め質疑を終了します。本件は厚生文教委員会に付託します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=1680s" data-timestamp="1680"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:00</a>資料配布のため若干休憩します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=1733s" data-timestamp="1733"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:53</a>再開します。</div><div class="say">日程第58、議案第52号、小金井市立保育園における入所等通園支援事業に関する条例の一部を改正する条例を議題とします。提案理由の説明を求めます。小金井市立保育園における入所等通園支援事業に関する条例の一部を改正する条例をご提案申し上げます。</div><div class="say">本市私立保育園において子ども誰でも通園制度を実施するにあたり規定を整備する必要があるため本案を提出するものであります。細部につきましては担当部長から説明させていただきますのでよろしくご審議の上ご決定ありますようお願い申し上げます</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=1839s" data-timestamp="1839"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:39</a>東京都の上乗せである多様な他者との関わりの機会の創出事業も実施するため、条例を改正するものです。本改正により、月48時間を上限として、3歳の誕生日後、最初に迎える3月31日まで利用可能となり、市民サービスの向上に資するものでございます。</div><div class="say">それでは議案資料新旧対照表をご覧ください。まずは題名です。児童福祉法に定めるこども誰でも通園支援事業と、東京都の上乗せ事業である多様な他者との関わりの機会の創出事業を合わせて実施することから、両者を包含する呼称として、題名を「こども誰でも通園制度」と改正しております。</div><div class="say">第1条は、上乗せ事業を実施することに伴う改正の趣旨規定の改正です。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=1870s" data-timestamp="1870"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:10</a>　第2 項以降は規定の整備となります。この条例は令和8年7月1日から施行するものとなります。以上で説明を終わらせていただきます。よろしくご審議の上、ご可決たまわりますようお願い申し上げます。</div><div class="say">質疑を行います。質疑を終了することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t143">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t144">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、質疑を終了します。本件は厚生文教委員会に付託します。</div><div class="say">お諮りします。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=1902s" data-timestamp="1902"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:42</a>　お手元に配布してあります追加日程第 1を日程に追加し議題とします。これにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t145">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t146">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、追加日程第1を日程に追加し議題とすることと決定しました。</div><div class="say">追加日程第1、議案第53号「東京都市公平委員会共同設置規約の変更について」を議題とします。提案理由の説明を求めます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=1935s" data-timestamp="1935"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:15</a>　ご提案申し上げます。 令和8年4月1日付けで、東京都六市協定事業組合が東京都六市ボートレース事業組合に、東京都四市協定事業組合が東京都四市ボートレース事業組合に名称を変更したことから、東京都市公平委員会共同設置規約を変更する必要があるため、地方自治法第252条の7第3項の規定により準用する同法第252条の2の2第3項の規定により本案を提出するものであります。</div><div class="say">詳細につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご可決たまわりますようお願い申し上げます。 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=1974s" data-timestamp="1974"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:54</a></div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t147">
   <div class="meta"><span class="name">総務部長</span></div>
   <div class="say">はい。詳細についてご説明いたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=2005s" data-timestamp="2005"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:25</a>　本件は、職員の給与、勤務時間、その他の勤務条件に関する措置要求についての審査や、職員に対する不利益な処分についての不服申し立てに対する採決等の事務を処理するため、本市を含む13市と10の一部事務組合で共同設置しております東京都市公平委員会に関しまして、共同設置団体である東京都六市協定事業組合が東京都六市ボートレース事業組合に、東京都四市協定事業組合が東京都四市ボートレース事業組合に名称を変更したことに伴い、東京都市公平委員会共同設置規約を変更する必要が生じましたので、地方自治法第252条の7第3項の規定により議会の議決を求めるものでございます。</div><div class="say">議案資料新旧対照表をご覧ください。共同設置する地方公共団体を掲げた別表の改正でございます。</div><div class="say">附則でございます。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=2037s" data-timestamp="2037"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:57</a>　この規約は、東京都知事への届け出の日から施行し、令和8年4月1日から適用するものでございます。説明は以上でございます。よろしくご審議の上、ご可決たまわりますようお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t148">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">質疑を行います。質疑を終了することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t149">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t150">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、質疑を終了します。本件は総務企画委員会に付託します。</div><div class="say">お諮りします。6月3日は本会議の予定ですが、議事の都合により休会とすることにご異議ありませんか。 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=KQWe998MB20&t=2072s" data-timestamp="2072"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:32</a></div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t151">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t152">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">ご異議なしと認め、6月3日は休会とすることと決定しました。</div><div class="say">以上で本日の日程は全て終了しました。本日はこれをもって散会します。</div>
 </div>
@@ -1029,5 +1035,53 @@
     addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
   </script>
 
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
 </body>
 </html>

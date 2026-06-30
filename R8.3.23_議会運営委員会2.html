@@ -77,6 +77,12 @@
     .hero{padding:14px 0 22px;} .sum{padding:18px;}
     .turn{padding:12px 0;} .say{font-size:15.5px;}
   }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
 </style>
 </head>
 <body>
@@ -91,7 +97,7 @@
     <span class="src">YouTube字幕＋AI校正による記録（非公式）</span>
   </header>
 
-  <section class="sum reveal">
+  <section class="sum reveal" id="summary">
     <p class="lab">A I 要 約</p>
     <div>
       <h3>提出議案の一覧</h3>
@@ -136,57 +142,57 @@
     <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
   </section>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t0">
   <div class="meta"><span class="name">座長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOZmpxGL-Xs&t=14s" data-timestamp="14"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>00:14</a>　お疲れ様です。今の市長の発言を受けて、議案第8号の討論で変更がある方を確認したいと思うんですが、皆さんから変更がある方いらっしゃったら、はい。あ、いいですか。手挙げてた。あ、そうです。ごめんなさい、大きいから。あ、じゃあ自民党さん。はい。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t1">
   <div class="meta"><span class="name">不明</span></div>
   <div class="say">自由民主党でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOZmpxGL-Xs&t=45s" data-timestamp="45"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>00:45</a>　議案第8号令和8年度一般会計予算討論でお願いします。賛成討論。はい。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t2">
   <div class="meta"><span class="name">座長</span></div>
   <div class="say">で、あとは次は、はい。じゃあ太田さん。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t3">
   <div class="meta"><span class="name">太田</span></div>
   <div class="say">議案第8号賛成で、小林でお願いします。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t4">
   <div class="meta"><span class="name">座長</span></div>
   <div class="say">はい。あとは、じゃあ清水さん。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t5">
   <div class="meta"><span class="name">清水</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOZmpxGL-Xs&t=77s" data-timestamp="77"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:17</a>　変更だけ申し上げます。私、まちの仲間たちも先ほど反対討論といたしましたけれども、しっかりと責任を持って賛成討論とさせていただきます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t6">
   <div class="meta"><span class="name">座長</span></div>
   <div class="say">他は大丈夫でしょうか。はい、坂井さん。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t7">
   <div class="meta"><span class="name">坂井</span></div>
   <div class="say">はい。私もですね、議案第8号一般会計予算ですが、反対討論します。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t8">
   <div class="meta"><span class="name">座長</span></div>
   <div class="say">反対ですね。はい。ただ、〇〇さんと〇〇さんと〇〇さんは変更なし。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOZmpxGL-Xs&t=107s" data-timestamp="107"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:47</a>　変更なしですね。はい。じゃあ変更はそれだけですね。共産党からも一応反対討論でエントリーしてますので、先ほどは大変申し訳ありませんでした。これは変わらずで申し訳ありません。じゃあこれでよろしいでしょうか。もう1回確認しますか。</div><div class="say">じゃあ賛成討論が、みらいのこがねい沖浦さん、あと自民党の〇〇さん、あと公明党小林さん、あとは、小金井をおもしろくする会の水谷さん、あとは、生活者ネット安田さん、まちの仲間たちの清水さん、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOZmpxGL-Xs&t=153s" data-timestamp="153"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:33</a>　ですかね。賛成討論〇〇さん言いました。安田さん言いましたね。はい。</div><div class="say">で、反対討論が共産党、子どもの権利を守る会渡辺大三さん、あとれいわの村上さんと、〇〇の藤川さん、あと緑つながる小金井の坂井さん。はい。ということで、間違いないんですかね。はい。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOZmpxGL-Xs&t=186s" data-timestamp="186"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:06</a>　じゃあ、そういうことで、よろしくお願いします。これだけでよろしかったんでしたっけ。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t9">
   <div class="meta"><span class="name">坂井</span></div>
   <div class="say">〇〇の並び替えがあるんで、ちょっと時間をください。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t10">
   <div class="meta"><span class="name">座長</span></div>
   <div class="say">はい。ということですのでよろしくお願いします。どうもお疲れ様でした。</div>
 </div>
@@ -222,5 +228,53 @@
     addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
   </script>
 
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
 </body>
 </html>

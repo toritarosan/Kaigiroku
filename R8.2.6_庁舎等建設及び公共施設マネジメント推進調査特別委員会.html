@@ -81,6 +81,12 @@
     .hero{padding:14px 0 22px;} .sum{padding:18px;}
     .turn{padding:12px 0;} .say{font-size:15.5px;}
   }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
 </style>
 </head>
 <body>
@@ -95,7 +101,7 @@
     <span class="srcbadge"><span class="dot"></span>本文＝小金井市議会 公式会議録（DBSR）</span><span class="src official">本文は公式会議録を一字一句そのまま掲載。要約はAIによる補助、タイムスタンプ・動画はYouTube連携（いずれも非公式の付加情報）。　|　<a href="https://www.city.koganei.tokyo.dbsr.jp/542592?Template=document&amp;Id=10351" target="_blank" rel="noopener">公式会議録の原典 ↗</a><span class="genmeta">本文は公式会議録と一致確認済み（verbatim）。要約はAIによる生成で、小金井市議会の公式見解ではありません。<br>最終生成日 2026-06-30</span></span>
   </header>
 
-  <section class="sum reveal">
+  <section class="sum reveal" id="summary">
     <p class="lab">A I 要 約</p>
     <h3>提出議案等一覧</h3>
 <ul>
@@ -135,7 +141,7 @@
     <p class="cap">動画を再生しながら会議録を読めます（YouTube・2本）</p>
   </section>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t0">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say">おはようございます。ただいまから庁舎等建設及び公共施設マネジメント推進調査特別委員会の会議を開きます。</div>
   <div class="say">直ちに本日の議事に入ります。</div>
@@ -144,13 +150,13 @@
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t1">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say">ご異議なしと認め、そのように決定いたします。</div>
   <div class="say">部局から報告事項の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t2">
   <div class="meta"><span class="name">山崎庁舎建設等担当課長</span></div>
   <div class="say">それでは、企画財政部庁舎建設等担当より、新庁舎・（仮称）新福祉会館建設事業の検討状況について、口頭報告させていただきたいと思います。</div>
   <div class="say">新庁舎・（仮称）新福祉会館建設事業の検討状況についてご報告いたします。令和７年12月16日開催の当委員会でお示しした、今後の対応に係る方策を中心に、財政面に与える影響や発注時期について、建設市場の動向などを分析しつつ、慎重に検討してまいりました。その結果、現時点における一定の考え方がまとまりましたので、現在、第１回市議会定例会でお示しできるよう、庁内手続及び最終的な調整を進めているところです。</div>
@@ -158,12 +164,12 @@
   <div class="say">報告は以上です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t3">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say">これから質疑を行います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t4">
   <div class="meta"><span class="name">森戸委員</span></div>
   <div class="say">今、冒頭、課長からそういう報告があって、本来なら市長からどうするのかという報告が私はあるべきだと思います。</div>
   <div class="say">一つ伺いたいのは、これまで検討していることは、12月16日に私たちに示された今後の対応に関わる選択肢についてを中心に、財政状況や発注状況なども含めて検討をしているということなわけです。12月16日の選択肢については、いろいろな意見がこの委員会で出されたんですよね。私も批判的に意見を申し上げました。しかし、そういうことがどういうふうに反映されているのかということがよく見えないんです。私たちは、市民から提案されている見直し案を含めてしっかりと検討の中に入れるべきだということを申し上げましたが、そういう検討は行っていないということなんでしょうか。陳情でも、意見というか、そういう提言もされておりますけれども、その点でいかがでしょうか。</div>
@@ -172,7 +178,7 @@
   <div class="say">それとあわせて、少なくとも第１回定例会で示すとおっしゃるんですが、どこの段階で示すんですか。施政方針ですか。それとは別に市長報告を行って本会議で説明をされるのか、それとも全員協議会を開いてそこで示されるのか、どういうところで示されようとしているのか、その辺りも伺っておきたいと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t5">
   <div class="meta"><span class="name">渡辺委員</span></div>
   <div class="say">森戸委員に関連で伺いたいと思います。今、冒頭で課長から一定のご発言があったかなと思っているんですけれども、今の課長のご発言の中でちょっと分からなかったところは森戸委員に関連して伺っておきたいと思うんです。</div>
   <div class="say">第１回定例会の議案書が週明け月曜日に配布されると聞いております。市長の新年度の施政方針が議案書の中に入って配布されるものと考えているんです。それで、月曜日に配布するものでありますので、当然のことながら、そこで配布されるものに関しては、もう庁議でも当然一定の決定を見ているもので、まさかこの土日に臨時庁議を開くわけでもないでしょうから、既に決まっているものと考えているんです。ただ、今の課長の冒頭のご発言では、第１回定例会で示すために最終調整をこれからするというお話、最終調整という言葉をさっき使われましたよね。となると、森戸委員からも今確認があったんですが、施政方針にはどういうふうにするのかという方針は明記されていないと。今、これから最終調整とおっしゃっていますよね。そうすると、もう既に印刷が終わって、あとは配るだけになっているものには、その方針は載っていないと理解をすればいいのか。そこら辺のところがちょっと、何というんでしょうか、つまり、これから議案書と施政方針が同時に送付される関係で言うと、施政方針はどういうことになっているのか。もちろんまだこれから配られるものだから、中身に踏み込んで議論するものではないんですけれども、今言われた、一定の考えがまとまったということなんですけど、まとまった一定の考えというものは、施政方針には載っていないという理解でよろしいんでしょうか。その辺りは明確にしておいていただきたいと思います。載っているというんだったら、議案書が送付されたらすぐに取りにこなければいけないんですけれども、載っていないんだったらさほど急がないのかもしれませんが、ちょっとそこがよく分からなかったです。</div>
@@ -182,29 +188,29 @@
   <div class="say">それから、委員長、陳情が出ておりますので、本当は１件１件丁寧に審査すべきだと思っているんですが、何分そういうことで、これから考え方が示されるという中であっては、今日ここで一つ一つを深めるにもちょっと限界はあるかなと思うので、今日はそういう総論的なところと、第１回定例会がどういうことになるのかというところを解明するところまでかなとは思っているので、そこにとどめておきたいと思うんですが、ただ、今、森戸委員や私から聞いたことは大事な点だと思うので、この委員会でそこはきちんと、何がこれから行われようとしているのかということはちゃんと共有した上で今日は締めた方がいいと思っているので、ぜひ適切な答弁が出るように委員長からも整理をお願いしたいと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t6">
   <div class="meta"><span class="name">森戸委員</span></div>
   <div class="say">議事進行。冒頭、課長からの報告だったんです。私は極めて失礼だと思っているんです。本来なら市長なり部長なりが、こうこうこういう方向で考えておりますと、よろしくお願いしますという、それだけ重いものなのではないんですか。したがって、課長ではなく、やはり部長や市長がしっかりと答弁をしていただきたいと思いますので、委員長からもぜひそういうふうに促していただきたいと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t7">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say">今、森戸委員から議事進行いただきました。課長からの報告があったわけですけど、森戸委員としては、それは部長若しくは市長がするべきではないかということだったんですが、一応質問に対してこれから答えることがありますので、まず答えの内容を聞いてみてからでいかがかと思っておりますが、一旦それで進めさせていただいてよろしいですか。（「それは部長や白井市長が答弁した方がいいのではないかと言っているわけです。課長もかわいそうよ。私たちの答弁に答えるのだって」と呼ぶ者あり）</div>
   <div class="say">他に関連の方はいらっしゃいますか。一瞬、手が挙がるかと思ったんです。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t8">
   <div class="meta"><span class="name">渡辺委員</span></div>
   <div class="say">議事進行。今、森戸委員からあったのはなかなか含蓄のある議事進行でありまして、やはり庁舎建設に関することで、事細かな数字の話とか事務的な話であれば別に課長でいいんですよ。ただ、大方針の話と議会対応の話ですから、となれば、答弁する側もそれなりの方がそれなりの立場からご説明なり議会に理解を求めるというのがあるべき姿かなと思っていて、全て市長が答弁しろということは言いませんけれど、今問われていることは、市長なり、部長なり、副市長なり、それなりの責任のある方がやはりきちんとお話をされる方が適切かなと私も思って聞いていますので。ただ、こちらはそういうことを言っているだけで、それを強要することにはなりませんけど、ぜひ市長にも部局にもそれを踏まえた答弁のありようは考えていただきたいと議事進行上は申し上げておきたい。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t9">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say">他に関連の方はいらっしゃいませんか。よろしいですね。</div>
   <div class="say">それでは、答弁を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t10">
   <div class="meta"><span class="name">高橋庁舎建設等担当部長</span></div>
   <div class="say">森戸委員と渡辺委員からご質問を頂いております。</div>
   <div class="say">ちょっと全体的なことで申し上げますのでご了承いただきたいと思いますが、まず、今日の時点では、例えば森戸委員から頂いている、幾らまでだったら市として進めていけるのかということについては、個別具体的な数字を申し上げることはできません。</div>
@@ -214,14 +220,14 @@
   <div class="say">漏れているところとかがありましたら、ご指摘いただければと思います。私からの答弁は、一旦以上となります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t11">
   <div class="meta"><span class="name">森戸委員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=40s" data-timestamp="40"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>00:40</a>今、全体的にどういう方向性をとったらよいのかということを議論していて、個別に検討するということにはなっていないということだったわけです。ということは、施政方針で考え方を示したいということなので、結局どう進むのかということは出てこないということなんですか。</div>
   <div class="say">それで、先ほども渡辺委員からありましたけど、施政方針でいきなりこうなんだということを出されるというのはあまりにも乱暴だなと思うわけです。やはりある程度、事前に私たちにも、こういう方向でいきたいと思っているという表明なり、相談があってもいいのではないかと思いますが、そういう相談は、市長を支えていらっしゃる小金井をおもしろくする会を始め、庁舎建設を推進されている会派の皆さんなども含めて、私たちには全然そういう相談がないから、見直せという会派にはないから、そういう推進をされているところも含めて相談をなさった上で施政方針に明記をしたということなんでしょうか。その辺りは、私たちはいつも見直しで頑張っているものだから、私たちに話してもしようがないと思っていらっしゃるのかもしれませんが、あまりにも乱暴だと言わざるを得ないですね。もっと丁寧にやってくださいよ。でなければ、また３月の第１回定例会がどうなるか分からない。今、現時点では考え方そのものも何が出てくるのか分からないから何とも言えないんですが、ちょっとやり方が私はよろしくないと。少なくとも施政方針に書いてあるんだったら、その施政方針の内容について、全員協議会なり各会派を集めた場所で、こうこうこうなんだという議論をしないと私はまずいと思うんです。そういう考えを市長は持たなかったんですか。もういきなり出して、いきなり議論してくださいという話でもういいんだということで進められるのかどうか、その辺りは伺っておきたいと思います。</div>
   <div class="say">幾らだったらということも含めて、あまりしっかりと検討されていないのか、財政調整を今進めているとかいろいろおっしゃっているんですが、何か雲の中にいるような状況で、今日何のためにこれを開いたのかなと言わざるを得ないですね、もう本当に。その点では、やはりしっかりと具体的な方向性についてここでも明らかにしていただきたいと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t12">
   <div class="meta"><span class="name">渡辺委員</span></div>
   <div class="say">一定のご答弁を部長からいただいたところです。ちょっと五里霧中な感じではあるわけなんですが、今のお話ですと、施政方針の中にも何がしかの文言が入っているような感じで受け止めました。いずれ月曜日に議案が配布されて、施政方針も配布されますので、それを見た上で議論をすることになるのかなと思っているんです。ただ、先ほど来申し上げたような懸念は持っていまして、庁舎建設でありますので、となると、やはり進め方として、今さっき申し上げたとおり、九つの案プラスアルファみたいな、何というんでしょうか、メニューがだーっと並んだということはありました。では、そこから絞り込んでいくに当たって、施政方針を読んでみないと分からないんだけれども、ステップで言うと、一足飛びに一点買いの方に走っているのか、何かそうではない次のステップ、一つに絞るのではなくて、その次のステップに向けてのことが施政方針に書いてあるのか、そこら辺は読んでみないと何とも言えないので、この段階で読んでいないものを前提の質疑はいたしませんけれども、さっき言ったように、庁舎建設ですから、やはり丁寧に進めていく必要があると思っているので、その点に関しては申し上げておきたいと思います。</div>
   <div class="say">あと、財政の関係ですよね。やはり都内の23区の方でも延伸などということなどもあったり、庁舎建設に限らず、いろんな大型の公共施設の建設に関しては、小金井市に限らず大変な思いもされている中で、ただ、小金井市の場合は、先般来もずっと議論していますけれども、やはりまだまだ財政的には非常に大きな需要のあるものがいろいろある中で、なかなか庁舎建設にだけ優先的に財源を振り分けるという財政状況に、今、小金井市はないと考えております。そういう中で、我々は疑問は持っていますけども、議会が議決している予算は130億円ということになりますので、この間示されてきた考え方でも、130億円の中に収めるにはどうしたらいいのかという選択肢も行政側で自ら用意され、あと、私の一般質問への答弁でも、言ってみるとコストダウンを図っていくという中で、それにはこういう考え方もある、あるいはこういう考え方もあるということで、これは行政自らの考え方も少なからずそういった考え方については示されている中でありますのでね。と考えると、我々としては、まず、一つ一つステップを追うんだったら、これまでも行政のいろんな考え方の途中経過とか、コストダウンする場合にはこういうやり方は有用だとか、こういうのが効果的だということもいろいろ行政側としての考え方は示されていますから、どの案が一番適切なのかということに関してより深めていくのがまさに第１回定例会においての重要な作業なのであって、これに決めましたと一点買いでやって大混乱を起こすのが第１回定例会の主眼ではなくて、今、行政側から示されている様々な選択肢、プラスアルファでいろんな選択肢もあるかもしれないけれども、やはりこれの優位性を検討して、また、小金井市が置かれている財政状況とか今後の行政需要から考えて、どれが取り得る選択肢なのかと深めていく作業がまず必要なのかなと思うんです。</div>
@@ -230,44 +236,44 @@
   <div class="say">今日の段階ではそのぐらい、意見だけ述べておいて、ぜひ市長におかれても、担当におかれてもその辺りを十分ご留意いただいて、第１回定例会に臨んでいただきたいということだけ申し上げて、終わらせていただきます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t13">
   <div class="meta"><span class="name">高橋庁舎建設等担当部長</span></div>
   <div class="say">今、森戸委員、それから渡辺委員の方はご意見だったと思いますが、丁寧に進めるべきだということであったり、森戸委員の方からは、会派代表者会議とか全員協議会を開くべきではないかというご意見がございましたが、今の段階で、私の方でこうしますという考えがまとまっているわけではございません。ただ、市議会の皆さんとのコミュニケーションを丁寧に進めるべきということについては、私も日頃、意識をしているつもりでございますので、そういったことも踏まえて、今後対応については庁内でも検討してまいりたいと考えております。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t14">
   <div class="meta"><span class="name">森戸委員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=40s" data-timestamp="40"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>00:40</a>丁寧に進めていきたいということなんですが、いずれにしても、施政方針では新庁舎等建設の考え方を示したいと。今後の方向性ではなく、考え方というのはどういうことですか、考え方とは。漠然としていてよく分からないんですよ。どういうことなのかということです。その点を確認したいのと、では、事前に議員の皆さんは誰もこのことは知らないということですねということを確認しているので。知っていたら大変なことだと思うけど、大変だとは思わないんだけど、やはり大変ですよ。一部にしか話していないとかいうことであればね。（「前は与党の議員にだけ予算書を配っていたんだよ」と呼ぶ者あり）そういうこともありますから。そういう点で、全体には誰にも示されていないということは確認してよいのかどうか伺います。</div>
   <div class="say">今日の話を聞いていても、一定の考え方がまとまったと。財政調整についても今進めているんだということなんですが、２月16日から議会が始まるわけですけれども、施政方針が一番最初にあるわけですよね。この１週間で財政調整、渡辺委員の質問に対して、財政調整も進めていて、これは一定、方向性も含めて議会に示すことができるということですか。先ほど言われた中期財政計画の見直しも含めて出すことができるということなのか。よく分からないから、ちょっと無駄な質問をしているのではないかと、今、私は思っているんですよ。中身が分からないからね。だから、この時間は無駄だったと思うかもしれないので、本当にやっていて悶々としているんです、質問していて悶々としているんですが、財政調整では、本会議までには何らかの方向性が出せるということでよいのかどうか伺います。考え方とは一体何なんだということです。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t15">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say">どなたが答弁されますか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t16">
   <div class="meta"><span class="name">高橋庁舎建設等担当部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=40s" data-timestamp="40"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>00:40</a>国語の時間みたいな感じなんですけど、考え方と方針ということなんですが、私としては、今後どういう対応をしていくのかという市の大きな方向性、方針の考え方がまとまったという意味合いで捉えておりますので、何が違うのかと問われると、同義語ととっていただいてもいいのかなと思っております。</div>
   <div class="say">それから、財政の見通しの話なんですけれども、これは企画財政部の中でも今議論をしているところですので、本会議までにお示しできるかというと、そこについては現段階で明確にできますと答弁できないということで、現時点でお答えをさせていただきたい。ただ、やはり大きな事業費を伴う事業ですので、一定のそういう数字の面もやはりお示しをしないと説明にはならないのかなと担当としては考えておりますので、今後ともしかるべきタイミングでご説明ができるよう庁内でも調整をしていきたいと考えます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t17">
   <div class="meta"><span class="name">渡辺委員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=126s" data-timestamp="126"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:06</a>多分、私以外の人も今首をかしげたと思うんですけど、財政の整合性がつくから考え方がまとまるのではないですか。考え方がまとまって、それに財政の方を合わせるんですか。というふうに聞こえるではないですか、今の話だと。だって、まだ財政の話は財政当局とついていないということなんでしょう。ただ、一定の考え方はまとまって、もう施政方針に載っていると言うんでしょう。ということは、方針が先にありきで、財政は後からつじつまを合わせるということなんですか。ということになってしまうから、今の答弁は順番が逆なんですよ。何かの考え方や方針をまとめるんだったら、財政的にもきちんと整合するような形でとって方針がまとまると。それが施政方針。施政方針は重いものですからね。施政方針にうたうというんだったら、それをきちんと裏付ける財政的な分析から全部終わっての話ですよ。それを、財政の方は後からつじつまを合わせて、方針だけ先にぼんと出して、あとは何とか財政的にはそれに合うように財政フレームは作文してもらいましょうというんだったら、そういう話が公の議事録に残るところで行なわれてはいけないんですよ。財政的にも全部、一分の隙もないぐらいきちんと分析ができて、大丈夫だということがあるから方針がまとまるのね、庁舎建設等担当部長。だから今の話は、これから財政と話がどうとかと言われると、聞いていてすごく大丈夫なのかなと思うので。私の言いたいことは分かりますよね。そこはちゃんとした説明をしていただけないですか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t18">
   <div class="meta"><span class="name">高橋庁舎建設等担当部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=214s" data-timestamp="214"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:34</a>すみません、ちょっと誤解を招くようなというか、言葉が足らなかったかと思いますが、私どもは当然検討するに当たっては、内部的に数字の精査等もしております。それをどういうふうに表現していくのかというところについて内部で調整をしているということでございますので、財政は後回しで後からつじつまを合わせるとか、そういう考え方で私どももこの間進めてきておりませんので、そこについては先ほどの私の答弁が不明確だったなと反省しておりますので、よろしくご理解いただければと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t19">
   <div class="meta"><span class="name">森戸委員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=258s" data-timestamp="258"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:18</a>議事進行。本当に残念ですね。市長からは何も一言もない、ここまで来て。しかも、さっきもあったように、もう暗中模索というか、現時点で何が出てくるのかも分からないという中で、今後どういう方向性で進めるのかということも含めて、方向性も考え方も同じだとおっしゃったわけですけれども、その点からすると、議会に対して極めて不誠実です。市長からも、市長としてどういう考えなのかということぐらいはやはり答弁すべきです。そのことは意見として申し上げておきたいと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t20">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=319s" data-timestamp="319"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:19</a>ということですけども、何かありますか。意見でよろしいですね。</div>
   <div class="say">他にございますか。いかがでしょう。他になければ、よろしいでしょうか。</div>
@@ -275,7 +281,7 @@
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t21">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=373s" data-timestamp="373"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:13</a>それでは、休憩いたします。</div>
   <div class="say">午前９時41分休憩</div>
@@ -283,7 +289,7 @@
   <div class="say">午前９時42分開議</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t22">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=453s" data-timestamp="453"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:33</a>再開します。</div>
   <div class="say">７陳情第78号、現設計での庁舎等建設の頓挫を踏まえ、すみやかに「新しい設計」の準備を始めることを求める陳情書。</div>
@@ -291,269 +297,269 @@
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t23">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=467s" data-timestamp="467"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:47</a>ご異議なしと認めます。したがって、本件は保留と決定いたしました。</div>
   <div class="say">──────────────────</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t24">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=475s" data-timestamp="475"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:55</a>次に、７陳情第91号、２回の入札不調に至った原因究明を求める陳情書。</div>
   <div class="say">お諮りいたします。本件は現時点での質疑を終了し、保留といたしたいと思います。これにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t25">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=490s" data-timestamp="490"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:10</a>ご異議なしと認めます。したがって、本件は保留と決定いたしました。</div>
   <div class="say">──────────────────</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t26">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=496s" data-timestamp="496"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:16</a>次に、７陳情第92号、市民要望の反映と設計条件・入札条件の見直しを求める陳情書。</div>
   <div class="say">お諮りいたします。本件は現時点での質疑を終了し、保留といたしたいと思います。これにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t27">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=506s" data-timestamp="506"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:26</a>ご異議なしと認めます。したがって、本件は保留と決定いたしました。</div>
   <div class="say">──────────────────</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t28">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=516s" data-timestamp="516"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:36</a>次に、７陳情第93号、「予算上限１３０億円未満に納めるための提案」を求める陳情書。</div>
   <div class="say">お諮りいたします。本件は現時点での質疑を終了し、保留といたしたいと思います。これにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t29">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=528s" data-timestamp="528"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:48</a>ご異議なしと認めます。したがって、本件は保留と決定いたしました。</div>
   <div class="say">──────────────────</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t30">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=536s" data-timestamp="536"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:56</a>次に、７陳情第94号、新たなスタートを新たな体制で始めることを求める陳情書。</div>
   <div class="say">お諮りいたします。本件は現時点での質疑を終了し、保留といたしたいと思います。これにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t31">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=549s" data-timestamp="549"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:09</a>ご異議なしと認めます。したがって、本件は保留と決定いたしました。</div>
   <div class="say">──────────────────</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t32">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=554s" data-timestamp="554"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:14</a>次に、７陳情第106号、二度の入札不調の意味を深く受け止め、シナリオＡ・Ｂ・Ｃの選択を行わないことを求める陳情書。</div>
   <div class="say">お諮りいたします。本件は現時点での質疑を終了し、保留といたしたいと思います。これにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t33">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=570s" data-timestamp="570"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:30</a>ご異議なしと認めます。したがって、本件は保留と決定いたしました。</div>
   <div class="say">──────────────────</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t34">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=575s" data-timestamp="575"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:35</a>次に、７陳情第107号、シナリオＤ「誰も否定しない・市民の笑顔が生まれる環境を整える案」の検討と入札要綱の早期策定を求める陳情書。</div>
   <div class="say">お諮りいたします。本件は現時点での質疑を終了し、保留といたしたいと思います。これにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t35">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=592s" data-timestamp="592"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:52</a>ご異議なしと認めます。したがって、本件は保留と決定いたしました。</div>
   <div class="say">──────────────────</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t36">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=601s" data-timestamp="601"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:01</a>次に、７陳情第108号、９月１８日特別委員会における議員各位の質疑および行政側回答に対する補足を求める陳情書。</div>
   <div class="say">お諮りいたします。本件は現時点での質疑を終了し、保留といたしたいと思います。これにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t37">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=616s" data-timestamp="616"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:16</a>ご異議なしと認めます。したがって、本件は保留と決定いたしました。</div>
   <div class="say">──────────────────</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t38">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=622s" data-timestamp="622"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:22</a>次に、７陳情第109号、「設計ではない」見直し案を通して「設計とは」を説明する機会を求める陳情書。</div>
   <div class="say">お諮りいたします。本件は現時点での質疑を終了し、保留といたしたいと思います。これにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t39">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=635s" data-timestamp="635"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:35</a>ご異議なしと認めます。したがって、本件は保留と決定いたしました。</div>
   <div class="say">──────────────────</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t40">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=641s" data-timestamp="641"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:41</a>次に、７陳情第122号、その１　小金井市新庁舎・新福祉会館建設事業　１２月議会における市長部局の方針予測と課題分析に関する陳情書。</div>
   <div class="say">お諮りいたします。本件は現時点での質疑を終了し、保留といたしたいと思います。これにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t41">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=659s" data-timestamp="659"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:59</a>ご異議なしと認めます。したがって、本件は保留と決定いたしました。</div>
   <div class="say">──────────────────</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t42">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=666s" data-timestamp="666"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:06</a>次に、７陳情第123号、その２　小金井市新庁舎・新福祉会館建設事業　市民の願いが息づく庁舎へ行政に求められる判断と建築の公共的価値に関する陳情書。</div>
   <div class="say">お諮りいたします。本件は現時点での質疑を終了し、保留といたしたいと思います。これにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t43">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=686s" data-timestamp="686"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:26</a>ご異議なしと認めます。したがって、本件は保留と決定いたしました。</div>
   <div class="say">──────────────────</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t44">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=697s" data-timestamp="697"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:37</a>次に、７陳情第124号、その３　新庁舎・新福祉会館建設事業における執行権の適正化と合意形成プロセスの改善に関する提言に関する陳情書。</div>
   <div class="say">お諮りいたします。本件は現時点での質疑を終了し、保留といたしたいと思います。これにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t45">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=714s" data-timestamp="714"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:54</a>ご異議なしと認めます。したがって、本件は保留と決定いたしました。</div>
   <div class="say">──────────────────</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t46">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=720s" data-timestamp="720"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:00</a>次に、７陳情第125号、その４　小金井市新庁舎・新福祉会館建設事業　課題の本質と変革への提言に関する陳情書。</div>
   <div class="say">お諮りいたします。本件は現時点での質疑を終了し、保留といたしたいと思います。これにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t47">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=736s" data-timestamp="736"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:16</a>ご異議なしと認めます。したがって、本件は保留と決定いたしました。</div>
   <div class="say">──────────────────</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t48">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=742s" data-timestamp="742"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:22</a>次に、７陳情第126号、庁舎及び福祉会館の設計の見直しに関する陳情書（その１）。</div>
   <div class="say">お諮りいたします。本件は現時点での質疑を終了し、保留といたしたいと思います。これにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t49">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=756s" data-timestamp="756"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:36</a>ご異議なしと認めます。したがって、本件は保留と決定いたしました。</div>
   <div class="say">──────────────────</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t50">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=763s" data-timestamp="763"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:43</a>次に、７陳情第127号、庁舎及び福祉会館の設計の見直しに関する陳情書（その２）。</div>
   <div class="say">お諮りいたします。本件は現時点での質疑を終了し、保留といたしたいと思います。これにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t51">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=779s" data-timestamp="779"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:59</a>ご異議なしと認めます。したがって、本件は保留と決定いたしました。</div>
   <div class="say">──────────────────</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t52">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=784s" data-timestamp="784"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:04</a>次に、７陳情第128号、庁舎及び福祉会館の設計の見直しに関する陳情書（その３）。</div>
   <div class="say">お諮りいたします。本件は現時点での質疑を終了し、保留といたしたいと思います。これにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t53">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=815s" data-timestamp="815"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:35</a>ご異議なしと認めます。したがって、本件は保留と決定いたしました。</div>
   <div class="say">──────────────────</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t54">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=815s" data-timestamp="815"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:35</a>次に、７陳情第129号、庁舎及び福祉会館の設計の見直しに関する陳情書（その４）。</div>
   <div class="say">お諮りいたします。本件は現時点での質疑を終了し、保留といたしたいと思います。これにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t55">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=815s" data-timestamp="815"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:35</a>ご異議なしと認めます。したがって、本件は保留と決定いたしました。</div>
   <div class="say">──────────────────</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t56">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=815s" data-timestamp="815"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:35</a>お諮りいたします。以上で、調査項目２について現時点での質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t57">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=828s" data-timestamp="828"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:48</a>ご異議なしと認め、調査項目２について現時点での質疑を終了いたします。</div>
   <div class="say">次に、庁舎等建設及び公共施設マネジメントの推進に係る諸問題の調査の調査項目１、公共施設マネジメントの推進について、（１）公共施設等総合管理計画について（個別事業計画は除く）を議題といたします。</div>
   <div class="say">部局から報告事項の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t58">
   <div class="meta"><span class="name">郷古公共施設マネジメント推進担当課長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=861s" data-timestamp="861"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:21</a>それでは、企画財政部公共施設マネジメント推進担当より、小金井市公共施設在り方・再編方針（案）に対する意見募集の実施につきまして報告させていただきます。</div>
   <div class="say">本方針案は、小金井市公共施設等総合管理計画に基づき、公共施設の再編に向けた考え方を整理するため、公募市民、学識者等によって構成されます公共施設在り方検討委員会による検討を踏まえまして作成したものでございます。本方針案につきましては、小金井市市民参加条例第15条の規定に基づきまして、市民及び在勤者の意見募集、パブリックコメントを令和８年１月23日から２月24日まで実施しているところでございます。寄せられたご意見に対する回答につきましては、令和８年３月頃、市ホームページにて公表する予定でございます。あわせまして、本方針案に関しまして市民説明を行うために、２月１日に市民懇談会を開催したところでございます。</div>
   <div class="say">報告は以上になります。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t59">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=917s" data-timestamp="917"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:17</a>これから質疑を行います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t60">
   <div class="meta"><span class="name">水谷委員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=940s" data-timestamp="940"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:40</a>小金井市公共施設の在り方・再編方針に係る市民懇談会について、今ご報告いただいたところです。私はこれに参加させていただきました。元々２回予定されていたものが、急な選挙の予定が入ったということで、２回目の予定が中止になってしまったところです。参加したところ、そのときに説明されたスライドは今ホームページにもう公開していただいていますけれども、このスライド自体はとても分かりやすかったと思っていますし、説明の中身も、初めて聞く人にとっても、今までどういうことをやってきて、大きな方針としては何を考えているのかというのが伝わりやすいものだったと思いますので、パブリックコメントをより多くの方に出していただくために、再度お知らせをする意味で、自動の音声読み上げの機能などを使ってこのスライドを耳でも聞きながら受け止めることができるような工夫をしていただけないかと思います。目で見るのが得意な方もいれば、私は耳でも聞きながらの方が中身が入っていきやすいというところがありますのでご検討いただきたいんですが、その点だけ伺います。ご検討いかがでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t61">
   <div class="meta"><span class="name">郷古公共施設マネジメント推進担当課長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=1021s" data-timestamp="1021"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:01</a>水谷委員から頂きました。スライドの関係で、音声を入れて、動画という形になると思うんですけども、ということをやってみないかというご質問かと思います。以前、たしか沖浦委員からも、公共施設マネジメントの関係で、動画等を使ってもっと普及した方がいいのではないかというご意見を頂いているところで、まだ我々の方で対応できないところがあって申し訳ないところはあるんですが、その点も含めまして、我々の方で他の事業においてもパワーポイントとかスライドの編集ソフトを使って音声とかを入れて公開している事例もあるのは拝見していますので、できるところから対応させていただけるように努力していきたいと思いますので、そのようにご答弁させていただきます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t62">
   <div class="meta"><span class="name">水谷委員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=1075s" data-timestamp="1075"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:55</a>ご答弁ありがとうございました。</div>
   <div class="say">期日もそんなに長くないので、手間をかけて、お金をかけてということではなく、技術も使って、簡便なもので構いませんので、よろしくお願いします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t63">
   <div class="meta"><span class="name">沖浦委員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=1092s" data-timestamp="1092"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:12</a>公共施設のＬＥＤ化事業について、大きく２点ほど伺いたいと思います。</div>
   <div class="say">今、時期的には設置工事等の最終盤というか、大詰めになってきていると理解をしております。約５、６か月前ぐらいに進捗状況というか、どういう感じで進んでいますかとお伺いしたんですけれど、またこのタイミングで進捗状況をお伺いしたいと思います。一応当初のスケジュール的には今年の３月末で工事完了予定と。４月から省エネルギー効果の検証、保証業務等の開始ということで予定されているかとは思いますけれども、何かそこに時期的な変更というか、微修正が出ているのかどうかというところを一応状況としてご報告いただければと思っております。</div>
   <div class="say">もう１点なんですけれども、ＬＥＤ化をされた施設の関係者というかそういう方から、例えばこれは小金井 宮地楽器ホールなんですが、舞台関係の担当の方が、ＬＥＤ化されて、今までできなかった照明をいろいろすることができるようになったと。前は消したらつくのに時間がかかるから切替えができなかったんだけれども、それが普通にできるようになったと。すごくありがたいというか、でも他のホールではもう既にそういうことができるようになっているから、やっと普通になったんだけどねと言って苦笑いをされていましたけれども、そういう効果を感じている関係者の方、あとは利用者の方ももういらっしゃるのかなと思っていまして、何か変わったみたいな、そういう声というか、そういうのを市民の方からどういう形で受けているか、何かありましたら、それもご報告いただければと思っております。以上２点です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t64">
   <div class="meta"><span class="name">郷古公共施設マネジメント推進担当課長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=1262s" data-timestamp="1262"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:02</a>まず、沖浦委員の１点目でございます。進捗状況でございますが、１月23日時点で、全体で80％の進捗状況になっております。正直申し上げまして、昨今のＬＥＤの需要の増加によりまして、機器の納品のスパンというか期間というのがかなり厳しいというところは事業者の方から相談を再三受けているところでございますが、現状、３月末で工事を完了する見込みという形で調整をさせていただいておりますので、予定どおり３月までに工事の方は終わらせまして、４月からは維持管理、効果検証という形のところを考えております。本来、予定では２月ぐらいで全てのところを完了させられればという思いはあったんですが、なかなか納期の関係とかもございまして、３月にずれ込みそうだという形ではありますが、工事自体は３月で完了する予定と考えているところでございます。</div>
   <div class="say">それから、２点目の各施設のご意見というところになりますが、私なんかは企画財政部にいる関係でなかなか直接お話を伺う機会はないんですけども、間接的にはなりますが、まず、学校施設の体育館になりますが、今まで水銀灯だった関係で、つけるまでに約30分とか15分とかかかってからでないとつかないところが一瞬でつく形になりましたので、教員の先生たちの負担が少し減ったというようなお話と、あと、校長先生の方からは、明るくなりましたというお声を頂いているところが１点ございます。</div>
@@ -561,14 +567,14 @@
   <div class="say">それから、削減補償の関係になります。学校施設だけ今個別でお話を伺っているんですが、学校施設も予定どおり大体８月、９月ぐらいで全体の８割ぐらいが終わっているんですけども、100万円単位で電気料の削減が行われているのは、今実際として確認できておりますので、削減効果も含めて、今、効果としてはかなり出ているのではないかと考えているところでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t65">
   <div class="meta"><span class="name">沖浦委員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=1403s" data-timestamp="1403"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:23</a>詳細なご報告をありがとうございます。</div>
   <div class="say">今、調達等の厳しい状況の中でも工事を予定どおり進めていただいている、ご努力いただいているということで、進捗管理をしっかりやられているのではないかと受け止めました。こちらについては、引き続きよろしくお願いしますと申し上げておきたいと思います。</div>
   <div class="say">質問は特になくなると思うんですけれども、ＬＥＤ化工事をした結果というか、その効果が費用の削減効果にとどまらず、照明が明るくなったとか、先ほどご紹介いただいた体育館の、つけても徐々にしか明るくならないようなところが一瞬で明るくなったと。そういうところは、ある意味、すぐそこの中での活動ができるという、いわゆる時間短縮とか、係の方の負担軽減とか、そういうところにも二次的、三次的につながってくるという良い効果も出ていることをご報告いただきました。そういういろいろいい効果が出ているということで、これからまた削減効果、光熱費等の効果についてはどこかの時点で、ある程度の期間、こんな感じで進んでいますと。今学校施設の方ではかなりその効果が出ているという数字も示されましたけれども、どこかでそういう資料的なものを今後要求をさせていただいて、多分まだやるには今のタイミングは早いのかなと。またどこかでそういう資料要求もさせていただきながら、しっかり効果の確認もさせていただければと思っておりますので、よろしくお願いいたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t66">
   <div class="meta"><span class="name">森戸委員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=1556s" data-timestamp="1556"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:56</a>今、公共施設在り方・再編方針に対する意見募集をされているということでありまして、これはこれでどういうふうに意見が出てくるかなということがあるかと思います。</div>
   <div class="say">ちょっと伺いたいのは、公共施設の再編の方向性という文章の中でよく分からない表現があるので確認したいんですが、39ページのエリア別の再編の方向性というところで、（１）地域コミュニティエリアにおける再編の方向性の上から２行目、「このため、すべてのエリアに同じ機能を一律に配置するのではなく、地域ごとの実情に応じて必要な機能を整理し、適切な配置とすることが必要です」と述べているんです。同じ機能というのは何を指すかというと、例えば集会施設は同じ機能なわけですよね。しかし、集会施設があることで市民活動が非常に活発に行われているということであるとすると、同じ機能を一律に配置するのではなくというのはどういうことなんですか。もう何か所も地域にある集会所は集約化することになっていくということなんでしょうか。ちょっと表現としてというか、この言葉の中に見えてくるものが、では集会施設は減らしていくんだということにつながっていくのかどうか。普通の市民が読んでいて言葉が非常に分かりづらいので、ちょっと説明をしていただけないでしょうかということです。</div>
@@ -577,7 +583,7 @@
   <div class="say">それから四つ目には、私はかなり前から、市民の、利用者の声を聞くべきだと言っています。この中では、「市民ワークショップ、アンケート、地域団体や施設利用者との意見交換、パブリックコメント等を検討内容に応じて実施することで、地域のニーズに対応した公共施設再編を進めます」とあるんです。例えば保育園なんかを見ても、いろんな声が、反対の声が多かったわけですが、そういう利用者の存続してほしいという声などが全く無視されて進められていくことになっていくと、やはりいろんなところで問題が出てくるのではないかなと思います。だから基本は施設利用者の声を大切にするやり方をとっていく必要があるのではないか、反対が多ければ見直すことも考えるべきではないかと思うんですが、そういうことはここには一切出ていないので、市としてはどういうふうに考えていらっしゃるのか、見解を伺います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t67">
   <div class="meta"><span class="name">郷古公共施設マネジメント推進担当課長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=1927s" data-timestamp="1927"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:07</a>森戸委員から頂きましたご質問について、順次ご答弁させていただきます。</div>
   <div class="say">まず１点目、方針案の39ページ、全てのエリアに同じ機能を一律に配置するのではなくというところの説明ということでご質問いただいたかと認識しております。こちらに関しましては、今回、エリアごとによって必要な公共機能というのは地域の特性や状況によって変わってくるのかなと私たちの方では考えておりますので、その状況に応じた公共施設の配置を今後検討していきたいという考えの中でこういった文言を書いております。したがいまして、今、委員の方でご紹介いただきました、集会施設を潰していくとかいう話を今この段階でしているわけではなくて、今後そのエリアの中においてどういった機能が必要なのかというのを考えていきましょうという中でこういった表現を使っているとご答弁させていただければと思います。</div>
@@ -586,7 +592,7 @@
   <div class="say">それから、最後の利用者の関係のところでございます。これは以前もご答弁したかと思いますけども、現段階では大きい市の方針をつくっているところになりまして、当然、具体的な個々の施設の再編を考えていく中では、方針案の45ページの「市民参加による検討の深化」というところにも書いてございますけども、利用者との意見交換等というところは明示させていただいておりますので、その辺のところは前からもご答弁差し上げていますが、今後の検討の中では、利用者の声も聞きながら対応していきたいと考えておりますので、そのように対応していきたいというところでご答弁させていただきます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t68">
   <div class="meta"><span class="name">森戸委員</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=2128s" data-timestamp="2128"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:28</a>１点目は、地域の特性が状況によって変わっていくと。どういった施設が必要なのかということを検討していくということであって、その施設をなくすということではないということなんですかね。ただ、人口の減少の状況を見ても、例えば地方みたいに人口が半分に減るという予測ではないわけですよね、今回のこの分析の状況を見ると。だから大幅に集会施設を減らしたりとかそういうことでもないのかなと、私は東京の特性というのはあると思うんですよね。しかも、生産人口が減っていき、高齢者人口が増えるというのがあるんですけど、高齢者が今働き始めているわけですよ。65歳以上、年金ももらえないから、働かなければ。今度は70歳になる可能性もあってね。そうすると、70歳まではある意味生産人口にもなっていくわけですよ。だからそういう意味で言うと、この分析の中で、高齢者が増えて生産人口が減るから財政的にも厳しくなるとか、そういうことにはなっていっていないのかなと思うわけです。この分析でいくと、その辺りが非常に実態に合っていないのではないかなと思っていて、今までどおりの考え方でしか分析されておらず、ある意味、今後の方向性にもちょっと影響するのではないかなと思っています。その点では、状況によって変わっていくということなんですが、それは分からない話の中で答弁されてはいると思いますが、もう少しその辺りは実態をよく見た表現の仕方を含めて、考えていく必要があったのではないかなということは申し上げておきます。</div>
   <div class="say">それから分析の点で、利用実態などはこの施設の考え方をつくった上で令和８年度以降に考えていくということなんですが、私はそこをしっかりと見ていかないと、せっかく市民の集会施設などは特に交流が多く進められていて、とにかく東公民館が閉鎖になっていることで、東町地域はもうにっちもさっちもいかない状況なんです。やはり一つの施設で修繕や大規模修繕をやって閉館にするとかということになれば、代替施設はどうしても必要になってくるわけですから、そういう余裕を持った施設を保持していくことは、特に小金井市はそれでなくても公共施設は少ないと言われている中なわけですから、やはりやっていくべきだということは申し上げておきたいと思います。</div>
@@ -595,19 +601,19 @@
   <div class="say">今日はもう意見だけにしておきますので、また出来上がった次の段階も含めて、しっかりと意見は申し上げていきたいと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t69">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=2431s" data-timestamp="2431"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:31</a>他にございますか。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t70">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=2475s" data-timestamp="2475"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:15</a>お諮りいたします。以上で、調査項目１の（１）について、現時点での質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t71">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=2481s" data-timestamp="2481"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:21</a>ご異議なしと認め、調査項目１の（１）について、現時点での質疑を終了いたします。</div>
   <div class="say">次に、庁舎等建設及び公共施設マネジメントの推進に係る諸問題の調査の調査項目１、公共施設マネジメントの推進について、（２）跡地活用についてを議題といたします。</div>
@@ -615,26 +621,26 @@
   <div class="say">（「特にございません」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t72">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say">これから質疑を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t73">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=2481s" data-timestamp="2481"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:21</a>お諮りいたします。以上で、調査項目１の（２）について、現時点での質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t74">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=2481s" data-timestamp="2481"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:21</a>ご異議なしと認め、調査項目１の（２）について、現時点での質疑を終了いたします。</div>
   <div class="say">お諮りいたします。庁舎等建設及び公共施設マネジメントの推進に係る諸問題の調査については、引き続き調査する必要があると認め、継続調査といたしたいと思います。これにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t75">
   <div class="meta"><span class="name">吹春委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=jPDEYSYrk-g&t=2506s" data-timestamp="2506"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:46</a>ご異議なしと認めます。したがって、本件は継続調査と決定いたしました。</div>
   <div class="say">以上で、本日の日程は全部終了いたしました。</div>
@@ -673,5 +679,53 @@
     addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
   </script>
 
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
 </body>
 </html>

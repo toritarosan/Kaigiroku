@@ -77,6 +77,12 @@
     .hero{padding:14px 0 22px;} .sum{padding:18px;}
     .turn{padding:12px 0;} .say{font-size:15.5px;}
   }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
 </style>
 </head>
 <body>
@@ -91,7 +97,7 @@
     <span class="src">YouTube字幕＋AI校正による記録（非公式）</span>
   </header>
 
-  <section class="sum reveal">
+  <section class="sum reveal" id="summary">
     <p class="lab">A I 要 約</p>
     <div>
       <h3>提出議案の一覧</h3>
@@ -128,162 +134,162 @@
     <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
   </section>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t0">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qUI0a8l4l1s&t=27s" data-timestamp="27"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>00:27</a>　じゃあ、どうもお疲れ様です。議会運営委員会協議会始めます。まず、議員提出議案の討論なんですが、討論ありますか？</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t1">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">なし。うち。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t2">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">あ、どうぞ。清水さん。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t3">
   <div class="meta"><span class="name">清水 学</span></div>
   <div class="say">私じゃないですよ。みらいのこがねいで、議員提出議案第2号、都立病院への意見書が反対討論、藤川さんです。以上です。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t4">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">はい。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t5">
   <div class="meta"><span class="name">森戸 よう子</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qUI0a8l4l1s&t=58s" data-timestamp="58"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>00:58</a>　共産党、ちょっといくつかありまして申し訳ありません。議員提出議案第3号、統一協会の関係、賛成討論。議員提出議案第5号、賛成討論、森戸。あの、アメリカ、イスラエル及びイランにおけるってやつですね。</div><div class="say">あと、議員提出議案第7号の、庁舎建設の市民説明を求める決議に賛成討論、〇〇。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qUI0a8l4l1s&t=89s" data-timestamp="89"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:29</a>　議員提出議案第8号、市民交流センター委託料その2に関する決議に反対討論、森戸です。4本です。はい、すいません。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t6">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">後はありますか？討論。じゃあ、討論で採決態度は従前通りということでよろしくお願いします。で、あとはちょっと委員会に入って、審査案件は議長の諮問事項1件ということで、請願・陳情の付託先委員会と議会運営委員会継続審査議決についてということになります。皆さんから何かありますか？</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qUI0a8l4l1s&t=128s" data-timestamp="128"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:08</a>　はい、じゃあお願いします。ただ今から議会運営委員会の会議を開きます。直ちに議事に入ります。当委員会に付託されております案件は議長の諮問事項1件であります。議長からお手元に議会運営委員会協議事項が提示されておりますので、その順序に従って順次協議をしていきたいと思います。</div><div class="say">議会運営に関する議長の諮問事項について議題といたします。</div><div class="say">初めに協議事項（1）請願・陳情の追加分の付託先委員会についてを行います。議長の諮問案が示されておりますので議長から説明をお願いいたします。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t7">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qUI0a8l4l1s&t=167s" data-timestamp="167"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:47</a>　はい。3月18日の午後5時までに受け付けました陳情は、陳情5件です。詳細につきましては事務局から説明いたします。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t8">
   <div class="meta"><span class="name">事務局長</span></div>
   <div class="say">はい。8陳情第9号から8陳情第13号までの付託先委員会につきましては、お手元の請願・陳情の委員会追加予定表の通りでございます。なお、発言申し出につきましては、委員会前日までに発言申し出が、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qUI0a8l4l1s&t=199s" data-timestamp="199"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:19</a>　できますことを申しておきます。以上の通り付託するというのが議長の諮問案でございます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t9">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">議長及び事務局の説明を終わりました。ご意見、ご質疑等ございますか？</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t10">
   <div class="meta"><span class="name">水谷 たかこ</span></div>
   <div class="say">はい。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t11">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">はい。水谷さん。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t12">
   <div class="meta"><span class="name">水谷 たかこ</span></div>
   <div class="say">はい。陳情の付託先として、私もちょっと悩んではいるんですけれども、8陳情第9号の定額給付金の申請締め切りについて入院という特殊事情への配慮を求める陳情書。今、厚生文教委員会に付託先となってるんですが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qUI0a8l4l1s&t=229s" data-timestamp="229"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:49</a>　これはなんか、入院という特殊事情があった場合に各種給付金の申請締め切りに関する制度設計をお願い申し上げますという風に最後に書いてあるので、確かにこの定額給付金の所管は、当時地域福祉課だったとは思うんですが、給付金で言うと市でやっている制度全般に関わるのかなと思って、そういう特別な対象を検討するんだったら、総務企画委員会かなとも思ったんですけど。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qUI0a8l4l1s&t=261s" data-timestamp="261"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:21</a>　いかがでしょう？</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t13">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">その他皆さんからありますか？よろしいですかね？はい。どうですか？この点何か。定額給付金が結局地域福祉課関係なので厚生文教委員会ってことかなとは思うんですが。はい。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t14">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">そのままでいいと思います。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t15">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qUI0a8l4l1s&t=297s" data-timestamp="297"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:57</a>　ということで、はい。他、うん。じゃあ清水さん。はい。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t16">
   <div class="meta"><span class="name">清水 学</span></div>
   <div class="say">あ、座ってていいんですか？</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t17">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">うん。いいです。議会。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t18">
   <div class="meta"><span class="name">清水 学</span></div>
   <div class="say">私はあの、当たってすいません。私はこの、提案のままでいいかと思います。以上です。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t19">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">他ありますか？ご提案の通りで、もしあれだったら、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qUI0a8l4l1s&t=331s" data-timestamp="331"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:31</a>　異議を出していただければと思いますが、異議なしで水谷さんよろしいでしょうか？そういうことで。じゃあ、お諮りいたします。本件につきましてはお手元に配布しております予定表（案）の通り、決定することにご異議ありませんか？</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t20">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t21">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">ご異議なしと認め、請願・陳情の付託先委員会についてはお手元の予定表の通り決定いたしました。次に協議事項（2）議会運営委員会継続審査議決について行います。お諮りいたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qUI0a8l4l1s&t=364s" data-timestamp="364"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:04</a>　次期定例会（臨時会を含む）の会期及び会議等、議会運営に関する調査、議会の会議規則・委員会条例等に関する調査、議会運営に関する議長の諮問事項について、閉会中もなお継続して調査することにご異議ありませんか？</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t22">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t23">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">ご異議なしと認めます。従ってただ今申し上げました通り、閉会中もなお継続して審査することと決定いたしました。協議事項（3）その他でございますが、何かご発言ございますか？</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qUI0a8l4l1s&t=395s" data-timestamp="395"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:35</a>　以上で当委員会に付託されております案件の審査は全て終了いたしました。これで議会運営委員会の会議を閉じ、散会いたします。ということで、協議事項の2番、令和8年度定例会の日程について。次長。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t24">
   <div class="meta"><span class="name">事務局次長</span></div>
   <div class="say">はい。すいません。令和8年度の定例会日程ですが、第2回、令和8年の日程ですね。第2回定例会6月2日が初日ということと、あと令和9年の第1回定例会において日曜議会を施政方針で、ということをご確認いただきましたので、それを整理しました日程表をお配りさせていただきました。</div><div class="say">ご確認いただければと思います。以上です。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t25">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qUI0a8l4l1s&t=436s" data-timestamp="436"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:16</a>　はい。よろしいでしょうか？</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t26">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">はい。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t27">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">じゃあ、3番、議会避難訓練開催報告書について。内容これでご確認いただけましたか？</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t28">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">はい。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t29">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">はい。じゃ、そういうことでホームページに掲載するということで。はい。よろしいでしょうか？</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t30">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">はい。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t31">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">その他皆さんからありますか？事務局からよろしいですか？じゃあ、以上で議会運営委員会を終わります。</div><div class="say">◯（呼ぶ声）<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=qUI0a8l4l1s&t=468s" data-timestamp="468"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:48</a>　お疲れ様です。した。した。討論ないんだ、みんな。</div>
@@ -320,5 +326,53 @@
     addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
   </script>
 
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
 </body>
 </html>

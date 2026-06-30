@@ -81,6 +81,12 @@
     .hero{padding:14px 0 22px;} .sum{padding:18px;}
     .turn{padding:12px 0;} .say{font-size:15.5px;}
   }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
 </style>
 </head>
 <body>
@@ -95,7 +101,7 @@
     <span class="srcbadge"><span class="dot"></span>本文＝小金井市議会 公式会議録（DBSR）</span><span class="src official">本文は公式会議録を一字一句そのまま掲載。要約はAIによる補助、タイムスタンプ・動画はYouTube連携（いずれも非公式の付加情報）。　|　<a href="https://www.city.koganei.tokyo.dbsr.jp/707687?Template=document&amp;Id=10364" target="_blank" rel="noopener">公式会議録の原典 ↗</a><span class="genmeta">本文は公式会議録と一致確認済み（verbatim）。要約はAIによる生成で、小金井市議会の公式見解ではありません。<br>最終生成日 2026-06-30</span></span>
   </header>
 
-  <section class="sum reveal">
+  <section class="sum reveal" id="summary">
     <p class="lab">A I 要 約</p>
     <h3>提出議案等一覧</h3>
 <ul>
@@ -163,7 +169,7 @@
     <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
   </section>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t0">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=196s" data-timestamp="196"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:16</a>おはようございます。ただいまから本日の会議を開きます。</div>
   <div class="say">昨日、予算特別委員会の正副委員長互選が行われておりますので、その結果をご報告します。</div>
@@ -174,13 +180,13 @@
   <div class="say">─────── ◇ ───────</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t1">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=219s" data-timestamp="219"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:39</a>日程第１、議案第９号、令和８年度小金井市国民健康保険特別会計予算を議題とします。</div>
   <div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t2">
   <div class="meta"><span class="name">市長（白井　亨）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=233s" data-timestamp="233"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:53</a>おはようございます。議案第９号、令和８年度小金井市国民健康保険特別会計予算をご提案申し上げます。</div>
   <div class="say">本案は、歳入歳出予算の総額を歳入歳出それぞれ111億6,638万8,000円と定めるものであります。この歳入歳出予算の款項の区分及び当該区分ごとの金額は、第１表、歳入歳出予算のとおりであります。</div>
@@ -190,7 +196,7 @@
   <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t3">
   <div class="meta"><span class="name">市民部長（深澤　亘）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=299s" data-timestamp="299"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:59</a>おはようございます。それでは、細部についてご説明申し上げます。</div>
   <div class="say">初めに、令和８年度小金井市国民健康保険特別会計予算の主な特徴でございます。都道府県が区市町村ごとの国民健康保険事業費納付金の額を決定し、保険給付に必要な費用を全額区市町村に対して支払う形の新たな制度の下での９年目となります。歳入面におきましては、国民健康保険事業の主たる財源であります国民健康保険税の税率等を、運営協議会への諮問、答申を踏まえまして、一定見直しの上、予算編成を行ってございます。</div>
@@ -232,7 +238,7 @@
   <div class="say">大変雑駁ではございますが、以上説明とさせていただきます。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t4">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=951s" data-timestamp="951"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:51</a>これから歳入・歳出一括で質疑を行うこととしますが、本件は、議長を除く23人の委員で構成する予算特別委員会に付託し、審査する予定です。本会議では大綱的な質疑を行うなど、議事の進行に特段のご協力をお願いします。</div>
   <div class="say">また、資料要求については、各議員から資料要求書を提出していただくこととなっております。資料要求をされる方は、明日２月19日、木曜日の午前10時までによろしくお願いします。</div>
@@ -240,32 +246,32 @@
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t5">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=989s" data-timestamp="989"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:29</a>質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t6">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=989s" data-timestamp="989"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:29</a>ご異議なしと認め、質疑を終了します。</div>
   <div class="say">お諮りします。本件は予算特別委員会に付託することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t7">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=999s" data-timestamp="999"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:39</a>ご異議なしと認め、本件は予算特別委員会に付託することと決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t8">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=1006s" data-timestamp="1006"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:46</a>日程第２、議案第10号、令和８年度小金井市介護保険特別会計予算を議題とします。</div>
   <div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t9">
   <div class="meta"><span class="name">市長（白井　亨）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=1019s" data-timestamp="1019"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:59</a>議案第10号、令和８年度小金井市介護保険特別会計予算をご提案申し上げます。</div>
   <div class="say">本案は、歳入歳出予算の総額を歳入歳出それぞれ96億6,076万3,000円と定めるものであります。この歳入歳出予算の款項の区分及び当該区分ごとの金額は、第１表、歳入歳出予算のとおりであります。</div>
@@ -275,7 +281,7 @@
   <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t10">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=1081s" data-timestamp="1081"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:01</a>それでは、議案第10号の細部につきましてご説明申し上げます。</div>
   <div class="say">令和８年度は第９期介護保険事業計画期間の最終年度として、介護保険事業計画に対して実際の保険給付費や地域支援事業費の動向を見据えながら当初予算を編成しております。</div>
@@ -330,38 +336,38 @@
   <div class="say">よろしくご審議の上、ご議決賜りますようよろしくお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t11">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=1965s" data-timestamp="1965"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:45</a>歳入・歳出一括で質疑を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t12">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=1968s" data-timestamp="1968"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:48</a>質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t13">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=1968s" data-timestamp="1968"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:48</a>ご異議なしと認め、質疑を終了します。</div>
   <div class="say">お諮りします。本件は予算特別委員会に付託することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t14">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=1975s" data-timestamp="1975"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:55</a>ご異議なしと認め、本件は予算特別委員会に付託することと決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t15">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=1987s" data-timestamp="1987"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:07</a>日程第３、議案第11号、令和８年度小金井市後期高齢者医療特別会計予算を議題とします。</div>
   <div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t16">
   <div class="meta"><span class="name">市長（白井　亨）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=2003s" data-timestamp="2003"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:23</a>議案第11号、令和８年度小金井市後期高齢者医療特別会計予算をご提案申し上げます。</div>
   <div class="say">本案は、歳入歳出予算の総額を、歳入歳出それぞれ36億4,104万5,000円と定めるものであります。</div>
@@ -370,7 +376,7 @@
   <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t17">
   <div class="meta"><span class="name">市民部長（深澤　亘）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=2038s" data-timestamp="2038"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:58</a>それでは、細部についてご説明申し上げます。</div>
   <div class="say">令和８年度は２年に一度の保険料を見直す年となっており、制度の実施主体である東京都後期高齢者医療広域連合の議会におきまして、令和８年度、令和９年度の保険料率を盛り込んだ条例案を可決してございます。保険料値上げ抑制のための東京都独自対策を令和８年度、令和９年度も継続することとした結果、保険料は、今回の改定では、均等割が４万7,300円から５万3,300円へ、所得割が9.67％から9.88％へ改定されております。</div>
@@ -398,45 +404,45 @@
   <div class="say">以上で説明とさせていただきます。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t18">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=2410s" data-timestamp="2410"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:10</a>歳入・歳出一括で質疑を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t19">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=2423s" data-timestamp="2423"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:23</a>質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t20">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=2423s" data-timestamp="2423"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:23</a>ご異議なしと認め、質疑を終了します。</div>
   <div class="say">お諮りします。本件は予算特別委員会に付託することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t21">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=2429s" data-timestamp="2429"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:29</a>ご異議なしと認め、本件は予算特別委員会に付託することと決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t22">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=2440s" data-timestamp="2440"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:40</a>日程第４、議案第12号、令和８年度小金井市下水道事業会計予算を議題とします。</div>
   <div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t23">
   <div class="meta"><span class="name">市長（白井　亨）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=2449s" data-timestamp="2449"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:49</a>議案第12号、令和８年度小金井市下水道事業会計予算をご提案申し上げます。</div>
   <div class="say">本案は、業務の予定量としては処理面積等を定め、収益的収入及び支出の予定額については、収入を20億1,067万4,000円、支出を23億2,221万1,000円と定め、資本的収入及び支出の予定額については、収入を２億2,838万4,000円、支出を４億7,929万6,000円と定めるものであります。あわせて、債務負担行為、企業債、一時借入金、予定支出の各項の経費の金額の流用、議会の議決を経なければ流用することのできない経費について所要の規定を定めるものであります。</div>
   <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t24">
   <div class="meta"><span class="name">環境部長（柿崎健一）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=2506s" data-timestamp="2506"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:46</a>それでは、細部についてご説明します。</div>
   <div class="say">初めに、令和８年度の下水道事業の概要ですが、下水道施設の維持管理業務に加え、ストックマネジメントに基づく下水道施設の点検、調査や維持補修工事、雨水流出抑制を目的とした雨水浸透ますの設置工事、下水道施設の耐震工事などの下水道施設の資本的整備を行う予定です。</div>
@@ -480,45 +486,45 @@
   <div class="say">以上で説明とさせていただきます。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t25">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3356s" data-timestamp="3356"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:56</a>収入・支出一括で質疑を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t26">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3360s" data-timestamp="3360"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:00</a>質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t27">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3360s" data-timestamp="3360"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:00</a>ご異議なしと認め、質疑を終了します。</div>
   <div class="say">お諮りします。本件は予算特別委員会に付託することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t28">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3367s" data-timestamp="3367"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:07</a>ご異議なしと認め、本件は予算特別委員会に付託することと決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t29">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3377s" data-timestamp="3377"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:17</a>日程第５、議案第15号、小金井市職員の勤務時間、休日、休暇等に関する条例の一部を改正する条例を議題とします。</div>
   <div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t30">
   <div class="meta"><span class="name">市長（白井　亨）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3390s" data-timestamp="3390"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:30</a>議案第15号、小金井市職員の勤務時間、休日、休暇等に関する条例の一部を改正する条例をご提案申し上げます。</div>
   <div class="say">生理休暇の名称の変更、介護休暇の承認期間を拡充するほか、所要の改正を行うため、本案を提出するものであります。</div>
   <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t31">
   <div class="meta"><span class="name">総務部長（鈴木　功）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3416s" data-timestamp="3416"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:56</a>細部についてご説明いたします。</div>
   <div class="say">議案資料、条例新旧対照表をご覧ください。まず、現行条例第11条、生理休暇について、健康管理休暇に変更するものでございます。</div>
@@ -527,39 +533,39 @@
   <div class="say">以上で説明を終わります。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t32">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3475s" data-timestamp="3475"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:55</a>質疑を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t33">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3478s" data-timestamp="3478"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:58</a>質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t34">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3478s" data-timestamp="3478"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:58</a>ご異議なしと認め、質疑を終了します。</div>
   <div class="say">本件は総務企画委員会に付託します。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t35">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3488s" data-timestamp="3488"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:08</a>日程第６、議案第16号、小金井市会計年度任用職員の報酬等に関する条例の一部を改正する条例を議題とします。</div>
   <div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t36">
   <div class="meta"><span class="name">市長（白井　亨）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3502s" data-timestamp="3502"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:22</a>議案第16号、小金井市会計年度任用職員の報酬等に関する条例の一部を改正する条例をご提案申し上げます。</div>
   <div class="say">職員の給料月額等の改定を踏まえ、報酬月額及び期末・勤勉手当の年間支給月数の引上げを行うため、本案を提出するものであります。</div>
   <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t37">
   <div class="meta"><span class="name">総務部長（鈴木　功）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3531s" data-timestamp="3531"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:51</a>細部についてご説明いたします。</div>
   <div class="say">初めに、この間の経過及び改正概要についてでございます。正規職員の給与改定等を踏まえ、報酬月額を3.4％引き上げ、期末・勤勉手当については年間支給月数を0.05月引き上げ4.9月とし、令和７年度に遡及して実施する改正につきまして職員団体との合意が得られましたので、今回、本条例案を提出するものでございます。</div>
@@ -580,39 +586,39 @@
   <div class="say">以上で説明を終わります。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t38">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3780s" data-timestamp="3780"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:00</a>質疑を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t39">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3790s" data-timestamp="3790"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:10</a>質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t40">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3790s" data-timestamp="3790"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:10</a>ご異議なしと認め、質疑を終了します。</div>
   <div class="say">本件は総務企画委員会に付託します。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t41">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3799s" data-timestamp="3799"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:19</a>日程第７、議案第17号特別職の給与に関する条例の一部を改正する条例を議題とします。</div>
   <div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t42">
   <div class="meta"><span class="name">市長（白井　亨）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3811s" data-timestamp="3811"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:31</a>議案第17号、特別職の給与に関する条例の一部を改正する条例をご提案申し上げます。</div>
   <div class="say">小金井市民設民営学童保育所におけるプール事故検証委員会設置条例及び小金井市立学校部活動の地域連携に関する検討委員会設置条例の失効に伴い、規定を整備する必要があるため、本案を提出するものであります。</div>
   <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t43">
   <div class="meta"><span class="name">総務部長（鈴木　功）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3842s" data-timestamp="3842"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:02</a>では、細部についてご説明いたします。</div>
   <div class="say">各委員会等委員の報酬額を本条例の別表に定めておりますことから、委員会設置条例の失効に伴い規定を整備するものでございます。</div>
@@ -621,39 +627,39 @@
   <div class="say">説明は以上となります。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t44">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3878s" data-timestamp="3878"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:38</a>質疑を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t45">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3887s" data-timestamp="3887"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:47</a>質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t46">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3887s" data-timestamp="3887"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:47</a>ご異議なしと認め、質疑を終了します。</div>
   <div class="say">本件は総務企画委員会に付託します。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t47">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3890s" data-timestamp="3890"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:50</a>日程第８、議案第18号、職員の給与に関する条例の一部を改正する条例を議題とします。</div>
   <div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t48">
   <div class="meta"><span class="name">市長（白井　亨）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3904s" data-timestamp="3904"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:04</a>議案第18号、職員の給与に関する条例の一部を改正する条例をご提案申し上げます。</div>
   <div class="say">東京都人事委員会勧告等を踏まえ、初任給及び給料表の改定、期末・勤勉手当の年間支給月数の引上げ等を行うため、本案を提出するものであります。</div>
   <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t49">
   <div class="meta"><span class="name">総務部長（鈴木　功）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=3931s" data-timestamp="3931"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:31</a>細部についてご説明いたします。</div>
   <div class="say">初めに、この間の経過及び改正の概要についてでございます。令和７年、東京都人事委員会勧告では、民間の支給状況を踏まえ、例月給については、公民較差１万3,580円、3.24％の解消を図りつつ、人材確保等の観点から若年層に重点を置き、全級全号給を引き上げ、また、初任給については国の初任給の状況等を踏まえ引き上げるとともに、賞与については0.05月引き上げ、年間支給額を4.9月とすることとされました。また、管理職について、管理職の職務の困難度、職責の高まりに対応するため、全体の平均改定率を上回る重点的な引上げ及び特別調整額の見直しを実施し、また、課長昇任時の職務職責に見合った給与上昇を確保し、課長の級における給料月額の初号の水準の引上げを実施することとされました。本市におきましては平成23年４月１日から東京都給料表を導入しており、この間、都に準拠した改正を実施しているところでございます。そのほか、都準拠による通勤手当及び住居手当の見直しについても併せて改正する内容となっております。これらの改正につきまして職員団体との合意が得られましたので、今回、本条例案を提出するものでございます。</div>
@@ -694,39 +700,39 @@
   <div class="say">以上で説明を終わります。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t50">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=4681s" data-timestamp="4681"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:01</a>質疑を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t51">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=4683s" data-timestamp="4683"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:03</a>質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t52">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=4683s" data-timestamp="4683"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:03</a>ご異議なしと認め、質疑を終了します。</div>
   <div class="say">本件は総務企画委員会に付託します。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t53">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=4693s" data-timestamp="4693"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:13</a>日程第９、議案第19号、地方税法の一部を改正する法律の施行に伴う関係条例の整理に関する条例を議題とします。</div>
   <div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t54">
   <div class="meta"><span class="name">市長（白井　亨）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=4706s" data-timestamp="4706"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:26</a>議案第19号、地方税法等の一部を改正する法律の施行に伴う関係条例の整理に関する条例をご提案申し上げます。</div>
   <div class="say">地方税法等の一部を改正する法律の施行に伴う地方税法の改正により、関係条例の規定を整備する必要があることから本案を提出するものであります。</div>
   <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t55">
   <div class="meta"><span class="name">市民部長（深澤　亘）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=4734s" data-timestamp="4734"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:54</a>それでは、地方税法等の一部を改正する法律の施行に伴う関係条例の整備に関する条例についてご説明申し上げます。</div>
   <div class="say">資料２の条例の概要に沿って説明をさせていただきます。</div>
@@ -738,39 +744,39 @@
   <div class="say">説明は以上です。よろしくご審議の上、ご議決賜りますようお願いいたします。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t56">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=4861s" data-timestamp="4861"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:01</a>質疑を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t57">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=4864s" data-timestamp="4864"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:04</a>質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t58">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=4864s" data-timestamp="4864"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:04</a>ご異議なしと認め、質疑を終了します。</div>
   <div class="say">本件は総務企画委員会に付託します。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t59">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=4873s" data-timestamp="4873"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:13</a>日程第10、議案第20号、小金井市国民健康保険税条例の一部を改正する条例を議題とします。</div>
   <div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t60">
   <div class="meta"><span class="name">市長（白井　亨）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=4884s" data-timestamp="4884"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:24</a>議案第20号、小金井市国民健康保険税条例の一部を改正する条例をご提案申し上げます。</div>
   <div class="say">子ども・子育て支援法等の一部を改正する法律の施行に伴う規定の整備及び国民健康保険事業の円滑な財政運営を確保するため、国民健康保険税額を改定する必要があることから、本案を提出するものであります。</div>
   <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t61">
   <div class="meta"><span class="name">市民部長（深澤　亘）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=4917s" data-timestamp="4917"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:57</a>それでは、細部についてご説明申し上げます。</div>
   <div class="say">初めに、改正の趣旨でございますが、本条例改正を提案するに至りました経過の概要につきましては、先ほど議案第９号、令和８年度国民健康保険特別会計の予算提案時に説明をさせていただいておりますので、経過の概要につきましては省略をさせていただきます。</div>
@@ -819,68 +825,68 @@
   <div class="say">雑駁ではございますが、以上で説明とさせていただきます。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t62">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=5637s" data-timestamp="5637"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:57</a>質疑を行います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t63">
   <div class="meta"><span class="name">１６番（水上洋志議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=5647s" data-timestamp="5647"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:07</a>今回、国保税の増税ということで、１人当たりの影響額で言うと、子ども分で4,860円、その他の部分で5,651円ということなので、大変大きな増税になっていると思います。保険料の統一に向けての具体化が今もう始まっていると思うんですけど、その影響でこうなっているという話だったと思うんですが、令和17年までに保険料を統一ということで、施政方針の質疑の中でもありましたけれども、その他繰入金、令和７年度、８億円を全部なくすということで考えていくと、今、加入者がどんどん減っていますよね。多分、令和８年で２万人を切っていると思うんです。そういう状況の中で単純計算で考えると、２万人と想定すると４万円の増税になってくるというような保険料の見通しであるという理解でいいのか確認しておきたいのと、こういう負担になってくると、今でも高くて払えないのにもう負担の限界だと私は思うので、もう制度の限界に達してきているので、全国知事会が１兆円の公費投入を以前求めたとおり、そういう方向で考えていかないと、だんだん加入者が減ってきて、要するに負担が、その他繰入金を減らしていくことになると、これで持続可能なのかどうかという疑問が出てくるのは当然だと思うので、今後の保険料の見通しと、そういう方針について小金井市としてもおかしいということをやはりきちんと東京都、国に対して述べていく必要があるし、負担軽減策についてはいろいろ検討して、増税そのものを行わないということもありますし、子どもの均等割を減らしていくとかいうことだってあるわけだから、そういうことも含めてぜひ検討すべきだったのではないかと思うんですが、その辺の見解を伺いたいと思うんですが、いかがでしょうか。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t64">
   <div class="meta"><span class="name">保険年金課長（内田雄介）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=5798s" data-timestamp="5798"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:38</a>１人当たりの影響額、令和17年度までというところで減らしていかないというところで、単純計算で８億円あるところを２万人弱で割って４万円でいいのかというところですが、おおむねそのとおりかなと思っております。ただ、実際には多分協議はしてくるかなと思っておりますが、考え方としてはそういうことかとは思っております。</div>
   <div class="say">今後の見通しに関しては、被保険者は逐次減っていっていますので、そういった中で進めていかないといけないのかなというところで、何と申し上げればいいのかあれなんですけども。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t65">
   <div class="meta"><span class="name">市長（白井　亨）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=5849s" data-timestamp="5849"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:29</a>水上議員の方から、この制度がもう成り立たなくなっているのではないかというご指摘というか、ご意見を頂いています。これは昨日の施政方針の中で、たしか森戸議員からご質問いただいて、もう一定答弁をさせていただいたと思いますが、市長会を通じて国に対して要望は上げているところです。</div>
   <div class="say">おっしゃるように、社会保障の制度そのものを全体的に国の方でしっかりと改めて見直していただきたいなと思うところです。そもそも社会保障制度全般にわたって、年金もそうですけども、もう何十年も前に定めた内容のものでそのまま来ているわけでして、人口構造が大きく変わっている今、そしてまたこれから更に大きく変わっていく中においては、この制度をそのまま適用していくのは本当は難しいんだろうなと思っています。</div>
   <div class="say">ただし、しっかり国の方で制度設計を改めてやっていただかないと、今の状況の中においては、我々は令和17年度の統一に向けてやるべきことをやらざるを得ないという状況でございます。非常に心苦しいところはあるんですけども、今、市としてはそういう考えの下、減らしていただいております。繰り返し申し上げますが、国に対して、市長会を通じて引き続き働きかけていきたいということでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t66">
   <div class="meta"><span class="name">１６番（水上洋志議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=5944s" data-timestamp="5944"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:39:04</a>ぜひ国に対しては意見を強く申し上げていただきたいと思います。</div>
   <div class="say">ただ、単純計算で言うと４万円の負担増になる可能性があると。加入者が減ってくると更に増えていく可能性がありますよね。子ども・子育て支援金だってあるわけだから。こういう中では、やはりもう持続可能とは言えない制度になってきていると思いますので、今回の増税、物価高騰の中で大変重大な影響も市民には出てくるということだと思いますので、ぜひ厚生文教委員会でしっかり審議していただいて、何とか増税については見直しをするということでご検討いただきたいと思います。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t67">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=5993s" data-timestamp="5993"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:39:53</a>他にございますか。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t68">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=5995s" data-timestamp="5995"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:39:55</a>質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t69">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=5995s" data-timestamp="5995"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:39:55</a>ご異議なしと認め、質疑を終了します。</div>
   <div class="say">本件は厚生文教委員会に付託します。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t70">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6004s" data-timestamp="6004"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:04</a>日程第11、議案第21号、小金井市奨学資金支給条例の一部を改正する条例を議題とします。</div>
   <div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t71">
   <div class="meta"><span class="name">市長（白井　亨）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6017s" data-timestamp="6017"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:17</a>議案第21号、小金井市奨学資金支給条例の一部を改正する条例をご提案申し上げます。</div>
   <div class="say">奨学資金の支給対象となる学校の追加に伴い、規定を整備する必要があるため、本案を提出するものであります。</div>
   <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t72">
   <div class="meta"><span class="name">学校教育部長（大澤秀典）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6020s" data-timestamp="6020"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:20</a>それでは、細部につきましてご説明申し上げます。</div>
   <div class="say">本条例につきましては、奨学資金の支給対象となります学校を追加することに伴いまして規定を整備する必要があることから、本条例の一部を改正するものでございます。</div>
@@ -891,39 +897,39 @@
   <div class="say">以上で説明を終わらせていただきます。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t73">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6122s" data-timestamp="6122"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:02</a>質疑を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t74">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6123s" data-timestamp="6123"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:03</a>質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t75">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6123s" data-timestamp="6123"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:03</a>ご異議なしと認め、質疑を終了します。</div>
   <div class="say">本件は厚生文教委員会に付託します。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t76">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6126s" data-timestamp="6126"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:06</a>日程第12、議案第22号小金井市公民館条例の一部を改正する条例を議題とします。</div>
   <div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t77">
   <div class="meta"><span class="name">市長（白井　亨）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6141s" data-timestamp="6141"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:21</a>議案第22号、小金井市公民館条例の一部を改正する条例をご提案申し上げます。</div>
   <div class="say">小金井市公民館において使用料を徴収することに伴い、規定を整備する必要があるため、本案を提出するものであります。</div>
   <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t78">
   <div class="meta"><span class="name">生涯学習部長（平野純也）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6164s" data-timestamp="6164"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:44</a>それでは、細部についてご説明いたします。</div>
   <div class="say">本件は、社会教育法第20条の規定による公の施設であります公民館の各部屋を公民館使用登録団体等が使用許可を受け利用するいわゆる一般利用について、受益者負担の適正化を図るとともに、公民館を多様な活動を支援する拠点として持続可能な施設とするため、地方自治法第225条の規定に基づきまして、利用者の皆様に一定の使用料をご負担いただく規定を新設するものでございます。</div>
@@ -937,39 +943,39 @@
   <div class="say">以上で説明とさせていただきます。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t79">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6301s" data-timestamp="6301"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:01</a>質疑を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t80">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6301s" data-timestamp="6301"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:01</a>質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t81">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6301s" data-timestamp="6301"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:01</a>ご異議なしと認め、質疑を終了します。</div>
   <div class="say">本件は厚生文教委員会に付託します。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t82">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6311s" data-timestamp="6311"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:11</a>日程第13、議案第23号、小金井市障害者交通手当条例を議題とします。</div>
   <div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t83">
   <div class="meta"><span class="name">市長（白井　亨）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6323s" data-timestamp="6323"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:23</a>議案第23号、小金井市障害者交通手当条例をご提案申し上げます。</div>
   <div class="say">電車、バス等の公共交通機関を利用することが困難な障害者に対し、小金井市障害者交通手当を支給することにより、移動の促進を図り、もって障害者の福祉の増進を図るため本案を提出するものであります。</div>
   <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t84">
   <div class="meta"><span class="name">福祉保健部長（高橋正恵）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6355s" data-timestamp="6355"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:55</a>議案第23号、小金井市障害者交通手当条例の細部についてご説明いたします。</div>
   <div class="say">本手当につきましては、今年度まで実施してまいりましたタクシーの利用料金の実費に応じた助成事業である福祉タクシー事業とガソリン費の実費に応じた助成事業である心身障害者自動車ガソリン費助成事業を統合し手当として支給する事業に改めるもので、手続の簡素化により市民の利便性を向上させ、より多くの移動が困難な方を支援できるようにするとともに業務の効率化にも資するものでございます。</div>
@@ -986,39 +992,39 @@
   <div class="say">説明は以上です。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t85">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6568s" data-timestamp="6568"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:28</a>質疑を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t86">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6571s" data-timestamp="6571"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:31</a>質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t87">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6574s" data-timestamp="6574"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:34</a>ご異議なしと認め、質疑を終了します。</div>
   <div class="say">本件は厚生文教委員会に付託します。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t88">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6580s" data-timestamp="6580"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:40</a>日程第14、議案第24号、小金井市子ども・子育て会議条例の一部を改正する条例を議題とします。</div>
   <div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t89">
   <div class="meta"><span class="name">市長（白井　亨）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6596s" data-timestamp="6596"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:56</a>議案第24号、小金井市子ども・子育て会議条例の一部を改正する条例をご提案申し上げます。</div>
   <div class="say">児童福祉法等の一部を改正する法律の施行に伴う児童福祉法の改正により、保育所等の職員による虐待について、市が行った措置に対して審議会等による意見を聞くことが義務付けられたこと並びに子ども・子育て支援法等の一部を改正する法律の施行に伴う子ども・子育て支援法の改正等により、乳児等通園支援事業の認可及び利用定員の設定に関し意見を聞く必要があることから、小金井市子ども・子育て会議の所掌事務に加えるほか、所要の改正を行うため、本案を提出するものであります。</div>
   <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t90">
   <div class="meta"><span class="name">子ども家庭部長（堤　直規）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6646s" data-timestamp="6646"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:46</a>それでは、細部につきましてご説明いたします。</div>
   <div class="say">本条例は児童福祉法等の一部を改正する法律の施行に伴う児童福祉法の改正に基づき、保育所等の職員による児童への虐待について通告義務等の規定が整備されたことなどにより、市が行った措置に対して審議会等により意見を聞くことが義務付けられたこと並びに子ども・子育て支援法等の一部を改正する法律の施行に伴う子ども・子育て支援法の改正等により、乳児等通園支援事業の認可及び利用定員の設定に関し意見を聞く必要があることから、小金井市子ども・子育て会議の所掌事務に加えるほか、所要の調整改正を行うため、一部改正するものでございます。</div>
@@ -1031,39 +1037,39 @@
   <div class="say">以上で説明を終わらせていただきます。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t91">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6793s" data-timestamp="6793"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:53:13</a>質疑を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t92">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6795s" data-timestamp="6795"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:53:15</a>質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t93">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6797s" data-timestamp="6797"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:53:17</a>ご異議なしと認め、質疑を終了します。</div>
   <div class="say">本件は厚生文教委員会に付託します。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t94">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6803s" data-timestamp="6803"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:53:23</a>日程第15、議案第25号、小金井市立保育園における乳児等通園支援事業に関する条例を議題とします。</div>
   <div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t95">
   <div class="meta"><span class="name">市長（白井　亨）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6820s" data-timestamp="6820"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:53:40</a>議案第25号、小金井市立保育園における乳児等通園支援費事業に関する条例をご提案申し上げます。</div>
   <div class="say">小金井市立保育園において乳児等通園支援事業を実施するに当たり、本条例を制定する必要があるため、本案を提出するものであります。</div>
   <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t96">
   <div class="meta"><span class="name">子ども家庭部長（堤　直規）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6843s" data-timestamp="6843"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:54:03</a>それでは、細部につきましてご説明いたします。</div>
   <div class="say">令和６年６月12日に公布された子ども・子育て支援法等の一部を改正する法律により、生後６か月から満３歳未満で保育所等に通っていない家庭が、月一定程度までの利用可能枠の中で、使用要件を問わず時間単位等で柔軟に利用できる新たな通園給付として、こども誰でも通園制度が創設されました。</div>
@@ -1075,39 +1081,39 @@
   <div class="say">説明は以上です。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t97">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6933s" data-timestamp="6933"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:33</a>質疑を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t98">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6934s" data-timestamp="6934"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:34</a>質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t99">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6934s" data-timestamp="6934"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:34</a>ご異議なしと認め、質疑を終了します。</div>
   <div class="say">本件は厚生文教委員会に付託します。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t100">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6943s" data-timestamp="6943"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:43</a>日程第16、議案第26号、小金井市市民集会所条例の一部を改正する条例を議題とします。</div>
   <div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t101">
   <div class="meta"><span class="name">市長（白井　亨）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6953s" data-timestamp="6953"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:53</a>議案第26号、小金井市市民集会所条例の一部を改正する条例をご提案申し上げます。</div>
   <div class="say">小金井市東町集会所において使用料を徴収することに伴い、規定を整備する必要があるため、本案を提出するものであります。</div>
   <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t102">
   <div class="meta"><span class="name">市民部長（深澤　亘）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=6975s" data-timestamp="6975"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:56:15</a>それでは、細部についてご説明いたします。</div>
   <div class="say">本条例は、公民館条例の一部を改正する条例が令和８年第１回定例会に上程されていることに伴い、公民館東センター内にある東町集会施設、集会室Ａ、集会室Ｂ、和室の３部屋を公民館とともに有料化するための一部改正条例でございます。</div>
@@ -1116,19 +1122,19 @@
   <div class="say">以上で説明とさせていただきます。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t103">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=7053s" data-timestamp="7053"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:57:33</a>質疑を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t104">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=7056s" data-timestamp="7056"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:57:36</a>質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t105">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=7056s" data-timestamp="7056"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:57:36</a>ご異議なしと認め、質疑を終了します。</div>
   <div class="say">本件は総務企画委員会に付託します。</div>
@@ -1138,21 +1144,21 @@
   <div class="say">午前11時55分開議</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t106">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=7137s" data-timestamp="7137"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:58:57</a>再開します。</div>
   <div class="say">日程第17、議案第27号、小金井市下水道条例の一部を改正する条例を議題とします。</div>
   <div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t107">
   <div class="meta"><span class="name">市長（白井　亨）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=7150s" data-timestamp="7150"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:59:10</a>議案第27号、小金井市下水道条例の一部を改正する条例をご提案申し上げます。</div>
   <div class="say">下水道事業の適正な財政運営を確保するため、下水道使用料の料率を改定する必要があることから、本案を提出するものであります。</div>
   <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t108">
   <div class="meta"><span class="name">環境部長（柿崎健一）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=7172s" data-timestamp="7172"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:59:32</a>それでは、細部についてご説明いたします。</div>
   <div class="say">今回の改正につきましては、東京都の流域下水道維持管理負担金の単価について、令和８年４月より予定されている処理水量１立方メートル当たり税込みで38.698円から54.241円への改定により小金井市下水道事業会計の収益的収支において支出が収入を超過することが確実に見込まれることから、下水道事業を安定的に運営するために下水道使用料の料率を改定するものです。</div>
@@ -1167,19 +1173,19 @@
   <div class="say">以上で細部説明とさせていただきます。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t109">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=7386s" data-timestamp="7386"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:03:06</a>質疑を行います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t110">
   <div class="meta"><span class="name">２４番（森戸よう子議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=7395s" data-timestamp="7395"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:03:15</a>今回下水道料金を改正するということでありまして、下水道審議会で審議が行われたのも、資料なども見させていただきました。理由としては物価高騰なども含めてあるということですが、値上げをする理由、これは下水道処理場も含めた施設などの更新などもあるということも含めての話なんでしょうか。東京都との関係で、どういう話をされてきたのか、その辺りを伺いたいと思います。</div>
   <div class="say">これはかなり大幅な値上げになるんです。例えば20立方メートルの家庭については14円上がります。14円なので、20立方メートルで考えると、１か月280円上がると。１年間で見ると3,360円。それから、31立方メートルから50立方メートルは120円から145円ですから25円上がり、１か月1,250円上がって、年間で見ると１万5,000円上がる計算なんです。皆さんからするとそのぐらいいいではないかと思われるかもしれませんが、例えば夫婦２人の家庭で、年金生活者の世帯と現役世代の世帯が同じ20リットルを使うとしたら、年金生活者は年間3,360円の負担というのはやはり大きいわけですよ。その点から考えると、この審議会の意見でも大幅な値上げにならないようにすべきだという附帯意見もついているかなと思います。その点からして、この金額にした理由は何だったのかということについて伺いたいと思います。</div>
   <div class="say">それから３点目は、65歳以上の非課税世帯の減免を廃止したことは、せっかくいい制度なのに、他市がやっていないからということでこれを廃止するのはいかがなものなのでしょうか。その点からして、２人世帯で、年収が違っても同じ量を使った場合には負担は同じなわけですよね。でも収入は違うわけだから、そこの配慮がやはり必要なのではないですか。こういうやり方はどうなのかと思います。廃止した理由は公平性を考慮しとかおっしゃいましたけど、本当にいいんでしょうか。一人ひとりの市民の生活を見たときにどうなのかということが必要なのではないですか。市長は市民の生活を守る覚悟はあると施政方針でおっしゃいました。だとしたら、この下水道を使うことで、しかも物価高騰で更に負担が厳しい状況の中で、こういうやり方がいいと考えた理由について伺いたいと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t111">
   <div class="meta"><span class="name">下水道課長（関　次郎）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=7666s" data-timestamp="7666"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:07:46</a>森戸議員から３問ご質問いただきました。</div>
   <div class="say">まず１点目、今回使用料を改定するに当たっての理由というところで説明させていただきます。建設環境委員会で行政報告させていただいたところでもあるんですが、それと予算の上程の説明の中でも説明させていただきましたけれども、今回使用料の維持管理負担金の単価が令和８年４月から税込みで38.698円から54.241円に上がるというところがございまして、収益的収支の支出が収入を上回るという、いわゆる収支ギャップが確実に見込まれることから、今回歳入の確保ということで使用料の条例改正の議案を上程させていただいたところでございます。</div>
@@ -1187,14 +1193,14 @@
   <div class="say">３問目です。使用料減免の基準の見直しについてでございます。ちょっと説明が重なるところではございますが、下水道使用料の減免の基準につきましては、他市の制度に比べて範囲が広いということがございまして、小金井市の行財政改革2025の取組の一つとしてこれまで検討してきたところではございます。今回、下水道の使用料の改定と併せまして、減免基準につきましても、公平性の観点だけではなく、受益者負担の観点と併せて減免基準を見直すということから、今年度、使用料の改定の基準と併せて減免基準の見直しについても審議いただいたところでございます。やはり65歳高齢者減免につきましては、実質本市のみという形になります。ただ、それ以外の制度、例えば生活でちょっとお困りの方、例えば生活保護の方等につきましては、引き続き他の減免制度がございますので、それを利用していただくということもありますので、今回高齢者減免については使用料改定のタイミングで見直すという答申をいただき、それを踏まえまして、我々としましてもしかるべき手続を進めたいという結論でございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t112">
   <div class="meta"><span class="name">２４番（森戸よう子議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=7919s" data-timestamp="7919"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:11:59</a>１点目については歳入を確保するということを言われました。そのやり方は幾つかあるのかなと思っていて、一般会計からの支援もしっかりとやっていかなければならないし、全体として、東京全体で下水道処理場の様々な施設に対する経費などがかかるという点からすれば、多分三多摩上下水などでも要望はされているとは思うんですが、やはり東京都や国がしっかりとインフラ整備に支援をしていくことが必要なのではないかと思うんです。その辺りも含めて要望されてきているとは思いますが、どういう状況だったのかということを伺います。</div>
   <div class="say">それから二つ目には、やり方は幾つかあると思うんですよ。例えば８立方メートルの基本使用料ぐらいの人は独り暮らしの方が大体多いわけですよね。それか９立方メートルとか、10立方メートルぐらい。こういうところの方々に対する傾斜を緩くするとかいうやり方があるのではないかと思うんですが、今回はこの区分のところはいじらないで金額だけいじったということなんですが、もうちょっとその辺りは議論が必要だったのではないかなと思います。審議会では、大口が支払う割合が高いと言われるんだけど、大口は体力がある方々なんです。体力がある企業や事業所。ここが上がってもいいとは思いませんけれども、しかし、そういうところにシフトを移していくだとかいうことも含めて検討していくべきではなかったかなと思います。</div>
   <div class="say">それから、65歳以上については、65歳以上の方々は生活保護だけではないわけで、これまで減免制度を受けてこられた方々が60人か70人ぐらいとおっしゃいましたかね。でも、非課税世帯はもっとたくさんいらっしゃったわけで、そういう意味では、本来受けるべき人たちが受けられてこなかった制度ではないかと思います。その辺りも非常に、ＰＲも含めて不十分ではなかったかと思いますが、私は非課税世帯の部分はしっかり残していくべきだと申し上げておきたいと思います。世代間の不公平感が出るということではないと思います。やはり支え合っていくのが市長の方針なのではないですか。支え合いの小金井をつくるというのが。その点からしても、下水道改定は問題があると思います。その点はお答えは結構です。ただ、何人が減免制度の対象だったかということは伺っておきたいと思います。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t113">
   <div class="meta"><span class="name">環境部長（柿崎健一）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=8138s" data-timestamp="8138"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:15:38</a>それでは、１点目と２点目については私の方からお答えをさせていただきます。</div>
   <div class="say">まず、東京都等への要望等についてでございます。この間、かなり長い時間をかけて、この件については東京都の多摩市町村と東京都が話をしてきたところでございまして、ただ、東京都の方もさすがにもう体力がなくなってきたということもあって、２、３年前から、何とか今の現状の金額を変えさせてほしいというお話がございました。でも、我々としてはなかなかこれだけの金額を上げていくことには、各市ちょっと異論があったところもありますけれども、最終的にはやむを得ないだろうということではございました。ただ、市長会を通じて東京都への要望もしているところでございますので、そういった意味では、もう致し方なかったのかなという形で我々としては考えているところではございます。</div>
@@ -1202,13 +1208,13 @@
   <div class="say">それと、何世帯ぐらいあるかというところについては、課長の方から答弁をさせていただきます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t114">
   <div class="meta"><span class="name">下水道課長（関　次郎）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=8272s" data-timestamp="8272"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:17:52</a>３問目の減免の関係でございます。公共下水道審議会の資料でもお示ししたところでございますが、直近の数字で言いますと、65歳以上の非課税世帯で申請いただいたのが65世帯ですけれども、要件に該当した64世帯の方に減免をしたというのが実績としてございます。減免につきましては、高齢者減免も含めて申請をいただいた上で所得要件等をクリアした方に対して減免するという制度になってございますので、いわゆる対象者何人のうち何人という形の分母の部分については把握してはございません。あくまでも申請いただいて、それで減免をするという形になります。</div>
   <div class="say">ＰＲにつきましては、これまで市ホームページと、あと、わたしの便利帳等々でお知らせしているところでございます。詳しくは下水道課若しくは水道局にお問い合わせという形でこれまでしてきたところでございます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t115">
   <div class="meta"><span class="name">２４番（森戸よう子議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=8348s" data-timestamp="8348"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:19:08</a>最後になって聞くのも申し訳ないんですが、全体として幾らの値上げ額になるのか、１世帯当たり平均で幾らになるのかというのは計算されていると思うんですが、それを教えていただきたい。試算はされていると思うので、よろしくお願いします。</div>
   <div class="say">あと、長い時間をかけて議論してきたという努力は分かります。ただ、東京都が体力がなくなってきたと言われるのはどうなのかなと思います。７兆円規模の予算を持っているところで体力がないというのはちょっとあまりにも、東京都も不釣合いな回答されているなということは申し上げておきたいと思います。</div>
@@ -1216,25 +1222,25 @@
   <div class="say">以上、意見を述べておきます。１点だけ。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t116">
   <div class="meta"><span class="name">下水道課長（関　次郎）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=8442s" data-timestamp="8442"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:20:42</a>どれぐらいの値上げ幅かということなんですけれども、全体的には20.6％の平均値上げ率という形になります。</div>
   <div class="say">それで、森戸議員からもご紹介いただいたところではございますが、下水道使用料におきましては、他市との比較の中では、一番よく使われる一月の使用水量が20立米のところをもって各市大体比較というところが今までありました。それで、今回ご議決いただいた後の変更前と変更後なんですけれども、これが一番皆さんが分かりやすい数字かなと思ってございまして、現行ですと税込みで1,309円となりますが、改定後は一月当たり1,573円となります。値上げ額としましては、一月264円になり、その12か月という形になりますので、3,168円が１年間での一般家庭における負担の増という形になります。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t117">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=8520s" data-timestamp="8520"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:22:00</a>他にございますか。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t118">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=8521s" data-timestamp="8521"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:22:01</a>質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t119">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=8527s" data-timestamp="8527"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:22:07</a>ご異議なしと認め、質疑を終了します。</div>
   <div class="say">本件は建設環境委員会に付託します。</div>
@@ -1242,26 +1248,26 @@
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t120">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=8542s" data-timestamp="8542"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:22:22</a>ご異議なしと認め、追加日程第１を追加し、議題とすることと決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t121">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=8547s" data-timestamp="8547"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:22:27</a>追加日程第１、議案第28号、東京都後期高齢者医療広域連合規約の一部を変更する規約を議題とします。</div>
   <div class="say">提案理由の説明を求めます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t122">
   <div class="meta"><span class="name">市長（白井　亨）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=8561s" data-timestamp="8561"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:22:41</a>議案第28号、東京都後期高齢者医療広域連合規約の一部を変更する規約をご提案申し上げます。</div>
   <div class="say">後期高齢者医療の保険料について、保険料の軽減に係る経費を各区市町村の一般財源から分賦金として支弁することに伴い、規約変更を行う必要があるため、本案を提出するものであります。</div>
   <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t123">
   <div class="meta"><span class="name">市民部長（深澤　亘）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=8593s" data-timestamp="8593"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:23:13</a>それでは、細部についてご説明申し上げます。</div>
   <div class="say">初めに改正の趣旨でございます。東京都後期高齢者医療広域連合では、保険料軽減のため、平成20年度から令和７年度まで独自の軽減対策を実施してまいりましたが、この対策を令和８年度、令和９年度も継続することとなり、各区市町村の一般財源を負担金として投入するための規約改正でございます。令和８年１月29日に開催されました東京都後期高齢者医療広域連合議会におきましてこのことが決定されたことに伴い、地方自治法の規定に基づき所要の変更手続を行うものでございます。したがいまして、本規約の変更に当たりましては、各区市町村議会での議決及び各区市町村の協議が必要でございます。これらを経た上で東京都知事への届出が必要になるものでございます。</div>
@@ -1271,32 +1277,32 @@
   <div class="say">以上で説明とさせていただきます。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t124">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=8696s" data-timestamp="8696"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:24:56</a>質疑を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t125">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=8696s" data-timestamp="8696"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:24:56</a>質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t126">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=8696s" data-timestamp="8696"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:24:56</a>ご異議なしと認め、質疑を終了します。</div>
   <div class="say">本件は厚生文教委員会に付託します。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t127">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=8699s" data-timestamp="8699"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:24:59</a>お諮りします。２月20日は本会議の予定ですが、議事の都合により休会とすることにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t128">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Ty6Cj8cdEAs&t=8713s" data-timestamp="8713"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:25:13</a>ご異議なしと認め、２月20日は休会することと決定しました。</div>
   <div class="say">以上で、本日の日程は全て終了しました。</div>
@@ -1335,5 +1341,53 @@
     addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
   </script>
 
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
 </body>
 </html>

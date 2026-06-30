@@ -77,6 +77,12 @@
     .hero{padding:14px 0 22px;} .sum{padding:18px;}
     .turn{padding:12px 0;} .say{font-size:15.5px;}
   }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
 </style>
 </head>
 <body>
@@ -91,7 +97,7 @@
     <span class="src">YouTube字幕＋AI校正による記録（非公式）</span>
   </header>
 
-  <section class="sum reveal">
+  <section class="sum reveal" id="summary">
     <p class="lab">A I 要 約</p>
     <div>
       <p>ご提示いただいた会議録は、予算特別委員会における役員選出の様子を記録したものであり、「議案の質疑」や「一般質問」には該当いたしません。本会議録は委員会運営のための「役員選出」に関する議題で構成されています。</p>
@@ -116,75 +122,75 @@
     <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
   </section>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t0">
   <div class="meta"><span class="name">—</span></div>
   <div class="say">◯（臨時議長）<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=14s" data-timestamp="14"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>00:14</a>　ただいまから予算特別委員会の会議を開きます。本日は年長の私が、委員長が選出されるまでの間、委員長の職務を行います。</div><div class="say">直ちに議題に入ります。議題は当委員会の委員長の選出についてであります。選出の方法についてはいかがいたしましょうか。どなたか選出方法についてご意見がありますでしょうか。</div><div class="say">◯（発言者）<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=46s" data-timestamp="46"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>00:46</a>　指名推薦でお願いいたします。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t1">
   <div class="meta"><span class="name">（臨時議長）</span></div>
   <div class="say">ただいま指名推薦による選出方法についてのご意見がありましたが、指名推薦による決定にすることにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t2">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t3">
   <div class="meta"><span class="name">（臨時議長）</span></div>
   <div class="say">ご異議なしと認め、ただいま申し上げました通り決定いたします。どなたかご推薦いただけますでしょうか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t4">
   <div class="meta"><span class="name">（発言者）</span></div>
   <div class="say">はい。片山委員。</div><div class="say">◯（片山かおる委員）<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=78s" data-timestamp="78"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:18</a>　おそらくですね、この議員生活の中で今回初めてだということをお聞きしました。30数年以上のですね、議員生活の中で初めてということで、予算特別委員会の委員長として、あの、お願いしたいと思っております。森戸よう子議員に、是非とも委員長をお願いしたいと思っております。</div><div class="say">どうぞよろしくお願いします。</div><div class="say">ただ、あの、この予算ですね、生活保護の非常に重要な議案なども入っておりますので、ま、その時は是非ですね、ご質問も何かしらの形で交代して行うとかですね、是非、慎重な審議をお願いというか、慎重な質問というか、是非とも質問もしっかりとした形でできればいいかなというふうに考えております。よろしくお願いいたします。</div><div class="say">◯（臨時議長）<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=110s" data-timestamp="110"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:50</a>　ただいま森戸よう子委員を委員長にとご推薦がございました。お諮りいたします。森戸よう子委員を委員長に選出することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t5">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t6">
   <div class="meta"><span class="name">（臨時議長）</span></div>
   <div class="say">ご異議なしと認めます。したがって、ただいまお示ししました通り選出することを決定いたしました。ただいま選出されました森戸よう子委員のご挨拶をお願いいたします。</div><div class="say">◯（森戸よう子委員）<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=145s" data-timestamp="145"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:25</a>　はい。先ほど皆様の、あの、委員長に推薦また選任していただきましてありがとうございます。先ほどもありましたように、36年の経験の中で初めての予算特別委員長でございます。</div><div class="say">不慣れではございますが、是非とも、皆様のご協力をいただきまして、議会の権能が十分に発揮できる予算特別委員会として頑張っていきたいと思いますので、どうぞ皆様のご協力よろしくお願いいたします。ありがとうございました。</div><div class="say">これで私の職務は終了いたしました。委員長と交代するため、しばらく休憩いたします。</div><div class="say">◯（委員長）<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=221s" data-timestamp="221"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:41</a>　はい、ありがとうございます。再開いたします。</div><div class="say">これから副委員長の選出を行います。選出の方法についてはいかがいたしましょうか。どなたか選出方法についてご意見ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t7">
   <div class="meta"><span class="name">（水上洋志委員）</span></div>
   <div class="say">指名推薦でお願いします。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t8">
   <div class="meta"><span class="name">（委員長）</span></div>
   <div class="say">ただいま選出方法について指名推薦による、とのご意見がありますが、指名推薦により決定することにご異議ありませんか。</div><div class="say">◯（呼ぶ声）<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=252s" data-timestamp="252"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:12</a>　なし。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t9">
   <div class="meta"><span class="name">（委員長）</span></div>
   <div class="say">ご異議なしと認め、ただいま申し上げました通り決定をいたします。どなたかご推薦いただけますか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t10">
   <div class="meta"><span class="name">（水上洋志委員）</span></div>
   <div class="say">新人議員でありながら、市民要求に基づき、論旨明快に、堂々と質疑されてる姿はとても新人議員とは思えない活躍をされております。吉良のりこ議員を副委員長に推薦したいと思います。</div><div class="say">何分、委員長が予算特別委員長初めてということで、新人でありますので、ぜひ支えていただいて、円滑な議事進行に努めていただきたいと思います。よろしくお願いします。</div><div class="say">◯（委員長）<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=297s" data-timestamp="297"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:57</a>　ただいま吉良のりこ委員を副委員長にと推薦がございました。お諮りいたします。吉良のりこ委員を副委員長に選出することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t11">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">異議なし。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t12">
   <div class="meta"><span class="name">（委員長）</span></div>
   <div class="say">ご異議なしと認めます。したがって、ただいま指名しました通り選出することに決定をいたしました。ただいま副委員長に選出された吉良のりこ委員のご挨拶をお願いいたします。ご指名いただきましてありがとうございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=332s" data-timestamp="332"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:32</a>　議員になってまだ2年目で、本当に不慣れなところ多いと思いますけれども、精一杯全力で委員長を支えていきたいと思います。委員会の皆さんにはご協力をお願い申し上げます。よろしくお願いいたします。</div><div class="say">他に皆さんの方でございませんね。それでは以上で予算特別委員会の会議を終了いたします。お疲れ様でした。</div>
 </div>
@@ -220,5 +226,53 @@
     addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
   </script>
 
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
 </body>
 </html>

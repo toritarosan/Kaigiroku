@@ -77,6 +77,12 @@
     .hero{padding:14px 0 22px;} .sum{padding:18px;}
     .turn{padding:12px 0;} .say{font-size:15.5px;}
   }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
 </style>
 </head>
 <body>
@@ -91,7 +97,7 @@
     <span class="src">YouTube字幕＋AI校正による記録（非公式）</span>
   </header>
 
-  <section class="sum reveal">
+  <section class="sum reveal" id="summary">
     <p class="lab">A I 要 約</p>
     <div>
       <h3>提出議案の一覧</h3>
@@ -119,299 +125,299 @@
     <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
   </section>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t0">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=36s" data-timestamp="36"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>00:36</a>お疲れ様です。お揃いですので、議会運営委員会協議会を始めたいと思います。最初に、討論の確認ですが、討論はありますか。</div><div class="say">それでは、岸田さん。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t1">
   <div class="meta"><span class="name">岸田</span></div>
   <div class="say">はい。裏面に入って、議案第31号の賛成討論、吉良です。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t2">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">吉良さん。はい。それでは、次は自民党さん。はい。河野さん。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t3">
   <div class="meta"><span class="name">遠藤百合子</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=67s" data-timestamp="67"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:07</a>はい。同じく議案第31号賛成討論、遠藤です。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t4">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">遠藤さん。はい。それでは、太田さん、公明党さん。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t5">
   <div class="meta"><span class="name">太田宏徳</span></div>
   <div class="say">あ、討論。ここではないですね。ええ、一瞬。あ、いいですよ、いいですよ、ちょっと。うん。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t6">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">それでは、休憩します。はい。</div><div class="say">あ、そう。あ、ごめんなさい。あ、ちょっと待って。今、休憩したんで、〇〇さん、どっか行っちゃった。はい、はい、はい。あ、31号ね。はい。ありますか？</div><div class="say">◯（呼ぶ声）<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=106s" data-timestamp="106"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:46</a>　やります。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t7">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">あれ？話、はい。それでは、太田さん。はい。再開します。はい。太田さん。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t8">
   <div class="meta"><span class="name">太田宏徳</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=136s" data-timestamp="136"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:16</a>はい。議案第31号の賛成討論、太田です。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t9">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">太田さん。はい。他にありますか？はい。片山さん。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t10">
   <div class="meta"><span class="name">片山かおる</span></div>
   <div class="say">はい。議案第31号に賛成討論、片山です。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t11">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">片山さんですね。はい。共産党は、陳情第16号、反対討論、森戸、平和教育の関係ですね。あと、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=167s" data-timestamp="167"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:47</a>31号一般会計補正予算反対討論、水上です。</div><div class="say">はい。他は。はい、水谷さん。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t12">
   <div class="meta"><span class="name">水谷たかこ</span></div>
   <div class="say">はい。小は、議案第31号補正予算第2回賛成討論、水谷です。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t13">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">水谷さん。はい。他に。はい、坂井さん。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t14">
   <div class="meta"><span class="name">坂井えつ子</span></div>
   <div class="say">えっとですね、48号市税条例の一部を改正する条例、反対討論です。48号の</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=198s" data-timestamp="198"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:18</a>あ、反対討論。はい、反対です。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t15">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">坂井さんですね。はい。他は大丈夫ですか？</div><div class="say">はい。それでは、討論は以上ということでよろしいでしょうか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t16">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">はい。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t17">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">それでは、あと、採決態度については〇〇ということでよろしくお願いします。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=231s" data-timestamp="231"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:51</a>　あと、本委員会の進行予定については、議長の諮問事項、1件ということで、議会運営に関する議長の諮問事項については、議員提出議案の取り扱いについて、　議員提出議案第10号から20号については、本日の本会議に上程し、説明質疑委員会付託を省略し、即決についてと、いうことで、その他でありますが、皆さんから何かありますか。</div><div class="say">会議が終わった後の協議会で、日程的なことの確認だけ頭出ししておきたいと思いますので、よろしくお願いします。それでは、いいですか？始めます。はい。それでは、お願いします。ただ今から議会運営委員会の会議を開きます。直ちに議事に入ります。当委員会に付託されております案件は、議長の諮問事項、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=269s" data-timestamp="269"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:29</a>1件であります。議長からお手元に議会運営委員会協議事項が提示されておりますので、その順序に従って順次協議をしてまいりたいと思います。議会運営に関する議長の諮問事項についてを議題といたします。</div><div class="say">初めに、事項1、議員提出議案の取り扱いについて行います。取り扱いについて、議長の諮問が示されておりますので、議長から説明をお願いします。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t18">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">はい。事務局から説明いたします。局長。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t19">
   <div class="meta"><span class="name">企画財政部長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=300s" data-timestamp="300"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:00</a>議員提出議案はお手元にご配布してあります意見9件、決議2件が提出されております。議員提出議案第10号から20号については、本日の本会議に上程し、説明質疑委員会付託を省略し、即決することとしたいというのが議長の諮問案でございます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t20">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">議長及び事務局の説明を終わりました。ご意見、ご質疑等ございますか？はい、お諮りいたします。本件については、議長の諮問の通り決定することにご異議ありませんか。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t21">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">あります。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t22">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=334s" data-timestamp="334"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:34</a>ご異議なしと認めます。従って、本件は議長の諮問の通り決定いたしました。次に協議事項2、その他でございますが、何かご発言ございますか？はい。以上で議会運営に関する議長の諮問事項について終わります。</div><div class="say">以上で当委員会に付託されております案件の審査は全て終了いたしました。これで議会運営委員会の会議を閉じ、散会いたします。ということで、協議会で、まず議員研修の日程について、提案会派から何かご発言ありますか？はい、水谷さん。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t23">
   <div class="meta"><span class="name">水谷たかこ</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=371s" data-timestamp="371"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:11</a>はい。議員研修会の日程の件でございます。林大輔さんと日程の確認をさせていただいて、8月または10月ということで候補の日程を伺いました。はい。</div><div class="say">例えば8月12、13、14のところも可能というふうにいただいたんですが、日程的に議会の皆さんのご都合などを考えても難しいかなと思いまして、8月で可能なのは、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=402s" data-timestamp="402"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:42</a>19日水曜日の午後、または、10月。いやいや、8月だと、8月だと19日水曜日の午後、午前中が、決算関係の監査のご予定があるということなのですが、午後なら可能ということなので、議会としてできるのはこの19日の午後か、あとは20日の木曜日も議案が配布日になるんですけれども、ここも可能というお返事はいただいています。はい。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=436s" data-timestamp="436"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:16</a>あと可能な日として伺ったのは8月25日の午前中なんですが、もう一般質問も締め切られて準備に入られているので、現実的には厳しいかなということを考えると、日として考えられるのは19日ですかね。20日議案配布日というのはなかなか皆さん厳しいかなと思うんですが、一応持ち帰りの日程の候補としてはその2つ申し上げます。で、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=466s" data-timestamp="466"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:46</a>それが難しい場合は10月になります。はい。先ほど挙げた日程でやることの懸念点としましては、広報こがねいの8月1日号での告知はギリギリ間に合うということなのですが、議会だよりが8月19日からもう配布が始まってしまうということで、議会だよりによる市民の皆様への広報ができなくなるというのがデメリットかなと思います。</div><div class="say">それも合わせて考えていただいてと思います。ちなみにですけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=497s" data-timestamp="497"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:17</a>10月の候補日として考えられるのは10月15日木曜日になります。中大付属へ伺う日程が20日、21日、22日のそのあたりということなので、その前にできればということではい、15日の木曜日が候補となります。以上です。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t24">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">はい。8月にやるってことになると、今日一応日程は決めておいた方がいいってことですよね。ということなので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=529s" data-timestamp="529"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:49</a>持ち帰ってもらうんですが、共産党、8月19、20日がなかなか難しいという予定が入っていたので、皆さんの意見を聞いた上でそのように考えています。一旦、次の委員会でと思いますので。はい、坂井さん。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t25">
   <div class="meta"><span class="name">坂井えつ子</span></div>
   <div class="say">大変申し訳ないんですが、8月20日は全国監査委員総会のため朝から欠席で、10月15日も定期監査でございます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t26">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">ああ、監査。はい。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=561s" data-timestamp="561"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:21</a>そうですね。ということで、次の委員会で最終的に。19日、8月は。すいません。10月以降ということで、林先生のご都合を伺ったのが、月曜日の午後か、火曜日の午前中か、木曜日ということだったので、今候補に挙げた以外の日程で調整が可能かな。でも、</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t27">
   <div class="meta"><span class="name">水谷たかこ</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=593s" data-timestamp="593"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:53</a>都市問題会議は行かれる会派もいらっしゃるかと思うので、そのあたりは外すと。はい。10月、月曜日の午後か。10月は月曜日の午後何日？いや、ごめんなさい。</div><div class="say">候補として考えられる日程がですね、毎週月曜日の方が空いているとのこと。そうで、火曜日の午前中、または木曜日ということだったので、でも可能な日程が。8月は厳しい。都市問題会議行かれますよね？<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=623s" data-timestamp="623"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:23</a>　、もしどこも行かれないんであれば、8日。</div><div class="say">11月。10月8日。木曜日。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t28">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">うん。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t29">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">あ、そっか。議長行かれるんですよね。あ、じゃあだめですね。</div><div class="say">それでは、一応、8月でやるとすれば8月19日。うちは政党の予定が入っていますが、もし全体がどうしても8月19日だってことになれば、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=655s" data-timestamp="655"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:55</a>うん。ということを踏まえてありますので、10月の日程でやると、10月だと、さっき申し上げた15日はもう難しいんですよね。監査が入っているので。ということは、19日月曜日午後。どっちでもいい。19日月曜日だと午後。午後。19日、10月19日。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t30">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">あ、10月19日。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t31">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">はい。ごめんなさい。10月19日、月19日の午後。それでは、ここ1択2択、8月の19か10月の19。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=687s" data-timestamp="687"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:27</a>　できればうちは避けてもらいたいと思いますが。</div><div class="say">はい。候補のことなども考えて、皆さんで判断いただければと思います。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t32">
   <div class="meta"><span class="name">議長</span></div>
   <div class="say">すいません。10月19日、今のところ予定入ってるんで、議長が難しいんだけど、それ以外はずっとオッケーです。ね。はい。ということは、本当に厳しく1択。午後1択。でもね、あ、</div><div class="say">それか10月は、できれば視察の中大付属でやる前にやった方がいいと思うんですけど、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=717s" data-timestamp="717"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:57</a>それが叶わなければ、月火の日程で入れていくしかないって感じかな。10月19日、10月19日は議長の日程が入っているので。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t33">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">委員長。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t34">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">うん。できれば避けてもらいたいと思います。公務ではないので。うん。それでは、10月の日程で調整するしかないっていう感じですかね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=753s" data-timestamp="753"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:33</a>今具体的に出された日程は難しいので、月火のこの講師の方の日程が空いているところで合わせるという、そういう形で調整していただけますでしょうか。申し訳ないんですが。あの、あれですか？あの、あ、すいません。</div><div class="say">10月のその月曜の午後か火曜日の午前中というのもあるということなんですよね。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t35">
   <div class="meta"><span class="name">水谷たかこ</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=786s" data-timestamp="786"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:06</a>はい。火曜日の午前中だとしたら、10月13日とか27日とか、10月26日の月曜というのもあるということでしょうか。中大が、いつになるのかがまだ決まってないですもんね。21か22なので、まだまだ決まってないですもんね。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t36">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">今日最後の委員会で決めたいと思います。持ち帰っていただいているので皆さん。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t37">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">あ、それも今日決めてってことですか？</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t38">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">今日決めるってことになっていたので。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t39">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">あ。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t40">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">皆さん、日程持ち帰ってもらって。</div><div class="say">◯（呼ぶ声）<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=818s" data-timestamp="818"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:38</a>　はい。そうか。持ち帰りでしたね。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t41">
   <div class="meta"><span class="name">水谷たかこ</span></div>
   <div class="say">そうです。あと実行委員も募集していますので。あ、そうです。両方です。はい。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t42">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">それでは、10月13日と、手帳がなくてわからないんですけど、10月13日。13の定期監査です。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t43">
   <div class="meta"><span class="name">坂井えつ子</span></div>
   <div class="say">あ、定期監査。はい。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t44">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">ちなみに最終日翌日火曜日の。さすがにそこは忙しい。</div><div class="say">◯（呼ぶ声）<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=851s" data-timestamp="851"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:11</a>　延長する。それ年度ではない。何？うん。延長しない。延長大丈夫？</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t45">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">それでは、10月の日程だから今決めておいた方がいいって感じですよね。そうでもない。8月じゃないって言うんですけど。うん。10月だったらまだ先があるのかな。調整してもらって。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t46">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">10月って。うん。次の次の閉会中の日程も入ってくるか、そっちも考えなきゃいけないんじゃないですか。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t47">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=883s" data-timestamp="883"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:43</a>それをやるのかどうか。多分委員会の。多分委員会の。日程厳しい。うん。10月の日程は今ここで決められないので。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t48">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">確かにあの前にできないんだったら。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t49">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">うん。そうですよね。うん。年に</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=913s" data-timestamp="913"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:13</a>8月にやるかやらないか。うん。はい。それでは。はい、水谷さん。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t50">
   <div class="meta"><span class="name">水谷たかこ</span></div>
   <div class="say">10月の例えば2週目とかにやると、確かに中大付属の視察前ではあるんですけど、もうその時点でもやることって決まっちゃってると思うので、盛り込めないと思うんですよね。あまり数週間前にやっても。だから焦らず、年明けとか。うん。</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t51">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">でいいんじゃないですか。その広報も充実できますしね。はい、はい。</div>
 </div>
 
-<div class="turn reveal">
+<div class="turn reveal" id="t52">
   <div class="meta"><span class="name">清水学</span></div>
   <div class="say">はい。同じ実行委員の立場ではあるのですが、実際企画の中身には盛り込めないですけれども、各議員が注意しなければならない考え方などについてはここで学べるので、できることなら前の方がいいのではないかと私は考えます。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t53">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=1030s" data-timestamp="1030"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:10</a>うのであと議長とあと片山さんがね、結構日が色々入ってるの。それでちょっと調整していただいて、日程調整していくっていう形で19日、どうしても皆さんでいいっていうことになれば考えますけれど、なかなかね。<br />
 <a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=1069s" data-timestamp="1069"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:49</a>　69】ということで、ちょっと後日をもしあれだったらちょっと絞っていただいて、各議員にちょっと投げていただいて、調整していくっていう風にせざるを得ないかなと思うんですけど。</div><div class="say">ということであの5番目のところではちょっとなかなか難しいかなとは思うんですけど、根底会で日程確定まで行けるかどうかはちょっと難しいですよね。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t54">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">ね、この時間の中ではもう10月。10月で何か、その月か目の中でなんか調整がつけばっていうことになるので。はい。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t55">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=1099s" data-timestamp="1099"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:19</a>それはじゃあそういうことでちょっと日程の方もまた調整していただければと思いますのでよろしくお願いします。</div><div class="say">あと中大付属高校との主権者教育は持ち帰っていただいているので、あと実行委員の募集も持ち帰っていただいてますので、次の議運であの確認したいと思いますので、ぜひご確認お願いしたいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=qFrE2ISYQ_I&t=1130s" data-timestamp="1130"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:50</a>えっと、以上で議会運営委員会終わりたいと思いますが、協議会よろしいでしょうか？</div>
 </div>
 
-<div class="turn voice reveal">
+<div class="turn voice reveal" id="t56">
   <div class="meta"><span class="name">（呼ぶ声）</span></div>
   <div class="say">はい。</div><div class="say">はい。</div>
 </div>
 
-<div class="turn chair reveal">
+<div class="turn chair reveal" id="t57">
   <div class="meta"><span class="name">委員長</span></div>
   <div class="say">じゃあお疲れ様でした。以上で協議会終了します。</div>
 </div>
@@ -447,5 +453,53 @@
     addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
   </script>
 
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
 </body>
 </html>
