@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ご意見・掲示板 — 小金井市議会 非公式会議録</title>
+<meta name="description" content="小金井市議会の会議録アーカイブ（非公式）への、ご意見・ご感想の掲示板です。">
+<style>
+:root{
+  --navy:#15315a; --navy-soft:#e9eef5; --pop:#e8482a;
+  --bg:#f2f2f2; --surface:#fff; --ink:#1a1a1a; --text:#333; --muted:#666;
+  --line:#e6e6e6; --border:#ccc; --radius:8px;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--text);line-height:1.6;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;}
+.topbar{height:6px;background:var(--navy);}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px 64px;}
+header.h{padding:26px 0 8px;}
+header.h .kicker{font-size:.72rem;letter-spacing:.2em;color:var(--navy);font-weight:700;margin:0 0 6px;}
+header.h h1{font-size:1.5rem;font-weight:900;color:var(--navy);margin:0;}
+header.h p.tag{margin:8px 0 0;color:var(--muted);font-size:.82rem;line-height:1.7;}
+header.h a.back{display:inline-block;margin-top:10px;color:var(--navy);font-weight:700;font-size:.82rem;text-decoration:none;}
+header.h a.back:hover{text-decoration:underline;}
+
+.note{margin:16px 0 0;background:var(--navy-soft);border:1px solid #d4def0;border-radius:var(--radius);
+  padding:11px 14px;color:#2c4a78;font-size:.78rem;line-height:1.75;}
+
+.form{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 14px;margin:16px 0 22px;}
+.form .fld{margin:0 0 11px;}
+.form label{display:block;font-size:.78rem;font-weight:700;color:var(--ink);margin:0 0 5px;}
+.form label .opt{font-weight:500;color:var(--muted);font-size:.72rem;margin-left:6px;}
+.form input[type=text],.form textarea{width:100%;font-family:inherit;font-size:.92rem;color:var(--ink);
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px;outline:none;}
+.form input[type=text]:focus,.form textarea:focus{border-color:var(--navy);box-shadow:0 0 0 3px var(--navy-soft);}
+.form textarea{min-height:120px;resize:vertical;line-height:1.7;}
+.form .counter{text-align:right;font-size:.72rem;color:var(--muted);margin:4px 2px 0;}
+.form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+.form .actions{display:flex;align-items:center;gap:12px;margin-top:4px;}
+.form button{background:var(--pop);color:#fff;border:0;border-radius:var(--radius);font-family:inherit;
+  font-size:.9rem;font-weight:700;padding:11px 22px;cursor:pointer;transition:.12s;}
+.form button:hover{filter:brightness(.94);}
+.form button:disabled{opacity:.5;cursor:default;}
+.form .msg{font-size:.82rem;font-weight:700;}
+.form .msg.ok{color:#1f7a3d;}
+.form .msg.err{color:var(--pop);}
+
+.listhead{margin:6px 2px 10px;color:var(--ink);font-size:.92rem;font-weight:700;}
+.comments{display:flex;flex-direction:column;gap:10px;}
+.cmt{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px 15px;}
+.cmt .meta{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin:0 0 6px;}
+.cmt .name{font-weight:700;color:var(--navy);font-size:.84rem;}
+.cmt .name.anon{color:var(--muted);font-weight:500;}
+.cmt .when{font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums;}
+.cmt .body{font-size:.9rem;color:var(--text);line-height:1.8;white-space:pre-wrap;word-break:break-word;}
+.state{text-align:center;padding:34px 16px;color:var(--muted);font-size:.86rem;}
+.footer{margin-top:30px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.74rem;line-height:1.85;}
+.footer a{color:var(--navy);font-weight:700;}
+@media(max-width:560px){header.h h1{font-size:1.25rem;}}
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+<div class="wrap">
+  <header class="h">
+    <p class="kicker">小金井市議会 非公式会議録</p>
+    <h1>ご意見・掲示板</h1>
+    <p class="tag">会議録アーカイブへのご意見・ご感想をお寄せください。投稿は管理者の確認後に掲載されます。</p>
+    <a class="back" href="index.html">← 会議一覧に戻る</a>
+  </header>
+
+  <div class="note">
+    投稿は<strong>承認制</strong>です。送信後すぐには表示されず、管理者が確認してから掲載します。<br>
+    特定個人への誹謗中傷・個人情報・無関係な宣伝などは掲載されません。当サイトは非公式アーカイブであり、小金井市・市議会とは関係ありません。
+  </div>
+
+  <form class="form" id="form" autocomplete="off">
+    <div class="fld">
+      <label for="name">ニックネーム <span class="opt">任意・空欄なら「匿名」で表示</span></label>
+      <input type="text" id="name" name="name" maxlength="30" placeholder="匿名">
+    </div>
+    <div class="fld">
+      <label for="body">ご意見・ご感想 <span class="opt">必須</span></label>
+      <textarea id="body" name="body" maxlength="1000" placeholder="例）この委員会の○○についての議論が分かりやすかったです。" required></textarea>
+      <div class="counter"><span id="count">0</span> / 1000</div>
+    </div>
+    <!-- ハニーポット（人間には見えない。bot が埋めると弾く） -->
+    <div class="hp" aria-hidden="true">
+      <label>このフィールドは空のままにしてください<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+    </div>
+    <div class="actions">
+      <button type="submit" id="submit">投稿する</button>
+      <span class="msg" id="msg"></span>
+    </div>
+  </form>
+
+  <p class="listhead">みなさんの声 <span id="cnum"></span></p>
+  <div class="comments" id="comments"></div>
+  <div class="state" id="state">読み込み中…</div>
+
+  <div class="footer">
+    本掲示板は <strong>小金井市議会 非公式会議録</strong> への意見交換用です。投稿内容の責任は投稿者に帰属します。<br>
+    <a href="index.html">← 会議録アーカイブのトップへ</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  // === Apps Script ウェブアプリの /exec URL をここに貼る ===
+  var ENDPOINT = "https://script.google.com/macros/s/AKfycby4Az4VwZI3U-vfLYFuwJCTtpNXqgDaCLxGQ9iHF04RfBUxSqwreJ-d6qwRafup-wLAdg/exec";
+
+  var form = document.getElementById('form');
+  var bodyEl = document.getElementById('body');
+  var nameEl = document.getElementById('name');
+  var hpEl = form.querySelector('input[name=website]');
+  var submitBtn = document.getElementById('submit');
+  var msg = document.getElementById('msg');
+  var countEl = document.getElementById('count');
+  var commentsEl = document.getElementById('comments');
+  var stateEl = document.getElementById('state');
+  var cnumEl = document.getElementById('cnum');
+
+  bodyEl.addEventListener('input', function(){ countEl.textContent = bodyEl.value.length; });
+
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+  function fmtWhen(t){
+    if (!t) return '';
+    if (typeof t === 'string' && /^\d{4}\/\d{2}\/\d{2}/.test(t)) return t; // サーバーがJST整形済み
+    try { var d = new Date(t); if (!isNaN(d)) {
+      var p = function(n){ return ('0'+n).slice(-2); };
+      return d.getFullYear()+'/'+p(d.getMonth()+1)+'/'+p(d.getDate())+' '+p(d.getHours())+':'+p(d.getMinutes());
+    } } catch(e){}
+    return String(t);
+  }
+
+  function render(list){
+    if (!list || !list.length){
+      stateEl.textContent = 'まだコメントはありません。最初の投稿をどうぞ。';
+      stateEl.style.display = 'block';
+      cnumEl.textContent = '';
+      return;
+    }
+    stateEl.style.display = 'none';
+    cnumEl.textContent = '（' + list.length + '件）';
+    commentsEl.innerHTML = list.map(function(c){
+      var nm = (c.name && c.name.trim())
+        ? '<span class="name">' + esc(c.name) + '</span>'
+        : '<span class="name anon">匿名</span>';
+      return '<div class="cmt"><div class="meta">' + nm +
+             '<span class="when">' + esc(fmtWhen(c.t)) + '</span></div>' +
+             '<div class="body">' + esc(c.body) + '</div></div>';
+    }).join('');
+  }
+
+  function load(){
+    if (ENDPOINT.indexOf('__ENDPOINT__') === 0 || ENDPOINT.indexOf('PASTE') >= 0){
+      stateEl.textContent = '（準備中：投稿先が未設定です）';
+      return;
+    }
+    fetch(ENDPOINT, { method:'GET' })
+      .then(function(r){ return r.json(); })
+      .then(function(j){ render(j.comments || []); })
+      .catch(function(){ stateEl.textContent = 'コメントの読み込みに失敗しました。時間をおいて再読み込みしてください。'; });
+  }
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    msg.textContent = ''; msg.className = 'msg';
+    var body = bodyEl.value.trim();
+    if (!body){ msg.textContent = '本文を入力してください。'; msg.className = 'msg err'; return; }
+    if (hpEl.value){ form.reset(); return; } // bot
+
+    submitBtn.disabled = true;
+    msg.textContent = '送信中…';
+    var payload = JSON.stringify({ name: nameEl.value.trim(), body: body, website: hpEl.value });
+
+    // text/plain で送ることで CORS プリフライトを回避（Apps Script の定石）
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: payload
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(j){
+      if (j && j.ok){
+        msg.textContent = '投稿を受け付けました。承認後に表示されます。ありがとうございます。';
+        msg.className = 'msg ok';
+        form.reset(); countEl.textContent = '0';
+      } else {
+        msg.textContent = (j && j.error) ? j.error : '送信に失敗しました。';
+        msg.className = 'msg err';
+      }
+    })
+    .catch(function(){ msg.textContent = '送信に失敗しました。時間をおいて再度お試しください。'; msg.className = 'msg err'; })
+    .then(function(){ submitBtn.disabled = false; });
+  });
+
+  load();
+})();
+</script>
+</body>
+</html>
