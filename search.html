@@ -105,6 +105,9 @@ header.h a.back:hover{text-decoration:underline;}
       loading=document.getElementById('loading'),
       catFacets=document.getElementById('catFacets');
 
+  // index の分割ビュー内(iframe)に埋め込まれている場合は「会議一覧に戻る」を隠す（左ペインが一覧）
+  try{ if(window.self!==window.top){ var _bk=document.querySelector('header.h a.back'); if(_bk)_bk.style.display='none'; } }catch(e){}
+
   function norm(s){ return (s||"").toLowerCase().normalize('NFKC'); }
   function esc(s){ return (s||"").replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
   function reEsc(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }

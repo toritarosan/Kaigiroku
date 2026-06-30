@@ -166,7 +166,7 @@ body{margin:0;background:var(--bg);color:var(--text);
       </details>
     </nav>
     <div class="side-links">
-      <a href="search.html">🔍 全文検索<span class="arr">→</span></a>
+      <a id="searchlink" href="search.html">🔍 全文検索<span class="arr">→</span></a>
       <a id="dashlink" href="dashboard.html">発言時間ダッシュボード<span class="arr">→</span></a>
       <a href="urls.html">NotebookLM用 URL一覧<span class="arr">→</span></a>
       <a href="https://www.city.koganei.tokyo.dbsr.jp/" target="_blank" rel="noopener">公式 会議録検索<span class="arr">↗</span></a>
@@ -209,6 +209,8 @@ document.querySelectorAll('.entry').forEach(e=>{
     frame.scrollIntoView({block:'start'});
   });
 });
+var _sl=document.getElementById('searchlink');
+if(_sl)_sl.addEventListener('click',function(e){e.preventDefault();document.querySelectorAll('.entry').forEach(function(x){x.classList.remove('is-active');});frame.src='search.html';document.body.classList.add('show-detail');try{frame.scrollIntoView({block:'start'});}catch(_){}});
 document.getElementById('back').addEventListener('click',()=>{
   document.body.classList.remove('show-detail');
 });
