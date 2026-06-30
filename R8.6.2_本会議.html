@@ -86,9 +86,19 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 .turn:target,.turn.qcurrent{background:#fff8e1;}
 .sum:target{background:#fff8e1;}
 /*qsearch-end*/
+
+/*backbar*/
+.backbar-top{display:none;}
+body.standalone{padding-top:40px;}
+body.standalone .backbar-top{display:flex;align-items:center;gap:6px;position:fixed;top:0;left:0;right:0;z-index:60;height:40px;padding:0 18px;background:var(--navy);color:#fff;font-family:var(--sans);font-size:13px;font-weight:700;text-decoration:none;letter-spacing:.04em;box-shadow:0 1px 4px rgba(0,0,0,.15);}
+body.standalone .backbar-top:hover{background:#294f86;}
+body.standalone .prog{top:40px;}
+/*backbar-end*/
 </style>
 </head>
 <body>
+<a class="backbar-top" href="index.html">← 会議一覧に戻る</a>
+<script id="backbar-js">(function(){try{if(window.self===window.top)document.body.classList.add('standalone');}catch(e){document.body.classList.add('standalone');}})();</script>
 <div class="prog" id="prog"></div>
 <div class="wrap">
 
