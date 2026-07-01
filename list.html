@@ -113,7 +113,7 @@ body{margin:0;background:var(--bg);color:var(--text);
 .facets{display:none !important;}/* FACETS_HIDDEN_20260629 復元はこの行を削除 */
 
   /* サイト共通ヘッダー（トップと同系の緑＋クリーム） */
-  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;}
+  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
   html.embedded .sitenav{display:none;}
   .sitenav-in{max-width:1100px;margin:0 auto;padding:0 18px;min-height:52px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
   .sitenav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#157a4b;font-weight:700;font-size:1rem;white-space:nowrap;}
@@ -123,6 +123,8 @@ body{margin:0;background:var(--bg);color:var(--text);
   .sitenav-links a:hover{color:#157a4b;background:#e7f4ec;}
   .sitenav-links .ext{color:#8a8073;font-size:.8em;margin-left:1px;}
   @media(max-width:640px){.sitenav-in{min-height:0;padding:8px 14px;}.sitenav-links a{padding:6px 9px;font-size:.8rem;}}
+
+  @media(max-width:640px){.sitenav{position:static;} .crumb{position:static;} .site-header{position:static;}}
 </style>
 </head>
 <body>

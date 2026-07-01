@@ -95,7 +95,7 @@ section.block{margin-bottom:30px;scroll-margin-top:16px;}
 }
 
   /* サイト共通ヘッダー（トップと同系の緑＋クリーム） */
-  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;}
+  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
   html.embedded .sitenav{display:none;}
   .sitenav-in{max-width:1100px;margin:0 auto;padding:0 18px;min-height:52px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
   .sitenav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#157a4b;font-weight:700;font-size:1rem;white-space:nowrap;}
@@ -107,13 +107,15 @@ section.block{margin-bottom:30px;scroll-margin-top:16px;}
   @media(max-width:640px){.sitenav-in{min-height:0;padding:8px 14px;}.sitenav-links a{padding:6px 9px;font-size:.8rem;}}
 
   /* パンくず */
-  .crumb{background:#fbf9f4;border-bottom:1px solid #eee7db;}
+  .crumb{background:#fbf9f4;border-bottom:1px solid #eee7db;position:sticky;top:52px;z-index:59;}
   html.embedded .crumb{display:none;}
   .crumb-in{max-width:1100px;margin:0 auto;padding:8px 18px;font-size:.76rem;color:#8a8073;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.5;}
   .crumb a{color:#157a4b;text-decoration:none;font-weight:600;}
   .crumb a:hover{text-decoration:underline;}
   .crumb .sep{color:#c9c0b2;}
   .crumb .cur{color:#4a443b;font-weight:600;}
+
+  @media(max-width:640px){.sitenav{position:static;} .crumb{position:static;} .site-header{position:static;}}
 </style>
 </head>
 <body>
