@@ -160,6 +160,7 @@ header.h a.back:hover{text-decoration:underline;}
   function render(){
     if(!DATA) return;
     var query=q.value.trim();
+    try{ history.replaceState(null,'', query?('?q='+encodeURIComponent(query)):location.pathname); }catch(e){}
     var terms=query?norm(query).split(/\s+/).filter(Boolean):[];
     var rawTerms=query?query.split(/\s+/).filter(Boolean):[];
     var qparam=rawTerms.length?('?q='+encodeURIComponent(rawTerms.join(' '))):'';
