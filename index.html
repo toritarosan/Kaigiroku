@@ -1043,6 +1043,37 @@ svg{display:block;}
     animation-iteration-count:1!important;
   }
 }
+
+  /* コメント（掲示板・承認制） */
+  .col-left{display:flex;flex-direction:column;gap:24px;min-width:0;}
+  .cmt-body{padding:16px 18px 18px;}
+  .cmt-note{margin:0 0 14px;padding:10px 13px;background:var(--primary-soft);border:1px solid var(--primary-line);border-radius:var(--radius);color:var(--primary-ink);font-size:.78rem;line-height:1.75;}
+  .cmt-note strong{color:var(--coral-dark);font-weight:600;}
+  .cmt-form{margin:0 0 20px;}
+  .cmt-label{display:block;font-size:.78rem;font-weight:600;color:var(--ink);margin:10px 0 5px;}
+  .cmt-label:first-of-type{margin-top:0;}
+  .cmt-opt{font-weight:500;color:var(--muted);font-size:.72rem;margin-left:6px;}
+  .cmt-form input[type=text],.cmt-form textarea{width:100%;font-family:inherit;font-size:.92rem;color:var(--ink);background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px;outline:none;}
+  .cmt-form input[type=text]:focus,.cmt-form textarea:focus{border-color:var(--primary-dark);box-shadow:0 0 0 3px var(--primary-soft);}
+  .cmt-form textarea{min-height:110px;resize:vertical;line-height:1.7;}
+  .cmt-counter{text-align:right;font-size:.72rem;color:var(--muted);margin:4px 2px 0;}
+  .cmt-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+  .cmt-actions{display:flex;align-items:center;gap:12px;margin-top:10px;}
+  .cmt-form button{background:var(--coral);color:#fff;border:0;border-radius:var(--radius);font-family:inherit;font-size:.9rem;font-weight:600;padding:11px 24px;cursor:pointer;transition:.12s;}
+  .cmt-form button:hover{background:var(--coral-dark);}
+  .cmt-form button:disabled{opacity:.5;cursor:default;}
+  .cmt-msg{font-size:.82rem;font-weight:600;}
+  .cmt-msg.ok{color:var(--primary-ink);}
+  .cmt-msg.err{color:var(--coral-dark);}
+  .cmt-listhead{margin:6px 2px 10px;color:var(--ink);font-size:.9rem;font-weight:600;}
+  .cmt-list{display:flex;flex-direction:column;gap:10px;}
+  .cmt-item{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:12px 15px;}
+  .cmt-item .m{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin:0 0 6px;}
+  .cmt-item .nm{font-weight:600;color:var(--primary-ink);font-size:.84rem;}
+  .cmt-item .nm.anon{color:var(--muted);font-weight:500;}
+  .cmt-item .wh{font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums;}
+  .cmt-item .bd{font-size:.9rem;color:var(--text);line-height:1.8;white-space:pre-wrap;word-break:break-word;}
+  .cmt-state{text-align:center;padding:28px 16px;color:var(--muted);font-size:.85rem;}
 </style>
 </head>
 <body>
@@ -1166,6 +1197,7 @@ svg{display:block;}
 <main class="main" id="main">
   <div class="container">
     <div class="main-grid">
+      <div class="col-left">
       <section class="panel" aria-labelledby="recent-title">
         <div class="panel-head">
           <h2 class="panel-title" id="recent-title">最近の会議</h2>
@@ -1234,6 +1266,26 @@ svg{display:block;}
           <a class="more-link" href="list.html">すべての会議を見る <span aria-hidden="true">→</span></a>
         </div>
       </section>
+
+      <section class="panel comments-panel" aria-labelledby="cmt-title">
+        <div class="panel-head"><h2 class="panel-title" id="cmt-title">ご意見・コメント</h2></div>
+        <div class="cmt-body">
+          <p class="cmt-note">投稿は<strong>承認制</strong>です。送信後すぐには表示されず、管理者の確認後に掲載します。特定個人への誹謗中傷・個人情報・無関係な宣伝等は掲載されません。当サイトは非公式アーカイブで、小金井市・市議会とは関係ありません。</p>
+          <form class="cmt-form" id="cmtForm" autocomplete="off">
+            <label class="cmt-label" for="cmtName">ニックネーム <span class="cmt-opt">任意・空欄なら「匿名」</span></label>
+            <input type="text" id="cmtName" maxlength="30" placeholder="匿名">
+            <label class="cmt-label" for="cmtBody">ご意見・ご感想 <span class="cmt-opt">必須</span></label>
+            <textarea id="cmtBody" maxlength="1000" placeholder="例）この委員会の◯◯についての議論が分かりやすかったです。" required></textarea>
+            <div class="cmt-counter"><span id="cmtCount">0</span> / 1000</div>
+            <div class="cmt-hp" aria-hidden="true"><label>空欄のままにしてください<input type="text" id="cmtHp" name="website" tabindex="-1" autocomplete="off"></label></div>
+            <div class="cmt-actions"><button type="submit" id="cmtSubmit">投稿する</button><span class="cmt-msg" id="cmtMsg"></span></div>
+          </form>
+          <p class="cmt-listhead">みなさんの声 <span id="cmtNum"></span></p>
+          <div class="cmt-list" id="cmtList"></div>
+          <div class="cmt-state" id="cmtState">読み込み中…</div>
+        </div>
+      </section>
+      </div>
 
       <aside class="side" aria-label="補助メニュー">
 
@@ -1314,5 +1366,21 @@ svg{display:block;}
 </script>
 
 <!-- Fuguによる主なデザイン改善: (1)デザイントークン体系化(primary/coral/amber x dark/soft/line) (2)アクセシビリティ(skip-link/aria/focus-visible/prefers-reduced-motion) (3)タイポ階層と字間の最適化 (4)ヒーローに「収録状況」カードを追加し情報密度を向上 (5)KPIを上辺カラーアクセント+アイコンチップで整理 (6)会議一覧をセマンティックなtable(colgroup/scope)化 (7)hover/focus/activeの状態設計 (8)クリーム基調の暖色パレットで親しみやすさと信頼感を両立 / 末尾(クイックリンク2件・フッター・スクリプト)はトークン上限で切れたためFuguのクラス設計に沿って補完 -->
+<script>
+(function(){
+  var ENDPOINT="https://script.google.com/macros/s/AKfycby4Az4VwZI3U-vfLYFuwJCTtpNXqgDaCLxGQ9iHF04RfBUxSqwreJ-d6qwRafup-wLAdg/exec";
+  var form=document.getElementById('cmtForm'); if(!form) return;
+  var bodyEl=document.getElementById('cmtBody'),nameEl=document.getElementById('cmtName'),hpEl=document.getElementById('cmtHp'),
+      submitBtn=document.getElementById('cmtSubmit'),msg=document.getElementById('cmtMsg'),countEl=document.getElementById('cmtCount'),
+      listEl=document.getElementById('cmtList'),stateEl=document.getElementById('cmtState'),numEl=document.getElementById('cmtNum');
+  bodyEl.addEventListener('input',function(){countEl.textContent=bodyEl.value.length;});
+  function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  function fmtWhen(t){if(!t)return'';if(typeof t==='string'&&/^\d{4}\/\d{2}\/\d{2}/.test(t))return t;try{var d=new Date(t);if(!isNaN(d)){var p=function(n){return('0'+n).slice(-2);};return d.getFullYear()+'/'+p(d.getMonth()+1)+'/'+p(d.getDate())+' '+p(d.getHours())+':'+p(d.getMinutes());}}catch(e){}return String(t);}
+  function render(list){if(!list||!list.length){stateEl.textContent='まだコメントはありません。最初の投稿をどうぞ。';stateEl.style.display='block';numEl.textContent='';return;}stateEl.style.display='none';numEl.textContent='（'+list.length+'件）';listEl.innerHTML=list.map(function(c){var nm=(c.name&&c.name.trim())?'<span class="nm">'+esc(c.name)+'</span>':'<span class="nm anon">匿名</span>';return '<div class="cmt-item"><div class="m">'+nm+'<span class="wh">'+esc(fmtWhen(c.t))+'</span></div><div class="bd">'+esc(c.body)+'</div></div>';}).join('');}
+  function load(){fetch(ENDPOINT,{method:'GET'}).then(function(r){return r.json();}).then(function(j){render(j.comments||[]);}).catch(function(){stateEl.textContent='コメントの読み込みに失敗しました。時間をおいて再読み込みしてください。';});}
+  form.addEventListener('submit',function(ev){ev.preventDefault();msg.textContent='';msg.className='cmt-msg';var body=bodyEl.value.trim();if(!body){msg.textContent='本文を入力してください。';msg.className='cmt-msg err';return;}if(hpEl.value){form.reset();return;}submitBtn.disabled=true;msg.textContent='送信中…';var payload=JSON.stringify({name:nameEl.value.trim(),body:body,website:hpEl.value});fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:payload}).then(function(r){return r.json();}).then(function(j){if(j&&j.ok){msg.textContent='投稿を受け付けました。承認後に表示されます。ありがとうございます。';msg.className='cmt-msg ok';form.reset();countEl.textContent='0';}else{msg.textContent=(j&&j.error)?j.error:'送信に失敗しました。';msg.className='cmt-msg err';}}).catch(function(){msg.textContent='送信に失敗しました。時間をおいて再度お試しください。';msg.className='cmt-msg err';}).then(function(){submitBtn.disabled=false;});});
+  load();
+})();
+</script>
 </body>
 </html>
