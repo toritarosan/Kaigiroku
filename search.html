@@ -5,6 +5,14 @@
 <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>全文検索 — 小金井市議会 非公式会議録</title>
+<meta name="description" content="小金井市議会の会議録を、発言内容・発言者名・議案番号で全文検索（非公式）。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="小金井市議会 非公式会議録">
+<meta property="og:title" content="会議録 全文検索｜小金井市議会 非公式会議録">
+<meta property="og:description" content="小金井市議会の会議録を、発言内容・発言者名・議案番号で全文検索（非公式）。">
+<meta property="og:url" content="https://toritarosan.github.io/Gijiroku1/search.html">
+<meta property="og:image" content="https://toritarosan.github.io/Gijiroku1/ogp.png">
+<meta name="twitter:card" content="summary">
 <meta name="description" content="小金井市議会の本会議・委員会の会議録を、発言内容・発言者・議案番号で横断検索できます（非公式）。">
 <style>
 :root{
@@ -62,7 +70,7 @@ header.h a.back:hover{text-decoration:underline;}
 @media(max-width:560px){header.h h1{font-size:1.25rem;} .card .ttl{font-size:.9rem;}}
 
   /* サイト共通ヘッダー（トップと同系の緑＋クリーム） */
-  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;}
+  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
   html.embedded .sitenav{display:none;}
   .sitenav-in{max-width:1100px;margin:0 auto;padding:0 18px;min-height:52px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
   .sitenav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#157a4b;font-weight:700;font-size:1rem;white-space:nowrap;}
@@ -72,6 +80,22 @@ header.h a.back:hover{text-decoration:underline;}
   .sitenav-links a:hover{color:#157a4b;background:#e7f4ec;}
   .sitenav-links .ext{color:#8a8073;font-size:.8em;margin-left:1px;}
   @media(max-width:640px){.sitenav-in{min-height:0;padding:8px 14px;}.sitenav-links a{padding:6px 9px;font-size:.8rem;}}
+
+  /* パンくず */
+  .crumb{background:#fbf9f4;border-bottom:1px solid #eee7db;position:sticky;top:52px;z-index:59;}
+  html.embedded .crumb{display:none;}
+  .crumb-in{max-width:1100px;margin:0 auto;padding:8px 18px;font-size:.76rem;color:#8a8073;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.5;}
+  .crumb a{color:#157a4b;text-decoration:none;font-weight:600;}
+  .crumb a:hover{text-decoration:underline;}
+  .crumb .sep{color:#c9c0b2;}
+  .crumb .cur{color:#4a443b;font-weight:600;}
+
+  @media(max-width:640px){.crumb{position:static;} .site-header{position:static;} .sitenav-in{flex-wrap:nowrap;} .sitenav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}}
+
+  /* ページトップへ戻る */
+  .to-top{position:fixed;bottom:20px;right:20px;z-index:900;width:44px;height:44px;border:none;border-radius:50%;background:#157a4b;color:#fff;font-size:20px;line-height:1;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,background .15s;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+  .to-top.show{opacity:.92;visibility:visible;transform:none;}
+  .to-top:hover{opacity:1;background:#12633d;}
 </style>
   <link rel="icon" type="image/svg+xml" href="icon.svg">
 </head>
@@ -90,6 +114,7 @@ header.h a.back:hover{text-decoration:underline;}
     </div>
   </div>
 </nav>
+<nav class="crumb" aria-label="パンくずリスト"><div class="crumb-in"><a href="index.html">ホーム</a><span class="sep">›</span><span class="cur">全文検索</span></div></nav>
 
 <div class="wrap">
   <header class="h">
@@ -285,5 +310,7 @@ header.h a.back:hover{text-decoration:underline;}
   });
 })();
 </script>
+<button class="to-top" type="button" aria-label="ページ上部へ戻る" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>(function(){var b=document.querySelector('.to-top');if(!b)return;function u(){b.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>300);}window.addEventListener('scroll',u,{passive:true});u();})();</script>
 </body>
 </html>
