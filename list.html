@@ -128,7 +128,11 @@ a{color:var(--primary-ink);}
   .cname{min-width:auto;width:100%;padding-top:0;}
 }
 </style>
-</head>
+<style id="byline-layout">/* byline: デスクトップはβ版の横・スマホは改行 */
+.brand-text h1{display:inline-block;vertical-align:baseline;}
+.brand-text .byline{display:inline-block;vertical-align:baseline;margin:0 0 0 12px;white-space:nowrap;}
+@media(max-width:560px){.brand-text h1{display:block;}.brand-text .byline{display:block;margin:2px 0 0;white-space:normal;}}
+</style></head>
 <body>
 <header class="site-header">
   <div class="container inner">
