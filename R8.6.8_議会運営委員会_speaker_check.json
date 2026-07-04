@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "timestamp": "180s",
+    "labeled_speaker": "委員長",
+    "quote": "議長からお手元に議会運営委員会協議事項が提示されておりますので",
+    "check_type": "一人称整合",
+    "reason": "委員長の発言ブロック内で「議長から」と第三者的に言及されており、話者が委員長ではない可能性が高い。",
+    "suggested_speaker": "斎藤康夫議員",
+    "confidence": "高",
+    "action": "ラベル変更",
+    "chunk": 1
+  },
+  {
+    "id": 2,
+    "timestamp": "不明",
+    "labeled_speaker": "（呼ぶ声）",
+    "quote": "ご異議なしと認めます。",
+    "check_type": "立場整合",
+    "reason": "「と認めます」は通常、会議の進行役（委員長）が発言する内容であり、「（呼ぶ声）」のラベルとは整合しない。",
+    "suggested_speaker": "委員長",
+    "confidence": "高",
+    "action": "ブロック分割",
+    "chunk": 1
+  },
+  {
+    "id": 3,
+    "timestamp": "不明",
+    "labeled_speaker": "委員長",
+    "quote": "議長。",
+    "check_type": "立場整合",
+    "reason": "議長が事務局に説明を委ねた直後に、委員長が「議長。」と呼ぶのは文脈として不自然。発言を促す対象が誤っている可能性。",
+    "suggested_speaker": "不明",
+    "confidence": "中",
+    "action": "要人間確認",
+    "chunk": 1
+  },
+  {
+    "id": 4,
+    "timestamp": "不明",
+    "labeled_speaker": "（呼ぶ声）",
+    "quote": "ご異議なし　と認め、請願陳情の負託先委員会については、お手元の予定表のとおり決定いたしました。",
+    "check_type": "立場整合",
+    "reason": "「と認め、～決定いたしました」は会議の進行役（委員長）が発言する内容であり、「（呼ぶ声）」のラベルとは整合しない。",
+    "suggested_speaker": "委員長",
+    "confidence": "高",
+    "action": "ブロック分割",
+    "chunk": 1
+  },
+  {
+    "id": 5,
+    "timestamp": "407s",
+    "labeled_speaker": "委員長",
+    "quote": "これで議会運営委員会の会議を終止、散会いたします。協議事項なんですが、",
+    "check_type": "立場整合",
+    "reason": "会議の終了を宣言した直後に、同じ人物が別の議題を提起するのは不自然。話者が交代しているか、ブロック分割が必要。",
+    "suggested_speaker": "不明",
+    "confidence": "高",
+    "action": "ブロック分割",
+    "chunk": 1
+  },
+  {
+    "id": 6,
+    "timestamp": "440s",
+    "labeled_speaker": "委員長",
+    "quote": "そのように決定いたしました。",
+    "check_type": "応答整合",
+    "reason": "直前の委員長の問いかけ「8月27日ということでよろしいでしょうか。」に対する応答が省略され、いきなり「そのように決定いたしました。」と続いているため、間に他の発言があった可能性が高い。",
+    "suggested_speaker": "不明",
+    "confidence": "中",
+    "action": "要人間確認",
+    "chunk": 1
+  }
+]
