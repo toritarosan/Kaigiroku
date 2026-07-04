@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和8年6月19日 議会運営委員会</title>
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#1d3a63; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* 直接URLで開いた時だけ最上部に「会議一覧に戻る」帯（index分割ビュー内では非表示） */
+  .backbar-top{display:none;}
+  body.standalone{padding-top:40px;}
+  body.standalone .backbar-top{display:flex; align-items:center; gap:6px; position:fixed; top:0; left:0; right:0;
+       z-index:60; height:40px; padding:0 18px; background:var(--navy); color:#fff; font-family:var(--sans);
+       font-size:13px; font-weight:700; text-decoration:none; letter-spacing:.04em; box-shadow:0 1px 4px rgba(0,0,0,.15);}
+  body.standalone .backbar-top:hover{background:#294f86;}
+  body.standalone .prog{top:40px;}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+</style>
+</head>
+<body>
+<a class="backbar-top" href="index.html">← 会議一覧に戻る</a>
+<script id="backbar-js">(function(){try{if(window.self===window.top)document.body.classList.add('standalone');}catch(e){document.body.classList.add('standalone');}})();</script>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和8年6月19日</p>
+    <h1>議会運営委員会</h1>
+    <span class="src">YouTube字幕＋AI校正による記録（非公式）</span><div class="hero-note" style="font-family:var(--sans);font-size:13px;line-height:1.7;color:var(--muted);margin-top:10px;">本会議・委員会等の中継動画をもとに、文字起こし・校正・要約を行った非公式アーカイブです。<br><span style="color:#c0392b;font-weight:700;">致命的な話者の誤りや語句の誤りを含んでいます。転載などには適しません。最終的には必ず原典に当たってください。</span></div><span class="genmeta">本文・要約はAIによる自動生成で、小金井市議会の公式見解ではありません。発言者名や語句に誤りを含む場合があります。公式会議録が公開され次第、公式版に差し替えます。<br>最終生成日 2026-07-04</span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <h3>提出議案の一覧</h3>
+<ul>
+<li>議案第58号 小金井市立前原小学校外壁屋上防水等請負契約について</li>
+</ul>
+<h3>議案の審議ごとの要約</h3>
+<ul>
+<li><strong>議案第58号 小金井市立前原小学校外壁屋上防水等請負契約について</strong><br />
+    6月17日付けで追加総付された本議案は、6月23日の本会議に上程され、説明質疑後、委員会付託を省略して即決とすることが議会運営委員会において決定されました。</li>
+</ul>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/tHqQ1g3W5R0" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
+  </section>
+
+<div class="turn chair reveal" id="t0">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=tHqQ1g3W5R0&t=105s" data-timestamp="105"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:45</a>　おはようございます。議会運営委員会を始めます。まず、保留案件と保留事項と本日の進行予定について、局長、お願いします。</div>
+</div>
+
+<div class="turn reveal" id="t1">
+  <div class="meta"><span class="name">事務局長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=tHqQ1g3W5R0&t=105s" data-timestamp="105"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:45</a>　はい。それでは進行予定表案をご覧いただきたいと思います。</div><div class="say">1番の議会運営委員会で、この後、市長総付案件の取り扱いに入っていただきます。2番の厚生文教委員会では、7陳情第116号及び8陳情第16号が保留になっておりますので、その関係の審査。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=tHqQ1g3W5R0&t=138s" data-timestamp="138"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:18</a>　その後、3番で広報広聴協議会では、協議項目がいくつか残っているようでございますので、その審査。それから4番の会派代表者会議では、条例意見書の件及び案文の最終確認とその他がございます。</div><div class="say">それが終わりますと5番の議会運営委員会で、最後の進行状況の確認と議会整理日について、それから議員集会について等を確認していただくという、今日は進行予定になってございます。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t2">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=tHqQ1g3W5R0&t=166s" data-timestamp="166"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:46</a>　はい。今の報告に何かありますか。特に、よろしいでしょうか。</div><div class="say">お手元の協議事項を見ていただいて、審査案件は議長の諮問事項一件ということで、協議事項の順序により順次協議することについてということで、議会運営に関する議長の諮問事項については市長総付案件の取り扱いについて、議案第58号が総付案件の取り扱いについて、今協議したいということであります。</div><div class="say">その他と、いうことなんですが、皆さんから何かありますでしょうか。</div>
+</div>
+
+<div class="turn reveal" id="t3">
+  <div class="meta"><span class="name">水上洋志委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=tHqQ1g3W5R0&t=206s" data-timestamp="206"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:26</a>　はい。終わった後の議会運営委員会で、主権者教育のちょっと日程とかについて、今日は持ち帰ってもらうという形でご相談させてもらいたいと思いますので、よろしくお願いします。</div><div class="say">よろしいでしょうか。始めます。はい。じゃあお願いします。</div><div class="say">ただ今から議会運営委員会の会議を開きます。直ちに議事に入ります。当委員会に付託されております案件は議長の諮問事項一件であります。議長からお手元に議会運営委員会協議事項が提示されておりますので、その順序に従って順次協議をしてまいりたいと思います。議会運営に関する議長の諮問事項について議題といたします。</div>
+</div>
+
+<div class="turn chair reveal" id="t4">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=tHqQ1g3W5R0&t=251s" data-timestamp="251"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:11</a>　初めに協議事項1、市長総付案件の取り扱いについて行います。部局から発言があればお願いします。</div>
+</div>
+
+<div class="turn reveal" id="t5">
+  <div class="meta"><span class="name">総務部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=tHqQ1g3W5R0&t=256s" data-timestamp="256"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:16</a>　はい。おはようございます。</div><div class="say">追加総付案件についてご報告いたします。6月17日付け、議案第58号小金井市立前原小学校外壁屋上防水等請負契約についてを総付させていただきましたので、取り扱い方よろしくお願いいたします。</div><div class="say">なお本件につきましては本会議での即決をお願いいたします。</div>
+</div>
+
+<div class="turn chair reveal" id="t6">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=tHqQ1g3W5R0&t=284s" data-timestamp="284"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:44</a>　取り扱いについて議長の諮問案が提示されておりますので説明をお願いします。議長。</div>
+</div>
+
+<div class="turn reveal" id="t7">
+  <div class="meta"><span class="name">斎藤康夫議員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=tHqQ1g3W5R0&t=287s" data-timestamp="287"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:47</a>　はい。事務局から説明いたします。</div>
+</div>
+
+<div class="turn reveal" id="t8">
+  <div class="meta"><span class="name">事務局長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=tHqQ1g3W5R0&t=290s" data-timestamp="290"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:50</a>　はい。議案第58号につきましては6月23日の本会議に上程し、説明質疑後委員会付託を省略し、即決といたしたいというのが議長の諮問案でございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t9">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=tHqQ1g3W5R0&t=303s" data-timestamp="303"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:03</a>　議長及び事務局の説明は終わりました。ご意見、ご質疑等ございますか。</div><div class="say">お諮りいたします。本件については議長の諮問の通り決定することにご異議ありませんか。</div><div class="say">◯（呼ぶ声）<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=tHqQ1g3W5R0&t=318s" data-timestamp="318"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:18</a>　異議なし。</div>
+</div>
+
+<div class="turn chair reveal" id="t10">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=tHqQ1g3W5R0&t=318s" data-timestamp="318"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:18</a>　ご異議なしと認めます。従って本件は議長の諮問の通り決定いたしました。</div><div class="say">協議事項2、その他でございますが、何かご発言はございますか。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=tHqQ1g3W5R0&t=325s" data-timestamp="325"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:25</a>　。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=tHqQ1g3W5R0&t=326s" data-timestamp="326"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:26</a>　以上で議会運営に関する議長の諮問事項についてを終わります。</div><div class="say">以上で当委員会に付託されております案件の審査は全て終了いたしました。これで議会運営委員会の会議を閉会いたします。お疲れ様でした。</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+</body>
+</html>
