@@ -1164,11 +1164,11 @@ svg{display:block;}
         </svg>
         収録状況
       </p>
-      <div class="note-list">
+      <div class="note-list" id="rec-sessions">
         <div class="note-item"><b>28件</b><span>第1回定例会</span></div>
-        <div class="note-item"><b>19件</b><span>第2回定例会</span></div>
+        <div class="note-item"><b>23件</b><span>第2回定例会</span></div>
       </div>
-      <p class="note-caption">その他、閉会中の委員会 15件</p>
+      <p class="note-caption" id="rec-closed">その他、閉会中の委員会 14件</p>
     </aside>
   </div>
 </section>
@@ -1479,5 +1479,18 @@ svg{display:block;}
 </script>
 <button class="to-top" type="button" aria-label="ページ上部へ戻る" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 <script>(function(){var b=document.querySelector('.to-top');if(!b)return;function u(){b.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>300);}window.addEventListener('scroll',u,{passive:true});u();})();</script>
+<script>
+(function(){try{
+  fetch('list.html',{cache:'no-cache'}).then(function(r){return r.text();}).then(function(t){
+    var m=t.match(/<script id="portal-stats"[^>]*>([\s\S]*?)<\/script>/);if(!m)return;
+    var s=JSON.parse(m[1]);
+    if(s.sessions&&s.sessions.length){var top=s.sessions.slice(0,2).reverse();
+      var el=document.getElementById('rec-sessions');
+      if(el)el.innerHTML=top.map(function(x){var nm=String(x.name).replace(/^令和\d+年\s*/,'');
+        return '<div class="note-item"><b>'+x.count+'件</b><span>'+nm+'</span></div>';}).join('');}
+    if(typeof s.closed==='number'){var c=document.getElementById('rec-closed');
+      if(c)c.textContent='その他、閉会中の委員会 '+s.closed+'件';}
+  }).catch(function(){});}catch(e){}})();
+</script>
 </body>
 </html>
