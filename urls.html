@@ -75,6 +75,11 @@ li a:hover{text-decoration:underline;}
   .to-top{position:fixed;bottom:20px;right:20px;z-index:900;width:44px;height:44px;border:none;border-radius:50%;background:#157a4b;color:#fff;font-size:20px;line-height:1;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,background .15s;box-shadow:0 2px 8px rgba(0,0,0,.2);}
   .to-top.show{opacity:.92;visibility:visible;transform:none;}
   .to-top:hover{opacity:1;background:#12633d;}
+.filters{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:flex-end;margin:14px 0;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);}
+.fl{display:flex;flex-direction:column;gap:3px;font-size:.72rem;color:var(--muted);font-weight:700;}
+.fl select,.fl input{font-family:inherit;font-size:.86rem;font-weight:500;color:var(--text);padding:6px 8px;border:1px solid var(--border);border-radius:var(--radius);background:#fff;min-width:120px;}
+.fl .rng{display:flex;align-items:center;gap:6px;}
+.fl .rng input{min-width:0;}
 </style>
   <link rel="icon" type="image/svg+xml" href="icon.svg">
 </head>
@@ -103,10 +108,16 @@ li a:hover{text-decoration:underline;}
   <div id="status" class="msg">読み込み中…（GitHubから最新のページ一覧を取得しています）</div>
 
   <div id="main" style="display:none;">
+    <div class="filters">
+      <label class="fl">会期<select id="fSession"><option value="">すべて</option></select></label>
+      <label class="fl">委員会<select id="fCommittee"><option value="">すべて</option></select></label>
+      <label class="fl">種別<select id="fType"><option value="">すべて</option><option value="ofcl">公式のみ</option><option value="ai">AI速報のみ</option></select></label>
+      <label class="fl">期間<span class="rng"><input type="date" id="fFrom"><span>〜</span><input type="date" id="fTo"></span></label>
+      <button class="sub" id="fReset">リセット</button>
+    </div>
     <div class="bar">
       <span class="count"><b id="num">0</b> 件</span>
       <button id="copy">URLを全部コピー</button>
-      <label class="chk"><input type="checkbox" id="onlyofcl"> 公式版のみ</label>
       <button class="sub" id="reload">再取得</button>
     </div>
 
@@ -132,61 +143,80 @@ li a:hover{text-decoration:underline;}
 (function(){
   var REPO="toritarosan/Gijiroku1";
   var BASE="https://toritarosan.github.io/Gijiroku1/";
-  var EXCLUDE={"index.html":1,"dashboard.html":1,"urls.html":1,"notebooklm.html":1};
+  var EXCLUDE={"index.html":1,"dashboard.html":1,"urls.html":1,"notebooklm.html":1,"list.html":1,"search.html":1,"accuracy.html":1,"keijiban.html":1};
+  // ※会期の日付範囲は html_generator.py の SESSIONS と対応（新しい定例会を追加したら両方を更新）
+  var SESSIONS=[
+    {name:"令和7年 第4回定例会", y:7, s:1201, e:1219},
+    {name:"令和8年 第1回定例会", y:8, s:216, e:323},
+    {name:"令和8年 第2回定例会", y:8, s:601, e:630}
+  ];
   var statusEl=document.getElementById("status"), mainEl=document.getElementById("main");
-  var dbsrSet={};
+  var dbsrSet={}, ALL=[];
 
-  function parseDate(p){ // R8.6.23_... → [8,6,23]
-    var m=p.match(/^R(\d+)\.(\d+)\.(\d+)/);
-    return m? (parseInt(m[1])*10000+parseInt(m[2])*100+parseInt(m[3])) : 0;
+  function parseDate(p){var m=p.match(/^R(\d+)\.(\d+)\.(\d+)/);return m?(parseInt(m[1])*10000+parseInt(m[2])*100+parseInt(m[3])):0;}
+  function gdate(p){var m=p.match(/^R(\d+)\.(\d+)\.(\d+)/);return m?((2018+parseInt(m[1]))*10000+parseInt(m[2])*100+parseInt(m[3])):0;}
+  function enc(p){return p.split("/").map(encodeURIComponent).join("/");}
+  function label(p){var b=p.replace(/\.html$/,"");var m=b.match(/^R\d+\.\d+\.\d+_(.+)$/);return m?m[1].replace(/_/g," "):b;}
+  function dstr(p){var m=p.match(/^R(\d+)\.(\d+)\.(\d+)/);return m?("R"+m[1]+"."+m[2]+"."+m[3]):"";}
+  function isOfcl(p){return !!dbsrSet[p.replace(/\.html$/,"")];}
+  function sessionOf(p){var m=p.match(/^R(\d+)\.(\d+)\.(\d+)/);if(!m)return "閉会中";var y=parseInt(m[1]),md=parseInt(m[2])*100+parseInt(m[3]);for(var i=0;i<SESSIONS.length;i++){var S=SESSIONS[i];if(y===S.y&&md>=S.s&&md<=S.e)return S.name;}return "閉会中";}
+  function committeeOf(p){var lab=label(p).replace(/（一般質問）/g,"").replace(/[\s0-9０-９①②③④⑤⑥（）()：:～〜\-]+$/,"").trim();return lab||label(p);}
+
+  function fillSelect(id,vals){var sel=document.getElementById(id);var cur=sel.value;sel.innerHTML='<option value="">すべて</option>'+vals.map(function(v){return '<option value="'+v+'">'+v+'</option>';}).join("");if(cur&&vals.indexOf(cur)>=0)sel.value=cur;}
+  function buildFilters(){
+    var ss={};ALL.forEach(function(p){ss[sessionOf(p)]=1;});
+    var so=SESSIONS.map(function(S){return S.name;}).reverse().concat(["閉会中"]).filter(function(n){return ss[n];});
+    fillSelect("fSession",so);
+    var cs={};ALL.forEach(function(p){cs[committeeOf(p)]=1;});
+    fillSelect("fCommittee",Object.keys(cs).sort());
   }
-  function enc(p){ return p.split("/").map(encodeURIComponent).join("/"); }
-  function label(p){ var b=p.replace(/\.html$/,""); var m=b.match(/^R\d+\.\d+\.\d+_(.+)$/); return m? m[1].replace(/_/g," ") : b; }
-  function dstr(p){ var m=p.match(/^R(\d+)\.(\d+)\.(\d+)/); return m? ("R"+m[1]+"."+m[2]+"."+m[3]) : ""; }
-
+  function applyFilters(){
+    var fs=document.getElementById("fSession").value, fc=document.getElementById("fCommittee").value, ft=document.getElementById("fType").value;
+    var from=document.getElementById("fFrom").value, to=document.getElementById("fTo").value;
+    var fromN=from?parseInt(from.replace(/-/g,"")):0, toN=to?parseInt(to.replace(/-/g,"")):99999999;
+    var out=ALL.filter(function(p){
+      if(fs&&sessionOf(p)!==fs)return false;
+      if(fc&&committeeOf(p)!==fc)return false;
+      if(ft==="ofcl"&&!isOfcl(p))return false;
+      if(ft==="ai"&&isOfcl(p))return false;
+      var g=gdate(p);if(g<fromN||g>toN)return false;
+      return true;
+    });
+    render(out);
+  }
   function render(files){
-    var onlyOfcl=document.getElementById("onlyofcl").checked;
-    if(onlyOfcl) files=files.filter(function(p){return dbsrSet[p.replace(/\.html$/,"")];});
     var urls=files.map(function(p){return BASE+enc(p);});
     document.getElementById("num").textContent=files.length;
     document.getElementById("ta").value=urls.join("\n");
-    var ol=document.getElementById("list"); ol.innerHTML="";
+    document.getElementById("copied").textContent="";
+    var ol=document.getElementById("list");ol.innerHTML="";
     files.forEach(function(p){
       var li=document.createElement("li");
-      var a=document.createElement("a"); a.href=BASE+enc(p); a.target="_blank"; a.rel="noopener"; a.textContent=label(p);
-      var d=document.createElement("span"); d.className="date"; d.textContent=dstr(p);
-      li.appendChild(d); li.appendChild(a);
-      if(dbsrSet[p.replace(/\.html$/,"")]){ var s=document.createElement("span"); s.className="ofcl"; s.textContent="公式"; li.appendChild(s); }
+      var d=document.createElement("span");d.className="date";d.textContent=dstr(p);
+      var a=document.createElement("a");a.href=BASE+enc(p);a.target="_blank";a.rel="noopener";a.textContent=label(p);
+      li.appendChild(d);li.appendChild(a);
+      if(isOfcl(p)){var s=document.createElement("span");s.className="ofcl";s.textContent="公式";li.appendChild(s);}
       ol.appendChild(li);
     });
   }
-
-  var ALL=[];
   function load(){
-    statusEl.style.display="block"; statusEl.textContent="読み込み中…"; mainEl.style.display="none";
-    // sources.json（公式マーク）→任意
+    statusEl.style.display="block";statusEl.textContent="読み込み中…（GitHubから最新のページ一覧を取得しています）";mainEl.style.display="none";
     fetch(BASE+"sources.json?_="+Date.now()).then(function(r){return r.ok?r.json():null;}).then(function(j){
-      dbsrSet={}; if(j&&j.dbsr) j.dbsr.forEach(function(b){dbsrSet[b]=1;});
+      dbsrSet={};if(j&&j.dbsr)j.dbsr.forEach(function(b){dbsrSet[b]=1;});
     }).catch(function(){}).finally(function(){
       fetch("https://api.github.com/repos/"+REPO+"/git/trees/main?recursive=1")
-      .then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status); return r.json(); })
+      .then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json();})
       .then(function(data){
-        ALL=data.tree.filter(function(t){return t.type==="blob"&&t.path.indexOf("/")<0&&/\.html$/.test(t.path)&&!EXCLUDE[t.path]&&/^R\d/.test(t.path);})
-          .map(function(t){return t.path;})
-          .sort(function(a,b){return parseDate(b)-parseDate(a);});
-        statusEl.style.display="none"; mainEl.style.display="block";
-        render(ALL);
+        ALL=data.tree.filter(function(t){return t.type==="blob"&&t.path.indexOf("/")<0&&/\.html$/.test(t.path)&&!EXCLUDE[t.path]&&/^R\d/.test(t.path);}).map(function(t){return t.path;}).sort(function(a,b){return parseDate(b)-parseDate(a);});
+        statusEl.style.display="none";mainEl.style.display="block";
+        buildFilters();applyFilters();
       })
-      .catch(function(e){ statusEl.className="msg"; statusEl.textContent="取得に失敗しました（"+e.message+"）。GitHubの取得回数制限の可能性があります。少し待って「再取得」してください。"; });
+      .catch(function(e){statusEl.className="msg";statusEl.textContent="取得に失敗しました（"+e.message+"）。GitHubの取得回数制限の可能性があります。少し待って「再取得」してください。";});
     });
   }
-  document.getElementById("copy").addEventListener("click",function(){
-    var ta=document.getElementById("ta"); ta.select();
-    navigator.clipboard.writeText(ta.value).then(function(){
-      document.getElementById("copied").textContent="コピーしました（"+ta.value.split("\n").filter(Boolean).length+"件）。";
-    }).catch(function(){ document.execCommand("copy"); document.getElementById("copied").textContent="コピーしました。"; });
-  });
-  document.getElementById("onlyofcl").addEventListener("change",function(){render(ALL);});
+  ["fSession","fCommittee","fType","fFrom","fTo"].forEach(function(id){document.getElementById(id).addEventListener("change",applyFilters);});
+  document.getElementById("fReset").addEventListener("click",function(){["fSession","fCommittee","fType","fFrom","fTo"].forEach(function(id){document.getElementById(id).value="";});applyFilters();});
+  document.getElementById("copy").addEventListener("click",function(){var ta=document.getElementById("ta");ta.select();navigator.clipboard.writeText(ta.value).then(function(){document.getElementById("copied").textContent="コピーしました（"+ta.value.split("\n").filter(Boolean).length+"件）。";}).catch(function(){document.execCommand("copy");document.getElementById("copied").textContent="コピーしました。";});});
   document.getElementById("reload").addEventListener("click",load);
   load();
 })();
