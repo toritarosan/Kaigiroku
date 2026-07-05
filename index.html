@@ -1165,6 +1165,7 @@ svg{display:block;}
         収録状況
       </p>
       <div class="note-list" id="rec-sessions">
+        <div class="note-item"><b>2件</b><span>令和7年 第4回定例会</span></div>
         <div class="note-item"><b>28件</b><span>第1回定例会</span></div>
         <div class="note-item"><b>23件</b><span>第2回定例会</span></div>
       </div>
@@ -1484,10 +1485,13 @@ svg{display:block;}
   fetch('list.html',{cache:'no-cache'}).then(function(r){return r.text();}).then(function(t){
     var m=t.match(/<script id="portal-stats"[^>]*>([\s\S]*?)<\/script>/);if(!m)return;
     var s=JSON.parse(m[1]);
-    if(s.sessions&&s.sessions.length){var top=s.sessions.slice(0,2).reverse();
+    if(s.sessions&&s.sessions.length){var all=s.sessions.slice().reverse();
+      var latestYr=(String(s.sessions[0].name).match(/^令和(\d+)年/)||[])[1];
       var el=document.getElementById('rec-sessions');
-      if(el)el.innerHTML=top.map(function(x){var nm=String(x.name).replace(/^令和\d+年\s*/,'');
-        return '<div class="note-item"><b>'+x.count+'件</b><span>'+nm+'</span></div>';}).join('');}
+      if(el)el.innerHTML=all.map(function(x){var mm=String(x.name).match(/^令和(\d+)年\s*(.*)$/);
+        var yr=mm?mm[1]:'',rest=mm?mm[2]:String(x.name);
+        var label=(yr&&yr!==latestYr)?('令和'+yr+'年 '+rest):rest;
+        return '<div class="note-item"><b>'+x.count+'件</b><span>'+label+'</span></div>';}).join('');}
     if(typeof s.closed==='number'){var c=document.getElementById('rec-closed');
       if(c)c.textContent='その他、閉会中の委員会 '+s.closed+'件';}
   }).catch(function(){});}catch(e){}})();
