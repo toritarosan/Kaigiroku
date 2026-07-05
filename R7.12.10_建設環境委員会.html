@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和7年12月10日 建設環境委員会</title>
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#1d3a63; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* 直接URLで開いた時だけ最上部に「会議一覧に戻る」帯（index分割ビュー内では非表示） */
+  .backbar-top{display:none;}
+  body.standalone{padding-top:40px;}
+  body.standalone .backbar-top{display:flex; align-items:center; gap:6px; position:fixed; top:0; left:0; right:0;
+       z-index:60; height:40px; padding:0 18px; background:var(--navy); color:#fff; font-family:var(--sans);
+       font-size:13px; font-weight:700; text-decoration:none; letter-spacing:.04em; box-shadow:0 1px 4px rgba(0,0,0,.15);}
+  body.standalone .backbar-top:hover{background:#294f86;}
+  body.standalone .prog{top:40px;}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+</style>
+</head>
+<body>
+<a class="backbar-top" href="index.html">← 会議一覧に戻る</a>
+<script id="backbar-js">(function(){try{if(window.self===window.top)document.body.classList.add('standalone');}catch(e){document.body.classList.add('standalone');}})();</script>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和7年12月10日</p>
+    <h1>建設環境委員会</h1>
+    <span class="srcbadge"><span class="dot"></span>本文＝小金井市議会 公式会議録（DBSR）</span><span class="src official">本文は公式会議録を一字一句そのまま掲載。要約はAIによる補助、タイムスタンプ・動画はYouTube連携（いずれも非公式の付加情報）。　|　<a href="https://www.city.koganei.tokyo.dbsr.jp/825641?Template=document&amp;Id=10294#one" target="_blank" rel="noopener">公式会議録の原典 ↗</a></span><span class="genmeta">本文は公式会議録と一致確認済み（verbatim）。要約はAIによる生成で、小金井市議会の公式見解ではありません。<br>最終生成日 2026-07-05</span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <h3>提出議案等一覧</h3>
+<ul>
+<li>7陳情第61号 武蔵小金井駅北口駅前東地区第一種市街地再開発事業計画に市民のための公共フロアー設置を盛り込むことを求める陳情書</li>
+<li>7陳情第102号 武蔵小金井駅南口ロータリーで枯死した２本の街路樹の補植を求める陳情書</li>
+<li>議案第66号 武蔵小金井南第３自転車駐車場外５施設の指定管理者の指定について</li>
+<li>所管事務調査 循環型社会の形成及び温室効果ガス削減に関する調査</li>
+<li>所管事務調査 都市計画道路に関する調査</li>
+<li>工事請負金額1,000万円以上の契約締結についての報告</li>
+<li>行政報告1 下水道使用料改定に関する検討について</li>
+<li>行政報告2 交通ネットワーク再編事業の進捗について</li>
+<li>行政報告3 交通ネットワーク再編事業に係る市南部の再編（案）のパブリックコメントの実施について</li>
+<li>行政報告4 自転車保管所の移転について</li>
+</ul>
+<h3>議案の審議ごとの要約</h3>
+<h4>7陳情第61号 武蔵小金井駅北口駅前東地区第一種市街地再開発事業計画に市民のための公共フロアー設置を盛り込むことを求める陳情書</h4>
+<p>委員からは、当初から図書館の貸出しスペースなど公共施設の設置が必要であると訴えており、陳情内容の賃貸借計画協議の趣旨に賛成する意見が出された。一方で、民間再開発事業への公共の床割り当ては不適切である、賃料や目的が不明確な中での採択は無責任である、財政計画上困難であるといった反対意見も出された。採決の結果、本件は不採択と決定された。</p>
+<h4>7陳情第102号 武蔵小金井駅南口ロータリーで枯死した２本の街路樹の補植を求める陳情書</h4>
+<p>委員からは、現地調査の結果、枯死した街路樹の位置は通勤客の主たる動線と重なっておらず、歩行者の邪魔になるという説明は説得力に欠けるため、補植の可能性を模索すべきとの意見が出された。本件は現時点での質疑を終了し、保留と決定された。</p>
+<h4>議案第66号 武蔵小金井南第３自転車駐車場外５施設の指定管理者の指定について</h4>
+<p>質疑、討論は行われず、本件は可決と決定された。</p>
+<h4>所管事務調査 循環型社会の形成及び温室効果ガス削減に関する調査</h4>
+<p>環境政策課から、第2次地球温暖化対策地域推進計画中間見直し案に対するパブリックコメントの実施について報告があった。温室効果ガス排出削減目標を平成25年度比で令和12年度までに46%削減に引き上げ、施策も見直す。パブリックコメントは令和7年12月16日から令和8年1月19日まで実施される。</p>
+<p>委員からは、家庭における温室効果ガス排出削減の具体的な目標値設定と、省エネチャレンジ、住宅新エネルギー機器等補助、次世代自動車補助の拡充の必要性について質疑があった。市長は、補助金は予算額と直結するため目標値設定が難しいと答弁した。<br />
+また、計画の表紙デザインやキャッチコピーに危機感と切迫感を表現すること、市民が自分事として捉えられるような工夫、ショート動画などの活用について要望があった。<br />
+家庭部門の排出量が東京都平均を上回る理由や、より意欲的な目標設定の必要性、省エネ家電購入促進などのインセンティブ、公共施設のCO2削減状況とZEB化について質疑があった。<br />
+気候非常事態宣言の周知状況が低いこと、用語解説の必要性、都市計画道路整備と緑の保全の矛盾について質疑があった。<br />
+気候市民会議の成果と今後の継続的な実施、ごみ対策課の名称変更についても提案があった。<br />
+本件は引き続き調査する必要があると認められ、継続調査と決定された。</p>
+<h4>所管事務調査 都市計画道路に関する調査</h4>
+<p>都市計画課から、都市計画道路に係る要望について（議事概要）と、市長報告から要望書提出までの経過について資料説明があった。また、東京における都市計画道路の整備方針（仮称）中間のまとめのパブリックコメント結果が公表され、整備方針（案）のパブリックコメントも実施予定であることが報告された。</p>
+<p>委員からは、東京都のパブリックコメント結果に対する市の受け止めと、個別路線の次期事業化計画の公表時期について質疑があった。市は、多くの貴重な意見をいただいたと認識しているが、次期事業化計画のパブリックコメント時期は未定と答弁した。<br />
+小金井2路線の事業化計画について、自然環境への影響に関する専門家の知見活用や予算措置の検討状況について質疑があった。市長は、当初予算措置に向けて準備・調整中であると答弁した。<br />
+また、市長が東京都への要望で「橋脚が建たないようにすることなど」と発言した意図について質疑があり、自然環境への影響を低減するため、橋脚の位置や数を減らす工夫を求めたものであると説明があった。<br />
+本件は引き続き調査する必要があると認められ、継続調査と決定された。</p>
+<h4>工事請負金額1,000万円以上の契約締結についての報告</h4>
+<p>管財課から、令和7年8月1日から10月31日までに契約締結された工事請負金額1,000万円以上の4件の案件について報告があった。質疑は行われず、報告は終了した。</p>
+<h4>行政報告1 下水道使用料改定に関する検討について</h4>
+<p>下水道課から、第3回小金井市公共下水道事業審議会の結果について報告があった。使用料体系は「案1の全体アップケースの1円単位版」が推奨案となり、改定率は20.6%となる見込み。高齢者世帯の減免基準見直しについても、廃止の方向で意見がまとめられた。</p>
+<p>委員からは、大幅な値上げとなるため、物価高騰対策の観点から経過措置などの慎重な検討を求める要望があった。また、審議会での全体アップケースの議論内容や、改定率のばらつきについて質疑があった。市は、市民に分かりやすいこと、特定の世帯に過度な負担をかけないことなどを考慮した結果であると説明した。</p>
+<h4>行政報告2 交通ネットワーク再編事業の進捗について</h4>
+<h4>行政報告3 交通ネットワーク再編事業に係る市南部の再編（案）のパブリックコメントの実施について</h4>
+<p>交通対策課から、10月28日に開催された地域懇談会と10月25日に開催されたオープンハウスの結果について報告があった。市南部の再編案については、中町循環と東町循環の運行継続や東町循環のCoCoバス・ミニ化について一定の理解が得られた。市北部の再編案についても、おおむね理解が得られた。<br />
+市南部の再編（案）のパブリックコメントを令和7年12月12日から令和8年1月13日まで実施することが報告された。市北部の再編（案）については、令和8年6月頃に改めてパブリックコメントを実施する予定。質疑は行われなかった。</p>
+<h4>行政報告4 自転車保管所の移転について</h4>
+<p>交通対策課から、貫井北町自転車保管所を本町六丁目のJR高架下へ移転し、11月14日より運営を開始したことが報告された。</p>
+<p>委員からは、移転による賃料と収容台数の変化、自転車の保管期間の検討状況、管理運用の変更点、移転案内の設置状況について質疑があった。市は、賃料が約760万円安くなり、収容台数は約360台となったが十分運営可能であると答弁した。保管期間については今後の動向を踏まえ検討を継続し、管理体制は順次見直しを進めること、旧保管所には案内を設置していることが説明された。</p>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/ByMn0s2V7aI" allowfullscreen loading="lazy"></iframe></div>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/xPNvtHIHQkM" allowfullscreen loading="lazy"></iframe></div>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/0wa3-BliDpI" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・3本）</p>
+  </section>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ByMn0s2V7aI&t=264s" data-timestamp="264"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:24</a>おはようございます。ただいまから建設環境委員会の会議を開きます。</div>
+  <div class="say">直ちに本日の議事に入ります。</div>
+  <div class="say">当委員会に付託されております案件は、陳情２件、議案１件、所管事務調査２件です。以上５件につきましては、建設環境委員会の審査予定表の順序で行うことといたします。</div>
+  <div class="say">初めに、７陳情第61号、武蔵小金井駅北口駅前東地区第一種市街地再開発事業計画に市民のための公共フロアー設置を盛り込むことを求める陳情書を議題といたします。</div>
+  <div class="say">部局から発言がありましたら、これを求めます。</div>
+  <div class="say">（「特にございません」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ByMn0s2V7aI&t=308s" data-timestamp="308"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:08</a>これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">太田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ByMn0s2V7aI&t=351s" data-timestamp="351"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:51</a>会派としまして、当初から図書館の貸出しスペース、あるいは公共施設の設置等は必要ということを訴えておりましたので、また、この内容からすると、陳情の内容としても、賃貸借計画を協議されたいとありますので、会派としては賛成する方向でいきたいと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ByMn0s2V7aI&t=381s" data-timestamp="381"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:21</a>という発言でございますね。かしこまりました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岸田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ByMn0s2V7aI&t=390s" data-timestamp="390"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:30</a>では、ここで私も意見を述べておきます。本来、陳情審査でも申し上げたとおり、陳情者の趣旨は大いに理解をするところでありますし、私も共感をするところでございますけれども、そういった意味で趣旨採択を提案いたしましたが、それは一致しなかったということでございまして、非常に残念であるということでございます。</div>
+  <div class="say">陳情書にもあります、一定面積のフロアーを公共施設に割り当てることを事業計画に盛り込むべきということも含めて、再開発組合の計画にどこまで行政として立ち入ることができるのか、指導ができるのかというところの権限を越え得る内容にもなりかねないなということも指摘をさせていただきました。</div>
+  <div class="say">また、賃借計画あるいは購入ということについても、財政計画上そのような計画は一切ないし、それについて、まさに絵に描いた餅と言わざるを得ないということからも、そういったことから判断をさせていただきたいということだけ意見を述べます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">渡辺委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ByMn0s2V7aI&t=461s" data-timestamp="461"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:41</a>意見だけ述べておきたいと思います。</div>
+  <div class="say">まず一つには、今もありましたけれども、民間が行っている再開発ということですから、公共がその計画で床の割当てを特定目的で割り当てるようなことをすることは不適切なのではないかと思っているのが一つと、あと、公共施設の床を入れるとか入れないとかいうことに関しては、例えばそれを借りるという場合に幾らなのかということなども含めて、価格の話なども含めて何ら前提条件が見えない中で、入れるということだけ先に決まるということにはなりにくいのではないかと思いますし、あと、何を入れるのかということに関しても、当然、今、小金井市は再開発ビルの中に公共の床を入れることは考えていなかったので、全くそういう検討もこれまで行われていないという中で、これも公共の床だけ入れることが、先に議会が陳情採択する形で意思決定するということにはなりにくいと。</div>
+  <div class="say">諸々そういった理由を考えると、この状況の中で、この陳情を採択して行政に送付するということに関しては、やはり無責任のそしりは免れないということになるので、その点の意見を表明した上で態度は決めていきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ByMn0s2V7aI&t=537s" data-timestamp="537"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:57</a>意見だけ述べておきたいと思います。</div>
+  <div class="say">公共施設を再開発事業の中で入れてほしいという要望なんですが、小金井市として保留床を買って、公共施設を入れるということにはならないと私は考えておりますし、実際上その考えが市からも示されているということだと思います。</div>
+  <div class="say">また、再開発組合が行う事業に、議会が要するに公共施設を入れてほしいという要望をするということは、ちょっと筋違いではないかなということを考えています。</div>
+  <div class="say">また、駅前の一等地に再開発ビルができ、そこの保留床に賃貸の形で例えば公共施設が入るとしても、一定、賃料との関係からいうと、私たちが想定されるような施設が入るのかどうかということは大きな疑問でもありますので、そういう点を踏まえて判断していきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">安田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ByMn0s2V7aI&t=618s" data-timestamp="618"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:18</a>陳情への意見なんですけれども、陳情者の気持ちというのは物すごく分かるところであります。お隣の国分寺市なんかでも公共施設がタワーマンションの中にできたりとかしておりますので、なぜ小金井市ではできないんだろうと思う市民の気持ち、そして、この機会を捉えないでどうするのかといったお声も私も頂いております。</div>
+  <div class="say">そういったことが、私も多分、市民という立場で情報がなければ、そのように思うかなと思うんですけれども、現状、今の時点では公共施設を割り当てるということが難しいということが私も納得できると思っておりますので、ちょっと難しいかなと思っていることだけを表明したいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">河野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ByMn0s2V7aI&t=669s" data-timestamp="669"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:09</a>皆様、るる述べてきたところと変わりはしないんですけれども、公共施設を入れてほしいと言った陳情者の思いというのは非常に理解するところではあるんですが、市の財源というのは建物の基盤整備にと条例で決まっているといったところもありますし、これまで子育て支援施設というのを検討してこられた中で、市が床を取得する考えもないといった状況がある中で、やはりこの陳情を採択するといったところは難しいのかなといった思いは持っているということだけは述べさせていただきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ByMn0s2V7aI&t=699s" data-timestamp="699"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:39</a>全出席者からご発言がありましたので。（「全員ではないです」と呼ぶ者あり）ごめんなさい、大変失礼しました。副委員長を除く出席者からはご発言をいただきました。</div>
+  <div class="say">他にございませんでしょうか。大丈夫ですか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say">それでは、休憩をいたします。</div>
+  <div class="say">午前10時09分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午前10時10分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ByMn0s2V7aI&t=711s" data-timestamp="711"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:51</a>では、再開いたします。</div>
+  <div class="say">本件につきましては、委員長報告に載せる意見・要望がございましたら、発言をお願いいたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">太田委員</span></div>
+  <div class="say">先ほど申し上げたとおり、公明党会派としては、従来より図書館の貸出しスペースなど、公共施設の設置は必要ということで訴えておりましたので、この度、陳情の内容からしても賃貸借計画を協議されたいという趣旨ですので、賛同するという方向で考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ByMn0s2V7aI&t=717s" data-timestamp="717"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:57</a>他にございませんでしょうか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say">以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、質疑を終了いたします。</div>
+  <div class="say">これから討論を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say">本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、討論を終了いたします。</div>
+  <div class="say">それでは、直ちに採決をいたします。</div>
+  <div class="say">お諮りいたします。本件は採択の上、市長に送付することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+  <div class="say">（「異議あり」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say">ご異議がありますので、本件は起立採決をいたします。</div>
+  <div class="say">本件は採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div>
+  <div class="say">（賛成者起立）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say">起立少数。したがって、本件は不採択と決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say">次に、７陳情第102号、武蔵小金井駅南口ロータリーで枯死した２本の街路樹の補植を求める陳情書を議題といたします。</div>
+  <div class="say">部局から発言がありましたら、これを求めます。</div>
+  <div class="say">（「特にございません」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say">これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">渡辺委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=0s" data-timestamp="0"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>00:00</a>質疑ではなくて意見なんですけれど、改めてやはりもう１回、現場に立ち返るということで現地をよく見てまいりまして、朝の通勤客の方々が多い時間帯に見てきたんですが、やはり分かったことは、小金井街道側で枯死した街路樹の位置というのは、小金井街道に沿って南側から北上してくる通勤の方々の動線とは全く重なっていないことが分かりました。交番のところから横断歩道を越えて、そのまま斜めにコンコースの方に向かってくるので、この街路樹の位置とは全く干渉しない位置なんです。しいて挙げれば、あとは蛇の目通りの方から来る方々のところは、ちょうどその直線上ということになるんですけれども、人数は圧倒的に小金井街道を北上してくる方の方が多いので、それから考えると、先般の説明で歩行者の邪魔になるから補植したくないというのは、その点でいうと、主たる動線からは外れているので、やや説得力を欠くきらいがあるし、もしそれと蛇の目通りの方から来る方に干渉させたくないのなら、若干ずらすこともできると思うので、何らかの形で補植する可能性は模索できるのではないかというのが現地を見た感想ではありますが、ここでは答弁は求めませんが、一応現地を見て、実際に人がたくさんいる時間帯を見て、そういう感想に至ったので、それはちょっと参考までに述べた上で、各会派にもご判断をいただきたいということであります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=87s" data-timestamp="87"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:27</a>他にございますでしょうか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=92s" data-timestamp="92"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:32</a>なければ、先ほど申し上げたとおり、ちょっと私の調整不足でありましたので、このまま一度保留とさせていただきますので、よろしくお願いいたします。</div>
+  <div class="say">お諮りいたします。本件は現時点での質疑を終了し、保留といたしたいと思います。これにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=112s" data-timestamp="112"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:52</a>ご異議なしと認めます。したがって、本件は保留と決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=119s" data-timestamp="119"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:59</a>次に、議案第66号、武蔵小金井南第３自転車駐車場外５施設の指定管理者の指定についてを議題といたします。</div>
+  <div class="say">部局から発言がありましたら、これを求めます。</div>
+  <div class="say">（「特にございません」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=136s" data-timestamp="136"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:16</a>これから質疑を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=136s" data-timestamp="136"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:16</a>よろしいですか。</div>
+  <div class="say">では、質疑がございませんので、このまま休憩いたします。</div>
+  <div class="say">午前10時15分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午前10時15分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=168s" data-timestamp="168"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:48</a>再開いたします。</div>
+  <div class="say">本件につきましては、委員長報告に載せる意見・要望がございましたら、発言をお願いいたします。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=174s" data-timestamp="174"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:54</a>以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=180s" data-timestamp="180"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:00</a>ご異議なしと認めます。したがって、質疑を終了いたします。</div>
+  <div class="say">これから討論を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=188s" data-timestamp="188"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:08</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=193s" data-timestamp="193"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:13</a>ご異議なしと認めます。したがって、討論を終了いたします。</div>
+  <div class="say">それでは、直ちに採決いたします。</div>
+  <div class="say">お諮りいたします。本件は可決することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=205s" data-timestamp="205"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:25</a>ご異議なしと認めます。したがって、本件は可決と決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=205s" data-timestamp="205"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:25</a>次に、所管事務調査（循環型社会の形成及び温室効果ガス削減に関する調査）を議題といたします。</div>
+  <div class="say">部局から発言がありましたら、これを求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">高野環境係長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=226s" data-timestamp="226"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:46</a>それでは、環境政策課から、第２次地球温暖化対策地域推進計画中間見直し案に対するパブリックコメントの実施についてご報告します。</div>
+  <div class="say">市では、市域における温室効果ガス排出削減目標を平成25年度比で令和12年度までに26％削減するなど、令和３年度から令和12年度までの10年計画である第２次地球温暖化対策地域推進計画を策定しています。この度、昨今の異常気象など、地球温暖化対策が喫緊の課題であることから、中間年度である今年度に計画を見直すこととし、環境審議会での審議等を経て、地域推進計画中間見直し案が完成しました。この計画案に対して、令和７年12月16日火曜日から令和８年１月19日月曜日まで、パブリックコメントを実施する予定です。対象は、市内に在住・在勤・在学する方及び市内に事務所若しくは事業所を有する法人またはその他の団体で、計画案は市内の主な公共施設と市ホームページでご覧いただけます。意見の提出方法は、持参、郵送によるもの、ファクス、ＬｏＧｏフォームにて受け付けし、検討結果の公表は令和８年２月下旬を予定しています。</div>
+  <div class="say">なお、温室効果ガス排出削減目標を平成25年度比で令和12年度までに46％削減としていることや気候市民会議からの提言を踏まえ、施策についても見直しを行っていることが主な見直し内容となっています。</div>
+  <div class="say">報告は以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=330s" data-timestamp="330"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:30</a>これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岸田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=338s" data-timestamp="338"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:38</a>ただいまご報告のありました地球温暖化対策地域推進計画の中間見直しについて、少し伺ってまいります。</div>
+  <div class="say">市域における温室効果ガス排出量を現行の26％削減から46％削減へと引き上げるということで、大変意欲的な取組であると評価いたしますが、ただ目標を掲げただけとはならないわけですから、本市の温室効果ガス排出量55％を占める家庭における脱炭素化について伺ってまいります。</div>
+  <div class="say">１問目としては、計画開始年度の2013年の温室効果ガス排出量が351万1,000トンであり、2030年度で46％削減のためには190万1,000トンを目指すということで、2022年度実績が313万2,000トンなので、差引き今後の５、６年間で123万1,000トンの削減が必要となるわけですけども、これは全体です。そのうち、家庭における削減量は具体的にどれぐらいの削減が必要と考えておられるのかということが１問目です。</div>
+  <div class="say">２問目、そのために必要な施策の方向、46ページにございますけれども、まず省エネチャレンジについて伺います。目標値は累計で750件、2024年度実績が200件ということで、今年度と合わせて６年間で残り550件、単年度でいくと90件以上が必要となります。そこで、今まで50件だった申込み枠を今年度から倍の100件にしていただいておりますけれども、今年度の、家庭と事業者があると思うんですけども、家庭の申込み件数はどれぐらいだったでしょうか。50件から100件に増やしたことによる広報や周知で工夫したことなどがあれば、併せてご答弁いただきたいと思います。</div>
+  <div class="say">これまで各年とも、報告書等を拝見すると、申込み件数と報告書件数に差があって、要は申込みはされたけども報告されてない方がおられるのかなと推察するんですが、このチャレンジの削減率に応じて、電気とガスでそれぞれ最大2,000円のさくらギフトカードがもらえるというわけでございますけれども、さくらギフトカードは、報告書を提出しないともらえないという理解でよろしいか、ご答弁ください。</div>
+  <div class="say">続いて、省エネ改修による減税と太陽光発電導入については、住宅新エネルギー機器等補助とも関連しますので、併せてここで伺いますが、目標値が補助額相当の件数というところがどうなのかなと考えています。予算が関係することというのは当然理解するんですけれども、それはほとんどの施策でも関わるわけで、予算の都合上できる、できないはあったにしても、具体的数値を定めるべきだったのではないかと考えますが、いかがでしょうか。</div>
+  <div class="say">また、この補助金はとても市民の関心も高く、毎年早期に補助金上限枠に対して募集が締め切られてしまいます。そこで、令和５年度から令和６年度で約630万円、そこから今年度で更に340万円と２年間で合計約1,000万円近く予算を増額していただいているわけですが、今年度も７月29日をもって上限に達しています。とすると、それ以降の方は来年度お待ちくださいとなるわけで、ホームページでも多数の問合せがありますが、来年度は決まっていないのでお答えできませんと掲載されていますが、今年度、締切り後にどれぐらい問合せが来ているのかということについて、ご答弁いただければと思います。</div>
+  <div class="say">あわせて、同じように昨年度の締切り後に申込みというか、問合せをいただいた方が、今年度の４月開始後にどれぐらい申込みをされているのかということが分かればご答弁ください。</div>
+  <div class="say">また、省エネ基準との関連で伺います。省エネ基準とは、建物の省エネルギー性能を確保するために必要な基準であり、主に外皮性能と一次エネルギー消費量に基づいて評価されます。これらの基準は、住宅の品質確保の促進等に関する法律に基づいて定められており、2025年４月以降、今年４月以降、新築される建物については、一定以上の省エネ性能への適合が義務付けられます。具体的には、外皮性能は断熱性能を示し、エネルギー消費量は、建物が使用するエネルギーの量を評価しているわけでございます。今年度の実績を見ると、ホームページ上、太陽光発電が102件で、令和５年の37件に比べて2.8倍、蓄電システムが133件で、令和５年41件に比べて3.2倍、断熱窓も遮熱塗装も増加をしております。この省エネ基準の影響があるのかどうか、その関連性についてご答弁をください。</div>
+  <div class="say">家庭については、以上です。</div>
+  <div class="say">続いて、大きな項目で移動による脱炭素化について伺います。これは多分、環境政策課が答えられるか分からないので、分からなければちょっとまた別のところで聞きますけれども、運輸部門は全体の温暖化ガス排出量の約１割、うち自動車が８割ということですから、鉄道を除く自動車の温暖化ガス排出量は全体の0.8％ということで、そこまで大きくないんですけれども、少し確認をさせてください。57ページの市の具体的な取組で、シェアサイクルの認知度向上を図るため、市のホームページでの情報提供を行うとあります。現在は令和10年度までの実証実験を行っているところだと理解しておりますけれども、そのことでよろしいのでしょうか。新規の取組ということなので、何をイメージされているのかご答弁いただきたいと思います。</div>
+  <div class="say">また、実証実験中のシェアサイクルの現状はいかがでしょうか。利用者数やポート設置数は増えているのか。令和10年以降は本格実施とするのか。それはいつ判断するのか。ご答弁いただければ、お願いをしたいというところです。</div>
+  <div class="say">その下のところに道路整備に係る計画立案に際しては、バスの運行や自転車利用などに配慮した検討に努めますとあります。こちらも新規取組となっていますが、これは市道に自転車レーンを整備するということでしょうか。そのイメージをご答弁ください。これも道路管理課なのか分かりませんが、もしお答えできればというところで。</div>
+  <div class="say">次に、次世代自動車の普及啓発であります。令和４年度から500万円未満の次世代自動車購入に10万円を補助しており、200万円の予算総額は今年は９月12日に補助上限に達しています。住宅新エネと同じで、市民の関心・要望が高いと思われますが、令和４年度以降の状況についてご答弁ください。ただ、住宅新エネの補助対象期間が２年間ということに対し、次世代自動車の申請期間は、補助対象車両の初年度登録の翌日から起算して１年以内ということで、これだと今年度の早い時期に購入されて補助申請で締め切られた方というのは、来年度に間に合わない可能性があるのではないかと思われますが、その点はいかがでしょうかということです。</div>
+  <div class="say">次に、大きなところで吸収源となる緑の保全と創出について伺います。ここに関しては詳しく聞きたいところですが、それはちょっと別の機会にしておいて、大きく一つだけ。65ページの緑に関する意識啓発の新規取組で、小・中学生を対象とした環境学習を始め、幅広い世代へ向けたイベント・講座による学習機会を提供し、市民の緑への保全意識や関心の向上を図るということでございまして、先日、「環境に関するワクワクの学び体験が待っている！共に冒険へ出よう！」と題した４回連続講座の自然クエストが開催されまして、私も下山谷の森を活用したイベントを見学させていただきました。</div>
+  <div class="say">2013年にご寄附をいただいて、そこから整備工事をして2014年11月30日に開園式を行って以来、様々な課題があり、全く活用されてこなかったわけですが、指定管理事業者と一緒に一般社団法人がすてきなイベントを考えてくださいまして、普段は入れない閉園管理の場所で親子の皆さんが楽しんでおられました。そのイベントをのぞきに来られていたご近所さんからも様々な情報を頂いたところもあり、今後の展開も期待できそうでございましたけれども、今回のイベントの反応や今後の活用、下山谷の森についてご答弁いただければと思います。</div>
+  <div class="say">また、次ページにも新規取組で、地域の多様な主体との協働を通じ、緑を増やすイベントを検討するとありますが、この点について、民間のノウハウを活用した指定管理者になってからの効果と、温室効果ガスの吸収源となる緑に関する取組について、今後の期待についてご答弁いただきたいと思います。</div>
+  <div class="say">１問目は以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岩佐環境政策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=894s" data-timestamp="894"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:54</a>岸田委員から幾つか質問いただきました。担当を含めて順次答弁させていただきますけども、何か答弁漏れがありましたら、ご指摘いただければと思います。</div>
+  <div class="say">まず、私の方から、市域のＣＯ２の量、家庭部門の関係で55％ということをご紹介いただきました。こちらについては、2013年度比になりますけども、2013年度が175万7,000トンＣＯ２、これが2030年度については、93万トンＣＯ２ということで、マイナス82万7,000トンＣＯ２を目標にやっていきたいと思います。こちらについて、パーセンテージでいうと大体47％ぐらいになります。</div>
+  <div class="say">それから省エネチャレンジの関係でございます。こちらにつきましては、令和３年度から始まった事業でございまして、ずっと１年間で50件を上限としてやってきたところですけども、委員がご紹介いただいたとおり、今年度から100件に増やしてチャレンジしてございます。</div>
+  <div class="say">企業と家庭部門の内訳ですけども、今年度100件中どのぐらいかというところは、すみません、現状、手元にはないんですけども、例年、大体、企業が50件中数件ということで、ほぼほぼ家庭の方に参加いただいている状況でございます。今年100件ということで例年の倍に増やしてやってございますので、やはり応募当初は100件すぐに集まったというわけではなかったんですけども、継続して周知啓発に努めてまいりまして、LINEで啓発とかもしていたりします。そういったことを踏まえて、目標件数の100件に到達したということですので、広報に注力して100件集めてまいりました。</div>
+  <div class="say">それから、さくらギフトカードの関係ですけども、こちらにつきましては、報告書の提出をしないともらえないのかといったような質問だったと思うんですけども、おっしゃるとおり、こちらについては参加しただけではもらえませんで、報告書、どのぐらい下がったとか上がったとか、そういったものを、当初は計画目標を達成しないと差し上げられないということだったんですけども、昨年度辺りから、報告書を提出してもらえれば、目標に達成しなくても意識啓発につながったということで、さくらギフトカードを差し上げてはいるんですけども、報告書の提出のない方については、そちらは対象外となってしまうということでございます。</div>
+  <div class="say">私の方からは以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">高野環境係長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=1082s" data-timestamp="1082"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:02</a>それでは、住宅用新エネルギー機器補助金について、ご答弁させていただきます。</div>
+  <div class="say">まず、締切り後どのぐらい問合せをいただいているかということについてでございます。こちらにつきましては、締切り直後は週に５件程度、問合せをいただいておりました。直近では、週に１、２件程度、問合せをいただいているような状況でございます。</div>
+  <div class="say">令和７年度から、こちらの新エネにつきましては、申請の手引き等をホームページ上のＬｏＧｏフォームで細かく申請の仕方等を掲載して以降、こちらの問合せ、全体的に電話での問合せが減ってきているという傾向にございます。</div>
+  <div class="say">また、省エネ基準の影響があるのかという問いについてでございます。こちらについては、具体的なところは市の方では分かりかねるところではあるんですけれども、東京都の方でも家庭における太陽光であったり、蓄電池導入補助というもので補助の実績をしてございますので、それに併せて、市民の方からこちらの補助金を使っていただいているので、ある程度影響はあるのではないかとは思っているところでございます。</div>
+  <div class="say">また、次世代自動車補助金につきましても、ご質問いただきました。こちらにつきまして、令和４年度に始めた補助制度でございまして、令和４年度に電気自動車28台、プラグインハイブリッド自動車21台の計49台、令和５年度が電気自動車33台、プラグインハイブリッド16台の計49台、令和６年度に電気自動車20台、プラグインハイブリッド自動車18台の計38件という状況でございます。令和７年度につきましても、９月に上限に達しているという状況でございます。</div>
+  <div class="say">こちらにつきましては、要項上、１年以内に購入しなければいけないということもございます。ただ、９月に締め切っているという状況でございます。今年度前半に買われた方につきましても、来年度、もしこの補助が続くようであれば、まだ申込みができるような状況でございますので、そちらにつきましては、積極的にご活用いただければと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">渡邊交通対策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=1225s" data-timestamp="1225"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:25</a>シェアサイクルに関してご質問いただきました。シェアサイクルにつきましては、現在、利用率、それからポート数ともに右肩上がりというか、徐々に増えている状況ではございます。</div>
+  <div class="say">また、今回、法政大学、それから桜町病院、そういったところについてもポートを設置していただけるよう、我々担当も一緒にお願いに行って、無事に設置をされたということになっております。本格実施につきましては、引き続き利用動向などを踏まえて検討していきたいと思っております。</div>
+  <div class="say">自転車を利用しやすいようにということで、道路整備に当たってということですけれども、比較的市道ですと道路の幅員が狭い状況もございますので、そういった狭い道路につきましては、ナビマークの設置ですとか、そういった形で対応していくことになろうかと思います。比較的広い道路を今後整備していくに当たっては、自動車運行レーンなど、走行レーンなどについても設置を検討していきたいと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">小林緑と公園係長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=1315s" data-timestamp="1315"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:55</a>まず、下山谷の活用についてですが、ご案内いただいたとおり、親子で身近な緑に親しむ機会をつくっていただいたことは非常に評価できる取組と捉えておりまして、当日も子どもたちが走り回ったり、真剣に植物を探したりしている様子を見ることができましたので、指定管理者としましても今後も活用していきたいという話を聞いているところです。</div>
+  <div class="say">昨年度から低未利用公園の活用の検討を市民とパークハックという形で実施していますので、来年度以降も下山谷森を活用できるように検討できればと考えているところです。</div>
+  <div class="say">あと、緑地の保全という観点での指定管理者の取組としましては、自主事業として、まちなかの緑をつくるために環境美化サポーターと連携しまして、花の種を練り込んだたね団子のワークショップを実施しているところでございます。</div>
+  <div class="say">管理している環境楽習館や市立公園でも複数回実施していますが、管理している場所以外でも、市内の特別養護老人ホーム、中でもたね団子作りのワークショップを実施するとともに、作ったたね団子を老人ホームの中の花壇に植える取組を実施していただいているところです。市立公園だけでなく、民有地の緑を市民との協働によりつくる取組や、緑に親しむ機会をつくっていただいているのは非常に評価しているところです。</div>
+  <div class="say">今後も市民と協働により、指定管理者の経験とノウハウを活用した取組を期待しているところでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岸田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=1419s" data-timestamp="1419"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:39</a>ご答弁ありがとうございます。</div>
+  <div class="say">これ以上、個々のことについて詳しくは聞かないんですけども、なぜこういうことを確認したかというと、46％削減のためには、やはり家庭における温室効果ガスの削減というのが必要不可欠であり、今、鍵を握っているのかなと本市においては考えられます。</div>
+  <div class="say">その重点施策を見ても、つまるところ、省エネチャレンジや住宅新エネ、次世代自動車普及、自動車の補助の取組を拡充して自分事化したり、市民の意識を変えていく、増やしていくことが大きな要素となっているわけですけれども、先ほどの質疑でも分かるとおり、市民の関心事が薄くて申込者が少ないという状況ではないわけですよね。補助の条件枠が少なくて、需要に供給が追いついていないという状況であると考えています。しかも、先ほど述べました省エネ基準は、2030年には更に高水準になることが予定をされているわけでございます。とすれば、更に需要は増えていくことが考えられるわけで、その需要に応えるだけの供給、つまり補助枠を拡充していくことが不可欠であるところ、住宅新エネルギー機器等補助件数については、目標値が補助額相当の件数を達成と、具体的には書いてないんですよね。</div>
+  <div class="say">目標数値を定めないということは、漠然としているといいますか、本気度がないといいますか、46％を達成するために55％を占める家庭の中で主要なものは何なのか。積み上げて46％を達成しますという話では今回ないわけですよね。46％を達成するために何をどう積み上げて、そこに持っていくのかということの一番大きな鍵を握っているのが、この辺りなのではないのかなと私は考えるわけです。ですが、そこについて目標値が明確に示されていないという状況であると読めてしまいます。なので、先ほど申し上げたとおり、46％削減のために必要な家庭の削減量というものをしっかりと定めて、明記をして、そのために必要な省エネチャレンジや住宅支援や次世代自動車補助の件数を導き出し、具体的目標数値を定めていくべきではないでしょうか。</div>
+  <div class="say">あるいは、省エネ基準により、今後の新築には住宅新エネが義務化されるわけですから、ここ３年間ぐらいの市内の新築物件数の平均を導き出して、その平均数が住宅新エネを活用するとして、そういった数値を定めるなど、やり方はいかようにでもできるのではないかと思っておりまして、ここの目標値が補助額相当の件数を達成ということで、当然、ホームページにもあるとおり、次年度がどうなるのか分からない、補助額がどうなるのか分からない、件数がどうなるのか分からないということはあるにしても、それはほとんどの施策でも同じことが言えるわけでございまして、目標数値とする、掲げる、掲げないとは別の話かなと私は思っています。</div>
+  <div class="say">目標数値としては、しかるべき数字を掲げて、それに対して予算が追いつかなかったので、今年度はこれしかできませんでしたということは往々にしてあると思いますけれども、補助額相当の件数を達成ということを目標値としてしまうのはいかがなものかなと私は考えますが、市長はどのようにお考えでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岩佐環境政策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=1655s" data-timestamp="1655"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:35</a>目標値のところ、考え方について再質問いただきました。こちらにつきまして、委員がご指摘のとおり、住宅用新エネルギー機器等の補助件数につきましては、補助額相当の件数を達成ということで予定してございまして、現計画においても、そのように記載しているところでございます。</div>
+  <div class="say">やはり予算の関係もございますので、そういった書き方にさせていただいているところではございますけども、それとともに、今回、気候市民会議というものを開催しまして、いろいろ市民目線で、ご意見を頂いたところでございます。その中に、やはり委員がおっしゃるとおり、家庭部門のところが小金井市域については気になるだろうということで、いろんな先進事例とかを勉強している中で、再エネの関係で導入目標を設けてはどうかというお声もございまして、今回、市域における再生可能エネルギーは、2030年度までに59メガワット導入ということで、こちらの部分につきましては、目標の数字を掲げさせていただいています。これにつきましても、かなり高いハードルにはなるんですけども、そういった目標を掲げながら、市民の方に啓発していきたいと思っていますので、そのように答弁させていただきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">白井市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=1788s" data-timestamp="1788"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:48</a>岸田委員がおっしゃることは、ごもっともだと感じるところでございます。要するに、非常に厳しい削減目標を市として掲げるわけでございまして、その中で家庭が占める割合が大半であるということ、約半数であるということ、それを具体的に何をどう詰めていくのかということを目標を掲げてやるというのは、おっしゃるとおりだと思うんです。</div>
+  <div class="say">ただ、さっき課長も答弁していたように、ちょっと悩ましいのは、いろんな施策については、場合によっては、イコール予算ではなくて、いろんな施策を通じて、取組を通じて、その目標を達成するというアクションが考えられるんですけども、新エネルギー機器等補助件数というのは、ほぼイコール予算額と割り出せてしまいますので、ちょっとなかなか財政的な計画も、今後まだこの件についてどう予算をつけていくかというところの見通しも立てていないので、これについては今後、立てている目標に対してどう実現していくかというのを、毎年度毎年度どれぐらいの件数が必要かというのを予算要求していくという、そういう流れになろうかと思うんです。</div>
+  <div class="say">ですので、特に住宅用新エネルギー機器の補助件数に関して、目標値としては、なかなか書きっぷりが難しくて、補助額相当の件数を達成するという書き方になっているということは、申し訳ありませんがご了承いただきたいというところでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岸田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=1887s" data-timestamp="1887"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:27</a>中間見直しということで、今、パブリックコメントということもありますので、私も意見としてだけ申し上げておきますけれども、今申し上げたように、そこの部分は大事かなと思っていて、当然、予算が関わるという今のことは分かりますけれども、2030年に目標値としてこれぐらいなんだというのは、ある程度数字は当て込んだ方がいいのではないか。今おっしゃったように、様々な状況の中、どれだけ全体の予算の中から配分できるのかというのは、その年度年度によってあるとは思いますけれども、それによって達成できる、できないは当然あるとは思っています。でも、これぐらい必要なんだということの数値は定めた方がよろしいのではないでしょうかというのが私の意見でございます。</div>
+  <div class="say">もちろん課長がおっしゃったように、気候市民会議の皆様から様々ご提言を頂戴して、ある意味、見直しや、今回、新規というのを見やすく入れていただいたことはよく分かっておりますし、それが必要ないとは全く思っていませんけれども、そこについて、どれだけ自分事化して関わっていく人を実体験として増やしていくのかという様々な取組の中で、既に需要があるということは大いに分かっている。要は、簡単に言えば、予算があれば、これを体験できる人は大いに増えていくということは分かっている状況に供給が追いついていない。そこに挑戦的な目標を、26％から46％を掲げたという状況を踏まえていくと、そういうことが必要なのではないのかなと私は意見として思っておりますので、それだけお伝えしておきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">渡辺委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=1990s" data-timestamp="1990"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:10</a>パブリックコメントが行われるということで、資料の方も頂いております。私、いつも、あまり年末年始にパブコメはやらないでもらいたいということですが、今回ちょっと長めに設定していただいているので、より多くの意見が、お正月休みだから逆にこういう意見を書けるということもないこともないのかもしれない。ないこともないということは、あるということか。かもしれないので、そこのところはちょっと期待しておきたいと思いますが。</div>
+  <div class="say">それで気になったことだけ、ここでちょっと伺いたいのが、一つが、現在のいわゆる計画、今回、パブコメのこれが出ていますが、見直しということで、それで、いわゆるメインのキャッチコピーがないんですよね、たしか。なかったでしたか。表紙にどんと出るようなメインキャッチがないということで、何々計画みたいなことで、いわゆる。そうすると結局、訴求性がないというか、典型的なお役所の計画書になってしまっていて、全然訴求しないということになってしまうので、せっかくここでパブリックコメントなども行うということであれば、せっかくだからメインキャッチなどを公募して、パブコメと併せて、いいキャッチフレーズはないですかといって、別に１行入れるだけだから投げかけてみても、そうしたらパブリックコメントでいいキャッチコピーを出してくださる方もいるのではないかと思って。せっかくここでパブコメをかけるんだったら、12月16日からですよね。まだ何日間かあるので、１行か２行付け加えるだけだと思うので、いわゆるこういう計画のメインキャッチコピーの募集をかけてみると、ひょっとしたらいいアイデアを出していただけるのではないかなと思いまして。例えば、長ったらしいキャッチコピーから短いキャッチコピーまでありますけど、足立区なんかだと、「ＣＯ２ゼロへ　踏み出そうあだちから」とか、格好いいキャッチフレーズがついていたりしますよね。それから長野県の上田市は「2050ゼロカーボンシティを目指して」とかいうのもあります。世田谷区は長ったらしいんですよね。あまりにも長くて読めないです。私はキャッチフレーズは短い方がいいと思っているので。</div>
+  <div class="say">ということから見ると、そういう各自治体も、いろんなキャッチフレーズなどもつけているので、今回、見直しでつくるやつは、ぜひ表紙とかに大きくドーンとキャッチフレーズも入れて、中を読んでみようという気にさせるということが大事だと思うんですよね。それをパブコメでも公募してもらいたいし、行政の中でも、他の自治体でもいい例もあるのでよく収集していただいて、小金井市もきちんとメインキャッチはつくっていただきたいなと思うんです。</div>
+  <div class="say">私なんかがもしつくると「人類の滅亡まであと何日」とか、そういうことをやってしまって、宇宙戦艦ヤマトみたいなことをやってしまうんですけど、行政ですからそこまで、滅亡するかどうかも分からないのに滅亡とかいう言葉は使えないと思うんですけど、やはり大事なことは危機感と切迫感だと思うんですよ。</div>
+  <div class="say">表紙に桜の花があって危機感を感じますか。切迫感もないですよね。どういう写真がいいのか。これは写真も考えてもらいたいんですけど、例えば、もし私がつくるんだったら、地球が燃えているような写真というんですかね、実際インターネットで検索して、「地球」「燃える」という二つの言葉で検索すると、たくさん出てきますよ、地球が燃えているような写真で、かなりいい写真がありますよね。そういうような。</div>
+  <div class="say">昔、白井市長が市議会議員だった頃に、私と一緒にビラをアイデアを出して作ったときに、小金井市の財政は崖っ縁だと言ったら、当時の白井議員が崖の絵をつくってくれまして、そこから人が落ちそうになっているんです。まるで今の小金井を見るようなんですけれども、それはいいとして。ということで、やはりどんな絵を入れるか。桜の木が、桜は好きなんですよ、桜は好きなんだけど、温暖化対策の切迫感、温暖化どころか沸騰化だと言っているわけですから、地球が燃えるぐらいの写真で、このまま行ったらあと何日で滅亡しますとか、あとちょっと、あんまりネガティブなことばかりではあれだから、例えば気温が１度下がったら10億人が救われるとかいうのもあるんですよね。そういうものを入れるとか、何かちょっとそういう、自治体が出すものですから一定の節度はあるんでしょうけれども、そういうような形でやらないと、切迫感というか危機感をきちんと持ってもらわないといけないということと、あと、あんまり危機感と切迫感だけでは駄目なので、自分がこれをやることによってこういう効果が出るとか、自分事、つまり自分と関係ない話だと思わせないためには、何か自分がこれをやればこういう効果があると、さっき言った気温が１度下がると10億人が世界で救われるとかいうのは、いい表現だと思うんですよね。あまり滅亡する話ばかりではあれだから救われる話をした方がいいと思うので。</div>
+  <div class="say">そういうのもちょっと、いろんな機関がいろんなものをつくっていらっしゃるので、ぜひ今回の見直しに当たっては、そういった危機感、切迫感、この間ずっと温暖化と言ってやってきましたけども、沸騰化ですよね、ここのところは。そういったこともあるので、ちょっとそういったものに関しては、小金井市においては専門家が市長をやっておられるわけですから、そういうぜひ目を引く、表紙からして目を引くキャッチコピーや写真もぜひ工夫してみていただきたいと思っているんですが、その点に関してどうでしょう。つまり、これを最初に決めたときより一段、二段、更に危ない領域に来ていますよね、ここ１、２年だけでも。一段、二段、危機感、切迫感を高めた方がいいと思うんです。だから、ほんわかしたものをつくるというよりも、そういうかなり危機感を持つようなものをやった方が訴求するのではないかと思うんですけど、その辺りのお考えがあれば伺いたいし、さっき具体的には、キャッチコピーなんかは、せっかくパブコメをやるならアイデア募集してもいいのではないかということは申し上げましたが、ちょっとその辺りについてのお考えだけ伺いたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岩佐環境政策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=2365s" data-timestamp="2365"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:25</a>渡辺委員からご提案の方をいただきました。今回、改定予定ですが、地球温暖化対策地域推進計画ということでございまして、実は、市の計画、市役所版についても計画の策定を予定しています。こちらについては、やはり計画名だけではなくて、キャッチコピーもつけながらやっていきたいということで担当とも話しているところなんですけども、今回、パブリックコメントにかけるに際しまして、フォームの方でそういった副タイトルみたいなものも募集することは可能かと思いますので、ちょっと担当と調整して、こちらの方は検討してみたいと思っています。</div>
+  <div class="say">それと切迫感についてでございますけども、やはりここ１、２年でも、夏、真夏日、かなり暑い日が続いていまして、かなり地球温暖化も進んできているなということで担当としても考えているところなんですけども、10月15日の環境特集号、市報の方にも、ちょっとデザインを今までと違った、ふんわりしたものではなくて、そういった啓発を促せるような、何だろうということで見てもらえるようなデザインに相談の方をさせていただいて、しているところでございます。</div>
+  <div class="say">また、先日開催しました環境フォーラムもタイトルに「地球沸騰化」ということで、切迫感をあおるではないですけど、分かってもらえるような取組をしているところでございますので、今回、計画をつくるに当たって、概要版ですとか、コラム的なものも考えてございますので、そこら辺で地球温暖化が進んでしまっているということですとか、あと自分事として捉えてもらえるようにということで、気候市民会議でも多くのご意見を頂いてきましたので、そういったところで、より１人、より多くの市民の方にご理解いただけるような工夫の方はしていきたいなということで考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">渡辺委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=2500s" data-timestamp="2500"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:40</a>ご答弁ありがとうございました。</div>
+  <div class="say">ぜひせっかくつくるものでありますから、表紙を見ただけで、大体表紙を見ると、そこから先に入っていきたいか、入っていきたくないか、表紙で決まると言われているので、かなりやはり重要だと思っているんです。そこに、何とか計画ではそこから先に進みたくないので、どういうキャッチコピーで中に誘導していくのかということと、あと画像も大事ですよね。私のセンスだと地球が燃えている写真になるんですけれども、それが必ずしもベストだとは言いませんので、何か、そういう少し危機感を持ち得るような写真の方がいいのではないかと思っています。</div>
+  <div class="say">あとは、さっきもおっしゃいましたけど、やはり自分事として何をやればということと、あと自分が何かやることでどういういい効果が生まれるのか、このことが結びついているとモチベーションが上がるんですよね。つまり自分一人がやっても無駄だと思った瞬間に何もやる気がなくなってしまうけど、自分が頑張ってこういうことになると。さっき言ったとおり、１度気温が下がったら10億人が救われるとか、やはり何かモチベーションがちゃんと維持できるようなことも大きく打ち出していく必要があるかなと思っています。</div>
+  <div class="say">あと、これは答弁はいいんですけど、私も苦手分野なのであんまり大きい声で言うのもちょっとあれなんですが、やはりショート動画とか、YouTubeとか、この計画の中にも、そういう媒体は工夫する必要があるということが書いてあるんです。いろんな世代に。ただ、それを今回、単に工夫する必要があるではなくて、やはりそういうもの、特に若い人たちに、これからの時代に生きる方々に訴求するメディアというのは今申し上げたようなものなので、やはりそういうソフトもちゃんと小金井市としてもつくっていくということなども、こういった計画の中にきちんと盛り込んでおく必要があるのかなと思っておりますので。</div>
+  <div class="say">活字離れの時代ですから、それがいいとはあまり思ってないんですが、やはり現実問題としては活字離れ、動画ばかり見ていると、１日中動画を見ている人ばかりですから。テレビも見ないですもんね。新聞も週刊誌も見ないわけで本も読まないといって、動画ばかり見ている人が圧倒的に増えてくる時代に対応した、やはりそういう戦略が要るのではないかと思うので、そういうこともこの計画をつくる上では少し、書きぶりということでいうと工夫をしていただきたいということだけ述べて、これはもう答弁は要らないので要望だけして終わります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=2638s" data-timestamp="2638"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:58</a>要望ということで。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=2645s" data-timestamp="2645"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:05</a>まず、家庭部門の削減が必要だということが明らかだと思うんですが、第２章の29ページのところで、家庭部門に関するちょっと記述があるんですが、世帯当たりの排出量について、本市は経年的に東京都平均を上回っていると。世帯構成によって変化があるんだということだったんですけど、書いているんですが、世帯全体に対する単身世帯の割合は、東京都平均より低い状況にあるということなので、要するに家庭部門がＣＯ２の発生が大きい、大体半分ぐらいだという話なんですけど、東京の平均よりも上回っているというところは、何か分析されているものがあるんでしょうか。ごみの排出量も結構頑張って、すごく低く抑えられていますし、23区と比べると緑も多いような印象があったりとかで、この辺の要するに分析というのはどういうふうにされているのか、ちょっと伺いたいということであります。</div>
+  <div class="say">あと、削減目標については、これは多分、国の目標と同じ目標を設定しているということだったと思うんですが、ただ、東京都平均よりも家庭部門が上回るという状況もある中では、もっと意欲的な目標を持つということも必要だったのではないかと思っているんですが、その点はどんなふうに考えているんでしょうか。</div>
+  <div class="say">ちなみに国の目標がどういうことになっているかというと、日本が国連に報告済みの2030年度までの削減目標は、2013年度比46％、だから小金井市も同じような目標になっているということなんですが、国連が世界平均で求めている2010年度比45％、年度が違うのでちょっと比べるのが大変かもしれませんが、この要するに水準から見ても、下回っているというのが国会答弁でも明らかになっています。</div>
+  <div class="say">あと、ＣＯＰ28の新たな合意でいうと、2019年度比43％減ということなんですが、これを2030年度政府目標に照らして見ると、2019年度比37％減にしかならないと。だから国連が求めている削減目標から見ると、日本の要するに削減目標というのは、ちょっと低いと。削減していくというのはなかなか大変なので、目標を意欲的に持てば削減できるのかということもあるとは思うんですが、もう少し意欲的な目標を持ってもよかったのではないかなと考えているんですが、気候危機打開の宣言も行っているので、この辺についての考え方をどういうふうに考えているのか伺いたいということであります。</div>
+  <div class="say">あと、ＣＯ２削減で、家庭部門の削減に関しては、先ほども質疑があったんですけれども、例えば、再生可能エネルギーへの電力の転換であるとか、そういうことを例えば周知していくとか、小金井市はたしか再エネの電気契約になっていると思うんですが、全体ではないと思いますが、そういうことを、例えば、一般家庭を含めて助言をしていくということについてであるとか、あとは国立市などで行っている省エネ家電への要するに購入促進みたいな、補助金みたいな、そういう形で省エネ家電に切り替えていくということをもっと促進していくと。省エネチャレンジをたしかやっていたと思うので、これは一つの啓発事業として有効だと思うんですが、もう少しインセンティブを働かせて、こういうものを促進していくとかということについてのご検討はどういうふうになっているのか、ちょっと確認したいと思います。</div>
+  <div class="say">あと、市でコントロールできるということでいうと、市役所を含めた公共施設のＣＯ２削減ということになってくると思うんですが、これから市役所の計画も見直していくという話だったと思うんですが、現状、市役所のＣＯ２排出量というのはどんなふうになっているのか。一定この実績値でいうと、減ってきているということになっていますが、市役所全体はどんなふうになっているのか。</div>
+  <div class="say">また、今後、公共施設の大規模改修なども行われてくると思うんですが、そういう中でのＺＥＢ化ということを、環境に配慮した建物にしていく。また、以前、公共施設の屋根に太陽光発電の設置をという話をしたときに、なかなか重さがあって難しいという話もあったと思っているんですが、そういうことも今、随分軽いものもできてきていると思いますので、そういう促進とか、その点について、市の公共施設などについてどんなふうに考えているのか、ちょっと伺っておきたいと思うんですが、いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岩佐環境政策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=3001s" data-timestamp="3001"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:01</a>水上委員から幾つか質問の方をいただきました。</div>
+  <div class="say">まず、東京都と比較して、小金井市の方が都平均より少ないということでございますけども、こちらについては、やはり他市と比べますと企業が少なくて、ベッドタウン、人口、市民の方、住まわれている宅地が多いということで、そういったところも起因しているのではないかなということで分析しております。やはりベッドタウンと言われておりますので、55％という数字からも分かるとおり、そこら辺が起因しているのではないかなということで分析してございます。</div>
+  <div class="say">それと、もっと意欲的な目標を掲げてもよかったのではないかということで、ご意見を頂きました。こちらにつきましては、再生可能エネルギーの方も、市域においては、2030年度までに59メガワット導入ということで、かなり意欲的な目標を立てたつもりでございます。先日開催しました環境審議会の方でも、これはかなり高い目標だねということも言っていただいています。</div>
+  <div class="say">それから、審議会の方から、目標数字だけにとらわれることではなくて、いかに市民の方に啓発していけるかというところが一番大きなキーになるということでございますので、そういったところを計画の策定、中間見直しがございますので、そういったところは、市民の方に啓発できるような取組を進めていきたいなと思っています。</div>
+  <div class="say">それから、先日開催させていただきました気候市民会議からも、やはり再エネとか省エネとか、そういったところを家庭部門でどう減らせるかというところが気になるだろうといったご意見も頂きました。</div>
+  <div class="say">それから、やはりインセンティブ制度を拡充しないかというお声も頂きましたので、そういったところを含めて、担当としては、今後いかに地球温暖化を止められるかというところを念頭に置きまして、各施策の方を評価してまいりたいと思っています。</div>
+  <div class="say">それから、市施設のＣＯ２の削減状況でございますけども、こちらについては、第４期小金井市地球温暖化対策実行計画（市役所版）というものがございまして、令和７年度までに基準年度から7.6％削減という目標に対して、現行としまして、直近だと、令和６年度につきましては、再エネ導入分を考慮しましても約1.9％の減少となっておりまして、目標数字には届いてございません。</div>
+  <div class="say">今後につきましては、事業者として改めて市職員の方に周知を図りまして、省エネ行動に努めていただくこともそうですけども、今後は再エネ電力の導入施設を増やしていくこと等を検討してございますので、そういったところを踏まえまして、今後もＣＯ２の削減に寄与するような取組を推進していきたいということで考えてございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=3209s" data-timestamp="3209"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:29</a>まず、家庭の状況なんですが、これは、ちょっと東京都平均なので、各自治体ばらばらなのかなと思うんですが、これは一応、その見解としては、宅地が多いという状況があるということなんですが、市域の中に都立公園などがありますが、そういうのは勘案されるんですかね。されないんでしょうか。されないんだ。されないことになるわけですね。だから、計算式がどういう計算になっているのかということがやはりあるわけだから、この辺は今後どんなふうになっているのか、ちょっとまた様子を見ていきたいと思います。もし東京都平均を上回っているということがあるんだとすれば、26市の排出量の比較みたいなものというのは出せるんでしょうか。出せるんだったら調査資料としてちょっとお出しいただけないかなと思うんですが、この点はどうでしょうか。</div>
+  <div class="say">あと、目標については、確かに今までの目標から見ると、やはり一定、高い目標ということも言えると思うので、それはそういうことだと思うんですが、ただ、日本の目標そのものが低いので、やはり意欲的にもっと削減していくということは必要だと思うんですが、まず、だから、この掲げた目標をやり切るということで努力していただきたいと思います。</div>
+  <div class="say">あと、様々なインセンティブについては検討したいということだったので、ぜひ今後、省エネ家電の買換え促進であるとか、再エネルギーの切替えの助言など、引き続き強めてもらいたいと思います。</div>
+  <div class="say">市の施設については、7.6％の目標に対して、1.9％減ということになっているということなので、再エネ電力の導入ということが言われましたが、今の状況がもし環境の部門で分かるんでしょうか。どの程度再エネ。分からないですね。これは管財課の関係なのかな。だったらいいです。再エネ電力を導入していくということなんですが、公共施設のＺＥＢ化を含めて、ぜひ今後検討していただきたいということは、ちょっとお願いしておきたいと思います。</div>
+  <div class="say">資料が出るかどうかだけ、ちょっとそれをお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">柿崎環境部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=3375s" data-timestamp="3375"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:15</a>要求委員と調整の上、出せるものについて出していきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">安田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=3389s" data-timestamp="3389"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:29</a>幾つか質問させていただきます。</div>
+  <div class="say">46％という目標なんですけれども、今まで26％と他市に比べてもかなり低いような目標設定だったかなと思いますので、上がったことはよいかなと思いますが、私ももうちょっと意欲的な数値でもよかったのかなと思っておりますが、気候市民会議などでも、この目標値についてどういった議論があったのかということをお知らせいただければと思います。</div>
+  <div class="say">また、市役所のＣＯ２削減なんですけれども、目標があるということで先ほどご説明されましたけれども、ちょっと目標に達していないということでありました。家庭部門が半分以上を占めているとはいえ、事業者としては小金井市が一番大きな事業所となりますので、そこでの目標というか、取組というのが非常に大事になってくるのかなと思いますので、どんな工夫をされているのか、また、今後、目標値に届かないといったことですけれども、どんな工夫をされるという見込みがあるのかということをお知らせいただければと思います。</div>
+  <div class="say">あと、ＣＯ２削減で、ごみの減量ということがやはり大きなことかなと思います。現在、布団の回収をしてないという状況があるかと思います。布団を燃やしているという現状をやはり変えていかなければいけないのではないかなと思うのですけれども、その辺について検討状況というか、前向きに進めていただけるのかということをお知らせいただければと思います。</div>
+  <div class="say">あと、食品ロスの削減についてなんですけども、いろいろ取り組んでいただいているんですけれども、この計画の中で、79ページに市の具体的な取組として、飲食店などにおける食中毒予防「作ったらすぐ食べる、持ち帰らせない、火を通す」を周知しますなんですけれども、食中毒防止はもちろん大事なんですけども、持ち帰らせないを徹底するとフードロス削減という、今、持ち帰りということで、各飲食店でも容器を提供してくれたりということは、だんだんできてきているのかなと思うんですけれども、徹底されてしまうと、これができなくなってしまうので、フードロス削減にならないのではないかと思うんですけれども、この辺はいかがでしょうか。</div>
+  <div class="say">緑を増やす取組についてであります。67ページ、新規で入っております。本市の特徴的な緑である国分寺崖線（はけ）や湧水について、広報媒体などを通じた情報発信により、認知度の向上や保全の強化を図ります。熱中症対策にも役立つ日陰スペース、歩行空間の確保につなげるため、公園における樹木や街路樹の適切なメンテナンスを行いますということが新規で入っておりまして、これはとてもすばらしいなと思います。国分寺崖線（はけ）や湧水への関心・理解を深め、保全に向けた市の取組に協力しますといったことです。</div>
+  <div class="say">この国分寺崖線の緑については、今、都市計画道路ということで、市長が消極的な賛成といったような発言もされておりますけれども、そういうところで大丈夫なんですかということが私は聞きたいところです。市のやっていることと市長が主張していることが違くならないですかということについてご見解をお願いいたします。</div>
+  <div class="say">あと１点、環境学習についてです。気候非常事態宣言をしているわけですよね、当市は。それについて、ほとんどの方が知らないという実情があるのかと思うんですけれども、それについての、この中に何も書いていないかなと思うんですけども、気候非常事態宣言の周知について、今どんなご見解かなということをお聞かせ、どんな認識なのか、本当に知られていないなと感じるんですけども、それが課題なのではないかなと思うんですけども、いかがでしょうか。</div>
+  <div class="say">もう１点なんですけども、この計画の中にいろいろな言葉がありまして、ちょっと言葉についての理解が私は追いつかないところがあって、いろんな調べたりとかしているんですけれども、例えばデコ活ですとか、英語のＨＥＭＳとかＢＥＭＳとかＥＳＧとかＥＭＳとか、いろんな言葉が書いてありまして、これは一々どういうことなのかなと、私はちょっと調べながら読んだんですけれども、こういったちょっと市民にとっては親しみが、日常の中で使わないような言葉がよく見られますので、これについての用語解説みたいなものは、もうちょっと丁寧なものが必要なのではないかなと思うんですけれども、いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">高野環境係長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=3739s" data-timestamp="3739"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:19</a>それでは、安田委員の方からいただきましたご質問１問目でございます。</div>
+  <div class="say">今まで26％と低い数字であったが、今回46％という数字にしたというところについて、気候市民会議等からの意見がどういった意見があったかというご質問であったと思います。</div>
+  <div class="say">まず、気候市民会議におきましては、今年度、３回実施したところにはなるんですけれども、46％の数字を掲げるかどうか、現状のものでいいのかどうかというところの具体的なところにつきましては、中では討論はしていないところでございます。</div>
+  <div class="say">ただ、今年度、環境・みどりに関する市民アンケート調査というものを無作為抽出で3,000名の方にお送りしておりまして、約1,000人の方からご回答いただいたところでは、国と同じ程度の目標を掲げるべきであるが42％、国以上の目標を掲げるべきであるが14％、現状の目標でよいというのが39％、無回答が５％という回答でございました。そういったところで、国と同程度、国以上というところが合わせて56％という数字がございましたので、市としましては、そういったところを考慮させていただきまして、46％、それ以上の高みを目指していきたいということも含めて、まずは46％を目指していきたいという形で、今回、数字に書いているところでございます。</div>
+  <div class="say">また、気候非常事態宣言の周知についてでございます。こちらにつきましても、同様に今年度実施しました市民アンケート調査におきまして、残念ながら７割程度の方が知らないという回答でございました。市としましては、環境フォーラムであったり、野川フィールドワークであったり、環境楽習館における事業、つるカメえんにちなど、様々な事業において、気候非常事態宣言につきましては周知してきたところではあるんですけれども、なかなかそれが周知し切れていないというのが結果として出てしまっているような状況でございます。こちらにつきましても、改めてといいますか、引き続き、市役所の第二庁舎の風除室等も活用して、周知していきたいと考えているところでございます。</div>
+  <div class="say">最後、いただきました用語について、デコ活であったり、様々な環境に関する難しい用語について、用語集を設けるべきではないかというご意見も頂いているところでございます。こちらにつきまして、12月１日に実施しました環境審議会におきましても、同様の意見を頂いているところでございます。現行の計画では用語集も記載してございますので、今回、パブリックコメントを実施するに当たっては、用語集もつけた形で市民の皆様に周知していきたいと考えているところです。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岩佐環境政策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=3923s" data-timestamp="3923"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:23</a>安田委員の方から、市役所版の方についての質問をいただきました。</div>
+  <div class="say">こちらは、第４期小金井市地球温暖化対策実行計画（市役所版）ということで、委員がおっしゃるとおり、目標数値が7.6％削減という目標に対しまして、なかなか直近の数字においても、再エネ導入分を考慮しましても、約1.9％の減少ととどまっているというところが実態でございます。こちらにつきましては、改めて周知啓発を徹底する必要があるかなと思っていまして、空調の適正化ですとか、消灯、節電の徹底等、事業者、市としてできることにつきましては、改めて職員の方に周知を図って、省エネ行動をまず努めていくことが先決だろうということで考えております。</div>
+  <div class="say">今回、改定を来年度にする予定でございますので、改めて周知徹底の方は図っていきたいと思いますし、今後、やはり気候市民会議の方でも、家庭部門、それから施設を含めて、再エネ電力の導入ということがキーワードで上げられていますので、市施設においても、そういった施設を増やせないかどうかというところは検討しているところでございます。</div>
+  <div class="say">それから、先ほど、宣言とか、デコ活については、係長から答弁させていただいたとおりでございます。なかなか分かりづらかったり、聞き慣れないところもございますので、そういったところは、丁寧にコラム等を使いまして周知の方をしていきたいということで考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">今井ごみ対策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=4040s" data-timestamp="4040"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:20</a>安田委員の方から、ＣＯ２削減に関して、布団のリサイクルの検討状況はどうかというところになります。こちらについては、現状、我々の方で把握している中では、まだ処理ルートについてしっかり確立できていないのかなというところの認識を持ってございます。ついては、本年度も東京都の方から、同事業に関して試行実施に当たって参加する意思はあるかというところの確認を受けたところでありますけども、実際、東京都の方から、ちょっと理由は定かではないんですが、本年度、この事業については中断するというところの連絡が入ったところです。ついては、やはりなかなかまだ技術的な部分だったり、法的な部分、どこに課題があるのかというところはちょっと定かではないんですが、なかなか踏み切れる状況ではないのかなという認識でおります。</div>
+  <div class="say">もう１点いただきました食品ロス削減について、火を通すということを周知することは削減に反するのではというご意見かと思います。こちらについては、健康の課題として、健康の項目の中で取り上げていただいているものになります。と申しますのも、飲食店、食べ残し、持ち帰りに関しての基本的な考え方といたしますと、飲食店においては、従業員及び消費者に対して、そういったことの行動に取り組むことの目的の周知を行うこと、また、消費者においては、食中毒等に対する正しい理解と自己責任の下に、食べ残し、持ち帰りを行うことを基本としています。ついては、消費者の方の自己責任の範疇に及んでくるという中身になってまいりますので、健康に留意する観点として、こういった指摘を計画の中に盛り込んでいくことは適切だと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">小林緑と公園係長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=4152s" data-timestamp="4152"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:12</a>国分寺崖線の認知度の向上、保全の強化についての取組につきましては、アンケート調査の中で、ネイチャーポジティブだとか、サーティー・バイ・サーティーの認知度についてアンケートを実施していまして、その認知度が非常に低かったということで、取組としましては、滄浪泉園を活用しまして、生物多様性に関する普及啓発を行っていきたいということで、今後、取組を検討しているところです。</div>
+  <div class="say">あと、保全の強化の部分につきましては、緑地保全対策審議会の中で、保全緑地制度の普及啓発につきまして、もう少し取組を強化した方がいいというご意見を頂いておりますので、そちらについても普及啓発を図るということで、今回の計画の中に新規として記載させていただいたところです。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">安田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=4211s" data-timestamp="4211"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:11</a>ご答弁ありがとうございます。</div>
+  <div class="say">ＣＯ２削減の数値に関しては、国と同じでいいや現状でいいという方が大体多かったという妥当な数字だということでありますので、もうちょっとこの危機的な沸騰化の中においては、私としては、もっと焦る気持ちがあるんですけれども、現状ではこうという結論になったと。46％ということで、これは絶対に目標を達成していただきたいと申し上げておきます。</div>
+  <div class="say">また、市役所の中でのＣＯ２削減ですけれども、これは私たちも市役所を使っていますので、議員としても、やはり削減という心がけで過ごさなければいけないなと思いますし、職員だけではなく、職員の方は昼休みにも消灯してくださっていたりとか、様々取り組んでいただいておりますので、これ以上ということも難しい面もあるかと思いますけれども、やはり率先してやらなければいけない立場ということを、私たち議員も自覚して取り組んでいかなければいけないなと思ったところなので、市役所の方と一緒に、職員の方と一緒に議員も取り組んでいきたいと申し上げておきます。</div>
+  <div class="say">気候非常事態宣言の周知なんですけれども、本当に７割知らないという状況は、ほぼ知らないのかなと思いますので、ごみ非常事態宣言は、いろんなところで横断幕が掲げられているので、ごみ非常事態宣言はもうなくなったんですよね。ごみゼロのまち、ゼロカーボンシティ、何でしたか。とにかく、ごみゼロタウン小金井、そうですね。それは本当にいろんなところで見かけるので、周知は結構されているのかなと思いますけれども、気候非常事態宣言は本当に宣言しただけに終わってしまっているのかなと思います。</div>
+  <div class="say">また、環境学習ということでも子どもたちにしていますので、それも、その子どもたちも少し大きくなってきているわけなので、これもちょっと周知は、風除室なども活用してということでありますけれども、横断幕なども検討したら、この際に非常事態宣言しているんだよという、これをしたときに横断幕をした方がよかったのかもしれないんですけども、この周知がなされないことを受けて、横断幕なども検討するべきではないかなと思うんですけれども、いかがでしょうか。</div>
+  <div class="say">緑の創出はちょっと後で言います。</div>
+  <div class="say">ごみ、布団回収、ちょっと東京都の方で取り組み始めた動きがあったけれども、処理ルートを確立できないためなのか難しく、中断されているような状況というご答弁がありました。本当にこれは本気を出してやっていただきたいなと思います。</div>
+  <div class="say">私も家に捨てられない座布団がありまして、あと布団類がありまして、でも、まだ使えるような綿を燃やすと分かって出すことはちょっとできないなと思っておりまして、大変難しい、そういったニーズがある、うち以外にもあると思いますので、これは東京都の方にも働きかけて、何とか回収して、リサイクルという道を見つけていただきたいと強く要望いたします。</div>
+  <div class="say">食品ロス削減については、持ち帰らせないということは、健康の課題であるということであります。何ともコメントしようがないなと思うんですけれども、食品ロス削減についても様々取り組んでいただいておりますけれども、今後とも個人個人の行動ということが、本当に当市においては、家庭での排出というものが大きな割合を占めているわけなので、個人個人の行動変容につながるような食品ロス削減政策というのも、更に周知と強化をしていただきたいということを申し上げておきます。</div>
+  <div class="say">みどりの創出なんですけれども、本当に水とみどりの小金井市なわけで、そういったいろんな目標にも掲げられていますし、そういったことと今、小金井市がやっていることが矛盾しているのではないかとよく言われるわけなんですよ。道路に関しても減るわけなので、みどりが。道路を造れば緑が減るわけで、そういうことを東京都、小金井市として取り組むことがどうなのかと。しかも本当に暑いということ、暑くて、また更に来年、再来年とこれからもどんどん暑くなっていくという本当に危機的な状況の中で、そういった態度をとられるということが、市民にとって市への信頼が損なわれるといいますか、そうやってキャッチフレーズだけではないかとか、そういうふうな不信感を持たれる原因となると思いますので、先ほどの武蔵小金井駅前の街路樹の補植についても、交通よりも今はそういった日陰をつくったり、緑被率を上げるということの方が大事なのではないかなと思いますし、そういったことを市としてしっかりと市民に伝えていく。それはいろんな施策で矛盾なく行ってほしいと思いますし、もしも矛盾するようであれば、矛盾するというか、相反するようなことがあれば、しっかりと市民に分かるように説明していただきたいということを申し上げておきます。</div>
+  <div class="say">特に質問は、さっき何か質問しましたよね、私。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=4389s" data-timestamp="4389"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:09</a>横断幕ではないですか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">安田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=4609s" data-timestamp="4609"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:49</a>そうだ、横断幕については、ちょっとどうかということをお聞きしたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岩佐環境政策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=4621s" data-timestamp="4621"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:01</a>安田委員の方から、気候非常事態宣言を周知するために横断幕を使ってみてはというご意見、ご提案だったと思います。こちらにつきましては、ご紹介いただいたとおり、なかなか周知啓発が行き渡ってないということで、７割程度の方が、アンケート結果から見ても、この宣言を知らないといったご意見ですとか、あと今年度、気候市民会議、無作為抽出で30名の方に参加いただいたんですけども、なかなかこれまで環境施策とか環境事業について参加、関心のなかった方にもご参加いただいているところなんですけども、実際に市の施策とかをご紹介させていただいたり、国とか東京都の動向とか、世界的な動向とかも周知させていただいたところですけども、なかなかこういった環境事業について知らなかった方が多かったというところで、もっと早めに知っていれば、早めに取り組めたといったご意見もございました。</div>
+  <div class="say">ここら辺につきましては、現状につきましても、環境フォーラムですとか、各種環境イベントについて実施する際に、気候非常事態宣言のことも周知させていただいていたり、あと、市報とかＳＮＳを通じて周知啓発の方は努めているところですけども、なかなか３割ぐらいの方にしか行き届いてないというところは課題であるということで思っています。</div>
+  <div class="say">今、環境教育ということで、子どもたちを中心に重点的に周知啓発を図っているところでございますので、今やっていることが５年後、10年後にいかされるように、宣言等も知っているよというパーセンテージが増えたり、環境に対して取組の方をやっていただいたりする方々、子どもたちの方々が増えるようなことになるように、環境啓発の方は努めていきたいと思っていますので、今のところ横断幕の設置というところでは予定してないんですけども、フォーラムイベントを通じて、地道でありますけども、啓発の方は図っていきたいなということで考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">安田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=4772s" data-timestamp="4772"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:32</a>分かりました。周知が必要だと思うんですけども、その際に、気候非常事態宣言を知らなかったというのは、気候市民会議で無作為抽出だったので、多分、その方たちも知らなかったのかなと思うんですけれども、そういう方たちが知って、これから広めていっていただけるようなキーパーソンとなっていただけるために、何か気候市民会議に参加してくださった方が、今後、いろんなイベントや、何か次のアクションにつながるような、そういった働きかけみたいなことが必要なのではないかなと思うんですけども、それについて最後、何かあればお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岩佐環境政策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=4815s" data-timestamp="4815"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:15</a>気候市民会議、今年度、初めて実施しまして、無作為抽出、これまで環境事業に関わってこなかった方々にも知っていただいて、参加いただいたということで、非常に参加してよかったなという声もございます。</div>
+  <div class="say">この声をどのように広めていけるかというところにつきましては、環境政策課の方でも、せっかく頂いた意見の方は、より多く発信していきたいということで考えておりますので、今、市のホームページ上でも、気候市民会議の動画、YouTubeでまとめたものを発信してございますので、今後も引き続き、気候市民会議を開催させていただきましたので、そういったものをいかしていきたいと思っていますし、今年度参加いただいた方々に今後も取り組んでいただけるように、どのようなことができるかというところについては、ちょっと検討していきたいなと思っています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=4876s" data-timestamp="4876"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:16</a>次の方、いらっしゃればお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=4890s" data-timestamp="4890"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:30</a>ご報告いただきました地球温暖化対策地域推進計画について２点と、資源循環のところの柱ということで、市長にちょっと１件提案して見解を伺いたいことがございます。</div>
+  <div class="say">まず、地球温暖化対策地域推進計画についてです。これまでも委員の方で見解が出ていますけれども、私は野心的な目標設定をしたことについては評価をしております。ぜひこれをちゃんと実現できるようなことについては、組み立ててやっていただきたいということをまず、意見として申し上げます。</div>
+  <div class="say">質問、提案なんですけれども、６ページ、７ページのところに国際社会の動向ということが書かれておりまして、７ページのところに、ＣＯＰのことも掲載していただいておりますが、多分この案をつくった時点での最新がＣＯＰ29だったんですけれども、ＣＯＰ30が今年の11月22日に終わったところですので、ぜひ最新の状況というのを入れていただきたいなと思っておりますが、いかがでしょうか。</div>
+  <div class="say">ＣＯＰ30においては、グローバル・ムチラオ決定ということが決まっているようでして、ムチラオというのは議長国ブラジルが、ポルトガル語のムチラオ、これは共同作業、協働、共に働くということをテーマに掲げているそうなんですけれども、こういったことについて決定をしております。</div>
+  <div class="say">また、その中で資金とか緩和とか、分野を横断したことについてもやっていこうということが書かれているようなので、ＣＯＰ30のことにぜひ更新をしていただきたいというのが一つと、併せて個人的には、国際司法裁判所が今年の７月に、国家には人為的な温室効果ガス排出から気候変動を保護する義務があると、結構画期的な判決だと私は思っている、見解だと思っているんですけども、こういったことも併せて、最新の情報をぜひ載せていただきたいと考えているのですが、いかがでしょうか。</div>
+  <div class="say">二つ目が気候市民会議についてです。とても本当によい取組を前倒しでやっていただいたなと思っておりまして、私も都合がつくときに１回だったかな、見に行ったんですが、本当に上手にファシリテーションしながら、市民の方たちが気軽に意見を出せる雰囲気、とてもいいと思っております。その意見を出されたことが、今回、この計画にも新規項目や見直し項目に入っているということも評価をしているんです。</div>
+  <div class="say">今回、また100ページのところに、地域推進体制のところで、新たに気候市民会議と入ったことも評価をしております。この計画に入っているということなので、今後どのように気候市民会議をやっていこうとお考えなのか、頻度や手法、やり方、今の時点でお考えになっていることについて、ご見解を聞かせていただければと思います。続けて入っているということも評価しておりますという点で聞いております。よろしくお願いいたします。</div>
+  <div class="say">柱のところに併せて、ちょっと市長に提案なんですけれども、先ほど質疑の中で、小金井市のごみに関する宣言が、循環型都市「ごみゼロタウン小金井」～ごみを出さないライフスタイルへ～と変わったということも触れられていたんですけれども、ごみ対策課という名称をそろそろ変えられないかなと思っていて、過去にちょっと26市の状況を調べてみたことがあるんですけれども、ごみ減量推進課というところがあったり、また、３Ｒ推進課、資源循環課、ごみゼロ推進課など、そういったごみ対策みたいなことではなくて、ちょっと名称を変えている自治体が何個かあったんです。こういったことは恐らく組織改正に合わせてというご答弁も出るところかと思いつつ、それも市役所建設もちょっと先がまだ見通せない状況で、そういったことを言っている場合でもないというか、時勢を捉えて名称についてもご検討いただきたいと思っているのですが、いかがでしょうか。恐らく小金井市の、平成でいうと13年、2001年の組織改正で、ごみ対策課ということで名称が定まったのではないかと考えております。2025年ですので、四半世紀ぐらいずっとこの名称を続けているので、ちょっと時勢に合わせてご検討いただきたいと思っているんですけれども、いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岸田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=5165s" data-timestamp="5165"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:05</a>関連。すみません、最初に聞いておけばよかったのですが、気候市民会議のところだけ私もちょっと抜けてしまいまして、これも非常にいい取組だなと思っておりまして、今後継続するということは私も評価しています。</div>
+  <div class="say">ホームページを拝見すると、３回やっていただいて、もちろん提言を出すということが目的だから構わないんですけども、それぞれの回数のアンケート自体はあるんですが、今回の総括的な３回を通して皆さんの意識がどう変わっただとか、興味がどう変わっただとか、そういう取りまとめというか、アンケートというか、お声は頂戴をしているのか。あるいは、次回以降、同じような企画があった場合にどうしたらいいのかとか、そういうご意見というのを頂戴した場はあったのかどうか。ホームページ上、一回一回の報告書の中のアンケートはあるんですけども、総括的なものがないなと思っているので、そこをちょっとお伺いしたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岩佐環境政策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=5223s" data-timestamp="5223"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:03</a>坂井委員と岸田委員の方から質問の方をいただきました。</div>
+  <div class="say">まず、７ページのところで、今、ＣＯＰ29のことが書かれているということで、先日、11月にＣＯＰ30の方が開かれたということで、そういったところも最新の情報を載せていきたいなということで考えております。来週、ちょっとパブコメには間に合わないと思いますけども、パブコメの意見とか、今日頂いた意見とか、あと環境審議会の意見も踏まえながら、最終的な案はつくっていきたいなと思っていますので、そういったところには最新のものを入れられるようにしていきたいなということで考えております。</div>
+  <div class="say">それから、気候市民会議の関係で、今の時点の考えがあるかということで、非常に今回、無作為抽出でやらせていただいて、若い方を含めて、一番若い方だと高校生かなと思いますけれども、いろんなご意見を頂きましたし、あと岸田委員のご質問にも関連するんですけども、今、気候市民会議からの提言書というものをホームページの方で載せさせていただいています。そこで、３回参加した方々に手書きで感想等も頂いていまして、そういった感想をホームページの方にアップさせていただいていますけども、いろいろな世代の方と話すことによりまして、自分の見識を深めることができたとか、あと自分事として行動していきたい、何かやらないと次世代によい環境を残せないとか、あと環境問題、気候変動問題に元々興味はなかったけども、やはり参加してみて興味を持てました。ありがとうございましたといったご意見ですとか、あと普段住んでいる小金井市のことも知るきっかけになりましたとか、そういったことを、具体的に今後やることが見えてきたといったご意見ですとか、あと普段、日常生活において気をつけていこうと思いましたとかいった感想を手書きで頂いております。そういったものを見ますと、非常に市としてもやってよかったなという感想を持ちまして、背中を押されるような気持ちにもなりますし、この輪を１人でも多くの方に広げていきたいなという思いがございます。</div>
+  <div class="say">他市の気候市民会議を開催している自治体、多摩市ですとか、日野市とか、あと世田谷区の状況もホームページとかで見ているんですけども、やはり次の段階に向けては、今後を担っていく若者たちへの何かしら取組をしておりますので、小金井市としても、どういったところができるかというところは検討中ではございますけども、頂いた意見を若者につなげてやっていきたいなということで考えております。</div>
+  <div class="say">気候市民会議からの提言書については、市のホームページでもアップしてございますし、あと、実際に当日の様子とかもYouTubeで動画で流してございます。参加した感想等をまとめたものも公開しておりますので、そういったものを少しでもいかせるように、市としては取り組んでいきたいなということで考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">今井ごみ対策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=5437s" data-timestamp="5437"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:30:37</a>坂井委員から組織名称を変更してはどうかというところのご提案かと思います。実際、私ども、ごみ対策課を名のって、結構私も愛着を持ってこの名称を使わせていただいていますけども、特段、この名称に固執しているわけではございません。実際、ごみゼロ化推進会議の方や廃棄物減量等推進審議会の委員の方からも、会議ではということではないんですけれども、委員の感想として、そろそろ名称を変えてはどうかというご提案を頂いたことはございます。</div>
+  <div class="say">実際、他の自治体における取組などを拝見している中では、大体、基本計画の改定に合わせて、各種施策を推進するためというところを目的に名称変更を行っているような事例を多く見受けています。</div>
+  <div class="say">ただ、こういった取組を行ってまいりますと、課名の変更だけではなく所掌事務、各関係部署とまたがっている所掌事務の見直しなども含めて、係内の所掌も含めた形で変更しているという事例が多く見受けていますので、こういった取組に関しては一定、庁内での意識浸透も含めて検討が必要かなという見解を持っているところです。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=5530s" data-timestamp="5530"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:10</a>１点目については、ＣＯＰ30のことも載せていきたいということなので、ぜひよろしくお願いいたします。</div>
+  <div class="say">ちなみにＣＯＰでは、いろんな媒体、いろんな場所で、いろんなミーティングが行われていて、日本はＣＯＰ25から６回連続で化石賞を受賞しているということがあったので、ちょっと触れておきます。取組が遅いねという賞ということでした。頑張ってまいりましょう。</div>
+  <div class="say">２点目の気候市民会議についてです。市としてもやってよかったということで、本当にそういった感想を担当課でも持っていただいていることは私もうれしいと思っております。やはり気候非常事態宣言をしている小金井市が、市民の方と一緒にやっていこうという視点で取り組んでいることなので、私、やはり毎年やっていただきたいなと思っているんです。多分、気候市民会議をやっている自治体はあるんですけれども、継続的に毎年取組を重ねられているところはそんなにないと思っているんです。多分、多摩市はやっているのかな。３回連続で、３年連続でやっているということは調べております。ぜひ毎年やっていただきたいと思うんです。それも、ただやるだけではあまりよろしくないと思っておりまして、例えば、今回も気候市民会議から新たな提案で新規見直し項目が出てきましたよね。それについて、どうやって取り組んでいけばいいのかということを気候市民会議でアイデアを頂きながらやっていくとか、今、課題となっている気候非常事態宣言の認知が３割程度、低いなということについては、どうやったら一緒に広げていけるかという、今ある課題なども気候市民会議で検討して、それをまた市の計画、市の行動にいかしていくというサイクルをつくっていただければいいなと思っておりますので、その点については、ご検討のほどよろしくお願いいたします。</div>
+  <div class="say">今、若い方、若い人たちへの取組ということもあったので、無作為抽出をかける人数とか世代というのをちょっと折々考えていただきたいなと思っているんです。今回の気候非常事態宣言に向けて、高校生のお子さんがいる親御さんとお話しすることがありまして、無作為抽出で選ばれたんだけれども、どうしても全部ちょっと都合が悪くて行けなかったと。ご本人も参加したかったなという声は聞いておりますので、何回もやはり続けていただいて、市民と共にやっていこうという仕組みを続けていただきたいということで、これも意見で終わります。</div>
+  <div class="say">３問目、課長からご答弁いただきました。すみません、このことは特に今の課長とは相談せず話をしているんですけれども、過去に私、2020年にも同じ提案をしたことがありまして、そのときも特に何も動かなかったということがありました。５年も経ってしまったなと思うことでご提案をしました。課長のご見解ももちろん大切ですし、あと、また、市民の方からも、審議会の委員から、委員会の場ではないけれどもご意見を頂いたということも踏まえて、直ちにどうこうとは申し上げませんので、ちょっと時期を捉えてご検討いただきたいということを要望として伝えて終わります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岸田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=5719s" data-timestamp="5719"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:19</a>主質問者が意見で終わっておりますので、同じく。基本的には主質問者と同じ考えでございまして、私も今回これが、気候市民会議が引き続き、今後の継続のところに乗ったのがよかったなと思っていますし、これをどうやってやっていくのかなとは思っていて、だから１問目でお伺いしたんですが、課長のおっしゃっていること、これは見れば載っているので分かるんですよ。</div>
+  <div class="say">ちょっと私の質問が悪かったのかな。効果測定というか、始まる前と、気候市民会議の開始前と、３回通してやった後のトータルでどう変わったのかということとかを、このアンケートを見ると、今回のグループワークはどうでしたか、今回の会議はどうでしたかということを３回やっているんですよ、同じフォーマットで。だから僕の意識では、今回、だから最後の第３回目にあるのは、第３回のことについてはどう思いますかというアンケートだと認識をしているんです。</div>
+  <div class="say">なので、最初にやった始める前と、３回通してやった後のどう変わったのかとかということの効果測定というか、そういったことでやられたのかなという思いがあって、それを基に次回どうしていったらいいかなということとか、今回、提言や頂いた中で見直しや重点項目、新規項目というのがあって、それを入れていただいたというのはオーケーかなとは思っていますが、それを今回、計画に落とし込んだ上で、これを現状はどうですかねという、すり合わせとか、何が足りないですかねとか、それこそ先ほど坂井委員がおっしゃられたように、市民の方の目線で、新しい方の目線で、つくった人たちではない新しい方の目線で、これはどういうことですか、こうしたらいいのではないですか、ああしたらいいのではないかと、どんどん展開していくことはできるのかなとは思っているので、引き続きそういった無作為抽出でもやり方はよろしいかと思いますけど、そういったどんどん変えていくことによって、どんどん関わっていく人が増えていくのではないのかなと認識をしている、このスタートの気候市民会議以前と以後がどうだったのかなという質問だったので、そういった意味合いでございますので、ぜひこれを継続して頑張っていただければと、私も応援をしております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=5847s" data-timestamp="5847"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:27</a>よろしいでしょうか。</div>
+  <div class="say">以上で、本件に対する現時点での質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=5855s" data-timestamp="5855"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:35</a>ご異議なしと認め、本件に対する現時点での質疑を終了いたします。</div>
+  <div class="say">お諮りいたします。本件は引き続き調査する必要があると認め、継続調査といたしたいと思います。これにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=5868s" data-timestamp="5868"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:48</a>ご異議なしと認めます。本件は継続調査と決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=5903s" data-timestamp="5903"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:23</a>次に、所管事務調査（都市計画道路に関する調査）を議題といたします。</div>
+  <div class="say">本日、部局から資料が提出されておりますので、初めに資料の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">田部井都市計画課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=5913s" data-timestamp="5913"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:33</a>それでは、都市整備部都市計画課提出資料、都市計画道路に係る要望について（議事概要）についてご説明いたします。本資料は、河野委員のご要求によるものです。優先整備路線２路線について、東京都に要望書を提出した際の概要を記載したものです。詳細につきましては、資料をご覧ください。</div>
+  <div class="say">続きまして、提出資料、市長報告から要望書提出までの経過について、ご説明いたします。本資料は、岸田委員のご要求によるものです。優先整備路線２路線について、９月19日に行った市長報告から東京都に要望書を提出した10月22日までの庁内の動きの経過を記載したものです。詳細につきましては、資料をご覧ください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">飯村都市計画係長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=5964s" data-timestamp="5964"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:39:24</a>それでは、都市計画課から、東京における都市計画道路の整備方針（仮称）中間のまとめのパブリックコメントの結果について報告します。</div>
+  <div class="say">東京における都市計画道路の整備方針（仮称）中間のまとめの公表に伴い、令和７年７月29日から８月29日まで実施したパブリックコメントにおいて、手紙及び電子メールなどで頂いた計922件（596通）のご意見、ご提案の概要を11月13日に公表しました。詳細については、東京都及び本市ホームページをご覧ください。</div>
+  <div class="say">また、整備方針（案）につきましては、本年12月中に公表することとしており、パブリックコメントも実施する予定です。</div>
+  <div class="say">報告は以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=6013s" data-timestamp="6013"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:13</a>これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">安田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=6031s" data-timestamp="6031"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:31</a>質問いたします。東京における都市計画道路の整備方針（仮称）中間のまとめ、パブリックコメント実施結果の概要が11月13日に公表されました。件数は922件、596通ということであります。その中で、意見総数922件中、個別路線の要望が368件と４割にも達しておりますけれども、その内容については何も公表されていないという状況であります。中間のまとめに関連のない内容については公表していませんということで、この368件の個別路線の要望についての内容がとても気になるところであります。</div>
+  <div class="say">この中では、中間のまとめは10年前にも行っておりまして、そのときは５月だったんです。平成27年５月26日から６月30日の期間で、意見総数は419件、155通と公表されております。そのときに比べて意見の件数も倍以上に増えております。そして、その内容についても、都市計画道路に対する東京都の姿勢というものに非常にたくさんの意見が出ていると認識しております。</div>
+  <div class="say">道路整備による負の効果、自動運転の拡大、都心部の高齢化、交通量が減少していることなど、様々な視点から現状分析を行うことが必要ですとか、国際競争ではなく、都民の暮らしを守ることを大前提にすべきですとか、今ある道路を有効活用する方針に大きく舵を切るべき、現道をいかしたネットワークを拡充し、今後は道路の維持管理に財政や人員を投入すべき、新規の道路を一から造るより既存道路の幅員を広げる整備計画を優先すべき、防災という観点では、道路整備よりも、緑道、植栽の充実、備蓄品や避難場所の充実、不燃化支援、住民参加による安全・安心なまちづくりが重要ですとか、大きなＣＯ２排出源である自動車交通需要を低減させる目標、施策がまずあるべきですとか、地球沸騰化の防止・気候危機の対策・気象災害の防止を強化すべき視点や目標、評価基準などに追加するべき、道路整備が都市環境の向上（景観・緑）に資するという考え方には問題があるですとか、様々な、本当にそうだよねという意見が私にとってはたくさん出ておりました。</div>
+  <div class="say">また、今回、2040年度までの事業期間が延びております。10年から15年間になっております。これまでの期間を都市計画道路を抜本的に見直す期間とするべきといった意見、また、必要性の検証についてや、コミュニティの分断、通過交通の増加、騒音、自然環境への影響など、デメリットを含め、住民理解などの実現可能性や、広幅員道路の横断、建物移転数など多面的かつ定量的に検証すべき、作らない選択も含めるべきなどの意見が載っております。</div>
+  <div class="say">多分、10年前にはここまでの意見はなかったかなと思うんですけれども、東京都の整備方針について、市としては、パブリックコメントの結果をどう受け止めていらっしゃるのでしょうかということをお聞きしたいと思います。</div>
+  <div class="say">また、次は、個別具体的な路線の次期事業化計画が公表される見込みでありますけれども、それは、10年前の募集では12月18日から２月10日といったパブリックコメントの期間でした。なので、それと照らし合わせますと、そろそろ個別路線の募集が始まるのかなと思うんですけれども、それについての情報をお願いいたします。</div>
+  <div class="say">とりあえずお願いいたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">田部井都市計画課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=6336s" data-timestamp="6336"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:36</a>安田委員から２点ご質問を頂戴しました。</div>
+  <div class="say">まず、１点目でございます。市としてパブコメの結果をどう受け止めているのかというご質問でございます。これにつきましては、パブコメによりまして、非常に多くの貴重な意見を頂戴したと考えております。</div>
+  <div class="say">続きまして、次期事業化計画の案のパブコメの時期の情報はあるかということですけれども、これについては、情報はございません。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">安田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=6372s" data-timestamp="6372"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:46:12</a>様々貴重な意見を伺ったということです。本当にパブリックコメントとは何なんだろうといつも思うわけです。特に東京都のパブリックコメント、私たち、2015年に都市計画道路のパブリックコメント、中間のまとめのときは、この計画を知りませんでしたので、何も私はアクションしませんでしたけれども、個別具体的な路線が発表されました、12月18日から行われた2015年に関しては、意見総数4,126件、2,862通、個別路線については3,443件、この中で小金井３・４・１号線については1,081件、整備推進・要望が24件、廃止・見直し1,057件、小金井３・４・11号線に関しては全部で1,030件、整備推進・要望が46件、廃止・見直しが984件と、総数4,126件のうち半数が小金井２路線の意見だったにもかかわらず、そして中止を求める意見が多かったにもかかわらず、第四次事業化計画の中の優先整備路線に小金井２路線が入れられてしまったという経過があります。本当にパブリックコメントを実施して、市民の声をちゃんと反映させているのかと、反映しているのかということに対しては、本当に東京都の方には不信感というか、市民の意見を反映していないではないかと思うわけであります。</div>
+  <div class="say">今回、個別路線に関しての情報が、今というか、次のパブリックコメントについては、まだ情報がないとおっしゃられましたけれども、来年の３月下旬、今年度中にこの優先整備路線、第五次か分かりませんけれども、事業化計画が発表されて、これが確定するわけです。今、それが公表される直前と思っております。それについて、市民に、もうこれはパブリックコメントが始まると思っていますけれども、市からの、例えば東京都から照会があったときに、自然環境への影響について東京都から照会があったときには、何か意見を伝える、自然環境への影響を低減するようにですとか、そういった配慮を求めるようなことを東京都に伝えるといったようなことが、前回の建設環境委員会の答弁であったように記憶しておりますけれども、そういったことが、東京都からの照会があった場合に、もうしたのかどうか、そういうことを言ったのかどうかということについて、お伺いしたいと思います。</div>
+  <div class="say">あと、自然環境、小金井２路線に関して、専門家からの知見というものが必要だと議会からも市民からも言われておりますし、そこには予算をつけてしっかりと対応していきたいといったような市長の答弁もありました。そういった検討について進めていられるのかということを市長にお聞きしたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">田部井都市計画課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=6604s" data-timestamp="6604"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:04</a>安田委員から東京都から照会があった場合にどのようなことを言ったのかというご質問を頂戴いたしました。現在、事業化計画につきましては策定中でございますので、その照会の内容、回答の内容、あと委員会での内容については、ご答弁が難しい状況でございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">白井市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=6630s" data-timestamp="6630"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:30</a>安田委員の方から、この間ずっとご指摘、ご意見も頂いてきました環境の専門家の件について、前回のたしか閉会中にも答えたと思うんですが、それを市長報告でも、そういったことをやるということを私は申し上げてきましたので、ちょっと当初予算の措置に向けて今、準備・調整をしているところでございます。まだこれから査定でございますので、これ以上は何とも言えません。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">安田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=6659s" data-timestamp="6659"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:59</a>ご答弁いただきました。</div>
+  <div class="say">パブリックコメントについては、開始時期ですとか、その内容、個別路線については、全く今のところ言えることはないといったことであります。これから公表されるわけですけれども、本当にそんな議会にも説明できないような状況で、水面下で進めているんだなという印象を持ちます。これから結果が近々出るということで、私も身構えておりますけれども、情報が入ったら、速やかに市民及び議員にも、議会にも報告、情報提供していただきたいと申し上げておきます。</div>
+  <div class="say">また、市長の自然環境の専門家の知見については、予算要求するといった方向なのかなと受け止めました。本当にこれは実際にまだ決まったわけではありませんけれども、自然環境への影響について、市として、本当に地元の行政として、市民の気持ちを受けて、自然環境への影響については深く検討・考慮して、東京都の言いなりにならないように、しっかりと市民と一緒に自然環境を守る取組をしていただければと要望して終わります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=xPNvtHIHQkM&t=6753s" data-timestamp="6753"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:52:33</a>ここで昼食のため、おおむね１時間休憩といたします。</div>
+  <div class="say">午後０時05分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午後１時09分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=162s" data-timestamp="162"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:42</a>再開いたします。</div>
+  <div class="say">休憩前に引き続き、質疑を行います。お願いいたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=175s" data-timestamp="175"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:55</a>それで、都市計画道路に係る要望についてという議事概要が出されておりまして、これは前回も質疑もして、一般質問でも改めて詳しく質問されていたので、消極的賛成と東京都に表明されたことは大変遺憾だと、撤回すべきということは前回申し上げたとおりなので、それはそのように伝えておきたいと思いますが、性急な進捗を望まずと、小金井３・４・11号線についてはということについて、要望したということなんですけれども、普通考えると、概略設計が今後行われて、その次の手続とすれば事業認可手続というのが、都市計画道路の建設、整備に関しては、事業認可申請という形になってくるだろうと思うんですが、性急な進捗を望まずということでいうと、この事業認可にかかって、要するに性急な事業認可をすべきではないということで理解していいのかどうかということをちょっと確認しておきたいと思います。</div>
+  <div class="say">それで、環境に関する専門家の知見を活用するということで、先ほども当初予算も含めて検討中だということだったんですが、大体、要するにスケジュール的なことを考えると、概略設計が５月か６月とたしか言われていたと思うんです。そうなってくると、それを見てから何か知見を聞くという形には、なかなかならないのではないかな。ある程度早く環境の問題については、知見を活用するとか、一定の調査を行うという形で、小金井市としても、何らかのやはり見解を整理しておく必要があるのではないかなと思うんです。</div>
+  <div class="say">事業認可がいつになるかというのは、手続に入るかどうかというのは、東京都の判断なので、これは全く分からないところですが、ただ、あんまりゆっくり、環境問題についての一定の調査に関しては、ゆっくり行うというわけにもいかないので、ある程度のスケジュール感を持って取り組んでいく必要があるのではないかなと思っているんですが、その点についてはどういうふうに、内容はこれからの検討だと思うんですが、どういうふうに考えているんでしょうか。専門家の知見を聴取するということだったんですが、専門家とともに、できれば、はけと野川に関しては、一定の市民団体の方も非常にこの環境問題については調査したりとかしております。この前に一般質問で坂井議員がパネルを示してやってきましたけど、ああいう形で結構調査もしているという状況もあるので、そういう市民団体の知見も活用すると、意見を聞くということもぜひ行ってもらいたいなと考えているんですが、その点についてはどういうふうに考えているのか伺いたいと思います。</div>
+  <div class="say">あと、今後の東京都の事業化計画の策定に関するスケジュールなんですが、具体的なことは何も今のところないと。中身については説明できないということだったんですが、区市町からの意見聴取ということが、要するに前回の四次事業化計画ですか、その中でも幾つかやられていたと思うんです。中身は言えなくても、そういう意見聴取というのは既に行われているのか、これから行われるのか、具体的に行っていたんだったら、いつ行ったのか、次の日程がいつなのかということについてだけは、これは述べられるのではないかなと思うので、その辺についてはどういうふうになっているのか、その点を伺いたいと思うんですが、以上いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">白井市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=451s" data-timestamp="451"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:31</a>水上委員から、まず、最初に私が答弁すべきところについては、私の方から答弁をいたします。</div>
+  <div class="say">まず、１問目は、性急な進捗を望まずということは、要するに事業認可を性急にすべきではないという認識なのかという、こういうご質問でした。事業認可ということに私としては別にこだわっているわけではないですが、要するに環境に関する懸念、これが市民の皆さんからたくさん寄せられておりますので、そういうことを受けて、市長報告にまとめたとおり、まずは自然環境に対する低減する方策についてしっかりと検討いただきたいということをまずは今求めているわけでございます。ですので、道路建設について、道路整備について私は否めない。要するに消極的な賛成と言葉もありましたけども、そういうスタンスであることは変わりはございませんが、ただ、懸念されている、市民の声が寄せられている、自然環境を守るためにどうするかということについて、まずは、そこを東京都にしっかり突き詰めていただきたいということを申し上げているわけでございます。</div>
+  <div class="say">事業認可そのものは、すみませんが、東京都が判断されることでございますので、それについて私としてなかなか言及するのは難しいですが、ただ、今の流れですと、何もせずにそのまま事業認可ということは、私として書かせていただいた要望とは違うということにはなりますので、そういうふうに捉えていただければ結構だと思います。</div>
+  <div class="say">あと、環境の専門家の知見をいかすという意見について、もっと早くやるべきではないかと、要するにゆっくり調査を行うというわけにいかないよねと。その点についてどう考えているのかという質問だったと思います。市長報告で述べさせていただいたとおり、今後、東京都が橋梁案についての概略設計を今進めている。その中で施工計画を含めて、東京都としても、自然環境に配慮した考え方というのは示されるはずではあります。それを我々としては、しっかり市の立場で、環境の専門家の知見をいかして、どう意見を言っていけるかどうかということを検討したいということを述べてきたつもりでございます。ですので、その概略設計が出てこないと、私たちとしては、それを材料にして市として考えを述べていきたいということを述べておりますので、ちょっと今の段階で今すぐに何かをするということとは違うということを改めて申し上げておきます。</div>
+  <div class="say">市民の知見も聞くべきではないかというお話も、ご意見もございました。この間、市民の皆さんからは既に様々な独自の調査であったりだとか、考えられてきたこと、調べられてきたこと、そういったものをアウトプットとして、我々も既にそれを拝見させていただいておるところでございます。今回、この間ずっと問われてきたのは、やはり専門的知見ということだったと思いますので、専門家の知見を聴取ということもございましたが、どう活用できるかということについて、まだ具体的には申し上げられませんが、あくまで専門的知見を有する方、その方々の知見をどう活用するかという点について、我々としては考えたいということでございます。</div>
+  <div class="say">私からは以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">田部井都市計画課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=663s" data-timestamp="663"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:03</a>委員から、都からの意見聴取が行われているのかというご質問を頂戴しました。意見聴取でございますが、区市町施行路線につきましては、文書による照会が行われております。区市町が選定した路線案につきまして、意見照会の回答を基に、都が取りまとめを行っているという状況でございます。</div>
+  <div class="say">具体的な日程は申し上げられません。申し訳ございません。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=696s" data-timestamp="696"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:36</a>それで性急な進捗を望まずということが、進捗というところが事業認可かどうかということを聞いているわけではなく、今後の手続としては、事業認可ということが、整備していくということから考えれば、大きな手続は事業認可になるんだろうと思うんですが、東京都がやることなので、それは何とも言えないということだと思います。</div>
+  <div class="say">ただ、ぜひこういう整備については中止してもらいたいという気持ちはあるんですが、要するに、事業認可の前にスケジュール的なことを僕は聞いていまして、性急な進捗を望まずと言ったときに、この具体的な内容で、例えばということで、橋脚が建たないようにすることなど、環境保全の検討をお願いするものであるということになってくると、事業認可された後に小金井市として意見を言うというのも、ちょっと実態に合わない形になると思うので、少なくとも事業認可手続前には、小金井市としての、やはり環境に関する知見を活用した一定の調査の結果を踏まえて意見を述べるべきではないかなということで、スケジュール的な形で、事業認可後に何か言っても、事業認可されてしまうと、ある程度の橋脚案なんかも当然固まった上での事業認可という形にならざるを得ないと思いますので、そういうこととして理解していいのかということを確認しておりますので、改めてこの点を伺いたいと思います。少なくとも事業認可の東京都がいつ入るのかということが、小金井市にどう情報が来るのか分かりませんけれども、そういうスケジュール感でぜひ取り組む必要があるのではないかということを言っているので、その点についての見解を改めて聞きたいと思います。</div>
+  <div class="say">環境の専門家の知見を活用するということなんですけれども、つまり、だから概略設計が出た段階でそれを見て考えるという話ですよね。ただ、それを見なくても、ある程度の要するに今の環境を専門的な方に知見を聞くということは可能ではないかなと思っていまして、橋脚案を見てから、手続的に間に合うのかどうかというのは分からないんですけれども、私は一定の予算措置も必要だということになってくると、ある程度のスケジュール感も出てくるとは思うんですけれども、その橋脚案が出る以前に、既に私は調査はできるのではないかなと考えているんですけれども、大体今、ある程度の案が示されて、概略設計がどうなるか、橋脚がどうなるのかということが、一つの注目点になっているのかなと市長の発言を見ると思われるんですけれども、しかし、一定の高さの問題や勾配の問題、あと橋脚がどうなるのか、そういうことについては、ある程度想定がつくわけだから、環境の要するに影響などについては、なるべく早くやはり調査に着手すべきではないかなと思うんですが、別に概略設計にこだわる必要はないと思っているんですけれども、そこにこだわる理由がよく分からないので、ちょっと改めてご説明いただけないでしょうか。</div>
+  <div class="say">あと、市民の意見なんですけど、今回、専門家の知見を活用したいということで、既にいろいろ聞いているという話だったと思うんですが、やはり私は市民の、こういう市民団体の意見も改めて聞く必要があると思いますので、この点はぜひ聞いていただきたいということは要望しておきたいと思います。</div>
+  <div class="say">あと、専門家の知見の活用なんですけれども、やはり複数の方から意見をもらうという形をやるのが望ましいと思うんです。自然環境と一般的に言っても、湧水の問題もありますし、動植物の関係もあるし、動植物の関係でも植物や動物、僕も詳しくありませんけれども、やはり複数の方の知見を聞く必要があると思っているんですが、その点はどう考えているんでしょうか。</div>
+  <div class="say">あと、東京都から文書で照会されていると、その回答を基に東京都が整備方針をつくっていくんだという話なんですが、文書による照会というのは来ているんでしょうか。それと回答はしているのかどうか、そこはちょっと言える範囲でご回答いただけないでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">白井市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=1012s" data-timestamp="1012"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:52</a>再質問いただきました。</div>
+  <div class="say">まず、１点目です。事業認可の要するに時間軸として、事業認可される前に、しっかり市としての意見を言うなら、述べるべきだということでございました。我々としては、事業認可というのも恐らく手続としては、それなりに時間はかかろうかなと我々も踏んでおりますので、当然、事業認可がされる前に、専門的知見を活用するなどして、市としての出てくるものに対する見解をしっかり述べていきたいと、そのようには考えております。現段階ではそういうふうに考えているということを述べておきます。</div>
+  <div class="say">概略設計が出てくる前段階でも調査できるのではないかということを改めていただきました。市長報告を改めて読みますと、現在、東京都が橋梁案に関する概略設計を委託しておりますが、施工方法を含め、具体的な自然環境の影響とその対策について今後明らかになる中で、それに対して自然環境ができる限り守られるように、引き続き市としてどのように関わっていけるのか検討してまいりますということを述べたわけです。ですので、あくまで概略設計、その中で今、市長報告でも述べたように、東京都としても、自然環境への配慮についての対策というのを考えている、それは仕様書を見れば私も分かると認識をしております。ですので、その対策に対して、市としてどう考えるのかということが恐らく大事だなと思っておりますので、そういう観点で専門的知見を活用するということを考えておりますので、繰り返し申し上げますが、概略設計が示された段階で、我々としてはアクションを起こすということでございます。</div>
+  <div class="say">もう１つ、複数の方から意見をもらう方が望ましいということでございます。おっしゃっていることは分かりますし、ちょっと今、現段階においては、どういうふうにやるかということも含めて調整中でございますので、まず、ご意見として受け止めておきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">田部井都市計画課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=1145s" data-timestamp="1145"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:05</a>再質問を頂戴しました。照会について文書で来ているのか、また、回答はしているかというご質問でございます。これにつきましては、照会の文書は来ております。また、回答も行っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=1159s" data-timestamp="1159"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:19</a>大体の考え方は分かりました。事業認可前に市としての考えをまとめるというのは当然だと思うんですが、ただ、やはり環境問題の専門家の知見を活用するということに関しては、私は中止・見直しという立場で求めている部分もあって、市長は性急な進捗は望まないと。一方で、消極的な賛成という立場もあり、そういうような立場の違いはあるのかなとは思いますが、やはりしっかりとした私は調査を行って、自然環境は今現状はどうなのか、果たして橋脚を建てるときに影響が出ないのかということに関しては、東京都の案が出てきて、それを見てからということだったんですが、ぜひやはり早急に着手すべきではないかなと考えておりますし、複数の専門家の方の意見を聴取するということで、しっかりした調査が行えるように対応すべきだということは述べておきたいと思います。</div>
+  <div class="say">あと、回答はしているということで、回答の中身については、ちょっと聞いても多分答えられないということなのかなと思いますので、とりあえず、そういう状況については分かりました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=1253s" data-timestamp="1253"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:53</a>次の方、いらっしゃいますでしょうか。いらっしゃらなければ、閉めてしまいますよ。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=1265s" data-timestamp="1265"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:05</a>いらっしゃらないので、３点、市長に伺いたいと思います。</div>
+  <div class="say">１点目、冒頭、部局の方から中間まとめの公表についてご説明がありました。922件、596通だったということなんですけれども、ちなみに10年前の中間まとめがどうだったかということをちょっとご紹介しておきますと、419件、155通だったんです。件数も倍近くに上がっているということと、個別路線の要望について、今回は368件だったんですが、10年前は94件あったということは、ちょっと紹介しておきます。</div>
+  <div class="say">当時10年前、多分、小金井市で優先整備路線の話が注目され始めたのは年末のパブコメの時期からで、中間まとめのときには、さほど市民の注目は浴びておらず、もちろん路線名も入っておりませんので、というような段階だったんですけど、全都的に見ても10年前でも94件、個別路線の要望が出ているような状況だということが分かったということと、今回、私の周りの市民の方でも、この中間まとめについて意見を出されている方がたくさんいらっしゃって、その中でもとりわけ個別路線の要望を書いた方も多かったんです。それなのにこうやってまとめた形で出てきてしまうことについて、何かとても悲しく遺憾に思っている方がたくさんいらっしゃいました。やはりこれは10年前も今回も中間まとめは本当に意見が要約された形でしか出てこないんですよね。出てこないんです。10年前も同じようにまとめられて出てきたので、このようなものかと思うんです。</div>
+  <div class="say">ちょっと参考までに、私、もう少し細かいことを知りたいと思いまして、直ちに東京都に情報提供依頼、情報開示請求をかけましたが、これは２週間なんですよね、まず返事が来るのが。２週間後に返事が来まして、２週間の期限ではちょっと出せませんということで、更に時間が必要なので、開示の情報提供の時期を12月25日頃とさせていただきたいということで、その第一報を頂いたときからプラス６週間なので、最初の２週間と延期された６週間を合わせると全部で８週間、およそ２か月かかるんだということが分かりました。そこまでして何に時間がかかるのか、ちょっと分かりかねるんですけれども、出てきた頃には、また見たいと思っております。</div>
+  <div class="say">ちょっと市長にお伺いしたいのが、今回公表されているものについては、要約されたバージョンなんですが、白井市長は要約される前の一件一件の全ての意見というものはご覧になっているのかどうかということについて聞かせていただきたいと思います。</div>
+  <div class="say">２点目です。今日、資料で出していただきました都市計画道路に係る要望について（議事概要）ということで、白井市長が面談で何を言ったのかということも書かれているんですが、私、とりわけ気になったのが、市長が冒頭の発言の二つ目のポツで、例えば、橋脚が建たないようにすることなど、環境保全の検討をお願いするものであるとありまして、例えば、橋脚が建たないようにすることという発言をされた白井市長の頭の中に何かあったのか。東京都は今、橋脚、掘割、地下の３案の中で、橋脚が一番環境の負荷が少ないということで橋脚案を示されていますけれども、東京都は。白井市長がこの面談において、橋脚が立たないようにすることなどとおっしゃったところの意味がいまいち読み取れませんでしたので、ここについてご説明をいただきたいと思います。</div>
+  <div class="say">３点目です。今後の動きについて、私、12月３日の本会議においても、今後のことについて伺っております。本日12月10日、午前中の安田委員の質問に対して、当初措置に向けて準備・調整というご答弁がありましたが、私が一般質問した12月３日から本日の10日までの間に、市長と部局の間なりで予算措置に向けた協議などが何か行われていたのかどうかということについて聞かせてください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">白井市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=1542s" data-timestamp="1542"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:42</a>坂井委員からご質問いただきました。</div>
+  <div class="say">まず１点目、中間まとめの公表があった、要約される前のものは見ているのかということでございますが、見ておりませんし、持っておりませんので見ておりません。要約されたものは、ざっと一通り拝見はさせていただきました。</div>
+  <div class="say">二つ目、要望に行った際に、議事概要に書いてある橋脚が立たないようにするなど、これの意味ということでございますが、やはり橋脚が建つということは、道路を通すこと自体、やはりいろいろ言われているように少なからず影響があるということは認識をしております。特に橋脚を建てるとなると、建造物を地下に掘って建てるわけですし、橋脚の位置もそうですけど、橋脚そのものができるだけない方が自然環境の影響は少ないだろうという考えでございます。それが物理的に若しくは技術的にできるかどうかということは、それは東京都の方で考えていただきたいところではございますが、橋脚が立たない方が自然環境への影響は少ないだろうと私は考えましたので、そのように述べたわけでございます。</div>
+  <div class="say">３点目、坂井委員の一般質問が終わった後、今日に至るまで、まだ最終的には詰め切れていませんが、それに関する打合せはいたしました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=1680s" data-timestamp="1680"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:00</a>１問目、まとめられたものは見たけれども、まとめる前のものは見てもいないし、持ってもいないということでした。私はいつか、いつの日にか入手できることになりますので、そのときには、やはりこの場でも共有して、市長にもぜひ見ていただきたいと思っております。</div>
+  <div class="say">２点目、橋脚、つまり橋がなるべく建たない、橋脚が建たないようにというご答弁があったんですが、白井市長は別に橋を否定しているわけではなくて、だから掘割なり地化案を推奨しているわけではなくて、橋脚案の中で、更に橋脚がそこに立たないようにということでよいのか、もう少し。橋梁案を否定しておらず、橋脚が建つ位置などについて配慮してほしいということなのか、もう少しここを改めてご答弁をいただければと思います。橋脚が建たないとはつり橋とか、極論思うと思うんですけど、そんなのはちょっと難しいと思っていて、白井市長が何を思い浮かべておられるのかがちょっとイメージがつかめませんでしたが、もう少し補足してご答弁をいただければと思います。</div>
+  <div class="say">あと、打合せについては承知しました。なぜこのようなことを聞いたかといいますと、今、安田委員の答弁に対しては、当初予算措置に向けて準備・調整とおっしゃっていたんです。私の一般質問の時点で何とご答弁をされたかというと、予算の措置も含めて検討だったんです。含めてというのは選択肢の一つであり、向けてというのは、それを狙いにしてということなので、ちょっとここの答弁に私は違いを感じたんです。私の日本語の感覚としては。ですので、ちょっと確認をさせていただきました。</div>
+  <div class="say">一度打合せがあったというところなので、そこで深まったのかなということは思っております。ちゃんと私はやっていただくべきだと考えておりますので、そのような答弁が出てきたことは否定しておりませんし、むしろ、ちゃんとやっていただきたいということは申し上げておりますので、それはそれとして、しっかりとやっていただきたいと思っております。</div>
+  <div class="say">あともう１個、質問は市長に１点なんですが、もう１個、中間まとめに対して市民からご意見を頂くことがありまして、今回、パブコメ期間が１か月ぐらいはあったんですけれども、この期間もちょっと短いのではないかと。文化によっては、東京でもお盆をやっている時期にかかったりとか、夏休み期間にもかかるので、もう少し長くやっていただきたかったという声は聞いておりますので、改めてこの場でもそのようなご意見があったこと、次回、10年後、15年後、分かりませんけれども、ちょっと検討いただきたいということを述べて終わります。</div>
+  <div class="say">質問は市長に橋脚のところの補足をお願いいたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">白井市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=1850s" data-timestamp="1850"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:50</a>２問目の答弁が少し分かりづらくて大変申し訳ありません。ここの議事概要に書かれていますように、当該路線は東京都内で唯一の自然再生事業が行われている場所にもかかるため、例えば、橋脚が建たないようにすることなど、環境保全の検討をお願いするものである。さっき私が申し上げたのは、できるだけ橋脚は少ない方がいいということと、そもそも自然再生事業が行われている場所にかかるということなので、そこにまさに橋脚が建ったりだとか、若しくはそこに近いところに建つということも含めて、自然環境への影響は大きいと考えるため、橋梁案そのものは私は否定をしておりませんが、橋脚の位置、若しくは橋脚の数、これをできるだけ減らしたりとか、できるだけ建たないようにすることを含めて、自然環境への影響を低減できるのではないかと、こういう考えでございます。</div>
+  <div class="say">ですので、野川をまたいだところ、要するにグラウンド側に橋脚があればいいという技術的なことができるんでしたら、自然環境の影響はないとは言いませんけども、当然少なくなるわけで、そういう様々な工夫を考えていただきたいということを改めてお願いしたものでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=1927s" data-timestamp="1927"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:07</a>他にないということでございますので、以上で、本件に対する現時点での質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=1937s" data-timestamp="1937"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:17</a>ご異議なしと認め、本件に対する現時点での質疑を終了いたします。</div>
+  <div class="say">お諮りいたします。本件は引き続き調査をする必要があると認め、継続調査といたしたいと思います。これにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=1937s" data-timestamp="1937"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:17</a>ご異議なしと認め、本件は継続調査といたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=1956s" data-timestamp="1956"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:36</a>次に、工事請負金額1,000万円以上の契約締結についての報告を行います。</div>
+  <div class="say">部局の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">田中管財課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=1973s" data-timestamp="1973"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:53</a>それでは、建設環境委員会関係の工事請負金額1,000万円以上の契約締結についてご報告いたします。資料をご覧ください。</div>
+  <div class="say">今回は、令和７年８月１日から令和７年10月31日までに契約締結した案件の報告で、件数は４件、契約件名、契約金額、工期、工事概要等につきましては記載のとおり、マンホール鉄蓋取替えが１件、雨水浸透ます設置が１件、橋梁長寿命化補修が１件、電線共同溝設置が１件となっており、契約方法につきましては、番号１、２が指名競争入札、番号３、４が制限付一般競争入札を採用してございます。</div>
+  <div class="say">工事の進捗率ですが、記載のとおり、令和７年11月１日現在の数値で、番号１、２が共に10％、番号３、番号４が共に０％の旨、担当課より報告を受けております。</div>
+  <div class="say">報告は以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=2025s" data-timestamp="2025"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:45</a>これから質疑を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=2025s" data-timestamp="2025"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:45</a>以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=2036s" data-timestamp="2036"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:56</a>ご異議なしと認めます。したがって、工事請負金額1,000万円以上の契約締結についての報告を終了いたします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=2042s" data-timestamp="2042"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:02</a>次に、行政報告を行います。</div>
+  <div class="say">初めに、行政報告１、下水道使用料改定に関する検討について。</div>
+  <div class="say">部局の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">関下水道課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=2068s" data-timestamp="2068"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:28</a>環境部下水道課から下水道使用料改定に関する検討について、行政報告させていただきます。</div>
+  <div class="say">前回の行政報告後につきましては、11月10日に第３回小金井市公共下水道事業審議会が開催しましたので、その結果報告をさせていただきます。</div>
+  <div class="say">第３回での審議会では、使用料体系の検討を中心に慎重審議いただき、その結果、提出資料の22ページになります、使用料体系、案１の全体アップケースの１円単位版が審議会としての推奨案となりました。</div>
+  <div class="say">審議会から頂いたご意見としましては、何よりも市民に分かりやすいことが重要であることから、案によっては、現状より減額される市民が出ることは理解が得られないのではないか、また、基本使用料のみ値上げといった極端なケースも市民の理解が得られないのではないかなどのお考えを頂戴しました。単位についても１円単位の方が、より負担いただくに当たり公平性があると思われることから、１円単位が審議会としての推奨案となりました。</div>
+  <div class="say">なお、改定率につきましては、物価上昇について日銀予測をベースとして、目標改定率20.7％を今後の検討案として採用したところですが、第２回の審議会の９月30日以降に、東京都から将来の建設改良負担金等が示されたことから、これを反映して、20.6％としております。</div>
+  <div class="say">その他の点につきましては、提出資料のとおりです。</div>
+  <div class="say">また、下水道使用料の減免基準の見直しについてもご審議いただいたところで、結果としましては、65歳以上の者のみの世帯で住民税の所得割が非課税世帯の減免につきましては、今後、廃止の方向で審議会としてのご意見をまとめていただいたところでございます。</div>
+  <div class="say">審議会につきましては、今後、年度内で２回開催する予定で準備を進めており、年明けには答申を頂く予定でございます。</div>
+  <div class="say">報告は以上でございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=2198s" data-timestamp="2198"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:38</a>これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">渡辺委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=2204s" data-timestamp="2204"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:44</a>質問ではございませんで、意見と要望ということにさせていただきたいと思います。</div>
+  <div class="say">今、一定のご報告をいただいたところなんですけれども、やはり大幅な引上げということになりますので、この間もいろいろなところでお話しさせていただいておりますけれども、審議会の答申は答申として、一定の考え方に基づいて出されるものと思っておりますが、審議会の中で、現在の物価高騰に関して、物価高騰対策の観点からの議論が行われているわけではないと思っております。あくまで下水道使用料の在り方についての議論ということになっていると思うので、実際に市長から条例案などが出されるときには、物価高騰対策、今いろんな形で、どうやって市民の負担を軽減するかということで、様々な領域で行われている中で、下水道に関してもこれだけ大きな引上げということになれば、当然のことながら、例えば３年間なら３年間かけての経過措置とか、こういうことに関しては、実際に条例案が出されるに当たっては、行政は行政として、物価高騰対策の観点からも、慎重な検討を内部できちんと行っていただきたいということは要望しておきたいと思います。</div>
+  <div class="say">それから、高齢者の減免に関しては、今進められている形でいいのかなとは思っているんですけれども、ちょっと調べていただいたら、要するに、いつこれが始まったのかなということで調べていただいて、ひょっとしたら革新市政の頃に始まったのかなと思ったんですが、実は革新市政のときではなかったんです。革新市政に対して、これは駄目だと言って、行財政改革を掲げて星野さんという市長が当選されたんですが、その星野市長になられた直後に行われている減免措置だったということが調べた結果、調べていただいた結果、分かって、革新市政の頃は集会施設の無料化だとか、とにかく無料にしましょうということが、革新市政になって最初の市報というのは、集会施設を無料化しましたというのが市報こがねいだったんです。だから、てっきり革新市政かなと思ったら、そうではなくて、革新市政から市政を奪還した自民党市政が最初にやったのが実はこれだったということが分かりまして、当時どういう状況だったのかなということで、後学のために歴史は調べてみたいと思っているんですが、それは置いておいて。この件に関しては、今、多摩26市の中でも小金井はちょっと特殊な状況にあるということでございますから、これもただ、負担感などはいろいろ考慮は要るんですけれども、今考えているような方向で進めていくこと自体は了としているということは申し上げておきたいと思いますが、前段で言った物価高騰対策の観点からの行政としてのきちんとした政治判断ということは、実際に条例を出すまでの間には、よく練っていただきたいということだけ意見として申し上げて終わりたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=2374s" data-timestamp="2374"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:34</a>意見ということです。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=2379s" data-timestamp="2379"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:39</a>それで、審議会の一定の方向性としては、22ページの案１ダッシュ、全体アップケースということになったということなんですけれども、全体として要するに上げていくという形になっていまして、一般的に保険料などは、やはり一定の所得のある人が負担を大きくするという考え方で傾斜をつけるという形に介護保険料などはなっていると思うんですが、今回、例えばここで言うと、一定の要するに従量使用量がある、1,001というのが最大の区分になっていると思うんですけれども、こういうところというのは、想定するに、大規模な商業施設であるとか、大学とか、そういう規模が大きいところかなと思われるんですけれども、全体をアップケースという形で審議されたということの審議のもう少し中身について、どうだったのかということをちょっと伺っておきたいと思います。</div>
+  <div class="say">あと、改定率20.6％なんですが、これで見ると９立米のところが19.5だったりとか、多少ばらつきがありますよね。これは何かばらつきの配慮があったのかどうか、この点についてはどういうふうに考えるのか、ちょっとご説明いただけますでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">関下水道課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=2480s" data-timestamp="2480"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:20</a>案１につきましての審議状況につきましてご報告いたしたいと思います。</div>
+  <div class="say">当日は、公共下水道審議会の委員の方に慎重審議をいただいておりまして、予定時間を少しオーバーするような形で審議いただいたかなと思っているところでございます。</div>
+  <div class="say">議論としましては、まず、市民に分かりやすいことが重要であるというお考えの下、ご議論いただいたところでございます。その中で、例えば案によっては、基本使用料のみを上げる案は極端な案であり、市民に納得いただけないのではないか。また、案５のように、現在より減額される市民が出ることは理解が得られないと考えると。また、使用数量が少ない世帯を、例えばそこを学生や高齢者世帯と想定すると、経済的な負担を過度にかけない体系がよい。また、案４、５になるんですけれども、１立米から徴収する案は、使用した分をご負担いただくということはご理解いただけるとは思うが、減免の関係で、現在、基本使用料の減免を受けている方々からすると、負担増という印象を持たれるのではないかといったご意見を頂戴いたしました。それで案１の全体アップという形になります。</div>
+  <div class="say">あと、改定率の関係なんですけれども、全体アップケースということになりますので、全体的に各数量区分として、平均的に20.6を掛けるという形になります。ただ、細かい端数計算の中で、割り返して改定後単価をやった場合にどうしても多少のずれというのはあるんですけれども、全体的には、案１でいうと、全体に平均的に20.6を掛けるという形で、こういう表と、改定率となったというところでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=2610s" data-timestamp="2610"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:30</a>審議会の議論の中身については、ある程度分かりました。９立米のところが19.5％になっていて、何か配慮があるのかなと思ったら、そういうことでもないと。一律にアップしていくという形になったということであります。</div>
+  <div class="say">今後、条例改定などが提案されるということになってくると思うんですが、いずれにしても今、国は経済対策で物価高騰対策しようというときの値上げという形になると、やはり市民生活への影響は大きいと思うんです。これから交付金が各自治体に交付されるということなんですが、その中のメニューは、下水道料金のたしか減免なんかも含まれていたかなと思うので、例えば、今回、65歳以上の減免はなくすということになってくると、せめてその経過措置で、要するに激変緩和措置を講じるとか、上がっていく部分に、先ほど渡辺大三委員からの質疑もありましたけれども、一定の要するに軽減策を含めて、値上げを抑えていくことを、やはり検討していただきたいということは、ぜひ求めておきたいと思いますので、ご検討をお願いしたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=2694s" data-timestamp="2694"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:54</a>他にございますでしょうか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=2703s" data-timestamp="2703"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:03</a>以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=2709s" data-timestamp="2709"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:09</a>ご異議なしと認めます。したがって、本件に対する質疑を終了いたします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=2719s" data-timestamp="2719"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:19</a>次に、行政報告２、交通ネットワーク再編事業の進捗について、及び行政報告３、交通ネットワーク再編事業に係る市南部の再編（案）のパブリックコメントの実施についてにつきまして、一括して議題といたしたいと思います。これにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=2736s" data-timestamp="2736"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:36</a>ご異議なしと認め、そのように決定いたします。</div>
+  <div class="say">部局の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">渡邊交通対策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=2745s" data-timestamp="2745"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:45</a>交通対策課から、交通ネットワーク再編事業の進捗として、10月28日に開催した地域懇談会及び10月25日に開催したオープンハウスについてご報告いたします。</div>
+  <div class="say">地域懇談会は、公民館緑分館と公民館東分館で開催し、それぞれ７名と16名の方に参加していただきました。当日の主な意見として、市南部の再編については、中町循環と東町循環の運行を継続できるよう協議していることについて、安心したという声を多数頂きました。また、協議会、部会において優位性があるとされた東町循環の車両をＣｏＣｏバス・ミニにすることについても、一定ご理解いただけたものと認識しています。</div>
+  <div class="say">一方で、東町循環に関して、東小金井駅北口のバス停留場所設置の工夫や、ＩＣカードに関するご意見もありましたので、頂いたご意見なども踏まえ、引き続き、地域公共交通活性化協議会、交通ネットワーク再編部会において検討したいと思います。</div>
+  <div class="say">市北部の再編については、協議会、部会において優位性があるとされた北東部循環に路線バス、関野橋循環を取り込む運行ルートについて、北東部循環と関野橋循環の両ルートが減便してしまうことや、関野橋循環のシルバーパスが使えなくなることに関するご意見がありました。</div>
+  <div class="say">全体としては、市北部のルートにつきましても、一定ご理解いただけたものと考えております。</div>
+  <div class="say">資料４ページをご覧ください。オープンハウスは10月25日、東小金井駅改札前のスペースをお借りして開催しました。前回、建設環境委員会では、速報値として400名弱と申し上げたんですけれども、改めて人数をカウントしたところ、345名の方にパネルを見ていただきまして、必要に応じて職員がバス事業者の現状、これまでの検討状況等について説明しました。</div>
+  <div class="say">地域懇談会と同様に、多くの方にバスを取り巻く状況を理解していただいたほか、中町循環と東町循環の運行を継続することについて、やはり安心したという声を多数頂きました。</div>
+  <div class="say">全体としては、市南部及び市北部の再編案について、おおむねご理解いただけたものと認識しております。詳細は資料をご覧ください。</div>
+  <div class="say">続きまして、交通ネットワーク再編事業に係る市南部の再編（案）のパブリックコメントの実施について報告します。バス運転士不足及び自動車運転者の労働時間等の改善のための基準の改正を理由として、京王バス株式会社からＣｏＣｏバスの一部路線の運行終了という申入れを受け、令和７年１月から小金井市地域公共交通活性化協議会及び交通ネットワーク再編事業部会において、再編内容について協議を進めているところです。</div>
+  <div class="say">令和７年10月27日の建設環境委員会において、市南部のネットワーク再編（案）については、東町循環の車両をＣｏＣｏバス・ミニとする方向性であること、及び車両調達の関係から、当初の予定より前倒ししてパブリックコメントを実施することを報告させていただいているところです。</div>
+  <div class="say">地域懇談会とオープンハウスにおいても、東町循環の車両をＣｏＣｏバス・ミニにすることについて一定の理解が得られたこと、協議会及び部会においても合意が得られたことから、市南部の再編（案）のパブリックコメントを実施することといたしました。</div>
+  <div class="say">パブリックコメントの期間については、令和７年12月12日金曜日から令和８年１月13日火曜日までとし、市の主要施設にて配布するとともに、市ホームページに掲載し、意見の提出はＬｏＧｏフォームでも受け付ける予定です。</div>
+  <div class="say">なお、市北部の再編（案）については、引き続き協議を進め、令和８年６月頃に改めてパブリックコメントを実施する予定です。</div>
+  <div class="say">報告は以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=2999s" data-timestamp="2999"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:59</a>これから質疑を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=3003s" data-timestamp="3003"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:03</a>よろしいでしょうか。今日はなし。なしということですね。かしこまりました。</div>
+  <div class="say">以上で、本２件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=3025s" data-timestamp="3025"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:25</a>ご異議なしと認めます。したがって、本２件に対する質疑を終了いたします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=3030s" data-timestamp="3030"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:30</a>次に、行政報告４、自転車保管所の移転についてを行います。</div>
+  <div class="say">部局の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">渡邊交通対策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=3041s" data-timestamp="3041"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:41</a>交通対策課から、自転車保管所の移転について報告いたします。</div>
+  <div class="say">市が撤去した放置自転車を保管する場所として、貫井北町三丁目にあった貫井北町自転車保管所については、平成４年からの長きにわたり、土地所有者の方からお借りして運営してきました。この間、市では、放置自転車の撤去台数が、10年前の平成27年度には年間5,291台の撤去台数だったものが、令和６年度には689台と減少傾向にあることを踏まえ、自転車保管所の面積の縮小、移転等を検討してきたところです。</div>
+  <div class="say">また、これらの検討は、小金井市行財政改革2025、アクションプラン2020からの継続取組に位置付けられており、より長期的かつ安定的に運営を見込むことができるＪＲ高架下の活用に向け、ＪＲ東日本との協議も調ったことから、令和７年度予算に工事や移転に要する経費を計上したところです。この度、高架下自転車保管所整備工事が完了したことから、本年11月14日より自転車保管所を本町六丁目の高架下へ移転し、現在、大きな混乱もなく運営を開始したところです。</div>
+  <div class="say">今後は貫井北町の自転車保管所を解体し、土地所有者の方へお返ししていきます。</div>
+  <div class="say">報告は以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=3143s" data-timestamp="3143"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:23</a>これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岸田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=3148s" data-timestamp="3148"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:28</a>これも長く議論して、ようやく移転をしていただいたということで、ありがとうございます。私もちょっと現地をのぞかせていただきましたけども、ミラーの支える支柱にかわいく案内が載っているということで、もうちょっと大きくてもよかったのかなと、控え目だなと思っていたというところでございます。</div>
+  <div class="say">それで伺いたいのは、まず、元々あったお借りしていたところ、移転前のところと今、移転した場所を比べて、賃料がどれぐらい変わるのかということと、収容台数がどれぐらい変わるのかということをお伺いしたいということと、当初予算のときにも申し上げたんですが、自転車の保管期間について、どのようなご検討をいただいていたのかということと、あと移転することによって、管理をされる、今、実際、シルバー人材センターに委託しているわけですけども、従来、かなり手書きだったりとか、ＡＩ化というか、そういうのが進んでいないなというのがあって、かなりお手を煩わせていたなという部分もあって、移転したことによって、何かそういった運用で変えることが、変わったことが、便利になることがあったのかどうかということをお伺いしたいということと、元々あったところには、ちょっと僕は見に行ってないんですけれども、移転の案内というか、ここに移転しましたよと、間違えて行ってしまう人がいた場合のための案内みたいなのは設置してあるのかどうかということについて、ご答弁いただきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">渡邊交通対策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=3252s" data-timestamp="3252"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:12</a>まず、１点目のご質問についてです。金額ベースで申し上げますと、約760万円ぐらい安くなっているという状況がございます。収納台数につきましては、元々約1,000台ぐらいだったところが、現状、約360台程度となっておりまして、台数としては530台程度減っているわけですけれども、現状、見た限りにおきますと、十分新しい保管所の方で運営できるものと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">千葉交通対策係長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=3292s" data-timestamp="3292"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:52</a>まず、保管の期限に関して、ちょっと繰り返しになってしまう部分が出るかもしれませんけれども、当然、管理する、要は保存する面積が狭くなればなるだけ管理コストが抑えられるという観点は、私どもも持っておりますけれども、近隣市の状況とかを伺うと、２か月とか３か月とか短い期間にしているところでも、実際の売払い期間は大体５、６か月、自転車が溜まらないと引取りに来てくれないという状況もありますし、今、新しいところに移転したわけですけれども、そんなにがらがらという状況でもないので、今後の動向を踏まえながら検討を引き続きしていく必要があると考えております。</div>
+  <div class="say">それから、新しい保管所に移転したことに伴いまして、シルバーの管理体制みたいなのが変わったかというところなんですけれども、移転に伴って、管理されているパソコンの方をちょっと新しいものに変えられたということはあるんですけれども、レイアウトとかも大分変わったというところもありますので、まずは前回の貫井北町保管所と同じような管理体制が構築できるようになってから、見直しできるところについては順次進めていきたいと考えております。</div>
+  <div class="say">それから、貫井北町の保管所のところなんですけれども、引っ越しをした夜から新しい保管所の場所の案内図とかは貼らせていただいているんですけれども、間もなくフェンスとかもなくなってしまうような状態になるので、最初の１、２週間は何人かいらしたかなという印象はありますけれども、最近は減ってきたんですが、まだ１か月経ってないので、引き続き、分かりやすい形で案内していければと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岸田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=3397s" data-timestamp="3397"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:37</a>ご答弁ありがとうございます。</div>
+  <div class="say">今までの保管所と差引きで760万円ぐらい削減効果と言っていいのかどうか分かりませんけれども、安くなっているということで、収容台数についても1,000台から360台ということで、今、現状はそこに収まっているということで、あふれるようなことはないという状況という理解でいいですよね。分かりました。ありがとうございます。</div>
+  <div class="say">自転車撤去についても、かなりずっと10年ぐらい、いろんな質疑を繰り返してきて、大幅に年間トータルでいくと3,500万円前後削減できたのかなと思っておりますので、これも部局の方の皆様のご尽力のおかげかと思っております。ここで一定、これ以上はちょっとなかなか難しいかなと。あと保管期限の話で、今、他のところの案内を見ると、２か月を超えると処分しますよとは一応書いてあるので、ここが限度かなとは理解をしております。</div>
+  <div class="say">あとは運用の面でどれだけ、コストカットにはなりませんけれども、運用の面でどれだけシルバーが働きやすくなるかという環境については、引き続き検討を要するかなと思っておりますが、ここまで長い間お付き合いいただいて、自転車撤去業務に関しては、一定成果が出たかなと思っておりますので、感謝を申し上げて質問を終わります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=3474s" data-timestamp="3474"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:54</a>他にございますでしょうか。よろしいですかね。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=3479s" data-timestamp="3479"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:59</a>では、ないということで、以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=0wa3-BliDpI&t=3479s" data-timestamp="3479"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:59</a>ご異議なしと認めます。したがって、本件に対する質疑を終了いたします。</div>
+  <div class="say">以上で、行政報告を終了いたします。</div>
+  <div class="say">以上で、本日の日程は全部終了いたしました。</div>
+  <div class="say">本日は、以上で建設環境委員会を閉会いたします。</div>
+  <div class="say">午後２時04分閉会</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+</body>
+</html>
