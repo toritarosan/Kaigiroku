@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和7年12月15日 予算特別委員会</title>
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#1d3a63; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* 直接URLで開いた時だけ最上部に「会議一覧に戻る」帯（index分割ビュー内では非表示） */
+  .backbar-top{display:none;}
+  body.standalone{padding-top:40px;}
+  body.standalone .backbar-top{display:flex; align-items:center; gap:6px; position:fixed; top:0; left:0; right:0;
+       z-index:60; height:40px; padding:0 18px; background:var(--navy); color:#fff; font-family:var(--sans);
+       font-size:13px; font-weight:700; text-decoration:none; letter-spacing:.04em; box-shadow:0 1px 4px rgba(0,0,0,.15);}
+  body.standalone .backbar-top:hover{background:#294f86;}
+  body.standalone .prog{top:40px;}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+</style>
+</head>
+<body>
+<a class="backbar-top" href="index.html">← 会議一覧に戻る</a>
+<script id="backbar-js">(function(){try{if(window.self===window.top)document.body.classList.add('standalone');}catch(e){document.body.classList.add('standalone');}})();</script>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和7年12月15日</p>
+    <h1>予算特別委員会</h1>
+    <span class="srcbadge"><span class="dot"></span>本文＝小金井市議会 公式会議録（DBSR）</span><span class="src official">本文は公式会議録を一字一句そのまま掲載。要約はAIによる補助、タイムスタンプ・動画はYouTube連携（いずれも非公式の付加情報）。　|　<a href="https://www.city.koganei.tokyo.dbsr.jp/213794?Template=document&amp;Id=10303" target="_blank" rel="noopener">公式会議録の原典 ↗</a></span><span class="genmeta">本文は公式会議録と一致確認済み（verbatim）。要約はAIによる生成で、小金井市議会の公式見解ではありません。<br>最終生成日 2026-07-10</span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <h3>提出議案等一覧</h3>
+<ul>
+<li>議案第59号 令和７年度小金井市一般会計補正予算（第６回）</li>
+<li>議案第60号 令和７年度小金井市下水道事業会計補正予算（第１回）</li>
+</ul>
+<h3>議案の審議ごとの要約</h3>
+<h4>議案第59号 令和７年度小金井市一般会計補正予算（第６回）</h4>
+<p>歳入に対する質疑では、介護保険事業費補助金について、令和7年度税制改正に伴う介護保険料の算定基準に関する委員の理解が確認され、市は令和8年度に限り改正前の基準を適用すること、対象者への周知に努めることを答弁した。財政調整基金の繰入金については、補正予算での収支補填のためであると説明された。歳出に対する質疑では、短期入所事業移行支援委託料について、事業概要と増額補正の理由、今年度限りの事業であることが説明され、委員からはニーズの存在と事業所設置の要望が出された。高齢者食の自立支援事業については、申請増加の要因分析、今後の体制づくり、栄養面・メニュー内容の評価、見守り機能の連携について質疑があり、市は試食会の開催や潜在ニーズの高さ、4事業者による対応、介護食対応の拡充、手渡しによる安否確認などを答弁した。委員からは負担軽減策の拡充が要望された。熱中症対策に係る設備導入費用については、民間保育園への補助が初めてであること、全施設が対象であること、スポットエアコン等の効果、冷房本体の購入は対象外であることが説明され、委員からは冷房設備の新設・入替え支援制度の有無や、低学年の更衣室の対応について質疑があった。市は冷房単体での助成情報は現在ないこと、更衣室は課題として認識していることを答弁した。特定緊急輸送道路沿道建築物耐震化助成については、進捗状況が説明され、委員からは今後のアプローチ方針について質疑があった。保育従事職員宿舎借上支援事業については、対象者増加の要因と全体の対象人数について質疑があり、市は年度途中の採用や福利厚生面での増加、総数約370人であることを答弁した。HPVワクチン男性接種補助事業都補助金返還金については、副反応報告の有無が質疑され、市は報告がないことを答弁した。光熱水費については、安定的な調達と節減の観点から、調達先の選定方法見直しや再生可能エネルギー導入に関する取り組みについて質疑があり、市はエナーバンクとの連携協定に基づき、リバースオークション方式による事業者募集を実施し、令和8年1月から27施設で再生可能エネルギー電力を導入予定であることを答弁した。市立保育園施設更新調査委託料については、個別施設計画の見直し内容、調査の必要性、調査内容について質疑があり、市はわかたけ保育園の老朽化状況や社会的要求水準との乖離、建て替えか改修かの手法検討、設計前の条件整理のための調査であることを答弁した。委員からは財政計画への影響や定員削減のリカバリー調査の要望が出されたが、市は定員見直しは考えていないと答弁した。民間保育所等児童欠員対策補助金については、欠員状況の見込み、補助金の今後の見通し、補助率の引き上げ検討について質疑があり、市は利用定員の調整による欠員抑制、令和9年度までの段階的縮小、今後の状況に応じた検討を答弁した。委員からは看護師加算要件の緩和が要望された。民設民営学童保育所施設整備費補助金については、認証学童保育所の拡充内容、既存施設の移行条件、市の補助金との関係について質疑があり、市は育成面積や職員体制の拡充、既存施設も移行可能であること、都の補助率軽減事業の検討を答弁した。小・中学校の特別教室を普通教室として活用する修繕については、35人学級への対応状況、小金井第二小学校の雨漏り対策、国の補正予算を活用したトイレ改修の検討状況について質疑があり、市は小学校は全学年35人学級、中学校は令和7年度から1年生が35人学級であること、雨漏り対策として屋上防水の修繕を計上したこと、国の補正予算によるトイレ改修は今後の検討課題であることを答弁した。総括質疑では、重点支援地方創生臨時交付金の予算化の時期と内容について質疑があり、市は現在検討・調整中であり、今定例会での提出は難しいが、臨時会や第1回定例会冒頭での対応を検討していること、効果的な事業構築に努めることを答弁した。物価高対応子育て応援手当については、早期支給の要望が出され、市は本定例会中での検討を含め、適切な対応を図ることを答弁した。本議案は原案のとおり可決された。</p>
+<h4>議案第60号 令和７年度小金井市下水道事業会計補正予算（第１回）</h4>
+<p>収入・支出および総括に対する質疑は特になく、本議案は原案のとおり可決された。</p>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/nyVxsfRwP6E" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
+  </section>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=201s" data-timestamp="201"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:21</a>おはようございます。ただいまから予算特別委員会の会議を開きます。</div>
+  <div class="say">直ちに本日の議事に入ります。</div>
+  <div class="say">当委員会に付託されております案件は、議案２件です。以上２件につきましては、予算特別委員会審査予定表の順序で行うことといたします。</div>
+  <div class="say">ここで委員長から一言申し上げます。これから議案の審査に入るわけでございますが、部局におかれましては、質問の趣旨を明確に捉え、簡潔明瞭に、かつ必要に応じて、個々の事業に関する内容の答弁等には課長職者及び係長職者が答弁するなど、配慮いただくようお願いいたします。なお、質疑については、委員からページ数、項目等をお示しの上、お願いしたいと思います。</div>
+  <div class="say">以上、委員長から一言申し上げ、審査に入ることといたします。</div>
+  <div class="say">初めに、議案第59号、令和７年度小金井市一般会計補正予算（第６回）を議題といたします。</div>
+  <div class="say">本日、部局から資料が提出されておりますので、初めに資料の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">神山副市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=267s" data-timestamp="267"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:27</a>おはようございます。議案第59号についてご要求のありました資料につきましては、既にご送付させていただいたとおりでございます。個別の説明につきましては省略をさせていただきますが、ご審議のほどよろしくお願いいたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=281s" data-timestamp="281"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:41</a>提出された資料の内容に対し、不明な点がございましたら、議事進行上の発言としてお受けいたします。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=297s" data-timestamp="297"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:57</a>部局の説明は終了といたします。</div>
+  <div class="say">これから質疑を行いますが、質疑については、歳入、歳出、総括の順で行うことにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=306s" data-timestamp="306"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:06</a>ご異議なしと認めます。したがって、歳入、歳出、総括の順で行うことといたします。</div>
+  <div class="say">初めに、歳入に対する質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=319s" data-timestamp="319"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:19</a>１点伺います。11ページの介護保険事業費補助金です。恐らく歳出でいうと、基幹系システムに要する経費に関わるものと思いますけれども、これは介護保険事業補助金ということで、厚生労働省が令和７年度税制改正に伴う介護保険制度の対応という文書を発出しておりまして、それを見ると、令和７年度の税制改正によって、市民税は給与所得控除の最低保障額が引上げによって住民税は課税されない世帯が出てくるけれども、しかしながら、介護保険料においては、これは資料をそのまま言いますと、３年単位の計画期間中の保険者の想定しない保険料の収入不足を防ぐ観点から、令和８年度の第１号保険料に限り、給与所得控除の最低保障額引き上げの影響を遮断しとありまして、つまり、令和８年度に限っては、住民税は非課税になっても介護保険料は課税になるということと理解しているんですけれども、この理解で間違いがないかということの確認をさせていただきたいと思います。</div>
+  <div class="say">そもそも制度がややこしいんですけれども、この影響を遮断ということがまた特例とか、そういうことになってしまうんですけれども、ややこしい制度だと思っておりまして、この点について私の理解で間違いがないかということについて、ご見解を聞かせていただきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">松井介護福祉課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=430s" data-timestamp="430"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:10</a>介護事業費補助金についてご質問いただいたところでございます。坂井委員からご指摘のとおり、令和７年度住民税改正制度により、個人市民税に係る給与所得控除の最低保障額が10万円引き上げられ、55万円から65万円になることに伴い影響するものでございますが、介護保険料は住民税を所得の基準として算定いたしますことから、この改正をそのまま適用いたしますと、介護保険料も下がる方がいらっしゃるということになります。</div>
+  <div class="say">介護保険の財政につきましては、事業計画年度３年間の財政見込みを立てて、そこから介護保険料の金額を設定しておりますことから、３年間の事業計画の最終年度にある令和８年度の収入に大きな影響があるということで、令和８年度に限って、改正前の基準を適用して介護保険料の設定をするというものでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=513s" data-timestamp="513"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:33</a>ご説明ありがとうございました。３年単位の計画期間があるので、このような措置になるということは分かりました。</div>
+  <div class="say">これはとても複雑な制度で分かりにくいと思っておりまして、いろいろなところのホームページを調べてみたところ、この制度の説明をしている自治体がありましたので、市民の方に分かりやすくお知らせできないものかと思いまして、他市の事例などを参考に、周知にはご尽力いただきたいと考えておりますけれども、この点はいかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">松井介護福祉課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=549s" data-timestamp="549"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:09</a>ご指摘いただきましたとおり、令和８年度に限って適用ということでございますので、対象者の方に分かりやすく、何らかの周知をしたいと思います。</div>
+  <div class="say">まずはホームページを対応したいと思いますし、介護保険料を通知するときにも分かりやすく説明文などが入れられないか、担当と検討したいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=572s" data-timestamp="572"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:32</a>前向きに周知していただけるというご答弁でしたので、よろしくお願いいたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">村上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=590s" data-timestamp="590"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:50</a>14ページ、15ページの繰入金のことです。今回、財政調整基金が13億4,000万円の繰入れということで組まれていると思うんですが、この金額の算出の根拠と、基本的な考え方として、補正予算で繰入れて、財政調整基金に関して年度中には調整して、少し多めに設定して余すというか、そういった考えになっているのか、その辺の設計に関する考え方をお聞きしたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">後藤財政課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=645s" data-timestamp="645"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:45</a>それでは、財政調整基金の繰入れについてでございます。財政調整基金の繰入額につきましては、あくまでも今回補正予算を編成しました第６回の補正予算での収支の補填ということになっておりますので、純粋に６回補正分で不足している分を財政調整基金から取崩しをしているということになりますので、ご了承ください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=666s" data-timestamp="666"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:06</a>いいですか。他にいかがでしょうか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=681s" data-timestamp="681"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:21</a>以上で、歳入に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=686s" data-timestamp="686"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:26</a>ご異議なしと認めます。したがって、歳入に対する質疑を終了いたします。</div>
+  <div class="say">次に、歳出に対する質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吉良委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=698s" data-timestamp="698"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:38</a>まず、大きく分けて４点お伺いいたします。</div>
+  <div class="say">最初の１点、25ページ、３、民生費、23、介護給付費・訓練等給付費事務に要する経費、12、委託料、短期入所事業移行支援委託料について伺います。まず２問伺います。本事業の概要と、増額補正が必要な理由並びに本事業は今年度限りで終了するのかということを伺います。</div>
+  <div class="say">大きく分けて２問目、27ページ、３、民生費、10、高齢者食の自立支援事業に要する経費、12、委託料、こちらは四つまとめてお伺いします。ご高齢者への配食サービスで９月の申請数が受付を上回ったということで、増額補正とのことです。利用者の状況、年齢層、地域差から増加の要因分析をされていましたらお教えいただきたいと思います。</div>
+  <div class="say">次に２問目は、今後も増加が見込まれる場合の体制づくり、委託先の処理能力や配達体制はどうでしょうか。</div>
+  <div class="say">３問目に、栄養面、メニュー内容など、利用者からの声は、評価はどのように担保されているのでしょうか。</div>
+  <div class="say">４問目は、高齢者の孤立対策や見守り機能の連携はどのように確保されているのか、お答えください。</div>
+  <div class="say">大きく分けて３問目、31ページ、民生費、２、児童福祉費、３、児童福祉施設費、２、児童館維持管理に要する経費並びに４、保育園費、こちらは全部同じ熱中症対策についてなんですけれども、お伺いします。31ページ、２、児童館、保育園、学童保育所の維持管理に要する経費について伺います。参考資料で、また、先日のご説明によりますと、それら保育施設での熱中症対策に係る設備導入費用に対して、100％東京都からの補助が出るとのことで、具体的にはスポットエアコン、扇風機などの空調設備等の増設や、窓用断熱シート、カーテン、冷凍庫、日除けシェードなどの購入費とのことでした。これは民間保育園59施設とありますが、今までも民間保育園に対してこのような補助があったのでしょうか。それとも８月の市内保育園の在り方の改正により補助が手厚くなったということでしょうか。59施設はどのように選定されたのか、優先順位があるのかなども教えてください。また、このスポットエアコン、扇風機など、温度改善の効果はどうなのでしょうか。施設によっては冷房が古くて新しい冷房を購入しなくてはならないという場合は、それは対象になるのでしょうか。</div>
+  <div class="say">大きく分けて４問目、45ページ、10、教育費、２、小学校費、４、学校建設費、２、学校施設維持管理に要する経費、こちらは先日のご説明によりますと、令和８年度に学級数が増加し、普通教室が不足することが見込まれる小・中学校で、特別教室を普通教室として活用するための修繕を行うとのことでした。58ページの資料６によりますと、今回、修繕の対象となるのが、特別支援教室、少人数教室、家庭科準備室、更衣室、多目的室などが普通教室として活用されるとのことです。そこでお伺いいたしますが、特に小金井第四小学校の普通教室修繕で更衣室はどうなるのでしょうか。お答えください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=952s" data-timestamp="952"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:52</a>関連。吉良委員の２問目の高齢者の配食サービスについて、関連で伺いたいと思います。10月から民間事業者に配食サービスが移行するという形になってきていると思うんですが、一つは、１食当たりの負担軽減額で、市民税課税世帯の方は100円で、市民税非課税世帯の方が400円ということになっておりますが、このお弁当のメニューを見ると、確かに普通食700円というところもあるんですが、930円というところもありますし、799円というところもあり、結構お値段も物価高騰の中で上がってくる傾向にあるのではないかなと思っているんですけれども、そういう点からいうと、もう少し負担軽減額については検討する必要があると思うんですが、100円、400円ということの検討について、どういうことでこういう金額設定になっているのか確認したいということです。</div>
+  <div class="say">あと、吉良委員も質問していましたが、見守りの関係です。見守りについては、地域包括支援センターやケアマネージャーと連携していくという話になっていたと思うんですが、民間事業者が配食サービスを行っていく中で、10月からなので、まだこれからという形になっていると思うんですが、具体的な連携みたいなものはどういうふうに行っているのか確認したいと思うんですが、いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野自立生活支援課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=1070s" data-timestamp="1070"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:50</a>吉良委員からの大きな１問目、短期入所事業移行支援委託料についてのご質問です。</div>
+  <div class="say">まず、本事業の概要につきましては、児童を対象とする短期入所事業である桜町児童ショートステイが閉所されることに伴い、その利用者が成人を対象とする短期入所事業所の利用に移行できるよう、当該事業所の運営法人が、別途、成人を対象に短期入所事業を実施している施設におきまして、宿泊の同行支援を行うとともに、特別支援学校への通学支援を行うものでございます。</div>
+  <div class="say">増額補正の理由でございますが、当初の見込みとしましては、利用者15人に対し、一人当たり１泊すなわち２日掛ける２回程度の体験利用を想定しつつ、利用者の状況のばらつきを考慮して54日分予算措置しておりましたが、１回で移行の見込みがついた方もいる一方、３回利用しても一人での宿泊が困難と思われる方もおり、増額補正したところでございます。利用者によって障がいの特性も程度も様々であり、かつ、成人対象の施設を利用する事業は初めてであったことから、日数の見込みが困難であったものでございます。</div>
+  <div class="say">２点目に、本事業は今年度限りで終了するのかということでございます。受託法人の人員体制の都合上、同行支援は今年度限りの事業となります。来年度以降は支援を継続できないことから、今年度中に可能な限りの効果を出す必要があるということも増額補正にて対応する理由の一つとなってございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">礒端高齢福祉担当課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=1171s" data-timestamp="1171"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:31</a>吉良委員からの大きな２点目で、配食事業について大きく４点頂いております。</div>
+  <div class="say">まず１点目でございますが、９月の申請増加の要因分析についてと、あと利用者の状況、年齢層、地域差はというところでございます。まず、申込み増加の要因でございますが、10月からの事業開始に当たりましては、本町高齢者在宅サービスセンターにおいて、民間配食事業者による試食会を８月に開催いたしました。当日は、市内のケアマネージャーとか、あと地域包括支援センターの職員に参加していただくなどしておりまして、民間配食事業の趣旨に賛同していただいたところでございます。そういったところがこの民間配食の申込み増加の要因の一つであると分析しております。また、配食サービスに対する潜在的なニーズの高さも要因の一つであると考えているところでございます。</div>
+  <div class="say">次に、申込み状況の分析についてでございます。提出した資料から、３か月間の状況ということでお示ししたものでありまして、来年度につきましては、本町高齢者在宅サービスセンターの利用者の方も民間配食事業に移行をするため、準備を進めているところでございます。申込み状況のデータが揃った段階で、ご質問のありました年齢層、地域差とか、あと介護度別にどういう配食のニーズがあるのかということも、配食状況の詳細な分析は行ってまいりたいと考えております。</div>
+  <div class="say">続きまして、大きく２点目で、今後も増加が見込まれる場合の体制づくりでございます。現在、４事業者に配食を委託しておりまして、事業の実施に当たりましては、１日当たりの配食可能数をお伺いしているところでございます。今回の補正対応についても、現在の４事業者による配食能力で対応可能な状況でございます。</div>
+  <div class="say">続きまして、３点目、栄養面、メニュー内容などの評価はどのように担保されているかというところでございます。まず、栄養面とメニュー内容の評価についてでございますが、今回の配食によりまして、これまで対応できていなかった介護食、刻み、ムースであるとか、あとチルド対応、レンジ対応ができるとか、配食事業者の選択肢が広がる、あとは民間事業者と見守り協定を締結し、見守り支援を拡充できることなどが可能になりまして、配食の質や利用者の利便性を向上できるものと考えております。</div>
+  <div class="say">次に、利用者からの声についてでございますが、10月から新規申込みの方を対象に民間配食事業を開始しております。申込みを希望される方でなく、担当するケアマネージャーからも利用料金やサービスの内容などについて、市の担当に多くのお問合せを頂いている状況でございます。</div>
+  <div class="say">最後４点目が、利用者の安否確認、見守り体制の確保というところでございます。これは水上委員の関連質問にも関係するところでございまして、原則手渡しにより安否確認を行うことは、現行の指定管理業務によるものと変わりなく行っているところでございます。配食を配達できない場合は、配食の事業者が本人かご家族にご連絡しまして、当日中に安否確認できない場合は、翌開庁日に市に連絡していただいて、市が早期に安否確認をとっているというところで、見守り体制を確保しているところでございます。</div>
+  <div class="say">関連の水上委員の２点のご質問にもお答えいたします。</div>
+  <div class="say">まず１点目が負担軽減についてでございまして、現行指定管理制度によりましては、自己負担額、市民税非課税世帯300円、市民税課税世帯600円を指定管理者に支払っております。民間委託に移行後は、お弁当の販売価格から課税非課税に応じまして、市が民間配食事業者に支払い額を控除した額が利用者の自己負担となっております。令和７年度当初予算の民間委託移行後の利用者負担額につきましては、市場の弁当価格の中央値710円というのを勘案しまして、現行の制度での自己負担額に近づけるように制度設計をしたところでございます。</div>
+  <div class="say">最後が、地域での見守りというところでございまして、まず、配食の申込みに当たりましては、ケアマネージャー、あと地域包括支援センターに要件確認などを行っていただくのと、８月にも配食の説明会を実施いたしまして、そういった趣旨について説明をしているところでございます。基本的には、事業目的につきましては、食事支援と地域の見守りというところが大きな目的でございまして、市と地域包括支援センターと配食事業者３者による連携によって見守りは継続して行ってまいります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">黒澤保育課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=1467s" data-timestamp="1467"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:27</a>では、熱中症対策事業についてお答えさせていただきます。議案第59号、資料４が保育施設と児童館及び学童保育所と合同の資料となっておりますので、保育施設に関して先にお答えさせていただきます。</div>
+  <div class="say">まず１点目、過去にこのような熱中症対策補助金はあったのかというお問合せでございました。これまで環境整備や物価高騰対策、新型コロナウイルス感染症対策などの補助金はありましたが、今回のように熱中症対策に特化したものは初めてということになります。</div>
+  <div class="say">二つ目、59施設の選定の理由ということでございました。こちらにつきましては、この対象59施設というのは、認可保育所のほかに、小規模保育施設、家庭的保育施設、その他認可外保育施設、市内の全ての保育施設を対象として59施設となっておりますので、特段選定して、どこかに出してどこかに出さないということではない組立てになっております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">平岡児童青少年課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=1535s" data-timestamp="1535"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:35</a>続きまして、スポットエアコン等についてのご質問を頂きました。まず、既存のエアコンの機能を効果的にいかすために、現場で声を聞きながら、今回、スポットエアコン、扇風機、カーテン、窓用断熱シート等、屋内に関しましては、購入の予算計上をしたところでございます。エアコンにつきましては、エアコン本体の機能につきましては補助対象となってございますが、設置、その他にかかる費用につきましては持ち出しとなることから、既存のエアコンの機能を有効活用するものについて選定の上、予算の計上をしたところでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">内野庶務課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=1585s" data-timestamp="1585"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:25</a>小・中学校の普通教室へ変更する修繕に関しまして、小金井第四小学校の更衣室に関するご質問でございます。まず、小金井第四小学校につきましては、議案資料６にありますように、２階と３階の二つの少人数教室を普通教室に変更するとともに、２階の更衣室を二つの少人数教室に変更いたします。</div>
+  <div class="say">吉良委員よりご質問のあった更衣室につきましては、現在高学年の児童が利用しており、代替の部屋については、普通教室には狭い等で適さない、空いている部屋の利用等を含めまして、学校と対応を検討しているところでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吉良委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=1624s" data-timestamp="1624"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:04</a>ご答弁ありがとうございます。</div>
+  <div class="say">まず最初に、短期入所事業移行支援委託料に関してです。利用日数が増えたため増額補正が必要になったとのご答弁をいただきました。そこで更に３問お伺いいたします。現状は本事業、短期入所事業移行支援事業の利用者が一定数存在しているという認識でいいでしょうか。</div>
+  <div class="say">また、２問目は、本事業は、児童ショートステイ事業が消滅してしまう前提で実施されている事業ということになりますが、短期入所事業の利用者が一定数存在し、増額補正が必要になる現状で、本市の児童ショートステイ事業の短期入所ニーズが宙に浮いた形になってしまっていると思われます。こうしたニーズを満たす事業所は他にあるのでしょうか。</div>
+  <div class="say">最後に、民間の事業所の協力を得て、児童ショートステイ事業を早急に設置するべきと考えておりますが、担当の見解はいかがでしょうか。</div>
+  <div class="say">２番目に、高齢者の配食事業に関してです。ご答弁ありがとうございます。８月に民間配食事業者の試食会を開催し、ケアマネージャーや包括支援センターの職員の方が安心して利用者の方にお勧めし、申込みが増えたのではないかということでした。また、１日当たりの配食能力なども確認済みということ、また、栄養面、メニュー面なども、配食事業者、利用者ともに沿った形で進めていかれるということでした。</div>
+  <div class="say">見守りの方も、見守り機能としても本当にこの配食サービスは重要だと思っております。食は心身ともにご高齢者の方が生きていく力につながると思います。本当に、家にいると食べることのみが楽しみになっていくと思います。必要な方へ確実にサービスを届けるための増額措置は、市民の生活を支える上で不可欠でありますので、丁寧にこのまま進めていただけたらと思います。ありがとうございます。</div>
+  <div class="say">三つ目に、民生費、熱中症対策でございます。ご答弁ありがとうございます。熱中症対策は初めてとのことでございました。また、スポットエアコンなどで、冷房につきましては対象外とのことでございました。ただ、冷房の設置などで高額になると思われますけれども、やはり民間企業によっては冷房が古かったりパワー不足などで、スポットエアコンや扇風機など補助的なものよりも、冷房を買換えた方が助かるなという施設もあるのではないかなと思います。そのような施設に対して10万円限度ということですけれども、10万円までは補助して、例えば、そうですね、撤回いたします。すみません。</div>
+  <div class="say">そこで、例えば東京都の他の施設整備補助制度で、そのような冷房の設備の新設、入替え更新などを支援する制度はあるのでしょうか。また、そういったものを使われる見解は将来的にあるのかどうかだけお答えください。</div>
+  <div class="say">最後に、学校の特別教室を普通教室として活用するご質問でございます。ご答弁ありがとうございました。高学年の子どもたちの代替部屋は用意するということでしたが、例えば児童、もうちょっと小さなお子様、児童・生徒の更衣室についてはどのように考えていらっしゃるかお答えください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=1878s" data-timestamp="1878"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:18</a>関連。配食サービスについて負担軽減策なんですが、指定管理で行っていたときは市が300円、600円を負担していた。今回は100円、400円という形になって、お弁当の中央値をとって、あまり変わらないようにということだったんですが、弁当の値段も物価高騰などで上がっていく可能性も今後あり得ると思うんです。そう考えると、今まで300円、600円で負担していたわけだから、引き続きそういう形で負担軽減をしていくということが必要ではないかなと考えています。例えば、週３日使うということで700円で、100円負担軽減で600円だったとしても、週３日で1,800円ですよね。１か月にすると一定金額になりますので、そういう点では、今後負担軽減策については、ぜひ拡充していただきたいということをご検討いただきたいということはお願いしておきたいと思います。</div>
+  <div class="say">あとは見守りの連携については、状況は分かりましたので、引き続きこの事業は見守っていきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野自立生活支援課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=1970s" data-timestamp="1970"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:50</a>短期入所事業移行支援委託につきまして、再質問を３点いただいたところでございます。</div>
+  <div class="say">まず１点目の、利用者が一定数存在しているのかというところでございます。本事業の対象者は、桜町児童ショートステイが閉所されるとなった際に当該事業を利用していた方でありまして、本市においては15名、うち１名が転出しておりますので、現在は14名となっております。人数としてはそのような形で特定されておりますが、トータルの利用日数が一定数必要となっているという状況でございます。</div>
+  <div class="say">２点目、ニーズを満たす事業者が他にあるのかというところでございます。障害者総合支援法に基づき、現在指定を受けている短期入所事業所は市内４事業所、そのうち桜町児童ショートステイは事業を終了しておりますので、実質３事業所となっておりますが、いずれも主たる対象は障がい児ではなく、障がい者となっております。したがいまして、児童の方から短期入所の利用に係る相談を受けた場合につきましては、近隣市の事業所を一覧にして作成しまして、それを基にご案内している状況です。今年度、本事業を利用している方につきましても、４名の方が既に他市の事業所の利用につながっている状況です。また、障がい児の一時預かりとしましては、障害者福祉センターで実施する緊急一時保護事業もございます。</div>
+  <div class="say">３点目に、ショートステイ事業を早急に設置するべきというご意見でございます。昨年度まで桜町児童ショートステイを活用して委託しておりました短期入所事業委託というのは、小金井特別支援学校からの送迎が可能な立地条件から、通学支援としての送迎も含めた委託内容でありまして、短期入所事業そのものにつきましては、市が実施する事業というよりは、民間の事業所が都の指定を受けて実施するのが通常の運営と思ってございます。</div>
+  <div class="say">また、短期入所事業につきましては、宿泊を伴うサービスでありますことから、単独での設置は難しく、障害者支援施設、いわゆる入所施設、あるいは共同生活援助、いわゆるグループホーム等、夜間にサービスを提供する事業所に併設されていることが多いというのが一般的でございます。市として単独で設置することは難しいと考えておりますが、現在進めております障害者支援施設の検討におきましては、短期入所の必要性につきましても踏まえてまいりたいと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">平岡児童青少年課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=2150s" data-timestamp="2150"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:50</a>クーラーの買換えに関する補助の有無というところでご質問を頂きました。クーラー単体での購入の助成等というところでは、今現在、情報は持ち合わせておりません。引き続き熱中症対策に資する歳入の確保に努めてまいりたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">内野庶務課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=2176s" data-timestamp="2176"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:16</a>児童・生徒の更衣室、特に低学年の更衣室についての考えに関するご質問かと思います。児童・生徒の更衣室、特に小学校の更衣室につきましては、教育委員会としても対応が必要な課題として考えてございます。吉良委員同様、学校だけでなく保護者からも、例えば入学当初の４月や５月に、新１年生の保護者からご心配やご不安なご意見も頂いており、高学年だけではなく低学年も含めて、現時点では具体的な対応について何かを申し上げられるような場面ではございませんが、課題として認識しているところでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吉良委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=2212s" data-timestamp="2212"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:52</a>ご答弁ありがとうございます。</div>
+  <div class="say">まず、児童ショートステイについてです。児童ショートステイ事業が、直接市が関与する事業ではないということは理解いたしました。しかしながら、児童ショートステイ事業利用者に対する移行支援事業が依然として増額補正が必要な状況であり、引き続き、児童ショートステイ事業の利用のニーズがあるということを示している状況と私は考えております。市はこうしたニーズを放置せず、児童ショートステイ事業が復活するよう一層努力していただけますよう、要望で終わらせていただきます。</div>
+  <div class="say">また、保育園、児童館、学童保育の熱中症対策です。冷房に関する補助は特にないということで理解いたしました。ありがとうございます。猛暑が常態化する中で、安全な保育環境を確保することは子どもたちの、また、職員の命を守るために本当に大事なことだと思います。今回100％都の補助金を活用して取り組んでくださるということで、これからも引き続き、安心して過ごせる場所づくりを進めていただけたらと思います。ありがとうございます。</div>
+  <div class="say">最後に、小学校などの特別教室を普通教室にする点で、来年度の増級が見込まれる中で、教育環境の確保は急務であり、子どもたちが安心して学べる教室を準備するための実務的必要な措置だと考えております。</div>
+  <div class="say">児童・生徒の更衣室についても、子どもたちが不安を感じないように適切な対応を要望させていただいて、質問を終わらせていただきます。ありがとうございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">小林委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=2331s" data-timestamp="2331"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:51</a>おはようございます。すごく端的に２点伺いたいと思います。</div>
+  <div class="say">まず、39ページの特定緊急輸送道路沿道建築物耐震化助成に要する経費で、１件申請があったということで、459万円ということでありますが、全体の進捗率などについてご説明いただきたいと思います。最近も、大きな地震もありまして、こういった事業を着々と進めるべきだという観点で伺いたいと思いますので、進捗についてご説明いただきたいと思います。</div>
+  <div class="say">また、先ほどもご質問があったところですが、45ページの学校施設維持管理に要する経費について3,950万円、特別教室を普通教室にということでありますが、資料を出していただきまして、令和８年度の学校別の主な特別教室数の見込みということであります。これを見ますと、学校によってこの特別教室の保有数にかなりばらつきがあるということでありまして、当然、普通教室をしっかり確保していかなければいけないというのは大前提であって、学校の部屋の数というのは限りがありますので、対応はしていかなければならないということであります。特に少人数教室、算数、数学、英語、これについては、少人数教室の中でいろいろな利点というか、しっかりと丁寧な授業を行っていただいていると、うちも３人公立の学校を出ていますので、その辺は実感しているんですが、数としてゼロになっている学校も幾つか散見されるわけです。そういった中で、この少人数クラスの授業、こういったものが今後もしっかりと進めていける状況にあるのか、取組の仕方も含めてご見解をいただければと思います。</div>
+  <div class="say">また、もう１つは、少し細かな話になるんですが、資料６ということで、予算についていた資料がありますが、小金井第二小学校も少人数教室を普通教室にするということでありますが、この図面を見ますと、私がこの間ちょうどうかがってきたこの渡り廊下ですとか、その手前の階段を上ったところのトイレの横の水道のところ、かなり雨漏りがひどくて、これは小金井第二小学校に限ったことではないんですが、小金井第二小学校の現場を見たところだと、こういったところにバケツを置いている状況も続いているということであります。今後、普通教室数で使うということになりますと、いつも以上に日常的に使うということもございますが、今回のこの施設維持に関する経費というか、授業を行う中で、こういった場所の雨漏りの対策、こういったことも一緒に検討ができなかったのかということについて伺っておきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">穐山住宅係長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=2542s" data-timestamp="2542"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:22</a>特定緊急輸送道路建築物の耐震化の進捗状況についてご質問を頂きました。特定緊急輸送道路の対象については、五日市街道、小金井街道、東八道路、連雀通りの一部の接する建築物で、昭和56年５月整備以前に建築された建築物で、建築物のそれぞれの部分から道路境界線までの水平距離に、道路幅員の２分の１に相当する距離を加えたものに相当する高さの建築物が対象となってございます。</div>
+  <div class="say">耐震診断の結果、耐震性の低い小金井街道に接する22件が実際に対象となってございまして、うち11件が既に補強工事、または除却が完了している状況です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">内野庶務課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=2597s" data-timestamp="2597"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:17</a>まず、今回の修繕に伴う特別教室の件に関してのご質問です。資料でもご提出させてもらってございますが、来年の令和８年度、少人数教室がゼロになる学校が小金井第一小学校、前原小学校、小金井第二中学校の３校がゼロとなる見込みでございます。資料にも、多目的教室等を少人数教室で使用予定ということで記載をしてございますが、小金井第一小学校についてはミーティングルーム、前原小学校につきましてはけやきルームを併用していくことで、今、対応を学校でも考えてもらってございます。</div>
+  <div class="say">また、小金井第二中学校につきましては、多目的教室が三つか四つぐらいあったかと思います。そちらについて少人数教室として利用していくということで、学校で検討をしていただいてございます。</div>
+  <div class="say">小学校につきましては、６学年まで全て35人学級で教室を用意してございますので、これから大きく教室が不足するということはなかなかないのかなと思ってございますが、一方で中学校につきましては、これから１学年ごとに35人学級の編成となってまいりますので、この少人数教室につきまして、一定何かの対応をしていかなければいけないということで、課題として認識をしてございます。</div>
+  <div class="say">続きまして、小金井第二小学校の雨漏りの件に関してのご質問でございます。小金井第二小学校につきましては、２階の少人数教室を普通教室に変更する予定となってございます。小林委員より今お話がございましたとおり、校舎に入った正面の水飲み場や、該当の校舎につながります渡り廊下のあたりについては雨漏りがあり、従前から、学校からも修繕要望が寄せられております。雨漏りにつきましては、コスト面だけでなく、その原因の特定が難しく、対応に苦慮する場合が多いのですが、今回、普通教室に変更することに伴い、特に渡り廊下につきまして、その経路として使用頻度も多くなりますので、改めて現地確認を行い、今回まずは屋上防水に関して一定の修繕を行うことによって、雨漏りの改善が見込めるものと考え、その修繕費用も含め、今回補正予算として計上してございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">小林委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=2732s" data-timestamp="2732"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:32</a>ご答弁いただきまして、ありがとうございます。</div>
+  <div class="say">まず、特定緊急輸送道路の耐震化については、今半分ぐらいということですよね。診断は全部終わっていてということで、半分ぐらいがＮＧで、まだ耐震化が進んでないということであります。市としては、どういうアプローチを続けていらっしゃるんですか。要するに、もう全て説明が終わっていて、相手の対応待ちというか、来年やりますからちょっと待ってくださいねみたいになっているのか、それとも、お話がうまく進んでないところがあるのかとか、その辺りの今後のアプローチの方針ですとか、現状についても伺いたいと思います。</div>
+  <div class="say">それから、学校施設でありますが、特別教室を上手に使うということでありまして、小学校の方は、まだ小金井第一小学校の建て替えなんかが少し暗礁に乗りかかっているわけでありますけれども、そういったところを対応できれば、小学校の方は当面大丈夫だろうと。ただ、中学校の方の35人学級が進んでいったときに課題として捉えているということでありますので、今、これ以上伺っても仕方ないと思いますが、課題の共有が今できましたので、しっかり授業が円滑に進むように、念頭に置かれていると思いますが、今後ともその点よろしくお願いいたします。</div>
+  <div class="say">小金井第二小学校の件については、その辺も視野に入れているということでありましたので、ぜひ、雨漏りの対応は結構難しいと今までも答弁でありました。ここに水が垂れているからといって、そこから水が入っているということにも限らないという、壁の中でどう水が伝わっているかというところで、全部開けてみなければ分からないところで、そこまでは予算がないとかということもあろうと思いますが、やはりバケツを置いているところで日常生活を送るというのもかわいそうなとこもありますので、ぜひ対応をうまく進めていただければと思いますが、ここの維持管理のところで１点伺いたいのは、今、国の補正予算で2,500億円の公立学校の施設整備費、これが今審議をされていると思います。ほぼ通過の見込みだと思いますが、そういった中で、一般質問の中でも出ておりましたけれども、我々も要望を受けましたが、トイレの臭いの関係、そういったトイレの改修にも充てられる大きな補正予算だと思います。そういった中で、小金井市としてこれを見据えたところで、臭い対策にもなるドライ化、そういったものに充てられないのか、充てるような検討がなされていないのか、少し検討が進んでいれば、状況をお伝えいただきたいと思いますが、いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">永井まちづくり推進課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=2928s" data-timestamp="2928"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:48</a>まず、特定緊急輸送道路沿道建築物の関係の答弁をさせていただきます。基本的には所有者の責務で進めていただいているというのが状況でございますが、現在、実は４件ほど相談を受けています。うち１件は今回補正予算で計上した案件で、今年度末までに建て替え工事に着手できる予定で進めているところでございます。残りの３件については、いずれも補強工事の相談を受けている状況ですが、なかなかどのタイミングまでに着手できるかということもまだ決まっていない状況です。</div>
+  <div class="say">それ以外の建物については、実は相談もなかなかない状況でして、これ以上進むかどうかまでは分からないという状況でございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">内野庶務課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=2984s" data-timestamp="2984"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:44</a>小・中学校の維持補修に関連いたしまして、国の補正予算、特にトイレ改修等についてのご質問でございます。今月に入りまして、文部科学省より、令和７年度補正予算案等への事業前倒し及び新規計上についてという内容の照会がございまして、今、小林委員よりお話がございましたように、閣議決定された令和７年度補正予算案において、公立学校施設整備費につきましては2,552億円を計上しているとのことで、トイレ改修につきましても、今回の国の補正予算で対応できる補助事業となる旨は確認をしてございます。</div>
+  <div class="say">トイレ改修につきましては、本定例会の一般質問でもご答弁いたしましたが、現在、学校施設長寿命化計画の改定作業を行っており、本計画の策定後に、トイレに関しまして具体の整備方針が立てられればという思いを持ってございます。</div>
+  <div class="say">また、今回の国の補正予算での事業前倒しについては、その留意事項として、事業の実施が不確定な事業ではないか、設計業務等の進捗を確実に反映させているかなどがあり、一定庁内の関係課との調整も必要な状況となってございます。そのような状況を踏まえ、現時点では、国の補正予算による事業前倒しの対応については、今後の検討課題として認識をしてございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">小林委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=3063s" data-timestamp="3063"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:03</a>ご答弁ありがとうございます。</div>
+  <div class="say">あと残り３件ぐらいは相談中だということでありますけれども、それ以外は少し難しい状況ということでありますが、これは市としては、やはり責任を持って進めなければならないということで、ずっと取り組んでいることでありますけれども、引き続き、丁寧なコミュニケーションをとっていただければということで、本日の時点ではお願いしておきたいと思います。</div>
+  <div class="say">教育委員会では、この国の補正予算について具体化しないと、前倒しとはいえ、予算をあげられないと、予算を使えないということ。当たり前のことではありますけれども、課題は明確でありますので、一般質問でもありましたように、計画を立てて、そういったものを取りこぼしのないようにうまく使って事業を前に進められるように、本日の時点ではお願いをしておきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">村上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=3144s" data-timestamp="3144"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:24</a>29ページの保育従事職員宿舎借上支援事業に要する経費のところでございます。対象が24名増えたというご説明があったんですけれども、これについて、なぜ増えたかということと、あと全体の対象がどのぐらいの人数なのかについてお伺いしたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水保育係長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=3198s" data-timestamp="3198"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:18</a>対象者の人数が増えた主な要因というところでご質問いただきました。保育士につきましては、各保育園で年度途中も採用等を行っておりまして、そういった関係で利用者というのはどんどん増えていくところもあります。また、前年度の当初予算で我々の方で想定していたよりも、次の４月で新しく保育者をどんどん採用しますので、そういった形で各事業所で保育士が、今回、宿舎借上支援事業につきましては、採用の中で各事業所の中でも、福利厚生ではないんですけれども、そういった面もかなり強いので、利用者というのはどんどん増えているというのが現状でございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">黒澤保育課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=3263s" data-timestamp="3263"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:23</a>総数についてですが、全体で対象者数は約370人程度でございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">村上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=3274s" data-timestamp="3274"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:34</a>ご答弁いただきました。年度初めで人員体制が完全に確立されていないというか、不足分もあるので、年度中で増えていくものがあって、それに対応したという理解でよろしいですかね。ありがとうございました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=3296s" data-timestamp="3296"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:56</a>答弁はいいですか。（「大丈夫です」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">安田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=3309s" data-timestamp="3309"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:09</a>１点だけお伺いいたします。37ページ、返還金・還付金の中の令和６年度ＨＰＶワクチン男性接種補助事業都補助金返還金ということですけども、当市においては他市に先駆けて、男性へのＨＰＶワクチン接種を行っておるわけですけれども、この接種後の副反応の報告などがあったのかどうかということを確認させてください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">伊藤健康課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=3358s" data-timestamp="3358"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:58</a>男性へのＨＰＶワクチン接種についてでございます。副反応報告はございませんでした。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">安田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=3367s" data-timestamp="3367"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:07</a>私は、小学校６年生から高校１年生までの男子に接種するということは本当にあってはならないというか、これまでも当市でも、女性ですが、副反応で健康被害ということが認められております。慎重にするべきところを、効果も分からない、効果を測定することもできないような事業にお金をかけることは本当にあってはならない、いかがなものかと思っております。</div>
+  <div class="say">また、対象年齢は若いです、お子さんです。学校生活に支障があったりということが今も起こっているかもしれませんので、各課においてその辺のことはきっちりと、副反応の報告が多いということを前提として、ご対応をお願いしたいと思います。以上、要望です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=3433s" data-timestamp="3433"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:13</a>17ページ、説明欄９、庁舎維持管理に要する経費の10、光熱水費で、ここを始めとして各施設で光熱費がありますので、全て同じものであります。私は光熱費の安定的な、今回補正予算になっているわけですけれども、本来的に言えば、当初予算で安定的に同じ金額で予算計上できればいいと思いまして、その観点からご質問いたします。猛暑など外的な要因が大きいこともありますし、そもそも光熱水費というのは一定の計算式があると伺っていますので、これについては来年度以降様々な要素を勘案して計上していただくのがいいかと思っております。</div>
+  <div class="say">光熱水費の安定的な調達、節減の観点から１点お伺いいたします。猛暑とかエネルギー価格の変動は今激しいということはご承知のとおりだと思うんですけれども、今後は、例えば特に電気、単に決まったところから買うということではなくて、調達先の選定方法を見直したり、電力の購入方法を検討するなどして、価格があまり変動しない工夫も必要だということを感じております。先般の建設環境委員会で、環境政策課長のご答弁でありましたが、すみません、読み上げます。気候市民会議の方でも家庭部門、それから施設含めて再エネ導入の導入ということがキーワードで取り上げられておりますので、施設においてもそういった施設を増やせないかどうかということを検討しているところでございますというふうに答弁がございました。本市は本年６月に、株式会社エナーバンクと再生可能エネルギー電力の利用促進に関する連携協定を締結しております。この協定は環境配慮、再エネ利用が主な目的かと思っておりまして、私もこれについては、再エネの利用を普及することが良いという立場でございますけれども、こうした専門的な知見を持つ民間事業者と連携しているということは非常に重要なことではないかと思っております。協定先との連携も含めまして、過大な変動を受けないための施策について、何か進めている取組があるようでしたら、お聞かせください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岡本財産管理係長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=3603s" data-timestamp="3603"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:03</a>光熱水費に関して、現在進めている取組ということでございます。ながとり委員からご紹介いただきましたとおり、環境政策課で本年９月に株式会社エナーバンクと再生可能エネルギー電力の利用促進に関する連携協定を締結いただきました。この協定に基づきまして、エナーバンクの事業を利用させていただき、再生可能エネルギー電力を前提とした、最も安い価格を提示した売手が落札する競り下げ方式の取引方法であるリバースオークション方式による事業者募集を実施しております。選定されました事業者とは、現在契約手続中ですので、詳細については控えさせていただきますが、令和８年１月からの予定につきましては、ホームページに掲載しておりますとおり、市立小・中学校全14校を始めとしました計24施設において導入する予定であり、合計27施設において再生可能エネルギー電力を導入していく予定です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=3685s" data-timestamp="3685"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:25</a>ありがとうございます。</div>
+  <div class="say">建設環境委員会のご答弁よりも進んだご答弁ではないかと思いまして、それから、私は過去の議事録もしましたけれども、部局の方から再生可能エネルギー、今３施設でしたかね、本庁舎、（「３施設です」と呼ぶ者あり）３施設ですね。３施設で導入されていることが拡大すると、今ご検討中だということがよく分かりましたので、ぜひとも今後、この予算計上においても、恐らく安定的、あるいは少し下がるんですかね、ということもあるかと思いますので、安定的かつ安価な、そして再生エネルギーなどを推進していただくようにお願いして、質問を終わります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=3749s" data-timestamp="3749"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:29</a>まず、４ページの債務負担行為補正の市立保育園施設更新調査委託料で伺いたいと思います。これは説明資料も出ておりますが、市立保育園の在り方に関する方針に基づいて、このような調査事業を行うということなんですが、公共施設の個別施設計画からは、それを大きく見直す内容となっていると思うんです。例えばわかたけ保育園については、個別施設計画では令和12年度までに長寿命化改修を実施すると。小金井保育園は長寿命化改修、けやき保育園は令和12年度までに部位修繕を実施という形になっておりまして、だから市立保育園の在り方に関する方針、また、その議論の中で、市立保育園の老朽化の問題というのは大きな課題とされてきたので、それを前倒しで行うということはいいことだとは思うんですけれども、その検討経過についてはもう少し詳しくお願いできないでしょうか。例えば集会施設のエアコン設備が次々壊れる中で、早く大規模改修をやった方がいいのではないかと僕らが言っても、計画に載っているので、大規模改修でやらせていただきますということで、この公共施設マネジメントの計画はなかなか見直されるということがなかったものですから、そういう点で、どういう検討がされたのかということを、一つは伺っておきたいということであります。</div>
+  <div class="say">あと、約2,000万円という一定の金額をかけて調査を行うということになっていると思うんですが、個別施設計画や公共施設の管理計画の中でも、ある程度の調査は行われていたのではないかなと思うので、新たに調査をしなければいけないという課題やどういう内容が含まれているのか、その点についてご説明をお願いできないかということが１つ目です。</div>
+  <div class="say">２つ目に、29ページの民間保育所等児童欠員対策補助金について伺いたいと思うんですが、これは資料を出していただきまして、児童の欠員状況については、令和５年度から見ると、一定やはり減ってきているような現状があると思うんです。そういう点からいうと、欠員状況の今後の見込みについてはどういうふうに見ているのか伺いたいのと、あとは、この欠員補助金については、今は経過措置という形でたしか補助されているのではなかったかなと思っているんですけれども、たしかこれは令和８年度までの経過措置という形になっていたのではないかなと思うんですが、令和８年度、来年度の話なので、その状況も見なければいけないと思うんですが、今後どういうふうに考えていくのか。あと、まだ一定、０歳児のところが、令和７年度でいうと５月入所で61名欠員がいらっしゃるという状況があるので、また、１歳児も４名いるということからいうと、私たちも欠員対象については少し補助対象を上げるべきではないかと要望してきた経過もあって、そういう点についてはどういうふうに考えているのか、伺いたいということであります。</div>
+  <div class="say">あと、33ページの民設民営学童保育所施設整備費補助金に関して、民設民営学童保育所について伺いたいと思うんですが、この間の一般質問や厚生文教委員会の質疑の中で、東京都の認証保育所への移行問題というのが質問されてきたと思うんですが、小金井市としては、令和８年度から、まずは民設民営学童保育所から認証保育所に移行していくということが考え方として示されたと思うんです。一つは、認証学童保育所は国基準よりも拡充されると言われているのですけれども、どういうことが主な拡充内容なのか。例えば面積基準でいうと、たしか1.98平米という形になっていたかなと思うんですが、ただ、当面は1.65平米でいいという形になっていると思うんですが、今回開設予定の学童保育所、また、今まで開設されてきた学童保育所、メガロス東小金井学童クラブやけやきの森アフタースクールＯＫＡＥＲＩ、こういうところに関しても認証保育所に移行できるというような条件が今そろっているという理解でいいのでしょうか。その辺、認証保育所への移行がどうなるのかということについて、ちょっと伺っておきたいということなんですが、どうかということ。</div>
+  <div class="say">あと、都からはたしか３分の２の補助が出るという話だったと思うんですが、市の補助金との関係は、認証学童保育所に移行した場合に市の補助金がどういうふうになってくるのか、その点を伺いたいと思っているんですが、どうでしょうか。民設民営学童保育所が認証学童保育所にスムーズに移行できるのかどうかということについて、ちょっと確認したいという趣旨ですので、その点、伺いたいということですが、どうでしょうか。</div>
+  <div class="say">あと、45ページの学校施設維持管理に要する経費で、小・中学校の特別教室などを普通教室に転用していくという話で、さっきの小林委員の質問で35人学級の関係で、考え方はよく分かりました。それで、小学校は今年度中に35人学級だったと思うんですね。だから、今回のこの修繕費で一応小学校の35人学級はクリアできるということでいいのかという確認と、中学校はたしか来年度が１年生が35人学級という形になっていると思うんですが、東中学校の修繕という形で、とりあえず中学校の１年生の35人学級というのがクリアできると理解していいのかどうか、この点ちょっと確認も含めてなんですが、お答えいただけますでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=4230s" data-timestamp="4230"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:30</a>関連。水上委員の２問目に関連させていただきます。民間保育所助成に要する経費についてなんですけれども、水上委員からは時限的な措置であるというところで、期限以降の考え方と市の検討状況というところはお伺いいただいていますので、私からは０歳児の利用定員数につきましては、市から保育施設に出されている看護師配置のための補助金にも関わってまいるというところで、看護師加算の点についてもお伺いできればと思います。民間保育所補助金の中で、０歳児クラスの枠を９人以上に設定されている園には看護師加算がつくことになっているのは、もう皆さんはご存じであるかと思います。６月時点の一般質問で、看護師加算につきましては９人の条件を６人にすると、加算の前提条件を現状に即した形で見直すべきと考えておりますが、市としてどうお考えかという質問に対しまして、市からは、民間保育所補助金における看護師加算の要件である０歳児の取扱い人数につきましては、当該加算に特定の財源がなく、一般財源により実施しているという財政的な課題も勘案しつつ、一定の見直しが必要であるものと考えておりますというご答弁を頂いております。ですが、利用定員の適正化を求め、定員を９名未満に減らすとなると、看護師加算がつかなくなり、事業者の皆様にとって保育の質を担保しつつ、利用定員の適正化を両立させることは、現行の制度では難しい状況であると推察します。定員の適正化を進めるためには、アセットでこの加算要件を緩和し、看護師を配置できるような体制にする必要性があると考えますので、看護師加算についての検討状況も併せてご答弁いただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">黒澤保育課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=4341s" data-timestamp="4341"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:21</a>では、水上委員のまず１問目、市立保育園施設更新の調査委託料についてであります。今回、予算を上程させていただきました経過についてお尋ねがありました。ご紹介のありましたように、個別施設計画のロードマップでは、わかたけ保育園は令和12年度までに長寿命化改修で、小金井保育園と上之原会館は令和５年度から令和６年度に長寿命化改修、けやき保育園ときらりは令和12年度までに部位修繕とされてございます。現在の個別施設計画では、ＲＣ造の建物の一般的な耐用年数が60年ということに対して、長寿命化改修や大規模改修によりまして、建物の水準をかさ上げして、社会的な要求水準まで高めることを目指し、目安として80年で改修を目指しているものでございます。ただし、同時に各工事の実施段階で躯体の詳細な調査に加えて、経済性や教育機能上の観点から総合的に判断するともされてあります。わかたけ保育園の現在の個別の状況を見ますと、建築年が昭和45年で、現在築55年を超えている状況でありまして、構造としましてはガラスにつきましても一枚ガラスで、直接外廊下になっていて、廊下はすのこ敷きで、壁や窓の耐熱性能等を鑑みますと、現在の社会的な要求水準とは大幅な乖離があるという状況と考えております。今のこういった状況につきましては、保育の運営協議会でも保育課側からもご説明しておりますし、また、保護者からの改修の要望等も多々これまで頂いてきているところでございます。この状況をもちまして、改修で社会的な要求水準まで賄えるのか、建て替えの方が実際に効果があるのかということは、現実的には検証すべき段階にあると考えております。今回の調査委託の主な内容は、わかたけ保育園では整備手法の検討、併せて、小金井保育園とけやき保育園につきましては、これまで予定しておりました改修もなかなか実施ができずにおりましたので、長期的な改修計画を併せて策定するということを目指しているものでございます。</div>
+  <div class="say">続きまして、この金額をかけて調査を行うことについて、今回、こういったことを実施しなければならない理由ということでございます。一番急務なのは、わかたけ保育園を建て替えるのか大規模改修をするのかというのが、最も最優先事項と考えておりますが、そういったことを実施するに当たりましても、今の調査では全体の建物の施設調査というのはやっておりますけども、実際に個別の建物を改修か建て替えかをするときに、それだけの大きな規模の建て替え、改修となりますと、園の運営上、一旦どこかに子どもたちが逃げなければならない、それが園庭に仮園舎を建てることで足りるのか、できなければほかの候補地を探すなど、そういった整理を行う必要がございます。また、そのほかの諸条件につきましても、直ちに改修ないしは建て替えの設計に移れる状況ではないということでありまして、そういった設計に移る前の条件整理をすべき状況にあることから、今回の調査委託をさせていただいているところでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">中島保育施策調整担当課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=4590s" data-timestamp="4590"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:30</a>民間保育所等児童欠員対策補助のご質問の前提のところで、今後の欠員についての見込みの考え方のご質問を頂きました。まず、今回のこの欠員対策補助の欠員というのは、各保育園で利用の定員を設けているけれども、入所の調整をした結果、そこに空きが生じているけれども、その空きに対しても人員を措置している保育園として、そこの経済的な部分に対する補助としまして、私どもが行っているものでございます。ですので、この場合の欠員の部分については、私どもはやはりそういった部分が起きないように、各園と申請状況を見ながら利用定員の調整をさせていただいているところでございます。そういったところも踏まえますと、市内の児童数については大幅な減少というか、微減の状況が続いている部分がありますが、利用定員の調整の中で一定程度、取組をやらせていただいておりますので、今回ご提出をいたしました資料の特に欠員対策補助の対象となる０歳児の方をご覧いただければと思いますが、令和５年度は100人ほどであったものが、その調整を行っていく中で、大体今、令和７年度だと61人のところまで調整をしているところでございます。こちらの調整をし過ぎると、逆に言うと０歳で入りたい方も入れないという事象が起きるところもあります。これは各園とのお話の中でも、そういう話を行っておりますので、今後の欠員の見込みというよりは、必要なキャパシティは既に措置済みだと私どもは考えておりますが、新規で保育施設を建ててきて、キャパシティはございますが、そのキャパシティの中でどれだけ募集をかけていく、募集をかけていくための人員を各保育園でご用意いただくかというのは、慎重に調整をしながら設けていただく必要があると思っているところでございます。私どもとしては、この欠員の見込み、欠員が起きることが必ずしも市にとっても利用者の方にとっても、園にとってもいいことではないのですけれども、そこをぎりぎりを目指すという難しさがございますので、一定程度そういう調整を見ながら、利用定員の調整を行っていきたいというのが、まず見込みというか、市の考え方になります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">黒澤保育課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=4741s" data-timestamp="4741"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:01</a>続きまして、当該補助金の今後の見通しについてでございます。この補助金は、開始当初は令和４年度から令和６年度までの３年間の時限の予定で実施してきました補助金で、一旦令和６年度をもって終了の予定でございました。しかしながら、民間保育園の皆様のご意見のほか、欠員等の状況を踏まえまして、今後段階的に縮小することとしまして、令和７年度から３年間の継続をすることとしたものでございます。このため、令和７年度予算措置当初の予定どおり、令和６年度は６か月分、令和８年度は４か月分、令和９年度は、（「７」と呼ぶ者あり）ごめんなさい。令和７年度が６か月分、令和８年度が４か月分、令和９年度が２か月分を措置することをもちまして、ここで見直しということを考えているところでございます。</div>
+  <div class="say">最後に、今後補助率を上げる等、検討すべきではというご意見がございました。こちらにつきましては、保育施策調整担当課長が申し上げましたように、利用定員の調整でなるべく募集数と児童数の乖離がないように調整を図っていくことを目指しておりまして、ゆくゆくは補助がなくても成り立つような形で定員調整を行っていきたいと思っておりますが、３年後の終了時の状況等を見まして、その際においても大きな乖離があるような状況がありましたら、またその際に何かしらの対応を検討することも考えられるかと思っております。</div>
+  <div class="say">そして、関連でいただきました天野委員からのご質問です。民間保育所補助金の中で、看護師配置ができるような看護師加算についての対応の検討をというご質問をいただいたかと思います。これにつきましては、補正予算の中では今回はご提案させていただいておりませんが、現在予算の上程前ですので、現時点では担当課のあくまで検討状況ということですけども、民間保育園の皆様には医療的ケア児の対応等をお願いしているという状況もありますし、また、民間保育園の中でも看護師の配置が課題ということも多々ご意見を聴いておりますので、こちらでもそういったことは課題と受け止めさせていただいておりまして、新年度予算に向けまして、引き続き担当課としては検討してまいりたいと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">平岡児童青少年課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=4914s" data-timestamp="4914"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:54</a>認証学童保育所の拡充の内容についてでございます。委員ご指摘のとおり、育成面積のほか、職員体制につきましては、１支援単位に支援員３人以上の配置ですとか、また、東京都福祉サービス第三者評価の受審等がございます。令和８年度に開設予定の民設民営学童保育所につきましては、１人当たりの育成面積が2.2平米以上をというところで予定をしてございます。また、これまで開設しております学童保育所につきましては、定員40名のところが同じく2.2平米以上、定員15名のところが１人当たり1.72平米というところでございまして、1.98平米の基準には満たないものの、東京都に確認しましたところ、当面の間は1.65平米以上でという基準で行うと。1.98平米以上という基準を上げる時期については未定ということで確認をとってございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">野村学童保育係長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=4997s" data-timestamp="4997"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:17</a>水上委員より、認証学童クラブ事業の補助率についてご質問いただきました。まず、委員ご指摘のとおり、基本的な補助率につきましては都３分の２、市３分の１となってございます。そして、認証学童クラブ事業には設置促進事業というのが別途用意がございまして、こちらは令和７年度から令和９年度まで、区市町村の負担割合を２分の１に軽減すると、このような事業がございます。こちらの要件としては、認証学童クラブ設置計画の策定というのが別途求められているような状況になっております。こちらの計画については、今後、令和８年度以降に市の内部でも検討していきたいと考えてございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">内野庶務課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=5051s" data-timestamp="5051"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:11</a>小・中学校の普通教室への修繕に関連いたしまして、まず、35人学級に関してのご質問です。まず、小学校につきましては、現時点で６学年全てにおいて35人学級で編制をしております。中学校につきましては、委員よりご紹介ありましたように、来年度、令和８年度から中学校１年生が35人学級にということになりますが、本市につきましては今年度、１年前倒しで、令和７年度から中学校１年生についても35人学級ということでクラス編制をしてございます。</div>
+  <div class="say">続いて、今回の修繕で、その35人学級への対応ができるのかという辺りのご質問でございます。この補正予算を編成する時点におきまして、児童・生徒数の推計や過去の動向、これは進学数や転入・転出等の状況になりますが、それらから一定の学校で教室に不足が見込まれる可能性があり、そのうち今回、小学校については３校、中学校については１校の合計４校において、予算が伴う修繕が必要という状況になってございます。今後、転入・転出や進学数等が確定していくことによって、各学校、各学年の新年度の人数も決まってまいりますので、その時点で必要な修繕を行い、普通教室を確保していくということになってこようかと思います。特に先ほどご説明いたしました小学校と中学校の１年生は35人学級ですので、３クラスであれば105人、４クラスであれば140人というのが基準になりますので、この人数を１人でも超えますと、クラス数は１クラス増えるということになります。ですので、今後日数が進むに当たって、場合によってはぎりぎりで教室数が足りるとか足りないとかという場面もあろうかと思いますが、その時点で適切に対応していかなければいけないと考えてございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">大澤学校教育部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=5174s" data-timestamp="5174"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:14</a>今、庶務課長の方から中学校の１年生のところで、令和７年度からというお話がちょっと出たかと思いますけど、もう少し前で、東京都から教員の弾力性ということがございましたので、平成25年前後ぐらいから、多分中学校１年生は35人学級で対応しているというところだけ、すみません、ちょっと修正というか、補足だけさせてください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=5198s" data-timestamp="5198"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:38</a>まず、市立保育園の施設更新調査の件なのですが、検討の経過については分かりました。社会的要求水準から見て、やはり現状の建物が劣化している状況があるということだと思います。また、市立保育園の在り方検討委員会の方針の中でも老朽化への対応ということで、子どもの安全性確保ということが言われていたということなんですが、この個別施設計画があると思うんですね、総合管理計画も含めて。だから、改めて集会施設も含めて、本来の要求水準に現状が合っているのかということは、よく分析する必要があるのではないかなと。これは保育園の質問をしているので、今後また検討課題という形で考えていく必要があるかなと考えています。集会施設も大規模改修を待たずに、エアコンの更新などはもう大規模にやった方がいいということは何回も言ってきましたけど、なかなか大規模改修の予定があるのでという話もあったかと思うので、改めてそういう点は、現状に合わせて見直していくということが必要だと考えています。</div>
+  <div class="say">また、今回のこの更新調査による計画によっては、財政計画上も大きな影響が出てくるということは明らかだと思うんです。わかたけ保育園を建て替えるということになってきたりとか、あと、けやき保育園も大規模改修をやっていくということになると、多分財政計画上も今後変更があり得るということになってくるのかなと思いますので、それはよく精査して見ていく必要があると考えています。</div>
+  <div class="say">それで、わかたけ保育園なんですけれども、特に今回の調査では、全体はやっているけれども、細かな調査がまだされていないということだったかなと思うんですが、建て替えか大規模改修かというふうにご答弁されたと思うんですが、その後は、設計に移る前の調査の委託も含まれているかのような発言だったんですが、これは建て替えをしていくというような方向で調査をしていくということで理解していいのかどうか。このわかたけ保育園についてはどういうふうに考えているのでしょうか。大規模改修でもできる可能性もあるかどうかも含めて調査を行うということなのかどうか、わかたけ保育園の調査についてはもう少し詳しく教えてもらえないでしょうか。</div>
+  <div class="say">あと、民間保育所の欠員の対策なんですが、利用定員の調整を行っていて、この結果になっているということだと思います。正確な数を利用定員で示していくのはなかなか難しいんだろうと思いますが、ただ、この利用定員の利用調整を一生懸命に行いながら、欠員をなるべく少なくしていくということだったと思うんですが、今３年間の経過措置で令和９年度までということだと思うんですが、状況を見ながら、できれば対象年齢も拡充していくということも、ぜひご検討いただきたいということはお願いしておきます。何度かこの問題については要望もしてきた関係もあって、それは要望しておきたいと思います。</div>
+  <div class="say">次に、民設民営学童保育所なんですが、現状で言うと、開設予定も含めて３つの民設民営学童保育所については、令和８年度から認証学童保育所に移行できるという理解でいいということですよね。その点を改めて確認しておきたいということと、１単位40人に対して職員は３人以上という要件だと思うんですが、３人以上の中身は正規職員と、あと補助員や支援員という形になっているのではないかと思うんですが、必ずしも資格がなくても職員にカウントされるということだと思うんですが、この３人の内訳について、ぜひ伺いたいと思うんですが、その点についてはどうでしょうかということです。</div>
+  <div class="say">あと補助については、負担軽減を２分の１行うということがあり、設置計画を令和８年度以降につくっていくということになるので、それが策定されれば、小金井市の３分の１補助が更に減額されるというような、２分の１に負担軽減されるということで理解していいのかというところは確認しておきたいと思います。</div>
+  <div class="say">あと、学校施設の修繕なんですが、状況は分かりました。ただ、学校施設はやはりこの間の質疑でも、例えば学童保育所の大規模化の対応であるとか放課後子ども教室の対応などで、学校を使わせてほしいという要望が結構あったと思うんです。35人学級で、更に普通教室も増やしていくということになってくると、学校もやはりもう場所がないという状況もあって、全体のニーズから考えると、なかなか学校施設を使っていくということも難しいのかなという考えもあるんですが、そういう点からいうと、学童保育所の大規模化については、担当課任せにせずというような要望も厚生文教委員会などで行ってきたと思うのですが、学校施設も含めてやはり何らか全体の子育て支援施設の在り方みたいなことは、私はどこかで考えていった方がいいのではないかなと考えてはいるんですけれども、その点について、何か今後の考えがあったら伺いたいと思っているんですが、いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=5639s" data-timestamp="5639"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:59</a>ご答弁ありがとうございました。私からは意見で終わらせていただきたいと思いますが、市も課題認識をお持ちとのことでしたので、新年度の予算へはぜひ利用定員の調整を図るに当たっては、看護師加算要件を６人に緩和するなど、実態に即した制度改定を強くお願い申し上げます。意見で終わります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">黒澤保育課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=5665s" data-timestamp="5665"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:25</a>わかたけ保育園の調査の内容について、もう少し具体的にというお話を頂いたかと思っております。わかたけ保育園につきましては、現時点で建て替えか改修かを決めているという状況ではありません。個別施設計画では大規模改修となっておりますし、ただ、先ほど申し上げましたように、わかたけ保育園の古さや今の機能から見ると、本当に改修で大丈夫なのか再度検証すべきという考えで、まずはこれまで個別施設計画でも行われてきました調査等の情報整理と、それから数年経っておりますので、その後の経過を見る程度の追加の調査を行った上で、今後プロポーザルで専門事業者に委託する予定でありますので、具体的に手法として建て替えがいいのか、改修がいいのか、費用対効果も含めて検証することを考えております。その手法の検討の結果をもちまして、次には設計に移るに当たって、必要な情報の整理等を行っていくという内容を考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">平岡児童青少年課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=5751s" data-timestamp="5751"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:51</a>まず、令和８年度までの移行というところについてでございます。まず、令和８年度に新設の学童保育所につきましては、令和８年度から認証学童クラブとして開設を予定してございます。また、既存の２施設につきましても、都型学童保育の補助が令和９年度までになってございますので、学童保育所の民設民営事業者の意向を伺いながら、令和10年度までには認証学童保育所に移行をするという方向で調整を図ろうと思っております。また、職員体制の３人の内訳についてでございます。こちらにつきましては、１支援単位につき支援員３人以上の配置で、そのうち２人を除いた１人は補助員でも可能というところになります。また、常勤の支援員の複数配置に努めるというところで、必ずしも補助員は可というところではございますが、常勤の支援員を１人でも多く配置するというところで目指しているところでございます。</div>
+  <div class="say">続きまして、先ほど学童保育係長から紹介させていただきました補助スキームにつきましては、令和７年度のものとなってございまして、令和８年度の要綱がこれからこちらに届くことになります。おおむね補助率は変更はないものと考えてございますが、今後令和８年度の補助率を確認して、対応をとってまいりたいと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">堤子ども家庭部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=5870s" data-timestamp="5870"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:50</a>学校施設についてのご質問でしたけれども、学童保育についても挙げられたので、一旦、私の方から答弁させていただきます。</div>
+  <div class="say">学童保育所の拡充、運営方法につきましては、厚生文教委員会等でも答弁させていただきましたとおり、市有地の活用や民有地の活用とかもありますけれども、関係部署のご協力を得ながら、拡充に努めたいということでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=5902s" data-timestamp="5902"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:22</a>状況は分かりました。わかたけ保育園については、建て替えか大規模改修かということで手法の検討を行っていくということなので、建て替えということになると、どこかに仮施設を造らなければいけないとか、いろんな課題があるとは思うんですが、この状況はちょっと見ていきたいなと思います。</div>
+  <div class="say">あと、民設民営学童保育所なんですけれども、職員が常勤に努めるということになっておりまして、職員体制が大丈夫かなというのは心配はありますが、民設民営学童保育所はこの間もいろんな問題、課題があるということは指摘してきましたので、状況については分かりましたが、今後も見守っていきたいと思います。</div>
+  <div class="say">学校施設については、やはり教育委員会の管轄という形になっていると思うんですけれども、どうしても学校を中心に学童保育所や、あと放課後子ども教室なんかも行われているという状況もあると思うんです。学校も35人学級で普通教室を増やさなければいけないということもあり、全体としてやはりこれは今後どうしていくのかなということについては、学童保育所の対応については一定の見解を述べられましたけれども、ぜひ今後、各部署とも連携をするという形になると思いますが、何らかやはり全体的な検討を行っていくことが必要ではないかなと考えておりますので、ぜひその点についてはご検討をお願いしたいということは、ちょっとお願いしておきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">渡辺委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=6022s" data-timestamp="6022"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:22</a>１点だけ伺います。今、水上委員からもありましたが、４ページの市立保育園施設更新調査委託料に関してだけ伺いたいと思います。今、質問と答弁なども聞いていて、分かったことについては繰り返さないですけれども、この間、いわゆる２園廃園で、３園の定員大幅削減ということで行われた経過があるのですが、その議論の中で私の方からずっと申し上げていたのは、定員を削減しなくても、例えば新しい機能は増築などを行えば、そこで対応できるのではないかと。つまり、国基準を満たす園庭を維持したままでも増築は可能で、その増築分で新しい機能をやれば、保育室を転用する必要はないのではないかということをずっといろんな場面で申し上げていたかなと思うんですね。答弁に関しては、そういった増築などに関しては考えていないという答弁だったのかなと思っているんですが、それで、ここでこういう調査業務を行うということなんですが、となると、例えば建て替えだとか、大規模改築だとか、修繕だとか、こういうことを検討するのであれば、この敷地の中でどういう床面積が確保できるのか、こういったこともきちんと検討して、一旦は大きく定員を削減したんですけれども、それをリカバリーできるような、全部をリカバリーするのか、ある程度リカバリーするのかは別だけれども、この建て替えとか大規模改築とか、こういう機会を捉まえて、そういうリカバリーができるかどうかの調査も併せて行うべきだと思っているんですが、現状の条例の定員を固定的なものと考えて、この建て替えなどの際に、そういった増築その他、床面積の部分に関してきちんと確保すると。それで定員を一旦削減したものに関してもある程度リカバリーさせるとか、こういうことはこの調査の中では何も調査をしないということなんでしょうか、検討しないということなんでしょうか、それともする余地はあるんでしょうか。そのことに関して伺っておきたいと思うんです。つまり、今の定数というのは、現状の建物に変更を加えない前提でああいう設定になっていたと思うんですよね。ただ保育室を転用しただけではないですか。だから定員が思いっきり減ったんですけども、こういうような調査業務をやるなら、そういうことも併せてきちんと調査すべきだと思っているんですが、その点に関してはどういうふうに受け止めておけばいいんでしょうか。もしそういうことが何ら検討されないということになると、これは２園廃園、３園定員大幅減ということを前提とした単なる補正予算ということになってしまいますので、当然賛同することにはならないということになるかと思うんですけども、ちょっとその辺り、この債務負担行為で組まれた調査に関しては、どういうことが考え得るのか、これは予算全体の判断にも関わることなので、明確にしておいていただけないでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">黒澤保育課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=6221s" data-timestamp="6221"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:43:41</a>今ご指摘いただきました点、定員についてですが、ここにつきましては、市立保育園の在り方に関する方針で定められた定員を前提として考えていく予定でありますので、この調査委託の中で、改めて定員についての見直しということは考えておりません。この条例の結果に合わせた形で、建て替えであれば全体の建物の規模であるとか、改修であれば中の使い方であるとか、そういったことを検討していくことになろうかと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">渡辺委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=6257s" data-timestamp="6257"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:17</a>ということになりますと、単純に組まれている調査の債務負担行為の予算というのは、要するに２園廃園と３園大幅定員削減ということを前提とし、そこから何か善処することはこの調査の中には含まれない予算だという、そういう位置付けの債務負担行為だということが分かりましたので、それを前提に態度を考えたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=6285s" data-timestamp="6285"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:45</a>他にいかがでしょうか。よろしいでしょうか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=6285s" data-timestamp="6285"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:45</a>以上で、歳出に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=6301s" data-timestamp="6301"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:01</a>ご異議なしと認めます。したがって、歳出に対する質疑を終了いたします。</div>
+  <div class="say">次に、総括質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=6316s" data-timestamp="6316"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:16</a>総括ということで、ちょっと大きな視点で質問したいと思います。いわゆる補正予算、予算化の在り方というか、そういうものに関してでございます。</div>
+  <div class="say">まず、今回のこの補正予算に関しては、私どもの会派からは、新年度への期待、要望等も含めまして、多分これから協議だと思いますけど、この議案は賛成していこうかなと思っているところでございます。必要な予算ということで、そういう判断をしていきたいとは思います。まずそれを申し上げた上で、今、国会の方でもいろいろ動きがありまして、いわゆる重点支援地方創生臨時交付金、こちらについてのものなんですけれども、これは実際この予算の中には入っていないということでございますが、国会でもまだ最終的な結論というのは出ていない形なのかなと思いますが、ほかの自治体では、補正予算として予算化をされている自治体もちらほら見えてきています。隣接の自治体ももう予算書がホームページに上がって、これが予算特別委員会の付託かどうかというのは、ちょっと議事日程も分からないので、そこまでは知り得ませんけれども、小金井市としてはまだその部分というのは見えていないということで、まずは国の方から予算化について、この重点支援地方創生臨時交付金の使い道等の通達等が来ているかどうか、主要なものについて何か通達が来ているものがあれば、それをお示しいただければと思います。</div>
+  <div class="say">それで、結論としては、やろうと思えば予算化はできたのではないかなという観点でどうであるかということで、その点をお伺いしたいと思っております。</div>
+  <div class="say">とりあえずはこの２点になりますかね、よろしくお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">梅原企画財政部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=6496s" data-timestamp="6496"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:16</a>重点支援地方創生臨時交付金の関係についてでございます。令和７年11月21日に閣議決定された「強い経済」を実現する総合経済対策に係る重点支援地方創生臨時交付金ということで、国の方からも示されておりまして、それを活用した支援策ということについて、早期の執行ということも求められていると認識をしております。こちらの活用につきましては、全庁に既に周知をするとともに、生活者支援、事業者支援、様々な取組が考えられるところでございますが、どのような対策が本市にとって効果があるか、関係部署と連携し、検討、調整を行っているところでございます。まだ詳しい情報が全て来ているわけではございませんので、今後の国、都からの情報、また各市の状況も踏まえながら、適切に対応してまいりたいと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">後藤財政課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=6582s" data-timestamp="6582"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:42</a>それでは、沖浦委員からご質問がありました、国からの通知についてでございます。直近ですと、閣議決定されました11月21日発出ということになっておりますが、東京都経由で小金井市に11月25日付けで重点支援地方創生臨時交付金の関係での通知が届いております。また、12月の上旬には国の補正予算の概要ということで、同様の内容の通知を頂いているという状況になります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=6611s" data-timestamp="6611"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:11</a>そういう国からの通知があって、いわゆる年内予算化を検討することもいいよということで、今、企画財政部長の方からも、早期執行が求められるものであるということは、これは皆さんも同じ認識だと思うんですよね。早期執行とおっしゃいましたけれども、詳しいことは分からないから執行はできないとしても、予算化をして議決を経ておくと、そして、詳しい情報がしっかり来たときに、予算の執行ができるようにしておくという考えの下、例えばほかの自治体が予算化して、予算特別委員会、あるいは即決だったりするのかな、何かそういうことをやり始めているところも、今ちらほら見えているという状況であります。では、小金井市はどういうふうに動いてこれを示していくのかということで、この定例会が終了してしまうと、次の定例会はもう２月の半ばぐらいですよね。ここにその関連の予算をつけていくのか、そうすると、多分その執行ということになると、もう来年度の話になるのかなと思っております。では、そのスケジュール感として、その間に例えば臨時議会でも開いて、何かそういうお考えがあるのか、そこら辺をある程度こちらも踏まえておかないと、やはり年も越せないというか、いろいろ関心事ということで、この点は市民の方にも今どうなっているのということで聞かれる、あるいはほかの自治体が動いたときに、小金井市がまだ動いていない、予算化もされていないという状況になると、やはりこれはどうしたんだと。確実にほかの自治体とのスピード感とか、何をやっているという、こういう内容が比較される、そういう事例になるのかなと思っておりますので、ここら辺の今後どういう形でそれを示していけるのか、予算化するタイミング、そういうことをお考えなのかということで、この点はお伺いしておきたいと思っておりますので、よろしくお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">梅原企画財政部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=6783s" data-timestamp="6783"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:53:03</a>今後のスケジュール等についてということでございますが、先ほども申し上げましたように、現時点では、どのような対策が本市にとって効果があるかということで、関係部署と連携しまして、検討、調整等を行っているところでございます。その辺が決まってきませんと、具体的なスケジュールというところを、まだお示しする段階まで来ていないということになります。早期の執行が求められていること、また、できる限り情報としても早くお伝えしていかなければならないということは認識をしておりまして、先ほど委員からお話のありました臨時会というところも頭に浮かぶところではございますが、現時点では、まだ具体的に申し上げられるところはございませんので、準備ができましたら、できる限り早くお伝えをさせていただきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">白井市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=6844s" data-timestamp="6844"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:54:04</a>今、企画財政部長の方から答弁した状況が概要となります。ですので、結論から申し上げると、今定例会最終日に出すということはちょっと難しい。要するに、重点支援地方創生臨時交付金として国が求めている、おこめ券なのか、商品券なのか、給付金なのか、それはおそらくコアな部分になるということなんですけども、それについて今定例会最終日に、最初は出そうと思ったんですけど、ちょっとなかなか無理だということを我々としては判断をいたしました。なので、今、臨時会という言葉もありましたが、それは一つの選択肢として、まだこれは決まっていませんので、議長にも相談していませんが、遅ければ第１回定例会の冒頭になるだろうというような見立てになります。</div>
+  <div class="say">もう少し具体的に言いますと、他市では定例会冒頭の所信表明で、これをやるとおっしゃった自治体もありました。何となく聞こえてくるのは、最終日に出す自治体も増えてくるだろうと思っております。我々はこの間、ちょうどタイミング的に11月に１か月かけて、例のキャッシュレスの決済ポイント還元事業をやっていたということがあって、直近でその事業をやったので、生活者支援と事業者支援、この２軸で考えたときに、何が適切なのかということを考えなければならないということが一つです。</div>
+  <div class="say">もう一つは、一般質問でキャッシュレス決済ポイント還元事業がどうだったのかということとか、もう少しこういうことを考えればどうかとか、もう少し慎重にいろんな意見を聞いて、判断すべきではないかというご意見も頂いたところです。また、この間、いろいろ議会の皆さんからもご指摘をいただく、要するに事業構築の甘さみたいなことをご指摘いただくこともあったりもして、その諸々も含めて、どういう事業を効果的にこの交付金を使ってやるかというのは、我々としてはやはり考えざるを得ないなというところです。なので、スピード優先だと、これかなみたいなところもあったりもしましたが、ちょっとそのシステム構築の関係とか含めて、意外と時間がかかるなとか、なかなか具体的には申し上げられませんが、実はもうこの定例会が始まった段階で、そういう検討を早々にやった中で、今定例会に出すのはちょっと我々としては難しいと判断せざるを得ない状況がございました。これは実際にどこかの段階で、また予算を出す際には、その経過なども説明をさせていただきますが、大変申し訳ないですけど、他市と比べてちょっと遅いと言われるかもしれませんが、できるだけ今回の国の意向に沿って、スピード的には少し遅くなっているんですけども、ただ、この生活者支援と事業者支援というその観点において、市として効果的に使うためにはどうするかということを、なおもう少し検討させていただきたいということだけは申し上げておきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=7028s" data-timestamp="7028"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:57:08</a>市長からもご答弁いただいて、頭の中にはそういうことは実際に詰まって、いろいろ考えられているということでもございます。その予算化というのが、第１回定例会の冒頭というお言葉もありまして、それが最善、最速なのかどうなのかというところは、これはやはりいろいろ市民感情の部分もありますから、そこでオーケー、分かったとまでは私も言えないんですけれども、ここの予算特別委員会の場がふさわしいかどうかは分からないですけれども、何か市長からのメッセージで、これをやりますと言ったら、早くやれよとなってしまうけれども、例えばほかの自治体の首長が、おこめ券はやらないよとかいろいろ言っているような形で、まさかこういうものはやりませんよとか、実際はこんな感じの方向で考えているというような何かメッセージというのもあった方がいいのかなと、できれば年内とかにね。それで年を越していきましょうというお話になってもよろしいのかなと思いますので、それに関するコメントは特に求めませんけれども、ぜひよろしくお願いしますということで、総括の質問を終わりたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">小林委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=7137s" data-timestamp="7137"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:58:57</a>ありがとうございます。沖浦委員の質問の４問目になりますけども、そこで引き下がるわけにはいかないというところだと思います。やはり第１回定例会の冒頭だと、事業によってですけども、年度を越すなというところがあって、やはりこのスピード感を持って、我々は野党ですけども、賛成させていただきまして、今回、立憲民主党と組替え動議を出したんですよ。これはもうすごいですね。気持ちいいなと思いますけど、なかなか賛成多数にならなくて、組替え動議は通らなかったんですが、原案自体も我々が一緒に検討してきた子どもの２万円給付だとか、いろんな諸々が含まれておりますので、最終的には賛成をしたところであります。それで、既に衆議院を通過して、早ければ明日にも参議院で成立をしていくという、そういう状況なので、日曜議会でも一定の質疑がありましたが、状況が大きく変化しているということで、今日も質問をさせていただいているところであります。</div>
+  <div class="say">それで、スピード感というところが今回は非常に重要になるところでもありまして、また、何をやるかというところであります。ベースとなるのは、やはりできるだけ多くの方に、小金井市で５億円から６億円という答弁が一般質問でも出ておりましたが、基本的には医療、介護、子育て、農業とか、そういったところへの物価高に対する支援という部分が大きくあってしかるべきかなと思っております。また、全市民に向けた景気対策という意味では、プレミアム付き商品券とか、そういった選択肢があろうかなと思っております。これは我々が11月に医療の関係の緊急要望を市長にお出しさせていただいたときにも、そういったことについて検討を早く進めるようにということはお話もさせていただいたわけですが、大体どういうことを考えているか、庁舎等建設及び公共施設マネジメント推進調査特別委員会も、明日どういう検討をしながら進めているんだというような資料が出てきましたけども、どういったことを視野に検討をやっているのかということを、もう少し踏み込んでご答弁いただいておくといいかなと思います。</div>
+  <div class="say">前半で話したような各施設などへの支給というのは、もしかしたら第１回定例会の冒頭の議決でも、年度内に間に合うかもしれませんけども、光熱費などは１月、２月も非常にかかっていくわけでありますから、決まっているんだったら、早く安心感を届けていくべきであろうと思います。また、商品券の関係でいくのであれば、やはり第１回定例会のそこで議決しても、なかなかスタートするまでには時間がかかるんだなと思っておりまして、臨時会なども含めて、そういう話も出ておりますが、これは確実に早急に予算を議決できるような形に持っていっていただきたいと、私の方からもお願いをいたしますが、改めてご見解いただきたいと思います。</div>
+  <div class="say">あともう一つ、先ほど話した子ども１人当たり２万円の応援手当ということでありまして、これは今、2026年３月までに支給を目指すという、国からのそういうお金だということを明言されて、予算化をされていくわけであります。まさに年度内の支給ということでありまして、今回は０歳から18歳が対象となっていくということであります。総額は3,677億円ということでありますが、これについても第１回定例会みたいな話をするのでしょうか。日にちまでは示していないですけども、既に各自治体がホームページに記事としては上げて、もうしばらくお待ちくださいというような、そういった記事を上げている自治体というのはかなり増えています。小金井市はそういったものも上げていないわけで、かなり問合せも増えているわけであります。いろいろな補正予算に関わる部分はありますけども、明日一定の方向が見えるという中で、この物価高対応子育て応援手当、これについては可能であれば、本定例会はまだまだ約１週間ありますので、４日間ありますけども、この中で手を打っていただきたいと、このように強く要望しますがいかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">梅原企画財政部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=7440s" data-timestamp="7440"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:04:00</a>物価高騰対策につきましては、今年度も11月にキャッシュレスの関係で事業を行っていたところでございますが、令和６年度も様々な対象の方に対して事業を行ってまいりました。低所得世帯、家計急変世帯、また子育て世帯、物価高騰に直面する生活者、また障害福祉事業所、介護事業所、保育施設運営事業者等でございます。現在、取組について検討しているところでございますが、これらのものも参考に、事業者支援、それから生活者支援ということで、バランスよくというようなことで検討しているところでございます。時期につきましては、現時点で具体的なところを明言できないところは大変申し訳ないと思いますが、できる限り早く対応してまいりたいと考えております。</div>
+  <div class="say">それから、物価高対応子育て応援手当につきましては、こちらは重点支援地方創生臨時交付金とはまた別に考えておりまして、今はちょっと明言はできませんが、こちらについても適切な対応を図っているということになります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">小林委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=7542s" data-timestamp="7542"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:05:42</a>ありがとうございます。重点支援地方創生臨時交付金については、なかなか答弁になっていないなというところはありますけども、年度内に行き渡るような方向では検討したいということで、改めて確認しておいてよろしいでしょうかということと、あとは子育て世帯の件でありますけども、これについては別で考えているということでありました。これは定例会の中での補正予算ということも含めて検討しているということで捉えてよろしいでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">梅原企画財政部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=7583s" data-timestamp="7583"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:06:23</a>まず、重点支援地方創生臨時交付金の関係でございますが、こちらにつきましては、早期の実施ということで考えているところではございますが、現時点では、まだどのような事業かということが決まっておりませんので、その事業の内容によりましては、また時間を要する場合もあると思いますので、こちらについては、現時点で今年度中ということをはっきり申し上げるのは難しいところでございます。</div>
+  <div class="say">それから、物価高対応子育て応援手当、こちらにつきましては、本定例会中ということも含めての検討をしているということでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=7647s" data-timestamp="7647"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:07:27</a>すみません、あと何人が総括でいらっしゃいますか。あと下水道の方の特別会計もあるので、特別会計でご質問のある方はいらっしゃいますか。下水道の方は資料が出ているようですけれども、質問はよろしいですか。どういたしましょう、続行した方がいいでしょうか。（「お願いします」と呼ぶ者あり）ということで、すみません、続行させていただきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=7691s" data-timestamp="7691"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:08:11</a>お昼も過ぎているので、なるべく手短に伺いたいと思います。今、物価高騰対策についてスピード感を持ってやるべきだという質問があって、私もそのとおりだと思います。東村山市は市議会12月定例会の所信表明の中で、市長が市民１人当たり4,000円の物価高対応家計応援金（仮称）を実施するということを表明しているということなど、各自治体の動きが今始まっていると思います。私たちもおこめ券の発行を求めてきましたが、おこめ券は何かあんまり評判がよくないということもありますけど、でも貯蓄に回るよりも消費に回すということでは必要な手だてだと思いますので、そういうことも含めて、ぜひご検討いただきたいということで、スピード感ということでは質疑もあって答えもあったので、その点については私からもお願いしておくということで回答は要りません。</div>
+  <div class="say">今回の補正予算は、財政調整基金13億円を取り崩して、返還金が約10億円あるので、それに対応するという形になっていると思います。確かに財政調整基金は、取り崩しながら財政運営しているんだというこの間の答弁もあり、今年度でいうと約30億円、29億7,600万円ですか、取り崩すということになっていますが、年度末残高は約60億円ということに、見込みの数値としては出されているということでありますので、しかも、毎年度繰越金が約20億円ぐらい発生するということも踏まえると、今後物価高騰対策は検討されるということだったと思うんですが、この間の小金井市の物価高騰対策については、国や東京都などからの交付金の範囲内での対策にとどまっているというのが現状だったと思うんですね。やはりある程度必要な施策については、財政調整基金などを取り崩して、市の独自財源も使って支援していただきたいとお願いしたいと考えています。</div>
+  <div class="say">この間でいうと、消費喚起のキャッシュレスポイントの補助事業などが行われてきましたけれども、市民の暮らし支援ということでいうと、直接支援というのはこの間あまり行われてこなかったと。大体国の物価高騰対策自体が遅れに遅れて、ようやく今、具体的になってきたというような状況だったと思うので、やはり今後の物価高騰対策については、市独自財源も使って支援を行ってもらいたいと考えているんですが、財政調整基金は約60億円という見込みになっておりますが、ぜひそういう手だてをご検討いただきたいなということはお願いしたいと思うんですが、その点についてのご見解をお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">梅原企画財政部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=7895s" data-timestamp="7895"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:11:35</a>物価高騰対策につきましては、この間、国、都支出金等の特定財源も活用しつつ、不足する分につきましては財政調整基金等の一般財源も活用し、市民サービスの充実のため、機動的な予算編成に努めてきたところでございます。今後におきましても、更なる対策について想定する必要がありますことから、必要な事業を行っていくための予算を迅速性に留意しつつ、進めていくものと認識をしております。</div>
+  <div class="say">財政調整基金につきましては、この間の積み増しによりまして、現時点では一定の額を確保できているところでございますが、コロナ禍以降、当初及び補正予算における財政調整基金の取崩しは大きく増えておりまして、今年度も当初予算で約15.5億円、第６回補正予算までで14億3,000万円、合わせまして約30億円を取り崩し、市民サービスの維持向上を図る財政運営を行っているところでありまして、これまでどおり慎重な対応が必要と考えております。</div>
+  <div class="say">物価高騰の影響の長期化によるあらゆる経費の増加、今後生産年齢人口の減少が想定される中、増加する社会保障経費に対応しつつ、老朽化した公共施設の計画的な整備など、山積する重要課題に取り組む必要があり、引き続き厳しい財政状況との認識の下、持続可能な財政基盤の構築に努めつつ、市民サービスの維持向上に取り組んでまいる考えでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=8000s" data-timestamp="8000"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:13:20</a>この間も財政調整基金を活用して、市民生活支援ということを要望してきましたので、お答えいただきましたけど、この間の物価高騰対策は、国と東京都の支援の範囲内でしか行われてきていないというのは事実だと思うんです。そういう点から、やはり市独自の財源も使って、ぜひ思い切った支援をしていただきたいということは、要するに、スピード感も持って取り組んでもらいたいということはお願いしておきたいと思いますので、よろしくお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=8034s" data-timestamp="8034"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:13:54</a>他にありますでしょうか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=8038s" data-timestamp="8038"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:13:58</a>それでは、委員長報告において概要を報告することになっている総括に対する意見・要望がございましたら、発言をお願いいたします。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=8047s" data-timestamp="8047"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:14:07</a>以上で、総括質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=8050s" data-timestamp="8050"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:14:10</a>ご異議なしと認めます。したがって、総括質疑を終了いたします。</div>
+  <div class="say">以上で、本件に対する質疑を終了いたします。</div>
+  <div class="say">ここで、本件の討論、採決は一時保留とし、議事の進行を図りたいと思います。これにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=8063s" data-timestamp="8063"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:14:23</a>ご異議なしと認めます。したがって、討論、採決は一時保留といたします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=8065s" data-timestamp="8065"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:14:25</a>次に、議案第60号、令和７年度小金井市下水道事業会計補正予算（第１回）を議題といたします。</div>
+  <div class="say">本日、部局から資料が提出されておりますので、初めに資料の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">柿崎環境部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=8082s" data-timestamp="8082"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:14:42</a>それでは、ご要求のありました資料につきましては、既に送付させていただいているとおりとなっております。個別の説明につきましては省略させていただきますが、ご審議のほどよろしくお願いいたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=8094s" data-timestamp="8094"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:14:54</a>提出された資料の内容に対し、不明な点がございましたら、議事進行上の発言としてお受けいたします。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=8102s" data-timestamp="8102"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:15:02</a>部局の説明は終了といたします。</div>
+  <div class="say">これから質疑を行いますが、質疑については、収入・支出一括、総括の順序で行うことにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=8112s" data-timestamp="8112"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:15:12</a>ご異議なしと認め、収入・支出一括、総括の順序で行うことといたします。</div>
+  <div class="say">初めに、収入・支出に対する質疑を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=8125s" data-timestamp="8125"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:15:25</a>以上で、収入・支出に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=8125s" data-timestamp="8125"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:15:25</a>ご異議なしと認め、収入・支出に対する質疑を終了いたします。</div>
+  <div class="say">次に、総括質疑を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=8132s" data-timestamp="8132"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:15:32</a>他にございませんね。</div>
+  <div class="say">それでは、委員長報告において、概要を報告することになっている総括に対する意見・要望がございましたら、発言をお願いいたします。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=8142s" data-timestamp="8142"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:15:42</a>以上で、総括質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=8145s" data-timestamp="8145"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:15:45</a>ご異議なしと認め、総括質疑を終了いたします。</div>
+  <div class="say">以上で、本件に対する質疑を終了いたします。</div>
+  <div class="say">ここで、本件の討論、採決は一時保留とし、議事の進行を図りたいと思います。これにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=8158s" data-timestamp="8158"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:15:58</a>ご異議なしと認め、討論、採決を一時保留といたします。</div>
+  <div class="say">休憩いたします。</div>
+  <div class="say">午後０時12分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午後０時13分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=8166s" data-timestamp="8166"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:16:06</a>再開します。</div>
+  <div class="say">これから、一時保留となっております議案第59号及び議案第60号の保留を解き、順次議題といたします。</div>
+  <div class="say">初めに、議案第59号、令和７年度小金井市一般会計補正予算（第６回）の保留を解き、討論、採決を行います。</div>
+  <div class="say">討論を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=8213s" data-timestamp="8213"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:16:53</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=8213s" data-timestamp="8213"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:16:53</a>ご異議なしと認めます。したがって、討論を終了いたします。</div>
+  <div class="say">それでは、直ちに採決いたします。</div>
+  <div class="say">お諮りいたします。本件は原案のとおり可決することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=8213s" data-timestamp="8213"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:16:53</a>ご異議なしと認めます。したがって、本件は原案可決と決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say">次に、議案第60号、令和７年度小金井市下水道事業会計補正予算（第１回）の保留を解き、討論、採決を行います。</div>
+  <div class="say">討論を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=8213s" data-timestamp="8213"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:16:53</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=8250s" data-timestamp="8250"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:17:30</a>ご異議なしと認めます。したがって、討論を終了いたします。</div>
+  <div class="say">それでは、直ちに採決いたします。</div>
+  <div class="say">お諮りいたします。本件は原案のとおり可決することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=nyVxsfRwP6E&t=8261s" data-timestamp="8261"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:17:41</a>ご異議なしと認めます。したがって、本件は原案可決と決定いたしました。</div>
+  <div class="say">以上で、本日の日程は全部終了いたしました。</div>
+  <div class="say">本日は、以上で予算特別委員会を閉会いたします。</div>
+  <div class="say">午後０時14分閉会</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+</body>
+</html>

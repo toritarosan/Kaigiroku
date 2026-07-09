@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和7年12月11日 総務企画委員会</title>
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#1d3a63; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* 直接URLで開いた時だけ最上部に「会議一覧に戻る」帯（index分割ビュー内では非表示） */
+  .backbar-top{display:none;}
+  body.standalone{padding-top:40px;}
+  body.standalone .backbar-top{display:flex; align-items:center; gap:6px; position:fixed; top:0; left:0; right:0;
+       z-index:60; height:40px; padding:0 18px; background:var(--navy); color:#fff; font-family:var(--sans);
+       font-size:13px; font-weight:700; text-decoration:none; letter-spacing:.04em; box-shadow:0 1px 4px rgba(0,0,0,.15);}
+  body.standalone .backbar-top:hover{background:#294f86;}
+  body.standalone .prog{top:40px;}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+</style>
+</head>
+<body>
+<a class="backbar-top" href="index.html">← 会議一覧に戻る</a>
+<script id="backbar-js">(function(){try{if(window.self===window.top)document.body.classList.add('standalone');}catch(e){document.body.classList.add('standalone');}})();</script>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和7年12月11日</p>
+    <h1>総務企画委員会</h1>
+    <span class="srcbadge"><span class="dot"></span>本文＝小金井市議会 公式会議録（DBSR）</span><span class="src official">本文は公式会議録を一字一句そのまま掲載。要約はAIによる補助、タイムスタンプ・動画はYouTube連携（いずれも非公式の付加情報）。　|　<a href="https://www.city.koganei.tokyo.dbsr.jp/893473?Template=document&amp;Id=10297" target="_blank" rel="noopener">公式会議録の原典 ↗</a></span><span class="genmeta">本文は公式会議録と一致確認済み（verbatim）。要約はAIによる生成で、小金井市議会の公式見解ではありません。<br>最終生成日 2026-07-10</span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <h3>提出議案等一覧</h3>
+<ul>
+<li>7陳情第99号 食品放射能測定についてその名称を変えることを求める陳情書</li>
+<li>7陳情第118号 適格請求書等保存方法の２割特例、８割控除を2026年９月以降も継続を求める意見書を政府に送付することに関する陳情書</li>
+<li>7陳情第120号 「外国人による日本の土地購入を規制する法律」の制定を求める意見書提出に関する陳情書</li>
+<li>7陳情第121号 「全ての公務員の任用に国籍条項を定める法律」の制定を求める意見書提出に関する陳情書</li>
+<li>議案第62号 小金井市住居表示に関する条例の一部を改正する条例</li>
+<li>議案第67号 東京都六市競艇事業組合規約の一部を変更する規約</li>
+<li>所管事務調査 自治体ＤＸの取組について</li>
+<li>行政報告1 小金井市教育大綱（案）に対する意見募集の実施について</li>
+<li>行政報告2 （仮称）小金井市行財政改革2030素案に対する意見募集について</li>
+<li>行政報告3 （仮称）小金井市第７次男女共同参画行動計画（素案）に対する意見募集について（パブリックコメント募集要項）</li>
+<li>行政報告4 令和７年度課別時間外勤務時間数等について</li>
+<li>行政報告5 おくやみ手続窓口におけるワンストップ窓口の開設について</li>
+<li>行政報告6 なかよし市民まつりの検討状況について</li>
+</ul>
+<h3>議案の審議ごとの要約</h3>
+<h4>7陳情第99号 食品放射能測定についてその名称を変えることを求める陳情書</h4>
+<p>委員から、関係団体への意向確認の結果、名称変更に反対するものではないが元々求めていたものではないとの意見があり、反対を表明する意見が出された。また、放射能よりも放射性物質という言い方が適切であるとの意見も出された。採決の結果、本件は採択の上、市長に送付すべきものと決定された。</p>
+<h4>7陳情第118号 適格請求書等保存方法の２割特例、８割控除を2026年９月以降も継続を求める意見書を政府に送付することに関する陳情書</h4>
+<p>委員から、インボイス制度自体に反対し、消費税廃止・減税を求める立場から、２割特例・８割控除の延長を求める意見書を国に提出すべきとの意見が出された。建設業界の現状や外国人労働者の問題、職人不足に触れ、インボイス制度が建設業界に与える影響の大きさが指摘された。公明党も２割特例・８割控除の延長を提言していることが報告された。消費税廃止や簡素な税制への回帰を求める意見、インボイス制度の計算の煩雑さへの不満も表明された。一方で、制度の不正利用の報道や、確定申告時期の状況変化を考慮し、政府の見解が明確になるまで継続審査とすべきとの意見も出された。採決の結果、本件は保留と決定された。</p>
+<h4>7陳情第120号 「外国人による日本の土地購入を規制する法律」の制定を求める意見書提出に関する陳情書</h4>
+<p>委員から、安全保障上の重要施設の周辺土地の安全確保は、土地所有者の国籍ではなく、その土地で何がされるかが重要であり、外国人か日本人かという属性で分けることに意味はないとして、陳情に反対する意見が出された。一方で、陳情に大賛成する意見も出され、防衛上重要な地域や水源地、山林の外国人による購入への懸念、固定資産税や相続税徴収の困難さ、相互主義の観点から中国の土地を日本人が買えない現状を踏まえ、外国人による土地購入の制限を求める意見が出された。また、諸外国の状況を鑑みれば、特定の条件での規制は外国人差別には当たらないとの意見も出された。国の責任において専門的かつ多角的な見地から慎重に議論されるべき課題であり、議会として意見書を提出する段階ではないとの意見や、陳情書の表現が特定の国を指しているように感じられ、不安感を増す書き方であるとして反対する意見も出された。採決の結果、本件は不採択と決定された。</p>
+<h4>7陳情第121号 「全ての公務員の任用に国籍条項を定める法律」の制定を求める意見書提出に関する陳情書</h4>
+<p>職員課長から、地方公務員法上、外国籍の者の任用を制限する明文規定はなく、小金井市では国籍による取扱いの差異は設けていないとの説明があった。委員から、市民の個人情報を扱う部署や職員の個人情報を扱う部署に外国籍の職員が配置されているか、またその比率について質問があったが、個人情報に関わるため答弁は控えられた。市長は、外国籍の方を差別するつもりはなく、法に基づいて事務を行っており、国籍を問わず職員を任用していると述べた。また、防衛、外交、警察、公安といった業務については国籍条項を理解するが、地方公共団体はそういった事務を行っていないため、把握する必要性は感じていないとの見解を示した。委員からは、公務員全体に一律に国籍条項を設けるのは非現実的であり、専門職などでは外国人の力が必要な場合もあるとして、陳情に反対する意見が出された。また、公権力を行使する者には日本国籍が必要という現行の運用でよいとの意見や、国籍によって合理的な理由なしに差異を設けるべきではないとの意見も出された。陳情書が特定の国を指しているように感じられ、反日教育を受けている国の人を公務員にすることへの懸念が示されている点について、日本国内でも日本人によるテロ行為があったことなどを踏まえ、陳情に反対する意見も出された。採決の結果、本件は不採択と決定された。</p>
+<h4>議案第62号 小金井市住居表示に関する条例の一部を改正する条例</h4>
+<p>委員から、住居表示の枝番付番について、市の方針を確認する質疑があった。市民課長から、原則として一つの建物に一つの番号を付番する目的で、同一住居番号で複数の住居がある場合に枝番を付番していること、今年度7月から基準を変更し、同一住居番号が2棟以上ある場合は新規・既存区域問わず枝番付番が可能になったとの説明があった。また、新しい住居表示板のデザインや、既存住民が新しい表示板への交換を希望した場合の対応についても質疑があった。市民課長は、要望があれば交換に応じること、デザインについては東京都の内規に準じているが、見やすさの調整は検討する旨を答弁した。枝番付番基準の変更について、市報等での広報は行っていないが、今後は検討するとの説明があった。採決の結果、本件は原案可決と決定された。</p>
+<h4>議案第67号 東京都六市競艇事業組合規約の一部を変更する規約</h4>
+<p>質疑、討論ともに特になく、採決の結果、本件は原案可決と決定された。</p>
+<h4>所管事務調査 自治体ＤＸの取組について</h4>
+<p>情報システム課長から、自治体情報システムの標準化・共通化に係る導入経費及び運用経費、小金井市のガバメントクラウド概要図について説明があった。資料の数値訂正も行われた。委員から、ガバメントクラウドの活用は法的義務である一方、ランニングコストの増加や事務作業の増大が懸念されるため、予算手当や国・都への働きかけ、将来コストへの見解、人員体制の強化について質問があった。情報システム課長は、イニシャルコストは国の補助金で97～98%が充当できる見込みだが、ランニングコストへの直接的な補助金情報はないこと、標準仕様書の改定による追加修正費用についても補助を期待するが、万一の場合は都を通じて国に働きかける必要があると答弁した。人員体制については、東京自治体クラウドへの合流により、他市の知見やノウハウを活用し、職員の専門性も高めながら業務を進めていると説明した。また、システム稼働後のバグ修正や機能開発要望に対する自治体内での吸い上げや自治体間での共有体制について質問があり、プロジェクト管理ツールを活用し、常に情報共有ができていると答弁があった。副市長からは、専門性を持つ人材の採用については研究が必要であること、東京自治体クラウドの共同体制は一定の成果を上げており、継続を含めて検討するとの見解が示された。委員からは、ガバメントクラウドのセキュリティ面での変化やメリット、データ連携・相互利用性、災害時のBCP強化、広域行政DXのメリットについて質疑があり、ISMAP登録サービス利用によるセキュリティレベルの高度化、職員負担軽減、データ喪失リスクの軽減、DX推進の基盤整備といったメリットが確認された。採決の結果、本件は継続調査と決定された。</p>
+<h4>行政報告1 小金井市教育大綱（案）に対する意見募集の実施について</h4>
+<p>企画政策課長から、小金井市教育大綱（案）に対する意見募集の実施について報告があった。平成27年策定の大綱を改定し、新たに「小金井市教育大綱」として策定するもので、令和7年11月20日から12月19日までパブリックコメントを実施している。委員から、タイトル変更の評価や、市長の教育大綱策定におけるこだわりについて質問があった。市長は、教育委員会と基本構想・基本計画との整合性が中心となったが、「主体的に学ぶこと」と「多様性を包摂すること」を理念に盛り込んだこと、放課後の子どもの居場所の充実に関する記述を盛り込むよう指示したことを述べた。また、学習指導要領の前文にある「伝統と文化を尊重し、我が国と郷土を愛する」といった理念を大綱に織り込むことについて質疑があった。市長は、方針1で「日本固有の伝統文化」に言及していること、方針6で幅広い文化の提供を考えていること、理念の「多様性を包摂し」という言葉に様々な意味での多様性を込めていると答弁した。委員からは、教育委員会との連携や情報交換の評価、大綱が大きな骨組みとしての方針を示すものであることの確認があった。</p>
+<h4>行政報告2 （仮称）小金井市行財政改革2030素案に対する意見募集について</h4>
+<p>企画政策課主査から、（仮称）小金井市行財政改革2030素案に対する意見募集について報告があった。令和8年1月初め頃から約1ヶ月間、パブリックコメントを実施する予定である。質疑は特になかった。</p>
+<h4>行政報告3 （仮称）小金井市第７次男女共同参画行動計画（素案）に対する意見募集について（パブリックコメント募集要項）</h4>
+<p>男女共同参画担当課長から、（仮称）小金井市第7次男女共同参画行動計画（素案）に対する意見募集について報告があった。令和7年12月12日から令和8年1月13日までパブリックコメントを実施し、令和8年3月末までに計画策定を予定している。質疑は特になかった。</p>
+<h4>行政報告4 令和７年度課別時間外勤務時間数等について</h4>
+<p>労働安全衛生担当主査から、令和7年4月から10月までの課別時間外勤務時間数等について報告があった。時間外勤務時間は前年同時期と比べ2,887時間の減となっているが、今年度の目標に対しては1,992時間の増となっている。委員から、開庁時間と閉庁時間の見直しによる時間外勤務抑制の検討について質問があった。行政経営担当課長は、窓口時間の短縮は近隣市でも事例があることを認識しており、市民サービスの維持向上と業務効率化の両観点から、先行事例の事例収集に努め、導入効果等を前向きに研究を進めていきたいと答弁した。</p>
+<h4>行政報告5 おくやみ手続窓口におけるワンストップ窓口の開設について</h4>
+<p>市民課長から、令和7年12月8日より、おくやみ手続窓口においてワンストップ方式での受付窓口を開設したことについて報告があった。予約があれば、事前に庁内で必要書類を準備し、市民課職員が1か所で対応する仕組みで、約50の手続のうち27個がワンストップ方式で受付可能である。従前のウォークラリー方式と併用して行う。委員から、ウォークラリー方式とワンストップ方式の併用の目的、予約状況、ワンストップで対応できない手続の割合と市民の反応について質問があった。市民課長は、ニーズの違いから併用していること、ワンストップ方式の予約は12月が埋まっており、1日1枠で運用していること、よくある手続はワンストップで対応できているため、他の課への案内はほとんどないことを答弁した。また、ワンストップ化の経験を他の窓口業務に活かせるかという質問に対し、総合窓口化は現時点では難しいが、庁内での業務分担に関する認識は生まれたと答弁した。</p>
+<h4>行政報告6 なかよし市民まつりの検討状況について</h4>
+<p>コミュニティ文化課長から、なかよし市民まつりの再構築に向けた検討状況について報告があった。令和7年11月17日に旧実行委員有志を対象に説明会を実施し、令和10年度に新しい形の市民まつり開催を目指していることなどを伝えた。委員から、市民がまつりを楽しみにしており、計画の過程を文書で報告してほしいとの要望があった。</p>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/w7aV1wiQeoE" allowfullscreen loading="lazy"></iframe></div>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/21mEj0OGU6Q" allowfullscreen loading="lazy"></iframe></div>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/H_GPqmlUHZ0" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・3本）</p>
+  </section>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=60s" data-timestamp="60"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:00</a>おはようございます。ただいまから総務企画委員会の会議を開きます。</div>
+  <div class="say">直ちに本日の議事に入ります。</div>
+  <div class="say">当委員会に付託されております案件は、陳情４件、議案２件、所管事務調査１件です。以上７件につきましては、総務企画委員会審査予定表の順序で行うことといたします。</div>
+  <div class="say">初めに、７陳情第99号、食品放射能測定についてその名称を変えることを求める陳情書を議題といたします。</div>
+  <div class="say">部局から発言がありましたら、これを求めます。</div>
+  <div class="say">（「特にございません」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=96s" data-timestamp="96"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:36</a>これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">たゆ委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=104s" data-timestamp="104"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:44</a>この陳情は保留になっておりまして、私が保留を要求させていただいておりました。ありがとうございました。</div>
+  <div class="say">前回、見解を一定述べたんですけれども、保留した理由の部分で、改めて関係する団体の方に意向を確認してきました。ということでありまして、それによると、市が名称を変えることを考えているということについて改めて申し上げますが、ふだん関係している方の思いを聞いたところ、反対するものではないが元々求めていたものではないということであることが分かりまして、私たちとしては、その考えを尊重する立場から、微妙なところなんですけれども、反対しようと思っていることを表明します。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=165s" data-timestamp="165"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:45</a>言葉の問題として、放射能というよりも放射性物質などの言い方の方が私もいいだろうとは思っております。ただ、今の表現にすると、食品全体が放射性物質で侵されているというようなことを誤解する人というのは私はいないのではないかなと思いまして、その辺を踏まえて採決に臨みたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=197s" data-timestamp="197"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:17</a>休憩します。</div>
+  <div class="say">午前10時05分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午前10時06分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=218s" data-timestamp="218"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:38</a>再開いたします。</div>
+  <div class="say">本件につきまして、委員長報告に載せる意見、要望がございましたら、発言をお願いいたします。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=227s" data-timestamp="227"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:47</a>以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=233s" data-timestamp="233"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:53</a>ご異議なしと認めます。したがって、質疑を終了いたします。</div>
+  <div class="say">これから討論を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=240s" data-timestamp="240"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:00</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=245s" data-timestamp="245"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:05</a>ご異議なしと認めます。したがって、討論を終了いたします。</div>
+  <div class="say">それでは、直ちに採決いたします。</div>
+  <div class="say">お諮りいたします。本件は採択の上、市長に送付することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+  <div class="say">（「異議あり」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=259s" data-timestamp="259"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:19</a>ご異議がありますので、本件は起立採決をいたします。</div>
+  <div class="say">本件は採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div>
+  <div class="say">（賛成者起立）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=270s" data-timestamp="270"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:30</a>起立多数。したがって、本件は採択の上、市長に送付すべきものと決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=285s" data-timestamp="285"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:45</a>次に、７陳情第118号、適格請求書等保存方法の２割特例、８割控除を2026年９月以降も継続を求める意見書を政府に送付することに関する陳情書を議題といたします。</div>
+  <div class="say">本件は陳情者から発言の申出がありますので、委員会協議会を開催するため、しばらく休憩いたします。</div>
+  <div class="say">午前10時07分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午前10時17分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=930s" data-timestamp="930"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:30</a>再開いたします。</div>
+  <div class="say">休憩前に引き続き、７陳情第118号、適格請求書等保存方法の２割特例、８割控除を2026年９月以降も継続を求める意見書を政府に送付することに関する陳情書を議題といたしたいと思います。</div>
+  <div class="say">部局から発言がありましたら、これを求めます。</div>
+  <div class="say">（「特にございません」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=966s" data-timestamp="966"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:06</a>これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">たゆ委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=980s" data-timestamp="980"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:20</a>部局に対する質問というのはないんですけれども、というのはちょっと事前に聞きまして、小金井市内のインボイスの状況とか数値が分かるものがありますかと聞いたら、特に把握できているものはないということだったので、市に対して質問することではなく、意見だけ申し上げたいんです。</div>
+  <div class="say">まず、資料、そして陳述の説明が大変分かりやすくて、大変な状況を伺えたと思っております。また、インボイス制度を考えるフリーランスの会の中にも悲鳴の声がたくさんあって、本当にそのとおりだと感じているところです。私たち共産党としては、インボイス制度はそもそも反対ですし、消費税も廃止を求めて、まずは減税ということで頑張っているところでありますので、小金井市は過去に意見書も出したように、今回も意見書をぜひ出していきたいと思っているところであります、ということだけ表明します。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">斎藤委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=1049s" data-timestamp="1049"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:29</a>そもそもの消費税ですけれども、これは私が所属する政党も、これは国民をいじめる税金だと、消費することに対する罰則の税金ということで、廃止を求めております。ただ、他政党との関係がありますので、例えば、これを８％、５％、３％という軽減をすることに対しても賛成していくつもりなので、段階的廃止というような表現をさせていただいております。国会の中でも私どもの国会議員が消費税に対する様々な見解を示しているんですけれども、大体小売業に関してなんですね。今回は東京土建、建設業ですし、私自身も建設業の周辺で仕事もしている人間という中で、この消費税の今回のインボイス制度というそのものに関しても非常に中小零細というか零細ですね。私自身も免税業者だったんですが、この零細、いってみれば一人親方にとっては非常に負担になるんです。この納税の煩雑さということも含めて、非常に苦労しております。例えば元請の会社から、これはインボイスの事業者にならないと、いってみれば元請からすれば、その分、消費税の経費を計上することできないから、簡単に言えば、その職人は使えないということになってしまうんです。私の場合も、元請といいますか、発注者が上にいて、それを引き受けるときに、私の場合は消費税を要求しませんと、上の会社に対して消費税は要求しませんから、そのまま免税業者のまま使ってもらえませんかということを言うと、これはまず無理なんです。何といいますか、一生懸命やろうとしている会社ほどそこのハードルが厳しくなって、先ほどの資料の中で、外注の一人親方に課税事業者になってもらえるようにお願いしようかなというのと、当然そう思うんです。免税事業者の職人とは取引をやめようかな。実はこれが一番なんですね。免税事業者とは、インボイスに登録しなければ、もう使えないという形になるんです。これはどうなるかというと、今、建設業の構造自体がもうおかしくなっていますね。小金井市におきましても、庁舎建設、小学校の建設に対する入札に応じる業者がいないという状況の中で、これは結構お金を出したからといって引き受けてくれるかどうか分からないんですね。というのは、ご存じのとおり、建設業というのは重層下請構造になっていますけれども、一番現場に近い方々、一番体を使って、ある意味、経済的にも正直あまり恵まれていない方々がこの消費税やインボイスということに本当に一番いじめられている、一番負担が多いところなんです。このままこんなことを続けていれば、日本の建設業界自体がもういびつなものになって、それこそ、私ももちろん望んでないですけれども、そうならないように考えていますが、外国人労働者、技能実習生、今、技能実習生から特定技能とか、１号、２号とかいう話になりますけれども、そういう方々を使わなければ、日本人だけでは日本の建物を造ることができないという時代がもう数年で訪れるのではないかなと思っています。</div>
+  <div class="say">一次産業の中で、農業、漁業の方が減って、今回お米の騒動もありましたけれども、食料自給率も含めた形で、日本の農業がこのままではいけないというふうに結構叫ばれているんですが、建設業は私はそれ以上だと思っていまして、今の職人不足、職人をやろうという若者が非常に少なくなってしまっている。それは、私は日本の社会の構造、建設業の構造も含めた日本の社会の構造、それから、我々政治をつかさどる人間の思いの至らなさから、これは始まっているんです。私も今、小さいながらも国政政党に所属する身として、この建設業を割と小売業とか飲食業を代弁していってくる方が多いんですが、建設業が少ないんですね。ただ単に、飲食業とか小売業は、そうは言っても、仕事として需要があれば回っていくんですけれど、今度、建設業は動かなくなりますよ、そのうち。日本人だけでは動かすことができない。となると、外国人の労働者を呼ばなければいけないという必要性を求めて、政府は、外国人移入をもっとハードルを下げていくことになるんです。</div>
+  <div class="say">私は国政政党の責任として、職人大学校みたいな形で国費で職人を育てるということをやっていかないと、日本の建設業はなくなると思います。今、地方の大学は、定員割れをしているところは留学生で穴埋めをして補助金をいただいて経営しているというところはたくさんあるんですが、同じお金を払うのであれば、そこの部分を職人大学校、大学の一部を職人大学校という形での職人を育てる学校の一部としてそこに経費を使っていくということであれば、私は、留学生を優遇するよりもその方がいいと思っています。例えば金沢市、ちょっと経営母体は分かりませんけれど、職人大学校というのがあるんです。それはいわゆる宮大工としての伝統を受け継いでいくための大学校ということで、宮大工という建築業の中でも特殊なごく一部の部分を守るための大学校なんですけれど、私は、建築業界、建設の組織そのものを守っていく、イコール日本を守っていくための大学校として、一般的な大工だけではなくて、今、電気事業者も配管事業者も、言ってみれば電気、水道の事業者も非常に少なくなっている。ですから、例えば、入札が不調になるゼネコンの理由としてもサブコン、要するに下請の企業、電気や設備の事業者を見つけることができないと。そこが非常に足らないといっていることが今の日本の建設業の中で大きなゆがみになっていると思っているんです。その理由の中の一つに、この消費税とインボイスは必ずあります。今までそれがなくても、だんだん担う方々が減っているにもかかわらず、この消費税とインボイスで本当にもう致命傷の形になっているんですね。その中でも、今回の陳情で言われている２割負担の制度に関しても、これはもう続けなければ、本当に日本の建設業は終わります。</div>
+  <div class="say">そういうことで、これは市長部局の皆さんに質問して答えていただけるという課題ではありませんけれども、これは小金井市議会として責任持ってこの陳情書を上げて意見書を国に対して出すということが、どれほどの力になるか分かりませんが、地方からの訴えとして、これは上げていかなければいけないということです。これはもう部局の皆さんに申し上げるというよりも、我々、一番の基礎自治体としての議会の議員として、こういった市民の声というものをしっかり国に上げていくということが、これは我々の使命、我々の力です。我々、地方議会の中で議員提案で条例制定したり何とかというのは、結構これはハードルが高くてなかなか難しい。年に何本もそれができることはない。これ私、同じ支持者から結構批判されているんです。おまえら、議会というのは立法府だと言いながら、議員提案なんかまるっきりないではないかと言いますけれども、議員提案をするのが目的で条例をつくっていくのではなくて、必要なことがあれば議員提案しますよと言っているんですけれども、せめてこの意見書によって市民の生活をしっかり守っていくということが必要になっていくと考えております。</div>
+  <div class="say">繰り返して言いますけれども、建設業界のこれはもう存亡の危機という状況の中で、最後のとどめを打とうとしているのが、この２割負担の廃止です。私は政府をある程度信じたいと思っています。この来年の期間を必ず私は延長されると思っておりまして、それをやっているうちに、消費税自体の廃止というものを目指してまいりたいと思っておりまして、意見として表明させていただきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">小林委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=1766s" data-timestamp="1766"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:26</a>一言申し上げておきたいと思います。</div>
+  <div class="say">陳述もいただきまして、ありがとうございます。公明党は12月２日に税制調査会の方で、自民党の政務調査会長の方に2026年の税制改正に対する提言を申し入れました。その中で、我々もこのインボイスを進めてきた立場でありますが、この特例を経過措置として入れてやってきたわけでありますが、昨今の様々な状況、また、この間の経過を見た中でも、やはり中小企業をしっかりと支援していかなければいけないということで、この陳情にもあります２割特例、８割控除については延長していくべきであるということを申入れをさせていただいております。地元の企業、また中小の、日本を支えてくださっている方々が、しっかりと営みをしていただけるということが基本になるわけでありますので、それを踏まえて態度に臨みたいと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=1844s" data-timestamp="1844"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:44</a>私も、この２割特例、８割控除を継続した方がいいと思っています。私も、そもそも消費税は廃止すべきだと思っています。廃止すると20数兆円ほど穴が空くんですけれども、そもそも、それは残したまま景気対策の補正予算とか組んでいるわけで、むしろ消費税を廃止してそちらをなくしてしまって、景気が上向いて税収の自然増を目指す方が、経済的には良いのではないかと思っております。足りなくなっても、国債を発行することはできるわけで、そうすると国債を返せなくなると言う方いらっしゃるんですけれど、国債を返すというシナリオはもう既にほぼほぼなくて、ＧＤＰと国債の比が増えていかなければいいというのが今の考え方の主流だと思いますので、景気が上向く緩やかなインフレにするという方向で考えるべきではないかと思います。</div>
+  <div class="say">あとは、やはりインボイス制度はもう非常にややこしいと。これだけでマンパワーが使われてしまうということは非常に問題だと思いますので、もっと簡素な税制に戻していくべきではないかと意見表明いたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=1930s" data-timestamp="1930"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:10</a>今、皆さんから様々なご意見いただきましたので、私はあえて申し上げませんけれども、私自身もフリーランサーでございまして、適格請求書発行事業者の登録を行っております。これは事業が導入されて以降、消費税を適切に納付するということは、私は当然の話でありまして、それはもちろん全事業者が負うべき話だと思ってはいるものの、これを導入されたことによって、私一つだけ言いたいのは、非常に計算が煩雑でありまして、確定申告の前の、私、複式帳簿をつけております関係で、そんなに難しくはないんですけれども、でも、計算が非常に煩雑で多大な労力を負わされているなと感じておりました。もちろん金額の面、消費税を納めなければいけないという面もそうですけれども、例えばマイナンバーカードをもうちょっと普及させて、計算をもっと簡単にする何か新しい方法がある、そういうことがあればまた別なんですけれども、この制度自体に私は非常に問題を感じているというところであります。ですので、小金井をおもしろくする会としましても、このインボイス制度自体に疑問を感じておりますし、この陳情者、今回発言していただいて大変ありがとうございます。陳情者の発言にも一定程度、共感する面があると思っておりますので、それを踏まえて態度を決定したいと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=2047s" data-timestamp="2047"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:07</a>この陳情は、インボイス制度、消費税についてでございますが、非常に分かりづらくてややこしい制度であるなと。付託されてから私なりにいろいろと調べを進めさせていただきました。そうすると、やはりこれは国の施策ですので、今いろいろなところから要望なども上がっているところでありまして、それに対してまだ政府としては一定の見解を明確にしていないところでございます。</div>
+  <div class="say">そして、市民の皆様、事業者の皆様にお話を伺ったところ、ちょっとぴんとこないところだったんですね。今、結論を出せと言われれば出しますけれども、できれば、これはもうちょっと考えたいなと思っているところでございます。理由としては、これから時期が進みますと確定申告の状況になってまいります。そのときにいろいろと気付かれる方もいらっしゃるのではないかと私は想像できます。それと、報道から得た情報でありますけれども、このインボイス制度はある程度不正利用されている業者の方たちもいらっしゃるようなことも報道されております。ですので、それらのことも含めまして、いま一度、政府の見解がはっきりできるまで、できれば継続していただければと思うところでございます。</div>
+  <div class="say">一旦、以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=2144s" data-timestamp="2144"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:44</a>継続でというご発言だったのかなと思います。</div>
+  <div class="say">他にございますか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">休憩します。</div>
+  <div class="say">午前10時37分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午前10時45分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=2620s" data-timestamp="2620"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:40</a>再開いたします。</div>
+  <div class="say">お諮りします。本件は現時点での質疑を終了し、保留といたしたいと思います。これにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=2634s" data-timestamp="2634"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:54</a>ご異議なしと認めます。したがって、本件は保留と決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=2643s" data-timestamp="2643"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:03</a>次に、７陳情第120号、「外国人による日本の土地購入を規制する法律」の制定を求める意見書提出に関する陳情書を議題といたします。</div>
+  <div class="say">本件は陳情者から発言の申出がありますので、委員会協議会を開催するため、しばらく休憩いたします。</div>
+  <div class="say">午前10時46分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午前10時54分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=3096s" data-timestamp="3096"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:36</a>再開いたします。</div>
+  <div class="say">休憩前に引き続き、７陳情第120号、「外国人による日本の土地購入を規制する法律」の制定を求める意見書提出に関する陳情書を議題といたしたいと思います。</div>
+  <div class="say">部局から発言がありましたら、これを求めます。</div>
+  <div class="say">（「特にございません」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=3134s" data-timestamp="3134"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:14</a>これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">たゆ委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=3143s" data-timestamp="3143"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:23</a>すみません、これはちょっと発言だけしたいと思っております。陳述もいただいたところではあるんですけれど、申し訳ない気持ちですが、賛成はできませんで、ちょっと理由を述べたいと思います。</div>
+  <div class="say">安全保障上の重要な施設の周辺の土地について安全を確保する必要性については、外国人が購入する場合でも、日本人が購入する場合でも同様であります。土地所有者が誰かいうところではなくて、その土地で何がされるかが重要であって、問題行為だったり危険行為があれば、日本人であれ、外国人であれ対処の対象になります。外国人か日本人かという属性で分けることに大きな意味があるとは思えないし、適切とも考えませんので、そういう理由から賛成はできないということは申し上げます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">斎藤委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=3200s" data-timestamp="3200"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:20</a>たゆ委員が最初に態度を明確にしたので、私も明確にしますが、大賛成の陳情書であります。陳述でいただいたことも、ほぼほぼ私もそう思っているところであります。</div>
+  <div class="say">ただ、今の日本の法体系、税制上、一律に禁止するということはなかなか難しいんだろうなとは思っております。であれば、ではどうすればいいのかということも考えていかなければいけないと思っています。</div>
+  <div class="say">かつてバブル経済の頃、日本の企業が、アメリカのニューヨークタイムズスクエア辺りの不動産、ビルをもう大量に購入したという歴史的事実もありますし、日本の国土の価格で、アメリカ合衆国四つ分買えると言われていた時期もあります。そういう過去もあるからということではないんですけれども、そういった反省も踏まえた上で、あまり経済重視で他国の土地を買うというのは、これは私はあまりよくないと。日本が買うのもよくないし、外国資本が日本の土地を買うというのも私はよろしくはないと思っております。</div>
+  <div class="say">その中で、例えば、防衛上重要な地域、自衛隊基地、アメリカ軍基地の周辺、陳情者の方はおっしゃっていたとおりでありまして、また、水源とか、私が聞くところによると、ほとんど何もないような山林を買われているということもあるようであります。今、日本の国土の山林に関しては、日本人の所有者ですらその所有権をしっかり持っている人を探し当てるのが難しいとか、そういう場所もあるということで、これもまた日本の社会構造の中でおかしな形になっております。</div>
+  <div class="say">それで固定資産税の徴収が難しくなるとおっしゃっているんですが、それもそうなんですが、相続税もそうなんです。そして逆に相続した方、相続権を持っている方を探し当てることも非常に難しいんですね。個人負担されている方。今ですら日本人の所有者ですら、その所有権を実際の今ご存命の方に割り当てることができなくて、それを解消しようという話もありますね。所有権不明の土地に関して国有地にしていこうという。これは公明党も言ったのかな。間違っていたらすみません、後で訂正してください。そういうことがあるくらいなのに、これが外国人の、特に個人の場合、どういう形でそこから相続権が発生する、それは国内法でいくのか、海外の所有権を持っている方の国の法律でいくのかというのも、私はそれはもう調べていないので分からないんですが、そういった困難というのは当然ありますね。</div>
+  <div class="say">また、これは法人が購入したとしても、法人だからといって永久にそれがあるわけではなくて、その法人自体の行き先が分からなくなる。最終的に国営にしてしまうんだということを、それを明確な日本の中に法律があればまだしも、それすら多分、今はないものだと思っている状況の中では、逆に言えば、外国人の土地購入に対しての制限をした方が早いのかなと。もう公示されてしまっている部分もあるから、それに対する、今言った相続対策なども法整備をしていかなければいけないのかなと思ってもおります。</div>
+  <div class="say">それから、相手国との相互主義というのもあるんだろうなと思っております。陳情者がおっしゃっているように、中国に関しては、これは所有権が認められませんし、使用権というか利用権だけになるということで。私もよくもう常々、中国の土地を日本人は買えないんだから、中国人も買えないんですけれどね、買えないのであれば、日本の所有権もその国の方々には差し上げなくていいのではないかという考えは元々持っておりました。そういう意味で、この相互主義、相手の国とどうなるかということですね。</div>
+  <div class="say">それから、目的別に考える方法もあるのかなと思っております。例えば、その居住を目的にするということと、それから、転売をしていくという、いわゆる不動産事業、経済行為としてこれを行っていくということでは全く意味が違うと思っておりまして、ただその境目を明確にするということも難しいかなと思いつつ、かといって、しっかりそれは日本政府が決めて、個人的な問題と、経済行為で行う転売不動産行為を行うということの明確な線引きをしっかりした法制度を固めていく必要もあるんだろうなと思っております。</div>
+  <div class="say">そういったことで、外国人による外国資本が、日本の不動産を何の制限もなく購入できるという今の状況、今、防衛上周辺地域の売買に関しては届出義務がありますけれど、それだけであって禁止事項にはなっていないと、私の認識だとそう思っておりまして、何の制限もないというのとほぼ同一の形で今行われている日本のこの土地税制、土地基本法からこれを変えていかなければいけないと思っておりますが、税制も含めた形で、これは政府にしっかりと求めていきたいと思っております。</div>
+  <div class="say">以上、意見です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=3647s" data-timestamp="3647"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:47</a>では、私も意見を述べさせていただきます。</div>
+  <div class="say">この趣旨には賛成する立場です。もし外国人一律土地購入禁止とかであると全く賛成はできないんですけれども、こういう条件の場合は規制しますよという話であれば、諸外国の状況も鑑みたところ、やはりそちらの方が国際的な一般的な考えだと思っております。これをやると外国人差別だと言われる向きもあるんですけれど、私はそれには当たらないと思っております。日本に居住して５年ですか、居住してしっかり生活基盤がある方が帰化申請して日本人になることもできるわけですから、そうすればもう完全に日本人と権利は同じになるわけですから、そういう方法もございますので、差別ということにはならないと思います。</div>
+  <div class="say">以上、意見となります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=3709s" data-timestamp="3709"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:49</a>ありがとうございます。まず初めに、陳述者におかれましては、我が国の安全保障や領土保全に対し強い危機感を持って陳情を提出されたことには感謝を申し上げたいと思います。しかしながら、今回のこの外国人による日本の土地購入を規制する法律というところは、国の責任において、まずは専門的かつ多角的な見地から慎重に議論されるべき課題であると考えておりますので、議会としてその是非や具体的な法規制の内容についてまで、今この段階で意見書として提出するというところではないのかなという考えを表明し、採決に臨みたいと思っております。意見です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=3759s" data-timestamp="3759"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:39</a>この陳情を拝見いたしましたときに、私、とってもすごく上手な文章構成で書かれたんだなという印象がございます。ただ、この土地使用に関してなんですけれども、これは日本国として外国人で日本の土地をずっと未来永劫にわたって購入できると決めているわけではないかと存じます。つまり、法律というのはその時々の状況によって変わっていくものですし、しかも、今日の朝のテレビニュース番組でこの問題についても取り上げられたりもしておりました。やはりこれから考えていかなければならないことが多数あるかと思うところでございますし、それらを基にいろいろどのような形でどう描いていくかというような形で、法律を整備していくかというところが重要と存じます。</div>
+  <div class="say">そして、この陳情書ですけれども、まず２枚目の上から５行目のところ、固定資産税の徴収が難しくなる可能性があります。そして中段あたり、自衛隊の特に基地周辺にあっては、有事の際に施設を攻撃する拠点として利用するなどのことが起こり得ます。そして、下の３分の１のところ、また、海外でから始まるところ、災害時の対応が困難となるなどのことが起こる可能性があります、とあります。これはある程度、気持ち的なもので非常に不安感を増すような書き方になっているのかと思いますし、ひょっとするとある特定の国が指されている部分があるのかなと思うところもありますので、おっしゃっていることはよく私は分かるんですけれども、ただ、この陳情書に関しては反対の立場で表明させていただきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=3859s" data-timestamp="3859"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:19</a>休憩します。</div>
+  <div class="say">午前11時06分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午前11時07分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=3873s" data-timestamp="3873"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:33</a>再開いたします。</div>
+  <div class="say">本件につきまして、委員長報告に載せる意見・要望がございましたら発言をお願いいたします。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=3890s" data-timestamp="3890"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:50</a>以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=3890s" data-timestamp="3890"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:50</a>ご異議なしと認めます。したがって、質疑を終了します。</div>
+  <div class="say">これから討論を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=3899s" data-timestamp="3899"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:59</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=3902s" data-timestamp="3902"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:02</a>ご異議なしと認めます。したがって、討論を終了いたします。</div>
+  <div class="say">それでは、直ちに採決いたします。</div>
+  <div class="say">お諮りいたします。本件は採択の上、関係機関に意見書を送付することにご異議ありませんか。</div>
+  <div class="say">（「異議あり」と呼ぶ者あり）</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=3917s" data-timestamp="3917"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:17</a>ご異議がありますので、本件は起立採決をいたします。</div>
+  <div class="say">本件は採択の上、関係機関に意見書を送付することに賛成の皆さんの起立を求めます。</div>
+  <div class="say">（賛成者起立）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=3917s" data-timestamp="3917"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:17</a>起立少数。したがって、本件は不採択と決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=3943s" data-timestamp="3943"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:43</a>次に、７陳情第121号、「全ての公務員の任用に国籍条項を定める法律」の制定を求める意見書提出に関する陳情書を議題といたします。</div>
+  <div class="say">本件は陳情者から発言の申出がありますので、委員会協議会を開催するため、しばらく休憩いたします。</div>
+  <div class="say">午前11時08分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午前11時19分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=4569s" data-timestamp="4569"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:09</a>再開いたします。</div>
+  <div class="say">休憩前に引き続き、７陳情第121号、「全ての公務員の任用に国籍条項を定める法律」の制定を求める意見書提出に関する陳情書を議題といたしたいと思います。</div>
+  <div class="say">部局から発言がありましたら、これを求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西川職員課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=4611s" data-timestamp="4611"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:51</a>本市における任用事務についてご説明させていただきます。</div>
+  <div class="say">地方公務員に外国籍の者を任用することにつきましては、地方公務員法上、そのこと自体を制限する明文規定はないものとの認識です。本市におきましては、地方公務員法及び小金井市職員の任用に関する規則に基づく任用の根本基準に従い、職員の任用は、その者の受験成績、人事評価、その他の能力の実証に基づいて行うこととしており、特段、国籍によって取扱いに差異を設けることはしておりません。近隣市におきましても同様な対応であるとの認識です。</div>
+  <div class="say">引き続き、法に従い、適切に職員の任用事務を行っていきたいと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=4665s" data-timestamp="4665"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:45</a>説明は以上ですね。</div>
+  <div class="say">これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">斎藤委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=4693s" data-timestamp="4693"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:13</a>この陳情書に関しても、私は賛成の立場であります。元々、地方公務員、市役所で働く職員の方がどの部署で働くかというと、例えば市民課で、我々の戸籍や住民票、婚姻関係、出生届も含めた形で、もう個人情報の最たるもの、もうマイナンバーカードに入っているものももちろんそうですし、そういったものを取り扱う職員の方が外国籍というのも可能性としてあるわけですね。それとまた、職員課に配属されれば、職員の方の個人情報というのを外国籍の方々が知ることができる。もちろん日本人も外国人も地方公務員法により守秘義務というものはあって、それは口外してはならないし、退職した後も同様ということにはなってはいます。でも本当にそれでいいのかなというのが正直言って私はあります。この陳情書に限らず、例えばあとは警察とか、言ってみれば司法の検事とか裁判官の方にも国籍条項がないと私は認識しているんですね。政治家に関しては一応国籍条項、我々、戸籍謄本を出して日本国民であるということを含めて、立候補を許可されているというところです。また、その先に行くとちょっとまた別になるんですね。戸籍を取っただけでいいのかと。いわゆる帰化した人たちはどうするのかという議論はちょっと今回は置いておいて、日本国籍を持っていない人が、日本の国内で働くということには、なかなかそれは、もちろん制限ができないと思いますけれども、一定の職種ですね。国家公務員、地方公務員、警察、消防ですね。それから司法の世界に関しては、やはりそれは。あとは、もちろん防衛、自衛隊や海上保安庁といったところもかなり気になるところです。そして、あと民間の企業はなかなかそれも制限は難しいんでしょうけれども、例えばマスコミ関係で言えば、新聞や週刊誌は制限はできないけれども、私はテレビ局、ＮＨＫはもちろんそうですけれども、民放ですね、民間のテレビ局でも、これは放送法の許可の下に運営されているわけですから、この国籍条項というのもある程度入れた方がいいと思うし、その会社自体に例えば資本金の比率をある程度制限するとか、そういったものは必要だと思いますし、もちろんＮＨＫはもうその最たるものとして国籍条項があった方がいい。ゼロにしないにしろ、例えばその制限というものは私はあった方がいいと思っております。</div>
+  <div class="say">そこで、先ほど部局から発言がありましたように、地方公務員法上、明文はないんだと、国籍制限はないと。そして今後も適切に運用していくということだったんですが、その適切に運用していくというのはこの法律に対して適切で、明文がないということは逆に言うと制限してはいけないということでもないと私は判断しております。</div>
+  <div class="say">これは市長にお聞きしたいんですけれども、市長が任命を、それぞれの職員が入ってきたら任命します。実際は管理職だけだと思うんですが、市長にお聞きしたいのは、いわゆる窓口業務を含めた形で個人情報を扱う、今、私、個人情報を扱うのは市民部と言ったんですが、もちろんその窓口もそうですけれども、健康保険や年金や税金も含めた形、それから、職員の個人情報を扱う職員課に関して、外国人国籍の職員が何人、どこに配置されているかというのは把握しているのかということが１点。</div>
+  <div class="say">それから、これは市長の権限といいますか、議会も同意しなければいけないんですが、地方公務員法は明文がないので、であれば小金井市の規則の中でそれを制限することが可能なのかどうかというこの２点、まずお答えいただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西川職員課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=5100s" data-timestamp="5100"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:00</a>ご質問いただきました。まず１点目ですが、市民課ですとか職員課等、個人情報を扱う部局に外国籍の職員がいるか把握しているかというところですが、いるかどうかについては個人情報としての取扱いにも関わってきますので、ここで答弁は控えさせていただきたいところですが、把握しているかどうかというところに関しましては、採用試験の実施要綱の方には国籍は問いませんと記載しておりまして、他方、日本国籍を有しない方は申込書類を提出する際に在留資格及び在留期間が確認できる書類を持参してください、となっておりますので、その際、確認しているというところはそのとおりということになります。</div>
+  <div class="say">あともう一点、そういった国籍条項を市で設けるようなことが可能か、そういう裁量があるのか否かというところについてです。冒頭、発言をさせていただきましたところですが、本市における任用事務については法に従い適切に行っているとの認識であり、これと異なる取扱いを行うという考えは現時点では持っておらず、またそのような裁量幅があるというところにも考えが至っていないようなところでして、市として判断が難しいところと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">斎藤委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=5209s" data-timestamp="5209"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:49</a>今、課長からの答弁で、どこに配属しているかは言えない、個人情報だから言えない、大切な個人情報ですからね、外国籍の方の個人情報を大切にするために、そういう方がいるかどうか、そういう部署に配属されているかどうかも答えられないという大切な個人情報を、我々はどなたが扱っているかも分からないということ。どなたって個人名ではないんです。日本人の方が扱っているのか、外国籍の方が扱っているのかということすら分からない。入庁、採用時には、当然、在留期間がはっきりしていなければいけないですから、それは確認していると。そこまで分かりました。では、その内容を市長は理解しているのか。</div>
+  <div class="say">では、すみません、再質問ですけれども、もう１点。職員の中で何％ぐらい外国籍の方が在籍されているのか、まず、お答えいただいた後に、任命権者である市長は、どなたが外国籍であるかということを把握しているかということが２点目。</div>
+  <div class="say">そして先ほど、私は小金井市の規則を変えることによって制限を設けることができるかとお聞きしたんですが、その答弁に、法に従い適正に運用しているということですが、そういうことを聞いているのではなくて、小金井市の規則、小金井市の意思として、外国籍の方を採用しないということ、これは条例で定める、若しくは定める定めないに限らず、ある程度、市長の意思でそれができるのか否かということをお答えください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西川職員課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=5369s" data-timestamp="5369"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:29:29</a>ご質問のありました外国籍の職員は職員のうちの何％かというところですが、そちらにつきましても個人的な情報に関わってくるところなので答弁は控えさせていただきたいと思います。</div>
+  <div class="say">あと、市の方の判断でそういった条項を設けることが可能かというところですが、先ほどとも重なるところもあるんですけれども、特段、地方公務員法上の外国籍の採用に関する明文規定がないところでして、要件にできるかどうかにつきましては市としては判断が難しいと考えております。そういった内容につきましては、一地方公共団体というよりは、もう少し大きな国等において一定の考えを示していただくようなところなのかなと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">白井市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=5431s" data-timestamp="5431"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:30:31</a>斎藤委員の方から、市長の見解も質問もいただいておりますが、まず、さっき職員課長の方で答弁させていただきましたとおり、我々は法に基づいて事務をやっておりまして、職員の任用についてもそのとおりでございます。私自身の考え方を申し上げますと、外国籍の方を差別するつもりはございません。</div>
+  <div class="say">質問いただいたことに対しても、把握しているかという質問がございましたが、把握する必要性は私は感じてございません。例えば、防衛とか外交、若しくは警察、公安、こういった業務に関わるところについては、斎藤委員がおっしゃるようなことは私としては一定理解するところでございますが、我々地方公共団体はそういった事務は行っておりません。戸籍とかそういう個人情報というご質問というのは一定分かるところではございますが、我々はしっかりと法に基づいて、外国籍の方だから駄目という話ではなくて、そこに差別をするわけではなく、その方の能力、仕事ぶりをしっかり我々としては把握して、外国籍、日本人問わず、我々としては公平に職員として任用し、そして働いていただいていると認識してございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">斎藤委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=5532s" data-timestamp="5532"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:12</a>３点質問したんですが、２点しかなかったんですが、３点目の、要するに、法文上、条例上あるかないかは別として、制限できるかという形には、直接的にはご答弁いただけなかったんですが、その前の２点の答弁からすれば、それはもうやる気がないと私は判断をいたしました。</div>
+  <div class="say">１点目なんですけれども、外国籍の方の比率も答えられないというのは、私これは全く意味不明で、市長もこれは答えられないですか。もし数字があればお答えいただいてもいいのではないんですか。今日でなくても結構ですから、ぜひ答弁できるかどうか検討してもらって、改めて何らかのところで質問しますので、お答えいただければと思うんです。というのは、なぜ外国籍の方の、個別ではないですよ、この方がどこどこ人と聞いているわけではなくて、その課の中にどなたが外国人かと聞いているわけではなくて、職員全体の中で外国籍の方がどのくらいの比率でいるかということ、これは全く個人情報ではないですね。逆に言うと、なぜそれを明かさないかというと、それをさらすと、皆さんの心の中には差別が発生するからということですね。ということは、皆さんの中に差別意識があるんです。世の中にはそういう差別をする人がいるという発想もあるかもしれません。だけれど、その中には皆さんの心の中に差別意識、排外主義、そういったものがあるから、こんなことも公表できないんです。だって当たり前でしょう。小金井市役所、公務員の中で何人ぐらい外国籍の方がいるかという比率を答えることはできるではないですか。もし今、改めてお答えいただけるのであれば、部長、ぜひ、把握しているのであれば、お答えください。</div>
+  <div class="say">それから、市長は差別しないという。なぜ差別しないという言葉がそこに出てくるんですか。やはり差別意識があるんです、その中に。外国籍、日本籍という話をすると、市長の中にやはり差別意識があるんです。私はそういうのは全くないですから。だったらオープンにすればいいじゃないかという話だけで。それが個別の一人ひとりの国籍ではなくて、小金井市の中ではそういう方はいるということで、どこにどういう方がいるかというのを把握する必要はないということで、市長としてはそういう答弁するしかないのかなと、そこはこれ以上言いませんけれど、３問目ですから言えないんですけれども、１点目のその比率に関してご答弁いただけるようであれば、改めてご答弁いただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木総務部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=5735s" data-timestamp="5735"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:35</a>今、外国人の職員の方の比率ということでいただいているところであるんですが、質問、再質問のところで職員課長がお答えしたとおりでして、基本的に個別のところになりますので、この場での答弁は控えさせていただきたいということでご理解いただきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">白井市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=5759s" data-timestamp="5759"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:59</a>斎藤委員からは、そういう市長の方が差別意識があるのではないかみたいなことをおっしゃられましたが、この陳情に書かれてあることがもうすなわち差別だと私は認識しております。我々はさっき答弁いたしましたが、国籍を問わず職員の任用をやっているわけでございます。それは法に基づいてやっています。その上で、国籍に関して特に言及する必要はないということ。要するに陳情そのものが外国籍の方を差別するような陳情を述べられているわけでございますので、私たちとしてはそういった観点で捉えさせていただきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=5812s" data-timestamp="5812"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:52</a>それでは、意見表明だけさせていただきます。この陳情に関して、私は反対の立場で意見を述べさせていただきたいと思います。</div>
+  <div class="say">私、元々、最初に就職したのは、国立の大学で助手、今でいうと助教と言っているんですけれども、そちらに就職したわけなんです。その後、国の研究機関などに所属していたこともあります。当然のことながら、外国の助手、助教授、教授とか、たくさんいたわけなんですね。今は独立行政法人になったので違うといえば違うんですけれども、当時公務員だったわけです。というように、専門職なんかに関しては、むしろ外国の方の力を借りないと成り立たないところもたくさんあると。今、独立行政法人になったんですけれども、給与体系なんかは公務員の給与体系に準じていたりとか、一応まだ一部研究機関が国の所属直下になっていて、そのまま公務員になっているというところもあることを考えて、ちょっと公務員全体に一律に国籍条項を設けるというのはまず現実的ではないし、それではむしろ日本の力を弱めてしまうというふうにも考えております。</div>
+  <div class="say">私、就職する前に、なかなかまれな体験もしておりまして、京都にいたもので、バイト先でウトロ地区の隣で働くということをやったんですけれど、そのとき在日の方と一緒に職業訓練センターでちょっとバイトを大学院生のときにやっておりました。その方が言っていたことで非常に印象的だったのは、こういうふうな意見の人もいるんだけれども、基本的に日本に住んでいる在日の人は日本が好きだから住んでいるんだよと。もし嫌だったら日本から出ていくからということを言っていて、一緒にちょっと職場訓練センターでパソコンのことなんか教えていたりしていました。その方は今、有名な国立大学で教授をやっていたりしております。ということで、そういう経験も踏まえますと、外国人だから国家公務員、今は準じた立場ということになるんですけれども、公務員は全部、日本国籍がないといけないというのはちょっと非現実的だし、今の運用上の公権力を行使する人に関しては日本国籍が要るというようなことでよいのではないかと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">たゆ委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=6001s" data-timestamp="6001"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:01</a>こちらもちょっと端的に考え方だけ述べて、採決に臨みたいと思っております。</div>
+  <div class="say">公務員の任用については、国籍によって合理的な理由なしに差異を設けることにはならないと考えますし、また併せて地方自治の観点からすれば、各自治体の判断によるものでもあります。ですので、全ての公務員の任用に国籍条項を求める法律の制定を求める意見書を提出することにはならないと考えているので、陳述もいただいたところで申し訳ないんですけれども、賛成はできないと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=6043s" data-timestamp="6043"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:43</a>こちらの陳情についてですけれども、陳述で発言もしていただきました。</div>
+  <div class="say">それで、この陳情２ページ目の冒頭、いきなり、ある特定の国を指して、その国の方たちが公務員になることに強い危機感を持っています。しかも、「特に」とあります。かなり最後の方もずっとその記述が続くわけです。こういう考え方、特定の国を指している割にはタイトルそのものがちょっと違うのではないかということもありますし、やはり私、ちょっと気になったのが、反日教育が行われている国の方たちを日本の公務員にすることうんぬんということはありますけれども、日本は反日教育をしてないんですけれども、これまで日本人による日本人に対するテロ行為なども複数あったりしているところでございます。だからやはりそういったことも考えながら、いろいろ法律とか人に対することも考えながらやっていかなければならないんだろうなと私は基本的に考えておりますので、この陳情に対しては反対の態度をとらせていただきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">休憩します。</div>
+  <div class="say">午前11時43分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午前11時44分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=6130s" data-timestamp="6130"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:10</a>再開いたします。</div>
+  <div class="say">本件につきまして、委員長報告に載せる意見・要望がございましたら、ご発言をお願いいたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">斎藤委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=6143s" data-timestamp="6143"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:23</a>７陳情121号、「全ての公務員の任用に国籍条項を定める法律」の制定を求める意見書提出に関する陳情書に関してですが、先ほど質疑の中でお話をさせていただきましたけれども、今、例えばこの小金井市役所においてどのくらいの比率で外国籍の方がいらっしゃるかも答えられないという、今の日本の国の状況、地方自治体の状況、その意識に関しては、私はこれは変えていかなければいけないと思っております。今回のこの陳情に関しては、「全ての公務員の任用に国籍条項を定める法律」という法律は、私はつくれないんだろうと思っているんです。それぞれの法律の中にこれを織り込んでいくことになって、この法律自体の制定というのは私は難しいと思っております。ただ、ここで書かれている意識、認識に関しては、私はある部分は正しいと思っています。ちょっと激しいこととか、市長からすれば差別的なことが書いてあるということのようなんですけれども、私は、陳情書を判断するときに、文字の一言一句に関して外れてはいけないと思っていなくて、それぞれの陳情者の認識、意識、その理念というものを大事にしたいと思っておりまして、少し勇み足をしたところの言葉を捉えて、一番大切なところを失わせてはいけないと思っておりますので、そういった状況の中で発言をさせていただいた上で、採決に臨みたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=6291s" data-timestamp="6291"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:51</a>以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=6298s" data-timestamp="6298"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:58</a>ご異議なしと認めます。したがって、質疑を終了いたします。</div>
+  <div class="say">これから討論を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=6304s" data-timestamp="6304"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:04</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=6308s" data-timestamp="6308"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:08</a>ご異議なしと認めます。したがって、討論を終了いたします。</div>
+  <div class="say">それでは、直ちに採決いたします。</div>
+  <div class="say">お諮りいたします。本件は採択の上、関係機関に意見書を送付することにご異議ありませんか。</div>
+  <div class="say">（「異議あり」と呼ぶ者あり）</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=6316s" data-timestamp="6316"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:16</a>ご異議がありますので、本件は起立採決をいたします。</div>
+  <div class="say">本件は採択の上、関係機関に意見書へ送付することに賛成の皆さんの起立を求めます。</div>
+  <div class="say">（賛成者起立）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=6322s" data-timestamp="6322"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:22</a>起立少数。したがって、本件は不採択と決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=6350s" data-timestamp="6350"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:50</a>次に、議案第62号、小金井市住居表示に関する条例の一部を改正する条例を議題といたします。</div>
+  <div class="say">部局から発言がありましたら、これを求めます。</div>
+  <div class="say">（「特にございません」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=6364s" data-timestamp="6364"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:46:04</a>これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=6381s" data-timestamp="6381"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:46:21</a>住居表示を町も含めて入れるという話だったと思うんです。これ、そのときに一緒にお話しいただいたことで、枝番を市の方針としては要望があれば付けていくという考え方というお話だったと思うんですけれど、こちらで間違いないでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">東條市民課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=6415s" data-timestamp="6415"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:46:55</a>枝番号についてご質問いただきました。枝番号を付番するというところですけれども、原則として一つの建物に一つの番号を付番するというのが、同一住居番号で複数の住居があることを解消するところが、住居表示の目的というか目指すところでございます。</div>
+  <div class="say">現時点において、同一住居番号でやはり幾つも複数住戸があるところがございまして、住んでいる方たちの利便性を含めて枝番号を振るということを現状しております。以前は枝番号の付番というのを結構厳しい基準でやっておりました。やはり住所を変えるということになりますと、住民情報の基本情報である住所というものを変える、枝番号を付番することで変わることになってしまいますし、ご近所の方と同じ番号でもここは枝番がついていないみたいなところで差がついてしまうので、一定の基準を設けていたところですが、今年度７月からちょっと基準を変更させていただいておりまして、同一住居番号が２棟以上ある場合は新規の開発区域でありましても既存の区域でありましても、枝番を付番できるように変更しております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=6503s" data-timestamp="6503"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:23</a>答弁いただき、ありがとうございます。枝番があった方が私も便利だと思いますので、そのように進めていただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=6514s" data-timestamp="6514"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:34</a>ちょっと確認で伺いたいだけです。この新しい表示なんですけれども、確かにすばらしい、ちょっとすっきりとして見やすいなと思っております。以前の番号だけだったら、例えばこの資料の21の12という、どこの21の12だっけと思ったりすることが多々あったりして、それが一枚になったのはよかったと思うんです。</div>
+  <div class="say">それで、新しい、令和８年１月１日から施行ではないですか。今、既存の方たちはそのままということですけれど、替えたいというご意見があったらどのような対応をされるのか、それだけ教えてください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">東條市民課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=6556s" data-timestamp="6556"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:16</a>既存の方が変えたいというご要望があったらというご質問をいただきました。ご要望がありましたら、新しい住居表示板に替えさせていただければと思います。</div>
+  <div class="say">ただ、既存の場合も、この21の12と現行条例のところに書いてある上に、例えば東町六丁目ですとか、枝番号があれば枝番号の表示板というのをつくってお渡しをしているところになりますので、もし替えたいというご要望がありましたら、替えさせていただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">斎藤委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=6593s" data-timestamp="6593"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:53</a>私も、この条例の改正条例そのものではないんですが、新たな表記の形の、例えばこの東町六丁目は書いていただくのはいいんですが、このレイアウトはこれでいいですかね。これ、私は逆に非常に見づらいですね。これが例えば、梶野町と３文字ぐらい入ればもう少しいいんですけれど、東の後にスペースがあって、ちょっとこれはバランスがあまりよくないのではないかなと思うんですが、条例でこれを書いてしまうと、もうこういうふうにしかできないですね。できるんですかね。もう少し、私が思うぐらいだから、多分デザイン的に能力ある人は、もっとこれ拒否反応があるのではないかなと思うんです。私、こういうことはあんまり、いいかげんでどうでもいいではないかという私が、例えばこの一文字、東町の場合、これはよくないねと思っていますから、今からでもこの部分を変えることができるのであれば、若しくはあとは裁量である程度できるのかどうか。でもこういう基準があるから、もうこういう書き方をしなければいけないというのか。スペース入れるとすれば、町と、ここで言えば六丁目の六と町の間に半角スペースでも入れるとか、そういうことすればまだ少し見やすいと思うのと、どうでしょうかね。市長はこの辺、割とデザイン的にはうるさい人ではないかなと思っておりまして、見解をいただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">東條市民課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=6715s" data-timestamp="6715"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:51:55</a>住居表示盤の文字の配列についてのご意見をいただいたところです。例えばこれで言うと東町だとか六丁目だとかいうこの部分部分で均等割り付けをしなければならないというのが、一応東京都の方から示されている内規みたいのがありまして、それに準じてこういう形にさせていただいているところです。ただ、実際問題として、見づらい部分を見やすくするための表示板ですので、現状、この条例の下に規則がありまして、何ミリ単位で文字を入れるような規則が別途あるんです。そちらの方も今後改正をさせていただく中で、見づらくはならないようにちょっと調整をさせていただければとは思います。</div>
+  <div class="say">一応この条例に定められているこれが原議にはなってまいりますので、これの基準の中でできる範囲で対応させていただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">斎藤委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=6784s" data-timestamp="6784"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:53:04</a>東京都も今、内規と言いましたか。大丈夫ですか、うちの市長、東京都のこと、そんなことは平気で無視できる方ですので、こちらがいいと思えばそれができる方だと思っていますので、東京都の役職の方が怒らない程度にぜひ融通を利かせてやっていただきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">小林委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=6819s" data-timestamp="6819"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:53:39</a>一つは今の斎藤委員のお話で均等割り付けということでありますけれども、その町名と数字の何丁目という、その間を空けるだけでもいいかなと思って、それぞれの均等割りということですね、これを見るとね。なので、今だと東の町六丁目ということになっていますので、東と町の間がある程度空いてしまっても、町と六の間を空けるという工夫ができればやっていただきたいなと、これは言っておきたいと思います。</div>
+  <div class="say">私もその枝番の付番の方が気になっていまして、以前にも市民課の方に問い合わせたことがあったんですが、やはり郵便物の届け間違いというのはかなりありまして、地域によってはもう10何棟10何軒同じ住所というところもありまして、やはり何らかの変更した方がいいかなと思っているところがあります。それは７月からということでありましたけれど、すみません、市報とかでそういうご案内というのはあったんでしたか。市民の方にどのようにご案内をされたのかというところと、今回の件も併せて、今後どのようにご案内していくのかという点で伺いたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">東條市民課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=6898s" data-timestamp="6898"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:54:58</a>枝番の付番基準のところについてまずご質問いただきました。この基準を変えたことについては、特段市報ですとかホームページでは広報はしていないところです。といいますのは、一旦住所をつけられた状態でつけられるんだということができたところで、替える方というのは基本はいらっしゃらなくて、困っているというご相談があれば、そこでつけられますよというご案内を都度させていただいている状態になりますので、広く一般にこういうことができますということを広報というのは今のところはしていないところでございます。住居表示を付番したいとか替えたいというタイミングでご案内を都度しているという形になります。</div>
+  <div class="say">それから、今後それを広報するという今回の住居表示板の変更も含めてというところでございますが、まず、この住居表示板については、何らかホームページだったりで広報はさせていただきたいと考えております。枝番の付定基準についてはちょっと検討させていただきたいと思います。ちょっと言い方がよろしくないかもしれないんですが、何でもかんでも申請いただいていいものではないとは思っておりますので、どのような広報の仕方がよいのか、検討させいただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">小林委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=6989s" data-timestamp="6989"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:56:29</a>ありがとうございます。混乱を招いてもいけないと思いますので、あれですけれども。新たなご相談のときにはそういうご説明があると思うんですが、何年か前にご相談して、今そういうルールならしようがないと言ってちょっと我慢されている方が、この情報を知らないともう一回問い合わせることにもならないので、我々経由でもいいんですけれども、お伝えはしたいなと思っています。</div>
+  <div class="say">窓口に行ったら、一定の何か文書があるとか、あと例えば、道路の舗装の依頼のときにはそこに該当する方々の署名・捺印があれば受け付けられるとか、何かそういう規定のフォーマットみたいなのというのはご用意されているんでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">東條市民課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=7035s" data-timestamp="7035"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:57:15</a>現状、窓口で相対して口頭でご説明をしている状態で、特段お渡ししているものはない状態でございます。ただ、こういうときは付番できるよという、いわゆる基準は制定しておりますので、そちらをお渡しするということは可能かなとは思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=7059s" data-timestamp="7059"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:57:39</a>休憩します。</div>
+  <div class="say">午前11時59分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午後０時開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=7059s" data-timestamp="7059"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:57:39</a>再開いたします。</div>
+  <div class="say">本件につきまして、委員長報告に載せる意見・要望がございましたら、ご発言お願いいたします。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=7085s" data-timestamp="7085"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:58:05</a>以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=7089s" data-timestamp="7089"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:58:09</a>ご異議なしと認めます。したがって、質疑を終了いたします。</div>
+  <div class="say">これから討論を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=7095s" data-timestamp="7095"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:58:15</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=7099s" data-timestamp="7099"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:58:19</a>ご異議なしと認めます。したがって、討論を終了いたします。</div>
+  <div class="say">それでは、直ちに採決いたします。</div>
+  <div class="say">お諮りいたします。本件は原案のとおり可決することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w7aV1wiQeoE&t=7111s" data-timestamp="7111"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:58:31</a>ご異議なしと認めます。したがって、本件は原案可決と決定いたしました。</div>
+  <div class="say">ここで昼食のため、おおむね１時間休憩いたします。</div>
+  <div class="say">午後０時01分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午後０時57分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=85s" data-timestamp="85"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:25</a>再開します。</div>
+  <div class="say">次に、議案第67号、東京都六市競艇事業組合規約の一部を変更する規約を議題といたします。</div>
+  <div class="say">部局から発言がありましたら、これを求めます。</div>
+  <div class="say">（「特にございません」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=99s" data-timestamp="99"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:39</a>これから質疑を行います。ありませんか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=99s" data-timestamp="99"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:39</a>特にないということで、休憩いたします。</div>
+  <div class="say">午後０時58分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午後０時59分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=115s" data-timestamp="115"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:55</a>再開いたします。</div>
+  <div class="say">本件につきまして、委員長報告に載せる意見・要望がございましたら、ご発言をお願いいたします。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=127s" data-timestamp="127"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:07</a>以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=132s" data-timestamp="132"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:12</a>ご異議なしと認めます。したがって、質疑を終了いたします。</div>
+  <div class="say">これから討論を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=139s" data-timestamp="139"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:19</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=143s" data-timestamp="143"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:23</a>ご異議なしと認めます。したがって、討論を終了いたします。</div>
+  <div class="say">それでは、直ちに採決いたします。</div>
+  <div class="say">お諮りいたします。本件は原案のとおり可決することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=156s" data-timestamp="156"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:36</a>ご異議なしと認めます。したがって、本件は原案可決と決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=166s" data-timestamp="166"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:46</a>次に、所管事務調査（自治体ＤＸの取組について）を議題といたします。</div>
+  <div class="say">本日、部局から資料が提出されておりますので、初めに資料の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">山口情報システム課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=186s" data-timestamp="186"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:06</a>それでは、情報システム課から提出いたしました資料２点につきまして、概略をご説明いたします。</div>
+  <div class="say">１点目、自治体情報システムの標準化・共通化（東京自治体クラウドを含む。）に係る導入経費等でございます。本資料は、たゆ委員のご要求によるもので、令和５年度から令和７年度にかけての自治体情報システムの標準化・共通化に係る導入経費及び運用経費について、東京自治体クラウドへの移行経費を含め、歳入を明らかにした上で、一表にまとめたものでございます。</div>
+  <div class="say">ここで、誠に申し訳ございませんが、本資料につきましては数値の訂正をさせていただければと存じます。２か所ございます。１か所目でございます。項目２、運用経費の表における令和７年度（予算現額）の歳出科目名のガバメントクラウド使用料の金額欄でございます。こちらの数値を、2,298万8,000円と記載してございますが、正しくは、1,635万6,221円、16,356,221円でございます。繰り返しますが、22,988,000を16,356,221に修正をお願いしたいと思います。２か所目でございます。同じく令和７年度（予算現額）における小計欄でございます。数値を、４億2,904万1,000円と記載してございますが、正しくは、４億2,240万9,221円となります。繰り返します。数値が429,041,000円から422,409,221円となります。お手数でございますが、修正をよろしくお願いいたします。今後このようなことのないよう注意してまいります。誠に申し訳ございませんでした。</div>
+  <div class="say">その他、詳細についてはご覧いただければと存じます。</div>
+  <div class="say">２点目、小金井市のガバメントクラウド概要図でございます。本資料は、斎藤委員のご要求によるもので、小金井市標準準拠システムとそれを運用するガバメントクラウドの関係性を概要図にしたものでございます。詳細はご覧ください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=330s" data-timestamp="330"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:30</a>これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=337s" data-timestamp="337"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:37</a>ありがとうございます。ガバメントクラウドの活用は、ご承知のとおり、地方自治体に課された法的義務であり、避けて通ることのできない事業であると理解しております。国が主導する自治体情報システム標準化は、全国の住民がどこに住んでいても質の高い行政サービスを受けられるようにすることで、行政サービスの向上を目指しています。また、法改正への迅速な対応やＤＸの推進を加速させることも目的にございます。ですが、コスト面においては、当初、国は、各自治体が個別にシステム開発・運用をする無駄をなくし、運用経費を平成30年度比で少なくとも３割減とするとしていましたが、ランニングコストは現行比で大幅に増加することが、他自治体事例と同様、ほぼ確実視されています。</div>
+  <div class="say">また、導入に当たって、事務作業の大幅な増加も発生しており、今後についても引き続き、該当部署に負荷がかかることが予想されます。ベンダーロックインを避けるというコンセプトに基づいて、自治体側で判断、管理していく必要も増加しており、市としては、今後増大する費用についての財政面からの対応や、長期的視点に立った効率的な事業運営、人員配置等を実施していく必要があると考えておりますので、今後の大まかな方針及び体制についての現在の検討状況について、質問をさせていただきたく、まず２点、お伺いします。</div>
+  <div class="say">１点目、先ほど申し上げましたとおり、コストは増えていく想定かと思いますが、予算手当については、国や都に申入れをする予定はあるのか。現在、審議されている国の補正予算等により、一時的な支援はありそうですが、今後、恒久的にかかるランニングコストは、当初想定より大きく増加した状態が続くことが懸念されます。また、システム利用者の利便性やデータの高度利用を考えると、追加開発等の一時費用も今後、発生していくことが想定されます。こうした見えにくい将来コストについて、市はどう考えているのか、ご見解を、ご答弁をお願いいたします。</div>
+  <div class="say">そして２点目、今後、更なる加速が求められる標準化及びＤＸの推進については、現行の人員体制だけで、増大する事務作業を含め、対応し切れるのか、懸念しております。現在は、既存人員の多大なるご尽力で業務を回していただいている状況かと思いますが、業務過多により、インシデントやＩＴ系の事故につながるリスクも高まります。先月、視察に伺った愛知県一宮市では、外部人材を登用し、ＤＸの推進を加速している実例もございました。リスク管理及び推進体制強化の観点から、今後の人員体制について、市としてのご見解を、ご答弁をお願いいたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">山口情報システム課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=511s" data-timestamp="511"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:31</a>２点、ご質問を頂きました。</div>
+  <div class="say">まず１点目で、予算手当や、国や都に申入れをする予定はあるか、見えにくい将来コストについて、市の見解についてご質問を頂いたところでございます。自治体情報システムの標準化に係るイニシャルコストにつきましては、国のデジタル基盤改革支援補助金による補助が予定をされておりますが、この間、国の追加調査等を通じて、申請額の補助対象範囲が広がり、現在、必要額の約97％から98％が充当できる見込みとなるなど、当時の内示額、上限額から大きく増額され、より実態に即した補助金額となってきているところでございます。</div>
+  <div class="say">一方で、ランニングコストにつきましては、現時点で、国等から直接的な補助金等の情報はございません。標準準拠システムの利用に伴うガバメントクラウドの利用料及び関連する費用については、普通交付税において、ガバメントクラウドへの移行状況に応じた措置を講ずることとされているものの、本市は現在、交付税の不交付団体となっているところでございます。当初、国は標準化のメリットとして、機能要件等の仕様の標準化とガバメントクラウドの活用による競争環境を確保し、ベンダーロックインを回避することによる標準化対象事務に関する情報システムの運用経費等につきまして、標準準拠システムの移行完了後に、平成30年度比で少なくとも３割の削減を目指すこととしておりまして、この間、ガバメントクラウドの適切な運用によるコスト最適化アプローチガイドや標準化先行自治体のコスト削減の好事例紹介などが出されておりますが、現時点では実態との乖離が大きく、システムの運用経費については、想定される予算ベースでは大幅に増額となっているところでございます。</div>
+  <div class="say">本市の標準化は、業務システムごとに策定された標準仕様書によって設計工事をしておりますが、仕様書自体の改定は常時行われてございます。その改定内容によっては、議員がご指摘のように、追加開発費の発生も想定されるところでございます。標準化前のシステムにおいては、法改正等によるシステム修正費用については一定に補助金が交付されており、今回の国の標準仕様書の改定によるシステム追加修正費用についても、同様に補助がされるものと考えてございますが、万一そうならなかった場合などにおいては、東京都等を通じ、国に働きかけていく必要があると考えております。</div>
+  <div class="say">２点目でございます。ＤＸの更なる推進における情報システム課の今後の人員体制等についての見解でございます。標準化にとどまらず、昨今の自治体ＤＸの推進をシステム面から支えていくには、職員自身も一定以上の専門的な知識の習得が必要となるだけでなく、各業務分野において業務改善、ＢＰＲを伴う業務、事務効率化が要求をされるところでございます。</div>
+  <div class="say">また、庁内における人的リソースの確保についても必須の状況であり、そうした環境において、ここ数年は、過去の情報システム課業務の中でも突出して多大な時間を費やしてまいりました。標準化業務におきましては、こうした人員体制を含む、そういった点を補完する取組として、令和４年度から、日野市、三鷹市、立川市で構成している東京自治体クラウドに合流し、同一システムによる同一した業務運用を行う、自治体同士の横のつながりを深め、課題や情報の共有、知見やＢＰＲノウハウの利活用等を図ることによって、より確実に、かつ効果的に、まずは最初の山を乗り越えつつあると感じているところでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=749s" data-timestamp="749"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:29</a>ご答弁をありがとうございます。現行のコスト見込みや現在の業務状況などについて、ご答弁をいただきました。</div>
+  <div class="say">今後の人員体制、業務負担の増加については、近隣の自治体同士で共同してコスト低減やノウハウの共有をできる限り実施することで、リスクとコストを抑えながら進めている現状は、高く評価できることであると思います。皆様の日頃の多大なるご尽力に感謝申し上げます。</div>
+  <div class="say">今後は、国としての政策全体の修正を含め、いろいろな状況変化があると予想され、その状況変化に応じて近隣市と協調して、いろいろ判断しなければいけなくなるかと思います。直近で言えば、システム稼働開始直後に多数出ることが予期されるバグの修正や追加の機能開発要望についてなどが挙がってくるかと思います。</div>
+  <div class="say">そこで、１点伺います。今、申し上げたような現場からのフィードバック等の各自治体内での吸い上げや自治体間での共有の体制や会議体はどうなっているか、現状についてご答弁をお願いできますでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">山口情報システム課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=823s" data-timestamp="823"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:43</a>東京自治体クラウドの各構成市では、業務運用を統一化した上で、標準対象外のシステムに至るまで、同一のシステムを使用して業務運用を行っているところでございます。各構成市間及びシステムベンダーの間では、プロジェクト管理ツールを導入し、業務システムごとの担当者レベルに至るまで、本ツールが活用されており、各業務システムで発生したトラブルについては、常に情報共有ができているところでございます。</div>
+  <div class="say">システムベンダーからは、トラブルの原因や対応方針等についても即座に示されるため、迅速に状況を把握した上、小金井市において未然に防ぐことができた案件もあり、こうした自治体間での共同体制に所属している恩恵は非常に大きいものと感じているところでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=875s" data-timestamp="875"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:35</a>ご答弁をありがとうございます。しっかりとした共有体制がとられているとのこと、安心いたしました。</div>
+  <div class="say">市からもご答弁がございましたが、現在の小金井市のリソースや対外的な交渉力を鑑みれば、東京自治体クラウドのような枠組みで、周辺自治体と共同歩調を取ることは最善の選択ではないかと考えます。</div>
+  <div class="say">一方で、懸念も残ります。いかに共同利用とはいえ、外部人材の登用や庁内でのプロフェッショナル人材の育成が進まなければ、システムのブラックボックス化や特定ベンダーへの過度な依存、ベンダーロックインのリスクは完全に払拭はできません。今後、自治体の裁量業務や事務作業の増加が見込まれる中、専門性を持った職員の育成、採用、あるいは事務方の体制拡充について、市としてどのような中長期的方針をお持ちか、最後に、ＣＩＯである神山副市長にお伺いできればと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">神山副市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=933s" data-timestamp="933"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:33</a>今般の自治体情報システムの標準化・共通化につきましては、ベンダーの選定やコスト面、専門的な人材不足といった点で、全国の自治体がほぼ同じような悩みを抱えながら実施してきた事業であると認識をしてございます。専門性を持った人材、リソース不足といった点では、民間のベンダーでもシステムエンジニア不足という状況が起こっておりまして、高騰する人件費が設計構築費全体を押し上げている、こういう要因の一つであるとも言われております。</div>
+  <div class="say">小金井市におきましては、標準化業務に限らず、拡大する行政ニーズに対応すべく、限られた職員数を適材適所、適正配置を心がけているところでございますけれども、先ほど担当からも答弁を差し上げたとおり、令和４年度からの東京自治体クラウドへの合流は、住民情報システムの標準化という専門性の高いプロジェクトを限られた人員で完遂するために、同じ目的、目標を持った他市の知見やＢＰＲノウハウなど、吸収できるものは最大限に活用させていただきながら、同時に職員の業務専門性も高め、成長させていくことで現場の混乱を抑え、期限に遅れることなく乗り切ろうとした側面もございますし、結果として、実際に一つの山は越えつつあると考えてございます。自治体によっては、まだ標準化が期限内では収まらないという状況が見込まれていると聞いておりますが、当市におきましては、東京自治体クラウドに合流したということで、一定の成果を上げていると考えております。</div>
+  <div class="say">人員につきましても、先ほどご質問いただきましたけれども、近隣では、専門性を持つ人材の採用ということをしているという自治体の状況も承知をしておりますけれども、小金井市にとってどういう体制を取るのが効果的であるかというのは、もう少し研究する必要があるかなと考えておりますので、その方向ではしっかりと検討を進めてまいりたいと考えてございます。</div>
+  <div class="say">標準化以降に想定される様々な状況変化につきましては、業務運用を統一化し、同一のシステムを使用している団体で構成されているからこそ、課題解決のための共同調査、共同研究等を行っていくことが可能になると思われますし、その効果は非常に大きいものと考えてございます。</div>
+  <div class="say">東京自治体クラウドの今後につきましては、まず、先行３市が締結している覚書の期間満了までが一つのピリオド、区切りとなると思いますけれども、その後の継続の有無は、各市の考え方、これまでの実績や成果、そしてこれからの社会動向により、判断をされると思っております。小金井市といたしましては、先ほどからお話をしておりますとおり、一定の効果が見込まれた体制でございますので、共同体制を継続するということを含めて、改めて検討させていただきたいと考えてございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">斎藤委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=1141s" data-timestamp="1141"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:01</a>資料を出していただきまして、ありがとうございました。小金井市のガバメントクラウド概要図ということで、今まで、ガバメントクラウドの体系を見るのは、小金井市のということではなくて、一般的な市でのケースを、概念図は見ていたんですけど、ここで分かりました。</div>
+  <div class="say">細かい質問で恐縮なんですが、ガバメントクラウドの株式会社ジーシーシーとあるんですが、これが今、日本オラクル株式会社のガバメントクラウドの体系のところに入っていて、それぞれ、株式会社ぎょうせいがＡＷＳ、富士フイルムシステムサービス株式会社が日本アイ・ビー・エム株式会社という形なんですけれども、小金井市とそれぞれのガバメントクラウドとの回線というところなんですが、この部分にはシステムベンダーというのは、介入というか、構築のところでは、ここで構築ではないのか、回線はあくまでも回線なのかな、この部分に株式会社ジーシーシーが関わってくるのではないかなと勝手に思っていたんですが、いかがでしょうか。</div>
+  <div class="say">東京自治体クラウドの範囲というのは、株式会社ジーシーシーだけなのか、株式会社ぎょうせいや富士フイルムシステムサービス株式会社も含めた形での東京クラウドなのかということが、２点目です。</div>
+  <div class="say">３点目に、すみません、たゆ委員、経費のことを先に質問してしまって申し訳ないんですが、これでいくと導入経費の中で、トータルでいくと、５億8,946万8,000幾らというのが合計で、令和７年度は４億1,500万円と読んでよろしいか。それから、今後のランニングコストとして、２番の運用経費、４億2,900万円、これは令和７年度ですけれども、今後も毎年、ランニングコストとしてこれだけの金額が、支出し続けるというふうにこの資料を読んでよろしいのかということで、お尋ねします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">山口情報システム課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=1291s" data-timestamp="1291"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:31</a>ご照会がございました株式会社ジーシーシーでございますが、本市の住民情報システム、基幹系システムのほぼ全てを開発し提供、運用している企業でございまして、東京自治体クラウド共同システムのメインベンダーでもございます。ガバメントクラウドの利用に係る同社の関わりですけれども、こちらは例えば、地方公共団体から委託を受けて、システムを監視、セキュリティ管理、運用手順を作成し、トラブルシューティングなど、クラウドシステムの安定稼働を支える多岐にわたる業務を行う業務に、ガバメントクラウド運用管理補助者という役割がございます。こちらも担ってございます。</div>
+  <div class="say">具体的にはどういった仕事をするかというと、クラウドインフラの設計、構築、運用、保守、継続的な改善業務、運用管理補助者の役職員には付与されるガバメントクラウド個別領域利用権限の管理、デジタル庁の提供するクラウドサービス等の利用、運用管理の際の技術的助言・補助等がございまして、こういった業務内容を本日ご提出した資料に追加できるかどうかというのは、ちょっと現時点では自信がないんですが、相談をさせていただければと思います。</div>
+  <div class="say">２点目でございますが、ご提出した提出資料の中のアプリケーションが、株式会社ジーシーシーと富士フイルムシステムサービス株式会社、あと株式会社ぎょうせいが入っているところでございますが、東京自治体クラウドの範囲は、この全てに入るものでございます。</div>
+  <div class="say">続きまして、コストの資料に関してでございますが、それは、斎藤委員がおっしゃったとおりで認識いただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">斎藤委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=1410s" data-timestamp="1410"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:30</a>ご答弁をありがとうございました。株式会社ジーシーシー、株式会社ぎょうせい、富士フイルムシステムサービス株式会社、全部これを含めて東京自治体クラウドということで、再質問で、この３者に関しては今後もずっと、また、システムベンダーとして委託をし続ける、若しくは、この会社が入れ替わるとしても、いわゆるシステムベンダーになるんですか。このところは今後も必要になってくるわけですよね、ずっと。ランニングコストは、このベンダー、プラス、ガバメントクラウド、ＯＣＩやＡＷＳやＩＢＭにも支払い続けるという認識でよろしいでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">山口情報システム課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=1472s" data-timestamp="1472"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:32</a>２問目を頂きました。どれぐらいの期間をまた、株式会社ジーシーシーであったり、株式会社ぎょうせいであったり、富士フイルムシステムサービス株式会社であったりというところに、このシステムの提供を受け、運用をし続けるかどうかというご質問でよろしかったでしょうか。（不規則発言あり）こちらのシステムは、先ほどもご説明申し上げたとおり、標準準拠システムでありつつ、東京自治体クラウドの共同システムを兼ねてございます。東京自治体クラウドの動向もございますけれども、実際、システムを変え、かつガバメントクラウドのＣＳＰを変えて運用していく検討を始めるということになると、相当先になるのかなというイメージは持っているところで、それが５年なのか10なのかというのは、今のところ、私が申し上げられるものはないと感じているところでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=1555s" data-timestamp="1555"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:55</a>前回、ちょうど１か月前に質問をして、詳しくお答えいただいたので、ここでは質問ということではなくて、かいつまんで概要だけお話しして、また、簡単に意見だけ述べさせていただきます。</div>
+  <div class="say">前回、そもそもどういう法律や基準で成り立っているのかということに関しては、地方公共団体情報システムの標準化に関する法律、これは法律ですね。そのほか、地方公共団体ガバメントクラウド利用基準や政府情報システムのためのセキュリティ評価制度、ＩＳＭＡＰなどに規定が決まっておりまして、それに準じて使用なり、運用なりしているというお答えでした。やはり気になるのは、そこでまず私が理解したのは、ガバメントクラウドというクラウドをまず作って、そこに全部のデータを自治体が持ち寄って、置くような話ではなくて、各自治体が、クラウドを使った標準化システムに移行して、その中でクラウドを使うというお話だったということでした。</div>
+  <div class="say">クラウドを使うに当たって、仕様を満たしている業者が、バックエンドというの、何だろう、裏側にあるクラウドを提供することになるんですけれども、そこが実質、今はアメリカの４社、アマゾンＡＷＳ、マイクロソフト、Googleとオラクルとなっていて、さくらインターネットがその後、追加されるということだというお話を伺いました。やはりそこは、日本だけになってくれないのかなと思うわけなので、そのとき質問したんですけれども、ガバメントクラウドの要件において、データセンターの物理的所在地は日本にすることというのは規定として決まっていますので、そこは守られるというお話でしたということですけれども、個人的な見解で言うと、私はちょっと守るとは思わないなと。これはリスクの問題なんですけれども、国内にだけデータを置いて失われるリスクと、海外にも分散をしておいて、データを災害時とかで失われないようにするのと、それがばれて賠償問題になるということのリスクを考えたときに、僕は前者を選ぶよなと思ってしまうんです。これは私の個人的な見解なので、どういう働きかけがいいのか分からないですけど、なるべく日本の業者が日本に置くという方向に持っていければなと思っているところです。</div>
+  <div class="say">また、勝手に日本以外のところに持ち出されて、それが解析されるかというと、実はそれは一応、技術的には、ちゃんと暗号化していれば大丈夫は丈夫なんです。もちろんそれのための規定があることも分かっております。ところが一番の穴は、鍵をかけて管理すれば大丈夫なんですけど、では鍵を持っていたらどうなるのという話になってきてしまうので、やはり元から、日本国内から絶対に出ていかないシステムになっておくべきだろうと思っております。</div>
+  <div class="say">前回、答弁いただいたところからの私の考え方の表明になります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">たゆ委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=1780s" data-timestamp="1780"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:40</a>資料を出していただいてありがとうございます。前回、質問で聞いたところが、すぐには数字を出せなくて、今回の資料になったということで、ただ、意見・要望は前回、質問は聞いたので、資料を出していただいてありがとうございます。今後参考にさせていただきますということだけ、発言します。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=1804s" data-timestamp="1804"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:04</a>所管事務調査（自治体ＤＸの取組について）の（２）デジタル技術を活用した業務効率化の推進というところで質問してまいります。今回、他の質問者についてもガバメントクラウドのことの質問になりますが、私も、ガバメントクラウドについて質問してまいりたいと思います。</div>
+  <div class="say">まず、移行についてお伺いするんですけれども、前回の総務企画委員会で行政報告いただきまして、国が進める自治体情報システムの標準化・共通化については、2025年末を期限にシステム改修の遅れやコストの課題や、期限とされて移行を進めているということであります。先ほど、天野委員のご質問の答弁でありましたけれども、私もインターネットで検索する限りにおいては、他自治体でも間に合わない自治体が、実際には分からないんですけれども、あるようにも聞こえますし、実際にシステムの改修やコストの問題・課題から難航されているという、先ほどの答弁もありました。そういう中で、本市において大きな遅滞なく、しかも、その後のトラブルがあったという、小トラブルは、東京自治体クラウドの他自治体ではあったにもかかわらず、本市は一番最後であったので大きなトラブルはなかったということに関しては、非常に順調な進捗であるということは大きく評価したいと思っております。</div>
+  <div class="say">これは実は大変なことだと。特に小金井市のように大きくない自治体において、それができたということは非常に順調だったということを、大きく評価いたします。それを、順調であるということを前提としまして、改めてなんですけれども、安全性やメリット、先ほど来、いろいろクラウドをどこに置くか、国内に置くかということもありましたけれども、セキュリティ面について、２点、ご質問をしていきたいと思います。</div>
+  <div class="say">ガバメントクラウドに移行することで、セキュリティ面で変化することは何かということと、現状と変更される点、そして、変更されたことによるメリットで、共同利用するよりも、個々の自治体が対応するよりも、高いレベルのセキュリティを享受できるようになるかどうかについてお伺いいたします。</div>
+  <div class="say">もう１つ、その上で、システムが標準化されて、データがクラウド上に集約されていくわけですけれども、各自治体が持つデータの連携、相互利用性というのはどうなるのかということです。もしそれがあるとすれば、どういうデータが考えられるか、お答えください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">山口情報システム課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=1996s" data-timestamp="1996"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:16</a>ご質問を２点、頂きました。</div>
+  <div class="say">１点目でございます。セキュリティ面で変化することは何か等々でございますが、システムを自治体で個別運用する場合においては、システム運用するサーバー類につきましては、クラウド、オンプレミス等の環境を問わず、個別にセキュリティ対策を講じる必要がございます。一方で、標準準拠システムを運用するプラットフォームであるガバメントクラウドについては、政府情報システムのためのセキュリティ評価制度であるＩＳＭＡＰリストに登録されているクラウドサービスであり、デジタル庁が求める全ての技術要件を満たすクラウドサービスとして、デジタル庁が選定し、管理をしているため、自治体情報システム全体のセキュリティレベルは高度化をしているという認識でございます。</div>
+  <div class="say">変更される点として、セキュリティの更新や脆弱性対応が、クラウド事業者によって集中的に置かれることになりまして、最新のセキュリティ基準の適合が迅速化します。また、その結果、本市の職員の負担も軽減されますし、特にＩＴ専門人材が不足している現状で、セキュリティ対応の品質向上につながるメリットもございます。（「もう一個」と呼ぶ者あり）</div>
+  <div class="say">すみません、２問目でしたね。システムが標準化されるということでしたね。ガバメントクラウドの移行によりましてシステム標準化が行われ、データ形式等が統一されることで、自治体間の相互利用性は向上することは見込まれるところでございます。しかしながら、これは標準化におけるデータ連携が統一をされるということでございまして、取り扱う情報は機密性の高い住民情報でございますため、直接、そのデータを活用するということはないのかなと考えてございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=2122s" data-timestamp="2122"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:22</a>ありがとうございます。ＩＳＭＡＰで登録されたサービスを利用することで、個別に運用していくよりもセキュリティレベルが高度化して、また、職員の負担軽減にもなるという点を確認させていただきました。いいことだと思います。</div>
+  <div class="say">それから、セキュリティ人材が不足するということですよね。特に本市においては、なかなか他市の大きな都市よりも情報システム、あるいはＤＸ関連に精通する職員がさほど多くないということもありますので、事業者が最新の対策を行ってくれる点というのは合理的なメリットであると理解いたしました。</div>
+  <div class="say">それから、今のデータ連携の話については、仕組みが統一されるということでありますけれども、住民情報の機密性、あるいは安易な直接活用というのはできないということが分かりましたので、非常に安心したということであります。ただ、そうはいっても、接続性は高まっていくと思いますので、必要なデータについては今後も、国あるいは他自治体との連携が進んでいくものだと思っております。</div>
+  <div class="say">それについては以上です。</div>
+  <div class="say">もう１つ、再質問させていただきたいんですが、セキュリティが確保されているということを前提としまして、まず、災害時の対応を、ＢＣＰの観点から伺ってまいります。クラウドの移行は、セキュリティ面で変化するとしまして、災害時のＢＣＰ強化をする観点でどのようなメリットがあるのか、お聞かせください。</div>
+  <div class="say">もう１つ、今度はガバメントクラウド、広域行政のＤＸの面でのメリットをお知らせください。</div>
+  <div class="say">以上２点、お願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">山口情報システム課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=2256s" data-timestamp="2256"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:36</a>質問を頂きました。ガバメントクラウドの災害時のＢＣＰ強化の観点ということで、１点目でございます。ガバメントクラウドは、国内の複数の地域、リージョンといいますが、にシステムとデータを保管し、大規模災害の発生を想定したシステムの可用性と業務継続性を保持する仕組みとなってございます。データを地理的に分散させることによりバックアップが保障され、災害時のデータ喪失リスクが大幅に軽減することが想定をされているものでございます。</div>
+  <div class="say">４点目でございます。ガバメントクラウドの広域行政ＤＸのメリット等々でございますが、ガバメントクラウドは、行政サービスのデジタル化を推進するために整備する共通機能や共通基盤として整備をされたものでございます。その規模や影響は広域行政、そういった区域にとどまらず全国規模で仕様を統一したシステムやクラウドサービスを運用するという点では、今後の更なるデジタル化、ＤＸの推進を行う上での基盤が整備をされたものと、現状では認識をしているところでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=2328s" data-timestamp="2328"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:48</a>よく分かりました。災害時の対応について、まだかなり強化されるということでありますので、データ喪失リスクも含めて、庁舎が被災する事態においてもデータが保全されるということであります。市民生活を守る上で、極めて重要なことだと思っております。</div>
+  <div class="say">それから、ガバメントクラウドの広域行政のＤＸのメリットもお伺いしました。行政サービスのデジタル化で、こうやって小金井市だけではできない、もっと広域で考えなければいけない、そして小金井市自身のＤＸも強化しなければいけないという面で、非常にメリットがあるんだなということが分かりました。部局の方、それから、職員の方は非常にご苦労されたと思いますけれども、今回の移行によって、セキュリティの向上、災害対策の強化、そして将来的なＤＸ推進の基盤が整っているということが確認できました。</div>
+  <div class="say">最後になりますけれども、全国的に移行に苦慮する自治体がある中で、期限に向けて着実に準備を進めていただいた。もちろん東京自治体クラウドに参加したことが大きいということが分かりますけれども、これらのメリットを享受できる段階にあるということは、適切な対応であったなと思っております。整った基盤をいかしていただいて、先ほど来の各委員の質問にもあるわけですけれども、懸念はもちろんあると思いますので、更に取組を進めていただいて、市民生活の向上に取り組んでいただければと思っております。</div>
+  <div class="say">以上、質問を終わります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=2440s" data-timestamp="2440"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:40</a>こちらの資料の提出と説明をいただいて、ありがとうございました。</div>
+  <div class="say">意見・要望だけで終わらせますので、前回の総務企画委員会で、私はＤＸの部分については一切発言しなかったんですけれども、それは、説明を事前にいただいて理解はできていたんですが、ちょっと自分の中で疑問点がずっと残っていたので、それが自分の中で解消できるまでは、何となく言葉にしづらいなと思っていたところがあったんです。ところが、それが先日、行政視察で愛知県小牧市と愛知県一宮市に伺ったときに、全然話が違うわけですけれども、同じＤＸとかＩＣＴの導入などについてのことだったので、そういうお話を担当部局の方から伺ったときに、提供する側の都合や利便性、効率の向上ではなくて、利用する側、市民の側の、いかに利用しやすいかということを考えているということでやっていらっしゃるということが分かって、これだったんだと気がついたところがあったんです。ですので、今回のシステムを導入することは、確かに我が市においては、東京自治体クラウドなどで、小金井市単独ではなく複数市とやり取りをすることによって、いろいろな経験や知見などをいかすことができるわけですけれども、それらを抜いても、私としては、ぜひ使う側の市民の立場に立って、どのような形になるかということを考えながら、特に人材の登用だったり育成など、とても大変なことがあると思いますし、それ以外にも、視察でお伺いしたところで、直接市民の方と相対される、対応される方たちにもとても気を配らなければならないということが分かったところですので、その辺のところをどうぞ気を配りながら進めていただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=2539s" data-timestamp="2539"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:19</a>他にございますか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=2543s" data-timestamp="2543"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:23</a>なしということでよろしいですか。</div>
+  <div class="say">以上で、本件に対する現時点での質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=2553s" data-timestamp="2553"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:33</a>ご異議なしと認め、本件に対する現時点での質疑を終了いたします。</div>
+  <div class="say">お諮りいたします。本件は引き続き調査する必要があると認め、継続調査といたしたいと思います。これにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=2566s" data-timestamp="2566"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:46</a>ご異議なしと認め、本件は継続調査と決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=2577s" data-timestamp="2577"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:57</a>次に、行政報告を行います。</div>
+  <div class="say">初めに、行政報告１、小金井市教育大綱（案）に対する意見募集の実施についてを行います。</div>
+  <div class="say">部局の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">廣田企画政策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=2594s" data-timestamp="2594"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:14</a>小金井市教育大綱（案）に対する意見募集の実施について報告します。</div>
+  <div class="say">地方教育行政の組織及び運営に関する法律第１条の３に基づき、教育、学術及び文化の振興に関する総合的な施策の大綱として、平成27年に小金井市教育・文化の振興に関する総合的施策の大綱を策定していますが、策定から一定の期間が経過しており、また、教育委員会で作成する小金井市教育委員会の教育目標、小金井市教育委員会の基本方針、明日の小金井教育プラン及び小金井市生涯学習推進計画の改定があることから、新たに小金井市教育大綱（案）を作成しました。本大綱（案）について、小金井市市民参加条例第15条の規定に基づき、11月20日、木曜日から12月19日、金曜日までの間、パブリックコメントを実施しているところであり、その内容について報告するものです。</div>
+  <div class="say">議員の皆様には、令和７年11月19日に本大綱（案）を送付していますので、そちらをご覧ください。</div>
+  <div class="say">タイトルについては、これまで「小金井市教育・文化の振興に関する総合的施策の大綱」としていましたが、他自治体の事例を踏まえつつ、教育行政に関する大綱であることを明確にするため、「小金井市教育大綱」としています。策定に当たり、総合教育会議で協議する必要があることから、令和７年８月26日及び同年10月14日に総合教育会議を開催し、教育長、教育委員の意見を伺い、反映させたものとなっています。</div>
+  <div class="say">３ページの理念では、教育委員会における教育目標を尊重した内容となっており、理念を二つ設定しています。</div>
+  <div class="say">４ページの方針では、教育委員会における基本方針を尊重した内容となっており、方針を六つ設定しています。1)から4)までが学校教育に関する内容、5)及び6)が生涯学習に関する内容となっています。</div>
+  <div class="say">５ページからの取組の方向性では、先ほどの六つの方針に対する具体的な取組の方向性を記載しています。なお、教育大綱（案）の内容については、現在策定中の第５次小金井市基本構想・後期基本計画とも整合を図りながら策定したものです。</div>
+  <div class="say">今後につきましては、パブリックコメントにおける検討結果について取りまとめ、令和８年２月頃にホームページ上にて公表したいと考えています。詳細については資料をご覧ください。</div>
+  <div class="say">報告は以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=2740s" data-timestamp="2740"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:40</a>これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">斎藤委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=2744s" data-timestamp="2744"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:44</a>教育分野ですので、厚生文教委員会で行うような質疑はいたしません。一つ一つの内容には質疑はしないんですけれども、まず、タイトルを「小金井市教育大綱」にしたということ、これは分かりやすくて非常によかったと思います。</div>
+  <div class="say">それと、市長と教育委員会の役割なんですが、協力、連携ということで、具体的にどういうことかというと、小金井市教育委員会の中の教育目標、基本方針、これと小金井市の基本構想・基本計画を連携させて教育大綱を作成するということだったんですが、この中で、教育目標、基本方針とこの大綱を見比べれば、市長側から付け足したことというものが分かるのでしょうが、市長として、この部分を大綱にするに当たって、何というんですか、付け足したという言い方はおかしいですね。連携、整合性の中で、市長の特色というのはどこかに出したところがあるのか否か。ただ単に、基本構想・基本計画、これとのマッチングをするだけだったのか。マッチングして、いろいろその後、理念や方針、取組の方向性というふうに、何を入れるかによっても方向性が出るんだろうと思いますが、この際、市長としては、大綱をつくる上で、こういうことだと言えることがあれば、おっしゃっていただければと思います。</div>
+  <div class="say">それと、中身には踏み込まないように気をつけるんですけれども、教育で、小学校、中学校の学習指導要領の中の前文の１、２、３、４、５とありまして、５番目に、伝統と文化を尊重し、それらを育んできた我が国と郷土を愛するとともに、他国を尊重し、国際社会の平和と発展に寄与する態度を養うことという一文がありまして、私はこの文章を非常に大切にしたいなと思っております。子どもたちの、日本人としてのよって立つ、意味合いといいますか、アイデンティティという言い方もするかもしれませんけれども、それを明確にすることによって、自分たちが生きている意味というものを分かるのではないかなと思うんですが、その部分がこの大綱の中に、どこにいかされているかということなんですが、そういった一つ一つのことを、理念や方針の中には入れることができないと思うんですが、取組の方向性で、方針１の未来を創造する力の育成というところの中に、日本固有の伝統文化やグローバル社会、情報社会の理解を踏まえ、ＩＣＴ利活用の推進を図るとともに、宿泊行事や英語学習における豊かな体験活動の充実を図ります。</div>
+  <div class="say">ここで言うのは、ＩＣＴの利用、活用の推進と豊かな体験活動という二つのことを行う上で、その例示するところで、日本固有の伝統文化やグローバル社会、また、宿泊行事や英語学習ということを例示しているという形だと思うんです。しかし、主体はＩＣＴ活用であり豊かな体験活動であって、日本固有の伝統文化は、例えばこれですよという形で出ていまして、私とすると、日本固有の伝統文化、先ほど言った、伝統と文化を尊重し、それらを育んできた我が国と郷土を愛するとともに、他国を尊重し、国際社会の平和と発展に寄与する態度を養う、これを全部、大綱の中に入れることはできないので、ここに書いてあるだけ、いいかなと。「日本固有の伝統文化」という文言が入っているだけ、いいと思っているんですけれども、もう少し今の私の、学習指導要領の前文の５番の認識、理念というものを織り込んでいただけないかなと思うんですが、いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">白井市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=3069s" data-timestamp="3069"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:09</a>斎藤委員からご質問を頂きました。全てお答えできないところはあるんですけれども、お答えできる範囲でお答えをいたします。</div>
+  <div class="say">まずは、市長として思いのこもった文言、表記、若しくはそういったこだわりはどこにあるのか、１問目についてはこういう質問だったと思います。前回ももしかしたらお答えしたかもしれませんが、正直、教育大綱をつくる上で、非常にやりにくいなと思ったところはあります。それは、小金井市教育委員会の方で、まずは教育目標、教育方針というのを本当に久しぶりに改定するという段階であるということ、また、既に小金井市基本構想・基本計画がございます。それと整合性も合わせないといけないということなので、例えば、すごい未来を想像して、新たなものを盛り込むというよりは、そこの整合が中心となりましたというのが正直なところです。</div>
+  <div class="say">ただ、その中でも今回、非常に重要なところは、まず理念として、これは教育委員会の目標、方針のところにも書かれてあるんですが、主体的に学ぶということと多様性を包摂するということ、ここを教育委員会の方でも、教育長はしっかり力を入れて、こういった表現にしたいというお話も、私も以前から聞いておりましたので、これは市としても、教育大綱にしっかり理念として、二つの理念の中の一つにこういったことを盛り込んでいこうというところは、私自身も共感し、それを盛り込んだというところは、個人的なこだわりであったりもします。</div>
+  <div class="say">あと、実は取組の方向性をいろいろ担当と協議する中でも、細かい文言については、私の方からいろいろ指摘したところでありますが、放課後についての記述について、しっかりそれは入れようねということは私の方から言った覚えがあります。これは、放課後だけを区切って入れてはいないんですけれども、取組の方向性の方針5)の三つ目のポツのところに途中から、「放課後の子どもの居場所の充実」という言葉を入れました。実は最初、全体を見て、どの方針にも「放課後」という言葉が、最初の案を担当から作っていただいて協議をする中において、入っていなかったので、ここはしっかり、今の学童保育所並びにそれ以外の、広義の意味での放課後を充実させるという考え方を、市としても明確にして、教育委員会と連携を取っていく必要があるなと思いましたので、そういったところを私の方で盛り込むように指示したという記憶がございます。それが一つ目の質問の答えでございます。</div>
+  <div class="say">二つ目について、お答えしようと思ったことは、途中から斎藤委員が述べられてしまったんですけれども、結局、伝統文化に関しては、方針1)のところで、文言としては入れさせていただいて、最終的には、それを踏まえた上で、ＩＣＴ利活用の推進につながっているので、恐らく斎藤委員がイメージしているものと、十分ではないと思うんですけれども、そこを入れているということと、あとは、方針6)のところで、これは生涯学習に関係する分野に関してですけれども、「一人ひとりを尊重し、市民が主体的に」、そしてその後に、「文化に触れる機会を広く提供する」ということ、ここは、いわゆる日本の伝統文化だけではございませんが、幅広い文化というものを、子どもだけではなくて市民全体にしっかりと提供していくという考えをここに入れているところでございます。総じて、理念のところで「多様性を包摂し」と書いてあるのは、結局、日本の伝統文化もそうですし、場合によっては、他者理解ということとか、若しくは国際理解といったことも含めて、様々な意味での多様性を包摂していく社会をつくるといった思いを、理念をこの言葉に込めているということも含めて取り組んでいく、そのように認識をしております。</div>
+  <div class="say">ちなみに、さっき斎藤委員が２問目に引用されたものは、学習指導要領ですかね。（「そうです」と呼ぶ者あり）そうですね。申し訳ないけど、それは一応、文部科学省のあれなので、教育委員会の方で恐らく、それに沿った、しっかり教育なり取組というのをされるということも含めて、このようにまとめたということになります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">斎藤委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=3357s" data-timestamp="3357"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:57</a>ありがとうございました。なかなか我々は、教育のところに深く立ち入るというのは、分かれるというか、配慮しなければいけないなというところであるので、市長がやりづらいということはよく分かるところであります。</div>
+  <div class="say">そして、子どもたちは学校教育、大人は生涯学習みたいな、勝手にイメージを分けてしまいがちのところを、子どもたちの放課後の居場所ということに関しての文言が生涯学習の方に入っているということは、これはいいことかなと。子どもたちを含めて生涯学習だということで、いいかと思います。</div>
+  <div class="say">私の学習指導要領に立ち入った発言は、指導要領にはこういう文言があるよということを、議会も含めて共有したいという思いもありまして質問させていただきました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=3432s" data-timestamp="3432"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:12</a>これを拝見させていただいて、私自身は2015年の国の法律改正のときに一定程度、そのときは議員ではありませんでしたけど、思うところがあったんですが、改めて今回、議員になってから小金井市総合教育会議会議録を拝見させていただいて、特に令和３年度以降は非常にいい連携というか、意見交換というんですかね、分からないですけど、情報交換ができているのではないかなということで、私自身の国の政策レベルでの懸念はあったんですけれども、非常に小金井市としては、いい取組というか、情報交換ができているのではないかなと思いました。</div>
+  <div class="say">今回の大綱についても、非常によくできているなということを思いましたので、今後とも、教育委員会との適切ないい連携と情報交換をしていただければと思います。特段質問はありません。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=3502s" data-timestamp="3502"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:22</a>小金井市教育大綱（案）を頂いたときに、えっ、総務企画委員会ですよねというのをちょっと思ったりもしました。しかも、説明に来られたのは企画政策課だったので、えっ、教育大綱とは、そこで私自身、ちょっと混乱してしまったんですけど、説明を伺う前に、これはどういうことですかということでお尋ねしたところ、教育大綱という文字ですけれども、行政に関わっている中でも、なかなか拝見すること、触れることがないかなと思って、そこから調べていったら、物事の骨子、骨組みになるものであるということが分かりまして、なるほど大きな枠組みなんだなと。しかも、教育委員会と市長部局と二つの大きな区分けがあるのか、それで大きな、こういうことを考えていますよ、こういう形で骨組みとすることを考えていますよということで出されるんだなと思って、そこで何となく納得して伺っていたんですけれども、なかなか難しいかなと思われるのは、これから意見募集などをされると、細かいところでの意見とかが出てくると、これは完全に企画政策課の方で答えられることではないかなと思うこともたくさんあると思うんですけれども、できれば、そういったところをどのようにして分けていらっしゃるところがあるのかということを教えていただければというところと、私としては、教育大綱（案）の方を拝見したんですけれども、特に意見があったりとか反対するところもないので、このままで構わないかなと思っているんですけど、先ほど申し上げたように、これは小金井市の教育に対する大きな骨子としての方針を示しましたよということで受け止めておけばいいだけかと思います。ちょっとその辺のところを確認させていただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">廣田企画政策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=3620s" data-timestamp="3620"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:20</a>吹春委員から、まず、なぜ総務企画委員会でという話もありましたが、教育大綱につきましては、市長が策定するという点で、私ども、市長部局である企画政策課の方で所管するという形になっているものでございます。</div>
+  <div class="say">内容につきましても、どちらかというと、先ほどおっしゃったような大綱という大きなくくりという形で、細かいところまで踏み込んではおりませんで、実際、具体的に推進していくに当たっては、例えば教育委員会で策定している明日の小金井教育プランであったり、また、生涯学習推進計画であったり、そういった個別計画においてより具体化して、そこで推進していくという考え方を持っておりますので、私どもとしましては、最上位計画として長期総合計画があるんですけれども、そちらを踏まえて、市としての教育に関する方向性というのを示して、あとは個別計画で具体的には推進していくという考えで、思っております。</div>
+  <div class="say">お答えになっているか分からないですけれども、以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=3683s" data-timestamp="3683"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:23</a>いいですか。他にございませんか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=3683s" data-timestamp="3683"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:23</a>以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=3694s" data-timestamp="3694"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:34</a>ご異議なしと認めます。したがって、本件に対する質疑を終了いたします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=3698s" data-timestamp="3698"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:38</a>次に、行政報告２、（仮称）小金井市行財政改革2030素案に対する意見募集についてを行います。</div>
+  <div class="say">部局の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">久保田企画政策課主査</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=3711s" data-timestamp="3711"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:51</a>それでは、企画財政部行政経営担当から、（仮称）小金井市行財政改革2030素案に対する意見募集についてご報告いたします。</div>
+  <div class="say">現在、小金井市行財政改革2025に代わる新たな行財政改革の指針である（仮称）小金井市行財政改革2030の策定に向け、小金井市行財政改革審議会でのご意見を踏まえ、小金井市行財政再建推進本部にて協議を行っており、令和８年１月初め頃から約１か月の期間で、素案に対するパブリックコメントを実施する予定でございます。</div>
+  <div class="say">報告は以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=3750s" data-timestamp="3750"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:30</a>これから質疑を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=3753s" data-timestamp="3753"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:33</a>以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=3767s" data-timestamp="3767"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:47</a>ご異議なしと認めます。したがって、本件に対する質疑を終了いたします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=3772s" data-timestamp="3772"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:52</a>次に、行政報告３、（仮称）小金井市第７次男女共同参画行動計画（素案）に対する意見募集について（パブリックコメント募集要項）を行います。</div>
+  <div class="say">部局の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">北村男女共同参画担当課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=3772s" data-timestamp="3772"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:52</a>（仮称）小金井市第７次男女共同参画行動計画（素案）に対する意見募集について（パブリックコメント募集要項）について、行政報告いたします。</div>
+  <div class="say">本計画については、令和８年度以降に市が実施していく男女共同参画施策の総合的かつ体系的な推進を図るための行動計画として、男女平等推進審議会に、昨年８月に市長から諮問されたものです。策定に当たりましては、市民意識調査や小・中学生アンケートを実施し、計画素案について、男女平等推進審議会による市民懇談会を実施するなど、市民参加の手法も取り入れながら審議・検討を重ねていただいたところです。この度、計画素案がまとまりましたので、パブリックコメントを実施いたします。</div>
+  <div class="say">実施期間は、明日、令和７年12月12日から令和８年１月13日までとなっておりまして、市のホームページに掲載し、市の施設に資料を配架、ご意見を郵送、ファクス、専用フォームなどで募集いたします。詳細については資料をご覧ください。</div>
+  <div class="say">パブリックコメント実施後の計画策定に関するスケジュールについては、頂いたご意見を男女平等推進審議会でご審議いただいた後、令和８年３月に計画案の答申を頂き、その後、答申内容の検証を経て、令和８年３月末までに計画の策定を予定しております。</div>
+  <div class="say">報告は以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=3877s" data-timestamp="3877"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:37</a>これから質疑を行います。ありませんか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=3885s" data-timestamp="3885"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:45</a>以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=3889s" data-timestamp="3889"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:49</a>ご異議なしと認めます。したがって、本件に対する質疑を終了いたします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=3896s" data-timestamp="3896"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:56</a>次に、行政報告４、令和７年度課別時間外勤務時間数等についてを行います。</div>
+  <div class="say">部局の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">室井労働安全衛生担当主査</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=3912s" data-timestamp="3912"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:12</a>それでは、行政報告４、令和７年度課別時間外勤務時間数等についてでございます。</div>
+  <div class="say">令和７年４月から10月までの状況につきまして、課ごとの時間外勤務時間数及び時間外手当の金額について、前年度との比較を一覧にまとめたものでございます。</div>
+  <div class="say">資料の裏面、一番下の合計欄をご覧ください。４月から10月までの実績は５万6,870時間で、前年同時期と比べ2,887時間の減となっており、今年度の目標である、９万時間を切る目標に対しては、1,992時間の増となっております。</div>
+  <div class="say">今後も目標達成に向け、取組の徹底強化を図り、引き続き、時間外勤務の抑制に取り組んでまいります。</div>
+  <div class="say">報告は以上でございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=3956s" data-timestamp="3956"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:56</a>これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=3967s" data-timestamp="3967"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:07</a>資料の作成と提出をありがとうございました。</div>
+  <div class="say">お尋ねしたいことが１点ございます。この中での、細かく具体的な時間のこととかではないんですけれども、今月ですが、ある報道に触れました。それは、東京都内の中、区部でも市部でもある程度、どこでも、行政として時間外の働き方についていろいろと議論がなされているらしいと。それで、何が取り上げられていたかというと、主に開庁時間と閉庁時間についてだったんです。今、午前８時半に開庁されて、同時に市民の方たち、いわゆるお客様たちとの受付対応が始まる。それで、午後５時15分までそれをやられるということで、そこで、それが当たり前のことかなと僕は思っていたんですけれども、そういうことではないんだよという考え方が今どうやらあるらしい。というのが、午前８時半に開庁するのにも、その時点で準備が全てできていないといけないんですかという話になるわけです。であると同時に、当然午後５時15分まで営業して、対応される。午後５時15分で閉めます。そうすると、そのままさっと帰れるわけではないですよね。当然その後、仕事も発生してくるわけです。それを効率よくこなすためにどうするかというと、午前８時半に職員の方たちがお見えになる。それから実際に開庁する、市民の皆さんへの対応時間を午前９時からとする、30分繰り下げる。その30分間、何をするかというと、そこでしっかりと準備をしていただく、開庁するための、対応されるようになるための。そして、午後５時15分に閉じるということではなくて、例えば午後４時半に閉じて、対応するのは午後４時半までです。午後４時半から45分間を使って、帰るための準備作業、閉め作業などをされるということが、少しずつ導入が区部でも市部でも進んでいるということが掲載されていました。</div>
+  <div class="say">その報道に触れたとき、私は、なるほどな、こういう考え方もあるんだなと思ったんです。確かに、対応される、営業という言葉がふさわしいかどうかはともかくとして、市民の方が来られて、窓口の業務の方で対応する時間は、それだけ減るわけですけれども、実際に働かれる職員の方たちとしては、かなり余裕を持って準備ができて、そして開庁して、そして閉めるときも、まだまだ時間はあるわけですけど、早めに閉めることによって、それだけ余裕を持って業務、閉め作業に入れる、しかも時間のうちに帰ることができる状況になるのではないかなと。</div>
+  <div class="say">確かに時間が遅くなって、閉めるのが早くなるわけですけれども、あまり僕は、市民の方はそんなに気にされないのではないのかなと思うんです。この考え方はとても大事な考え方かと思いまして、今の時点で早速、来年度から導入してほしいなどということではないんですけど、これは検討に値することではないかと思うんですけれども、それについてどう思っていらっしゃるか、もしお考えがあるのであれば、お聞かせいただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">森行政経営担当課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=4168s" data-timestamp="4168"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:28</a>議員がご案内のとおり、窓口時間の短縮につきましては、近隣市を始め、全国的にも導入の事例があることは認識しております。ただ、時間外の短縮に直接つながるかというのは、先進市においても、副次的にそういったことが発生するといったことになっているのかなと捉えております。</div>
+  <div class="say">本市につきましても、市民サービスの維持向上と業務効率化の両方の観点から、先行事例の事例収集に努め、導入効果等を前向きに研究を進めてまいりたい、現段階ではそういった形で研究にとどめさせていただきたいなと考えておりますけれども、他市の状況も見ているところでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=4214s" data-timestamp="4214"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:14</a>ご答弁いただきまして、ありがとうございます。</div>
+  <div class="say">そういったところが導入されている事例が複数存在するかということで、研究の方もされていただけるのかなと思っているところなんですけど、どうしてこういうことが今、少しずつ広がっているかというと、窓口のオンライン化とコンビニ交付、これらが大きな影響が示されていると思うんです。長時間にわたって働いてくださいというのはとても酷な話でもありますし、働き方改革にも触るところでございますし、オンライン化、コンビニエンスストアの窓口として使える形というのをどんどん普及させて広げていくことによって、これらは必ず、働いている職員の皆様のワーク・ライフ・バランスを整えることにも役立つことかと思いますので、できれば検討、研究を進めていっていただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=4264s" data-timestamp="4264"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:04</a>他にございますか。なしということでよろしいですか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=4265s" data-timestamp="4265"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:05</a>以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=4277s" data-timestamp="4277"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:17</a>ご異議なしと認めます。したがって、本件に対する質疑を終了いたします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=4291s" data-timestamp="4291"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:31</a>次に、行政報告５、おくやみ手続窓口におけるワンストップ窓口の開設についてを行います。</div>
+  <div class="say">部局の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">東條市民課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=4302s" data-timestamp="4302"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:42</a>それでは、市民課よりお配りした資料について説明させていただきます。</div>
+  <div class="say">令和６年１月より市民課に開設しておりますおくやみ手続窓口について、従前よりご利用者の方々や市議会の皆様より頂いていたご意見を受けまして、今週月曜日、令和７年12月８日より、ワンストップ方式での受付窓口を開設いたしましたので、報告いたします。</div>
+  <div class="say">資料３番、概要の（１）をご覧ください。ご予約がありましたら、亡くなった方について市で行うことができる手続の有無や必要書類を、事前に庁内で確認して準備し、手続所管部署が作成したマニュアルを用いまして、市民課職員が１か所で対応させていただくという仕組みのものでございます。</div>
+  <div class="say">概要（２）をご覧ください。おくやみに関する手続は全部で約50ございます。50の手続のうち、ワンストップ方式で受付可能な手続を、各課調整の上、27個に絞り込んでおります。それ以外の個別具体の判断を伴う手続ですとか、市民課では対応がし切れないものについては、担当部署での手続をご案内をしてございます。</div>
+  <div class="say">（３）その他をご覧ください。従前のいわゆるウォークラリー方式は、やめるわけではございませんで、ワンストップ方式の受付と併用して行うことになります。現在時点において、運用を始めた今週月曜日より毎日、ご予約をいただいておりまして、ご利用された方々からはおおむね好意的なご意見を頂いているところでございます。</div>
+  <div class="say">引き続き、ご予約いただく方にとって便利で使いやすい窓口に向けて、改善に努めてまいります。</div>
+  <div class="say">説明は以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=4409s" data-timestamp="4409"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:29</a>これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">小林委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=4416s" data-timestamp="4416"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:36</a>おくやみ手続窓口のワンストップ化を積極的に進めていただきまして、ありがとうございます。</div>
+  <div class="say">今のご説明を聞いて、少しだけ確認をしたいんですが、今回は併用という形で、ウォークラリーとハイブリッドの形で、以前の方式も残されたということでありまして、その目的というか、それについて改めて確認をしておきたいと思います。</div>
+  <div class="say">また、今週、今日が４日目という形で、良好な感じだということでありますが、ご予約の状況で、どちらの方式がどのぐらいの感じなのか、また、ワンストップについて、どういう形で皆さんが興味を持たれているかとか、その辺りをもう少し詳しくお聞かせいただければと思います。</div>
+  <div class="say">また、50の手続のうち27の手続に絞ったということでありましたが、そこから漏れる、そうはいっても、あれだけの大きさの市役所ですから、それほど手間にはならないかと思いますが、どのぐらいの手続が確率的に漏れていて、直接行っていただかなければならない状況で、それに対する市民の方の反応についてはどのような状況なのか伺えればと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">東條市民課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=4506s" data-timestamp="4506"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:06</a>小林委員から３点、ご質問を頂きました。</div>
+  <div class="say">まず、１点目でございます。ウォークラリー方式とワンストップ方式の併用の目的ということでございます。おくやみ手続窓口において、ウォークラリー方式、従前のやり方ですと各課、いろいろな担当課に回っていただくことになりますので、専門部署の詳しいご説明が聞けるということがございます。</div>
+  <div class="say">一方で、ワンストップですと、市民課の職員が対応いたしますので、マニュアルに書かれた以上のことというのはなかなか難しい部分がありまして、悪く言えば、広く浅くという形のご案内になる。細かいことをご質問いただいたら各課につなぐという対応になってきてございます。いらっしゃる方のご要望を伺って、細かくお話を伺いたいという方であれば、ウォークラリー方式の方が向いている方もいらっしゃいますし、１か所で済ませたいという方であればワンストップの方が向いているというところで、ニーズも異なるかなというところで、併用という形でさせていただいております。</div>
+  <div class="say">２点目で、予約の状況というところでございます。現時点において、ワンストップ方式でのご予約というのが結構いっぱい入っておりまして、12月の営業日は基本的に埋まっているという形でございます。次の予約は１月に入ってしまう形になっております。現時点だと、今週から開設したばかりというところもございまして、担当の方も、いろいろこなすことがまだできない状態ですので、ワンストップでの受付というのは今、１日１枠で取らせていただいておりまして、他の枠はウォークラリーで埋めているという形になってまいりますので、来月以降、徐々に枠を増やしていければなと考えております。</div>
+  <div class="say">３点目でございます。50の手続のうち27個に絞り込んだ、他のものというところです。よくある手続といいますか、誰もが通る手続については、基本的にはワンストップで全て拾っている形になりまして、あまり漏れるものは、実際にはないという認識でございます。今週においても、私も月、火、水と同席していたんですが、どれも、他の課をご案内したということはなかったという形でございます。レアケースというものも含めた50個の手続ということになりますので、よくある手続は拾えているかなと認識してございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">小林委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=4672s" data-timestamp="4672"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:52</a>ウォークラリー方式がより詳しい話も聞けるということで、あえてそういった選択肢として残していただいているということであります。ありがとうございます。</div>
+  <div class="say">また、ワンストップの方は今、枠を絞ってやっているということでありますが、12月は埋まっているということで、こういった毛色のご相談ですので、来月、再来月でもいいですよという話ではないので、そういったところを今、ウォークラリーなどの方式で、また丁寧に拾っていただいているんだろうなと思っておりますので、どうぞよろしくお願いをいたします。</div>
+  <div class="say">少し離れていくんですが、１点だけ伺っておきたいのは、これは市民課だけで答えられるかどうか分からないんですが、恐らくワンストップ化をするに当たって、27の手続を市民課の窓口職員が対応できるように、いろいろな各課調整というのを、壁を越えてやっていただいて、また、場合によってはフォーマットを整理していただいたりとか、マニュアルを整理していただいたという背景があるのではないかなと思っております。そうすることで、今回はおくやみの窓口でありましたけれども、いろいろなことが今後、スペースの問題とか人員の問題はありますが、市民課窓口で一括で対応していくという、いわゆるワンストップ窓口といったところも大きく検討していける素地がつくれたのではないかなと思うんですが、その後、それについて今後の展開、いろいろなところにこの経験をいかしていける状況になったのかどうか、今のところの感想をお聞かせいただきたいと思います。いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">東條市民課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=4787s" data-timestamp="4787"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:47</a>私が答えられる範囲になってしまいますけれども、元々、従前より市民課の方で、例えば税証明ですとか畜犬の登録といったものも、窓口の方で行っているところでございます。今、小林委員の方からおっしゃっていただいたのは、総合窓口課というご趣旨かなと思っておりまして、なかなか現時点でそこまでというのは難しいかなというのが正直な感想でございます。</div>
+  <div class="say">今回のおくやみ窓口につきましても、なかなか一つの手続だったり制度を理解した上で対応しているわけではありませんで、あくまで各課に作っていただいたマニュアルに載っている注意事項ですとか、手順ですとか、マニュアルに書かれている範囲では対応できますが、それ以上は難しいですという形でやっておりますので、そういった形であればすぐにでもと思うんですけれども、総合窓口という形になってくると、そこで疑義をこなしていくということがどうしても必要になってくると思いますので、今すぐにというのは、なかなかと思います。</div>
+  <div class="say">ただ今回、おくやみ手続窓口のワンストップを始めるに当たりまして、元々のウォークラリーのときも結構、各課と調整した上で始めているんですが、各課の業務をある程度、市民課の方で請け負う形で、実態としてはやっているところでございまして、それについて、そういうことができるんだという庁内での認識というのは一定にできたのかなと考えておりますので、今後の土台となるかはまた別なんですけれども、そういう認識自体は庁内に生まれたのではないかなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">小林委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=4911s" data-timestamp="4911"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:51</a>ありがとうございます。即、この経験をというところにはいかないということでありましたけれども、ひとつそういったことがなし得たという経験は、ぜひいかしていただきたいと思います。</div>
+  <div class="say">事業を他の課にお願いするということで、仕事を整理していくということ自体が効率化にもつながるし、時間外の抑制にもつながっていくでしょうし、窓口の委託コストの最適化とか、いろいろな意味を持つかなと思っておりますので、ぜひそういったことも意識しながら、各課業務に当たっていただきたいと思います。どうぞよろしくお願いいたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=4959s" data-timestamp="4959"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:39</a>おくやみ手続窓口ですけれども、今、ご質問なさった小林委員もそうですが、我が会派の遠藤市議も以前、一般質問などで繰り返し、こういったことについては要望を出させていただいているかなと思います。それが12月８日に実現できたということで、誠にありがとうございます。</div>
+  <div class="say">それで、私もこのサービスは絶対必要だろうなと以前から思っておりました。特に、実際に小金井市にご高齢のお父様、お母様が単身で住んでいらっしゃって、お子様たちが地方の都市でご家庭を持っていらっしゃる。そうすると突然、受け取るのは、お亡くなりになったといった報告を受けるときがあったりとか、あまり珍しいことではなくなっていると思うんですよね。そういったときに、どう手続すればいいか分からない。しかも、さっきいただいたご説明では、50もの手続が必要だということであれば、とても対応できるものではないし、当然のことながら、役所以外にもいろいろな手続を取らなければならない。それを思うと、ご心中、いろいろなことがおありになりながら、このような手続に立ち向かわなければならないかと思うと、非常に心苦しいところかと思いますけど、こういった形でやっていただければ、特にワンストップの形でやっていただくことによって、かなり精神的な負担も軽減されるかと思うんです。ですので、ぜひとも拡充していただいて、今後も進めていただければと思うところでございます。</div>
+  <div class="say">それで、実際に資料を頂いたときに、12月８日に開設されているということで、昨日12月10日、開設して３日目ですけど、私は現地に拝見しに伺いました。そうすると、午後だったので閉じていらっしゃる状態であったんですけれども、実際にご案内係の方に、ちょっとお話を伺いたいんですけどということで、もちろん、無理にということではないです。そうすると、なかなかやり取りがちぐはぐな形になって、ちょっと待ってくださいということがあった。これは分かります。まだ３日目ですからね。当然、これからいろいろな形で、日を経て、いろいろな経験を皆さんが積まれていく中で、いろいろなことを知識として体験していかれる中で、やり取りもスムーズになっていくかと思うんです。</div>
+  <div class="say">それで、ちょっとお尋ねしたいんですけれども、ワンストップ方式の予約は年内もいっぱいになっているということですけど、年内というか、大体いつぐらいまで予約がいっぱいになっているんですか。来月分も結構入ってきたりされていますか。そうなった形で、今後たくさん、高齢の方たちがお亡くなりになる数が増えるのではないかと予測されているところもあるわけですけれども、そういったときは窓口を増やすなどして対応される予定とかはあるんでしょうか。</div>
+  <div class="say">それともう１つは、市の職員の方たちの対応とかでも、いろいろな教育だったりとか、共有認識も違ったりとかして、例えば、うまく対応できるシステムか何かをつくられていく予定というのはあるのか、もしありましたら教えていただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">東條市民課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=5162s" data-timestamp="5162"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:02</a>吹春委員からご質問いただきました、予約についてでございます。</div>
+  <div class="say">まず、予約がいっぱい、12月が埋まってしまっているというところで、１月の１週目ぐらいまでは、ワンストップは予約が入ってしまっている形でございます。ウォークラリーの枠はまだございますので、そちらでのご案内を今、お電話をいただいた方にはご案内をしているところです。</div>
+  <div class="say">ワンストップの、例えば今週入っている予約といいますのも、市報に載せたすぐぐらいの11月中旬には予約をいただいて、10月中に亡くなっていた方が、待ってもいいからワンストップで受けたいという形で、結構先を予約いただいた形になっていまして、どんどん埋まっていってしまっている状況でございます。</div>
+  <div class="say">今後、窓口を増やす予定ですとか工夫があればというお話があったかと思います。現状は、市民課というか場所のレイアウト上というところで、なかなか窓口自体を増やすというのが難しい状況でして、また、一件一件が結構、１時間半ぐらいはかかってしまいますので、予約枠も元々、ワンストップを始めるまでは１時間の枠でやっていたんですが、ウォークラリー方式でやると１時間でぎりぎり、長い方で何とかなるぐらいだったんですが、ワンストップの方はやはり時間がかかるんです。そうすると、１時間半とすると１日４枠ぐらいが今、限界かなと考えておりまして、おっしゃるとおり、ニーズが増えてくるのであれば考えなければいけない部分はあるかと思いますので、今後の検討課題にさせていただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=5278s" data-timestamp="5278"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:58</a>ご答弁いただきまして、ありがとうございます。</div>
+  <div class="say">今、いただいているご答弁の中でも、課長がいろいろ検討しながらやっていらっしゃるんだなと私は受け止めましたので、どうぞ柔軟に対応していただいて、市民が利用しやすい形を維持していただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">他にありませんか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=5302s" data-timestamp="5302"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:22</a>では、終了していいですね。</div>
+  <div class="say">以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=5309s" data-timestamp="5309"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:29</a>ご異議なしと認めます。したがって、本件に対する質疑を終了します。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=5310s" data-timestamp="5310"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:30</a>次に、行政報告６、なかよし市民まつりの検討状況についてを行います。</div>
+  <div class="say">部局の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">中川コミュニティ文化課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=5328s" data-timestamp="5328"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:48</a>市民部コミュニティ文化課から、市民まつりに係る再構築に向けた検討状況を報告します。</div>
+  <div class="say">コミュニティ文化課では、旧なかよし市民まつり実行委員の有志の方を対象に、令和７年11月17日に説明会を実施しました。具体的な説明内容は、令和６年度及び令和７年度の検討結果の振り返り、今後の予定として、市民協働支援センター機能の一つに、市民まつり事務局を持たせること、令和８年度及び令和９年度でのつなぎ事業としての小規模開催等は困難であること、令和10年度に新しい形の市民まつり開催を目指していること等です。説明会出席者からは、各地域で行われている活動を結びつけられる機能が必要だろうといったご意見がございました。</div>
+  <div class="say">一般部門出展団体の方には、説明会と同じ内容のお知らせを送付予定です。</div>
+  <div class="say">そのほか、市民協働支援センター再検討委員会運営支援委託につきましては、令和７年11月26日に事業者選定を終え、現在、契約手続を行っています。</div>
+  <div class="say">報告は以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=5401s" data-timestamp="5401"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:30:01</a>これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=5410s" data-timestamp="5410"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:30:10</a>なかよし市民まつりの検討状況についてご報告いただきました。</div>
+  <div class="say">このことなんですけれども、私、意外と市民の方から尋ねられることがあるんです。「お祭りはどうしちゃったの。やめちゃったの」とか、「なかよし市民まつりのことですか」と聞くと、「なかよしでなくなっちゃったのかな」なんて言われたりするんですけれども、市民の方たちはずっとこの祭りを楽しみにしていらっしゃったんだなということがとても分かることが何回もありました。それなので、今、計画の過程であるということをご説明いただいたわけですけれども、今日は口頭報告だったわけですが、できれば文書などで出していただければ、議員全体としても共有できるかと思いますし、また同様なことを聞かれたときには、そごなく答えられるかと思いますので、できれば今後につきましては、報告いただくときは文書でいただければと思いますので、よろしくお願いいたします。</div>
+  <div class="say">ちゃんとやってくださっていることは分かっておりますので。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=5472s" data-timestamp="5472"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:12</a>ご要望ということですね。</div>
+  <div class="say">他にございますか。特になければ終了しますよ。いいですね。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=5483s" data-timestamp="5483"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:23</a>以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=5489s" data-timestamp="5489"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:29</a>ご異議なしと認めます。したがって、本件に対する質疑を終了いたします。</div>
+  <div class="say">以上で、行政報告を終了いたします。</div>
+  <div class="say">以上で、本日の日程は全部終了いたしました。</div>
+  <div class="say">本日は、以上で総務企画委員会を閉会いたします。</div>
+  <div class="say">午後２時28分閉会</div>
+  <div class="say">総務企画委員会所管事項記録</div>
+  <div class="say">午後２時29分総務企画委員会協議会開会</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=5557s" data-timestamp="5557"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:37</a>総務企画委員会協議会を開会いたします。</div>
+  <div class="say">所管事項についてを行います。</div>
+  <div class="say">初めに、市内の公共施設のＷｉ－Ｆｉ設置状況について、藤川委員の発言を許可します。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=5586s" data-timestamp="5586"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:06</a>河野議員の一般質問のときに部局の資料として、Ｗｉ－Ｆｉの設置状況のリストが出てきました。防災施設の一環として設置して、平時は一般利用として市民の皆様に使っていただくという、これをフェーズフリーというんですかね。そのやり方は非常によいと思いますので、今後とも継続していただければと思います。</div>
+  <div class="say">その意味では、市民に対するＤＸ推進といった側面もこれはあると思っております。ただ、そのときにお話を聞かせていただいたところ、便利な反面、ずっと使う方がいるということで、場所も占有してしまうという問題も同時に生じているということもお聞きしました。</div>
+  <div class="say">何か要求するということではないんですけれども、まず、現状についてしっかり把握したいなと思っております。平時の利用時間の制限とか、セキュリティがどうなっているのかとか、災害時は誰でも使えるようになっているのかといったことを確認していきたいと思います。</div>
+  <div class="say">まず、一つ目の質問ですけれども、施設は一般的に別途、ＬＡＮとかがあったり、ＷＡＮ、外部接続があったり、場合によっては、ＬＧＷＡＮといった行政系のネットワークなどへつながっていると思いますけれども、こちらは無線の部分とで有線部分を共用して使っているかということについて、まず一つ目の質問といたします。</div>
+  <div class="say">二つ目、平時の認証方式と利用時間の制限について、お聞かせください。</div>
+  <div class="say">三つ目、災害時の認証方式と利用時間の制限、これは平時のときとはまた違うものになるのかどうかということについて、お聞かせください。</div>
+  <div class="say">また、ファイブゼロジャパンというものに対応しているかどうか。これは特別なＳＳＩＤでして、災害時のみに設定されるというもので、細かい認証とかを全部すっ飛ばしてネットにつながるというものなんですけれども、これに対応しているかということについてお聞かせください。</div>
+  <div class="say">以上、四つです。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">山口情報システム課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=5740s" data-timestamp="5740"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:40</a>４点ご質問いただいたうち、１点目、２点目について、私から答弁を申し上げます。</div>
+  <div class="say">１点目ですが、庁舎を含む各施設では、情報システム課において、市職員用の業務パソコンの利用のための回線を敷設してございます。その回線からＯＮＵ、光回線終端装置を通じてインターネット、ＬＧＷＡＮへの接続を可能とする仕組みとなってございます。本回線については、市職員の利用のみとしてございまして、市民ですとか利用者の皆様がご利用される回線とは完全に別系統で独立をしているものでございます。</div>
+  <div class="say">２点目の平時の認証方式と利用時間の制限についてでございますが、平時の利用につきましては、総務省が公表しています、公衆Ｗｉ－Ｆｉ提供者向けセキュリティ対策の手引きを参照しているところでございます。認証方式につきましては、ＳＮＳアカウントまたはメールアドレスによる方式を採用しており、利用時間の制限につきましては、１回当たり60分、１日２回までとしているところでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">宮奈地域安全課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=5820s" data-timestamp="5820"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:00</a>それでは、３点目、４点目の関係でございます。</div>
+  <div class="say">３点目の災害時の認証方式と利用時間等の関係についてでございます。こちらは災害時におきましては、迅速な情報取得を最優先とする観点がございますので、認証手続を不要としているところでございます。利用時間につきましては、平時と異なりまして、回数は無制限、１回当たり15分利用できる運用に切り替えることとしてございます。</div>
+  <div class="say">４点目のファイブゼロジャパンの関係でございます。委員にご発言いただきましたとおり、ファイブゼロジャパンにつきましては対応しているところでございます。災害時におきましてファイブゼロジャパンは、開放された場合には、市が設置しております防災Ｗｉ－ＦｉのＳＳＩＤ、それからファイブゼロジャパン、いずれも利用が可能、できるということでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=5889s" data-timestamp="5889"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:09</a>かなり詳しくお答えいただき、ありがとうございます。</div>
+  <div class="say">まず、既に敷設されている市職員向けのネットワークと別系統かということに関しては、これは別系統であるということで、セキュリティ対策としては当然のことであるんですけれども、ちゃんと対応していただき、ありがとうございます。</div>
+  <div class="say">平時の利用につきましては、ＳＮＳアカウント、メールアドレスによる認証方式ということで、これは総務省のガイドラインを参照しながら、しているということで、これも適切に対応しているということです。</div>
+  <div class="say">利用時間については、制限はあるんですけど、これは河野議員の一般質問のところでもあって、難しい問題なんですけれども、利便性を高め過ぎてしまうと、高め過ぎるというのも変ですけれども、ずっと使えるようにしてあると、そこの席を占有してしまう方も出てくるという話がありましたので、そこは運用しながら、どういう形が一番、市民の皆様に便利に使っていただけるか、考えていくところなんだろうと思いますので、これからも引き続きよろしくお願いします。</div>
+  <div class="say">セキュリティに、あまり詳しいことを聞き過ぎると、それを悪用する人もいるかもしれませんが、詳しいことを聞きませんと、私は元々インターネット技術の研究者でして、公衆無線インターネット、藤川賢治ぐらいで検索すると、昔、京都でやっていたプロジェクトとか書いていた論文が出てきたりするんですけれども、もし興味があれば、それを参照していただければと思います。</div>
+  <div class="say">一般的にＷｉ－Ｆｉと言われているんですけれども、これはＷｉ－Ｆｉアライアンスという組織があって、そこが提供しているブランドで、実際の機器の相互接続などを決めている組織です。ネットワーク技術的には、無線技術的には、ＩＥＥＥという規格団体、学会でもあり規格団体でもある、ちょっと変わったところで、日本語に訳すと米国電気電子工業会というような訳になると思うんですけれども、そちらが規格を決めるところでして、無線ＬＡＮに関しては、ＩＥＥＥ802.11と我々は呼んでいるような規格になってくるんですけれども、私はそこの学会にも参加していたし、次に、ＩＥＥＥ802.11のワーキンググループに参加して、その中で、日本人主導で珍しく、無線ＬＡＮの規格の一部のＩＥＥＥ802.11aiというので、後で規格化されるものなんですけれども、そこで主導していた真野さんという方のお手伝いをして、そういったグループにも参加していたので、割と詳しいことをついつい聞きたくなってしまうのですけれども、あまり詳しいものはまた個別に話をさせていただければと思います。</div>
+  <div class="say">災害時に関してなんですけれども、普段の運用とはまず変わるということで、これも非常に、そこまでやっているんだと感心しました。１回当たり15分に制限して、回数は無制限ということで、ちょっとした、今、安全にここにいるよということだけ書いて、待機というか、電波は他の方に譲るといった運用になるんだろうと解釈しました。</div>
+  <div class="say">また、ファイブゼロジャパンにも対応しているということでした。ファイブゼロジャパンというのが何かと申しますと、これは、3.11東日本大震災、2011年のとき、その頃、日本のインターネットを運用している人たちの組織として、ジャパンネットワークオペレーターズグループ、ＪＡＮＯＧと僕らは呼んでいるんですけど、ＪＡＮＯＧという組織があって、そこのメーリングリストに参加していたりとか会合にも出ていて、何か発表したりもしていたんですけれども、そこの方々が、災害が起きたときに、まず、いろいろな回線が切れてしまうので、切れた回線のところにデータが行かずにちゃんと回るように、かつ、そこで渋滞が起きるから、それを分散するようにとか、大分努力して、経路専有技術という、どこの線を通ってどう流れていくかというのは一応、インターネットは元々軍事技術で、そういうことを自動でできるように作っているんですけれども、負荷分散ということになると結構職人芸でして、ネットワークのオペレーションをやっている人たちが頑張って、いろいろうまいこと配分したり、当時していたんですよね。ちょっとそれを見ていたんですけれども、そのときに、無線ＬＡＮも、独自の視点、ある人の要は独断みたいな形で、商用Ｗｉ－Ｆｉのアクセスポイントを無料開放するということをやって、統一的な仕組みが必要だよねということで、その後、規格化されて、ファイブゼロジャパンというものができたと記憶しております。これは対応しているということでして、小金井市の方のマニュアルに記載はあるのかなと思って確認したんですけれども、自主避難所運営マニュアルの方には載っているということを確認できまして、この辺をちゃんと対応していただいているんだなということが分かりました。これもありがとうございます。</div>
+  <div class="say">他の自治体に関しては、運営者のマニュアルだけではなくて、一般市民用のアナウンスとしても、ファイブゼロジャパンのことを書いてある自治体もあるということも確認しました。これはそっちの方がいいと言いたいわけではないです。市民の皆様にお伝えしておくのは本当に必要最小限のことにしないと、あまりたくさん情報を与えても、それが役に立つかというと、必ずしもそうでもないと思いますので、そこはちょっとどうするのか、運営者のマニュアルだけにするのか、一般市民の方にも最初からそういう情報を提供しておくのかというのは、検討していただければなと思います。</div>
+  <div class="say">今日は詳しいお話をありがとうございました。また、意見表明とさせていただきます。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=6295s" data-timestamp="6295"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:55</a>次に、市公式ＨＰリニューアルについて、吹春委員の発言を許可します。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=6304s" data-timestamp="6304"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:04</a>現在、展開しております小金井市公式ホームページですけれども、リニューアルが進んでいるということで、これを所管しているのは、こちらの総務企画委員会だったと思うんですが、今年の選挙の後、そういえばこの話題について、一度も触れることはなかったなと思いながら来ている状態でございます。</div>
+  <div class="say">今現在、スケジュールとしてどのような状態になっているのか、あと、どのような形で、簡単でいいんですけど、主な変更点などを教えていただければと思います。よろしくお願いいたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木広報秘書課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=6347s" data-timestamp="6347"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:47</a>ホームページのリニューアルについて、スケジュールと概要についてご質問を頂きました。</div>
+  <div class="say">まず、スケジュールについてですけれども、現在、リニューアルの実施日を令和８年１月28日の水曜日を目途に、作業を進めているところでございます。リニューアルに向けた準備といたしましては、現在、委託業者の方でシステムの改修作業等を行っており、並行して12月下旬に、職員向けの操作説明を開始する予定となっております。また、１月22日、木曜日には、リニューアルに伴う職員向けの運用説明会の開催を予定しておりまして、順次、準備作業を進めているところでございます。</div>
+  <div class="say">次に、リニューアルの概要についてですが、まず、ホームページのデザインとユーザビリティ、情報の見やすさ、探しやすさの向上の観点で申し上げますと、まず、トップページのデザインとレイアウトを変更いたします。あわせて、次階層以降も統一的なデザインになるよう、変更をする予定となっております。また、情報の探しやすさ向上のため、現在のトップページに掲載されている、「生活場面から探す」というカテゴリーは現在、10項目となっておりますが、こちらを「目的から探す」というカテゴリーに変更いたしまして、項目数も16項目に細分化して、より市民の方にとって分かりやすくする内容とする予定です。</div>
+  <div class="say">次に、アクセシビリティの向上の観点からですけれども、まずは多言語対応を拡大いたします。現状は３か国語の対応となっておりますが、新たに自動変換サービスを導入することを予定しておりまして、最大130か国語の多言語に対応する予定となっております。</div>
+  <div class="say">あと、やさしい日本語への自動変換サービスの導入も予定しております。こちらは、難しい言葉の言い換えや振り仮名の表記を、ボタン一つで行える機能の実装を予定しております。</div>
+  <div class="say">概要につきましては、以上になります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=6505s" data-timestamp="6505"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:25</a>ご説明いただきまして、ありがとうございます。</div>
+  <div class="say">本当に、１月28日を目途にされているということで、目前の状態だったかなと思って、このタイミングで伺えてよかったです。</div>
+  <div class="say">それで今、おっしゃっていただいたところによると、130か国語対応になるということですが、実際にそんなにたくさんの方がいらっしゃるんだろうかと思ったんですけど、この間、発行されました「こがねいのとうけい」を見てみると、数は少なくてもたくさんの外国の方が市内にいらっしゃるということが分かりましたので、こういった形でしっかりと対応していただくことは大事かなと思いますし、やさしい日本語にも置き換えられるということも分かりましたので、新しいホームページ、１月22日の職員向けの説明会等を期待しておりますので、どうぞよろしくお願いします。ありがとうございました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=6554s" data-timestamp="6554"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:14</a>次に、防災の広報について、吹春委員の発言を許可します。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=6562s" data-timestamp="6562"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:22</a>それでは、防災の広報について、お尋ねをいたします。</div>
+  <div class="say">私は、12月１日付けの市報こがねいを拝見したときに、表の「年末の防犯防災　わが街をみんなで守ろう年の暮れ」と、いいタイトルでいい表紙を作ったなと思ったんです。それで、めくりましたところ、「地域の安全を守ります　消防団歳末特別警戒　消防署消防特別警戒」と書かれていて、これは恐らく分団詰所のところと実際にやっているところの写真が載っているんですけれども、これを拝見したときに、あれっと思って、一通り全部見させていただきました。せっかく防犯防災という言葉があって、ページをめくったら消防団が載っている。今は12月ですけど、来月１月の頭には出初め式も行われます。ちょうど今、改選期に当たっているところですので、何で団員募集と入っていないんだろうなとすごく不思議だと思ったんです。</div>
+  <div class="say">それと、広報についてなので、併せてお尋ねをいたしますが、12月８日、月曜日の深夜、青森県東方沖で地震が起きましたよね。震度６強という地震ですけれども、震度６強というと、それほど大したことないのではないかと思いがちですけれども、震度というのは10段階ありまして、震度０から始まって、０、１、２、３、４、５弱、５強、６弱、６強で７、上から２番目、最大のところから数えて２番目という、とても大きな地震だったんですよ。実際にこういった地震が起こったのであれば、私は思うんですけれども、これこそこういった時期を逃さずに、市のＸで、避難袋だったりそういうことを見直すことを呼びかけるべきではないか。いろいろなタイミングで防災について呼びかけるのは大事なんですけど、こういったタイミングがとても大事ではないかと思いますし、そういったときこそ、家庭にいる方たちがいろいろなことを考えていらっしゃると思うので、タイムリーだと思うんですが、そういったことがどうやらなされなかったようですけれども、それについてもお答えいただければと思います。</div>
+  <div class="say">それと、広報についてなんですけれども、もう一つ、めくったところ、さっきの消防団の歳末特別警戒の隣に、「防犯対策補助金受付中」と、市がやっております、４月１日以降、防犯について、これは間もなく終わるのですよね、たしか来年でしたか。それで、予算もあったかと思うんですけれども、今のところ、進捗状況について、どれぐらいの実績件数があるのか教えていただければと思います。</div>
+  <div class="say">質問は以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">宮奈地域安全課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=6747s" data-timestamp="6747"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:52:27</a>まず、消防団に関する記事の関係でございます。今後、市報の１月１日号に出初め式のご案内を載せる予定でございます。それから、市報の１月15日号に消防団特集号を予定しているところでございます。団員の募集につきましては、各地域の消防団推薦委員の方々のご協力、ご理解をいただきながら、団員改選活動が行われているところでございます。事務局としましては、消防団への入団促進に当たっては、市報を始め、市ホームページにおきまして、消防庁の団員募集の動画の紹介ですとか、チラシ、ポスターのご協力、郵便局への入団促進協力なども進めまして、少しでも消防団に興味を持っていただけるように、事務局職員一同、支援に努めてまいりたいと考えてございます。</div>
+  <div class="say">それから、青森県東北沖地震における防災意識の向上の関係でございます。防災意識の醸成を図ることは大変重要であると認識してございます。これまでも様々な場面等を通じまして、広報等を行ってきたところでございます。今回の青森県東北沖地震につきましては、委員にご発言いただきましたとおり、12月８日の夜というところで、発災して間もないというところもございます。それから、本市は後発地震注意情報の対象地域になっていないというところもございます。まず、被災地等の状況に配慮を欠く印象を与えるおそれがないように、機会を捉えまして周知に努めてまいりたいと考えてございます。</div>
+  <div class="say">それから、３点目、防犯対策補助金の進捗状況というところでございます。こちらは令和７年４月以降に、市内の住宅等に防犯機器等を購入設置したものを対象としまして、９月16日から受付を開始しまして、受付期限につきましては３月３日までとしているところでございます。進捗状況につきましては、12月10日現在で464件となってございまして、割合としては約20％となってございます。周知方法につきましては、これまで市報、市政だより、市ホームページ、市内公共施設などへのチラシ配布を行っているところでございます。</div>
+  <div class="say">現状は以上でございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=6907s" data-timestamp="6907"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:07</a>ご答弁いただきまして、ありがとうございます。</div>
+  <div class="say">すみません、これはくどくどと言ってもしようがない話なので、意見・要望の形で終わらせますけど、やはり消防団員の募集というのは非常に難しい、ハードルが高いものでありますので、できるだけ数多く機会を、間を空けずにやっていくこと、告知活動をやっていくのが必要かなと思っているところなんです、私としては。なので、のべつ幕なし、１年中を通してずっとやってもらいたいわけではなくて、今の時期だからこそ、推薦委員会が立ち上がって、説明会も終わって、それから推薦活動に移っていく中で、集中してやっていただくことがとても大事かなと思うところでございます。</div>
+  <div class="say">それでしたので、そういったことで質問したんですけれども、もちろん庁内の中でも、いろいろな取決めやルールなどがあって、一つのことだけずっと載せるわけにいかないということも、それは理解しているところであるんですけれども、今の時期だからこそやってもらいたかったかなと思います。</div>
+  <div class="say">それと、今、答弁いただいた中で、後発地震という、初めて聞く言葉が出てきましたけれども、すみません、初めて聞くとは、報道でなされている中でも、初めて聞く言葉が出てきましたけど、地震などに対して研究がどんどん進んでいくと、いろいろ分析が進んでいって、新たな地震の研究などによって、得られた成果としての発表がなされていく中で、後発地震ということが起こり得るんだよということで報道がなされているわけかと存じますが、こういったことも含めて、機を捉えて緻密に、ある程度、タイミングを逃さずに広報活動をしていくことがとても大事かなと思っているところですので、これもできれば、どのような形でなされるか、もちろん庁内でのルールがあることも存じておりますので、それらも含めてご検討いただければと思います。</div>
+  <div class="say">それと最後に、防犯対策のことですけど、件数は結構あるんだなと思ったんですが、予定していた防犯対策補助金ですけれども、20％ということでした。まだまだいけるのではないかと思うんですけれども、これは実際に、匿流だったりとかいろいろ実行犯が捕まったりしているところでありますけれども、これも気を抜いていると、何が起こるか分からないところでもありますし、ある程度、関心度が緩いところに対しては、そういった犯罪を犯したい方たちというのは集中してやってくることが事実として分かっておりますので、それらについても、そのような意味でも、改めて告知活動などをしていただいて、普及させていただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=21mEj0OGU6Q&t=7074s" data-timestamp="7074"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:57:54</a>以上で、所管事項を終了いたします。</div>
+  <div class="say">以上で、総務企画委員会協議会を終了いたします。</div>
+  <div class="say">午後２時54分閉会</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+</body>
+</html>

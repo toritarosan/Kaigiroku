@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和7年12月12日 議会運営委員会</title>
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#1d3a63; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* 直接URLで開いた時だけ最上部に「会議一覧に戻る」帯（index分割ビュー内では非表示） */
+  .backbar-top{display:none;}
+  body.standalone{padding-top:40px;}
+  body.standalone .backbar-top{display:flex; align-items:center; gap:6px; position:fixed; top:0; left:0; right:0;
+       z-index:60; height:40px; padding:0 18px; background:var(--navy); color:#fff; font-family:var(--sans);
+       font-size:13px; font-weight:700; text-decoration:none; letter-spacing:.04em; box-shadow:0 1px 4px rgba(0,0,0,.15);}
+  body.standalone .backbar-top:hover{background:#294f86;}
+  body.standalone .prog{top:40px;}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+</style>
+</head>
+<body>
+<a class="backbar-top" href="index.html">← 会議一覧に戻る</a>
+<script id="backbar-js">(function(){try{if(window.self===window.top)document.body.classList.add('standalone');}catch(e){document.body.classList.add('standalone');}})();</script>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和7年12月12日</p>
+    <h1>議会運営委員会</h1>
+    <span class="srcbadge"><span class="dot"></span>本文＝小金井市議会 公式会議録（DBSR）</span><span class="src official">本文は公式会議録を一字一句そのまま掲載。要約はAIによる補助、タイムスタンプ・動画はYouTube連携（いずれも非公式の付加情報）。　|　<a href="https://www.city.koganei.tokyo.dbsr.jp/515783?Template=document&amp;Id=10300" target="_blank" rel="noopener">公式会議録の原典 ↗</a></span><span class="genmeta">本文は公式会議録と一致確認済み（verbatim）。要約はAIによる生成で、小金井市議会の公式見解ではありません。<br>最終生成日 2026-07-10</span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <h3>提出議案等一覧</h3>
+<ul>
+<li>7陳情第23号 市議会への請願書及び陳情書に関して、オンライン提出を可能とする</li>
+</ul>
+<h3>議案の審議ごとの要約</h3>
+<h4>議会改革に関する諸問題の調査（調査1件）</h4>
+<h5>（1）議会改革について</h5>
+<p><strong>7-13 議会改革は3分の2での試行実施を経てから全会一致での本格実施とする</strong><br />
+提案会派から、議会運営委員会の協議事項が全会一致とされている経緯について、昭和53年3月6日の議会運営委員会確認が最も古い記録であることが報告された。また、全会一致の原則に例外があるかどうかの他自治体事例調査は困難であったと報告された。委員からは、奈良県大和市議会で全会一致の原則を見直し、議論を尽くした後の多数決に運用を変えた事例が紹介され、次回までに詳細を報告することになった。提案会派は、議会改革の提案は議員の3分の2が一致した場合に半年間の試行期間とし、その後、本格実施するかどうかを全会一致で決めるという趣旨であることを改めて説明した。</p>
+<p><strong>7-1 グループウェアによる連絡方法の確立</strong><br />
+提案会派から、グループウェアの活用状況について報告があった。一部の委員はタブレットの紛失を懸念していたが、スマートフォンアプリやPCでの利用が可能であることを説明したところ、活用が進んだ事例が紹介された。委員からは、グループウェアの「既読・未読」機能や「掲示板」と「スペース」の使い分けについて質疑があり、事務局から機能説明と運用状況が説明された。委員からは、グループウェアの導入から1年が経過しており、事務局の負担軽減のためにも、一定期間の併用期間を経て、タブレットへの情報共有を統一していくべきとの意見や、まずはグループウェアをメインで使用し、課題を共有すべきとの意見が出た。また、グループウェアの勉強会や意見交換会を全議員向けに開催し、課題を整理した上で議論を進めることが提案され、1月15日の議員研修会終了後に開催する方向で調整することになった。</p>
+<p><strong>7-2 ペーパーレス化の推進 及び 7-3 ペーパーレス化</strong><br />
+提案会派から、本会議配布資料の一覧が提示され、ペーパーレス化によるコスト削減効果の試算が報告された。委員からは、ペーパーレス化を進めるにあたり、会議規則の改正が必要なもの、不要なもの、総務部との調整が必要なものの3パターンに分類し、議論を進めるべきとの意見が出た。特に「議事日程」のペーパーレス化について、委員から賛同意見が出た一方で、その必要性や他部署への影響、運用方法について確認が必要との意見が出た。議会事務局からは、紙と電子が混在すると混乱が生じる可能性があるとの懸念が示された。次回までに、配布資料の3パターンへの仕分けと、他自治体の事例調査を進めることになった。</p>
+<p><strong>7-4 市議会オンライン会議について</strong><br />
+正副委員長から、これまでのオンライン会議に関する経緯と現状の課題が説明された。オンライン会議は、災害時や感染症流行時などに委員会に参加できない議員が議論に参加できるようにするために検討されてきた。これまでのテスト会議では通信環境などに課題があり、機材も不足している状況である。委員からは、オンライン会議の目的やこれまでのテスト会議の具体的な内容について質疑があった。委員長は、新しい議員もいるため、再度テスト会議を実施し、課題を確認する必要があるとの見解を示した。また、新しいマイクシステムが3月中に導入される予定であるため、それ以降にテスト会議を実施し、事前の準備を正副委員長と事務局で相談して進めることになった。</p>
+<p><strong>7-12 市議会への請願書及び陳情書に関して、オンライン提出を可能とする</strong><br />
+各会派から、オンライン提出に関する見解と論点が提出された。委員からは、オンライン提出を認めることで陳情数が増加する可能性や、本人確認の方法、郵送陳情との取扱いのバランスについて懸念が示された。陳情の願意が、オンライン提出でも通常の陳情と同様に審査されることを求めていると解釈する委員もいた。立川市議会やあきる野市議会の事例では、オンライン陳情の際に本人確認書類の提出を求めていることが紹介された。委員からは、オンライン提出を認める場合は、郵送陳情と同様の扱いとし、本人確認を明確にした上で実施すべきとの意見が出た。次回までに、オンライン提出の是非、郵送陳情と同様の扱いとするか、オンライン提出の場合の本人確認の方法について、各会派で持ち帰って協議することになった。</p>
+<h5>（2）議会基本条例について</h5>
+<p><strong>ア 政務活動費について</strong><br />
+事務局から、令和元年度の定期監査報告書の一部抜粋が資料として提出され、政務活動費の支出における透明性確保の充実が要望されていることが示された。各会派からは、広報費の案分ルールについて、明確化すべきとの意見が多数出された。一部の委員からは、ルール化の難しさや、公開されていれば市民が判断できるとの意見、また、案分を認めないという選択肢も検討すべきとの意見も出た。委員長は、陳情の願意を踏まえ、説明責任を果たすための分かりやすいルールを検討する必要があるとの見解を示した。次回までに、政務活動費の広報費について、案分することの是非と、案分を是とする場合のルールについて、全会派で持ち帰って意見を出すことになった。</p>
+<p><strong>イ 議会BCPについて</strong><br />
+避難訓練実行委員会から、2月19日の休会日に避難訓練を実施する方向で消防署と調整中であることが報告された。訓練内容として、本庁舎内での訓練、放水訓練、消火訓練を行う予定である。委員からは、BCPの研修や検証、ハンドブック作成の進捗について質疑があった。委員長は、BCPの研修はまだ実施しておらず、安否確認などの課題を整理する必要があるとの認識を示し、次回までに課題を整理して提示することになった。</p>
+<h5>（3）主権者教育について</h5>
+<p>中央大学附属中学校での「主権者教育」に関する各会派の感想・意見等が資料として提出された。委員からは、ファシリテーターではなく発表者を事前に決めるべきとの訂正意見が出た。委員長は、学校サイドの感想はまだ聞けていない状況であり、今後、報告書をまとめた上で議論を進めること、また、東京電機大学高等学校や中央大学附属高等学校での実施、新たな学校への着手についても今後の課題となることを説明した。次回委員会で報告書をまとめたものを提出し、引き続き協議することになった。</p>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/2UBTY0NQpZc" allowfullscreen loading="lazy"></iframe></div>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/yf_cl0tu2Kk" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・2本）</p>
+  </section>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=192s" data-timestamp="192"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:12</a>おはようございます。ただいまから議会運営委員会の会議を開きます。</div>
+  <div class="say">直ちに本日の議事に入ります。</div>
+  <div class="say">当委員会に付託されております案件は、調査１件であります。</div>
+  <div class="say">議会改革に関する諸問題の調査を議題といたします。</div>
+  <div class="say">（１）議会改革についてを行います。</div>
+  <div class="say">初めに、今回協議する調査項目についての７－13、議会改革は３分の２での試行実施を経てから全会一致での本格実施とするを議題といたします。</div>
+  <div class="say">これは、提案会派から何か発言。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=231s" data-timestamp="231"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:51</a>協議報告書を提出させていただいておりますので、ご覧ください。</div>
+  <div class="say">それで、前回の協議から２点持ち帰りがありましたので、それについて報告をさせていただきます。まず１点目なんですが、みらいのこがねいの岸田委員から、どういった議論の成り立ちで、どういう意味合いで全会一致なのかというご意見がありまして、その際、事務局からはハンドブック59ページをご紹介いただきました。それでも、やはりもうちょっと調べていただきたいということで調査依頼がありました。私自身も調べ、議事係長にもご尽力いただきながら、議会図書室をちょっと捜索しました。その結果、何と明確には分からなかったということが答えなんですね。</div>
+  <div class="say">私がご紹介できるものとしては、1989年、平成元年度版の市議会ハンドブックです。そこの42ページに記載があることも一応紹介しておきます。議会運営委員会申合せ事項等決定事項の遵守、議会運営委員会は議会運営の調整的機能を果たすものであり、その趣旨から、事実上の運営として、委員の選出は各会派からとし、協議事項は全会一致の方法をとっているものである。よって、議会運営委員会で決定した事項については、全議員がこれを遵守しなければならないうんぬんと続いておりまして、一番古い日付ですと昭和53年３月６日議会運営委員会確認とありますので、45年前ぐらいから、このことは議会運営委員会申合せ事項として確認されているということが最大限分かったことでございますので、ご紹介させていただきます。</div>
+  <div class="say">２点目、小金井をおもしろくする会の水谷委員から、ハンドブック59ページに、原則として全会一致により決定と決められているということは例外があるのかと改めて思ったと。議会改革の協議は全会一致でやっているが、原則で、例外はこういうものがあるみたいなものを調べていただきたい。範囲は定めない。参考になるものを出していただきたいとご発言をいただきました。私としては、範囲を限定されていないと調べづらいので、何かお考えがあれば、もう少し補足して範囲などをご説明いただけるとやりやすいと申し上げましたところ、水谷委員からは、この自治体ではこのようなルールでやっているというのを幾つか参考事例としてお示しいただきたい。範囲を限定しない方が調べやすいと思ったというご発言があったので、私なりに調査をいたしましたら、結果として、資料として提出することも、該当する自治体議会を紹介するのも困難でしたということで、私の調査能力の限界ということで申し訳ありませんでした。その理由を申し上げますと、そもそも議会ルールをこんなルールでやっているよと公表している自治体議会が、私の調査能力では見つけられませんでした。なので、全会一致でやっているけれども、原則で、例外はこういうものみたいなものはお探しすることができなかったということについてご報告をさせていただきます。もし水谷委員の方で何かこういう事例があるよというものがあれば、ご紹介いただきたいなと思った次第です。</div>
+  <div class="say">そもそものご懸念、水谷委員の例外があるのかと改めて思ったということについて、私なりの考えを申し上げますと、基本的には、議会運営委員会も議会運営委員会条例に基づき設置をされておりまして、第14条の表決では、委員会の議事は出席委員の過半数で決し、可否同数のときは委員長の決するところによると規定があるように、基本的には、やはり多数決で決めていくということが条例には定められているんですけれども、議会ハンドブックにあるように、議会の運営に関わることについては全会一致でやっていこうということが確認されていると思っております。基本は議決だけれども、議会運営に関しては、例外的にというか、みんなでちゃんと決めていこうよということではないかというのが私の理解であると申し上げておきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=480s" data-timestamp="480"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:00</a>それでは、これから質疑を行いますが、皆さんから何かありますでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=513s" data-timestamp="513"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:33</a>おはようございます。</div>
+  <div class="say">今、坂井委員の方からご紹介をいただきました。私の方から、他の自治体で全会一致の原則というのを例外的に何か運用しているとか、全会一致を見直していったような、そういった事例があればご紹介いただきたいということで資料としてお願いしたのですが、先ほどご報告いただいたように、見つけるのがなかなか難しかったということでした。私の方も私なりに調べてはみたんですけれども、全会一致の原則を見直したという事例で出てきましたのは、意見書の提出に関するものというのが幾つか出てきました。しかし、今回議論している話がちょっとメインからずれるので、それを外しますと、私の方で発見できたのは一つだったんですけれども、大和市議会で、奈良県だと思うんですが、そこで、やはり私たちと同じように議会改革の議論の中で、全会一致でしかルールを変えられないということで、なかなか進まないということに対して様々な議論が複数回行われ、最終的には、条例にのっとって、議論を尽くした後の多数決というふうに運用を変えるという議論があったことが分かりました。</div>
+  <div class="say">今、口頭でご紹介しただけでは皆様にもなかなか伝えづらいと思いますので、もし時間を頂けるようでしたら、次回までに、今ご紹介した事例でよろしければ、こんな経緯があったようですということをご報告させていただければと思いますけど、何かちょっと提案議員ではないので申し訳ないんですけど、そういうことがもし知りたいよということであればと思います。やはり、今申し上げたように、議論を尽くした後にというところが、そちらの議会の事例を拝見しても大切なところなんだなと思います。一致しないので、議論をもうやめるというところで、今までなかなか議論自体ができなかったという経緯もあったことを私の経験として考えますと、今後もルールをどう変えていくかという議論は引き続きしていく必要があるかなと思ったところです。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=654s" data-timestamp="654"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:54</a>今、水谷委員からご紹介いただいた大和市議会のことは私も見ておりまして、水谷委員の受け止めとちょっと違うかなと思ったのは、大和市議会も基本的には全会一致でやってきたけれども、物によっては全会一致でなくてもよいものもあるみたいな、出口が全会一致はやめましょうではなくて、物によっては全会一致でない場合もある。もちろん、それは熟議を重ねた上でということだと私は理解をしておりました。水谷委員の方から何か提出していただけるようなご発言もありましたので、もう少し深めてみてもよいのかなと思いました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=697s" data-timestamp="697"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:37</a>他に皆さん、いかがでしょうか。</div>
+  <div class="say">次回、その大和市議会の事例について紹介いただき、引き続き協議するということでよろしいでしょうか。皆さんから何かありますか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=729s" data-timestamp="729"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:09</a>お調べいただいて、ありがとうございました。</div>
+  <div class="say">私も大和市はちょっと見つからなかったんですけれども、そういった出口がどうかということも含めて、水谷委員の方にもう一度そういうのをお出しいただいた上で議論をしてみるというか、まずちょっと知ってみるということがこの辺りは大事かなと思っていますので、やはりそういう前例とか事例がないと議論は進まないかなと。嫌だ、いいで終わってしまうと思うので、そういうのは１回見てみたいなと思うので、今回は、そういう次回のを待つという形に私はしてほしいなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岸田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=768s" data-timestamp="768"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:48</a>わざわざ議会図書室で過去の記録まで遡ってお調べいただきまして、ありがとうございます。その結果、そういったことだということで、私も入って13年目ぐらいになるんですかね、ただ盲目的に議会改革は全会一致なんだよと聞かされて育ってきたもので、（不規則発言あり）私がですよ。私がそのように聞いてきたものですから、ちゃんと調べもせず、ずっとこのまま受け止めてきた私もいけなかったわけですけれども、今回、新たな議員の方も入ったところで一度精査をしていただいて、本当にありがとうございます。その結果、はっきりしたことは分からないけれど、昭和53年、四十何年前から今と変わらずの運用を行ってきたということは分かったということで、非常によかったかなと思っております。</div>
+  <div class="say">ご提案からすれば、３分の２が一致した場合は半年の試行期間として、その試行期間を経た上で、もっとよくできるのかできないのか、あるいは、１回やめますかということも含めて、それについては、全会一致でもう１回決めましょうという流れであるということの確認だけ、ちょっと時間が経ったものですから、もう一度確認をいたしますが、議会提案があって３分の２が賛成した場合には、それを半年間試行すると。その結果、これがいいのか悪いのか、どういうふうに改善して引き続き行うべきなのか。あるいは、実施困難ということを判断するのかということについて、最終的な決定は全会一致の原則を保っていくという趣旨のご提案ということでよろしいでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=868s" data-timestamp="868"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:28</a>改めての確認だったので、もう一度議会改革の提案書を読み上げたいと思います。問題提起、現状の課題認識としては、私、一人会派の立場からすると、多数の力で議会のルールが変わることは認められないと。他方、少数意見を排除することなく、議会が変化していくことは必要であると考えるということが問題提起、現状の課題認識でした。そのための解決策提案ということで、議会改革の提案は議員の３分の２が一致した場合、半年の試行期間とする。半年後に改善すべき点があるか等を議論し、本格実施するか、引き続き試行実施とするか、実施困難かを全会一致で決める。また、二つ目として、議員定数など条例改正が必要な案件は除外するということで、一番最初にご提案を差し上げております。</div>
+  <div class="say">前回の協議報告書にもありますけれども、例えば陳情の取扱いなど市民の方に影響が及ぶことに関してなど、半年間試行実施することが混乱を生じさせかねない場合なども考え得ると思いますので、この除外する案件というのはきちんと精査して、議論して固めていく必要があると思いますけれども、最終的な全会一致はずらしておりませんので、そのことは改めて強調させていただきます。やはり議会に関わることなので、最終的には全会一致を譲っていない、ずらしていない、維持するということは改めて申し上げておきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岸田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=970s" data-timestamp="970"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:10</a>改めてそこだけ確認をさせていただきました。</div>
+  <div class="say">確かに議論だけでは分からない部分というのは正直あると思っていますので、１回、どれをやるかやらないかも含めて、まず３分の２ということ。その３分の２がいいのかどうかもこれからの議論だと思いますけれども、一度やってみて、そこで課題を出してみて、どうやったらその課題を乗り越えていけるのか、あるいはいけないのかということも含めて、問題点、課題点を洗い出すためにも、３分の２程度の賛成をいただいた中で試行実施をしていく。その先には、引き続きやるかどうかといった点を含めても全会一致ということはずらしていないと、変えていないということが確認できたので、私はこれは必要な措置だろうなと思っておりますけれども、次回、更に研究を深めたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=1021s" data-timestamp="1021"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:01</a>議事進行。すみません、ちょっと訂正させていただきたいので、議事進行上の発言を求めます。先ほど私、奈良県と申し上げたんですが、神奈川県の大和市議会です。申し訳ありませんでした。訂正させていただきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=1047s" data-timestamp="1047"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:27</a>ありがとうございます。</div>
+  <div class="say">先ほども提案会派からあったように、本格実施までにステップを設けて、全会一致での本格実施とするというところで、全会一致のルールは崩していないというところで、岸田委員からもありましたとおり、やってみて何か課題が分かるというところもあると思うので、進めていけるような議論ができればと思っているんですが、今後の何かスケジュール感として、このまま次回、次回と先送りすると、なかなか実施に至らないのかなというところもあるので、スケジュール感についてどういう形でお考えかをお伺いできればと思うんです。（「全体で。これに関わらず」「誰に聞いていく」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=1087s" data-timestamp="1087"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:07</a>提案会派。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=1089s" data-timestamp="1089"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:09</a>ご懸念はごもっともかと思うんですけれども、こればかりは私がこの時点において明確にご回答できるものではありませんで、やはり議論を進めながら出てくる視点とかがあると思いますので、この議会改革に関わらずだと思うんですけれども、なるべく早く結論を出していくということは、皆さん、私も含めて、意識を持ちながら協議をしていきたいと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=1123s" data-timestamp="1123"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:43</a>ありがとうございます。</div>
+  <div class="say">私もなるべく早く始めていければいいと思っておりますので、一旦、何か次回、多分例示を出していただいて、皆さんで議論を深めて、今回、多分試行実施なので、そもそも本格実施ではないので、まずやってみることから始めたらいいのかなと思うので、そろそろ結論を出す方向に皆さんで進めていければと思っています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=1152s" data-timestamp="1152"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:12</a>他にありますか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=1159s" data-timestamp="1159"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:19</a>次回、神奈川県大和市議会の事例をご紹介いただいて、審査をすると。なるべく早くというご意見もありましたけど、そういうことで引き続き協議するという形で、今日のところはいかがでしょうか。よろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=1181s" data-timestamp="1181"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:41</a>それでは、本件については、引き続き協議するということでよろしいでしょうか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=1191s" data-timestamp="1191"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:51</a>本件は引き続き協議することといたしました。</div>
+  <div class="say">次に、７－１、グループウェアによる連絡方法の確立を議題といたします。</div>
+  <div class="say">協議報告書が出されておりますので、提案会派からご説明をお願いできますか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=1214s" data-timestamp="1214"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:14</a>提案会派の小金井をおもしろくする会です。前回、協議報告書を提出させていただいたんですが、すみません、まだヒアリングができていませんでしたので、次回までにいたしますという中身の協議報告書を提出させていただいております。</div>
+  <div class="say">あわせて、その後のヒアリングについてもご報告をさせていただきます。前回お示ししたように、前向きなご意見を頂いたところが多かったんですけれども、内容を確認して判断すると書いていただいていたれいわ新選組小金井と、これまでと同様、メールの併用とし、多用しないでほしいというご意見を頂いていた子どもの権利／情報公開に確認をいたしました。あと、参政党小金井も検討することは賛成と言っていただいていたので、その会派にもお話を伺いました。ごめんなさい、間違えました。訂正します。私、次のやつと一緒になっていました。ごっちゃになっていました。グループウェアについては、子どもの権利／情報公開にお話を伺わせていただきました。現状の確認としては、タブレットを貸与されているけれども、持ち歩いて紛失してしまうことへの心配だとか、そういうこともあって、タブレットの活用自体になかなか踏み込めていないというお話もありましたので、スマートフォンなどでもアプリを入れると、グループウェアの中身が確認できることですとか、あと、パソコンでのログインでも同じ内容について確認できるということをその場でお話をさせていただいたところです。早速スマートフォンにアプリをダウンロードしてくださって、今はグループウェアの通知が受け取って読めるようなことになっているよと昨日も確認をさせていただきました。まだグループウェアに触れていただいたところというのもありますし、あとは、私たちもようやく運用に慣れてきたところだと思いますので、もう少し、どんな使い方をしていけばいいのかというところの課題の抽出などを引き続きやっていく必要があるのかなと考えております。</div>
+  <div class="say">私の方からはご報告としてはそうなんですけれども、実際に子どもの権利／情報公開の方からも何かご所見があれば、伺えればと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=1379s" data-timestamp="1379"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:59</a>丁寧なヒアリング、ありがとうございました。</div>
+  <div class="say">今ご紹介いただいたのは渡辺大三議員のことかなと思いますけれども、私はもう大分前にスマートフォンには入れているんですけど、なかなか読めないというか、使い切れないということではあったんですが、今、水谷委員がご紹介いただいたように、併用をしていきながら、徐々に慣れていくというか何というか、徐々にというか、やはり併用しながらやっていっていただきたいというのが希望としてあります。</div>
+  <div class="say">多分、渡辺議員から言われたのが、何か研修というか勉強会、何でしたか、時々そういうのをやってほしいみたいなことを言っていたかなと思います。これは別に私の希望ではなくて、渡辺議員の希望として言っていたかなと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">太田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=1461s" data-timestamp="1461"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:21</a>グループウェアなんですけれども、Garoonとかということですよね。Garoonを利用してということなんですけれども、私がちょっと今、懸念に思っているのが、メールですと、未読とかいう形で保留できるんですが、Garoonですと、１回開いてしまうと既読になって、それきりスルーしてしまうということがあるので、これはシステム的な問題なんですけれども、もしそういうところを改善する余地があれば、改善していただきたいなというのがちょっとある。（不規則発言あり）できるんですかね。（「見ると、どこかに行ってしまう」と呼ぶ者あり）そうです。そういうちょっと怖さがあるので、もし改善の余地があれば、改善していただきたいなと。若しくはキープするとか（「未読にするというのができます。大丈夫です」と呼ぶ者あり）できる。さすが。今、解決しました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=1530s" data-timestamp="1530"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:30</a>大丈夫。（「一応、表で」と呼ぶ者あり）一応。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">高橋議事係長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=1538s" data-timestamp="1538"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:38</a>最近のアップデートでその機能が追加されまして、未読、既読のところ、通知のフォルダみたいなところがあろうかなと思いますけど、そこで未読、既読を切り替えることが可能です。既読のところを押していただきますと、これまで来た通知のやつが時系列で並んでいくようなものになっているんですが、これを未読にしたい場合、その通知の右側のところにバッテンみたいな、ちょっと灰色っぽいものがあろうと思うんですけど、そこを押していただくと未読にするというような項目が出てくるものになります。それを押していただきますと、未読の状態に戻すというのが可能になります。いずれにしましても、読んだ後のものも、未読、既読の切替えをしていただければ、後で確認することは可能ということになりますので、よろしくお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=1607s" data-timestamp="1607"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:47</a>すみません、先ほど併せて報告すればよかったです。</div>
+  <div class="say">事務局にも確認したいんですけれども、ヒアリングする中で、スペースというものと掲示板の使い分けがちょっと分からないというご意見も頂きました。メッセージという機能については、今までの、私たちが普段使っているメールと同じように、個人宛てだったり、複数の人宛てにやり取りができるというのはある程度分かりやすい機能かと思うんですが、掲示板とスペースの使い分けについて、事務局としてはどういう運用を今していただいているのか、現状として確認させていただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=1646s" data-timestamp="1646"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:26</a>改選時の説明会ではご説明させていただいている内容なんですけど、掲示板というのは、今、メールで言うと、全議員の方にメールを送信しているものと同じように、こちらからお知らせする内容を掲示板に載せさせていただいているという使い方を事務局としてはしてございます。</div>
+  <div class="say">また、スペースというのは、もう既に委員会でお使いになっている方もいらっしゃると思うんですけど、グループを作成して、そのグループ内で情報を共有するような機能として、スペースの委員会名でご使用になっているかなと思うんですが、グループ内で情報を共有するような場としてお使いいただいているのかなということでご説明させていただきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=1704s" data-timestamp="1704"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:24</a>ありがとうございました。</div>
+  <div class="say">例えば掲示板に出てくるのは、全国市議会議長会の何とか遵法がまとまりましたというお知らせだとか、あと、全議員宛てに、こういう研修会のお知らせがありましたとか、そういったものということですかね。その辺りも使い分けをしっかりしていかないと、議員同士の連絡のときも、私も間違えてちょっとメッセージで送ってしまったりとか、メッセージで送るべきものをスペースにしてしまったりとかいうのがあったので、その辺ももう一度整理していく必要はあるのかなと思うんですが、その他に、何かまたグループウェアを使っている上での疑問点だとか、そういったものは、最近、事務局の方からもこんな便利な機能がありますよというお知らせを頂いたりとか、あと、Garoon上にも疑問を解決するためのスペースなどもつくっていただいたりしているので、もう少し運用しながら、見直しをしながら議論していく必要があるのかなと思うんですけれども、もし可能であれば、作業部会みたいなものをまた立ち上げるというのもあるかなと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=1781s" data-timestamp="1781"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:41</a>ヒアリング結果、今、共有させていただいて、タブレット紛失の、持ち歩いていて、なくしてしまう可能性があるということで、なかなかタブレットを持ち歩かないからGaroonとかを見られないんだよという方が、スマートフォンとかアプリを入れて、出先でも確認ができるようになったというのはすごくありがたいなと思っております。</div>
+  <div class="say">今、片山委員からもご発言があったとおり、スマートフォンにはアプリを入れているんだけど、なかなか見えないんだよというご発言、近いものがあったと思うので、今、試行的にというか、一定期間でメールとGaroon、タブレットの情報共有をしているかと思うんですけど、やはり私の今の思いとしては、一定期間は慣れるまで併用しながらというのはある姿かなと思うんですけれども、どこかの段階で、ずっとというよりも、慣れるのには時間がかかるかもしれないけれども、タブレットに情報共有というのを統一させていく必要は、いずれかの段階ではあるべきなのかなと思っているので、その辺りの経過というか、そういうのが、タブレット導入に当たってのところの流れがもう１回確認できたらなと思うんですけど、これは誰に聞いたらいいのか。タブレットプロジェクトチームなのか。ただ、私もそこに入っていたので何とも言えないんだけど、ずっとメールとタブレットというわけではないと思うんですよね。その辺りの議論も、例えば年度末にするとか、今年度末で１回ちょっと同時並行はやめて、タブレットにしてみると。例えばそういった議論というのはできないものなのかなと思っているんですけれども、誰とも目が合わなくなってしまったんですけど、どこに聞けばいいんだろうか。では、これは、自分の意見、見解を明らかにしたと捉えていただければと思います。</div>
+  <div class="say">フォローが入ります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=1914s" data-timestamp="1914"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:54</a>フォローではないんですけど、ただ、私、今、逆に併用していて、何かどっちを見たらいいのか分からないみたいな状況も正直あって、部局の方に対してもメールでしてしまったりとか、Garoonでしてしまったりというところも発生していて、多分部局の方も二度手間になってしまっている形もあるのかなと思っているので、先ほど清水委員がおっしゃるように、多分試行的な期間として、併用で１年ぐらいあれば、触ってみる時間はあると思うので、次回の定例会で触ってみるみたいな形をとっていただいて、そこで多分、使ってみていただいて、不便なところは出てくると思うんですけど、逆に便利なところも出てくると思うんですよね。私はGaroonを使わせていただいていて、スペースだと、この議会運営委員会の中での資料とかもその中に全部入っているので、そこを見れば分かるみたいなところもあったりですとか、SideBooksとかも最初はちょっと分かりづらいかなと思って使ってみたら、予算書とかも結構メモとかも入れられたり、しおりという機能ですぐにそのページに飛べるようになったりとかもするので、使ってみると結構便利だなというところもあると思うので、まず、その試行的な期間を通して触っていただいて、課題を出していただくのがいいのかなと思うので、多分、一旦めどとして１年ぐらい使っていただければ分かるかなとは思うので、次の定例会ぐらいをめどに、皆さんにご意見を出していただくのがいいのかなと考えます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=2002s" data-timestamp="2002"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:22</a>ご意見ありがとうございます。</div>
+  <div class="say">先ほど清水委員が質問なのか、意見表明なのかとおっしゃった件なんですけれども、導入のときに、グループウェアの使い方についても議論はしたんですね。このような使い分けができるかもという議論までは行ったんですが、Garoonというグループウェアを使っている人がいなかったので、実際に使ってみないとルール決めも難しいねということで、まずは導入して、運用しながらルールを考えるという整理で始まったものだと考えております。</div>
+  <div class="say">それを受けて、事務局の方では、先ほどご紹介いただいたスペースとメッセージと掲示板の使い分けは、こういう形で事務局としては運用しますと初めにご紹介をいただいて、始まっているのかなと思います。少し使っていただいてという議論だと思います。</div>
+  <div class="say">先ほど天野委員からも、１年ぐらい使っていただいたら大体様子が分かってくるのではないかというお話もあったので、急ぎたい気持ちはありますけれども、そんなに急いでできるものでもないので、少しずつ、皆さんでやはり使いながら考えていければいいかなと思っています。</div>
+  <div class="say">あと、メールを併用してほしいと頂いている意見についても、メールとの違いとか、なぜメールでやった方がいいというお考えなのかとか、その辺も少しまた次回に議論できればいいかなと思っております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">小林副議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=2098s" data-timestamp="2098"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:58</a>導入の検討のプロジェクトのまとめをやっていたものですので、一言申し上げておきたいと思いますが、会派全体で意見をまとめて、全会派でこのタブレットの購入の予算を要求していくという流れの中で、タブレット端末の導入に向けた検討結果というのを出させていただきました。このプロジェクトチームに、片山委員を始め、多くの皆さんに入っていただいていたわけでありますが、その中で、課題の検討の結果というところでは、SideBooksについてはかなり言及してありまして、導入後、最初の定例会は紙とタブレットを併用するのがいいのではないかと。導入の２回目の定例会では、一部の連絡資料などは廃止できるのではないかというところまで言及しておりまして、これは目安とするということで書いてありました。なので、これについては、連絡とかは当然一本化していくという流れの中で、決算資料とか、そういったものは慎重に変更していこうというまとめになっておりましたので、もう１回整理していくことは大事ですけれども、また、研修などをやっていくことも大事ですが、議会としての到達点を確認して、議論を積み上げていただきたいと思いまして、ちょっと発言させていただきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=2192s" data-timestamp="2192"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:32</a>ということなんですけれども、併用しながら、しばらく併用して、課題などを抽出していくと。提案会派からは作業部会みたいなものをつくったらどうかという提案もありましたけど。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=2213s" data-timestamp="2213"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:53</a>作業部会を多分つくったとしても、同じような状況になることが想定されるので、まずは皆さんに使っていただいて、どこが使いづらいとかいうところを皆さんの中で明確にしていただいて、それでもやはりメールの方がいいよねという議論になるのかどうかについても、多分使っていただかないと分からないと思いますので、まずはメインで使っていただくことをやっていただいた方がいいのかなと。併用はするにしても、多分メールの方を補完的な形で使用しないと、どうしてもやはり自分の慣れている方に行ってしまうと思いますので、まずはGaroonをメインで使用していただいて、その結果を皆さんに共有していただいて、課題について話し合うのが一番早いのかなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">河野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=2261s" data-timestamp="2261"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:41</a>タブレットを導入して、もう１年は経っているんですかね。ちょうど１年ぐらい経っていて、新人議員以外の方はもう１年触れているというのが現状であるかなと思うんですね。その中で、活用にまだ踏み込めていないといったご意見もありましたが、１年も導入が進んだのに、事務局の手間が倍に増えたままずっと走り続けるというのもちょっとどうかなと思うところもあって、なので、今、掲示板だと全議員に配信していらっしゃると思うので、例えばこれを、もうメールはやめて、試しにまず次の閉会中なりの期間だけでもGaroonのみの配信にしてみると。それで１回試行で試してみて、その後どうだったかというのを聞いた上で更に議論を深めていくといった形で、触れてくださいねというだけだと変わらない可能性もあるので、実際にメールで配信されなくなったという現状でどうなっていくかといったところも見てみたいなと思うんですけれども、少し一歩踏み込めないかなといったところで、皆様のご見解を伺えたらと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=2339s" data-timestamp="2339"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:59</a>という提案もありましたが、いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=2345s" data-timestamp="2345"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:05</a>ちょっとそういう強硬的に進めていくのはやめていただきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=2354s" data-timestamp="2354"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:14</a>今、河野副委員長が言った提案というのは、私はやってみたいなと思うんだけれども、今みたいな片山委員のご意見もあるので、やはり天野委員が言ったように、例えば触ってもらう。分かるんですよ。使えないとか、ちょっと抵抗があるというのは分かるんですけれども、まず触ってもらって、やはりどうだったかというのをそれぞれ共有しないと進まないなと思っているので、次回の議会運営委員会がいつになるかはちょっと分からないですけど、例えばそこまでで１回期限を決めて、触っていただいて、どうだったかというのをやはりやっていかないと、この議論も進まないなと思っているんですよ。だから、今、一方的なというご意見もあったけれども、（「一方的とは言っていない」と呼ぶ者あり）すみません、私がちゃんと話を聞いていなかったんですね。今後、聞くようにします。</div>
+  <div class="say">それで、結局、私が何を言いたいかというと、次の議会運営委員会までに１回触ってもらって、どうだったか。やはり使いづらかったなのか、いいではないという意見を聞いてみたいなと思う。そうしないと次に進まないので、これはやっていきたいと思うので、今日、これは決めておかないと、次に持っていったって何も決まらないので、そこは正副委員長にお願いをしたいなと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=2434s" data-timestamp="2434"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:34</a>提案会派が提案している議会改革なので。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=2440s" data-timestamp="2440"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:40</a>幾つか、何か進め方のスピード感の違うようなご提案もあった中かなと思っております。冒頭でご紹介させていただいたように、ようやく触って、使ってみてくださっているところなので、今の段階で掲示板を、試行的にメールをなくすというのはまだちょっと早いかなという、私の印象ではそんなふうに思っています。ただ、いずれそういうふうに、この部分はこういうふうに切り替えてみようみたいに運用を変えながら、皆さんの意見を伺っていく必要はあるかなと思っています。</div>
+  <div class="say">小林副議長からもご紹介いただいたSideBooksの件は、この後のペーパーレスのこととも関わってきますので、その辺の議論もちょっと行ったり来たりしがちなんですけれども、資料の共有ということと、今回の７－１の方の提案は連絡ツールとしての、連絡方法の話なので、そこも少し整理をしながらと思っています。確かにSideBooksで情報をやり取りするときに、資料も添付して送るので、その辺の切り分けが難しいところではありますが、この後で話をするSideBooksの話は、どちらかというと配布する資料、議場で議員に今まで紙で配布していた資料の話だと思っていますので、ここのテーマでは、今までメールや紙を控室に配っていただいていた通知などのお知らせの話というふうに整理をさせていただいて、ちょっと触っていただく期間をいつぐらいというのは、皆さんからもう少しご意見を伺えればと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=2545s" data-timestamp="2545"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:25</a>ありがとうございます。</div>
+  <div class="say">先ほど河野委員からもおっしゃられたように、導入が１年経過しているというところでしたので、多分皆さん、少なからず触られていると思うので、多分、次回の閉会中までに、一旦各会派、皆さん、持ち帰りで課題を出していただいて、その課題をベースに話し合うのがいいのかなと思うんですが、皆さん、ご意見はいかがでしょうか。（「課題がタブレット活用に進めないではないですか。それが課題なのではない」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=2572s" data-timestamp="2572"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:52</a>グループウェアに対する課題みたいなもの。使った上で何か。（「何が課題なのか分からない」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=2602s" data-timestamp="2602"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:22</a>多分、使っている中で、先ほど太田委員がおっしゃったような形で、機能面でちょっと分からないというところが出てくるかと思うので、その点については、使い方をよく知っていらっしゃる方とかにご相談いただければ解決する内容かと思いますし、ただ、どうしてもメールでないと駄目かというのと、どうしてもGaroonでないとできないことというのが、もしかしたら皆さんの中で、反対されている方の中でもあるかと思いますので、一旦そういった点を出していただかない限り、議論もなかなか進んでいかないのかなと思いますので、もしそういった意見があるのであれば先にお出しいただいて、それをベースに話し合うのがいいのかなと思いました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=2650s" data-timestamp="2650"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:10</a>ここの議会運営委員会に入っていない議員も各会派でいるわけですよね。会派ごとでと言っても、やはりこういったものは、それぞれ個人でかなり習熟が違うので、先ほど、それで勉強会みたいのを時々やってほしいという意見がありましたということは、うちの会派からの意見としては伝えたわけです。だから、今、天野委員がおっしゃったようなことは、こういう委員会の場とかではなくて、水谷委員は作業部会とおっしゃったんですが、作業部会みたいにまた閉じて小さい形というよりは、フラットに、別に全議員でなくてもいいんですけど、参加したい方という形でのそういったことを開いてもらって、そこでやり取りしながら、何らかいいような形に進めていくという方がソフトランディングしやすいのかなと私は思うところです。</div>
+  <div class="say">私の懸念としては、やはり、そもそもグループウェアというのは付随的なものというか、タブレット導入というところでいろいろと私は懸念を申し上げながら、一応作業部会も参加しながらということはあったんですけれども、グループウェアというのは、その中で一つのあれとして出てきたもので、主というところとは少しずれるかなと考えているところなんですよね。今、何か一緒くたになっているんですけど。</div>
+  <div class="say">というのが一つと、結局、この間、事務局ともちょっとそういう話はしたんですが、議員の職を離れるとGaroonもSideBooksも使えなくなるというところで、そこで積み重ねた情報はないということになるわけです。ただ、メールで頂いているものというのは、一定個人情報というか、自分のところに積み上げているものがありまして、それで、以前どういうことがやり取りされたかなというのを確認しながら、いろいろと違う提案をしたりとかすることもありまして、そういう自分のところの情報整理の手段としてどういうふうにしたらいいかというのをいろいろと相談したりしたこともあったということだけ、一応伝えておきたいなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=2831s" data-timestamp="2831"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:11</a>今、片山委員から一定前向きなご提案もあったのかなと私は思っていまして、前からも言っていたのであれば、私、今日、再確認をしたんですけれども、表ではなくて、そういった話しやすい場面で使い方を共有するというのはありなのかなと思っていますが、それにしても、やはりそういうことをやるのであれば、やる日程を決めないとなかなか進まないのかなと思っているので、今、片山委員から今日も改めて前向きなご提案があったのであれば、その辺りの日程というものはちょっと固めて、日程までいかないでも、時期を決めておきたいなと思っております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">小林副議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=2881s" data-timestamp="2881"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:01</a>副議長で踏み込んだ発言をして申し訳ないんですが、さっき水谷委員が言われたように、７－１は連絡方法の確立であって、トレーニングとか情報交換というのはぜひやった方がいいです。ただ、それはGaroonを有効活用していくための話であって、連絡方法について一本化していくかどうかという議題にフォーカスしていく必要があって、これは、議会改革で出ているのが私は少し違和感があるぐらいの話で、議長主導で、改選もしていますから、新しいこの議会の中では、スタンダードなツールとして、やはりもう進めていってしかるべきものだったと思います。そういった意味では、こちらの方、正副委員長、四者主導でも、期日を決めて、この日に一本化をしていく方向だよというものを打ち出して、それに向けて、各議員がちょっと試していく。その中でできないという理由があれば、そこはもう全力で、事務局にも汗をかいていただきながらサポートしていく。それでも難しければ時期を延期していくことも可能でありますけど、ここはもう議会として日時を決めて、連絡方法ですから、やっていった方がいいのではないかなと思っております。それでも、１月からとか、そういう無茶なことをやる必要はないんですが、いつまでもということではないかなと思っております。そういった連絡の受け取りというのをちゃんとやっている中で、ツール全体も使えるように習熟もしていくと思いますので、まずはそこからやっていったらどうかなと考えておりますが、いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=2994s" data-timestamp="2994"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:54</a>という副議長からの提案もありましたが、ただ、期日を決める、今日の時点でいつまでにと決められるかどうかというのはいかがですか。（不規則発言あり）その辺を含めて、いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=3026s" data-timestamp="3026"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:26</a>私もあまり得意分野ではないんですけれども、議会で決めたことでもありますし、使うようにしておいて、Garoonは使えるようになりましたが、今、副議長のご提案もそのとおりだと思うんですが、期日を決めてやることには賛成で、Garoonに一本化することも私は賛成の立場ですが、思えば、多分タブレットが導入された直後には、これの使い方の講習会をやったと思うんですけれども、任期が変わってからはちょっとやったことがないように思っていて、誰かをお招きするのではなくて、一度、改めてこういう使い方があるよ、こういう機能があるよというのを、事務局と私たちでそういう場を設けてから、期日を設けてスタートするというプロセスを踏んではいかがでしょうかという提案です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=3085s" data-timestamp="3085"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:25</a>もう１回研修会みたいなものを開催すると。（「あったよね」「あった」と呼ぶ者あり）新人議員のあれで。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=3101s" data-timestamp="3101"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:41</a>今ご提案いただいたように、やはり触ってみて、自分が勘違いしていて、使いこなせていないところなんかもあったりするので、片山委員からお話があったような任意参加でもいいと思うんですけれども、できればなるべく全議員にお声がけをして、今使ってみての課題の議論をした上で、こんなめどだったら、こういうスケジュール感だったら、みんなで一緒に進めるかなというのを、今年度中にそのぐらいまで、３月ぐらいまでに勉強会というか意見交換会をやって、こんな感じで進めましょうというマイルストーンというか、スケジュール感が出せればいいかなというのが提案会派の今の見解です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=3149s" data-timestamp="3149"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:29</a>坂井委員のタブレットを導入したときは説明会をやったという話で、その後はという話だったんですけど、改選時も、改選で新しく来られた方には一応同じように研修はやらせていただいておりますので、ご報告します。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=3167s" data-timestamp="3167"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:47</a>ということで、何か意見交換会というか勉強会みたいなものを全議員に呼びかけて一度やってみるということをちょっとやってみますか。使ってみての何か感想とか、ここはどうなんだろうみたいなことも含めて、何か出し合った上で。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=3187s" data-timestamp="3187"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:07</a>事務局からご説明ありがとうございました。新人にもちゃんと一度講習会があったということで安心しました。</div>
+  <div class="say">導入直後にご説明いただいたときは、ほぼ触っていない状況でご説明を受けた状況でありまして、今、およそ１年使ってみて、今だからこそ習得できる何かがあると思っていて、この前も広報・広聴協議会で、何か新たな便利機能があるということを事務局からご説明いただいたこともあって、そういう機能もあったんだというふうに、より使いこなせるためのスキルアップというのはできると思いましたので、一度そういう場を改めて設けていただきたいと思いました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岸田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=3231s" data-timestamp="3231"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:51</a>そういう流れでよろしいかなと思うんですけれども、私も得意な方ではないんですね。何なら携帯にはまだ入っていないので、こっちで確認しているような次第ではありますけれども、そういう中で、集まってからどうしようこうしようということではちょっと時間があれなので、あらかじめ今、不安に思っていることとか、どうしてやりにくいと感じているのかというのを、ちょっと提案会派にも汗をかいていただいて、事前にそういった課題を明確にした上でやらないと、集まってからどうしましょうということにはならないかなということだけお願いしておきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=3262s" data-timestamp="3262"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:22</a>各議員から、ちょっと使ってみての感想や何か、ここはどうなんだろうという疑問とか質問も含めて出していただいた上で、勉強会というか意見交換会というのを全議員に呼びかけて行うというところはいかがでしょうか。そこまではいいですか。（不規則発言あり）議会改革で出されて、ちょっと異論を出されている会派もあるので、四者協議会で引き取って結論を出すというわけにはなかなかいかないかなと思っているんです。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=3317s" data-timestamp="3317"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:17</a>こういうやり取りは非常に大事だなと思っていて、一歩前進していると思うので、あとは正副委員長なり正副議長に何を引き取ってもらうかというと、日程の方を、これは正副委員長に調整してもらって、ちょっと前に進めましょう。今日、これ以上やっても多分変わらないので、まずはそういう勉強会の日程を正副委員長の方で決めていただけたらなと思いますので、各会派は課題を持ってくるということで決めましょう。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=3354s" data-timestamp="3354"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:54</a>勉強会の日程は、ある程度議論すれば決められると思うので、ただ、結論を出すということになってくると、やはり今の状況で言うと、四者協議会とかで勝手に決めて、いつから一本化するんだということには、今の段階ではなかなかならないかなと思っているので、まずそういうことを踏んだ上で。だから、この提案は、議員への連絡をGaroonに統一するかどうかという話だと思うので、そこに集約した形で、最終的には結論を出すということになると思いますので、とりあえず第１回の勉強会みたいなステップを踏むということで、１月15日、議員研修会がありますよね。その終わった後とか、午後２時からだったら午後１時からやるとか。午後１時だと、ちょっと事務局の準備があれだね。講師の方も来るから、終わってから。終わってから何か入っていたよね。（「建設環境委員会の協議会」「建設環境委員会の協議会は一瞬だけで終わると思います」と呼ぶ者あり）一瞬で終わりますか。１月15日の議員研修会終了後、（「１時間程度ですか」と呼ぶ者あり）１時間ぐらいですね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=3467s" data-timestamp="3467"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:47</a>多分大丈夫だと思うんですけど、ちょっと参加してほしいうちの会派の人とかに一応やはり確認をしたいなと。もしかして夜に何か入っているとか、終わったらすぐ出なければいけないなんて言われるとあれなので、一応他の複数会派の方も確認してから確定していただきたいなと。一応候補としては挙げておいていただいていいかと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=3491s" data-timestamp="3491"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:11</a>では、１月15日、議員研修会終了後に、グループウェア、SideBooksも含めてということ。（「連絡方法だけです」「Garoonではないですか」と呼ぶ者あり）Garoonに関して勉強会というか意見交換会みたいな、そういう形で行うことで日程調整ができるかどうか持ち帰ってもらうのと、いずれにしても、Garoonを一定使っている上でのいい点とか使いづらい点とか、何かそういうものがあれば、各会派、各議員になりますかね。それぞれになるので、これは提案会派にそれぞれ送ってもらうという、意見を寄せてもらうという形でよろしいでしょうか。（不規則発言あり）事務局は誰か出てもらった方がいいよね。やはりよく知っている。では、それぞれの使ってみての意見とかについては、提案会派に集約するという形でよろしいでしょうか。（「Garoonの勉強会をやるんだったら、集約は微妙ではないですか」と呼ぶ者あり）正副委員長でやるわけ。（「開催するのは、提案会派が開催するわけではない」「では、正副委員長」と呼ぶ者あり）いいですよ。要するに、正副委員長に出してもらう、私のところに送ってもらえばまとめますので、１月15日でどうかというのが確認できたら、私に連絡いただければ、（「これの連絡方法はスペースにとかとできないですか。逆に、試しにこれの」「何も来ない」と呼ぶ者あり）では、１月15日が確定できれば、その１週間前とかまでに意見いただくという形でアナウンスしますので。とりあえず、本件についてはよろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=3666s" data-timestamp="3666"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:06</a>それでは、本件については、引き続き協議することでよろしいでしょうか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=3672s" data-timestamp="3672"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:12</a>本件は引き続き協議することといたしました。</div>
+  <div class="say">次に、７－２、ペーパーレス化の推進及び７－３、ペーパーレス化を一括議題といたしたいと思いますが、これにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=3689s" data-timestamp="3689"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:29</a>ご異議なしと認め、そのように決定いたします。</div>
+  <div class="say">協議報告書と配布資料が出ておりますので、これはみらいのこがねいと小金井をおもしろくする会になりますかね。それぞれ、ご発言をお願いできますでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=3707s" data-timestamp="3707"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:47</a>では、小金井をおもしろくする会の方から先にご報告させていただきます。前回の協議会では、実際にどのぐらいの資料が配布されているのか、実態をつかんでいくところから始めた方がよいという、私ども提案会派からのご提案という形で、そういうお申出をさせていただきました。</div>
+  <div class="say">今回、資料をお配りしております。Ａ４の縦の両面の資料をご覧いただきたいんですけれども、タイトルは、本会議配布資料（令和７年11月11日現在）となっております。みらいのこがねいと小金井をおもしろくする会の共同で提出しております。表の面は、本会議で配布している資料の一覧となります。こちらは、議会事務局が事務用に作っていただいているものを頂いて、左側に私の方で番号を付番させていただいただけで、右の中身については議会事務局の方で作っていただいているものです。例えば一番上の議長報告・一部事務組合議会活動報告というものは、当初送付案件の最初の方に出ているところですけれども、議案の前にくっついているところですね。こういったものは170部印刷して、全て総務課へという流れですけれども、170部刷るものがあったり、85部だったり90部だったり、物によって違ってくるわけですけれども、実際、これを見てみると、こんなにあったのかとびっくりするようなものもありました。</div>
+  <div class="say">あまり一つ一つにコメントをすると長くなるのであれですけど、裏の方を見ていただきますと、こちらも左側に、番号で振ると一緒のような名前が多いので、記号としてＡからアルファベットで振らせていただいております。こちらも配る対象と部数について出ているところです。</div>
+  <div class="say">恐縮ですが、また前の方に戻っていただいて、この中で、これまでもご報告しているように、皆さんの中で、議員各位の中で、これは紙で配らなくてもいいのではないかと現時点で同意いただけているなと把握しているのが２番の議事日程なんですけれども、例えば一般質問の日であれば、日程と書いてあって、日程１、一般質問と１行だけあります。配布して皆さんが確認したら、そこでお役が終わるという内容の資料かと思うんですけど、もちろん記録として蓄積していくという事務局の方のお仕事はありますが、議員にとってはなかなか、そこで確認すれば、ある程度目的が達成できる資料かなと思っていまして、これについては紙でなくてもいいのではないかというご同意をいただいているところと思っております。</div>
+  <div class="say">その他にも、これだけを見てみると、これはどうしてもやはり紙で欲しいというところと、なくしていけるようなところがイメージしていただけるのかなと思いますので、その辺り、各会派のご意見なども頂きながら、なくしていけるところからなくしていくということと、そのための作業について進めていければと考えているところです。</div>
+  <div class="say">報告としては、まず以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=3918s" data-timestamp="3918"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:18</a>私の方からは補足として、ざっくりとしたコストの試算についてを共有させていただきたいと思います。ただ、小金井市議会の中でコストの試算をすると思うと、かなり多分事務局の皆さんの工数にもなってしまうと思いますので、あくまでもざっくりとしたコスト試算というところでご理解いただければと思います。</div>
+  <div class="say">まず、他の自治体の例からすると、大津市議会で大体年間50万枚の削減で、金額ベースで200万円の削減に成功しているというデータがございました。仮に小金井市の規模で鑑みて、年間約10万枚から15万枚の削減をするというところで試算しますと、削減枚数を１年当たり12万枚と置いて、単価の設定もすごい仮なんですけど、１枚当たり５円で、その中に用紙代、トナー代、カウンター料金の複合単価等を含ませていただいて、それでも削減額が年間で約60万円。ただ、また別の予算資料とか決算資料とか、外部に委託している大部数の冊子等々、委託しているケースが多い印刷資料についても削減できれば、更に大きなコスト削減になると思っております。</div>
+  <div class="say">今申し上げたのが定量的な効果の方でありまして、仮に、そのみなし効果として人件費の削減の効果も期待できると考えておりまして、現在、事務局の皆さんに資料を作成いただいたりとか丁合いいただいたりですとか、あと、配布いただいたりですとか、そういった作業のところで労働時間のところを加味いたしますと、想定の削減時間として、職員の方４名掛ける５時間掛ける年４回の定例会プラス委員会随時で、年間約200時間から300時間とすると、時間単価を2,500円から3,000円とすると、効果額は50万円から90万円というところでした。</div>
+  <div class="say">多分、年間のSideBooks、タブレット等々のランニングコストが約200万円程度で出ていたかと思いますので、ペーパーレス化が進めば、そこの部分は相殺できるのかなと考えております。</div>
+  <div class="say">以上、補足でした。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=4068s" data-timestamp="4068"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:48</a>皆さんからご意見、ご質疑などはありますでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岸田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=4083s" data-timestamp="4083"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:03</a>ちょっと事務局に確認なんですが、この配布資料、例えば議会側の方で、これはいいねと合意がとれた場合には、事務局的には、それは紙で配らなくても大丈夫ですよという、全ての項目はそういう理解でよろしいでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=4099s" data-timestamp="4099"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:19</a>紙をなくすというふうになったら、なくすことはできるんですけど、物によっては、例えば今、水谷委員からご報告があった議事日程ですとかは会議規則の改正等が伴ってきます。中には、そういった会議規則の方もちょっと改正しないといけないものもありますが、会議規則を改正しなくても廃止にできる。例えば進行予定なんかは、こちら、議会内でのことですので、規則の改正は特に必要なく廃止ができるようなものになっています。その２パターンがございます。</div>
+  <div class="say">あとは、議案関係は、もし議案も電子化という話になると、総務部の方ともちょっと調整が必要になるかなと。なので、何も改正せずになくすものと会議規則の改正が伴うものと、あと、総務部と調整が必要なものの３パターンになるのかなと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=4167s" data-timestamp="4167"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:27</a>岸田委員のご質問、ありがとうございました。ご答弁いただいた事務局もありがとうございます。</div>
+  <div class="say">例えば議事日程というものをなくすとすれば、規則のどこを改正する必要があるのかということをお聞きしたいのと、あと、議会事務局で配っているものから試行的になくしていくとすれば、そこからかなと思っているのは、総務部とか各所管の担当部との調整なども必要になると思いますので、まずは議会で作って配布しているところからとは思っていますが、それはちょっと意見なので、質問の方を、規則、どういうところを改正する必要があるか、ご説明いただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=4229s" data-timestamp="4229"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:29</a>ちょっと個々、個別にというのが、電子化に伴って、標準会議規則でここの部分を変えるというのは来ているんですけど、うちの会議規則の方が標準会議規則の条項と順番が全然違う状況でつくっていまして、なので、そこはそれぞれ確認していかなければ、もしこれをなくすという場合には、そこを確認していかなければならないんですが、例えば議事日程ですと、小金井市の会議規則第20条に記載がございまして、あらかじめ議員に配布するという紙前提のような書き方になってございます。ただ、この条項はそのままなんですけど、この条項の他に、電子媒体で済ますことができるという条項を新設すれば、このような文書で配布するというものも全部電子で済ませられますよという条項を新設すれば、済むような形になってございます。とりあえず、そんなところでよろしいですか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=4302s" data-timestamp="4302"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:42</a>ありがとうございます。</div>
+  <div class="say">どういう改正の仕方をするかにもよるとは思うんですが、先ほど議会事務局次長からご紹介があったように、文書の配布については、電子的媒体をもってこれに代えることができるという条文をどこかに追加して、総則的なところで変えていくようなこともあるのかなと思います。総則なのか、附則なのかはちょっと分からないですけど。</div>
+  <div class="say">減らせるところから減らしていくために、提案会派としては、まず規則の改正、ここの改正が必要ですという改正の提案をさせていただくための作業に移らせていただければなと思っているところでございます。</div>
+  <div class="say">規則関係では以上です。（不規則発言あり）</div>
+  <div class="say">すみません、追加で。先ほど私の方で、２番の議事日程については合意いただけるものと思っているという発言をしたんですが、各会派からのご見解を一応そこは確認させていただいて、まずここからなくしていくためには規則の改正が必要というのは作業としての話なので、これをペーパーレスにするための合意がいただけるかどうかということでお聞きしたいと思います。</div>
+  <div class="say">ここにいらっしゃらない一人会派の皆さんには、事前に私の方で個別に確認をさせていただいて、その点については、この議事日程というものをなくすために作業に入りたいということについては合意をいただいているということをご報告いたします。</div>
+  <div class="say">その他は、またどういうふうに進めていくか、この後でご相談したいと思います。各会派に、議事日程のところについては紙をなくしてもいいという合意がいただけるかどうかのご意見をお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=4429s" data-timestamp="4429"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:49</a>議事日程について、なくせるかどうかというご提案がありましたが、皆さん、いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=4440s" data-timestamp="4440"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:00</a>私は、小さな一歩ではありますけれども、議事日程をまずはなくしていくということには賛同いたします。</div>
+  <div class="say">あとは、ここの一覧だとちょっと読み取れないんですけれども、会議規則の改正が必要なものと、総務部との打合せが必要なものと、そもそも改正が必要ないもの、３パターンぐらいあるのかなと思うので、この１条ずつ改正していくと、その都度改正をしなければいけないという大変さがあるので、さっき議会事務局次長も水谷委員もおっしゃったように、一文、電子何とかというのを入れるのであれば改正できるというのがやりやすいのかなと思っていて、あとは運用の話になってくると思うので、まずはそのことも踏まえて賛同いたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=4498s" data-timestamp="4498"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:58</a>印刷部数がすごくまちまちなのがなぜなんだろうと思ったりするんですが、今、議事日程というところから進めたいという話だったので、私が受け取るというか把握している範囲では、恐らく問題ないのかとは思うんですけど、ちょっとその問題がないかどうかという確認が確定的に言えないというか、例えば、なぜこれをこれまで配っていたのかとか、次の進行予定表は90部で、総務課は24部なんですけど、なぜ85部ということなのかとか、その必要性と、どういう形で使っていくものなのかということとか位置付けとか、何かそういったところをちょっと確認しながら、これまであったので、一応慎重に進めた方がいいかなと思っているところです。</div>
+  <div class="say">あと、ちょっと気になるのが、先ほど天野委員が、同じ提案ということで、みらいのこがねいと小金井をおもしろくする会で一緒にやっていると思うんですが、削減されるだろう経費のことをご報告いただいたんですが、これは、議事日程を削除したからということですか。それとも、全てがなくなった場合ということでの説明だったんでしょうか。その辺を確認したいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=4608s" data-timestamp="4608"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:48</a>ご質問ありがとうございます。先ほど少し申し上げましたが、ちょっと参考にというところでしたので、前提として12万枚を年間で削減できたときの試算で出させていただいたので、議事日程だけでは、このコストは出ないと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=4626s" data-timestamp="4626"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:06</a>12万枚というのは、ここに書いてある書類全てを足すと12万枚になるということなんでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=4641s" data-timestamp="4641"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:21</a>すみません、参考程度にというところでしたので、小金井市議会で仮に精緻に出すとすると、かなりの工数がかかってくるというところもございましたので、他市の事例も参考にした上で、小金井市で仮に12万枚を出しているとしたら、年間でこれだけ削減できますよというところですので、もしこの資料をベースに考えていただくのであれば、これに掛ける５円を出していただければ、合計数を出して、この資料の中での削減数は出ると思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=4674s" data-timestamp="4674"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:54</a>大津市議会で削減したということを前提に、小金井市議会に当てはめると、大体こういう形になるという試算だったかなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=4687s" data-timestamp="4687"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:07</a>分かりました。それで12万枚を削減すれば、SideBooksとかの経費が出るんだというお話だったので、仮にしては大分具体的な提案だったものですから、ちょっと確認をさせていただいたというところです。</div>
+  <div class="say">先ほど言った議事日程の必要性というか、部数とか、その辺は事務局の方に確認すればよろしいでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=4719s" data-timestamp="4719"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:39</a>この配布部数というのは、あくまで総務課に配ったりですとか、まず本会議場の部局側と議員側の配布部数が60部ぐらいありまして、その他、ちょっと配るところで差が出ているんですね。すみません、議事日程、進行予定の５部の差というのはあれなんですけど、とにかく議場に配る分と、その他、ちょっと必要なところに配る分ということで、この部数が少し差が出ているというのはその部分なのかなと思います。（「必要性とかは」と呼ぶ者あり）要は、会議規則上、配らなければいけないとかの部分は、議場に配布しなければいけないという部分になるので、もっと少ない部数なんですけど、その他、関係部署に配っているというもので、この90部なり85部なりという差が出ているというところです。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=4792s" data-timestamp="4792"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:52</a>別にそんなに細かくあれではないんですけど、一定の部数があるということで、配らなければいけないということでの必要性として今まであったのかはよく分からないんですが、本当に１行だけのときもあるけれども、そうでないときもあるというか、その辺が、だから、軽々になくしていいのかどうかというところの確認をしたいだけなんです。議会の中で、私たちが確認する部分のところでは別にあれなんですけど、他の部署のところとかで何かしらの必要性があるのかどうなのか。別に何も問題なければ、そういうふうに効率化していけばいいかなと思うんですけれども、そこだけ確認させていただきたいと思っています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=4847s" data-timestamp="4847"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:47</a>他のところで必要性があるかどうかというのは、ちょっと確認が必要になってくるのかなと思うんですけど、少なくとも議事日程を紙ではなくて電子にするということに関しては、特に会議規則の改正でできると。実際にやっている市もありますので、そこは問題ないのかなと思います。ただ、片山委員、紙で必要かどうかというところまでは、すみません、まだここまでしていないので、確認はしますけど、恐らく問題はないかと思いますので、そこは確認させていただきますが、議会上、会議規則の改正をもって、紙で配っているものを電子にするというのは問題ないということで答えさせていただきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">河野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=4899s" data-timestamp="4899"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:39</a>今のことに併せてちょっと伺いたいんですけれども、例えばこの議事日程をなくすというのは、そもそも配布をしませんよということなのか、Garoonとかで出すからしませんよという形になるのかといったところと、これ、廃止するとなったとしたら、当然議員側は配布されませんよね。部局側への対応というのは、配布される形になって残るというわけではなくて、そっちも併せてとなると、これは85枚が全てなくなるよということでいいと。事務局は作るところもなくなっていくということですか。作るのは作る。（「電子で」と呼ぶ者あり）電子で配る。そこだけ、すみません、教えてください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=4955s" data-timestamp="4955"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:35</a>紙の方で、議場の中では部局が配っていますので、それがなくなりますと。電子で総務部なりに送ることになるので、その辺は、電子上の議事日程というのがございますので、それでちょっと対応できるかなと思います。ただ、運用のそういうところまでは総務課とちょっと詰めないといけないんですが、その電子での対応は、部局側もノートパソコンがございますので、そちらはできるのかなと。そこまでですみません。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=4997s" data-timestamp="4997"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:17</a>ちょっと今、聞いていて不安になってきたんですけど、紙をやめてデータで配るということの手間の問題と、あと、時間、すぐにタブレット上に議事日程が配布されることはメリットだなと思っているので、私はやるべきだと思っているんですけれども、まず部局がそれで大丈夫なのかをこれから確認するのがちょっと不安だなというのと、もう１つ、総務課に送って、総務課から部局側のパソコンにとなると、タイムラグが発生してしまうのではないかなと思うので、そこも含めて確認しておいてください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=5040s" data-timestamp="5040"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:00</a>確認しておいてください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=5045s" data-timestamp="5045"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:05</a>例えば電子データで配布したときに、だから、配布したということを、議長の進行としてはどういうふうな形になっていくんですか。各議員にも一応配ったということで進めていくという話になるんですか。議長が議事日程１とか何とかということで発言して、それが会議録に残っていくという形で、記録としては残っていくという形になるということなんでしょうか。その辺のどんなふうになっていくのかなというのを確認したいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=5092s" data-timestamp="5092"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:52</a>細かい議事進行のところまでは整理できていなかったので、もう一度確認をしたいと思いますし、事務局にもご協力いただきたいと思います。</div>
+  <div class="say">一番最初から机上に配布してあるものが、ちょっと私も今、把握できていないんですが、例えば追加で配るもののときは、休憩しますと言って休憩をして、その間に議会事務局が入ってきて、追加の日程の紙を配って、また再開して、ただいま日程にこれを追加することにご異議ありませんかと言って、異議なしと言って進んでいくんですけれども、それからすると、議員の皆様のお手元に電子データにて日程表をお配りしましたということを議長が宣言されて、では、日程第１みたいな形で入っていくのかなと思っているんですが、議会事務局の方で何か見解があれば、お願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=5145s" data-timestamp="5145"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:45</a>申し訳ないです。ちょっと個々、例えばどれをなくすかという話をとりあえずしてからという話だったので、そこまで、まだどれがなくなるかというのが全然分からない状況だったので、例えば、うちは会議規則上は、電子でやっているところもありますし、それはできますよと。ただ、運用面では、この部分とこの部分とこの部分がなくなるよと言われて、水谷委員と調整させていただいて確認をするという、ちょっとそういう段だったので、すみません、ここまで、そういう運用面ではそこまで詰めていません。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=5187s" data-timestamp="5187"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:27</a>だったら、提案会派の方で、他の議会でなくしているところがどういうふうにしているかを確認してもらえるといいなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=5199s" data-timestamp="5199"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:39</a>私はどちらかというと、他の市議会というよりも、小金井市議会で議事日程をなくしたときの運用の変化というのを調べていただいた方がいいかなと思うので、お願いします。（不規則発言あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=5218s" data-timestamp="5218"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:58</a>日程は追加日程等いろいろあるわけだけど、それを電子にするかどうかという話なわけだからね。</div>
+  <div class="say">今、事務局からちょっと発言があったとおり、まず、その議事日程に絞るということもあるかもしれないんですけど、会議規則で配っているものは何なのか。３パターンという話がありましたけど、３パターンにちょっと仕分して、どれをなくせるのかみたいな議論をしてからやった方がいいのではないかなと個人的には思うんですけど、皆さん、いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=5267s" data-timestamp="5267"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:47</a>今頂いた委員長のご発言の中身の確認なんですけれども、なくしていくという前提で、例えば種類がこういう種類があってということの確認と、片山委員からご発言があったみたいに、他の自治体で問題なくやっているのはどんな形でやっているのかみたいなご不安を解消しながら進めていくということで、合意できる範囲からペーパーレスを進めるための準備に、また次回に向けて、その作業をさせていただきますということは合意いただけたということでよろしいですか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=5300s" data-timestamp="5300"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:20</a>いいですよね。合意の下で削減していくということについては異論ないと思うんです。ただ、今、資料が出ている中で、規則改正が必要なものがどこに当たるのかということとか、あと、３パターンという事務局からあったことが、それを振り分けると、どれになるのか。あと、それを見て、議事日程以外にももしなくしてもいいというものがあれば、なくしていけるわけだし、そのときの条文の変更の課題とかということになってくるかなと思う。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">斎藤議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=5338s" data-timestamp="5338"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:58</a>この議事日程に関して、水谷委員から事前にちょっと言われて、いいのではないのと答えたんですが、今ちょっとやっているうちに、配布するものと、配布せずに電子データだけというのが混在をするときに、事務局はどうなんですか。その方が私は分かりにくくてミスも起こるのではないかなという気が今してきたんですが、その辺、いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">伏見議会事務局長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=5370s" data-timestamp="5370"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:29:30</a>今、議長がおっしゃられたとおり、混在してしまうと、これは配っていいのか、これは配って駄目なのか、電子にするのかなど、かなり混乱するかなというところは正直思っています。やはり、なくすというか、電子にするものを一定整理していただいた後に、うちとしての対応を考えたいというのが正直なところでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=5413s" data-timestamp="5413"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:30:13</a>おっしゃっていただいたとおり、交じると混乱が生じるというご懸念はそのとおりだと思います。</div>
+  <div class="say">この後、ご提案しようと思っていたのが、最初に前出しもしたところですけど、今お配りした一覧表、これ以外にももしかしたらあるかもしれないんですが、まずはここで把握できているものについて、現時点では、これは紙で配布する必要があるだろうというご見解をお持ちのところを各会派からご意見を頂いて、そこで合意できるところから、これをなくすためにはどういう作業が必要かというのを議会事務局とも相談しながら作業に入っていければなと思っているところです。なので、期限を決めて、この表の中で、これについては紙が必要というところをご申請いただければと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=5466s" data-timestamp="5466"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:06</a>私は、まずは会議規則の改正が必要なものなのかどうかという３パターンを示していただいた上での次の作業なのかなと思っているので、今日それをやってしまうと、また、今、議会事務局長がおっしゃっていただいたものとはちょっと反対の方向に行ってしまうのかなと思うので、まずは３パターンを示していただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岸田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=5490s" data-timestamp="5490"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:30</a>最初にお尋ねしたのもそういう懸念があるからなんですけれども、片山委員が言う必要性というところにも絡む話かなと思っていて、それをお示ししていただいた上で、作業がどれぐらいかかるのか。会議規則がここにあるんだというのを調べるのも大変でしょうと思うので、それがどれぐらい時間がかかるか分かりませんが、それができたところで議会運営委員会のメンバーに配信してもらって、今、提案会派がお示しいただいたこの中から、これはなくしていいのではないかという方をチェックするのか、それとも、これは残した方がいいのではないかというものをチェックするのかという、そのやり方かな。集め方をちょっと提案会派の方で、期日も含めて、次回の議会運営委員会、閉会中になるのかな。分かりませんけれども、（「提案会派」と呼ぶ者あり）うちですね。すみません、ちょっと担当が違ったもので、同じ会派だった。そのような形で進めたらどうかなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=5553s" data-timestamp="5553"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:33</a>どうですか。今、提案会派からそういう話もありましたけど、今の時点でどれをなくせるかと私たちも聞かれても、うちの会派としても、もう少し中身が精査されないと何とも言えない部分があって、感覚的になくしてもいいと思っても、今みたいに混在していると大変だとか、会議規則の改正があるんだとか、部局との関係があると言われると難しいので、まず仕分してもらった上で、今、岸田委員が発言されたように、そういう形でご提案いただくという形がよろしいかなと思うんですが、水谷委員の方はそういう形でいかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=5603s" data-timestamp="5603"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:23</a>提案会派のみらいのこがねいともご相談しながらになるんですが、議会事務局にご協力いただいて、先ほど議会事務局次長からご発言があった三つのパターン、会議規則の変更が必要なもの、不要なもの、あと、その他。ちょっと三つというのがメモし切れなかったんですけど、それについて、まずイメージしていただけるようなものをお示しして、それを見た上で、また次の進め方についてご相談するということで、引き続き協議をお願いできればと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=5633s" data-timestamp="5633"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:53</a>ということで、次回ご提案いただいた上で、引き続き協議したいと思いますが、引き続き協議するということでよろしいでしょうか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=5647s" data-timestamp="5647"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:07</a>本件は引き続き協議することといたしました。</div>
+  <div class="say">次に、７－４、市議会オンライン会議についてを議題といたします。</div>
+  <div class="say">正副委員長から一応資料と協議報告書を提出しておりますので、ご覧いただきたいと思います。協議報告書は、前回頂いたご意見と、正副委員長で本来整理しなければいけないということでしたので、一応資料として出させていただきました。新しい議員の方もいらっしゃると思うんですけど、この間の経過について資料で説明させていただいておりまして、裏面に令和６年12月６日の審議結果と令和７年１月21日の審議結果を載せておりますので、これが今までの到達点ということになっております。見ていただいたとおりなんですけれども、令和６年12月６日はオンライン会議のテストを協議会で実施し、確認したということで、１月22日に再度テストすることとし、実施内容は正副委員長と事務局に一任して決定したということで、テスト会議を行ったということで、以下のような課題があるということが出され、解消ないしは実施できると判断できた段階で条例を改正するという条件付きの一致とし、協議を終了したということとなりました。１月21日の審査結果では、オンライン会議について、テスト会議を実施したということだったんですが、一部通信環境などの課題があることを確認し、引き続き協議としたというのが、今までの現状の到達点だったということです。</div>
+  <div class="say">あと、機材の関係で言うと、表面の方に出ているとおり、事務局で持っているものが以下のとおりになっていまして、情報システム課が持っているものがこういうものになっていると。これが基本的に全部ないとオンライン会議ができないということになっていまして、議員からオンラインでという申出があった場合に、情報システム課から借りられるかどうかということが一つ課題としてあるということで、検討すべき課題としては、審査結果で示された課題についての整理を行うことと、前回のテスト会議を踏まえた検討課題ということで、通信環境が何かうまくつながらなかったということがあって、それをもう１回ちょっと大丈夫なのかということを確認する必要があるのと、音声とか映像とか、あとYouTube配信の取扱いとか、その辺はどうなのかということなど、この点、前回、テスト会議に参加された方からいろいろ意見を出していただければなと考えています。</div>
+  <div class="say">実施に向けての検討課題については、新しい方もいらっしゃるので、もう１回テスト会議を改めて実施をして、課題を確認すると。今までの通信の問題とか音声とか映像の問題ということをやったらどうかと考えていることと、あとは、条例施行と実際の運用の整理についてということで、基本的には、申出があった場合に、少なくともできるという確認がとれた段階でということになると、情報システム課が持っているものを議会でもある程度そろえた上で条例施行ということになるのではないかなと考えてはいるんですけれども、こうなってくると予算要求なども伴ってくるので、その辺の整理を確認する必要があるだろうというのが、一応正副委員長からのご提案という形になっておりますので、ご協議をお願いしたいと思います。ということなんですが、皆さん、いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">太田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=5926s" data-timestamp="5926"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:46</a>本当に申し訳ございません。これは前任期の内容ということで、もう説明があったとしたら大変恐縮なんですけれども、そもそも何のためにオンライン会議をしなければいけないのかということと、テスト会議は実際にどの会議で行われたのかというのを具体的に、釈然としなかったもので、すみません。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=5959s" data-timestamp="5959"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:39:19</a>一応、この間の全体の会議規則の改正の中で、委員会をオンラインで開催できるということに、標準会議規則でしたか、それが改正になった関係があり、例えば災害時であるとか、そういうときにオンラインで委員会を開催することができるという、東京都議会などはそういう規定があって、実際にそういう運用がされたと聞いています。私たちもこの間、いろんなところに視察に行って、例えば取手市議会に行ったときは、取手市議会はもう実際にオンライン会議を行っていて、対象も災害に限らず、出産、介護とか、いろんな条件で委員会に参加できないときに、ご本人からオンラインで参加したいという申出があれば対応するという形になっていて、表決も含めて、取手市議会は実際にやっていたんでしたか。というところの先進市も視察に行って、小金井市議会もやはりオンライン委員会、委員会でのオンライン会議を実施できるようにした方がいいのではないかという議論をずっと続けてきました。</div>
+  <div class="say">最終的に、災害時、感染症を含むのときに、オンラインで会議を開催することができるという条例改正案まで、ここまで一応確認したんですね。あと、運用の手引みたいなことも確認したんですが、ただ、テスト会議が実際にやってみたときになかなかうまくいかなかったということと、機材を事務局で持っていないということもあって、申出があっても情報システム課から借りられるかどうかという、それがあって、結局、条例施行というところまで行っていないと。テスト会議をやって、なかなかスムーズにできなかったということで、引き続き協議するという形になっているというのが今までの経過となっています。</div>
+  <div class="say">条例改正案はどこかで、これはホームページに出ていましたか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=6108s" data-timestamp="6108"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:41:48</a>委員会条例の改正案の方が議会改革の報告書に載っていまして、SideBooksの議会運営委員会の上の方、令和７年２月５日のフォルダの中に議会改革の調査報告書というのが入ってございまして、その中に入っております。（「任期が代わるタイミングで」と呼ぶ者あり）そうですね、前回の任期の方も。そちらをちょっとご参照、19ページです。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=6154s" data-timestamp="6154"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:34</a>という状況です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=6159s" data-timestamp="6159"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:39</a>すみません、委員長からご報告いただいたところなんですが、元の提案会派の小金井をおもしろくする会で少しだけ追加で申し上げたいと思います。オンライン会議をやる必要については、例えば、そのときにインフルエンザとか、物すごく流行がありました。その後、新型コロナウイルス感染症もあったんですけれども、感染症に本人でなくて家族が感染してしまって、家から出られないという事態が生じていたこともありました。なので、本人は会議に参加できる健康状態なんだけれども、皆さんがいるところに物理的に参集ができないというときに、オンラインで委員会ができれば議論に参加できるということで、整備をご提案しました。そのときは、まだ全国の標準会議規則の改正はされていなかったんですけど、小金井市議会でその議論をしている間に、先に全国の標準会議規則の方が改正になりました。小金井市での合意の範囲としては、先ほど委員長から言っていただいたように、災害と、災害の中に感染症も含むというところのみに限定する形で、スモールステップから始めましょうと。高尾山を目指すのではなく、くじら山をみたいな話であり、その範囲での条例改正案までは合意いただいたというところになります。小金井をおもしろくする会としては、本当はもう少し幅広く、介護とか本人の怪我とか、元気だけど、外出できないようなときに対応できればというところまでいずれはと思っていたところですが、現状としては以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=6258s" data-timestamp="6258"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:18</a>という状況です。</div>
+  <div class="say">という提案なんですが、いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=6272s" data-timestamp="6272"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:32</a>この正副委員長案のところの実施に向けての課題解決なんですが、テスト会議を改めて実施するということなんですけど、以前も議会運営委員会でやったわけなんですが、同じ形でのテスト会議をやるということでしょうか。そのときに、やはりこの機材のままだと厳しいよねというのがもう既に確認されているので、それを何かプラスアルファした、そのときに出た課題を解決したテスト会議をやるという形になるのか、その辺の確認をしたいなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=6296s" data-timestamp="6296"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:56</a>その辺は、ちょっと皆さんからご意見を出してもらったらどうかな。ただ、機材はあったけれども、通信環境の問題は、よく映らなかった場合と映った場合があったのではないかなと思うので、必ずしも機材だけの問題ではなかったかなという気はするんです。</div>
+  <div class="say">あと、新しい議員の方がいらっしゃるので、やはりもう１回やってみた方が何となくイメージも湧くし、課題の抽出なんかもしやすいのかなと思っているんです。だから、私たちの想定としては、やはり前回と同じような形になると思うんです。情報システム課から今、出したようなものを借りてきて、配置としては同じようにやって、ただ、YouTubeの関係とかがあるからどうするかとか、そういうのはあると思いますけど、やってみてどうかという話です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=6373s" data-timestamp="6373"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:46:13</a>まずやってみるのはよろしいかなと思いました。前回と同じ状況でやったら同じような状況になり得ると思うんですけれども、ちょっと前から時間が経っているということと、議員のメンバーも代わったので、改めて現状を体感しておく。体感するだけではなくて、何が具体的に必要だねという物品をちょっと洗い出すような視点を持ってやれるのがよろしいのではないかと思いました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=6406s" data-timestamp="6406"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:46:46</a>ありがとうございます。</div>
+  <div class="say">確認なんですけれども、通信について、議会事務局に教えていただきたいんですが、何らかのオンライン会議システムにつないでやることになるわけですけど、その通信のキャリアというのは、どれを使ってやることになるんでしょうか。ポケットＷｉ－Ｆｉですか。それを確認させてください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">高橋議事係長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=6438s" data-timestamp="6438"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:47:18</a>記載のとおり、ポケットＷｉ－Ｆｉを使って通信をしているような形になります。ウェブ会議用のポケットＷｉ－Ｆｉを借用して、それを通じて通信をしているもの。（不規則発言あり）会議のシステム自体はWebexです。ZoomとかTeamsではなくて、Webexを我々では用意をしている形になります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=6488s" data-timestamp="6488"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:08</a>今の話だと、ポケットＷｉ－ＦｉでWebexに接続してやっているということだよね。（「そこが問題な気がしてきました」と呼ぶ者あり）だから、個々の議員がポケットＷｉ－Ｆｉでやるとか、家の何かＷｉ－Ｆｉでやっているとかということではなく、大元の問題があるということなんですかね。（「ポケットＷｉ－Ｆｉも電波が悪くて、使っていないという感じ」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">小林副議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=6516s" data-timestamp="6516"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:36</a>今、庁内の職員のＷｉ－Ｆｉもあるから、テスト環境としては、そちらに乗せて、Webexでやることはできるんだけど、多分災害時とか、そういうイメージもあったし、あの時期のこともあったからポケットＷｉ－Ｆｉでやったということであって、あと、令和７年12月のまとめ資料に必要な機材とありますよね。これも、例えば議会運営委員会で、1)と2)のこれが必要だよというのを議員側がリストアップして用意してもらったわけではなくて、議会事務局の方で、庁内にこれがあるから、これならできるよとかき集めてもらったのがたまたまこれだったということなので、これがゴールでも、100点でもないし、80点でもないというか。だから、それはやりながら、しっかりとやるべきだなというのが一つと、あとは、全く同じようにやるかどうかという話からすると、あのときは、例えば委員長の声をどう拾ってWebexに流すのかとか、その物理的な配置とかも準備できないままに人数を集めて一気にやったのね。それは無駄なことだから、基本的な機材と配置というのをやった上で、委員会として成立するかどうかという、そこにやはり注力できるように、事前の準備というのはした方がいいかなと思いました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=6626s" data-timestamp="6626"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:26</a>なるほど。確かにそうでしたね。何か音声がどう流れるかとかね。</div>
+  <div class="say">ちょっと事前準備を事務局と相談して、その上でテスト会議みたいな。同じようにやると、ばたばたして、またあれなので。だから、前回、接続方法が、ポケットＷｉ－Ｆｉでまたやらなくてはいけないという形になるのか。その辺も含めて、ちょっと相談させてもらうという形。（「新しいマイクが来てからにしませんか」と呼ぶ者あり）音声システムが３月末でしたか。（「３月中に」と呼ぶ者あり）３月中ですね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">河野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=6677s" data-timestamp="6677"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:51:17</a>新しいマイクが届いてからの日程でテストをするような形で、それまでに何の準備が必要かというのを調べて。（「このペースで行けば、普通にやっていたってその頃になってしまうから」「そうですね」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=6692s" data-timestamp="6692"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:51:32</a>ちょっと事前の準備をどうするのかということを正副委員長と事務局で相談して、また得意な方もいらっしゃると思いますので、ちょっとお力を借りて、副議長を含めて、引き続きご提案させていただきたいと思いますので、これは引き続き協議するということでよろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=6723s" data-timestamp="6723"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:52:03</a>それでは、本件については、引き続き協議するということでよろしいでしょうか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=6729s" data-timestamp="6729"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:52:09</a>本件は引き続き協議することといたしました。</div>
+  <div class="say">次に、７－12、市議会への請願書及び陳情書に関して、オンライン提出を可能とするを議題といたします。</div>
+  <div class="say">今回、議会改革の見解及び論点が出されております。それぞれ、何か補足説明とか何かありますでしょうか。特によろしいですかね。だから、これは次回から本格的に議論するという形になると思うんですけど、何か現時点で皆さんからありますか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=6807s" data-timestamp="6807"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:53:27</a>事前に各会派の見解を共有いただいていて、会議の前にお送りいただいているので目は通してありますので、これをベースに、本日、議論を進めていければいいのかなと思っておりまして、みらいのこがねいは書いてあるとおりなんですけれども、オンライン提出を認めることによって、現状よりも特に陳情書については提出がしやすくなることが想定されていますし、市民からの声が聞きやすくなる反面、現状のような審査体制では審査し切れなくなるような可能性も懸念しておりますので、各論というよりも、まずはルールの見直しも含めて、オンライン提出の在り方の見直しをしていけばいいと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=6873s" data-timestamp="6873"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:54:33</a>ということで、一応見解と論点が出されたということで、次回から本格議論という形になるのか、今日せっかくここまで提案されているので、どうでしょうかね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=6907s" data-timestamp="6907"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:07</a>今、天野委員がおっしゃったように、事前に配られているので議論はできるかなと思っているんですけれども、議論をするに当たって、何を焦点に課題として議論していくかというのは大事かなと思って、例えば、そもそもルール化が必要なのかだとか、（「今回、持ち寄りになっていたから」と呼ぶ者あり）課題を抽出しておいた方がいいかなと思って（不規則発言あり）だから、今回出ている見解を基に、それぞれの課題が出ているではないですか。各会派から、そもそもオンライン陳情の扱いをどうするかとか、ルール変更をしなければいけないかとかという、今日はこの辺りを整理していったらいいのかなと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=6978s" data-timestamp="6978"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:56:18</a>私も今日、議論できるところを進めていけばと思っているんですけれども、例えば、他の会派が書いていらっしゃるところで、これはどういうことだろうみたいなこともありまして、具体的には、日本共産党小金井市議団のところでお聞きしたいのが、郵送陳情の取扱いや本人確認の方法などに課題があると書いていただいていて、どういう点を課題と感じていらっしゃるのか、その辺はちょっと共通認識にした方がいいかなと思って、お伺いしたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=7008s" data-timestamp="7008"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:56:48</a>今、郵送陳情については参考送付という形になっていると思います。これは、本人確認の問題が一つ課題としてあって、そういう取扱いになっていると思うんですね。オンライン陳情を受け付けるということになってくると、当然その本人確認をどうするのかという、この間、議論があったような課題になってきて、郵送陳情も含めて、一般の普通の陳情として取り扱っていくということにもなっていくという可能性もあるので、その辺の整理が必要だろうと考えていまして、現状としては、やはり郵送陳情と同様に取り扱っていくというふうにせざるを得ないのではないかなと判断しているということです。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=7057s" data-timestamp="7057"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:57:37</a>ありがとうございました。ちょっと私が思っていた観点と違ったかもしれないと思っていて、それは日本共産党小金井市議団のということではなくて、郵送陳情が参考配布にとどまるのは本人確認ができないからという理由ということですか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=7075s" data-timestamp="7075"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:57:55</a>というふうに考えています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=7077s" data-timestamp="7077"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:57:57</a>というのが日本共産党小金井市議団のご見解ということなんですね。私、そうだと思っていなかったので、窓口に来ていただいたときも、本人確認というのは、ご本人ですね、はいという確認しかしていないということだったので、実在の人物かどうかは確認できるけれども、本人の身分証明書などの提示はないということだったので、ちょっとその辺が、今伺って、認識が違っていたことが分かりました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=7102s" data-timestamp="7102"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:58:22</a>直接来て陳情を出す分には陳情を受け付けるわけだけど、郵送で来た場合には、本人確認が、いわゆる本人に会うということで確認されているということなんだろうと思う。それができなくて、そうなっているのかなと私たちはちょっと考えていたものですから、それが違うということであれば、（「それでいいのではない」と呼ぶ者あり）多分、そういうことだよね。だから、オンラインでやった場合も、オンラインを受け付けるということになれば、郵送陳情も受け付けるという形になってくるというのが普通ではないかなと私たちは考えていたものですから、そうなってくると、ちょっと本人確認の問題があって、そこが整理がつかない中で、ちょっと今、受け付けていくということになってくると、郵送陳情も全国から来ることになりますけど、オンラインはもっと気軽に出せるということになってきたときに、現時点ではというふうに言っていますけど、現時点というのは、ＤＸもこれから進んでいく可能性もあって、その中で取扱いも、本人確認とかも出てくる可能性もあると思っていまして、ただ、今の時点では、ちょっと郵送陳情と同様に取り扱うということにせざるを得ないのかなと考えているということです。（不規則発言あり）だから、オンラインで陳情を出してもらった場合は、郵送陳情と同じように参考送付にするという形で受け付けるというような、そういう考えです。郵送はよくて、オンラインは駄目ということにもなかなかならないかなということはある。</div>
+  <div class="say">他にいかがでしょうか。だから、オンライン提出を認めていくのか、郵送陳情みたいな取扱いにするのか、そもそも認めないのかというような形かなと思うんです。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=7263s" data-timestamp="7263"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:01:03</a>今、委員長のお示しされた内容で言うと、オンライン陳情は認めるのであれば、郵送陳情と同様にすべきだと私も見解は申し上げております。ちょっと別の観点から言えば、私はそもそも紙で提出する陳情の際の本人確認というのも必要だと申し上げてきているので、郵送とオンラインといった意味では同じ扱いにすべきだと私も考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=7292s" data-timestamp="7292"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:01:32</a>オンラインとして受け付けないというところは、どこか会派としてありましたか。現状のままでよいというのがね。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">斎藤議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=7317s" data-timestamp="7317"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:01:57</a>私、参政党小金井の立場でいいのかな。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=7317s" data-timestamp="7317"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:01:57</a>いいですよ。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">斎藤議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=7320s" data-timestamp="7320"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:02:00</a>現状のままでよいというのは、実は私は、いわゆる郵送陳情がオーケーなんだから、オンラインは当たり前だろうという認識の基に、郵送陳情と同じように扱うという、今までどおりでいいという意味での現状のままでよいということですので、他の方の言い方と合わせれば、郵送陳情と同等に扱うということです。（不規則発言あり）（「この書き方は再確認する必要がある」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=2UBTY0NQpZc&t=7381s" data-timestamp="7381"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:03:01</a>清水委員。（「オンライン提出は駄目だと」と呼ぶ者あり）オンライン提出は駄目というふうに、現時点で賛同は難しいと。（「通常の窓口陳情と同じにすることは現時点では難しい」と呼ぶ者あり）そうですね。（「郵送だって同じだということだよね」「後ろ向きな賛成」と呼ぶ者あり）</div>
+  <div class="say">とりあえずお昼になったので、お昼休みで。だから、全体として、郵送陳情と同等にするのかということはありますけれども、オンライン陳情そのものは認めると。それに反対するところはないということでよろしい。みらいのこがねいがちょっと違うのかな。その辺が確認できるかというところをもう１回午後に確認した上で、取扱いについて協議したいと思います。</div>
+  <div class="say">とりあえず、お昼休みでおおむね１時間休憩したいと思います。</div>
+  <div class="say">午後０時01分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午後１時開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=107s" data-timestamp="107"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:47</a>再開します。</div>
+  <div class="say">午前中に引き続き、市議会への請願書及び陳情書に関して、オンライン提出を可能とするを議題としたいと思います。</div>
+  <div class="say">オンライン提出をまず可能とするかどうかということが一つあるのと、可能とした場合の取扱い方法がどうなるのかという形になるかと思うんですけど、オンラインそのものを受け付けるかどうかということに関しては、皆さん、いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岸田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=147s" data-timestamp="147"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:27</a>元々これは７陳情第23号の陳情から端を発しているかなと思っていまして、その陳情書には、オンライン提出が可能になれば、平日の昼間に仕事を休まなくても提出が可能になりますと、また、提出締切日が荒天の場合、ずぶ濡れになって市議会まで行かなくても提出が可能になりますと書いてありまして、私はその願意を読み取るとすると、今までと同じように、郵送と同じレベルのオンライン提出ということだと、結局は配布されるだけで、審議はされないわけですよね。という前提のお話とは私は読み取らなかったんですね。一般の審議する陳情と同じように扱うためのオンライン提出というふうに私は理解をしたので、うちの会派とすると、そうなると、陳情のルールの見直しそのものも必要になるのではないですかという提案、見解を述べさせていただいているので、その辺の話というのかな、これは、あくまでも現状の運用のまま、皆さんのお話のとおり、審議には付さない、参考配布という扱いでいいですよという共通理解の下に進めるのであれば、私はそれで構わないとは思いますけれども、ちょっとそれとは求められているものは違うのではないのかなという認識が私にはあるということだけお伝えします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=249s" data-timestamp="249"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:09</a>私も今、みらいのこがねいの岸田委員からのご発言があったのと同じで、陳情を出された方の願意は、オンラインで提出しても同じように審査していただけるという前提で書かれているように見えましたので、そこまで酌み取るのであれば、郵送と同じ扱いで受け付けるというのではちょっと不十分なんだろうなと思っています。</div>
+  <div class="say">結論として、郵送と同じ扱いにするということであれば、私も新たにオンラインという窓口を増やすこと自体は反対はいたしませんけれども、数が増えることも想定されるので、陳情のルール自体は、このタイミングで議論するべきだなと思っていたので、郵送と同じ扱いにするということで、これを閉じるのがいいのかどうか、陳情の中身と照らし合わせて、少し皆さんのご意見を聞いてみたいなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=309s" data-timestamp="309"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:09</a>あとは皆さん、いかがでしょうか。</div>
+  <div class="say">事例として立川市議会のことが陳情でも紹介されているんですけど、立川市議会の提出の状況をホームページで見ると、幾つかの陳情には基準があって、オンライン陳情の場合は、参考送付みたいな形になっているのではないかなと思います。本人確認も結構しっかりとやられているということを何か事務局からは聞いているので、郵送陳情とは違って、ある程度自分の身分を証明するものの提出などが求められた上で提出を認め、参考送付みたいな形になっているのではないかなというふうに、ちょっと昼休みに立川市を見た限りではそんな形になっているので、だから、この陳情は、具体的にどうせよまでは書かれていない部分があるので、オンライン提出を可能にしてくださいということまでだったかなと思うんですね。その範囲で判断するという。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=394s" data-timestamp="394"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:34</a>今、委員長がご紹介いただいたとおり、今年の８月１日に事務局から配られている多摩26市の請願・陳情件数及び処理状況で見る限りだと、この陳情で示されている立川市議会においては、各派代表者会議への配布にとどめるのが例であると。立川市においては、今、委員長がおっしゃったように、本会議で参考配布となっていますので、私は陳情を読む限り、なかなかそこまで深読みが、読みが足りないのか、できなかった。オンライン陳情をやってほしいというものだったので、陳情者がご丁寧に事例まで、立川市議会の例を挙げていただいていますので、私は立川市議会を例に挙げていただいているので言うと、オンライン陳情についても参考配布、若しくは会派代表者会議での配布にとどめるという扱いで進めていいかと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=469s" data-timestamp="469"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:49</a>となると、オンライン提出そのものを認めるかどうかというところ。その後の運用についてはちょっといろいろあると思うんですけど、その辺については、皆さん、いかがですか。（「一体だと思います」と呼ぶ者あり）確かに、運用と一体のことになるよね。だから、一応議会改革として議論を今しているところで、陳情のことで言うとそういうことかなとは思うんですけれども、（「陳情の採決と分けて考えるということ」と呼ぶ者あり）今、議会改革でやっているので、議会改革でやった後に陳情の採決に臨もうということなので、あくまで議会改革の議論としてやっていくということだと思うんです。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=551s" data-timestamp="551"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:11</a>多摩26市だと、立川市、三鷹市、あきる野市の市議会でオンラインをやっていると資料には書かれているので、どこも参考配布、若しくは議長預かりでタブレットに掲載するのみという扱いになっていますので、私はそこの扱いでまとまれるのであれば、オンライン提出はやってもいいと思っています。この運用が私は条件であります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=589s" data-timestamp="589"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:49</a>郵送陳情と同じような取扱いであれば、オンライン提出を認めるという方向でということですかね。</div>
+  <div class="say">他の皆さん、いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=622s" data-timestamp="622"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:22</a>前にもちょっと発言したかもしれないんですけれども、他の自治体で、あきる野市議会だったかなと思うんですが、オンラインの受付を新たに設けるに当たって、郵送陳情との取扱いのバランスの議論もされたみたいで、それまで郵送のものは配布にとどめるというルールで、うちと同じようにやっていらっしゃったのを、郵送の場合であっても、何会派かはちょっと忘れましたけど、複数会派の合意があれば、他の陳情と同じように付託して審査することもできるみたいなルールを見直したりとか、他のというか、郵送とオンラインの扱いについての議論をした上で認めたということを伺ったものですから、小金井市議会でも、その後の扱いも含めて議論ができればと思っていたところです。</div>
+  <div class="say">結論から言うと、郵送と同じでということであれば反対はしませんが、本人確認はやはり必要かなと思っています。郵送みたいに紙で物理的に届くだけではなくて、オンラインはつながったりするものもありますし、あと、範囲が本当に広がると思いますので、本人確認は必要というところは申し上げておきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=712s" data-timestamp="712"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:52</a>私、見解にも書いておりますが、オンライン陳情を受ける場合は、郵送で受け付けた陳情書と同じ扱いとするのがよいと述べているので、私の到達点はここなんですね。提出された陳情も、陳情を申し上げますという以下の文言で言うと、市議会の請願書及び陳情書に関して、速やかに関係規定を整備し、本年度の早い段階でオンライン提出を可能にしてくださいなので、その後の取扱いまでには触れられていないという読み方もできる。これ、多分議員によって受け取り方が変わるところだと思うんですけれども、提出を可能にするというところ、まずはそこに取り組むと。その後、提出された陳情の取扱いになると、また別の議論になるので、それは別の話で切り分けてやればよいのかと私は考えています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=778s" data-timestamp="778"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:58</a>立川市議会を参考にと見解にも書いてあるんですけれども、立川市議会のオンライン提出の事例というか、今、委員長が紹介したような形だけなのか、ちょっと規定を読むと、何かそうでもないのかなと思いながら、ただ、私も詳しくきちんと確認していないということがありますので、何とも言えないところかなと思っています。ただ、一応この陳情については、今、議会改革というか、こういった形で各会派の見解が出されているわけなんですけれども、そこでまとまる形での採決をすればいいのかなと思っています。ですので、今の段階だと、郵送陳情と同じ取扱いというところだったら一致できるのではないかなと思うんですけれども、ただ、その後に、例えば本人確認などとか、郵送陳情をどうするのかというのがありますけど、一定何か別の議論のところで取扱いのやり方を変えていくということについては、また別の議論ができればいいのかなと考えるところです。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=870s" data-timestamp="870"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:30</a>他の方はいかがでしょうか。</div>
+  <div class="say">オンライン提出を認めた上で、郵送陳情と同様に取り扱うということで、あと、運用とか、その辺はまたちょっと議論しなければいけないと思うんですけど、本人確認の問題とか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=893s" data-timestamp="893"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:53</a>事務局に確認したい。前も聞いたかもしれないんですけれども、ＬｏＧｏフォームで受け付けているところがほとんどというか、全部ですよね。あきる野市、立川市、三鷹市。小金井市の場合もＬｏＧｏフォームをやっているので、それで受付が可能なのかということと、増える手間というか、その辺りがもしあるんだったらお伺いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=923s" data-timestamp="923"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:23</a>ＬｏＧｏフォームでの受付は、うち、市役所自体が使用していますので、それは可能かなと。ただ、受け付けるに当たっての事務局の手続、作業は必要になってくると思うんですけど、受け入れるための、事務局としてＬｏＧｏフォームの受入れ口というんですかね、１回必要になるんですが、それが済めば、受付は可能かと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=960s" data-timestamp="960"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:00</a>どうでしょうか。郵送陳情と同様に取り扱うということで幾つかの会派からご発言がありましたが、ただ、小金井市政を見える化する会からまだこれをもらっていないということ。（「小金井市政を見える化する会は別紙」と呼ぶ者あり）別紙ですね。（不規則発言あり）そうですね。別紙がどこかにあるのかな。小金井市政を見える化する会、どこかで見られるんでしょうか。（「見られます」と呼ぶ者あり）Garoonか何かで見られるのかな。</div>
+  <div class="say">とりあえず、他の皆さんは、ここはどうですか。郵送陳情と同じ取扱いでという発言があったんです。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">太田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=1055s" data-timestamp="1055"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:35</a>基本的に、小金井市議会公明党会派としても、郵送陳情と同等の扱いであればよいかと思っております。</div>
+  <div class="say">まず入口の部分においては、陳情・請願という性質上、やはり本人確認はしっかりととるべきだと思います。その後の扱いについては、現状の郵送陳情の扱いを超えた範囲での受付はできないかと思うので、郵送陳情に合わせた内容でよろしいかと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=1094s" data-timestamp="1094"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:14</a>郵送陳情の取扱いについてのところなんですけど、一応ハンドブックの91ページに入っていまして、皆さん、おっしゃるとおり、郵送陳情も郵送されてきたものを参考配布なりという対応をしているところなんですけど、一応郵送陳情で送られてきてから、受領して７日以内に、うちで所定する陳情書で持参して提出した場合は、他の陳情書と同じような扱いをするということで案内しております。なので、郵送陳情と同じ取扱いであれば、このような方法になるのかなと思います。</div>
+  <div class="say">あわせて、その郵送陳情の場合、郵送で送られたときだけであれば、本人確認書類というのは別に一緒に同封はされていない状況になりますので、その辺も踏まえてご協議いただければなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=1161s" data-timestamp="1161"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:21</a>先ほど議会事務局次長にご紹介いただいたところの中身の確認なんですけど、一旦郵送で受け付けたものを、その後、７日以内に事務局の方に持参した場合はということなんですが、この７日以内というのは、結局、委員会付託に間に合うかどうかとか、そういう関係でこういう扱いになっていると考えればよろしいですか。１年後に来られても困りますけど、目安として７日以内となっていますが、郵送したけど、また持参されるという、何でそういうことをするのか、ちょっとよく趣旨が分からなかったので、受付締切日にはちょっと持参は難しいけれども、まずは郵送して、その後、何とか補正するみたいな形でこういう扱いになっているのか、分かれば教えていただきたいです。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=1222s" data-timestamp="1222"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:22</a>ちょっと理由までは申し訳ないんですが、ただ、郵送で受け付けてから７日ぐらいであれば、その後、出しに来られると、その期間をとっているのかなと推測はできますけど、ちょっと理由まではすみません。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=1243s" data-timestamp="1243"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:43</a>さっき私の聞き間違いでなかったら、委員長は、まずオンライン陳情の受付をどうするかというのと、郵送陳情の扱いと同様でいいのかということで、その後の運用についてはこれからというか、運用というのは本人確認も含めてだったような気がするんですけど、私は郵送陳情と同様に扱うというのと本人確認というのはセットだというのは申し上げておきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=1275s" data-timestamp="1275"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:15</a>だから、その辺は、陳情の採決との関係があるので、この議会改革である程度議論して結論を出した上で採決に臨もうということになっていまして、たしか陳情だと第１回定例会で結論を出すみたいな形を求めていたんでしたか。違いましたか。特に書いていないか。（「本年度の早い段階」と呼ぶ者あり）本年度の早い段階なので、だから、第１回定例会までに結論を出してほしいということになると、ある程度の結論は閉会中などに出して、第１回定例会で陳情の採決ができるようにするというのが、陳情の願意からすると望ましいのかなと思っているんですね。ただ、そこまで、運用ルールまで決められるかどうかというのはいろいろあるので、立川市が結構、どこまでやっているのか、よく分からない部分がありますけれども、そういうことまで含めて全部決めた後に採決するということになると、ちょっと大変かな。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">斎藤議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=1345s" data-timestamp="1345"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:25</a>その運用まで陳情書に、私は陳情書は陳情書、議会改革は議会改革で審議すればいいと思っているんです。陳情書に引っ張られるのであれば、陳情書に書いていないことを議会改革で、議会で決めなければ陳情を採決できないというふうにはならないと思っているんですが、いかがでしょうか。多分陳情書には、その後の取扱い、本人確認うんぬんのことまでは言及していないわけですよ。だから、陳情書は陳情書で採決できると思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=1385s" data-timestamp="1385"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:05</a>今、議長からご発言があったところなんですけど、陳情書に書いてある中身に、速やかに関連規定を整備し、本年度の早い段階で可能にしてくださいということなので、関連規定を整備しないと可能にならない、始まらないという、そういう流れです。関連規定にオンラインを受け付けるというものを足すに当たって、私は、小金井をおもしろくする会としては、本人確認をできるというふうに関連規定の中に整備しないとオンラインは認められないと思っていますので、切り分けて審議するというのはおっしゃるとおりなんですけど、オンラインを受け付けるか否かだけで結論を出せと言われると、ちょっとごめんなさい、できませんと。本人確認ができるんだったら賛成いたしますという、現時点ではそういう結論になります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=1445s" data-timestamp="1445"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:05</a>新たにオンライン陳情で規定を設けるという形になりますよね。（不規則発言あり）そういうことも含めて、他の陳情との関係とかも波及するかどうかもちょっと議論しなければいけないということになっていると思います。</div>
+  <div class="say">だから、議会改革の中で結論を出していくということになると、ある程度運用まで含めた議論が必要かなと思うんですけど、ただ、陳情を採決するに当たって、どこまで議論をすれば結論が出るのかということもあるとは思うんですね。だから、運用も含めてきちんと決められないと採決に臨めないということであれば、それはその議論をしなければいけない。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=1517s" data-timestamp="1517"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:17</a>私としては、議会の意思として、オンライン陳情を例えば受ける受けないというふうに決める場合であれば、ちょっと議長とは違う意見になってしまうんですけれども、受けると決めるのであれば、運用というか受け方までしっかり共有した上で採決に臨みたいなと私は思っています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=1551s" data-timestamp="1551"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:51</a>ということになってくると、議会改革と陳情が一緒になってしまう。リンクさせるとなかなか難しいところがあるけど、オンライン陳情を郵送陳情と同様に扱うというところについては、ある程度、何か発言を聞いていると一致できる部分かなと思うんです。ただ、運用部分はこれから議論しなければいけないという課題は残っておりますけれども。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=1589s" data-timestamp="1589"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:29</a>ちょっとしつこくてすみませんが、郵送陳情と同じ扱いイコール本人確認なしという理解だと合意できないと思っています。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">斎藤議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=1610s" data-timestamp="1610"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:50</a>水谷委員の今のあれですと、オンライン陳情で本人確認ありで、郵送陳情で本人確認なしという形で、それはいいわけですか。それだったらいいわけ。（「はい」と呼ぶ者あり）オンラインだけ本人確認すると。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=1634s" data-timestamp="1634"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:14</a>ということですかね。</div>
+  <div class="say">こちらの方で立川市議会をちょっと調べてみますか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=1649s" data-timestamp="1649"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:29</a>立川市議会を調べてみますかで言いますと、立川市の既に公にされている請願・陳情オンライン申請という画面がありまして、ＬｏＧｏフォームの中を見てまいりますと、ご提出いただくもので身元確認書類（マイナンバーカードの表面、免許証、パスポート等）と書いてありますので、これについてはもう既に分かるということのご紹介でした。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=1680s" data-timestamp="1680"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:00</a>そういう本人確認をしているということですね。</div>
+  <div class="say">だから、本人確認をした上でオンライン提出は認めると。それだったら提出を認めるという、郵送陳情と同様に扱うということでいいという発言がありましたが、他にいかがですか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=1746s" data-timestamp="1746"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:06</a>これも調べれば分かることなんですが、あきる野市のホームページを見ておりますと、オンラインで提出される場合は記名のみで構いませんが、本人確認書類等の写しの添付が必要となりますと書いてありました。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">斎藤議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=1767s" data-timestamp="1767"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:27</a>すみません、ついでにちょっと調べていただきたいんですが、立川市とかあきる野市は、本人提出の陳情書の本人確認というのはしているのかどうか、お願いします。（「もう出されている」「これはもう出ている」と呼ぶ者あり）出ているのか。失礼しました。（「８月１日の陳情書の資料です」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=1821s" data-timestamp="1821"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:21</a>どうしましょうかね。結局、オンライン提出を認める場合は、郵送陳情と同様にするということとともに、本人確認の資料提出、または本人確認の方策については明確にした上で実施をするということで一致できるかどうかということではいかがでしょうか。その辺は難しいですか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">河野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=1861s" data-timestamp="1861"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:01</a>ちょっと水谷委員にお伺いしたいんですけれども、郵送とオンラインとで本人確認書類の有無を切り分ける理由というのが明確によく分からなくて、提出の仕方の違いだけだと思うので、郵送では現状ルールのままでよくて、オンラインだけをちょっと厳格にして、本人確認をつけるというところの差異をどうして持たせるのかなという理由を教えていただけたらと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=1893s" data-timestamp="1893"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:33</a>確かに、同じようなものなのではないかという考え方もあると思うんですね。現状、郵送だと、小金井市議会は配布にとどめるということになっているので、そんなに数も多くはないと認識しています。郵送に対しては。私たちに参考配布ですよと言って配られるのが年に10本はいかないかな。私の感覚では５本以内かなと思っています。</div>
+  <div class="say">郵送はそうなんだけれども、オンラインということになったときに、広がりが物すごく増えるということを可能性として考えていまして、それこそ全世界から出てくるかもしれないし、あと、同じ中身をたくさんの人が出されるかもしれないんですけれども、それも本当に、例えば10人の名前で出てきたけれども、１人の人が出しているのではないかとか、そういうふうに思ったりしないためにも、ちゃんと実在の人物が出していただいているというのは、オンラインはやはり郵送と同じ取扱いにはしづらいかなと思っています。現状の今の郵送の受付状況と、今後予想されることを鑑みたバランスという意味でご理解いただければ幸いです。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=1972s" data-timestamp="1972"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:52</a>郵送陳情を受け付けているところは全て、本人確認の有無がありになっていますよね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2003s" data-timestamp="2003"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:23</a>すみません、ちょっと議論が戻ってしまうかもしれないんですけど、多摩26市の請願・陳情等の取扱いについてのところで、立川市の陳情の本会議上程、付託の有無のところに、議長が議会運営委員会に諮問し、請願と同じ取扱いをすべきものと決定したものは本会議に上程の上、所管委員会に付託とありまして、立川市の中でも、全ての陳情等々の取扱いのバランスを見た上でオンライン陳情の取扱いを決めているというふうに推察しますので、実際にその取扱いを決めるに当たって、立川市を参考にというところであるのであれば、そのオンラインの部分だけ切り取るのではなくて、立川市議会の陳情・請願等の運用ルール全てを参考にした上で議論していく方が建設的なのかなと考えました。（「話が違うと思うけど」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2057s" data-timestamp="2057"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:17</a>あとはいかがでしょうか。</div>
+  <div class="say">できれば、閉会中までにある程度の結論、陳情の採決ができるところまでは議会改革で議論できればいいなと思っているんですけど、ただ、その方向がちょっと定まらないと、何かここで閉じるわけにもいかないなという感じなんですね。</div>
+  <div class="say">今、立川市議会をもうちょっと調べてもらいたいという話がありましたけど。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2100s" data-timestamp="2100"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:00</a>オンライン陳情に関しての議会改革の議論をしているのと、また、陳情ということですので、オンライン陳情をどうするかということに特化してやっていくべきかなと私は思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2130s" data-timestamp="2130"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:30</a>どうですか。さっき述べたように、本人確認は当然必要だという。オンライン提出を認めるということと、郵送陳情と同様の取扱いにすると。その際に、本人確認は必要だと、（「オンラインの場合」と呼ぶ者あり）オンラインの場合。というような三つの点で一致できるかどうかというところをちょっと。皆さんがここで一致できるんだったら、ある程度。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2162s" data-timestamp="2162"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:02</a>何をもって本人確認をするかというのは事務局との打合せということで、今ここではそこまで求める必要はないということでよろしいですか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2174s" data-timestamp="2174"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:14</a>ただ、各会派に持ち帰ってもらわないと結論は出せないので、だから、一応議会運営委員会として、もしこの辺りでまとまるんだったら、各会派から意見を聞いた上で、他の市議会でやっているような形の本人確認に当然ならざるを得ないのかなという気はするんですけど、もし本人確認をしていくということになれば、そういう形でやっていくということでお持ち帰りいただけるのかどうか。今の時点でもし、それではちょっと賛成できないとかということがあれば、ご発言いただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岸田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2240s" data-timestamp="2240"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:20</a>午後冒頭に申し上げましたけれども、陳情者の趣旨を慮ると、ここまでのことが必要なのではないかということは申し上げましたが、皆さんがそうではないということで、あくまでもオンライン提出をできるかできないかにするだけだということの前提に立てば、その話で持ち帰ることは大丈夫、オーケーですということで、その上で、それぞれの会派で、だから、本人確認が必要か否かの持ち帰りをしてもらって、必要な場合はどういった対応が必要なのかということを、各会派のご意見を後で集めて、次回議論でよろしいのではないかと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2271s" data-timestamp="2271"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:51</a>では、そういうことで各会派持ち帰りということで、オンライン提出を認めると。その場合は、郵送陳情と同様の取扱いとする。オンライン提出を認める場合に、本人確認を行うかどうか。行う場合は、どういう本人確認を行うのかという点について、各会派持ち帰っていただき、次の委員会でまた協議するという形でよろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2311s" data-timestamp="2311"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:31</a>そういうことで、各会派持ち帰りということでよろしくお願いします。</div>
+  <div class="say">それでは、本件については、引き続き協議するということでよろしいでしょうか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2323s" data-timestamp="2323"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:43</a>本件は引き続き協議することといたしました。</div>
+  <div class="say">次に、次回協議する調査項目について、ご協議いただきたいと思います。</div>
+  <div class="say">今の７－12のオンライン陳情については、次回協議するという形で進めていくということでよろしいですよね。もう既に今回、入っているから、確認した方がいいのかな。（不規則発言あり）では、７－12のオンライン陳情の取扱いについては、次回協議するということでよろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2369s" data-timestamp="2369"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:29</a>ということは、今までのものにオンライン陳情を加えた協議、調査項目とするということでよろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2379s" data-timestamp="2379"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:39</a>お諮りいたします。議会改革については、現時点での質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2385s" data-timestamp="2385"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:45</a>ご異議なしと認めます。したがって、議会改革についての現時点での質疑を終了いたします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2392s" data-timestamp="2392"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:52</a>次に、調査項目（２）議会基本条例についてを行います。</div>
+  <div class="say">初めに、政務活動費についてを議題といたします。</div>
+  <div class="say">事務局から資料が出されておりますので、説明をお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2406s" data-timestamp="2406"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:06</a>資料の方を出させていただいております。</div>
+  <div class="say">内容につきましては、令和元年度、少し前になるんですが、第１回定期監査の報告書の抜粋ということで、こちら、抜粋部分は政務活動費の支出についてということで、ちょっと議会に関するところだけを抜粋したものでございます。詳細はお読みいただきたいんですが、定期監査の報告書になりますので、数年に一度、市役所の部ごとに行う監査で報告いただいたものになります。こちらはホームページにも掲載されたものになります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2446s" data-timestamp="2446"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:46</a>前回、この政務活動費については、広報費の案分についてルールを設けるかどうか、設ける場合は細かいルールをつくるのかについて、各会派の考えを持ち帰っていただいていると思いますので、各会派のご見解をお願いしたいと思うんですが、まず、みらいのこがねい。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2478s" data-timestamp="2478"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:18</a>ルールが会派に委ねられている以上、公平性、透明性の観点からも、会派ごとに偏りが出てくるリスクがあると思いますので、案分のルールについては見直すべきであると考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say">小金井市議会公明党。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">太田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2515s" data-timestamp="2515"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:55</a>小金井市議会公明党としても、案分等のルールの明確化をするべきだと考えております。</div>
+  <div class="say">また、監査報告の資料を見させていただきますと、やはり私的利用は、政務活動に要する経費としての項目中、資料購入費や事務費の項目として定められている内容のものとしては、その内容には馴染まない、私的利用が可能である物品ではないかと解釈できる領収書の写しが散見されたと。最後に、政務活動費交付に当たっての透明性確保の一層の充実が図られるよう、要望するという資料、内容になっておりますので、これに従ってしっかりとルール化、明確にするべきではないかなと考えています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say">自由民主党小金井。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">河野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2589s" data-timestamp="2589"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:09</a>自由民主党小金井としましても、先ほど太田委員が述べていらしたとおり、私的利用が可能である物品ではないかと解釈できる領収書が散見されたこと、また、透明性の確保の一層の充実が図られるよう要望するといったことが定期監査の報告書で出ておりますので、これに関しては、しっかりとルールを明確に定めていくべきではないかと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2641s" data-timestamp="2641"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:01</a>一応日本共産党小金井市議団の見解を述べておきますけど、広報費についてのことだったと思うんですが、私たちとしては、会派に支給されるものなので、案分という形は取り扱ってはいなかったんですが、既に政務活動費のガイドラインの中では案分が可能だということになっているということや、あと、今回、陳情の文章の中では、一定やはり市民に説明できるような内容にすべきだということも盛り込まれているので、何らかのルールをつくっていくということは必要ではないかと考えております。</div>
+  <div class="say">あとは、小金井をおもしろくする会。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2698s" data-timestamp="2698"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:58</a>小金井をおもしろくする会としても、何らかの案分のルールはつくった方がよいと考えております。ただ、ルールをつくるか否かよりも、ちょっと分けての論点になってしまうんですが、私は公開をされていれば、案分が適切かどうかを市民に判断していただけるので、ルール自体はそんなに厳密でなくてもよいのではないかと思っているところがありますので、でも、ルール化は今よりも少しはっきりした方がいいとは考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2731s" data-timestamp="2731"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:31</a>あとは、子どもの権利／情報公開。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2734s" data-timestamp="2734"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:34</a>今ある政務活動費に関するマニュアルのところにも、一応案分の考え方については書いてあるということもありまして、ただ、このことが分かりにくいということであれば、もう少し分かりやすい形に示していくということについての協議をすることはいいのではないかと考えます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say">次が一人会派。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2769s" data-timestamp="2769"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:09</a>案分についての明確性というか、私も案分をするのであれば、明確にルールは設けておいた方がいいかと思います。それは、もちろん政務活動費交付に当たっての透明性の確保を一層というのもあるんですけれども、やはり次なる議員ができたときとかにも分かりやすい方が運用はしやすいので、そういった意味でも、明確な基準というのは設けておいた方がいいと思います。明確な基準については、これから議論をしていかなければいけないと思うんですけれども、基準は設けておいた方がいいと考えます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say">緑・つながる小金井。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2812s" data-timestamp="2812"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:52</a>私も案分のルールを定めた方がよいと考えています。ざっくりでもいいというものではなくて、私はちゃんと決めた方がいいと考えています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2823s" data-timestamp="2823"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:03</a>他の一人会派の方々は聞いていないですね。分かりました。</div>
+  <div class="say">ということで、全体としては、分かりやすくした方がいいということも含めると、何らかルールをつくった方がいいということかなと思うんですけれども、私たち日本共産党小金井市議団も何らかルールを決めた方がいいということは言っているんですけど、ただ、政治活動と個人の活動とかは何か分けづらいので、どこで線引きするかというのは、せめて何をもって案分しているのか。例えば面積なのか、そういうところぐらいでのルールをつくった方がいいのではないかなということぐらいなんですね。あとは、各会派の何をもって案分しているのかということについては説明してもらうみたいなところで、それぐらいのことは一応考えておりますけれども、そういうものとしてルールという形で提案しておりますので、多少温度差が、ルールの中身があるとは思いますけど。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2905s" data-timestamp="2905"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:25</a>今、委員長からもご発言がありましたけど、案分のルールとか判断はとても難しいと思っておりまして、理由を申し上げると、私どもの発行している噂のこがおもマガジンというポスティング用のマガジンは、皆さんに手にとって開いていただくということを目的に、割と写真を大きく、普通の雑誌みたいに見えるような写真の大きさをとっていまして、これは議会活動の報告ではないだろうというふうになると、面積としてはすごく大きくなるんですね。でも、写真の上にタイトルとして、今回の中心特集はこれですよと入れているから、この写真も含めて全部中身ですよと言えるのか、ルールをつくること自体は本当に難しいなと考えている部分はあります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2952s" data-timestamp="2952"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:12</a>多分以前に、議会運営委員会の資料として多摩26市の状況を出していただいた資料があると思うんですけれども、それを参考にしながらできるのではないかと思っていて、私、ざっくりではなくとは申し上げましたが、これが政務活動だ、これが何活動だみたいな言葉の定義付け、内容まで踏み込めないと思うんですけれども、ただ、面積比ですね。今は全部を読み上げませんけれども、他の自治体がやっているような案分、２分の１を上限とするとか、このような場合は４分の１とか、いろいろそういう定めているところを参考にしながら定めていく方がよろしいと考えています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=2994s" data-timestamp="2994"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:54</a>とりあえずルール化というと、その範囲がすごく広いですけど、分かりやすくするということも含めて、何らかルールをつくるということでよろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=3013s" data-timestamp="3013"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:13</a>だから、どういうルールをつくるかということになるんですけど、その辺はどうしましょうかね。これ、正副委員長提案でやっているんでしたか。（「陳情からだから」と呼ぶ者あり）陳情からですね。（「前期からの申し送り」と呼ぶ者あり）申し送りなんだね。なるほど。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">斎藤議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=3040s" data-timestamp="3040"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:40</a>議長ではなくて、参政党小金井の意見で。さっきしゃべっていたし、いいのかなと思って。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=3046s" data-timestamp="3046"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:46</a>いいです。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">斎藤議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=3049s" data-timestamp="3049"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:49</a>今後の審議に影響するかと思いますので、あえて参政党小金井として発言させていただきますが、私は案分のこと自体もやらないという主張をしていきたいと思っておりますので、いろいろルールまで決めてしまってから、私の一言で不一致なんていうことになってしまうと大変申し訳ないと思いまして、今の段階で私は、政務活動費で使う会派としてのニュースとかレポートに関しては案分はしないと決めた方がいいと現段階では思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岸田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=3098s" data-timestamp="3098"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:38</a>我が会派としても、当然ルールは必要だろうと思っています。これからその議論をされると思うんですが、この議論が一致しない場合には、今、議長、参政党小金井がおっしゃったように、案分を認めないということも選択肢の一つではあると思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=3118s" data-timestamp="3118"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:58</a>現在のルールとして、この政務活動のマニュアルがあるわけですね。こちらに書いてあるのが現在のルールとなっておりますので、それ以上のもう少し分かりやすいルールということであるんだったらば話し合うものがあるのかなと私は考えましたけれども、それが一致しなければ案分をしないという形にはならないと思います。一致をしないということであれば、今示してあるものがそのまま生きていくということになるのかなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=3163s" data-timestamp="3163"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:43</a>何か独り言みたいになってしまいますけど、今、私どもは広報紙では、案分はせずに全て100％政務活動として政務活動費で申請しているので、それは案分していないので、案分なしというルールでそのまま行くというのであれば、それでも構わないと考えています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=3195s" data-timestamp="3195"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:15</a>どうしますかね。そもそも一致しないということで終わってしまうのか、それとも、ルール化みたいなところをある程度議論していくのか。ただ、今マニュアルでは、一応案分できるということにはなっているので、そこをまた変えていくということになると、結構議論しなければいけないということになってくると思います。</div>
+  <div class="say">ルールについてある程度議論していくということについては、議長とかはよろしいでしょうか。（「参政党小金井として」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">斎藤議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=3253s" data-timestamp="3253"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:13</a>ですから、片山委員がおっしゃるように、私がそのルールに対して反対で一致しなかったというふうになれば、現行のルールが生きてくるという形になります。だから、反対したからといって案分しないということにはならないと思っています。ただ、そういう状況の中でルール決めをして、いろいろエネルギー、時間をかけてきたけど、最終的にそちらに一致しなかったということになると、何か申し訳ないなと思う。まず私を説得していただいてからスタートした方がいいかなと思っています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=3294s" data-timestamp="3294"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:54</a>なかなか一致しづらいかな。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=3298s" data-timestamp="3298"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:58</a>一致ができないのであれば終わりになりそうな感じもするけれども、監査の指摘から言われていることについては、現状のマニュアルにおいて示されている政務活動費の対象となる経費基準を適宜見直し、政務活動費交付に当たっての透明性確保の一層の充実が図られるよう要望するとあるので、議論が終わりではなくて、この透明性確保の一層の充実を図るための議論はする責務があるのではないかぐらいにちょっと考えています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=3336s" data-timestamp="3336"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:36</a>だから、ルール化という形がなかなか、そこまで議論を踏み込んでいかないということになると、要するに、陳情の具体的な項目があるではないですか。持ち帰っていただいた、公開するかどうかとか、そういうことについてどうなのかという議論をするという形に、今のマニュアルのままでという形になると思うんですけど、そういうことでいいかどうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=3370s" data-timestamp="3370"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:10</a>マニュアルの規定を見直す見直さないということと、あと、公開するしないというのが、私、またしつこくて申し訳ないんですけど、今のルールのままであっても、市民がいつでも見られるように公開されていれば、それが果たして適切に運用されているのかどうかという判断をすることができるようになると思っていまして、なので、例えばルールは見直さないけど、公開をするということで、陳情の願意を全部は満たしていないとしても、前向きに検討した結果、そういう公開をするというのでも十分よいのではないかと思っています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岸田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=3417s" data-timestamp="3417"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:57</a>元々は陳情のお話がありまして、今こういった議論をしているということでございますので、共通理解のための一定のルールというのは私は必要だと思っています。でも、それが議論の末、一致しないのであれば、このような疑念が持たれることがないようにするためには、案分を認めないということも一つの選択肢かなと思っています。</div>
+  <div class="say">ただ、今、参政党小金井が最初からそれはないよということについては、なぜないのかという理由も含めて披瀝をしていただければと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">斎藤議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=3454s" data-timestamp="3454"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:34</a>今、岸田委員が言われたように、疑念が持たれる。それと、しっかり分けることができないグラデーションの部分が、多分グレーのところがあると思うんですよ。そこを突かれれば、自分では正しいと思っていても、その部分を突かれて、結局は不正したというふうにレッテルを貼られるよりは、もういっそ会派のレポートとして会派の政務活動費を使うと、すっきりその方がお互いに誤解がなくていいと思っています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=3483s" data-timestamp="3483"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:03</a>ということです。</div>
+  <div class="say">陳情の「以上、陳情いたします」の後の三つの点がありましたよね。それについての議論という形になっていくかなと思うんですけど、各会派持ち帰っていただいて、見解を出していただきましたけど、そういうような議論という形で。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=3532s" data-timestamp="3532"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:52</a>前に、正副委員長の方で一つずつ分けていただいて、見解と論点をそれぞれ出していると思うんですけれども、それを、例えば市民から問合せがあった際の説明の対応とか、先ほどから水谷委員がおっしゃっている公表のこととか、何かそういった１個ずつのことでもし一致できるものがあるのであれば、議論して、一致できるものがあれば一致していくという形でやっていくというのはどうなんでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=3568s" data-timestamp="3568"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:28</a>だから、この三つの点で議論を進めていったらどうかという話。（「５個あったんです」と呼ぶ者あり）五つありましたか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=3650s" data-timestamp="3650"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:50</a>個別の話をする場合も案分が前提の議論になっていくなと思っていて、先ほど反対を表明してくださった参政党小金井の斎藤議長が、グレーなところが出てくるというご見解を示されたんですけど、それは０対100であっても出てくる。100％政務活動費で出したとしても、これは政務活動費なのと、グレーなところというのは、私は何か案分の割合に関わらず、ご懸念は出てくるものだと思っているので、それは、やはり、その上で何かしらルールを決めるという話をしていった方がいいのではないかと思っていて、市議会議長会の政務活動費に関するＱ＆Ａも出ていて、これは上限２分の１、多くの判例等が50％を基本としていますという見解が出ていたりとか、細かいことについても判例に委ねるみたいなことにもなっているんですけれども、事細かでなくても、この市議会議長会が出しているＱ＆Ａにあるような、50％を基本とするみたいな形だけでも何か議論を進められないかなと思いました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=3730s" data-timestamp="3730"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:10</a>案分が前提になっているというご発言が今あったんですけど、先ほどの参政党小金井のご発言の意図を確認したいんですが、案分を認めないイコール広報紙を政務活動費で支出すること自体を認めないという趣旨でいらっしゃいますか。それとも、100％政務活動費で認められるような内容でなければ、それに使ってはいけないというご趣旨ですか。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">斎藤議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=3761s" data-timestamp="3761"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:41</a>今２番目と３番目の違いがちょっと分からなかったんですが、３番目の言い方の方が明確だったですかね。何と言いましたか。言ってみれば、明確に、いわゆる会派の活動以外のものは載せない方がいいよねということです。ついでに坂井委員のご質問、そうはいってもグレーのところがあるではないかということは確かにあるかと思います。</div>
+  <div class="say">これは、例えば０がありますね。こっちに100がありますね。０と100のグレーゾーンと、100だといっているところのグレーゾーンは全然違うと思っていまして、その部分を、ですから、もうそうなると裁判するしかないんですよね。不正な支出だということで裁判を起こしてもらうしかないということ。でも、案分を認めるということは、100のところと０のところがありますから、そのグレーの幅が物すごく広くなると思っていまして、その方が危険ではないかなとは思っています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=3827s" data-timestamp="3827"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:47</a>ということですので、どうですか。持ち帰っていただいた幾つかの協議項目がありますよね。それについて個別にちょっと議論していくという形にせざるを得ないかなと思うんですけど、その中で何か見直すものがあれば、見直していくという形になってくると思うんです。８月27日までに出していただいた。そういう形で進めていくということで、皆さん、いかがですか。</div>
+  <div class="say">ルール化ということになるのか。ただ、今のマニュアルとしては、案分が可能だというマニュアルであるわけですよね。だから、その辺のところは、ある程度のものはちょっと考えていった方がいいかなと個人的には思いますけど、どうですか。ある程度のルール化を考えた上で、最終的に一致できなければ、不一致であれば、今のマニュアルのままで行くと。あとは、協議項目に沿ったことについては結論を出していくみたいなことで。陳情が全会一致で採択されておりますので。（「不一致で何も変わらないとはならないと思う」と呼ぶ者あり）ということでいかがでしょうか。</div>
+  <div class="say">陳情の中ではいろんな事例が出ていて、上記事例のように、他議会を見習い、政務活動費の支出を判断する会派が、市民に対する説明責任を具体的で分かりやすい方法、手法で自ら示すべきですということで三つの点が一応陳情されているということになっていまして、その前段でも、いろんな政務活動費の支出には規定があるけど、小金井市議会には使途基準の詳細がないということがあって、こういう形になっているかなと思うんですね。そうなってくると、やはり何らか説明責任を具体的で分かりやすい手法でどうやって示すのかみたいな、そういうところをある程度求められるのかなと考えてはいるんです。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=4059s" data-timestamp="4059"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:39</a>いずれにしても案分のルールというのは明確にした方がいいと私は考えておりますので、そのルールが、案分は駄目なのか、それとも、さっきおっしゃったように、案分は50％までなのかとかというのは、その更に先の話だと思うので、いずれかの段階では、案分のルールは明確にした方がいいと考えております。</div>
+  <div class="say">それで、今回、持ち帰っている四つの項目があるではないですか。案分をどうするかというものと政務活動費における広報費の課題、チラシの公開、あと、市民から問合せがあった方がいいのか。チラシを公開対象とするかとか市民から問合せがあった際の説明の方法というのは、議論していけば答えが出てくるのではないかなと思っているので、案分のルールは明確にした方がいいと思うんですけれども、できる議論からしていってもいいのではないかなと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=4133s" data-timestamp="4133"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:53</a>協議項目を一つ一つやりながら、その中で、分かりやすくするというルール化みたいなところも含めて、ちょっと議論になってくる可能性があるので、そういう形で進めていくか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岸田委員</span></div>
+  <div class="say">私は小金井をおもしろくする会とは違って、それをちゃんと示せばいい、証明できればすればいいという明確化という意味ではないんですね。それは当然のことだと思っているんですが、それでも各会派によって案分のバランスとか基準が違うから、こういう陳情が出てこられたと私は理解をしているので、しっかり公開性とか透明度を高めればいいではないかということではないと理解をしているんですね。だから、この案分の基準というか、そういうルールをしっかり決めた上で細目に入っていかないと、ここの問題が解決しないままそこに入っていくと、ちょっともやもやするなというか、意図とは違うなということで、その点については、現段階で私だけでは判断できないので、うちの会派に持ち帰らないと、そこを置いたまま各論に入るということは、今の段階では同意できないということを言っておきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=4205s" data-timestamp="4205"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:05</a>そういった意味で言うと、案分もそうなんですけれども、元々会派チラシというのはどういうものなのかというところも共通認識で持っておく必要があるのかなと思っていて、良い悪いは抜きにして、会派チラシと言って個人でやっている場合もあれば、会派チラシだから会派だとやっている場合もあるので、その辺りの政務活動費で用いる会派チラシとはどういうものなのかという、これは明確なルールはつくれないかもしれないけれども、この共通の認識だけは持っておくというのは必要なのかなと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=4244s" data-timestamp="4244"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:44</a>会派とは何かみたいなことまで言うと、ちょっと議論が大きくなるかなと思ったりするんですけれども、この議論を進めるに当たって、私も陳情の願意を見ると、政務活動費に関するマニュアルには使途基準の詳細がありませんというところに端を発しているので、ここの整理をしないままに、今のまま議論を進めるのは私、ちょっと違和感がありまして、みらいのこがねいの会派の方で持ち帰るということになったので、それは持ち帰ることになると思いますので、私も根本的なところをもう少し解決していく必要があると考えていると申し上げます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=4297s" data-timestamp="4297"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:37</a>ということなんですけど、ルール化というと結構細かく決めなければいけないみたいなイメージがあるんですけど、分かりやすい手法で自ら果たすべきだという、陳情に書かれていることなんですけど、そういうことについては、ルールというと細かなことまでという形になるかもしれないけど、ある程度のものはやはり議論する必要が、一応皆さんの見解で、ルールは何らか必要だというのが出されてはいるので、もしあれだったら、その辺の協議をまずしてみるというのも必要なのではないかなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=4342s" data-timestamp="4342"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:22</a>今の委員長のご提案だと、そもそも会派チラシとは何かみたいなことをまず議論しよう、してみようかというご提案ですか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=4354s" data-timestamp="4354"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:34</a>違います。そうではなくて、皆さんが持ち帰っていただいた政務活動費の何らかのルールをつくった方がいいかどうかということでは、多数の皆さんが何らかルールはつくった方がいいということになっていますから、やはりルールから話し合った方がいいという話もあって、陳情を改めて読むと、さっき引用したみたいな形の前提の上に幾つかの具体的な中身が提案されているので、そういうことで言うと、さっき坂井委員も言われた、私も読み上げましたけど、小金井市議会政務活動費に関するマニュアルには使途基準の詳細がありませんというところからこういう形になってきているので、その辺をどんなふうな分かりやすいものにするのか。各会派に任せておくということではなくて、議会で何らか説明できるようにしてほしいということかなとは思うので、そういうものとして何か検討するということがまず必要なのではないかなということだと思うんですね。要するに、その上で具体的な協議項目に入っていくという流れで議論していったらどうかという提案なんですが、会派そのものが何なのかとか、チラシそのものが、会派チラシとはどういうものかという議論を始めると、結論がなかなか出ないと思いますので、そういうことではなく、話合いの進め方としてはそういう形でどうかという提案なんですね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=4462s" data-timestamp="4462"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:22</a>今、多分マニュアルの中に広報費については、会派が行う活動及び市政について市民に報告するために要する経費と定められていて、その中で、案分根拠としてもルールがある中で、市民の皆さんからこういった陳情が出されているという状況なので、斎藤議長からのご提案も含めて、どういったルールにもうちょっと昇華していくかというところを各会派で持ち帰って、検討いただいた内容を出し合えば、現時点でいいのかなと思っています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=4505s" data-timestamp="4505"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:05</a>ルールをまず議論するというところからちょっと。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=4514s" data-timestamp="4514"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:14</a>分かりやすいご提案をありがとうございます。例えばですけど、各会派がこういうルールがいいのではないかというのを出して、みんなでそれについてたたくぐらいの議論をしないと、何をどう話し合っていいのか、ちょっと焦点が定まっていないなと思っています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=4544s" data-timestamp="4544"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:44</a>何らか具体的なものがないと、話にはならないと思います。（不規則発言あり）今は基本的にルールはないんですね。案分については各会派の責任で行うという形になっているので、（「それがルール」と呼ぶ者あり）それがルールなんです。それをどこまでどういう形で分かりやすくするかみたいな、そんなことだと思うんですけど（「前にしたことがあるような気がする」と呼ぶ者あり）そうですね。だから、これ、最初にやったんですね。</div>
+  <div class="say">そういう方向で議論を進めていくという形でいかがですか。（「持ち帰るフォーマットか何かが来るんですよね」と呼ぶ者あり）それをどうするかというのはこれからの議論ですけど、フォーマットは誰がつくる。これ、正副委員長でつくるわけ。（不規則発言あり）だから、ルール化についての議論を進める上でどうするかという話になっているので、どなたか、たたき台などをつくっていただくというのは。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=4664s" data-timestamp="4664"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:44</a>しつこくて申し訳ないです。議論する上で、公開されるものというのが条件としてあれば、こういうこともと考えられるんですけど、今、公開については、日本共産党小金井市議団だけが必要ないと書いていらっしゃって、そこが一致できないと、何かルールの議論もちょっとしづらいなと思っているんですけど、まずそこから結論を出すというのは難しいでしょうか。公開する、しない。政務活動費を使って発行した広告物は公開するというところ、日本共産党小金井市議団は、個別配布やＳＮＳで公開されているものなので、改めて公開する必要はないと書いていただいているんですけど、なかなか全てを拝見しているわけではないので、ちょっとそこはご検討いただけないのかなと思ったりしたので、この論点だけでも先に結論が出ると、その後、どういうルールにすべきかが私は考えやすいと思いました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=4728s" data-timestamp="4728"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:48</a>ここにも書いてあるんですけど、チラシの写しを公開対象とするかということなんですが、今でも公開対象なんですよね。対象ではあると思うんですよ。ただ、どういうふうにホームページに載せるのかとか、議会図書室か何かに置くかとか、そういったことについては取決めはないんですけれども、対象なので、もちろん公開対象ではあるかなと思っています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=4767s" data-timestamp="4767"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:27</a>よく分かりました。公開という言葉に対する捉え方が私が違っているというか、他の方とは分からないけど、片山委員と私は少なくとも考え方が違うのだなというのが分かりました。情報公開請求をされれば公開されるものだというのが、今、私が聞いた、今でも公開されているものだよという片山委員の定義だと思っていて、私はいつでも市民の方が議会事務局まで来られれば、せめて現物が閲覧できる。情報公開請求というものを通さなくても、ふらっと来れば見られる。若しくは、ウェブでの公開は公開という意味で考えていたので、すみません、話が余計ややこしくなったんですけど、どうすればいいのかな。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=4814s" data-timestamp="4814"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:14</a>だから、私の意見、うちの会派の意見としてもそう書いてあるわけです。今も公開対象ではあると思うけど、ホームページでの公開はされていないので、公開した方がいいと考えるという意見を書いてあるわけです。ホームページで公開、全然私はしていいと思っているんですよ。議会図書室にもぜひ置いた方がいいと思っているんです。ただ、議会図書室はあれとしても、ホームページでそういう各会派の意見のチラシを公開して、私はいいと思いますけど、いいのかなという気もちょっとしたりしますけど、別にいいというんだったら、ぜひともホームページで公開してほしいなと思ったりします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=4854s" data-timestamp="4854"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:54</a>それで、日本共産党小金井市議団も一応公開という場合、公開対象とするかということでは公開対象なんですよね。議会事務局に行けば見られるというのは当然だと思うんですけど、ホームページで公開するかということについて、各会派で一般的にもう公開しているものだから、わざわざそれをホームページに載せるということは必要ないのではないかということで言っていますので、とりあえずそこが何かはっきりしないと、ルールづくりにも行けないということですか。（「はい。私はそう」と呼ぶ者あり）そういうふうに考えています。（「領収書もホームページで公開するの」と呼ぶ者あり）領収書はホームページで公開しています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=4902s" data-timestamp="4902"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:42</a>水谷委員のご意見を踏まえての意見なんですけれども、各論に入ると思いつつ、政務活動費で作成した広報紙のチラシの写しを公開するかという視点で言うと、私は公開した方がいい。今、公開されているんですけれども、新たに市議会のホームページとかで公開する場合においても、その場合は、政務活動費を使った部分だけについては公開した方がいいと考えているんです。政務活動費を使っていない部分も改めてそこにアップする必要性を感じないので、そういう話になっていくと、やはり根本のルール決めのところに関わってくるという考えを持っているということは申し上げておきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=4945s" data-timestamp="4945"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:25</a>ややこしいな。（不規則発言あり）</div>
+  <div class="say">とりあえず、どうしますか。ルール化のところから、まず話してみますか。たたき台をどなたか、つくっていただいて。（不規則発言あり）案分しないというね。（「一番楽かもしれない」と呼ぶ者あり）私たちも案分はしていませんけど。（「案分するようなものをつくるなら、政務活動費を使ってくれるなということですか」と呼ぶ者あり）</div>
+  <div class="say">一応前回、ルール化するかどうかを持ち帰ってもらって、今回、多数の皆さんがルール化が何らか必要だという話になってきているので、（「それは不一致ですよね」と呼ぶ者あり）それが今、不一致になっていると。（不規則発言あり）ただ、今、案分するというマニュアルは一応あるので、それをちょっと前提に話してもらった方が、マニュアルを、ルールをつくったらある程度変えていくことになると思いますけど、ただ、今の案分を認めるということになっているものを認めないという形に急になるかどうかというのはちょっと難しいと思いますので。</div>
+  <div class="say">次回、ルール化についての議論を進めるに当たって、何か考えましょうか。こういう課題があるというような、基準をつくる上では、ルール化という分かりやすくする上では。（「今、案分をやっているのは何会派ぐらいあるの」「案分をやっている会派は、過去に資料が出ています。令和６年８月19日」と呼ぶ者あり）出ていますね。だから、幾つかの会派なんですね。会派ごとの温度差が多分あると思う。（不規則発言あり）会派が、ちょっと名称が変わってきている。（不規則発言あり）個別課題に入っていくということになると、それはまたあれだしね。（不規則発言あり）案分しているところで何らかの（不規則発言あり）議会活動でやっているところは別に名前が載っていても構わないのではないでしょうか。</div>
+  <div class="say">ということで、ここの進め方なんですけれども、どうしましょうか。ルールづくりそのものがなかなか一致しないという部分もありますけれども、前回持ち帰っていただいたことから考えると、何らかちょっとルールがどうかというところは議論した方がいいのかなと思うんですけど、なしでもいいですか。（「案分なしで」と呼ぶ者あり）案分なしでもいい。案分なしということになると、今のマニュアルそのものを見直さなくてはいけないので（不規則発言あり）ということは、案分なしということで定義するかどうか。（「意味がよく分かりません」と呼ぶ者あり）今のマニュアルを大きく見直すということになってくると、今の段階で。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=5288s" data-timestamp="5288"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:08</a>先ほどもちょっと説明させていただいているんですけど、マニュアルの中の広報費としての取扱いについては、会派が行う活動及び市政について市民に報告するために要する経費と定められているので、ただ、その中に、案分をする場合の案分根拠はというところで定められていると思いますので、案分をしないとするのであれば、マニュアルの広報費自体を変えるわけではなくて、案分のところだけを見直せばいいと思っておりますので、そんなにすごく大幅なマニュアルを変えましょうという話に至るということにはならないのかなと考えています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=5357s" data-timestamp="5357"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:29:17</a>なかなか難しいね。ルール化がなかなか難しいんだったら、もう各項目から行くしかないのではないかなと思うんですけど、一旦持ち帰って、議論の仕方について、どういうふうに持ち帰りますか。前回は、たしかルール化が必要だというのが多数の意見だったと思うんですね。それで一応、各会派持ち帰るということで、今日表明してもらって、ある程度は分かりやすくするということも含めると、ルール化するということの多数意見だったかなと思うんですけど、参政党小金井からはちょっと違うという話があって、（「前に意見表明のときに書いてあったんだよね」と呼ぶ者あり）確かに案分しないということを書かれていたと思うんですが、だから、案分そのものを認めないという意見もありましたけど、ただ、みらいのこがねいも議論した上での結論として、そういうこともあり得るという話だったかな。（「一致しないのであれば、そういう考え方もある」と呼ぶ者あり）ありますよねという話でしたよね。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">斎藤議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=5439s" data-timestamp="5439"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:30:39</a>今、岸田委員がマイクなしで発言したんですが、みらいのこがねいはそういう形で、私は、案分しないということで一致しないのであれば、ルール決めをある程度考えてもいいかなということです。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=5459s" data-timestamp="5459"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:30:59</a>なるほど。案分しないということで一致（「しないのであれば」と呼ぶ者あり）だから、案分するということで（「しないことで一致しないなら、ルール決めでいい。歩み寄りということですか」「そう」と呼ぶ者あり）ということは、ルールをある程度議論していくという形。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=5487s" data-timestamp="5487"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:27</a>議論は分かりやすくした方がいいなと思っていて、例えば今、議題になっている案分をするかしないかというのを持ち帰るというのは一つだと思います。それで、明確に案分しなくていいよというところと、案分はする必要があるというところのまず見える化というか、そういったものは必要かなと私は考えております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">斎藤議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=5513s" data-timestamp="5513"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:53</a>ですから、明確に案分しない方がいいと表明したのは多分私だけで、日本共産党小金井市議団もちょっとグレーではあるけれども、案分しないと言ってしまうと不一致になってしまうので、案分しないということで皆さんが一致しないんだったら、ルール決めに歩み寄りますというふうに申し上げています。岸田委員、みらいのこがねいは、ルールで決めようよと。ルールで決まらなければ、そのまま最悪、案分しないということも考えの中に入れていくということだと思うので、その逆です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=5577s" data-timestamp="5577"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:57</a>ルールについての議論を次回から進めていくという形でいかがでしょうか。（「分からなくなった。だから、しないことに対する是非を持ち帰るということですよね」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岸田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=5602s" data-timestamp="5602"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:22</a>今のご発言で、案分しないことが一致するのであればルール化をしましょうという議論についてもいいですよということですよね。私たちは出口が逆だったので、最初にそっちを持ってきて、うちの会派はオーケーですと今の状態では言えないので、一度会派に持ち帰らせていただいて、案分しないことをまず大前提、第一段階で各会派持ち帰っていただいて、それが駄目ですよというところについては、では、どういうルールだったらいいですかということをそれぞれ提出してもらうという形で、ちょっと持ち帰らせていただけたらありがたいなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=5640s" data-timestamp="5640"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:00</a>ということで、案分をするかしないか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=5676s" data-timestamp="5676"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:36</a>私も先ほどの岸田委員と同じで、案分するかしないかというか、案分しない前提で考えています。それは、100％これは政務活動費だと自分たちで判断して発行して、今、案分はしていないので。ただ、今の議論の状況を持ち帰って、再度態度表明したいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=5703s" data-timestamp="5703"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:03</a>案分することの是非と、案分するということになれば、そのルールについてというのを持ち帰ったらどうかというご提案でした。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">河野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=5720s" data-timestamp="5720"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:20</a>持ち帰りはそれでいいんですけれども、これまでに案分したことのある会派の方が、どういったルールでご自身で案分されているかといったのも、ぜひ次回の場でご説明いただけたらなと。参考にさせていただきたいので、そこも伺えたらと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=5737s" data-timestamp="5737"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:37</a>私、長く会派に、議会にいる中で、している時代としていない時代もあるんですけれども、しているときにおいては、一人会派なものですから、名前とか顔写真はどこまで許容されるかなというところでちょっと判断に幅があるところだと思っておりまして、それも全部含めて出していた時代もあったんですけれども、いろいろ会派の中で話し合って、その部分についてはちょっと自費としようかという議論も出たので、そのような判断をしている。顔写真とかプロフィール欄について案分していない、自費で出しているということがあったということです。次回ではなくて、ご説明することができましたので、そういうことです。（「ありがとうございます」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=5789s" data-timestamp="5789"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:29</a>大体今、坂井委員がおっしゃったようなところなんです。政務活動費のルールのところを決める会派協議会の中でも、そのような形で表明はしています。大体、何か自分の名前であるとか、会派の名前を書いた会派ニュースというところはどこかにやはり書かなければいけないということと、そしてまた、個人の議員名であるとか写真であるとかプロフィールについては、政務活動費には当たらない、当てない方がいいのではないかというような、そういった判断をしているということがあると思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=5831s" data-timestamp="5831"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:11</a>では、案分することの是非と、案分するということになったら、そのルールについてを各会派持ち帰ると、とりあえずそういうことでよろしいでしょうか。（「全会派」と呼ぶ者あり）全会派ですね。（「議会運営委員会以外も」と呼ぶ者あり）議会運営委員会以外も含めてということでよろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=5863s" data-timestamp="5863"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:43</a>次の閉会中の前の１週間前ぐらいとか、（「ごめんなさい、もう１回明確に持ち帰りを教えてもらえますか」と呼ぶ者あり）政務活動費の広報費について、案分することの是非。だから、案分するのかしないのか。案分するということになったときに、案分を是とする場合に、どういうルールが必要かということについて、各会派のご意見を頂きたいということなんですが、全会派に意見を聞いていただくということで、とりあえずよろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=5928s" data-timestamp="5928"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:48</a>それでは、政務活動費については、そういうことでよろしくお願いします。</div>
+  <div class="say">次に、イ、議会ＢＣＰについてを議題といたします。</div>
+  <div class="say">避難訓練実行委員会からご報告をお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=5947s" data-timestamp="5947"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:39:07</a>前回、いろいろご指摘を頂きまして、休会中の方がいいのではないかということをご意見いただきましたので、開催日は２月19日の休会日、午前10時から開催をする方向で、消防署と打合せをしております。</div>
+  <div class="say">時間に制約がなくなりましたので、本庁舎内での訓練、そして、外に出てからの放水訓練、消火訓練を行います。消火訓練を外で行う際のまちかど訓練防災車が予約できるかどうかは12月15日に確定しますので、また改めてご連絡をいたします。</div>
+  <div class="say">また、先日も申し上げましたとおり、布担架搬送訓練のときと庁内での放水模擬訓練をやるときに、協力をしていただけるそれぞれ４名の方、お願いをしておりますので、それは今後、実行委員会の方で４名、４名の方を決めさせていただければと思いますので、こちらからまたご協力いただける方にお声がけをさせていただきますので、詳細はこれから実行委員会で詰めてまいりたいと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=6023s" data-timestamp="6023"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:23</a>今日のところは、実行委員会からご提案を受けて、役割分担とかということなんですけど、避難訓練について、皆さんから何かありますか。午前10時から１時間半という形でしたね。特によろしいでしょうか。何かありますか。（「ＢＣＰの違う方で」と呼ぶ者あり）では、避難訓練についてはよろしいでしょうか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=6061s" data-timestamp="6061"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:41:01</a>実行委員会の方で、ぜひよろしくお願いします。</div>
+  <div class="say">他に、何かＢＣＰに関して。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岸田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=6073s" data-timestamp="6073"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:41:13</a>これ、前期からの申し送り事項というか課題で、ＢＣＰの研修及び検証をどうするのかということで、研修については、たしか読み合わせをやりましたよね。ということでいいのかということと、あと、検証というのをＢＣＰには書いてございますということと、あと、この計画について、ポケットに入るようなハンドブックをつくりましょうということが前期では話がありまして、ただ、前期の初めにＢＣＰが確認できて、後期でハンドブックの作成まではいかなかったものですから、ＢＣＰの中の幾つかの課題を議論するところで終わっていますので、それで一通り今の形がまとまっているという現状の中で、この三つについてどう議論されていくのかなというところをちょっとお尋ねしたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=6125s" data-timestamp="6125"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:05</a>ということなんですが、研修については、たしか１回やったと思うんですけど、ＢＣＰはやっていなかったか。議会基本条例はやりましたよね。（不規則発言あり）ＢＣＰの研修はまだやっていないですね。研修はまた考えないといけないかなと思います。</div>
+  <div class="say">検証は、どういう検証ができるのか、皆さんからご意見いただいて。だから、ハンドブックはどういうものをつくっていくのかというのがあるので。ＢＣＰは、どこかで研修をやった方がいいですかね。だから説明することになると思うんですけど、（不規則発言あり）連絡方法とかはある程度確認したけど、はっきりはしていない。（不規則発言あり）検証とかはなかなか難しいですよね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=6220s" data-timestamp="6220"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:43:40</a>過去に、令和６年、2024年９月11日の当時の議会運営委員会の正副委員長から、小金井市議会ＢＣＰ申し送り事項についてと書いてあって、その中で、岸田元議会運営委員長がご紹介いただいたほかに、もう１つ、震災時の安否確認等の連絡の体制及び方法についてということで２項目申し送られていて、グループウェアで行うことについては、タブレット端末の本格実施後に検討すべき課題であることから申し送りとする。2)現時点での連絡方法は電話のみとすることは条文のとおり確認されたので修正は行わないが、タブレット端末本格実施後の状況も踏まえて、必要があれば検討すべきこととして申し送りとすると書かれているので、今グループウェアの議論をしているところなので、それが整理されてから、もう一度確認する必要があると捉えています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=6277s" data-timestamp="6277"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:37</a>ありがとうございます。申し送りに基づいてまた議論しなければいけないということですね。だから、安否確認とかその辺もはっきりしないと、なかなか研修と言っても、ＢＣＰは今のあれを読んでもらうしかないかなと思うんですけど。（「研修及び検証」と呼ぶ者あり）安否確認とか、ちょっと今後の課題を整理させてもらう必要がありますよね。それについては、次回、どういう課題があるのかということを整理して、皆さんにご提示するという形にしたいと思いますので、よろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=6331s" data-timestamp="6331"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:31</a>他に何かＢＣＰに関してありますでしょうか。よろしいでしょうか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=6343s" data-timestamp="6343"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:43</a>それでは、お諮りいたします。議会基本条例については、現時点での質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=6351s" data-timestamp="6351"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:51</a>ご異議なしと認めます。したがって、議会基本条例についての現時点での質疑を終了いたします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=6360s" data-timestamp="6360"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:46:00</a>次に、調査項目（３）主権者教育についてを行います。</div>
+  <div class="say">一応、中央大学附属中学校での「主権者教育」に関する各会派の感想・意見等というのを資料でお出ししておりますので、ちょっと見ていただきたいと思います。また、授業アンケートについても、ちょっと遅れて申し訳なかったんですけど、これは皆さんにメールで転送していますので、見ていただきたいと思います。</div>
+  <div class="say">それで、一応学校サイドの感想も聞ければということでお願いしてはあるんですが、ただ、なかなか忙しくて意見をまとめられませんみたいな、時間がかかりますみたいな返事があって、それきりなんですけど、あまりこちら側から急いでやってくれみたいなことも言えないので、今の時点で、そういう意見はなかなか聞けていないということになっているので、こういうことを踏まえて、報告書をちょっとまとめるということを正副委員長でやりたいとは思っているんですが、一応各会派の感想などが出されておりますが、皆さんからこの時点で何かありますでしょうか。もう少しこういうところを検討した方がいいとか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">太田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=6446s" data-timestamp="6446"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:47:26</a>提案というか訂正なんですけれども、小金井市議会公明党の感想の中で、ファシリテーターを事前に決めた方がいいうんぬんと書いてあるんですけれども、これはファシリテーターではなくて、発表者の間違いです。申し訳ありません。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=6475s" data-timestamp="6475"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:47:55</a>各会派の意見をちょっと見ていただいて、報告書をまとめた段階でまたご議論しましょうかね。</div>
+  <div class="say">今後の主権者教育の取扱いも、主権者教育の名前でいいのかどうかということとか、これからの進め方もちょっと議論しておかないと、東京電機大学高等学校と中央大学附属中学校、高等学校と三つやるということも結構労力が要ります。それ以外に入ってくると結構大変だなと思うので、そういうことも含めて議論する必要があるかなと思います。</div>
+  <div class="say">170人でやるというのは、大人数でなかなか大変でした。最初の二択クイズも、皆さんも注目がなかなか散漫になる感じで、ちょっと私の声も聞き取りづらいということもあって申し訳なかったんですけど、とりあえず現時点では、引き続きということでよろしいですか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=6543s" data-timestamp="6543"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:03</a>今、委員長は東京電機大学高等学校のことをおっしゃっていたんですけど、何かあちらから連絡があったりするんですか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=6552s" data-timestamp="6552"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:12</a>何もないです。こちら側から生徒会に働きかけると多分議論できると思うんですが、こちらの余裕がなくて、ちょっと行けていないということなので。だから、本格的にやろうとすれば、今の三つのところはできる可能性があるので、それを来年度どうするのかということ。新たなところをどう着手するかということも課題になってくるということかなと思います。その辺はまた今後の議論かなと。（「いつ、どう議論するか」と呼ぶ者あり）今年度、また第１回定例会がありますので、そういう中で、次回の委員会で報告書をまとめたものを出しますので、よろしくお願いします。</div>
+  <div class="say">ということで、主権者教育は他に何かありますか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=6611s" data-timestamp="6611"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:11</a>お諮りいたします。主権者教育については、現時点での質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=6617s" data-timestamp="6617"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:17</a>ご異議なしと認めます。したがって、主権者教育についての現時点での質疑を終了いたします。</div>
+  <div class="say">重ねてお諮りいたします。議会改革に関する諸問題の調査につきましては、現時点での質疑を終了し、継続調査といたしたいと思います。これにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=6631s" data-timestamp="6631"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:31</a>ご異議なしと認めます。したがって、本件調査は継続調査と決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=6640s" data-timestamp="6640"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:40</a>次に、（４）その他について、何かございますか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=yf_cl0tu2Kk&t=6640s" data-timestamp="6640"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:40</a>以上で、当委員会に付託されました案件の審査は全て終了いたしました。</div>
+  <div class="say">これで議会運営委員会の会議を閉じ、散会いたします。</div>
+  <div class="say">午後２時49分散会</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+</body>
+</html>

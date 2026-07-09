@@ -1,0 +1,1941 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和7年12月8日 広報・広聴協議会</title>
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#1d3a63; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* 直接URLで開いた時だけ最上部に「会議一覧に戻る」帯（index分割ビュー内では非表示） */
+  .backbar-top{display:none;}
+  body.standalone{padding-top:40px;}
+  body.standalone .backbar-top{display:flex; align-items:center; gap:6px; position:fixed; top:0; left:0; right:0;
+       z-index:60; height:40px; padding:0 18px; background:var(--navy); color:#fff; font-family:var(--sans);
+       font-size:13px; font-weight:700; text-decoration:none; letter-spacing:.04em; box-shadow:0 1px 4px rgba(0,0,0,.15);}
+  body.standalone .backbar-top:hover{background:#294f86;}
+  body.standalone .prog{top:40px;}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+</style>
+</head>
+<body>
+<a class="backbar-top" href="index.html">← 会議一覧に戻る</a>
+<script id="backbar-js">(function(){try{if(window.self===window.top)document.body.classList.add('standalone');}catch(e){document.body.classList.add('standalone');}})();</script>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和7年12月8日</p>
+    <h1>広報・広聴協議会</h1>
+    <span class="srcbadge"><span class="dot"></span>本文＝小金井市議会 公式会議録（DBSR）</span><span class="src official">本文は公式会議録を一字一句そのまま掲載。要約はAIによる補助、タイムスタンプ・動画はYouTube連携（いずれも非公式の付加情報）。　|　<a href="https://www.city.koganei.tokyo.dbsr.jp/354546?Template=document&amp;Id=10288" target="_blank" rel="noopener">公式会議録の原典 ↗</a></span><span class="genmeta">本文は公式会議録と一致確認済み（verbatim）。要約はAIによる生成で、小金井市議会の公式見解ではありません。<br>最終生成日 2026-07-10</span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <h3>提出議案等一覧</h3>
+<ul>
+<li>（なし）</li>
+</ul>
+<h3>議案の審議ごとの要約</h3>
+<h4>広報広聴ビジョン策定・アクションプラン等の策定に関すること</h4>
+<p>広報広聴ビジョン策定・アクションプラン等の策定について協議が行われました。座長から、これまでの小金井市議会の取り組み、課題、広報広聴の意義、目指すビジョンについて説明がありました。委員からは、ビジョン策定の進め方について、起草委員会を設置して非公開で協議を進め、要点記録を広報・広聴協議会で報告すること、また、たたき台を各会派に持ち帰り、予備日に開催される広報・広聴協議会で意見を述べること、その後、閉会中に起草委員会を開催し、原則全会派が参加することなどが提案され、確認されました。</p>
+<h4>広報広聴の協議提案書について（若者議会）</h4>
+<p>みらいのこがねいから提案された若者議会について、委員から、議会運営委員会で実施されている主権者教育の取り組みと重なる部分があるため、この提案を広報・広聴協議会で重ねて実施することについて再検討したいとの意見が出ました。提案会派は、この提案を一度持ち帰り、次回報告することになりました。</p>
+<h4>広報広聴の協議提案書について（市民団体との懇談）</h4>
+<p>日本共産党小金井市議団と小金井市議会公明党から提案された市民団体との懇談について協議が行われました。公明党からは、各常任委員会が所掌に応じて団体を選考し、原則テーマを設定せずヒアリングに重きを置き、意見は議会活動を通して市政に反映させるという提案がありました。委員からは、この方向で実施することに一致し、今後の運用ルールを提案会派が作成することで合意されました。請願・陳情者との懇談については不一致のため取り上げないことになりました。</p>
+<h4>広報広聴の協議提案書について（市民からの意見の対応）</h4>
+<p>市民からの意見・要望の対応フロー図について確認が行われました。このフロー図は、ファクスやメールで寄せられた意見、議会全体に関わる意見、議会報告会で寄せられた意見・要望を対象とし、議長が仕分け、議会運営委員会または会派代表者会議で対応を協議するというものです。委員からは、今後、市民団体との懇談で出された意見・要望の扱いについても検討が必要との意見が出ました。現時点ではこのフロー図で進め、必要に応じてブラッシュアップしていくことで合意されました。</p>
+<h4>広報広聴の協議提案書について（YouTube動画の資料添付）</h4>
+<p>日本共産党小金井市議団から提案されたYouTube動画への資料添付について協議が行われました。事務局からは、現在の業務負担を考慮すると、新たな作業の追加は難しいとの説明がありました。委員からは、業務効率化の問題は別の場で議論すべきとの意見や、課題が解決すれば進めるべきとの意見が出ました。最終的に、課題が解決したら進めるという認識を確認した上で、この提案は現時点では終了し、次期の申し送り事項に載せることで合意されました。</p>
+<h4>広報広聴の協議提案書について（公聴会・参考人制度）</h4>
+<p>公聴会・参考人制度について協議が行われました。委員からは、現在のルールでも公聴人の活用は可能であり、各委員会の運用に任せるべきとの意見や、テーマの一致や意見の反映方法など、具体的なガイドラインがないと難しいとの意見が出ました。趣旨には賛成するものの、具体的な実施は難しいとの認識で、現時点では協議を終了することで合意されました。</p>
+<h4>広報広聴の協議提案書について（議会モニター制度の導入）</h4>
+<p>小金井をおもしろくする会から提案された議会モニター制度の導入について協議が行われました。提案会派からは、簡便な形で、例えば議会だよりに限定し、公募でボランティア的に実施したいとの意見が出ました。委員からは、無作為抽出が望ましいとの意見や、意見の扱いが難しい、既存の意見聴取の場を活用すべきとの意見が出ました。広報広聴ビジョン策定後に必要性を検討すべきとの意見もあり、継続して検討することで合意されました。</p>
+<h4>広報広聴の協議提案書について（施設公聴）</h4>
+<p>れいわ新選組小金井から提案された施設公聴について、提案会派から、一定団体との懇談でも実現可能な状況があるため、取り下げたいとの申し出があり、取り下げが承認されました。</p>
+<h4>公式ホームページの各議員の紹介ページにSNSも掲載すること</h4>
+<p>小金井市議会公明党から提案された公式ホームページの各議員の紹介ページへのSNS掲載について協議が行われました。提案会派からは、当初のアイコン追加の提案は取り下げ、URLを複数記載できるようにできないかとの意見が出ました。事務局からは、URLの追加自体は可能との説明がありました。委員からは、公平性の観点から、全議員のSNS利用状況を調査し、その結果を踏まえて掲載方法や数を検討すべきとの意見が出ました。全議員のSNS利用状況を調査し、引き続き協議することで合意されました。</p>
+<h4>広報・広聴協議会の在り方について</h4>
+<p>広報・広聴協議会の在り方について、議会基本条例への位置付けと名称（協議会か委員会か）について各会派から意見が表明されました。議会基本条例への位置付けについては、現状維持を求める意見と、位置付けを求める意見に分かれました。名称についても、現状の協議会維持を求める意見と、委員会への変更を求める意見に分かれました。多数は現状維持を求める意見でしたが、不一致のため、現行どおり協議会として進めることになりました。<br />
+また、視察や座長手当についても議論されました。視察については、日帰りであれば可能であるものの、宿泊を伴う視察や予算を伴う視察については、広報広聴ビジョン確定後に議論することになりました。座長手当については、事務局でルール上の確認を行い、各会派に持ち帰って検討することになりました。</p>
+<h4>傍聴者アンケート集計結果について</h4>
+<p>傍聴者アンケート集計結果について報告がありました。委員からは、自由意見が多く、全議員で把握し、意見交換すべきとの意見が出ました。特に、InstagramやTikTokの開設など、広報に関する具体的な提案が多く寄せられており、広報・広聴協議会でさらに議論すべきとの意見が出ました。正副座長が意見を整理し、協議会に提案することで合意されました。</p>
+<h4>議会報告会について</h4>
+<p>議会報告会実行委員会から、来年1月17日（土）に2回開催される議会報告会の日程、会場、内容、役割分担、事前宣伝（駅頭）、会派レポートの配布方法などについて報告がありました。委員からは、駅頭の参加割り振りや、ペンなどの備品管理に関する意見が出ました。</p>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/ZYQ0GHMNy5c" allowfullscreen loading="lazy"></iframe></div>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/igN0xwwr7UQ" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・2本）</p>
+  </section>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=218s" data-timestamp="218"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:38</a>おはようございます。ただいまから広報・広聴協議会の会議を開きます。</div>
+  <div class="say">直ちに議題に入ります。</div>
+  <div class="say">お手元に協議事項がございますので、それに沿っていきたいと思います。</div>
+  <div class="say">協議会で確認はしなかったんですけれども、いきなり進めて大丈夫でしょうか。ちょっと休憩しますか。いいですか。（「大丈夫です」と呼ぶ者あり）それでは、進めていきたいと思います。</div>
+  <div class="say">１の協議項目であります。</div>
+  <div class="say">初めに（１）の広報広聴ビジョン策定・アクションプラン等の策定に関することについてを行います。</div>
+  <div class="say">過日、皆さんから広報広聴ビジョンをどういうふうに考えるのかということについていただきました。それに基づいて私の方でまとめさせていただきましたものが広報・広聴協議会のSideBooksの資料編に入っていますので、それをご覧いただければと思います。それで、私の方から若干説明をさせていただきたいと思いますが、よろしいでしょうか。皆さんからいろいろなご意見を頂いたものをまとめたというのが前提にあります。</div>
+  <div class="say">一つは、小金井市議会広報広聴ビジョンという名前なんですが、私たちが目的とするものは何なのかなということで、これはれいわ新選組小金井の村上委員からも提案がされていましたが、「みんなが見える、みんなのための市議会」みたいな、何かそういうサブタイトルがあってもいいのかなと思いました。その辺り、一つ皆さんにご議論いただければと思います。</div>
+  <div class="say">ビジョンをつくるに当たって、まず、市議会がこれまで何に取り組んできたのかということについて大きく触れさせていただいています。二つ目に、小金井市議会の課題は何なのかということ。そして３番目に、この広報・広聴協議会の意義はどういうふうに位置付けたらいいのか。４番目に、私たちが目指すビジョンは何なのかという、四つの項目立てに編成、作成をいたしました。</div>
+  <div class="say">まず最初の、これまで小金井市議会が取り組んできたことですが、議会事務局の方からも資料をいただきました。過去の議会改革で何が一致点になったのかということで、広報・広聴協議会の部分を抜き出したものも含めてこの中に述べています。それと、私が認識している範囲での小金井市議会の広報・広聴協議会の特徴を抜き出してみました。</div>
+  <div class="say">一つは、市民に開かれた議会ということであります。小金井市議会は、会派代表者会議、秘密会を除く全ての会議を公開している。これは他市議会にはなかなかないことで、傍聴者なしで協議会を行うという議会もありまして、その点での公開度は高いのかなと思います。また、市民の陳情採択を受けて、全ての会議・協議会のYouTube動画配信が行われているということです。これも他の議会は協議会をYouTubeで流すということはやっていないですよね。正式な委員会だけですが、これも特徴なのかなと思います。登録者数は今、1,010人いらっしゃるという状況であります。三つ目に、予算、決算特別委員会の議員要求資料をホームページで公開できるようになった。これは最近のことでありますね。そして、請願・陳情書、意見書・決議をホームページで公開、これも行われています。また、政務活動費の収入・支出報告書及び支出調書、領収書をホームページに掲載するというのも、最近ではありますが、行っている公開の中身です。</div>
+  <div class="say">そして、わかりやすい情報発信ということで、市議会ハンドブックを作成して配布しています。これはどのぐらい配布したのかがちょっと分からないのですが、中学生の皆さんにも配布をしたりしているということであります。ごめんなさい、ハンドブックではなくて、ガイドブックです。すみません。そして、ＳＮＳの活用です。Ｘによる情報発信を行っていますが、フォロワー数はまだ392人です。これではなかなか少なくて、市民の皆さんにもっとフォローしていただく必要があるかなと思います。あと、議会報告会の開催。定例会ポスターのＸ、ホームページ、広報掲示板への貼り出しなどが行われていることや、横断幕を作成したこと。それから、市議会だよりの８面の改善。議会についてわかりやすく解説するためのキッズページを作成するなどを行ってきています。</div>
+  <div class="say">三つ目に、市民の声を施策に反映し、政策実現ということでありまして、小金井市子どもの権利に関する条例への修正。これは市長から平成20年10月に条例提案がされて、４回にわたって審議をしてきました。また、陳情書も数件出されてきましたが、子どもの権利条例に変更を求める陳情書が提案され、採択をし、厚生文教委員会で委員２名による条例名改正などの修正案が提出され、可決するということを行ってきました。</div>
+  <div class="say">また、二つ目には小金井市食育推進条例ですが、これは食育推進審議会の委員有志から小金井市の取組の強化を求める要望書があり、超党派20名の議員有志による食育推進議員連盟を発足させてきました。そして、農業者、食育推進審議会委員、食育アドバイザーなどを招いて勉強会を開き、日野市の視察などを行って、条例を策定しました。また、条例案に対し、保育園、学校などの食育関係者、市役所内の意見聴取なども実施をして制定してきています。</div>
+  <div class="say">小金井市議会基本条例の制定、これは皆さんもご存じのとおりであります。平成22年から、市民の陳情採択を受けて、議会運営委員会で協議を開催し、公開の議員研修会、シンポジウムなどを開催し、平成25年10月から議会基本条例策定代表者会議を設置し、延べ38回開催をいたしまして、条例案を策定すると。条例に対するパブリックコメントも行いまして、また、市民説明会も開催し、市役所管理職からも意見聴取を行ったということであります。</div>
+  <div class="say">最後ですが、障がいのある人もない人も共に学び共に生きる社会を目指す小金井市条例の修正であります。平成30年第１回定例会に条例が提案をされました。陳情書も提出をされ、継続審議になりましたが、厚生文教委員会として市民との意見交換会を開催いたしまして、第２回定例会で差別の定義など５項目について修正をし、全員賛成で修正案を可決させてきました。こういう市民との関係で条例を修正したり、政策を提案するなど議会としても取り組んできました。</div>
+  <div class="say">四つ目に、市民参加であります。陳情者の陳述の時間の拡大であります。以前は10分だったんですが、これを15分に拡大をしました。また、市議会の傍聴者へのアンケート箱を設置し、４年に一度のアンケート実施とホームページでの公開を行ってきました。この中で、とにかくここはエレベーターがないということの苦情がかなり出まして、４階まで上がれない。しかもトイレはみんな和式だったんです。高齢者は和式は使えないというご意見を頂戴いたしまして、せめて３階、４階のトイレを洋式化しようということで予算をつけていただいて、洋式化を実現いたしました。また、委員会の傍聴受付、４階まで上がるのは大変だというのがありまして、委員会室で傍聴するときは３階に傍聴受付を議会事務局の努力で行っていただいて、傍聴者の利便性を図ることも行ってきました。ただ、傍聴者が少なくなってきたので、現状はこれはやっていないという状況です。そして、傍聴者用の資料、以前は一つだけだったんですかね。これを複数冊、今３冊置いてありますかね。３冊配置をしていただいて、見て、審議を聞いていただくということをできるようにいたしました。これが市議会としての努力かなと思います。</div>
+  <div class="say">二つ目に、小金井市議会の課題であります。皆さんも議論の中でおっしゃっていた、市議会の関心度をどう高めていくのかということであります。市議選の投票率は、ここに過去３回書いておきましたが、今年の３月は44.78％でありますが、ただ半数はいかないという状況なんです。令和４年の９月から10月に実施した市議会アンケートでは、行かない人の理由は、「関心がない」というのが一番多くて33.7％。これは選挙に行かないということです。それから「仕事のため」というのが16.3％であります。市議会に関心がない人が半数近くいるということをよく押さえていく必要があるかなと。関心がないという方は46.7％いらっしゃる。関心がない理由については、「何をしているかわからない」、「忙しくて考える余裕がない」、「知っている議員がいない」、「市政に関心がない」、こういう順になっています。議員の活動が市民に伝わっていないことや、どういう手段で伝えていっていいのかが分からないなど課題があること、そして若年層の投票率が低く、若い世代に市議会の役割や活動をどう伝えていくのかというのが、今後の検討課題ではないかということです。</div>
+  <div class="say">そして、２番目に広報活動、これをどう市民全体に広げていくかということで、市議会だよりは全戸配布していますので、皆さんのお宅に届くわけですが、ホームページへのアクセス数、これはなかなか議会事務局もつかめなかったのかな。つかめるといいかなと思ったんですが、市議会ホームページへのアクセス数がどうなのかというのは検討課題だと思っています。先ほども言いましたが、Ｘのフォロワー数は392人、Ｘのリポスト数は２桁を超えることはありません。また、YouTube登録数は1,010人、1,009人、一般質問の視聴者数、これは９月定例会で全部数えました。私たちが自分のレポートを使うというので見ているというのもあるんですが、延べで見ると2,582人であります。登録者数を増やすというのは一つの課題なのかなということであります。</div>
+  <div class="say">三つ目に、多様な市民の声を市政の政策に反映させていく提案をどのように充実させていくのかということでありまして、ここは議員提案の件数など具体的なものは書いておりませんが、こういうところをよく見る必要があるということであります。</div>
+  <div class="say">三つ目に、広報広聴の意義についてであります。議会基本条例でも、市民の知る権利を保障し、議会と市政に関心を高めるため、多様な方法を用いて、広報活動及び広聴活動の充実に努めなければならないとしています。広報広聴活動は市民と議会、また、市民と行政をつなぐ要となる重要な意義があるということだと思います。</div>
+  <div class="say">それで、この間の市政の状況を調べてみました。多摩26市で比較すると、生産年齢人口の割合は調布市に次いで２番目に高い65.86％です。つまり、現役世代が圧倒的多数だということです。高齢化率は最も低く21.56％。また、14歳までの年少年齢人口は12.58％で、これは多摩地域でも１位という状況になっています。市外に通勤している人口は約３万8,000人ですから、市内にいないので、ほとんど市政との関わりというのはなかなかつくれないのかなということだと思います。そういう点で、アンケート調査結果からも余裕が持てない生活実態が、市議会への関心にまで行き着かない状況をつくっているのではないかと。そういう中で、家庭や職場にいながらも市議会の情報が発信されて、市政と接触が少ない市民が気軽に情報にアクセスできる、そういうものをどうつくっていくのかということだと思います。そのことが地方自治の本旨である住民自治を発展させる原動力になるのではないかということです。</div>
+  <div class="say">４番目は、小金井市議会がめざす広報広聴ビジョンです。これは皆さんからいろいろな形、言葉で書いていただきまして、それを大枠でまとめました。一つは市民に開かれた議会ということで、市民が、市議会の情報や活動の透明性を高め、アクセスしやすく、より身近で親しみの持てる議会になるよう努める。</div>
+  <div class="say">二つ目に、分かりやすい情報発信（説明責任を果たせる理解しやすい発信）ということで、市民の知る権利を保障し、みんなが見えるみんなのための市議会にするため、市民にとって必要な情報を誰にでも分かりやすく届けられる仕組みを整えるということです。また、市民の負託を受けた議会として議論・議決のプロセスを明確に示し、議決結果に対する説明責任を果たすよう努めるということが非常に重要だと思います。</div>
+  <div class="say">三つ目、市民の声を反映する仕組み（広聴・双方向）。幅広い市民の声を聴取し、双方向に意見交換し、議会活動や市政に的確に反映させる。声なき声を拾い集める努力を惜しまない。</div>
+  <div class="say">四つ目に、関心・参加の促進ということで、市民生活に直結する課題、市政の現状、議会活動への興味や関心、参画意欲を高め、政策形成に活かしていく機会をつくる。</div>
+  <div class="say">５番目にＳＮＳ、インターネットなどを活かした広報の推進を行うということであります。</div>
+  <div class="say">大体説明をさせていただきました。今日初めてという方もいらっしゃるでしょうし、これは一旦今日はお持ち帰りいただいて、各会派でご意見をまとめていただければと思うんですが、ただ、これを最終的に仕上げるために、起草委員会をつくって仕上げていければいいかなと思っております。ぜひ積極的に起草委員になっていただいて、まとめ上げをしていただくとありがたい。これはあくまでたたき台のたたき台でありますので、皆さんの方でしっかりまとめていただいて、全体確認ができればと思います。</div>
+  <div class="say">ということでありまして、もし今のこの広報広聴ビジョンのことで皆さんの方からご意見があれば伺いたいと思いますが、いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">太田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=1430s" data-timestamp="1430"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:50</a>これは会派で持ち帰って内容を確認した上で、どのように精査したらいいですか。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=1442s" data-timestamp="1442"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:02</a>意見をまとめてきていただきたいです。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">太田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=1445s" data-timestamp="1445"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:05</a>意見をまとめればよろしいですか。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=1446s" data-timestamp="1446"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:06</a>そうなんです。それをまたここで皆さんに。どうしよう、文章にしてもらった方がいいのかな。それを全部持ち寄った上で、起草委員会で更に練り込んでいくみたいな形がいいのかなと思うんですけど。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">太田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=1463s" data-timestamp="1463"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:23</a>分かりました。では、会派で意見をまとめるということで。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=1475s" data-timestamp="1475"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:35</a>そうですね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">太田委員</span></div>
+  <div class="say">分かりました。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say">どうでしょうか、そういう方向で。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=1481s" data-timestamp="1481"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:41</a>意見、見解のシートを出すのかなと思うんですが、それであまりつくりとかいろいろ異論がないというか、起草委員会でまとめられるような状況であれば、もう起草委員会というふうに投げてもいいと思うし、その構成とか、もう少し全体で議論しなければいけない複雑なものがあるとしたら、１回ここで揉んでいただいてからという感じかなと。出てくる見解によって少し進行については検討したらいいのかなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=1518s" data-timestamp="1518"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:18</a>正副座長で資料を提出いただきましてありがとうございました。よくまとまっているかなと思いました。</div>
+  <div class="say">大きく思ったのが一つで、何でこのビジョンをつくったのかという、各項目の前にちょっと前文みたいなものが入るといいなということを一つ大きく思いました。</div>
+  <div class="say">それで、あと内容についてちょっと細かく気が付いたことを申し上げますと、例えば１番の1)のYouTube動画配信のチャンネル登録者数は、多分おまとめいただいたときは1,010人だったと思うんですが、今日見たら1,020人になっていたので、何月何日時点という数字は全ての数字において入れた方がよいのではないかということを思いました。</div>
+  <div class="say">あともう１点、これも中身になるんですけども、１の1)の四角の三つ目の予算、決算特別委員会の議員要求資料をホームページで公開とあるんですが、これはあくまでまだ試行実施の段階であって、本格実施になっていないわけで、それもこのビジョンを出すときに本格実施ということがまとまればすればいいと思いますし、そういう段階に至らないのであれば、試行実施という言葉を入れた方がいいように考えました。</div>
+  <div class="say">あと、ご説明の中で座長からもあったんですが、１の4)の市民参加の四角の二つ目のポツの二つ目の傍聴者受付を今はやめているということなので、これは再開しないのであれば、今はやめているということもちゃんと書いた方がいいのかなと思いました。全体的にはよくまとめてくださっているので良いかと思いましたが、以上が気が付いたことです。</div>
+  <div class="say">進め方で、今、座長の方から起草委員会というお話があったんですけど、どういうふうに進めればいいのかなと思っていて。一応ここに全会派は出ているので、全会派はいた方がいいのかなとか、進め方については皆さんとも意見をしていきたいなと思いました。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=1664s" data-timestamp="1664"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:44</a>坂井委員からご指摘をいただきまして、ありがとうございます。</div>
+  <div class="say">進め方のところは、複数以上の会派は、一旦、このまま議論を進めていいのかどうかというのを持ち帰らないといけないと思うんですよ。そうしないと、作ったはいいけど、会派に持ち帰ったら、いや、そうではないよと言われたら元も子もないので、そこは出発点はきちっと、今こういう方向だよと。皆さんの目で見たときに、まだ付け加えた方がいいものもあるかもしれないし、こういう表現はやめた方がいいとかあると思うので、そういうところはしっかりと各会派で議論していただきたいと思います。片山副座長がおっしゃったように、最終的には各会派ごとに文書で出していただくという形になると思います。</div>
+  <div class="say">あと、起草委員会と言ったのは、私が全部まとめるのもなかなかかなというのもあって、皆さんのお知恵を借りていいものにしていきたいと思っています。全会派が入った方がいいかどうかというのは、皆さんでご協議をいただければ。全会派と言ったら、ここのメンバーと同じですよね。みらいのこがねいが１人抜けるという形にはなると思うんですが。</div>
+  <div class="say">議会基本条例のときも分けたんですよね。逐条解説をつくるメンバーとか、パブリックコメントの関係で法的な解釈をしっかりとまとめ上げるグループだとか、幾つかのグループに分けて議論し、また、ここに持ち寄って全体の中で議論してきたということなんかもあるので、私も文章が下手なものですから、皆さんの方でしっかりまとめていただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=1828s" data-timestamp="1828"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:28</a>ビジョンの作成ありがとうございました。今、座長が言われたように、大筋の流れはそういった進め方なのかなと思っていまして、起草委員会を立ち上げて、全会派が参加する起草委員会で、原案を作っていただいた上で、必要であれば、今座長がお話ししていたような、分野ごとの検討を詰めていくというやり方はどうかなと、話を伺っていて、そんな感想というか、思いを持っています。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=1864s" data-timestamp="1864"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:04</a>鈴木委員のご提案は、全議員が起草委員になっているというか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=1874s" data-timestamp="1874"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:14</a>正確に言うと、全会派が所属する起草委員会でいいのかなと思います。そこで粗々の原案を作ってみて、必要に応じて検証ですとか、逐条とか、そういったところの検討に入っていく。つまり、全会派が参加する起草委員会で先に議論をして、そこで明らかになってきた課題がもしあれば、分科会というか、分担して必要な協議をまた分かれて進めていくというやり方はどうかなとちょっと思いました。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=1909s" data-timestamp="1909"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:49</a>分かりました。逐条解説は今回はないと思うので、例えば意義についてもう少しこういう文言を入れた方がいいとか、これは本当に私の個人的な見解でしかないので、皆さんから見た意義はもっといろいろな角度であると思うので、私が一番心配しているのは、意義のところとかですね。それから、各ビジョンのところで、坂井委員がおっしゃったような、なぜこうなのかというところを入れた方がいいとかあると思うんだけど。ビジョンのところにもう少し前文を入れるとかということですよね。全体としては全会派でやっていくということで、あまり変わらず。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=1992s" data-timestamp="1992"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:12</a>ちょっと補足というか、私が申し上げた前文みたいなものを入れた方がいいのではないかというのは、大きな１番の前というか、広報ビジョンという名前で何かが出るときに、この１、２、３、４の一番前に前文、このような経緯があって広報ビジョンを目指します、１、２、３、４というふうに流れるのがよろしいのではないかということを考えました。</div>
+  <div class="say">進め方なんですが、私も全会派いた方がいいと思っていて、ただ、２人出ていらっしゃる会派を阻害するつもりもないので、ここの場所でできるのではないかなということもちょっと考えています。やはり見える場所でやってきたこともあって、ちゃんとYouTubeなどもあって、見える場所でやった方がよろしいかなと思いますし、正副座長案もいいものを出していただいておりますので、これを基に協議がこの場所でできるのではないかと考えています。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2052s" data-timestamp="2052"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:12</a>そうしたら、みらいのこがねいも２人出ていただいて構いませんし。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2061s" data-timestamp="2061"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:21</a>そこはありがとうございます。複数会派のお気遣をいいただいて。それは会派で相談して、どういう形で参加させていただくかということはちょっと考えてみたいと思います。ただ、参加してもいいということを受けて、どうしようかなということを後で相談してみたいと思っています。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2080s" data-timestamp="2080"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:40</a>多分、坂井委員の提案は、起草委員会は全員でということだったかなと思うので。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2090s" data-timestamp="2090"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:50</a>そうですね。この広報・広聴協議会で開かれた場所でやるのがよいと考えているという提案です。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2090s" data-timestamp="2090"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:50</a>そうですね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2099s" data-timestamp="2099"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:59</a>鈴木委員のご発言は違った形。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2102s" data-timestamp="2102"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:02</a>違った形なんですよね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2107s" data-timestamp="2107"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:07</a>そうなんです。２人出ているということで、私が抜けて例えば吉良委員にお任せして、恐らく起草委員会で協議していく中では、それぞれ会派に持ち帰って協議する場面もあるかと思っています。その中で、会派で共有して議論を進めてもらうというやり方もありかなとちょっと思ったので、私が参加させていただくという選択肢を残していただいているということはありがたいんですが、そこは、そういった提案を受けて、ちょっと相談してみたいなということです。ですから、ありがたく思うんですが、今の時点ではどうとはちょっと言えないかなということで、今、発言させてもらいました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2159s" data-timestamp="2159"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:59</a>私は、基本的にはここの広報・広聴協議会が全会派そろっているので、ここで話し合うべきだなと思っていますし、会派で２人いるところは、１人出ても２人出ても、それは会派の判断でいいのではないかなと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2183s" data-timestamp="2183"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:23</a>多分、座長が心配されているのは、起草ということをおっしゃっているのは、例えば今、前文の話が出てきましたけれども、またそれを座長の方で提案していくというような形になっていくというのは、結構負担がいろいろと大きくなってくるなと思っていて、一定、たたき台として、私としてはこれが起草案というものになるのかなと思っているんです。例えば、坂井委員が先ほど前文の主張を提案されていたということがあるので、例えば前文のたたき台をつくっていただくとか、ここで例えば分担を分けてやっていくというような方向もあるのかなと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2235s" data-timestamp="2235"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:15</a>私が自分の会派の意見で、広報広聴の意義について意見というものを出させていただいたんですが、私の出した意見はその前文に近いのかなと思っていて、全部読み上げませんけれども、議会基本条例があること、二元代表制の一翼を担っている市議会ですよ。それをより進めるために広報広聴ビジョンを定めますと書いていますので、例えば案の提案というご提案であれば、それを参考にしていただければと思いました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2265s" data-timestamp="2265"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:45</a>今の皆さんのご意見を聞いていると、もう中身に入ってしまっているので、それは今ここでやるというよりも、起草委員会なり立ち上げた中でご議論いただければいい話だなと思っております。と言いながらも、私も意見を申し上げれば、大津市だとか出来上がっているところがあるので、つくり込みの項目だとかそういったものは、そういったところを参考にしていった方がまとまりがいいのではないかなということだけは意見を申し上げますけども、中身はもうちょっと起草委員会とかそういった中でやればいい話だと思っているので、進め方の確認をまずここでできればいいかなと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2311s" data-timestamp="2311"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:31</a>私の方で起草委員会というのを提案させていただいたんですが、私のイメージは、何人かで集まっていただいて、たたいていただいたものをここに出してもらう、広報・広聴協議会で議論してもらうというイメージだったんですが、今、皆さんのお話を伺うと、全会派が入って行った方がいいということなんです。それを起草委員会というのか、それとももう起草委員会はやめて、広報・広聴協議会でやりましょうとするのか、そこは整理しておいた方がいいかなと。そうしないと、起草委員会にして、例えばみらいのこがねいは１人出られるということになると、その時間帯は１人を除いてということになって、起草委員会が終わったらまた広報・広聴協議会で出席をしていただいてということになって、ちょっとややこしくなるかなというのがあって、できれば全体でやるんだったら全体かなと。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2388s" data-timestamp="2388"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:48</a>ありがとうございます。私のイメージとしては、もちろん公開の場でやるのは原則だと思っているんですけど、文言づくりだとか、これをどうしたらいい、あれをどうしたらいいというのを僕はわざわざ公開の場でやる必要はないと思っていて、もしかしたら特に事務局も入らなくたっていいかもしれないけども、広報・広聴協議会がある、その間に起草委員会を入れて、そこで出来上がった完成物を広報・広聴協議会で確認をする。これをすれば見える化というか、オープンにもなるので、そこをやっていかないと、多分、広報・広聴協議会だけでやっていくと足りないので、中にそういうインナー会議ではないですけども、揉む会議があった方が進むのではないかなと思っておいります。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2432s" data-timestamp="2432"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:32</a>ありがとうございます。</div>
+  <div class="say">幾つか意見が出ましたが、坂井委員のイメージはどんな感じですか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2446s" data-timestamp="2446"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:46</a>私が申し上げたのは、やはりこの場でと思っていたんですけども、そうではない意見もあり、座長のイメージも私と思っているのがちょっと違うかなと思っていて、あまり発言されていない会派もいらっしゃるので、皆さんの意見を聞いてみたいと思いました。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2462s" data-timestamp="2462"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:02</a>分かりました。では、意見をおっしゃっていない方、どうぞ。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2474s" data-timestamp="2474"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:14</a>やはり初めてなので、何が一般的かということが分からないので、皆様の議論をお伺いしながら考えていきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吉良委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2486s" data-timestamp="2486"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:26</a>まず、このビジョンの作成、本当にありがとうございます。</div>
+  <div class="say">皆さんで起草委員会なんですけれども、全会派がそろって話し合って、内容によっては持ち帰りという形で、それが公開であるか、それは皆さんの話を聞きながら決めていきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2510s" data-timestamp="2510"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:50</a>もうかなりの材料がそろっているのではないかと私は思っています。皆さんの中でそんなに意見の相違があるような感じには見えないんですけども、情報が今いっぱいあって、一覧表ができていないとか、皆さん例えばこれを会派に持ち帰っても、我々はすごくこの内容について分かっているんですけれども、会派の中で同じ人間がこれを全部読んでまた理解するというのもなかなか難しいし、そもそも全会派の意見というか、広報広聴ビジョンに対する意見はもう出されているわけなので、まず一旦それをまとめた形で何か出したら、もうちょっと分かりやすくなるのかなという段階まで来ているのではないかと思っておりますので、今まで出た意見をもう１回何か一覧表か何かでまとめて、そして起草するなら起草するで、みんなでわいわいがやがややりながら起草して、そして先に進めていったらいいのではないかと思います。会派に持ち帰っても、結局何が問題になっているのか私も説明し切れない部分があるので、もう１回まとめた文書か何かがあるといいかなと思います。なので、それを分かった上で、全会派で起草みたいな形でやっていければ。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">村上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2605s" data-timestamp="2605"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:25</a>たたきを作っていただいて、ありがとうございます。進め方の問題ということなので、私は多分、座長、副座長がイメージされたように、皆さんの意思が最終的なものに反映されれば問題ないと思うので、誰がやるかですけど、私はある程度人数を絞ったような起草委員会でたたきを作ってもらった方が進みやすいのではないのかなというふうには思っています。</div>
+  <div class="say">今ちょっとお話が出ていましたけども、大きく意見が相違するというようなこともあまり想定できないので、それも含めて、今回の議論はそういう進め方の方が早いのではないかなと思っています。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2654s" data-timestamp="2654"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:14</a>ありがとうございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吉良委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2659s" data-timestamp="2659"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:19</a>この作っていただいたビジョンはかなり完成度が高いと思っておりまして、あとはこれの内容を深めていけばいいとます。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2669s" data-timestamp="2669"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:29</a>ありがとうございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">太田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2675s" data-timestamp="2675"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:35</a>本当にこのビジョン、ありがとうございます。本当に私もこれでほぼほぼいいのではないかなと思うぐらい完成度が高いと思うので、あとは先ほどおっしゃられたように会派で確認をして、訂正とか修正とか異議がある部分だけ皆さんで持ち寄って、あくまでも現行のこのたたき台をベースにして追加とか削除とかという形でやっていけばいいのではないかなと思います。また、この中身についてその場でやり出すと結構ごちゃごちゃしてしまうと思うので、会派ごとにしっかり毎回毎回持ち寄って、追加、削除というような作業でいいのではないかなと私は思いました。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2730s" data-timestamp="2730"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:30</a>太田委員のご提案は、全体でやった方がいいという。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">太田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2736s" data-timestamp="2736"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:36</a>全体になるということですかね。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2738s" data-timestamp="2738"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:38</a>分かりました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">太田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2741s" data-timestamp="2741"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:41</a>でも、基本的には会派ベースで意見が出せれば、私はいいと思っています。ただ、それは全体でやるのか、代表でやるのかというのは、それはまた議論をお任せしたいなと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2756s" data-timestamp="2756"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:56</a>分かりました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">安田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2761s" data-timestamp="2761"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:01</a>ビジョンの作成、ありがとうございます。これが骨子になって、あと、先ほど坂井委員からも言われましたけど、前文があったりとか、市民に対する説明部分がすごくないなと思っていまして、その中身の文章はそんなにすぐにというか、これは誰が書くと分担すればできるかなと思うんですけども、やはりその文章をちゃんと作るのはそこそこ大変な作業かなと思いますので、基本的にはこのオープンな会議でいいと思うんですが、これ以外に皆さんの顔が見える感じで全会派集まって、細かいところは話し合うような場は必要かなと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2811s" data-timestamp="2811"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:51</a>ありがとうございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2812s" data-timestamp="2812"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:52</a>このビジョン作成、お示しいただきまして本当にありがとうございます。分かりやすくて、説明も聞いていて、流れがつかめるようで本当に助かりました。</div>
+  <div class="say">私としては、先ほど発言された清水委員の意見とほぼ同じでございます。やはり他に起草委員会などを設定してしまうと、とても手間暇がかかってしまうのかなと思うところもありますので、そのような形で進めさせていただければと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2843s" data-timestamp="2843"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:23</a>清水委員は協議会をやって起草委員会をやって、起草委員会でまとめたものを協議会に提案してというやり方。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2850s" data-timestamp="2850"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:30</a>すみません、訂正させていただきます。こちらの全会派がそろっている状態で進めていけばいいかと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2867s" data-timestamp="2867"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:47</a>それは協議会ですか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say">はい。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2873s" data-timestamp="2873"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:53</a>意見が分かれましたね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2873s" data-timestamp="2873"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:53</a>先ほどまず抜けていたのは、ビジョンを作っていただきありがとうございます。</div>
+  <div class="say">今お話を聞いていた中で、私は起草委員会をつくった方がいいのではないかなと思いました。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2893s" data-timestamp="2893"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:13</a>ありがとうございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2894s" data-timestamp="2894"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:14</a>私としては、もちろん今おっしゃった起草委員会はあった方がいいかなと思っていて、今、ごめんなさい、太田委員が言っているところでがちゃがちゃ言ってしまって申し訳なかったなと思うんですけど、何か出来上がったものを各会派に持ち帰って文言修正となると、思い、理念が共有されていないメンバーと文字合わせをしたって、単なる文章づくりにしかならないと思っているので、あんまり意味がないかなと思っているんです。だから、起草委員会をやるんだったら、まず最初に、この広報広聴ビジョンとか、理念とか、方針とか、そういったものをまず一つそこで決めて、そうすれば、そこの具体的なアクションプランだとか、その背景だとか、はじめにというのはできると思うんですよ。だから、僕はもし起草委員会をつくるとしたら、ビジョンをまずここで共有をするということが大事なのではないかなと思っております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2952s" data-timestamp="2952"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:12</a>ビジョンというと。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2953s" data-timestamp="2953"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:13</a>ビジョン、方向性、取組、意義とかいろいろ言い方はあると思うんです。森戸座長に書いていただいた中の、まさにビジョンとか、意義とか。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2975s" data-timestamp="2975"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:35</a>分かりました。清水委員としては、そういうものをそれぞれ持ち帰って検討していくという。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=2981s" data-timestamp="2981"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:41</a>ありがとうございます。言葉足らずで申し訳ありません。まず持ち帰る前に、ここにいるメンバーが何を持ち帰っていいかが分からなくなってしまうと、そうすると議論が散漫になってしまうので、まず、この広報・広聴協議会のメンバーの中で、小金井市議会としての広報広聴ビジョンとか、方針とか、広報広聴の意義というものをまず固めた中で、そこさえ固まれば持ち帰りもできると思うし、それに付随する具体的なアクションプラン、森戸座長が作ってくださったようなものもできるし、そしたらはじめにとか、はじめにというのは、まさにこういう経過とか、先ほど坂井委員が出された意見というのがあると思うので、そういったものを後からつけていく方が、物としてはいいものが私はできるのではないかなと。エッセンスはやはりビジョン、意義だと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吉良委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=3040s" data-timestamp="3040"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:40</a>すみません。正副座長でつくってくださった今回のビジョン、こちらの方に意義とか全部入っているので、これを今回会派で持ち帰って、意見、見解を聞いてきて、それを深めていくという、それでいいのかなと思っていたんですけれども。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=3063s" data-timestamp="3063"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:03</a>今、吉良委員がおっしゃったこと、あと、２番の小金井市議会の課題というところを含めて、こういう認識でいいのかどうかというところは、全体で認識は一致させた方がいいと思うんですよね。私がご提案したのは、１回これを持ち帰ってもらって、いろいろと各会派でたたいてもらって、もう１回意見を持ってきていただきたいということをご提案したんですが、清水委員のご提案は、１回ここで固めて、固めたものを各会派で議論してという流れなんですよね。その辺りをちょっと整理したいんですが。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=3122s" data-timestamp="3122"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:02</a>先ほど申し上げたのは、私は清水委員のご意見に賛成するんですけれども、材料はそろっているのではないかと思っているんです。なので、起草委員会かどうか分からないんですけど、分かりやすい形で何かやはりここの場で、ある程度ちゃんとこういう論点があります、それから、私たちの求めるビジョンの案は大体こんなものですと言ってからでないと、持ち帰りはちょっと私も説明がつかない。同じ情報量を共有していないので、できればここで起草委員会なり、私としては、本当は雑談レベル、つまり公開ではない、私が発言しますとかそういうことを言わないで、わいわいがやがややりながら少しずつ詰めて、ある程度形を持って持ち帰りたいなという気持ちも持っているんですけれども、私としては清水委員のご意見に賛同します。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=3188s" data-timestamp="3188"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:08</a>ありがとうございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=3189s" data-timestamp="3189"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:09</a>私も広報広聴ビジョン、正副座長が提出してくださったものは、少なくともここにいる委員の皆さんは認識を共有できていると思っていて、あと細かいことについてはという話はこれから必要なんですが、現時点においては、おおむね方向性なり内容は確認されているので、その確認を改めてした方がいいかもしれないと思いました。</div>
+  <div class="say">持ち帰ることについては、一番最初に座長がおっしゃった、今後どのような場所で進めていくのか。例えば持ち帰りを、これに対する意見をここに持ってきてくださいにすると、次の協議の場がここになると思うんです。ただ、次の協議の場が起草委員会になるのであれば、起草委員会にその意見を持ってきてもらって、そこでより気軽に話をすることができるので、次の場をどうするかということを持ち帰った方がいいと思いました。</div>
+  <div class="say">私、最初に意見を申し上げたんですが、今日の皆さんの意見を伺っていくに当たって、やはりよりもっと気軽にお話しできる場が必要なのかなと思いました。その結果をこの公の広報・広聴協議会に持ち帰ることができますので、もう少しざっくばらんに話せる場が必要かと思いました。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=3275s" data-timestamp="3275"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:35</a>ありがとうございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">村上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=3279s" data-timestamp="3279"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:39</a>だんだん複雑になってきたような感じなんですけれど、自分なりに整理すると、座長が出していただいたものをそもそも草案として見ると、草案として見てまとまっているのであれば持ち帰るという作業になると思うので、この草案は持ち帰る前にもうちょっと揉んだ方がいいですよというのであれば、その草案を先に揉んで、それはその進め方の問題なのかなと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=3310s" data-timestamp="3310"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:10</a>ありがとうございます。</div>
+  <div class="say">それで、今ご意見いただいて、全体はやはり起草委員会でもうちょっとざっくばらんに話し合える場所があった方がいいよねということだと思う。（「違う」と呼ぶ者あり）違いましたか、ごめんなさい。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=3331s" data-timestamp="3331"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:31</a>すみません。議会基本条例のことを先ほどおっしゃっていたので、あれは部会に分かれていたわけですけども、部会は公開ではないんです。公開ではないけれども、必ず記録をとるわけですよ。議会基本条例策定委員会で各部会からの報告をしなければいけない。だから、部会長と記録の方とかそういった担当を決めて、ちゃんとその記録を出していくという形でやらないと、やはり公開でないところでやっていれば、記録は残らないというか、どういうふうに進んでいったのかというのはやはり分からない状態になってしまうんですよ。ですので、もし起草委員会という形にするのであれば、そういったきちんとした報告を出して、ここで報告をして、そしてそれを確認しながら進めていくというような形になってしまうんです。なってしまうというか、なるんですよ。だから、実はそれはすごく大変なんですよ。手間暇はかかると思っています。</div>
+  <div class="say">何かお話を聞いていると、ざっくばらんなという言い方というのはちょっと違うのかなと思っていて、それは起草委員会というよりは、例えば今、ビジョンの草案というか、正副座長というか、座長がほとんど作っているわけですけれども、それをもっと自由な意見交換がしたいということなのかなと思いながらお聞きしていたところなんです。それは、別にここでは駄目だということではないなと思っていて、この場でそうやって自由に意見を言ってもらってもいいと思いますし、やはり複数会派の場合は持ち帰ったりとか、１人会派でも持ち帰って、一応もう１回見直して意見をまとめていくという作業は要るのかなと思うので、そういった意見をまとめていくという作業は必要なのではないかと思うんです。最初に起草委員会をつくりましょうというふうにまとめるとすると、かなりきちんとしたものにしなければいけないのではないかというのが私の考えということになります。今の意見を聞いていると、ざっくばらんなというのはもう少し自由な、今思いついたところでの意見をここでいろいろと述べていくというような形でいいのではないかという意見です。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=3491s" data-timestamp="3491"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:11</a>分かりました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=3498s" data-timestamp="3498"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:18</a>私は、片山副座長には申し訳なくて、やはりざっくばらんなのか、言い方はあれですけれども、今回この正副座長がお作りいただいたものを会派に持ち帰るということは私はそれでいいと思いますので、持ち帰ったものを、起草委員会をつくるかどうかも持ち帰るわけなので、次できるかどうか分からないですけれども、やはりそういった場で膝を詰め合わせて、別にその議論が全て出なかったとしても、前の広報部会みたいな感じで、部会でしっかり協議メモを作って、次の協議会で報告をすれば、私は公開という形にはなるかと思いますので、やはり定期的に広報・広聴協議会を開くということになると時間がどうしてもかかってしまうので、次の広報・広聴協議会までにインナーミーティングというか、起草委員会が２回、３回開ければ、より議論が尽くされたものがこの場に出せるのかなと思っているので、効率的にもいいかなと思いますし、副座長がご懸念されている情報の公開といった意味でも、そういったメモが表に出れば、それは公開になるものなのかなとは思っておりますので、私としてはそのように進めていきたいなと考えております。なので、そういったやり方の中で、副座長が示されている懸念をどうやって払拭できるかというところは、取り組んでいかなければいけないかなと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=3592s" data-timestamp="3592"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:52</a>副座長からもご意見いただきまして、この会の冒頭の方に座長から起草委員会というお話があったので、てっきり正副座長案に近いものかと私は思っていたんですが、違って、いろんな意見があるなということは思いました。</div>
+  <div class="say">副座長がおっしゃるように、ちゃんとした協議の報告書というか、多分これまで広報協議会だったときも、広報部会、紙面改革部会で書記がちゃんとついて、こんな議論がありましたよという報告もちゃんと上げているからこそ、この公の場で確認をして、協議を進めることができるということがありましたので、やはり起草委員会的なものをやったとしても、報告は必ずちゃんとやった方がいいと思いました。</div>
+  <div class="say">先ほどながとり委員の方から、多分マイクを通じて、はいと挙手をしながら発言することよりは、ちょっとざっくばらんにという趣旨に私は受け取りました。やはり新しく委員会に入った方だと緊張とか多くて、より充実させるためにはざっくばらんにという言い方が私の言葉になってしまっておりますけれども、より気の置けない感じで話して、それをちゃんと報告書を上げた形で、ここの公開の場で進めていくという方がよろしいのかという考えが私の考えです。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=3672s" data-timestamp="3672"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:12</a>ありがとうございます。</div>
+  <div class="say">ということでありまして、ちょっと休憩します。</div>
+  <div class="say">午前10時58分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午前11時44分開議</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=6441s" data-timestamp="6441"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:47:21</a>再開します。</div>
+  <div class="say">お時間とっていただきまして、ありがとうございました。この協議会の中で、いろいろ皆さんからご意見をいただきまして、さすが小金井市議会だなとつくづく思いました。</div>
+  <div class="say">それで、この広報広聴ビジョンの進め方について、先ほどいろいろなご意見を頂いたところです。基本的には、この広報広聴ビジョンについて起草委員会を設置して、協議を進めていくと。ここには議会事務局は入らないということで確認をさせていただきましたが、よろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=6491s" data-timestamp="6491"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:11</a>なおかつ、この協議会については非公開でありますので、要点記録をとって、その要点記録については広報・広聴協議会で報告をするということでよろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=6512s" data-timestamp="6512"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:32</a>次に、進め方であります。今日、お示しをしたたたき台については、各会派持ち帰っていただいて、予備日に再度、広報・広聴協議会を開催して、意見をそれぞれが述べていただくということであります。その意見は事前に掲示板またはメールでお知らせをいただき、それを全体で共有できるように、座長としては取り組んでいきたいと思っています。</div>
+  <div class="say">予備日で広報・広聴協議会を開催し、そこで皆さんからいただいた意見をもらいながら、閉会中になるかと思いますが、起草委員会を開催するということです。前段申し上げなかったんですが、起草委員会は原則全会派が参加をするということで、現時点ではご報告をさせていただきたいと思います。</div>
+  <div class="say">以上で抜けていることはありませんでしょうか。（「ないと思います」と呼ぶ者あり）ないですか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=6592s" data-timestamp="6592"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:52</a>すみません、一つだけ。掲示板ということでしたけれども、スペースではない理由は何かあるんでしたっけ。（「スペースの意味だと思います」と呼ぶ者あり）スペースの意味の、スペースということですか。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say">私、掲示板としか言わなかった。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say">分かりました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=6612s" data-timestamp="6612"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:12</a>１回、このたたき台というか、こちらを持ち帰って、各会派の見解が協議会で出されると思うんですけれども、こちらの見解の中で全体の構成が大きく変わるようなものがあるとしたら、一旦この協議会で揉んだ方がいいのではないかというのが私の意見です。ただ、大体方向は変わっていないということで、細かい文言の調整をつくっていくということであれば、起草委員会ということになるのかなと思っております。</div>
+  <div class="say">ただ、起草委員会の構成としましては、その時点で、一定、全会派で進めた方が話が早く進んでいくということであれば全会派という形がよろしいかと思いますけれども、一定の小人数で進めても大丈夫かということであれば、そういったことでもいいかなと、意見としては述べておきたいと思っております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=6672s" data-timestamp="6672"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:51:12</a>それでは、広報広聴ビジョン策定・アクションプラン等の策定に関することについては以上で終了したいと思いますが、よろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=6686s" data-timestamp="6686"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:51:26</a>それでは、終了いたしました。</div>
+  <div class="say">それで、どうしましょう、お昼近いのですが、進めますか。一つでも進めましょうか。</div>
+  <div class="say">では次に、（２）広報広聴の協議提案書についてを行います。</div>
+  <div class="say">前回、提案会派より各協議報告書について説明を行っていただいております。また、11月25日の議会運営委員会で、共産党提案の９－３に係る部分の市民への対応のフロー図の取扱いは広報・広聴協議会で行うことで一致をしておりますので、そのことは申し上げておきたいと思います。</div>
+  <div class="say">ということで、まず、みらいのこがねいに行った方がいいのかな。９－１、10月28日ですね。年代別の投票率などを含めて出していただいています。（「前、報告書の報告って」と呼ぶ者あり）やりましたよね。だから議論だと思っておりますが。（「もう１回報告を求められていますか」と呼ぶ者あり）ではなく、資料が提出をされております。それで、小金井市の年代別投票率と総務省の年代別投票率ということでありまして、（「それも説明をしてもらっています」と呼ぶ者あり）してもらったよね。フィードバックの方法についても、詳細は今後の協議で詰めていきたいということなどが報告で出されているので、何かみらいのこがねいからご提案することがあれば提案を。（「特にないです」と呼ぶ者あり）」特にないですか。（「僕のメモだと、協議提案書の９－１のところで全会一致と書いてあって、今後のたたき台は提案会派作成と書いてあるんですけど、いかがですか」と呼ぶ者あり）そういうふうに書いてある。（「全会一致はしたと思うんですけど」と呼ぶ者あり）宿題となった課題というところでは一致したと書いていないな。具体的な提案をしてもらうということですよね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吉良委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=6926s" data-timestamp="6926"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:26</a>みらいのこがねいといたしましては、若者に投票していただく一環としてワークショップを提案させていただいております。前回、10月28日に小金井市の年代別投票率と、あと総務省が出しております年代別の投票率を資料として出させていただきました。特にそれ以外は報告はありません。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=6958s" data-timestamp="6958"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:58</a>ありがとうございます。</div>
+  <div class="say">そうするとこれは、ほとんど賛成という形ですかね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=6993s" data-timestamp="6993"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:56:33</a>これは会派でもちょっと話をしたんですが、この若者議会の提案させていただいた会派なんですが、この間、議会運営委員会で主権者教育として様々な取組をこれまで行っています。その取組、この間の中央大学の中学生を対象にした主権者教育の内容がすばらしかったので、ああいった取組をしている議会運営委員会の取組の上に重ねて広報・広聴協議会で果たしてやるということがどうなんだろうかと。付け加えてやるということについてどうなんだろうかなと。それはいいとも悪いとも思っていないんですけど、あの内容がすばらしかったので、更に広報・広聴協議会でこの取組を重ねるということについては、提案会派としてはどうなんだろうなということを、今、思いとして持っているということは意見として申し上げておきたいと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=7064s" data-timestamp="7064"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:57:44</a>中学生の議会というか意見交換も、若者に対する一つの働きかけでもありますよね。そこにまた新たに若者ということになるとどうなのかという、今、提案会派からのご意見なんですが。今、開催しているもの、実施しているものを確認するということですかね。その辺り、みらいのこがねいとして持ち帰っていただいてどうされるか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=7107s" data-timestamp="7107"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:58:27</a>ありがとうございます。一度それはこの場で表明しなければいけないねという話を会派でしていて、議会運営委員会は議会運営委員会でいろいろ考えて、入り口は主権者教育なんですけども、まさに私たちが目指している、ここで提案させてもらった若者議会の取組と重なっているんですよね。ということで言うと、ちょっと立ち止まってもいいかなとは思っているということで述べさせていただきました。なので、今、座長がおっしゃったように、持ち帰って、再度この提案をどうするかということについては、次回報告させてもらいたいなと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=7144s" data-timestamp="7144"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:59:04</a>分かりました。</div>
+  <div class="say">では、みらいのこがねいのご提案は保留中ということでよろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ZYQ0GHMNy5c&t=7153s" data-timestamp="7153"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:59:13</a>続いて、共産党の市民との懇談であります。前回、どういうふうに懇談をするのかということについての資料を提出させていただいたと思うんですが。９－２ですね。（「私のメモだと、不一致か若しくは次回に向けての再提案の二つの選択肢があって、だから、次回に向けて再提案という」と呼ぶ者あり）そうですね。賛成の意見と反対の意見があって不一致で、懇談を進めるための具体的な提案を行うということが宿題になっていまして、資料として市民団体との懇談の他議会の実施状況というものを提案させていただいております。</div>
+  <div class="say">みらいのこがねいから、聞いた意見をどうするのかというのが難しいのではないかというご提案があったんですが、聞いた意見をどうするかというのは議会運営委員会で確認されている方向で仕分をしながら聞いていくという形になるのかなと思ったんですが。</div>
+  <div class="say">市民団体との懇談の実施状況というのも提案させていただいておりまして、これは市内のグループで10人以上の団体だとか一定の基準は設けられているんですけれども、懇談をするということで小野市議会とか、横手市議会とか、防府市議会などでは取組が行われていると。結果については、例えば防府市議会などは報告書があって、保険医協会などとの医療問題についての懇談をした中で、国に対して意見書を提出するとか、そういう形で結果を出しているところもあるということです。これは一致してそういうことになったということだと思うんですが、そういうことであります。</div>
+  <div class="say">これは請願・陳情者との懇談は不一致だったんですよね。ただ、市団体との懇談というのは不一致までは至っていないかなと。（「公明党の提案」と呼ぶ者あり）公明党の提案と一緒かなというのもあって、これはどうしましょうかね。</div>
+  <div class="say">ちょうどお昼になりましたので、休憩して、皆さんもう１回ご検討いただければと思いますが、よろしいでしょうか。</div>
+  <div class="say">ここで、昼休憩にいたします。</div>
+  <div class="say">午後０時01分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午後１時開議</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=166s" data-timestamp="166"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:46</a>再開いたします。</div>
+  <div class="say">休憩前に引き続き、広報広聴の協議提案書について協議を行います。</div>
+  <div class="say">市民団体との協議については、小金井市議会公明党からも提案をされている問題でもありますので、議論は一緒にやった方がいいんですかね。</div>
+  <div class="say">では、小金井市議会公明党の方から何かあればお願いいたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">太田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=251s" data-timestamp="251"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:11</a>小金井市議会公明党の報告書としては、各常任委員会別に各種団体との意見交換の場をということで、ただ、ポイントといいますか、この報告事項にもありますけれども、会派の考え方がありまして、団体の選考方法、あと議題の扱い方、また意見の取扱い、それぞれ書いてありますけど、この内容で進めたいという形になります。例えば、団体の選考方法については、各常任委員会が所掌に応じて団体を選考する。公募するとかそういう形ではなくて、あくまでも常任委員会が所掌に応じて団体を選考するということです。議題についてはヒアリングに重きを置いて、原則テーマを設定しない。団体との調整の中でご希望があればテーマを設定することもできる。あと、意見の取扱いが特にポイントだと思うんですけども、この小金井市議会として共有をして、議会活動を通して市政に反映するということですね。この３点のポイントの中で決めていきたいということです。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=341s" data-timestamp="341"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:41</a>ありがとうございます。</div>
+  <div class="say">では、この市民団体との懇談でご意見などがあれば、お願いしたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=366s" data-timestamp="366"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:06</a>今、公明党からの説明はあったんですが、２のところなんですけれども、共産党の提案の方とはそごというか、何かあるんでしょうか。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=382s" data-timestamp="382"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:22</a>日本共産党小金井市議団の方は、こちらから指定をするというやり方ではなく、申請書を皆さんにお渡しするというか、皆さんから懇談していただきたいという募集を行って、その中で懇談を行うという形なので、小金井市議会公明党は常任委員会で団体を指定されるわけですよね。（「常任委員会の所掌に応じて」と呼ぶ者あり）そうですよね。ちょっとそこのやり方が若干違うかなと思いますね。</div>
+  <div class="say">ただ、日本共産党小金井市議団はどちらでもいいのかなと思っておりますので、まずは、なかなか最初から募集しても来る団体はそんなにないと思うので、最初は指定をして来ていただいて話を聞くというのも一つかなとは思っています。</div>
+  <div class="say">９－６もはっきりとした反対意見は確認できなかったと。９－２も、この団体との意見についてははっきりとした反対はないというか、何も書いていないんですが、ただ、みらいのこがねいから、聞いた意見をどうするのかは難しいと思うというご意見をいただいていまして、この辺りを含めてどうするか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">太田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=561s" data-timestamp="561"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:21</a>先ほどお伝えしたこの会派の考え方の三つの点については、みらいのこがねいからの質問を受けた上で精査して行き着いた結論なので、ここが統一できるのであれば、特には問題ないということでよろしいですかね。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=582s" data-timestamp="582"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:42</a>みらいのこがねい、いかがでしょうか。</div>
+  <div class="say">自民党・街の仲間たちからは、行うのであれば常任委員会の調査の柱をテーマにすべきだと思うという意見も出ていまして、それも一致していますね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=621s" data-timestamp="621"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:21</a>ありがとうございます。</div>
+  <div class="say">この報告書の下のところの報告事項のところに、団体の選考方法というのは、各常任委員会が所掌に応じて団体を選考ということが書いておりますので、各委員会が委員会によって決めていくという意味では、私はいいかと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=650s" data-timestamp="650"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:50</a>それでは、各団体との懇談については実施する方向で進めるということで確認してよろしいでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=666s" data-timestamp="666"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:06</a>私は進めていくということでよいと思います。</div>
+  <div class="say">日本共産党小金井市議団の方のところで、れいわ新選組小金井から議会運営ということであればよいのか、内容の話になりやすいではないかということで、ここで私もちょっと懸念しているところだったんですけど、小金井市議会公明党の方で、先にテーマをある程度決めるようなことが書いてあって、確かにそちらの方である程度しておけば、とにかくいろんな話になってしまうと大変かなと思うので、その辺が解決できるのであれば、いいのではないかと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=702s" data-timestamp="702"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:42</a>日本共産党小金井市議団が提案している1)は不一致なんですよ。なので、これは取り上げない。請願・陳情者との懇談は行わないということになります。なので、多分、藤川委員のご懸念は大丈夫かなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=726s" data-timestamp="726"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:06</a>なるほど。あくまで団体。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=727s" data-timestamp="727"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:07</a>団体ですね。常任委員会と団体との関係ということで。</div>
+  <div class="say">それで、これは一応一致はしたんですが、その後はどういうふうに進めるかなんですが、ちょっと休憩しますね。</div>
+  <div class="say">午後１時10分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午後１時12分開議</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=930s" data-timestamp="930"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:30</a>再開いたします。</div>
+  <div class="say">それで、団体との懇談について、日本共産党小金井市議団、小金井市議会公明党から提案させていただいておりまして、これは一致いたしました。あとは運用をどうするかというルールづくりだと思います。その点は、提案会派からたたき台なり、素案を作っていただいて、確認をしていくということでよろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=963s" data-timestamp="963"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:03</a>それでは、確認をさせていただきます。</div>
+  <div class="say">では、９－２と９－６の市民との懇談については継続いたしますが、現時点では終了するということでよろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=982s" data-timestamp="982"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:22</a>次に、９－３、市民からの意見の対応。以前に議会運営委員会から回ってきた、広聴に対するフロー図があると思うのです。それについて改めて確認をさせていただくということですね。これは今年の５月15日の広報・広聴協議会の資料で提案をしていただいている。アンケートで寄せられた意見や議員個人に寄せられた意見、議会報告会で寄せられて、実行委員会で整理された意見・要望、まず、議長の手に渡って、議長で仕分をしていただくと。施設や設備の修繕、補修など、関係部局に伝達することで解決できることなどは議論を必要とせず、緊急の対応を要するものは議長で対応すると。それ以外の２、３、４、５については、議長等で協議し、議会運営委員会または会派代表者会議で対応を協議する。議会として取り扱わないものは、各議員に情報として伝えた旨を回答する。意見が分かれたものは、各委員会に市民からの意見・要望として伝えたということを回答する、または各議員に市民からの意見・要望として伝えたと。議会として検討できるものは議会として検討する旨を回答し、後日、協議結果を踏まえた対応を回答するという流れだということですね。これはよろしいですか、この流れでいくということで。ただ、これから各常任委員会の団体との懇談が出てきますので、それをどう扱うかというところもあることはあるんですよね。なので、それはもう少し保留にして、これから運用でつくっていく団体との懇談の中身がありますので、そこで、これに加えるものがあれば加えていくという形にしていきたいと思うのですが、いかがでしょうか。よろしいですか。これはあくまでもファクスやメールで来たものと、議員に寄せられた意見・要望は対象にしない。ただし、寄せられた意見・要望が議会全体に関わるものと、それから、議会報告会で寄せられた意見・要望という３種類だけなので、団体との懇談で出された意見・要望についてどうするかというのは、ちょっとルールの中でまた検討するということでいかがでしょうか。よろしいですね。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=1279s" data-timestamp="1279"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:19</a>では、現時点では終了ということで、また、いろいろ付け加えることもあるかもしれませんので、そのときに議論するということでいきたいと思いますが、熟慮の坂井委員は大丈夫ですか。何かさっきからちょっと気になっていて。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=1296s" data-timestamp="1296"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:36</a>ご指名をいただきまして、私は日本共産党小金井市議団からご提案があった時点で、ご紹介いただきました議会に対する市民からの意見・要望のフロー図があることは認識しておりましたので、具体的に何をされたいのかというのが、ちょっと読み取れなかったというのがあったのです。基本的にはこれにのっとってやるということは、ここでも確認しておりますし、議会運営委員会を介してこの広報・広聴協議会の中で、このフロー図について意見を出して、ブラッシュアップしてよいかみたいな確認もされておりますので、それで良いと思っております。なので、提案会派の願意がそれで満たされているのであれば、これで終了でいいと思います。基本的にはこれで進めていくと、必要に応じてブラッシュアップしていくと。それはそのときに案件が起こったときに、ちゃんと話をしていきましょうねということの確認であれば、それで構いません。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=1359s" data-timestamp="1359"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:39</a>坂井委員がおっしゃったとおりで、一応確認はしていますが、改めて全体で確認した方がいいかなということであります。</div>
+  <div class="say">先ほど申し上げたように、団体との懇談の中で何らか付け加える必要が多分出てくるとは思いますが、そのときにはまたご提案させていただくということで、よろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=1383s" data-timestamp="1383"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:03</a>ありがとうございます。</div>
+  <div class="say">では、これは終了ということでよろしいですか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=1393s" data-timestamp="1393"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:13</a>では、終了します。</div>
+  <div class="say">次に、９－４、YouTube動画の資料添付であります。これは日本共産党小金井市議団から提案をさせていただいておりまして、基本的にはできないわけではないということなのですが、今日、皆さんのお手元に、私の方で舞鶴市議会がどのようにYouTube動画に流していらっしゃるのかというのを、これはあくまで個人的にお問合せをして、舞鶴市議会事務局の方から頂いた資料であります。全体的には見ていただくと分かるとおりであります。問題は、皆さんからご懸念をいただいている事務局との関係での負担がどうなるのかということであります。ちょっと事務局ともご相談をさせていただいているところもあるので、議会事務局次長の方から説明していただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=1508s" data-timestamp="1508"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:08</a>これは森戸座長からの参考配布ということの資料でいろいろ拝見させていただきまして、YouTubeの方にリンクを張って、舞鶴市は資料が閲覧できるような形になっているのかなというので拝見させていただきました。こちらの作業自体は、リンクを張るものをコピペなのか、添付するような形になるかと思うのですが、ちょっと確認はしっかりしていないのですけど、舞鶴市はデジタル化というんですかね、多分資料とかも飛ぶ先にも全部データできっちり保存されているのかなと思います。事務局としましては、こういったすごく分かりやすいというか、YouTubeにこういう資料を添付するという作業自体はよろしいかと思うのですが、ちょっと話は変わってしまうのですけど、Garoonとメールでツールを二重に使って連絡をしているですとか、あとは、今SideBooksに電子データも入れて、かつ紙で配ったりとか、そういうふうな他の作業をなるべく減らしていただければ、こういった新しい取組というか、こういったのも事務局がちょっと加わって作業するというのはいけるのかなと思うのですが、ちょっと今の二重にやっている状態で、こういう新しい作業をというのは、座長にもご相談をさせていただいたのですが、ちょっと厳しいのかなという現状をお答えさせていただきます。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=1626s" data-timestamp="1626"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:06</a>ありがとうございます。</div>
+  <div class="say">ということでありますので、もし皆さんが将来的にはYouTubeの動画の説明欄に、そういう添付をしてもいいよということであれば、継続して協議をするという取扱いにしていただいて、残しておく、現時点では質疑は行わず、協議は行わずということですね。ちょっと棚に上げておくか、それとも、もう少し何か改善ができるようであれば前に進めるか、もうやらないということにするか、どっちかだと思うのですが。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=1685s" data-timestamp="1685"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:05</a>私も舞鶴市議会のYouTubeを拝見しているのですけども、私としては、もし事務局が今おっしゃっていたように、課題はあるけれども、できないわけではないということがあるのであれば、引き続きできるための方策を準備してもいいのかなとは思っていますが、今のGaroon、メール併用以外にも結構課題が、市議会のホームページにそもそも委員会の資料を掲載しているというところがあるので、締切りだとか、その辺りも設定をしなければいけないなと思うし、今以上に厳格にやるか、若しくはここまでで間に合わなければ載せられませんよというような運用も含めて、ルールづくりとホームページの改良といった、その辺りも課題にはなってくるのかなとは思っております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=1740s" data-timestamp="1740"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:00</a>ありがとうございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=1750s" data-timestamp="1750"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:10</a>今の事務局の説明を聞いていると、やるためにはやはり今やっているダブルの仕事の量を減らす必要があるということでした。私もできるのであればやった方がいいという視点でこの議論には臨んでいるのですが、できるための議論というのが、この協議提案からちょっと離れてしまうというか、どうやって今Garoonとメールでやっているところの２つをとかという話は、この提案からちょっと離れてしまうように思うので、この協議報告の提案としては、課題の解決ができたらできるような形の認識がとれれば、これはこれで終わらせて、業務効率化というんですか、という話は別のところでやった方が私はいいと考えました。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=1808s" data-timestamp="1808"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:08</a>坂井委員のご意見は、業務の効率化の問題は別のところでというのは、これは広報・広聴協議会の中でということではなく、議会運営委員会かどこかでやってもらうという形ですか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=1838s" data-timestamp="1838"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:38</a>広報・広聴とはちょっと話がずれませんか。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say">ずれますよね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=1842s" data-timestamp="1842"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:42</a>なので、議論をするのであれば違う場、議会運営委員会になるんですかね、ということになるかと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">安田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=1867s" data-timestamp="1867"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:07</a>今、事務局からご説明があった、今はダブルの作業があって、これ以上はできないということは、この件に限らず、いろいろなことに影響してくるのかなと思いますので、それをどこで議論するのかは、やはり議会運営委員会なのかなと思います。広報・広聴協議会でそのようなことは課題と捉えて、議会運営委員会で議論する、申し入れる。そういう方法があるのだったら、こちらの広報・広聴協議会から議会運営委員会の方に投げかけるということもできるのかなと。できるのか分からないですけど、必要なのかなと思いました。</div>
+  <div class="say">このYouTubeの資料添付に関しては、結局はそれが解決しないと進まないので、この時点では保留ということになるのかなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=1932s" data-timestamp="1932"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:12</a>紙の資料をなくさないでほしいとか、Garoonなどが使えないからメールで送ってほしいというのは、うちの会派なんですね。ですから、うちの会派が紙は要らないと、そしてメールも要らないということを言えば、それは進むという話ですかね。別にそれでもいいんですけど、こちらの会派には何も情報が入らないというような形でやっていくということでいいのであれば、別にそれはそれで構いませんよ。こちらには何もお知らせしないということで、それで全会一致はならないということですよね、結局、そうすると情報がないわけですから。というような形になりますけれども、そういったことでもいいのであれば、こちらには何も資料がない、そしてまた、お知らせもないというような形で進めていくということであるんだったらば、それはそれで構いません。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=1991s" data-timestamp="1991"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:11</a>今のご意見はご意見として私は聞いておきたいなとは思ってはおりますけれども、いつかはこの問題は議会運営委員会などでしっかりと話合いをしないと、一歩も前に進まないというわけにはいかないと私は思っておりますので、ただ、ちょうど今日、片山委員がこの部屋に入ってくる前に朗報がありまして、タブレットではなくても、このウェブサイトからGaroonを見ることができることが（「SideBooks」と呼ぶ者あり）SideBooksか、判明しましたので、SideBooksか。（「全部見られます」と呼ぶ者あり）全部見られるということが判明しましたので、わざわざタブレットからではなくても、ご自宅のパソコンから見ることはできるということが分かっておりますので、そこはこういった表の場でも、もう一度伝えておきたいなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=2052s" data-timestamp="2052"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:12</a>だから、そちらがダブってやっているからできないという事務局の主張というのが、ちょっと私は腑に落ちません、はっきり言って。そういったことを理由にしながら、他のことも進まないのではないかというようなご意見もあったと思いますけれども、そういった形で全部そのせいにするということなんですか。紙資料は出さない、そしてまた、メールは送らないということになるんですか。そういった形でやるのであれば、切り捨ててやっていってよろしいのではないですか。ただ、情報は入りませんので、一致はできませんねということになるだけの話なのですが。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=2101s" data-timestamp="2101"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:01</a>ちょっと議論の本質からずれてしまうので、私もこの辺で終わりにしたいなと思うのですけども、事務局が反論できずというか、コメントできずというのが申し訳ないなと思うので、私が代弁するわけではないんですけど、私がもし事務局だったらこう言うなというのは、できないできるではなくて、手間になっているという事実はあるということです。こういうタブレットがあるということは、情報もデータで送ることができるけれども、できないではなくてやらないと言われてしまうと、これは議会運営委員会の場面だと思うんですが、それはやろうよという話になる、だけどやらないとなると、100％納得のいく手間ではないなと思っておりますので、そこだけはちゃんと、私は代弁ではないけど、私が事務局だったらこう思うなということは伝えておきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=2159s" data-timestamp="2159"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:59</a>申し訳ないですけど、タブレットの導入の際には、私はこれは紙をなくすものではないということを確認しながら導入に賛成をしております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=2172s" data-timestamp="2172"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:12</a>この提案に限らず、やはり議会側でもっといろいろやっていこうという提案はたくさん出ているんですけども、やはり私たち議員だけではできないわけで、事務局の事務量にも影響することなので、今の事務局のご回答は、私は腑に落ちているというか、納得しています。</div>
+  <div class="say">議論するのであれば、ここの場ではなくなると思いますけれども、タブレットについては導入するときに、やはり業務の効率化だったりという視点はあったと思っていて、結果的に今、併用が続いてしまっているということについては、逆に負担をかけてしまっているので、私は改善が必要だと考えているということ、また、私もタブレットはあまり得意ではないんですけれども、やはり税金を使ってこうやって貸与されているわけで、これはちゃんと目的を持って導入をしているので、ちょっと苦手ではあるんですけれども、ちゃんと使わなければいけないなと思って、私は使っておりますので、やはりここの議論は、今後もしていく必要があると考えているということは述べておきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=2241s" data-timestamp="2241"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:21</a>まず、今これはYouTubeのお話ですよね。YouTubeに資料を張るかどうかの話ですよね。まず、そこにちょっと戻ってお話ししますけれども、これは資料を拝見したんですが、舞鶴市はホームページにそもそも資料があると、そこにＵＲＬを張っているだけという認識で。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=2265s" data-timestamp="2265"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:45</a>YouTube動画の説明欄に、一般質問の資料というのがあって。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=2271s" data-timestamp="2271"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:51</a>そうなんですけど、元々資料がホームページに張ってあって、そのＵＲＬが張られているだけという認識でよろしいですよね。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say">そうです、そうです。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=2279s" data-timestamp="2279"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:59</a>そういうことなので、元々の資料を張ることのすごい手間というか、元々そういう仕組みがあるということですので、なかなか今の小金井市ですぐにやるというのは難しい状況だということではないかなと思います。つまり状況が変われば、そういうこともできるようになるということだと思うし、もちろん張った方がいいというのは、当然誰もが思うことだと思うので、継続するけれども、状況が変わるのを待つということでよろしいのではないかと思います。</div>
+  <div class="say">それとあと、事務局がおっしゃっていたことなのですから、あくまでも一つの例として挙げられたんだと思いますので、特段どこの会派がどうということはないかなと思っております。他にも事務局でいろんな作業をやっていらっしゃると思いますし、たまたま一つ例が出ただけかなと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=2343s" data-timestamp="2343"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:03</a>基本は議論の中では、やはり事務局の負担がかかるのであれば難しいというのが皆さんのご意見だったかなと。そこを何とかできないかなと思って、いろいろ探ってみたわけですが、やれない話ではないけれども、やはり事務局の方も負担がかかる状況もあるということでありますのでということで、課題が解決できれば進めていく方向ということで、ご確認をいただけるでしょうかということで。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=2400s" data-timestamp="2400"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:00</a>基本的に進めていくといいと思っております。順番的には、ホームページに資料が上がる状態になったら、リンクを付けるという順番になると思っていて、そこは広報・広聴協議会ではなくて、議会運営委員会で決めていくのかなと思っております。</div>
+  <div class="say">個人的な要望をちょっとここで意見として言わせていただくと、資料を印刷するときのルールが最初は分からなくて、いろいろと事務局とどういうルールになっているのかとお話を聞きながらやって、Ａ４、１枚裏表だったら印刷してもらえるけど、それ以上は自分で印刷してくださいねとか、紙で渡すので、それをコピーするので、私の元々の資料が見にくかったりもしていたんですけども、それが更にもっと見にくくなったりしたなとかいうので、そこは何とか改善できないのかなと思うんですけども、そこも含めて、基本的にデジタルでホームページにアップロードするということになるのであれば、もうそこで解決しているので、今私が言った、ここはもうちょっとこうなってほしいなとかというのは、特に提案する必要すらなくなることなので、ぜひホームページに何か、議員提出資料は何日か前までにいただいたものは置くというのになって、それが更にYouTubeの配信のページにも載るという、そういう流れになってほしいなと思っております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=2507s" data-timestamp="2507"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:47</a>ありがとうございます。</div>
+  <div class="say">片山委員から、事務局がダブっているからできないということについては腑に落ちないということでありますが、作業としては、例えば広報・広聴協議会の資料であれば、スペースに載せるということと併せて、メールで送っていただくという、本来ならメールがなくてもいい作業かなというところを、今は皆さんの一致の中でこれはやっていますから、議会事務局にはそこのところもやっていただいているということで、それが１件だけでなく、いろんな件数になると、その負担というのは結構になる部分もあるのかなということだと思うんです。そこについては、事務局もなかなか答えづらいと思いますので、それぞれ手間はとっていただいているというところは、それはいいか悪いかではなくて、そういう事実があるということだけは確認していただけるとありがたいなと思うところであります。私もスペースに載せるのと、また別にグループメールで送るんですけど、ちゃんと登録ができていないものだから、送っている人と送っていない人がいたりして、もう１回自分で確認して、もう１回送っているという、私は広報・広聴協議会のグループメールを作り損ねているから、だから二度手間にはなっているところもあるんですけど、それは苦には思ってはいないんですが、そういうことだと思うんですよね。それは何か片山委員を責めているとかということではなくて、そういう一致点でタブレットの端末を利用するということが始まっているわけですから、そこはお互いに理解し合いながら、今後どうするかというのは別の場でということだと思います。それは、安田委員からは、ここで一致すれば、議会運営委員会に投げてということをおっしゃったかなと思うんですが、なかなか一致しないかもしれないね。ですから、各会派の議会改革として議会運営委員会にご提案して、議会改革、（「違うよね」と呼ぶ者あり）違う、議会改革、（「全然違うかなと思います」と呼ぶ者あり）そうか。それぞれの会派で問題意識を持っていただいているところで、ご提案をいただくということが、現状この場所でのまとめかなと思うんですが、よろしいでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=2702s" data-timestamp="2702"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:02</a>議会のホームページへの資料の公開というのは、大分前から議会改革の提案として上がっていて、ずっと拒否されているわけです。これは一般質問の資料とかだけではなくて、議会資料というのが全然市民が見られないと。だから、今は予算特別委員会と決算特別委員会は、だーっと全部一緒にＰＤＦにできるということで上がっているのが、試行実施になっているわけですけど、だけど、他の各委員会の資料というのはばらばらに出てくるとか、議員が請求した資料だからということで、なかなかそういった資料と、あと一般質問の資料などについては、ホームページでは見られないということになっているんですが、それも議会事務局が、これが大変だから大変だからという形で、大分前から議論にはなっていたところです。だけれども、タブレットなどの導入とか、また行政のいろんな形のデジタル化というか、そういったことが進む中でできないのかということは、恐らくいろんな形で追求というか、これまでも話題には上がってきたものかなとは思っています。ですので、そういった前からお願いしているというか、やってほしいと言っていることと、最近のこういった状況というのは、またちょっとそこと照らし合わせながら、何を最初に進めていくかということを考えていくべきかなと考えています。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=2815s" data-timestamp="2815"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:55</a>ということで、そういうご意見があったと。</div>
+  <div class="say">それでは、この９－４については、課題が解決したら進めるという結論でよろしいでしょうか。（「保留でいいんじゃないでしょうか」と呼ぶ者あり）保留ではないね、継続かな。何だろう。一応ここで終了。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=2849s" data-timestamp="2849"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:29</a>マイクを通さないところで何かあったので。課題が解決したら進めるという認識は、それでいいと思うんですけど、課題解決はそんなに一足飛びにいかないようにも思っておりますので、その確認をしたということで、この提案は終了でいいのではないかと思っていますが、私の意見です。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=2874s" data-timestamp="2874"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:54</a>今、坂井委員からは、この課題については終了ということでどうかと。課題が解決したら進めるという方向であるけれども、その課題はすぐに解決するというものではないので、現時点では終了するということでどうかということですがいかがでしょう、いいですか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=2904s" data-timestamp="2904"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:24</a>すみません、確認をさせてください。継続をするとどういうふうになって、ここで終了するとどういう効果があるのか教えてください。それでないと、ちょっと判断できないです。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=2919s" data-timestamp="2919"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:39</a>すみません、この提案協議書の協議を始めるに当たって、一応議会改革の協議の流れを参考に進めていただいておりまして、今もし継続となると、引き続き次回も協議いただくお題に上がってくるのかなと思うんですが、もしこの議会改革の協議の流れを参考にこの後進めるのであれば、こちらはもしこれで終了ということになれば、今度は結論及び理由というのをお出しいただいて、そこに現時点での確認のところを上げていただいて終了になるのかなと。事務的な流れについてはそのようになるのかなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=2966s" data-timestamp="2966"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:26</a>それで、これで終了すると、再度出すということは可能なのでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=2972s" data-timestamp="2972"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:32</a>協議提案書は、皆さんの中で逐一出していただいて協議すると、たしか皆さんに多分ご確認いただいていたのかなと思うので、それであれば、再度お出しいただくのは可能なのかなと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=2990s" data-timestamp="2990"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:50</a>よろしいでしょうか。</div>
+  <div class="say">では、続きまして、（「終了させるということ」と呼ぶ者あり）終了させるということで。だから、またそういう機会を見て出せる。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=3011s" data-timestamp="3011"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:11</a>今回は終了でいいと思うんですけども、整ったらもう１回議論をするということの確認と、それは多分委員提案ではなくて、そのときの正副座長提案みたいな形で俎上に上げていただくのがよろしいかと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=3029s" data-timestamp="3029"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:29</a>今の坂井委員のご意見と同じで、要するに課題が解決したら進めることにするということを確認した上で、終了ということがいいのではないかと。だから、課題が解決したら進めるということが確認された上で、今回は終了するという形でどうでしょう。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=3051s" data-timestamp="3051"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:51</a>分かりました。課題が解決した段階で、次の正副座長が、（「そのときの」と呼ぶ者あり）そのときのだね、次のではなくて。そのときの正副座長が改めて提案をするということですね、今坂井委員からはね。忘れてしまいそうだね。（「意識が薄くなっちゃいそうだなと思うので」と呼ぶ者あり）そうそうそう、どうですか。</div>
+  <div class="say">ちょっと休憩します。</div>
+  <div class="say">午後１時47分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午後１時49分開議</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=3123s" data-timestamp="3123"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:03</a>再開いたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=3128s" data-timestamp="3128"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:08</a>今、協議の進め方は、議会改革の進め方に沿ってやっていらっしゃいますので、今日で終了であれば、結論及び理由書を皆さんに次回お出しいただいて、議会改革に沿ってやるとすると、最後に報告書のような形で引継ぎ事項なり、次期に送るとか、そういうのを記載した上で、報告書をまとめていただければなと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=3157s" data-timestamp="3157"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:37</a>ですから、課題が解決したら進めるということで、現時点では終了すると。しかし、一応次期の申し送り事項に載せておくということでよろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=3186s" data-timestamp="3186"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:06</a>では、そういうふうにさせていただきます。９－４は終了いたしました。</div>
+  <div class="say">次に、９－５、公聴会・参考人制度についてであります。これは前回、資料を提出させていただいております。これは意見が分かれておりまして、どうやって行っていくのか検討する必要があるという意見と、ルール化する前にテーマが一致できるかどうかということなど、ちょっと意見は分かれておりまして、他の自治体の資料を提出させていただいております。これはなかなかやるというのは難しいところがあって、何か事件が起こらないとやらないということで、政策的なものを深めるということにはなかなかちょっと活用し切れていないかなというのが調べてみての実感でありました。ただ、横浜市会は大変活発に行われているなというのはあるんですが、どういたしましょうかね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=3361s" data-timestamp="3361"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:01</a>たしか私もこのテーマが議論になったときにお話し申し上げたかなと思うんですけども、今のルールの中でも、公聴人の活用というのはできることにはなっているので、あとは各委員会が、そのときの状況によって判断をしていくものなのかなと思っておりますので、今はこの委員会に任せるというのがいいのかなと考えております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=3393s" data-timestamp="3393"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:33</a>ありがとうございます。</div>
+  <div class="say">それぞれの常任委員会の運用に任せるというのが、清水委員からの現状の中で運用に任せるという意見でありますが、いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吉良委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=3436s" data-timestamp="3436"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:16</a>こちらに書かせていただいたんですけれども、みらいのこがねいとしては、提案会派の日本共産党小金井市議団にご説明いただいて、議会が重要課題と認めたことに対し、市の説明とは別に市議会の説明会を設けるためのルール化、また２番目には、市民意見を議会がどう反映するかという場を１日設けるという２点のご説明いただきました。それを会派で話し合ったところ、ルール化以前に、取り上げるテーマを議会が重要課題として一致できるのかが、まず疑問であると。そして市の計画については、全てが市民参加で策定されているので、議会として公聴会開催の必要性に対しても疑問を感じるという意見がございました。聴取した意見を議会として、また、これは今まで話したことでもあるんですが、政策サイクルとして、どのように頂いた意見を処理していくかということも、まだ話し合えていないので、今までのように議員がそれぞれ参考にする程度であれば、新たにルール化する意味がないのではないかという見解でございます。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=3498s" data-timestamp="3498"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:18</a>ありがとうございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=3506s" data-timestamp="3506"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:26</a>前回も申し上げたのですけども、公聴会・参考人制度は非常に活用すべきものだということは申し上げておきます。理念としてはそうなんですけれども、実際に広報協議会から広報・広聴協議会に今回なったということで、まだ我々もどういうものを広聴した方がいいのかというビジョンもまだできていない中で、なかなか図りにくい問題で、かなり重い内容かなと思っております。実際問題として、これを活用していくのに、どういうガイドラインで内容を取り上げるのか、それから、それをどうやってフィードバックするのかというガイドラインをつくらないと、なかなか難しいのかなと思っておりまして、理念としてはよく分かりますし、今後とも考えていかなければならない内容だと私も思いますけれども、ちょっとまだ早いのかなという感じがしております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=3580s" data-timestamp="3580"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:40</a>趣旨には賛成していただくわけですが、なかなか具体的に行うというのは難しいということだと思いますので、これは不一致ということでよろしいでしょうか。現時点でというか、協議は終了するということでよろしいですか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=3617s" data-timestamp="3617"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:17</a>では、そのようにいたします。</div>
+  <div class="say">次に、９－７、小金井をおもしろくする会の議会モニター制度の導入について。これは何か提案会派からございますか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=3642s" data-timestamp="3642"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:42</a>小金井をおもしろくする会としては、ごめんなさい、詳細には把握していないんですけども、以前から議会モニター制度の導入を提唱しております。なるべく簡単な形、簡便な形でやりたいと思っておりまして、前回も申し上げましたけれども、例えば議会だよりに限定する。それから、なるべく報酬なんかもあればあった方がいいと思いますけれども、ない形で、ボランティア的な形で市民の方に参加していただく。それから、結果については、例えばアンケートのみにするとか１回ぐらいは話を聴くとか、そのぐらいに、なるべく簡便な形で、もしそれでできるのであればやりたいなと。あともう一つは無作為抽出ですよね。前回も議会事務局の方に確認していただきましたけれども、それは一定程度、大変かなと思うので、その辺はちょっと考慮しなければいけないかなとは思っております。なるべく簡単な形で最初はやってみて、できるのであれば、ぜひとも実現したいなと思っております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=3730s" data-timestamp="3730"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:10</a>ありがとうございます。これはいかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=3743s" data-timestamp="3743"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:23</a>これまでの議論で、私は多分、選出方法は無作為抽出がよいのではないかという意見を申し上げたんですけれども、これまでのご説明や前回出していただいた資料なども拝見しますと、公募でやっているところが多いなということと、やはり無作為抽出はそれなりに手間がかかるので、まず始めてみる場合は公募でよろしいのではないかと思いました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=3772s" data-timestamp="3772"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:52</a>私は、議会モニター制度はどちらかというと後ろ向きな立場ではあるんですけれども、私もやるのであれば、無作為抽出がいいと思っております。これは私の中では大前提かなと思っております。</div>
+  <div class="say">あとは、頂いた意見をどのようにして扱っていくのかというのは、なかなか今の私の中では扱いが難しいなと思っておりまして、例えば議会だよりに限定をするとか、YouTubeに限定をするという方法は、手段としてはいいと思うんですけども、頂いたお声を採用する場合もあれば、採用できない場合もある。それは予算が限られているところもあるので、そういったことというのは多々あると思うので、私は今の段階では後ろ向きであるということは申し上げたいと思いますし、モニターを募らなくても、今でも意見を頂く場面は議会報告会だとかはありますし、市民アンケートもありますので、そういったあるものをまず積極的に活用するというところを私はやっていきたいなと考えております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=3863s" data-timestamp="3863"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:23</a>ということでありますが、どういたしましょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">安田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=3873s" data-timestamp="3873"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:33</a>議会モニター制度は基本的には賛成であります。やりやすいところからといったら、議会だよりに対するアンケートなどがとっかかりやすいのかなとは思います。なんですけれども、たくさんの提案がある中で、これを優先させるべきとは私はちょっと思わなくて、他にもいろいろなことがある中では、そこまでではないかなという感想を持っている。基本的には議会モニター制度はいいと思うのですけれども、他に優先させたいものもあるなということを思っています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吉良委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=3935s" data-timestamp="3935"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:35</a>みらいのこがねいといたしましても、やはり公募の場合は、偏った価値観、立場に基づく意見だけが強調されてしまいますと、全体の市民感覚とずれてしまうおそれがあると感じております。</div>
+  <div class="say">ただ、先ほどながとり委員がおっしゃったとおり、広報範囲の中で議会だよりやホームページなど広報に限定したものであれば、反対するものではないという意見でございます。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=3980s" data-timestamp="3980"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:20</a>皆さん、総論は賛成だけれどもというところでありまして、各論のところがあれかな。どうでしょう。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4002s" data-timestamp="4002"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:42</a>このままいくと一致か不一致かということになるのかなと思って、私の意見で言うと、きっと不一致になるのだろうなとは思うんですけれども、一旦、今ちょうど広報・広聴ビジョンというのをつくっているかと思いますので、どちらかというとこの議会モニター制度というのは、そのビジョンをどう達成させるかの手段だと思うので、今、手段をばっと決めるよりも、ビジョンを策定した中でそのビジョンを実現させていくには、やはりモニターが必要だよねとなれば、この議論はできるのかなと思うので、継続でいいのではないかと思いますけども、今のところ私は後ろ向きということは伝えておきたいと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4052s" data-timestamp="4052"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:32</a>継続ということですよね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4055s" data-timestamp="4055"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:35</a>ごめんなさい。まだ継続とか終了のところがいま一つ、まだ新人なもので分かっていないんですけれども、いずれにしても、他の提案と重なるような部分もあると思っておりまして、どのような結論になるにしても、その要素、他のところでも公聴をするわけだし、その部分で足りない部分を補うことで、もしこれが議会モニターが必要だということであれば、継続、終了にかかわらず、引き続きその要素自体は、ここにいる委員の全員で考えていければいいかなと思っております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4115s" data-timestamp="4115"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:35</a>提案会派からも継続ということでいいんですかね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4125s" data-timestamp="4125"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:45</a>ごめんなさい、言い方が紛らわしくて、申し訳ありません。できれば、継続にしていただきたい。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4131s" data-timestamp="4131"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:51</a>継続ね。清水委員からは広報・広聴ビジョンをつくる中で、検討していく中で必要性とか、そういうことも出てくる可能性もあるということで、継続でよいのではないかということでありますし、安田委員からは、たくさんある中で優先的にこれをということになるのかどうかという点では、ちょっと懸念も示されておりますので、全体は不一致というわけではありませんので、総体的には。今、言われたように継続ということで、引き続き検討していくということでよろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4183s" data-timestamp="4183"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:43</a>では、そのようにさせていただきます。</div>
+  <div class="say">続きまして、９－８ですか、れいわ新選組小金井から提案されております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">村上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4198s" data-timestamp="4198"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:58</a>９－８なんですけども、結論から言うと、取り下げさせていただこうと思っています。理由としては、８月の広報・広聴協議会で幾つかご指摘をいただいて、施設公聴ということなので、行政としての対応ではないかというご指摘をいただいて、そうなのかなというところと、あとは内容を少し変更して、協議会の柱にのっとって回していこうということもちょっと考えたんですけども、協議提案としては、先ほど団体との懇談だとかいったこともあったと思うのですが、そちらの方が目的にかなって情報を集めやすいのかなというところも考えておりますので、取り下げさせていただきます。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4260s" data-timestamp="4260"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:00</a>今、提案会派の村上委員の方から、一定団体との懇談の中でも含めて、実現が可能な状況もあるということもあって、取り下げだということでありますので、取り下げでよろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4278s" data-timestamp="4278"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:18</a>では、取り下げということで、この９－８は終了をいたします。</div>
+  <div class="say">以上で、広報広聴の協議提案書について、全て終了いたしました。皆さんの方で何かございますでしょうか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4303s" data-timestamp="4303"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:43</a>事務局でまとめ方を含めて、もう１回確認していただいて、お願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4316s" data-timestamp="4316"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:56</a>この後の流れなんですが、今、協議提案書の中で継続のものについては、また前回と同じように協議報告書をお出しいただく形で、終了につきましては結論及び理由書というのをお出しいただく形で、いずれにせよ、次回、今度は予備日にありますが、予備日以降の閉会中の委員会が決まりましたら、また締切日を併せてご案内をしたいなと思っております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4345s" data-timestamp="4345"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:25</a>ありがとうございます。</div>
+  <div class="say">では、そういうことで、提案会派の方はよろしくお願いいたします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4356s" data-timestamp="4356"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:36</a>次に、２、議会改革の調査事項についてということで、直ちに、（１）公式ホームページの各議員の紹介ページにＳＮＳも掲載するということについてであります。</div>
+  <div class="say">提案会派の小金井市議会公明党からご発言ありますか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">太田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4385s" data-timestamp="4385"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:05</a>こちらの協議項目なんですけれども、ちょっと私もうかつでして、他の自治体の中で議員紹介のページに入りますと、議員の紹介のところの上に旧Twitter、Ｘだとか、Facebookだとかのアイコンがありまして、それをクリックすると、その議員の詳細がよく分かるというようなことをお伝えしたのですけれども、実際に入ってみますと、その議員の紹介のページに行くのではなくて、単なるそのページのリンクのシェアのボタンだったということが判明しまして、そうなってくると、そのアイコンを追加するということにあまり意味がないのではないかなという気がしておりまして、そこのアイコンの部分については取下げをさせていただきたいなと思います。</div>
+  <div class="say">そうすると、この内容からいくと、あとはＵＲＬを複数記載できるようにできないかというところの部分だけだと思うんですけど、現状事務局としては、そこはいかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4482s" data-timestamp="4482"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:42</a>そのものに追加することの作業自体はできるようになっております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">太田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4491s" data-timestamp="4491"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:51</a>ということですので、そうしますと、その部分は解決しているので、これは取り下げという形にした方がよろしいかなと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4507s" data-timestamp="4507"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:07</a>太田委員のご意見は分かりました。ただ、議会事務局次長からは、別のＵＲＬを張ることはできるという答弁だったので、これをどうするかなんですよね。（「それは皆さんで決められて」と呼ぶ者あり）そうだよね。だから、今はちょっと取り下げないでいただくといいかな。（「皆さん、公平にというのはどうなのかなというのはちょっと事務局として」と呼ぶ者あり）そうですね。多分、Ｘ、Facebook、Instagram、TikTokをそれぞれお持ちで、それを全部載せることにはならないかな、公平性に欠けるようになると思うんですね。なので、例えば幾つぐらい載せられるんですかね。今は大体ホームページですか、皆さん。（「確認はしますけど、共有で多分行けてしまう」「リンクを飛ばしているだけなので」と呼ぶ者あり）だから、例えば最低の人で何種類を持っているか。例えば、FacebookとＸだけとか、Facebookだけとか、それをちょっと調査した方がいいかなと。それで、その最低のところに合わせる。例えば２種類しかやっていなかったら、それぞれ２種類までにするか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4657s" data-timestamp="4657"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:37</a>私の提案ではないので、太田委員は取り下げないで、そういったところをもうちょっと詰めていただけると、僕はこれに賛成なので、ありがたいなと思っています。事務局としても、今のＵＲＬの列をただ下に増やすだけなのか、もうちょっと違う記載方法があるのかということ、例えば、お隣の国分寺市議会ではＳＮＳ。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say">ロゴマークでね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4685s" data-timestamp="4685"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:05</a>はい。やるだとか、そういったところもまた提案というか、協議でできたらなと思いますし、アイコンの数も、例えば少ないのに合わせるのか、それとも標準にするのかとか、そういったことも前向きな検討ができたらなと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">太田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4702s" data-timestamp="4702"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:22</a>すみません、また軽々しく取り下げとか言ってしまいまして、申し訳ございません。ただ、アイコンのシェアについても、これも別にあってもいいと言えばあってもいいと思うんです、それはそれで役に立つので。なので、それも含めて、ちょっとルールづくりを１回した方がいいかなと思いました。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4729s" data-timestamp="4729"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:49</a>吹春委員はいかがですか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4738s" data-timestamp="4738"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:58</a>最初に提案を拝見したときには、確かになと思ったんですけども、ただ、他市のホームページ等を見てみると、ちょっと並べ方が、これは市のホームページではなくなってしまう感じがするなという印象を持っていました。ただ、今ご紹介いただいたように、ＵＲＬを併記するということも一つかと思いますし、やはりおっしゃるようにちょっと確認をしてみて、それでバランスを図った方がいいのかなというのが私の今の意見です。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4767s" data-timestamp="4767"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:27</a>確認するというのは、全体の議員の状況ということですか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say">はい。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4773s" data-timestamp="4773"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:33</a>ごめんなさい、吹春委員にご質問なんですけど、市のホームページでなくなってしまうということをもう少し詳しくご説明いただけますでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4784s" data-timestamp="4784"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:44</a>実際に多数のＵＲＬを掲載している市や区もございますが、そうすると、例えば選挙ドット、名前は出さない方がいいですよね。とかいうところと、あんまり変わりがなくなってしまったりとかするのはどうなのかなというのをちょっと思ったりもしました。やはり市のホームページは市のホームページとしての、そういったイメージを持った方がいいのかなと思っているところでございます。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4819s" data-timestamp="4819"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:19</a>選挙ドットコムみたいになってしまうということ。どっちにしても基礎調査はやった方がいいかなと。それぞれが幾つ持っていらっしゃるかということは調査する方向でいかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4842s" data-timestamp="4842"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:42</a>まず、幾つ持っているかということを調査することは賛成です。ただ、最低が例えば２個だったとしても、その後に、いや、僕は２個載せれば十分で、他の人はもっと載せてもいいですよということもあり得るので、その最低に合わすということは今は決めない方がいいと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say">分かりました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4862s" data-timestamp="4862"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:02</a>あとちなみに、確かによくよく見ると、私はホームページは載せていなくて、ＸのＵＲＬにしていますね。私はこっちの方が。それを考えると、確かにＵＲＬだったら何でもいいというルールだったみたいですね。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4881s" data-timestamp="4881"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:21</a>そうなんだね。Ｘなんだ、そうか。知らなかった。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4886s" data-timestamp="4886"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:26</a>ホームページも別途ありますけれども、Ｘにしています。私はそっちの方が有用だと思ったので。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4900s" data-timestamp="4900"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:40</a>ちょっと課題も幾つかあると思いますので、まずは全議員にどのぐらい持っていらっしゃるかという調査をかけるというのはよろしいですか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4912s" data-timestamp="4912"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:52</a>その後どうするかというのは、また議論すると。藤川委員からのご提案もありますので、よろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4920s" data-timestamp="4920"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:00</a>その調査用紙はどうしましょうか。太田委員に作ってもらえますか。（「いいですよ」と呼ぶ者あり）いいですか。すみませんが、作っていただいて、投げていただくとありがたいですので。それぞれの議員の件名数で。それで、ＳＮＳの種類もですよね。（「そうですね」と呼ぶ者あり）はい。</div>
+  <div class="say">では、これは引き続き継続をしていくということでよろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4955s" data-timestamp="4955"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:35</a>それでは、２、議会改革の調査事項については終了いたします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=4970s" data-timestamp="4970"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:50</a>続きまして、３、その他について行います。</div>
+  <div class="say">初めに、（１）広報・広聴協議会の在り方についてであります。</div>
+  <div class="say">９月19日に持ち帰りとなっていた２点について、各会派の報告及び協議を行いたいと思います。一つは、会議規則に加えて、議会基本条例にも広報・広聴協議会の設置を定義すること、２つ目には、委員会とするか協議会とするか、名称について持ち帰っていただいておりますので、それぞれ各会派から表明をいただければと思います。</div>
+  <div class="say">では、みらいのこがねいから、いかがでしょうか。議会基本条例にも広報・広聴協議会を定義するかどうかということと、あと名称を協議会にするのか、委員会にするのか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吉良委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5041s" data-timestamp="5041"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:01</a>ありがとうございます。みらいのこがねいといたしましては、前回も主張させていただきましたが、現在のままの地方自治法上の協議会のままでよろしいかと考えております。格上げとかではなく現状のままで。今まで広報協議会で市民の声を十分に聞けていると思いますので、委員会に変える必要はないと考えております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5071s" data-timestamp="5071"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:31</a>それと委員会にするか、名称は。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吉良委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5075s" data-timestamp="5075"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:35</a>名称も委員会に変えずに、今どおり協議会でいいという見解でおります。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say">では、自由民主党小金井。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5096s" data-timestamp="5096"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:56</a>まずは、議会基本条例に載せるかどうかということについてですけども、まず最初に申し上げておきますが、こだわりはないので、もし皆さんの方でどちらかということでは、それに従います。一応意見としては、議会基本条例に無理に掲載する必要はないかと存じます。理由としては、会議規則に沿った形でやっているということと、ただ、もし議会基本条例に載せるということになった場合は、別に急がなくてもいいのかなと。というのが、そのためだけに、議会基本条例の内容を変えるための委員会とかを発足する必要がなくて、議会基本条例は４年に１回、検証委員会が立ち上がるので、そのときに検討すればいいかと思っております。</div>
+  <div class="say">それと、委員会にするか協議会にするかですけども、これもこだわりはありませんので、大勢に従わせていただきますが、ただ、１期２年の中でもうほぼ１年が終わろうとしている現状の中で、例えば今現在は協議会でありますけど、これを委員会にするという形だと、予算的なことも含めて、今のところではいかがなものかと非常に思うところではあります。なので、できれば今期は協議会のままいった方がいいのかなと思うところでございます。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5181s" data-timestamp="5181"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:21</a>では、小金井市議会公明党。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">太田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5185s" data-timestamp="5185"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:25</a>公明党会派としましても、現状の地方自治法の協議体のままでよろしいのではないかと思っております。</div>
+  <div class="say">また、協議会か委員会かにつきましても、現状の協議会維持のままでよろしいかと考えております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5207s" data-timestamp="5207"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:47</a>続きまして、小金井をおもしろくする会。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5217s" data-timestamp="5217"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:57</a>小金井をおもしろくする会は、まず、議会基本条例に基づくものにするかどうかについては基づかない、今の現状と同じでお願いいたします。</div>
+  <div class="say">あと、名称の変更についても、現在のまま協議会とするということでお願いいたします。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5243s" data-timestamp="5243"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:23</a>続きまして、子どもの権利／情報公開。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5250s" data-timestamp="5250"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:30</a>私たちとしては、議会基本条例に基づいたもので、委員会という形にしたらいいと思っております。今日は休会なんですね。今のままだと、休会としかお知らせされておりませんで、広報・広聴協議会をやりますというお知らせもされておりません。市民の方にこれから広報広聴ビジョンなどの意見を聞いていこうということがあるとしても、いつやっているのかも分からないというような形で、日程の設定もなかなかままならないような形も続いておりますので、私はきちんとした形で位置付けていきたいと考えております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5300s" data-timestamp="5300"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:20</a>続きまして、一人会派、藤川委員から順番にお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5309s" data-timestamp="5309"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:29</a>では、小金井市政を見える化する会としましては、議会基本条例に載せずに、今のままでよいということと、委員会という名前にする必要もないと思っておりますけども、特にそこにこだわっていることではありませんので、しっかりとした委員会に格上げすべきだというお話で一致できるのであれば、そのように一致しても構わないとも思っております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say">れいわ新選組小金井。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">村上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5342s" data-timestamp="5342"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:29:02</a>最初の定義については、現状のままでいいのかなと思っています。</div>
+  <div class="say">名称については、委員会の方がふさわしいのかなと思っております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5356s" data-timestamp="5356"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:29:16</a>緑・つながる小金井、お願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5360s" data-timestamp="5360"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:29:20</a>最初の位置付けについては、要綱にも載っていますが、議会基本条例に載せてもいいと思っております。</div>
+  <div class="say">名称については、特に大きなこだわりはないんですけども、現状の協議会という呼び方でいいと考えています。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say">生活者ネットワーク。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">安田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5381s" data-timestamp="5381"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:29:41</a>議会基本条例にのっとった方がいいのかなと思っております。</div>
+  <div class="say">あと名称ですが、できれば委員会にした方がよいと考えています。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say">自民党・街の仲間たち。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5395s" data-timestamp="5395"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:29:55</a>私はいずれも現行どおりでいいかと思います。</div>
+  <div class="say">あと、一つ確認したかったのは、今の片山委員のあれで、この現行どおりでいくと、今の日程の記載はこのままになるのかどうか、そこだけ確認したいなと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5419s" data-timestamp="5419"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:30:19</a>日割表に載っている記載の名称かなと思うんですが、現時点で今こういった委員会、協議会をどうしますかという話があったもので、今日割表では休会で、右の備考欄に協議会となっております。この後どうするかは、この委員会、協議会の話がどうなるかによるのかなとは思いますが、今現行は委員会、協議会の名称をどうするかとか、議会基本条例に基づくかという話があったので、日割上は休会のところに広報・広聴協議会と記載させていただいているところでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">伏見議会事務局長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5471s" data-timestamp="5471"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:11</a>現状はそうなっているんですけど、皆さんで話し合って、位置付けがはっきりした段階で、委員会の部分に記載したいと事務局としては考えておりますので、どちらになったとしても、そういう形で載せていきたいと考えてはおりました。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5493s" data-timestamp="5493"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:33</a>位置付けがはっきりしたというのは、協議会であっても、委員会であっても、正式な委員会としてというか、協議会として、日程には載るということでよろしいですか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">伏見議会事務局長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5508s" data-timestamp="5508"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:48</a>今、座長が申し上げていただいたとおりになります。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5516s" data-timestamp="5516"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:56</a>日本共産党小金井市議団は、議会基本条例にも位置付けた方がいいのではないか。会議規則にも位置付けておいて、議会基本条例にも位置付けるということですね。</div>
+  <div class="say">それから、名称は委員会でいった方がよいのではないかということであります。</div>
+  <div class="say">ちょっと意見が分かれておりますが、多数は現状のままということなんですが、いかがいたしましょうか。（「どちらでもが２つあるんですよね。自由民主党小金井と小金井市政を見える化する会は、名称についてはどちらでもいいと」と呼ぶ者あり）こだわりはないと。どうなるんだろう。現状のまま。（「明確に示している人は５と４ですよね。委員会が４で協議会が５。ほかはどちらでもが」と呼ぶ者あり）協議会が６ですかね、委員会が４か。（「不一致」と呼ぶ者あり）不一致だね。不一致であれば、原則に戻って現行どおりということになるので、何か説明責任があんまり稚拙だな。不一致なので、協議会ということでよろしいでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5640s" data-timestamp="5640"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:00</a>確認してよろしいですか。現行といっても、一応会議規則に基づき、そして、協議会であるとしても、日程表には載るという確認は今できたということですね。</div>
+  <div class="say">あと、これまでの議論の中の確認では、視察にも行けるということで、視察の予算というのは、例えば特別委員会の場合は２年に１回という形になりますけれども、そういった形で予算化されていくということになるんでしょうか。それとも、何もそういった申請というか、求めがなければ載らないという話になるのかということの確認。</div>
+  <div class="say">また、特別委員会の場合は委員長の手当は出ているけれども、この協議会の場合はどうなっていくのかということについて、まだ多分話し合われていなかったのかなと思うんですが、どのような形なのか確認しておきたいなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5706s" data-timestamp="5706"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:06</a>視察につきましては、現状でも行けます。協議会としてでも行くのは可能でございます。ただ、予算化するかどうかは、まだその辺の議論はされていないのかなということで、お答えさせていただきます。</div>
+  <div class="say">あと、座長の報酬の関係もまだ議論がされていないのかなと思いますので、その辺もご協議いただければなと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5738s" data-timestamp="5738"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:38</a>ご指摘ありがとうございます。</div>
+  <div class="say">視察については行ける方向ではあるということですよね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">伏見議会事務局長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5752s" data-timestamp="5752"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:52</a>視察については、先ほど議会事務局次長がお答えしたとおり、行けるんですけれども、来年度については、もう予算時期を逃してしまっているというところもあり、改選もありますから、そういったことを踏まえれば、ちょっと来年度すぐというのは厳しいかなというところはございますが、その次の改選後を見越して、これからご協議いただくことなのかなと事務局としては考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5786s" data-timestamp="5786"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:26</a>分かりました。</div>
+  <div class="say">視察というか、いろいろと提案なども出てきたりとか、団体との意見交換とか、いろいろと出てきているわけです。また、他の事項もあるわけですけど、割とこの広報・広聴協議会でこういうことをやっていきたいなということを挙げていくと、結構予算がかかるものがこれから出てくるのかなと思っておりまして、こういった協議会というような形でもし続けていくということであっても、私は議会運営委員会の中でも、広報・広聴のかなり大きな部分をこちらで引き取っているというような形で、大きな位置付けというか、そういった大きな役割を背負うようなところになるのかなと考えているということは意見として申し上げておきたいと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5837s" data-timestamp="5837"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:17</a>視察はそういう形で、２年に１回というこの原則はやれるというか、可能であるということですね。ただ、例えば、来年はマイクロバスを使ったりする視察はできるわけですよね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5869s" data-timestamp="5869"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:49</a>座長がおっしゃった日帰りの視察は、来年については、もしどうしてもこちらを見てみたいというものがあれば、それは予算的には可能かなと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5882s" data-timestamp="5882"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:02</a>分かりました。</div>
+  <div class="say">問題は、手当の問題であります。これは各会派に持ち帰っていただいてよろしいでしょうか。委員長手当ではなくて、座長手当になる。何かすごい（「ここで出しましょうと言えば出るの」と呼ぶ者あり）ここで一致した上で、会派代表者会議で確認する必要があると思うんですよ、どちらにしても。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5930s" data-timestamp="5930"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:50</a>ということを確認すれば、出るという前提なんですかね。最終的に議論した結果、ルール上は無理でしたということになったら、そもそも議論する意味がないので、そこだけちょっと確認させてください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5948s" data-timestamp="5948"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:39:08</a>すみません、今日初めて出たもので、今、藤川委員がおっしゃるとおり、ルール上のところはちょっと確認をさせていただきたいなと思います。それも含めて確認させていただきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=5963s" data-timestamp="5963"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:39:23</a>当初、一番最初は特別委員会を何にするかという話のところから、この在り方についての話になっていったのかなと思っておりまして、いろんな議論があった中で、特別委員会という形にはならないということにはなったわけです。だけれども、今実際、特別委員会の委員長手当は出るという形で整理をされております。実際に今は一つの特別委員会しかないので、一つの特別委員会の委員長手当しか出ていないという状況で、委員長手当が一つは浮いているような状況になっているかなと思っておりますので、予算としては実際はあるのかなとは思っております。ただ、広報・広聴は協議会という形になるのか分からないですけど、その方が今意見が多かったという話ではあったということではあるんですけれども、今後、また特別委員会が来年度に設置されるかどうかは分かりませんが、私は位置付けとして、先ほど申し上げたように、議会運営委員会の中でもかなり大きな部分を引き受けているような形に整理をされてきているということからも、きちんとした委員長報酬を出していくという形にしていった方がいいのではないかということは、意見としては申し上げておきたいなと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6047s" data-timestamp="6047"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:47</a>すみません、私がルール上と申し上げたのは、費用弁償の関係の条例に協議会の座長という記載がないので、今は正副議長と常任委員長と議会運営委員会の委員長と、あと特別委員長というのがあるんですね。その辺も含めてちょっと確認させていただきたいという意味です。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6066s" data-timestamp="6066"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:41:06</a>分かりました。</div>
+  <div class="say">でも、それはもう規則上に載っていなければ難しいのではないですか。（「改正」と呼ぶ者あり）改正するかどうかだね。（「皆さんの一致」と呼ぶ者あり）一致してね。（不規則発言あり）でも、それは一応持ち帰らないとまずいですよね。（「そうですね、皆さんの中では。また同時に我々が条例の確認を」と呼ぶ者あり）それを改正するかどうか。持ち帰りでよろしいですか。（「次でいいですか、予備日じゃなくて」と呼ぶ者あり）次でいい。（「持ち帰りの日にちは閉会中でいいですか」と呼ぶ者あり）はい、閉会中で。</div>
+  <div class="say">では、委員長手当、協議会座長手当については持ち帰り、視察は一応２年に１回は行う方向で、しかし、今回はできないというか、日帰りの視察はいいということ。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6154s" data-timestamp="6154"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:34</a>今の座長のご発言の確認になるんですけども、今行けるのは、マイクロバスの予算を使って日帰りで行くと。予算を新たに伴うものについては、これから協議だと思っておりまして。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6166s" data-timestamp="6166"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:46</a>そうか、まだ決まっていなかったか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6168s" data-timestamp="6168"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:48</a>私の認識では。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say">そうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6170s" data-timestamp="6170"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:50</a>私も今の時点で特別委員会が一つしかなくて、一つの予算が空いているとはいえ、いつまた特別委員会ができるかもしれないという可能性もあります中では、やはり私の認識としては増額要求になるのかなと思っているんです。増額で何かを要求するのであれば、それなりに根拠なり、説明責任を伴うと思っておりますので、その時点については、私はこれからまた協議をしていきたいと考えています。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6199s" data-timestamp="6199"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:43:19</a>なるほど、分かりました。</div>
+  <div class="say">では、２年に１回視察をするかどうかは協議をするということ。（「まだ結論が出ていないと思うので」と呼ぶ者あり）協議をすると。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6213s" data-timestamp="6213"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:43:33</a>まだ、新たに予算をつけて、泊りで宿泊視察をするということについては、確認できていないと認識をしているので、その確認と。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6225s" data-timestamp="6225"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:43:45</a>それを今した方がいいということですか。そうではないよね。今後の議論だよね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6229s" data-timestamp="6229"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:43:49</a>なので、今後の議論だと思っているという認識でいます。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6237s" data-timestamp="6237"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:43:57</a>そうだと思います。ただ、複数会派のところは議論も含めてというか、持ち帰らないと結論を持ってこられないと思うんですよ。増額で視察に行くかどうかということについては持ち帰りにしないと、協議してから持ち帰るのか、それとも、もう持ち帰った方がいいか、そこの判断はどうですか。ここで一旦もう少し議論して、それから持ち帰るかなんですが。ただ、やるかやらないかという判断かなとも思うので、何かもう少し詰めた方がいいですか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6284s" data-timestamp="6284"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:44</a>そこまでもまだ行っていないような気がしていて、できれば、私ども小金井をおもしろくする会としては、ビジョンが決まってから考えさせていただきたいなと思っております。視察が必要か必要でないかというのは、我々がどういう調査をするかどうかだと思っておりまして、可能であれば、今はもう議論せず、広報広聴ビジョンが決定してから改めて考えさせていただきたいというのが、小金井をおもしろくする会の意見でございます。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6317s" data-timestamp="6317"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:17</a>なるほど。今そういうご意見もありました。広報広聴ビジョンが確定をしてから、視察をする必要があるかどうかの議論をした方がいいのではないかと。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6330s" data-timestamp="6330"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:30</a>私は視察をやるやらないではなくて、何を見たいから視察に行くのかというのが大前提かなと思っているので、当初は広報広聴ビジョンを決めるときに、いいビジョンがあるかどうかというのを見に行きたいというのは申し上げたんですけども、今はもう進んでいる中なので、広報広聴ビジョンを決めて、具体的なアクションプランなりを考えるときに、こういう取組がいいよねという具体的なものを見るときに視察、マイクロバスで行けるところであれば、まずそこを考えながら検討をしていきたいと思うので、まずは広報広聴ビジョンの策定かなと考えております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6366s" data-timestamp="6366"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:46:06</a>ということなので、ちょっと視察についてはいかがですか。広報広聴ビジョンを確定してから視察の問題は議論するということで、よろしいでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6385s" data-timestamp="6385"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:46:25</a>最初はそういった話も出ていたので、これはたしかあったと思いますので、それはそれでいいんですが、ただ、例えば議会運営委員会の方でも、今視察の提案をいろいろしていて、議会報告会というのは広報・広聴協議会の所掌になっております。ですので、議会運営委員会で、これまで多分議会モニター制度なんかも見に行っていたと思うんですよ。また、議会報告会も他のところを見に行ったりとか、広聴関係というのを結構見に行っていたんですが、そういったものがこの広報・広聴協議会の所掌になったということで、整理をされていっていると思いますので、私はそういった点からも、私たちのやれることは何かというのをきちんと考えていくべきかなと思っております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6436s" data-timestamp="6436"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:47:16</a>それは、今すぐ考えるということでなくてもいいですかね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say">もちろんです。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6440s" data-timestamp="6440"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:47:20</a>ですよね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6443s" data-timestamp="6443"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:47:23</a>今はもう予算は。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6443s" data-timestamp="6443"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:47:23</a>そうそう、ないからね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say">予算の時期ではない。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6448s" data-timestamp="6448"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:47:28</a>そうだね。それでは、視察については、広報広聴ビジョンを確定してからということにしたいと思います。</div>
+  <div class="say">そして、座長の手当については、事務局でも一定確認をしていただくということと、併せて各会派に持ち帰っていただいて、結論をお持ちいただければと思いますが、もう予算要求は終わっているので、来年度から手当をつけるというのは多分難しいと思います。なので、実施するとしたら、再来年度からになるかと思いますが、局長はいかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">伏見議会事務局長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6492s" data-timestamp="6492"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:12</a>今ご苦労されている座長には申し訳ないんですけども、そのようなことになろうかと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6502s" data-timestamp="6502"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:22</a>ということでありますので、急がないけれども、しっかり結論を出していくということで、よろしくお願いいたします。</div>
+  <div class="say">それでは、広報・広聴協議会の在り方については結論が出ましたので、会派代表者会議にご報告をしたいと思いますが、よろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6527s" data-timestamp="6527"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:47</a>では、よろしくお願いいたします。</div>
+  <div class="say">次に、（２）傍聴者アンケート集計結果についてを行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6543s" data-timestamp="6543"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:03</a>アンケートについては、皆さんにご覧いただいていると思います。よろしければ、この後、ホームページに掲載させていただきたいと思いますので、よろしくお願いいたします。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6557s" data-timestamp="6557"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:17</a>何かアンケートでございますか。（不規則発言あり）送ってもらったよね。（「先週送ってます」「見ました」と呼ぶ者あり）そうですよね。どこにあるかとか分からないところはどんどん聞いてくださいね。（「抱え込んじゃうからね」と呼ぶ者あり）そう、抱え込まないで。抱え込んでしまうんだよね、私だけが知らないのではないかみたいに思ってしまうけど、ぜひぜひそれはよろしくお願いいたします。</div>
+  <div class="say">それでは、傍聴者アンケート集計結果については、いろんな意見が出ていまして、これをどうするかというのはなかなかね、いっぱいいっぱい意見があって難しいなと思いますが、また、この中で、何かこの意見はもっと取り上げた方がいいのではないかということがありましたら、皆さんの方でご提案いただければと思いますので、よろしくお願いいたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6629s" data-timestamp="6629"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:29</a>傍聴者アンケートは、１月21日から10月７日までという形でまとめられているとは思うんですけれども、今回はかなり自由意見が多いと思うんです。これまでも一定、自由意見というのはいろいろとあったわけなんですが、今回はまたかなり多いと思っています。これはここだけにとどまらないで、やはりきちんと全議員で把握するということを私はするべきだと思うんですよ。あまりこの広報・広聴協議会で出しましたと、こうしようと出しました、それでまたホームページにも上げましたというだけで終わるものなんだろうかと考えるぐらい、非常に厳しい意見を頂いていますので、これは本来は全議員に配布して、きちんと把握していただいて、一定のところで意見交換をするとか、そういったことをするべきものかなと考えます。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6691s" data-timestamp="6691"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:51:31</a>ありがとうございます。</div>
+  <div class="say">それで（６）で、市議会でどのような取組があれば、傍聴の機会が増えると思いますかというところで、具体的なご提案もしていただいています。Instagram、TikTokの開設を含めてちょっとあります。これらは広報・広聴に関わるところかなと、広報が不足しているのではないかというお声も頂戴しておりますので、この辺りは片山委員がおっしゃるように、私たち広報・広聴協議会の中でもよく見ていただいて、どうしたらいいかというのは考える必要があるし、これは全議員に配られますよね。違いましたか。（「配られない」と呼ぶ者あり）配られないんだっけ。（「ホームページに載る」「ホームページに載せましたという情報提供はある」「見ているかどうか分からないですよね」「前は議会運営委員会で確認して載せていたので、それが今回広報・広聴が来たので」と呼ぶ者あり）ここで確認して。（「今回確認したら載せるという形」と呼ぶ者あり）</div>
+  <div class="say">では、各会派はお帰りになりましたら、この結果をぜひ見てほしいと、ホームページに上がるので見てほしいということはお伝えいただきたいと思います。よろしくお願いいたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6780s" data-timestamp="6780"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:53:00</a>今座長がおっしゃったように、そういった市民からの意見提案があるわけです。そういったところについては、これはもう１回、次の広報・広聴協議会などでも少し詳しく議論してもいいのではないかなと思いますけれども、いかがでしょうか。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6799s" data-timestamp="6799"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:53:19</a>（６）の広報・広聴に関わるところですよね。Instagramを開設せよというのが結構ありまして、なので、ここの辺りを含めてありますので、どうしましょうか。閉会中のときでも、もう少し議論していくということでいかがでしょうかね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6842s" data-timestamp="6842"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:54:02</a>例えば（６）もそうなんですが、（８）などでも、予備日に複数の委員会と協議会が開かれたことを、YouTubeを見て後から知りましたということがあるわけです。予備日というのがいつも何をやっているかよく分からないというか、進行が直前にならないとなかなか決まらないということはあるとは思うんですけれども、市民の方への広報の仕方というのは、やはり工夫をすべきなのではないかなとは前々から思っておりまして、そういったことについての検討なども、こういったご意見を基にちょっと検討するものがあるのかなと考えるところです。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6881s" data-timestamp="6881"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:54:41</a>問題意識を持っている議員の方から、その辺りはご提案いただいて。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6891s" data-timestamp="6891"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:54:51</a>私もいろいろこれを見て、こうしたい、ああしたいというのはあるのでございますけども、あれですかね、再度議員提案というか、何だっけ。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6903s" data-timestamp="6903"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:03</a>協議提案。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6903s" data-timestamp="6903"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:03</a>協議提案というのができるのであれば、そこでご提案いただくのが一番ベストかなと思っています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6914s" data-timestamp="6914"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:14</a>今日はアンケートが示されていて、議題に上がっているというか、その他のところで上がっているわけです。ですので、ここで一定こういった意見があった、これについては何らか対応をした方がいいのではないかということを、協議というか、提案というか、そういったことができる機会かなと思っております。ただ、非常に意見が多いものですから、また改めてやったらどうかということを私は申し上げているというところであります。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6952s" data-timestamp="6952"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:52</a>議員提案でやるか、正副座長の方で相談させていただいて、こういう意見が出ているけれどもどうかという正副座長提案という形も一つかなと思いますが、どうでしょうか。もしやるとしたら。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=6981s" data-timestamp="6981"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:56:21</a>座長からありがたいご提案をいただきましたので、そうしていただけると議論が進みやすいかなと思いました。</div>
+  <div class="say">議会に対する市民からの意見・要望についての対応フロー図では、議長等で仕分けるというような手続がありますので、広報・広聴協議会で頂いた意見については、座長でちょっと案を出していただいて、仕分けていただきながら、今後どうやって対応していくかというのを協議できるとよろしいかと思いました。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7006s" data-timestamp="7006"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:56:46</a>そうですね。では、正副座長で相談して、皆さんにご提案できればと思いますので、よろしくお願いいたします。提案できればいいけど。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7019s" data-timestamp="7019"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:56:59</a>今座長がそのように提案してくださったので、そのような形で提案できるものがあればいいなとは思いますけれども、ただ、それが別に委員の方からは何も意見が言えないということではないので、こういった機会のところで、ここについては問題意識があるというようなことは、発言する機会があるのではないかなと私は思っております。清水委員がさっきおっしゃったように、個別に提案書としてまとめるというのは、もちろんいいんですよ。それはそれで一つの手段としてあります。ただ、ここで議題に上がっているわけですから、このアンケートについて、このように感じているとか、こういったことについてはやはりきちんと捉えなければいけないというようなご意見というのは言えるような場ではないかなということだけ、一応申し上げておきたいと思っております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7081s" data-timestamp="7081"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:58:01</a>それでは、そういうことで、傍聴者アンケート集計結果については終了いたします。</div>
+  <div class="say">続きまして、（３）の閉会中の日程でありますが、その前に（４）のその他で、議会報告会を先にやってもいいですか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7097s" data-timestamp="7097"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:58:17</a>それでは、議会報告会について、資料が提出されておりまして、これはどなたが。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7108s" data-timestamp="7108"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:58:28</a>それでは、議会報告会実行委員会の方から、本日は、たゆ委員長がメンバーではございませんので、私の方で代理に報告をさせていただきます。あと、お配りした１枚半ですね、これで決まっているところと決まっていないところが、申し訳ございません、まだございますので、その都度ご説明いたします。日程につきましては、来年の１月17日、土曜日、同じ日に２回やります。１回目が13時から桜町の上水会館、２回目が19時からの宮地楽器小ホールで行います。１回目の上水会館と２回目の宮地楽器ホールでは若干やり方が変わりまして、まず、上水会館においては、開会あいさつ、その後に議会報告を行うことといたします。厚生文教委員会、建設環境委員会、総務企画委員会、庁舎等建設及び公共施設マネジメント推進調査特別委員会、この委員会の報告をして、その後に質疑応答をしまして、その後は、上水会館では報告に関するかどうかを問わず、気になる議会の内容についてフリートークをするという形で行ってまいります。19時からの宮地楽器小ホールについては、今までと同様で、開会あいさつの終わりに議会報告として、厚生文教委員会、建設環境委員会、総務企画委員会、庁舎等建設及び公共施設マネジメント推進調査特別委員会のご報告をいたします。その後、質疑応答の後、ご報告をした４つのテーマ、厚生文教委員会であれば公立保育園など、建設環境委員会であれば都市計画道路など、総務企画委員会についてはＤＸの推進の取組、違いましたか。（「フリー」と呼ぶ者あり）総務企画委員会はフリーだっけ。（「ここにはフリーと書いてある。テーブルトーク」と呼ぶ者あり）今は小金井 宮地楽器ホール。小金井 宮地楽器ホールはテーマごとに島をつくってやるんです。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7246s" data-timestamp="7246"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:00:46</a>清水委員、一応ざっと報告してもらっていいですか。報告した上で、もし違いがあれば。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7252s" data-timestamp="7252"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:00:52</a>ごめんなさい、私もちょっと把握していないところもあるので、副座長の方からフォローをいただければと思います。失礼しました。厚生文教委員会は保育園、建設環境委員会は都市計画道路、庁舎等建設及び公共施設マネジメント推進調査特別委員会は庁舎等建設等、そして、総務企画委員会についてはフリーというテーマで意見交換をしていただきます。まず、ここが大きな流れとなっております。</div>
+  <div class="say">続いて、２枚目にいきますと、役割分担というところでございます。役割分担は、今ちょうどたゆ委員長の方で、この方はこっち、この方はこっちというまず基本案を示させていただきまして、その後に、午前はちょっとタイミングが悪いので午後とか、そういう個別の変更をしていただければと思いますので、そのことについては、今月の15日に結論を示す予定ですので、ちょっとお待ちいただければと思います。申し訳ありません。ここに名前が記載されているものについては、一応この内容でいきたいということで、司会を片山副座長と中井議員にやっていただこうということであります。</div>
+  <div class="say">続いてが、３枚目の事前宣伝、いわゆる宣伝駅頭です。こちらを武蔵小金井駅の南北、東小金井駅の南北で行います。武蔵小金井駅につきましては、１月８日、木曜日の夜６時から７時、東小金井駅の南北については、翌日１月９日、金曜日の夜６時から７時としております。こちらは両日とも参加者は、まず実行委員の方で割り振りをしましたので、今日、会派にお持ち帰りいただきたいのは、複数会派であればちょうどうまく割れるように、希望日を出していただければなと思っておりますので、まず、よろしくお願いいたします。あと、当日に会派レポートを配布する予定なんですけども、その会派レポートの在り方というか、今まで１人の面積案分だとか、いろいろやっていたかと思うんですが、それも昨日の実行委員会でも熱心に議論をいたしましたので、その結果についても、12月15日に結論を出す予定ですので、よろしくお願いいたします。</div>
+  <div class="say">あと、建設環境委員会、総務企画委員会、厚生文教委員会、庁舎等建設及び公共施設マネジメント推進調査特別委員会の正副委員長の皆さんは、委員会報告を行っていただきますので、パワーポイントも含めた提出を１月７日までに、もう完成版として提出をいただければと思いますので、それまでに各委員会内での調整等を含めて、よろしくお願いいたします。</div>
+  <div class="say">あと、まだこれも実行委員会で打合せをしているんですけど、例えばこの間はちょっとあれだった、Ｘで動画をちょっと作ってみるだとか、フォロワー数をやはり広げるというのはそういう取組も必要だと思いますので、そういうことをやったりしております。あと、チラシにつきましても、皆さんからたくさんご意見を頂いたと伺っておりますので、全て反映させていただきましたので、御礼申し上げたいと思います。何かフォローがあれば、片山委員、お願いいたします。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7478s" data-timestamp="7478"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:04:38</a>では、片山委員は何かありますか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say">大丈夫です。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7485s" data-timestamp="7485"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:04:45</a>いいですか。皆さんの方で何かありますでしょうか。</div>
+  <div class="say">会派レポートは、今まではＡ４、１面が１人ということで、会派の人数に応じてやっている場合もあったんですけど、その辺りは。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7502s" data-timestamp="7502"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:05:02</a>基本的に結論は実行委員会内でまた、今会派で持ち帰っている部分もあるのかなと思うので、お伝えはしたいんですけども、基本的に一人会派と複数会派で分けることになりそうでして、一人会派は基本的にＡ４両面、複数会派については最大Ａ３両面ということで、複数であってもＡ４の両面でもいいし、マックスＡ３の１枚の両面でもいいという形に今議論が進んでいるところであります。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7535s" data-timestamp="7535"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:05:35</a>ありがとうございます。</div>
+  <div class="say">分かりますか。各会派のレポートを、当日皆さんにお渡しできるようにしているので、これはいつまでに提出とかというのは決まっているんですか、会派レポート。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7560s" data-timestamp="7560"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:06:00</a>それは当日持参という形になりますので、大丈夫ですよね。たしか当日配るにしてもかるた取りをやっていたので。（「まだ決めてない」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7570s" data-timestamp="7570"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:06:10</a>まだ、決めていない。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7570s" data-timestamp="7570"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:06:10</a>決まり次第、またご報告をしたいと思いますので、まず、お持ち帰りいただきたいのは、会派の駅頭の配分ですね。一人会派の方は希望していただいて、そこで全体を見て、またいろいろ入替えはさせてもらえたらなと思いますので、まず、たゆ実行委員長の方に結果をよろしくお願いいたします。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7590s" data-timestamp="7590"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:06:30</a>分かりました。</div>
+  <div class="say">では、駅頭は１月８日、９日の午後６時から７時ですね。（「はい」と呼ぶ者あり）よろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7602s" data-timestamp="7602"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:06:42</a>これは確認いたしました。</div>
+  <div class="say">あと、内容については、それぞれ持ち帰っていただいているのと、委員を出していない会派はどういうふうにしたらいいですか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7618s" data-timestamp="7618"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:06:58</a>ありがとうございます。基本的に実行委員ではない方につきましては、今たゆ実行委員長の方で、どっちがいいかなと配分をさせていただいておりますので、どちらかというと、上水会館よりも宮地楽器ホールの方がちょっと手厚い人数になっているかなと思いますので、近々にまた委員長からご報告させていただきます。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7641s" data-timestamp="7641"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:07:21</a>分かりました。</div>
+  <div class="say">何か他にございますか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7650s" data-timestamp="7650"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:07:30</a>清水委員、報告ありがとうございます。たくさんの報告で大変だったと思います。今報告にあったように、上水会館は若干狭いというか、少し小さなスペースということもありまして、テーブルトークに分けないわけなんですけれども、やはり宮地楽器ホールの小ホールの方はいつもと同じような形で、テーブルに分けていくということもありますので、やはり助っ人が必要かなと思っております。実行委員が６人ということで、かなりいっぱいいっぱいということもあったりとかありますので、ぜひ皆さんのご協力をいただければなと思っておりますので、どうぞよろしくお願いいたします。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7693s" data-timestamp="7693"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:08:13</a>それでは、議会報告会についての報告はよろしいでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">安田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7706s" data-timestamp="7706"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:08:26</a>ご説明ありがとうございました。すみません、ちょっと細かいことなのですけれども、カラーペン30本以上、黒は必ずなんですが、いつも付箋に意見を書いてもらうときに、黄色のペンとかで書かれてしまうとすごく判読性が落ちるので、ペンは基本的に黒がいいなと思っております。私も黒いペンを持っていますので、お貸しすることはできますということは、一応申し上げておきますというのと、あと、やはり街宣も含めて、そうやって私物を持ち込むことが結構多くて、のぼりスタンドがなくなったりとかということが過去にあったので、今回もちょっと新しく借りていた方もいますので、その辺の私物の管理というか、借りるものの管理というのはしっかりした方がいいという注意喚起をしていただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7751s" data-timestamp="7751"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:09:11</a>安田委員、ありがとうございます。ペンについては、実行委員会に持ち帰りたいなと思います。あと、議会報告会、街宣駅頭とか含めて、私物でちょっと見当たらなくなっているのが２件あるので、なるべく事務局のものを使いますので、６セットはもうあるということですので、基本的にはのぼり・ポール・脚は事務局のものを使ってまいりますので、よろしくお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">安田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7792s" data-timestamp="7792"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:09:52</a>ありがとうございます。ペンなんですけど、すみません、カラーである必要はないのかなと思っていまして、付箋がカラーでカラフルで、かわいいのはいいのですけども、ペンはもう黒で予算要求して、その他は必要か分からないのですけども、議会報告会とか、この間も主権者教育でも使うということもあったけれども、やはり黒のサインペンというのはちゃんとしっかり買って、所持しておくのがいいのではないかという意見を、一応お伝えさせていただきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7826s" data-timestamp="7826"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:10:26</a>ありがとうございます。現時点で黒がそこまでないというのが現状なので、でも、ご意見は本当に分かるので、色ペンには黒以外にも青とか茶色があったので、なるべく黒に近いものを今回は代用して、（「黄色のペンは隠しましょう」と呼ぶ者あり）黄色のペンは箱から出すと、そういうことも持ち帰りたいと思います。あと、ペンを買う買わないは、また予算要求なのかなと思っております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7852s" data-timestamp="7852"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:10:52</a>清水委員、ご報告ありがとうございました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7852s" data-timestamp="7852"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:10:52</a>この当日資料（会派レポート）のイメージがちょっとまだつかめていないので、これは先に様式を頂いて書いて、印刷して持って行く。（「また後で、フォローします」と呼ぶ者あり）分かりました。では、よろしくお願いします。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7877s" data-timestamp="7877"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:11:17</a>会派レポートは自由なので、またいろいろアドバイスをお願いいたします。</div>
+  <div class="say">他にありますでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7890s" data-timestamp="7890"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:11:30</a>役割分担のところを見ていただくと分かるんですが、総務企画委員会の報告を両方の会場で、たゆ副委員長にお願いすることになっておりまして、私が所用でこの日はちょっと欠席させていただくということが、もう予定が入っておりましてということで、ご了承いただきたいということで、お願いいたします。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7912s" data-timestamp="7912"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:11:52</a>ご丁寧にありがとうございます。では、それは確認済みでよろしいですか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7920s" data-timestamp="7920"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:12:00</a>以上で、議会報告会については終了させていただきます。</div>
+  <div class="say">最後に、次回の開催についてであります。（「座長、予備日にやられますので」と呼ぶ者あり）そうか。では予備日のときでいいですか。（「はい」と呼ぶ者あり）では、予備日のときでよろしいですか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">森戸座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=igN0xwwr7UQ&t=7942s" data-timestamp="7942"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:12:22</a>それでは、今日はこれで他にありますか。ないですか。</div>
+  <div class="say">それでは、以上で、広報・広聴協議会を終了いたします。</div>
+  <div class="say">午後３時09分閉会</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+</body>
+</html>
