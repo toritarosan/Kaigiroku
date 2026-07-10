@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>会議録に質問（β） — 小金井市議会 非公式会議録</title>
+<meta name="description" content="小金井市議会の会議録(2013年〜)に自然な言葉で質問できます。回答には公式会議録への出典リンク付き（非公式・β版）。">
+<style>
+:root{
+  --navy:#157a4b; --navy-soft:#e7f4ec; --pop:#e8482a;
+  --bg:#fbf9f4; --surface:#fff; --ink:#1a1a1a; --text:#333; --muted:#666;
+  --line:#e6e6e6; --border:#ccc; --radius:2px;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--text);line-height:1.6;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;}
+.topbar{height:6px;background:var(--navy);}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 64px;}
+header.h{padding:26px 0 8px;}
+header.h .kicker{font-size:.72rem;letter-spacing:.2em;color:var(--navy);font-weight:700;margin:0 0 6px;}
+header.h h1{font-size:1.5rem;font-weight:900;color:var(--navy);margin:0;}
+header.h p.tag{margin:8px 0 0;color:var(--muted);font-size:.82rem;}
+header.h a.back{display:inline-block;margin-top:10px;color:var(--navy);font-weight:700;font-size:.82rem;text-decoration:none;}
+header.h a.back:hover{text-decoration:underline;}
+.askbox{margin:16px 0 8px;}
+.askbox textarea{width:100%;min-height:72px;padding:13px 15px;font-size:1rem;font-family:inherit;color:var(--ink);
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);outline:none;resize:vertical;}
+.askbox textarea:focus{border-color:var(--navy);box-shadow:0 0 0 3px var(--navy-soft);}
+.askrow{display:flex;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap;}
+.askrow button{background:var(--navy);color:#fff;border:none;font-family:inherit;font-weight:700;font-size:.92rem;
+  padding:11px 26px;border-radius:var(--radius);cursor:pointer;}
+.askrow button:hover{opacity:.9;}
+.askrow button:disabled{background:#aaa;cursor:default;}
+.askrow .count{font-size:.74rem;color:var(--muted);}
+.hint{margin:8px 2px 0;color:var(--muted);font-size:.74rem;}
+.examples{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0;}
+.ex{background:transparent;border:1px solid var(--border);color:var(--text);font-family:inherit;font-size:.76rem;
+  padding:5px 11px;border-radius:999px;cursor:pointer;}
+.ex:hover{background:var(--navy-soft);border-color:var(--navy);color:var(--navy);}
+.status{margin:18px 2px 6px;color:var(--muted);font-size:.84rem;}
+.answer{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;margin-top:10px;
+  font-size:.92rem;line-height:1.9;white-space:pre-wrap;word-break:break-word;}
+.answer .cite{color:var(--navy);font-weight:700;text-decoration:none;}
+.answer .cite:hover{text-decoration:underline;}
+.sources{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);}
+.sources h2{font-size:.8rem;color:var(--muted);margin:0 0 8px;font-weight:700;}
+.sources ol{margin:0;padding-left:1.4em;font-size:.8rem;}
+.sources a{color:var(--navy);}
+.card{display:block;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:13px 15px;margin-top:10px;text-decoration:none;color:inherit;}
+.card:hover{border-color:var(--navy);}
+.card .row1{display:flex;align-items:center;gap:9px;flex-wrap:wrap;}
+.card .date{font-variant-numeric:tabular-nums;font-weight:700;font-size:.78rem;color:var(--ink);}
+.card .who{font-size:.78rem;color:var(--navy);font-weight:700;}
+.card .snip{margin:5px 0 0;font-size:.84rem;line-height:1.7;}
+.morelink{display:inline-block;margin-top:12px;color:var(--pop);font-weight:700;font-size:.84rem;text-decoration:none;}
+.morelink:hover{text-decoration:underline;}
+.notice{background:var(--navy-soft);border-radius:var(--radius);padding:10px 14px;margin-top:10px;font-size:.8rem;}
+.footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.74rem;line-height:1.8;}
+.footer a{color:var(--navy);font-weight:700;}
+@media(max-width:560px){header.h h1{font-size:1.25rem;}}
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+<div class="wrap">
+  <header class="h">
+    <p class="kicker">KOGANEI CITY COUNCIL — UNOFFICIAL</p>
+    <h1>会議録に質問（β）</h1>
+    <p class="tag">2013年以降の小金井市議会 公式会議録（1,562会議・約20万発言）に、自然な言葉で質問できます。回答には出典リンクが付きます。</p>
+    <a class="back" href="index.html">← 会議一覧に戻る</a>
+  </header>
+
+  <div class="askbox">
+    <textarea id="q" maxlength="200" placeholder="例: 渡辺大三議員の発言の傾向を教えて／ごみ処理施設について話している発言は？&#10;（キーワードだけ入れると全文検索になります）"></textarea>
+    <div class="askrow">
+      <button id="go">質問する</button>
+      <span class="count"><span id="len">0</span>/200字</span>
+    </div>
+    <div class="examples">
+      <button class="ex">渡辺大三議員の発言の傾向を教えて</button>
+      <button class="ex">森戸よう子議員の発言は多い？</button>
+      <button class="ex">庁舎建設</button>
+    </div>
+    <p class="hint">AIの回答は要約・推測を含む非公式の補助情報です。必ず出典リンク先の公式会議録をご確認ください。</p>
+  </div>
+
+  <div id="status" class="status" style="display:none;"></div>
+  <div id="out"></div>
+
+  <div class="footer">
+    このページは非公式です。回答はAI（機械処理）によるもので、小金井市議会の公式見解ではありません。
+    質問の内容はサービス改善のため匿名で記録されることがあります。個人情報は入力しないでください。
+    ／ <a href="search.html">全文検索</a> ・ <a href="list.html">会議一覧</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var API = "https://nagatori-gijiroku-qa.hf.space/ask";
+  var q = document.getElementById('q'), go = document.getElementById('go');
+  var status = document.getElementById('status'), out = document.getElementById('out');
+  var len = document.getElementById('len');
+
+  q.addEventListener('input', function(){ len.textContent = q.value.length; });
+  document.querySelectorAll('.ex').forEach(function(b){
+    b.addEventListener('click', function(){ q.value = b.textContent; len.textContent = q.value.length; ask(); });
+  });
+  go.addEventListener('click', ask);
+  q.addEventListener('keydown', function(e){
+    if((e.ctrlKey||e.metaKey) && e.key==='Enter'){ ask(); }
+  });
+
+  function esc(s){ var d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
+
+  function renderAnswer(d){
+    var urls = {};
+    (d.sources||[]).forEach(function(s){ urls[s.n] = s.url; });
+    var html = esc(d.answer).replace(/\[(\d+)\]/g, function(m, n){
+      return urls[n] ? '<a class="cite" href="'+urls[n]+'" target="_blank" rel="noopener">['+n+']</a>' : m;
+    });
+    var src = '';
+    if((d.sources||[]).length){
+      src = '<div class="sources"><h2>出典（公式会議録）</h2><ol>' +
+        d.sources.map(function(s){
+          return '<li id="src'+s.n+'"><a href="'+s.url+'" target="_blank" rel="noopener">'+esc(s.meeting)+'</a></li>';
+        }).join('') + '</ol></div>';
+    }
+    out.innerHTML = '<div class="answer">'+html+src+'</div>' +
+      '<div class="notice">この回答はAIが会議録の抜粋・集計から生成した非公式の要約です。正確な内容は出典リンク先の公式会議録でご確認ください。</div>';
+  }
+
+  function renderSearch(d){
+    var cards = (d.hits||[]).map(function(h){
+      return '<a class="card" href="'+h.url+'" target="_blank" rel="noopener">' +
+        '<div class="row1"><span class="date">'+esc(h.date)+'</span><span class="who">'+esc(h.speaker)+'</span></div>' +
+        '<p class="snip">'+esc(h.excerpt)+'…</p></a>';
+    }).join('');
+    out.innerHTML = '<div class="status">「キーワード検索」として処理しました（AIは使っていません）。ヒット '+d.total_hits+'件</div>' +
+      cards + '<a class="morelink" href="'+d.search_url+'">すべての結果を全文検索ページで見る →</a>';
+  }
+
+  function ask(){
+    var text = q.value.trim();
+    if(!text) return;
+    go.disabled = true;
+    out.innerHTML = '';
+    status.style.display = 'block';
+    status.textContent = '考えています…（サーバー起動直後は1分ほどかかることがあります）';
+    fetch(API, {method:'POST', headers:{'content-type':'application/json'},
+                body: JSON.stringify({question: text})})
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        status.style.display = 'none';
+        if(d.type === 'answer'){ renderAnswer(d); }
+        else if(d.type === 'search'){ renderSearch(d); }
+        else { out.innerHTML = '<div class="answer">'+esc(d.message||'回答できませんでした。')+'</div>'; }
+      })
+      .catch(function(e){
+        status.style.display = 'none';
+        out.innerHTML = '<div class="answer">接続できませんでした。時間をおいて再度お試しください。（'+esc(String(e))+'）</div>';
+      })
+      .finally(function(){ go.disabled = false; });
+  }
+})();
+</script>
+</body>
+</html>
