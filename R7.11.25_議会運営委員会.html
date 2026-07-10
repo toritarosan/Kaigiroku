@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和7年11月25日 議会運営委員会</title>
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#1d3a63; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* 直接URLで開いた時だけ最上部に「会議一覧に戻る」帯（index分割ビュー内では非表示） */
+  .backbar-top{display:none;}
+  body.standalone{padding-top:40px;}
+  body.standalone .backbar-top{display:flex; align-items:center; gap:6px; position:fixed; top:0; left:0; right:0;
+       z-index:60; height:40px; padding:0 18px; background:var(--navy); color:#fff; font-family:var(--sans);
+       font-size:13px; font-weight:700; text-decoration:none; letter-spacing:.04em; box-shadow:0 1px 4px rgba(0,0,0,.15);}
+  body.standalone .backbar-top:hover{background:#294f86;}
+  body.standalone .prog{top:40px;}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+</style>
+</head>
+<body>
+<a class="backbar-top" href="index.html">← 会議一覧に戻る</a>
+<script id="backbar-js">(function(){try{if(window.self===window.top)document.body.classList.add('standalone');}catch(e){document.body.classList.add('standalone');}})();</script>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和7年11月25日</p>
+    <h1>議会運営委員会</h1>
+    <span class="srcbadge"><span class="dot"></span>本文＝小金井市議会 公式会議録（DBSR）</span><span class="src official">本文は公式会議録を一字一句そのまま掲載。要約はAIによる補助、タイムスタンプ・動画はYouTube連携（いずれも非公式の付加情報）。　|　<a href="https://www.city.koganei.tokyo.dbsr.jp/959704?Template=document&amp;Id=10269" target="_blank" rel="noopener">公式会議録の原典 ↗</a></span><span class="genmeta">本文は公式会議録と一致確認済み（verbatim）。要約はAIによる生成で、小金井市議会の公式見解ではありません。<br>最終生成日 2026-07-10</span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <h3>提出議案等一覧</h3>
+<ul>
+<li>議案第59号 令和７年度小金井市一般会計補正予算（第６回）</li>
+<li>議案第60号 令和７年度小金井市下水道事業会計補正予算（第１回）</li>
+<li>議案第61号 小金井市家庭的保育事業等の設備及び運営に関する基準を定める条例の一部を改正する条例</li>
+<li>議案第62号 小金井市住居表示に関する条例の一部を改正する条例</li>
+<li>議案第63号 小金井市障害者福祉センターの指定管理者の指定について</li>
+<li>議案第64号 小金井市児童発達支援センターの指定管理者の指定について</li>
+<li>議案第65号 小金井市立本町高齢者在宅サービスセンターの指定管理者の指定について</li>
+<li>議案第66号 武蔵小金井南第３自転車駐車場外５施設の指定管理者の指定について</li>
+<li>議案第67号 東京都六市競艇事業組合規約の一部を変更する規約</li>
+<li>7陳情第98号</li>
+</ul>
+<h3>議案の審議ごとの要約</h3>
+<h4>令和７年第４回定例会提出案件</h4>
+<p>市長提出案件は当初送付案件9件、後日送付案件2件の合計11件が予定されており、内訳は令和7年度補正予算2件、条例の一部改正2件、指定管理者の指定4件、規約の一部変更1件、工事請負金額1,000万円以上の契約締結についての報告。後日送付案件として「小金井市乳児等通園支援事業の設備及び運営に関する基準を定める条例の一部を改正する条例」及び「小金井市特定乳児等通園支援事業の運営に関する基準を定める条例」が挙げられた。議員提出案件は条例0件、意見書12件、決議8件の合計20件が予定されていることが確認された。</p>
+<h4>会期及び会議日割の決定</h4>
+<p>令和7年第4回定例会の会期は11月28日から12月19日までの22日間とすることが決定された。一般質問は19人が日曜議会、19人が日曜議会の15分を除く残時間45分、3人が日曜議会で質問しない60分の通告を行い、日程は4日間となる。</p>
+<h4>特別委員会の設置</h4>
+<p>議案第59号「令和７年度小金井市一般会計補正予算（第６回）」及び議案第60号「令和７年度小金井市下水道事業会計補正予算（第１回）」の審査のため、委員数14人の予算特別委員会を設置することが決定された。</p>
+<h4>案件の付託先委員会等の決定</h4>
+<p>議案第61号、議案第63号、議案第64号、議案第65号は厚生文教委員会に、議案第66号は建設環境委員会に、議案第62号、議案第67号は総務企画委員会に付託されることが決定された。予算特別委員会への付託案件は既に説明済みのため省略された。</p>
+<h4>その他（請願・陳情の締切期限等）</h4>
+<p>今定例会で審査を予定する請願・陳情の締切期限は12月1日午後5時まで、閉会中の委員会で審査を予定する請願・陳情の締切期限は12月17日午後5時までとすることが確認された。</p>
+<h4>一般質問の割り振りについて</h4>
+<p>一般質問の割り振りは、12月2日（火）8人、12月3日（水）8人、12月4日（木）6人、12月7日（日）19人とすることが決定された。</p>
+<h4>7陳情第98号の撤回について</h4>
+<p>7陳情第98号については、陳情者から撤回願いが提出されたため、11月28日の本会議で所定の手続きをとることが決定された。</p>
+<h4>議会BCPについて</h4>
+<p>令和8年度の第1回定例会中に議会BCPに基づく議会避難訓練を実施する方針が確認された。訓練内容は小金井消防署による講習、シェイクアウト訓練、消火訓練の三本立てが提案され、訓練時間については90分を基本とし、午前8時30分開始を検討している。委員からは、本会議前ではなく2月19日の休会日に午前10時から90分間の訓練を行う案が提案され、各会派で持ち帰り検討することとなった。</p>
+<h4>主権者教育について</h4>
+<p>中央大学附属高等学校での主権者教育の実施について、正副委員長からは定例会や委員会視察、議会報告会などの日程を考慮し、今回は見送る案が提示された。委員からは、実施したい気持ちはあるものの現実的に厳しいとの意見や、ノウハウがあるため実施可能との意見も出た。最終的に、今回は中央大学附属高等学校での実施は見送り、今後の主権者教育の取り組みについては、年間計画や実施体制を含めて協議していくこととなった。中央大学附属中学校での事後アンケートや写真使用の確認状況についても報告された。</p>
+<h4>その他（広報・広聴協議会からの意見・要望対応フロー図）</h4>
+<p>広報・広聴協議会から、議会に対する市民からの意見・要望についての対応フロー図を広報・広聴協議会で協議し、ブラッシュアップしていくことが確認された。</p>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/GOrPIiY99OI" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
+  </section>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=245s" data-timestamp="245"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:05</a>こんにちは。ただいまから議会運営委員会の会議を開きます。</div>
+  <div class="say">直ちに本日の議事に入ります。</div>
+  <div class="say">当委員会に付託されております案件は、調査２件、議長の諮問事項１件の計３件であります。</div>
+  <div class="say">議長からお手元に議会運営委員会協議事項が提示されておりますので、その順序に従って、順次協議していきたいと思います。</div>
+  <div class="say">初めに、定例会の会期及び会議日割等、議会運営に関する調査を議題といたします。</div>
+  <div class="say">協議事項（１）令和７年第４回定例会提出案件を行います。</div>
+  <div class="say">協議事項に示されておりますとおり、市長提出案件は、当初送付案件が９件、後日送付案件が２件の合計11件であります。</div>
+  <div class="say">部局から発言があれば、これを求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">小林総務課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=305s" data-timestamp="305"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:05</a>令和７年第４回定例会についてご説明いたします。</div>
+  <div class="say">招集日を11月28日、金曜日とし、11月21日、金曜日に告示、同日に議案を送付いたしました。</div>
+  <div class="say">付議案件でございますが、議案９件で、その内容は、令和７年度補正予算２件、条例の一部改正２件、指定管理者の指定４件、規約の一部変更１件となっております。このほか、工事請負金額1,000万円以上の契約締結についての報告がございます。</div>
+  <div class="say">また、小金井市乳児等通園支援事業の設備及び運営に関する基準を定める条例の一部を改正する条例及び小金井市特定乳児等通園支援事業の運営に関する基準を定める条例につきましては、後日送付とさせていただきます。</div>
+  <div class="say">以上、よろしくお願いいたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=360s" data-timestamp="360"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:00</a>ただいまの総務課長の発言のとおり、市長提出案件の当初送付案件９件、後日送付案件２件の合計11件について、ご確認いただけますでしょうか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=373s" data-timestamp="373"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:13</a>ご異議なしと認めます。したがって、本件はただいま申し上げましたとおりご確認いただきました。</div>
+  <div class="say">次に、現時点で提出を予定されております議員提出議案の確認をいたします。会派別に、条例、意見書、決議の件数につきまして発言を求めます。</div>
+  <div class="say">なお、定例会前半での採決、委員会付託等がありましたら、併せて発言をお願いいたします。</div>
+  <div class="say">それでは、みらいのこがねい。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=404s" data-timestamp="404"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:44</a>みらいのこがねいは、条例０件、意見書０件、決議０件。全て０件でお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=411s" data-timestamp="411"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:51</a>自由民主党小金井。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">河野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=414s" data-timestamp="414"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:54</a>条例０件、意見書０件、決議１件、以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=414s" data-timestamp="414"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:54</a>日本共産党小金井市議団は、条例０件、意見書３件、決議１件で、小金井市議会公明党からは条例０件、意見書３件、決議１件と聞いております。</div>
+  <div class="say">子どもの権利／情報公開。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=437s" data-timestamp="437"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:17</a>条例０件、意見書２件、決議２件でお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=443s" data-timestamp="443"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:23</a>小金井をおもしろくする会。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=447s" data-timestamp="447"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:27</a>条例０件、意見書０件、決議１件でお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say">一人会派の方。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=457s" data-timestamp="457"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:37</a>まず、自民党・街の仲間たちが、条例０件、意見書１件、決議１件。</div>
+  <div class="say">生活者ネットワークが、条例０件、意見書１件、決議０件。</div>
+  <div class="say">れいわ新選組小金井が、条例０件、意見書０件、決議０件。</div>
+  <div class="say">小金井市政を見える化する会が、条例０件、意見書１件、決議０件です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=485s" data-timestamp="485"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:05</a>緑・つながる小金井。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=487s" data-timestamp="487"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:07</a>条例０件、意見書１件、決議１件です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=491s" data-timestamp="491"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:11</a>そうすると、条例が０件、意見書が12件、決議が８件ということでよろしいでしょうか。</div>
+  <div class="say">前半のものは特にないということでよろしいですよね。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=512s" data-timestamp="512"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:32</a>以上のとおり、議員提出案件として、条例０件、意見書12件、決議８件、合計20件の提出を予定しているということでご確認いただけますでしょうか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=529s" data-timestamp="529"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:49</a>ご異議なしと認めます。したがって、ただいま申し上げましたとおりご確認をいただきました。</div>
+  <div class="say">なお、現時点で提出を予定されております議員提出議案の案件名が確定している会派につきましては、今定例会初日の11月28日、金曜日、午前10時までに、事務局までご連絡いただきたいと思います。</div>
+  <div class="say">次に、協議事項（２）会期及び会議日割の決定を行います。</div>
+  <div class="say">諮問案が提示されておりますので、議長から説明をお願いいたします。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">斎藤議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=561s" data-timestamp="561"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:21</a>お手元に会議日割表（案）を配布しておりますので、事務局から報告いたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">伏見議会事務局長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=571s" data-timestamp="571"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:31</a>初めに、一般質問の通告についてご報告いたします。</div>
+  <div class="say">11月21日から11月25日正午までに通告があった議員は、日曜議会が19人、日曜議会の15分を除く残時間45分の通告が19人、日曜議会で質問しない60分の通告が３人で、通告順序はお手元の一覧表のとおりであります。したがいまして、一般質問の日程は４日間となります。</div>
+  <div class="say">それでは、会議日割表についてご説明いたします。11月28日、金曜日、本会議。会議録署名議員の指名。会期の決定。議長報告。一部事務組合議会等活動状況報告。閉会中継続審査案件の審査報告、質疑、討論、採決。議案の説明、質疑、委員会付託又は討論、採決。11月29日、土曜日、11月30日、日曜日、休会。12月１日、月曜日、本会議。議案の説明、質疑、委員会付託又は討論、採決。12月２日、火曜日、12月３日、水曜日、12月４日、木曜日、本会議。一般質問。12月５日、金曜日、12月６日、土曜日、休会。12月７日、日曜日、本会議。日曜議会、一般質問。12月８日、月曜日、休会ですが、広報・広聴協議会が入っております。12月９日、火曜日、厚生文教委員会。12月10日、水曜日、建設環境委員会。12月11日、木曜日、総務企画委員会。12月12日、金曜日、議会運営委員会。12月13日、土曜日、12月14日、日曜日、休会。12月15日、月曜日、予算特別委員会。12月16日、火曜日、庁舎等建設及び公共施設マネジメント推進調査特別委員会。12月17日、水曜日、休会。この日は本会議予備日になっております。12月18日、木曜日、休会。議会整理日となっております。12月19日、金曜日、本会議。議案の説明、質疑、委員会付託又は討論、採決。委員会付託審査案件の審査報告、質疑、討論、採決。閉会中の継続審査案件の採決。議員派遣の採決。</div>
+  <div class="say">以上のとおり、令和７年第４回定例会は11月28日から12月19日までの22日間としたいというのが議長の諮問案でございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=724s" data-timestamp="724"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:04</a>議長及び事務局の説明は終わりました。ご意見、ご質疑等はございますか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=734s" data-timestamp="734"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:14</a>お諮りいたします。本件につきましては、議長の諮問のとおり決定することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=740s" data-timestamp="740"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:20</a>ご異議なしと認めます。したがって、本件は議長の諮問のとおり決定いたしました。</div>
+  <div class="say">次に、協議事項（３）特別委員会の設置を行います。</div>
+  <div class="say">諮問案が示されておりますので、議長から説明をお願いいたします。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">斎藤議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=754s" data-timestamp="754"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:34</a>お手元に資料を配布しておりますので、事務局から説明いたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">伏見議会事務局長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=759s" data-timestamp="759"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:39</a>特別委員会の設置及び委員の選任につきまして、ご説明いたします。</div>
+  <div class="say">特別委員会の名称は予算特別委員会で、委員会の目的は、議案第59号、令和７年度小金井市一般会計補正予算（第６回）及び議案第60号、令和７年度小金井市下水道事業会計補正予算（第１回）、以上２件の審査のためで、委員数は14人となっております。</div>
+  <div class="say">なお、本特別委員会の各会派の委員名を今定例会初日の11月28日、午前10時までに事務局にご連絡いただきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=795s" data-timestamp="795"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:15</a>議長及び事務局の説明は終わりました。ご意見、ご質疑等はございますか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=801s" data-timestamp="801"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:21</a>お諮りいたします。本件については、議長の諮問のとおり決定することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=806s" data-timestamp="806"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:26</a>ご異議なしと認めます。したがって、本件は議長の諮問のとおり決定いたしました。</div>
+  <div class="say">次に、協議事項（４）案件の付託先委員会等の決定を行います。</div>
+  <div class="say">諮問案が示されておりますので、議長から説明をお願いいたします。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">斎藤議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=822s" data-timestamp="822"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:42</a>お手元に資料を配布しておりますので、事務局から説明いたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">伏見議会事務局長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=828s" data-timestamp="828"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:48</a>初めに、厚生文教委員会でございます。議案第61号、小金井市家庭的保育事業等の設備及び運営に関する基準を定める条例の一部を改正する条例、議案第63号、小金井市障害者福祉センターの指定管理者の指定について、議案第64号、小金井市児童発達支援センターの指定管理者の指定について、議案第65号、小金井市立本町高齢者在宅サービスセンターの指定管理者の指定について。</div>
+  <div class="say">続いて、建設環境委員会につきましては、議案第66号、武蔵小金井南第３自転車駐車場外５施設の指定管理者の指定について。</div>
+  <div class="say">総務企画委員会につきましては、議案第62号、小金井市住居表示に関する条例の一部を改正する条例及び議案第67号、東京都六市競艇事業組合規約の一部を変更する規約。</div>
+  <div class="say">なお、予算特別委員会につきましては、先ほど説明いたしましたので、省略させていただきます。</div>
+  <div class="say">以上のとおり各委員会に付託したいというのが議長の諮問案でございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=900s" data-timestamp="900"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:00</a>議長及び事務局の説明は終わりました。ご意見、ご質疑等はございますか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=906s" data-timestamp="906"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:06</a>お諮りいたします。本件については、議長の諮問のとおり決定することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=912s" data-timestamp="912"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:12</a>ご異議なしと認めます。したがって、本件は議長の諮問のとおり決定いたしました。</div>
+  <div class="say">次に、協議事項（５）その他を行います。</div>
+  <div class="say">その他のア、今定例会で審査を予定する請願・陳情の締切期限については、12月１日、月曜日、午後５時までとなります。</div>
+  <div class="say">その他のイ、閉会中の委員会で審査を予定する請願・陳情の締切期限については、12月17日、水曜日、午後５時までとなります。</div>
+  <div class="say">以上のとおり、締切期限等につきましてご確認いただけますでしょうか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=947s" data-timestamp="947"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:47</a>ご異議なしと認めます。したがって、ただいま申し上げましたとおりご確認いただきました。</div>
+  <div class="say">次に、その他のウ、閉会中継続審査案件のうち審査の終了した案件については、お手元にご配布しております一覧表のとおりであります。なお、一覧表は、11月21日までの結果を記載しています。</div>
+  <div class="say">次に、その他のエ、その他でございますが、ご発言はございますでしょうか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=979s" data-timestamp="979"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:19</a>以上で、定例会の会期及び会議日割等、議会運営に関する調査を終わります。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=979s" data-timestamp="979"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:19</a>次に、議会運営に関する議長の諮問事項についてを議題といたします。</div>
+  <div class="say">お手元に議長の諮問事項が掲載されておりますので、順次協議を行います。</div>
+  <div class="say">初めに、協議事項（１）一般質問の割り振りについてを行います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">斎藤議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1008s" data-timestamp="1008"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:48</a>12月２日、火曜日、８人、12月３日、水曜日、８人、12月４日、木曜日、６人、12月７日、日曜日、19人でお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1020s" data-timestamp="1020"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:00</a>議長のご提案は、12月２日、８人、12月３日、８人、12月４日、６人、12月７日、19人ということでございますが、ご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1029s" data-timestamp="1029"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:09</a>ご異議なしと認めます。したがって、本件は議長の諮問のとおり決定いたしました。</div>
+  <div class="say">次に、協議事項（２）７陳情第９８号の撤回についてを協議します。</div>
+  <div class="say">議長の諮問案が示されておりますので、議長から説明をお願いいたします。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">斎藤議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1048s" data-timestamp="1048"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:28</a>事務局から説明いたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">伏見議会事務局長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1052s" data-timestamp="1052"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:32</a>７陳情第98号につきましては、令和７年11月18日付けで陳情者から撤回願いが提出されておりますので、11月28日の本会議で所定の手続をとりたいというのが議長の諮問案でございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1068s" data-timestamp="1068"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:48</a>議長及び事務局の説明は終わりました。ご意見、ご質疑等はございますか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1074s" data-timestamp="1074"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:54</a>お諮りいたします。本件については、議長の諮問のとおり決定することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1079s" data-timestamp="1079"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:59</a>ご異議なしと認めます。したがって、本件は議長の諮問のとおり決定いたしました。</div>
+  <div class="say">次に、協議事項（３）その他でございますが、ご発言はございますでしょうか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1090s" data-timestamp="1090"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:10</a>以上で、議会運営に関する議長の諮問事項についてを終わります。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1090s" data-timestamp="1090"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:10</a>次に、議会改革に関する諸問題の調査を議題といたします。</div>
+  <div class="say">初めに、（１）議会ＢＣＰについてを議題といたします。</div>
+  <div class="say">本日、議会ＢＣＰに基づく議会避難訓練実行委員会から資料が提出されておりますので、初めに資料の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1115s" data-timestamp="1115"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:35</a>今お手元にあります令和７年度の小金井市議会ＢＣＰに基づく議会避難訓練の概要をご説明いたします。資料は２部ご用意しております。概要とタイムスケジュールです。今日はタイムスケジュールについては触れないので、ご一読いただければと思います。</div>
+  <div class="say">概要について、目的は、議会ＢＣＰに定められているとおり、災害発生時における議会と議会事務局の体制や行動基準、災害応急対策の内容などを検証・点検し、実効性のある訓練を目的としております。</div>
+  <div class="say">今日、開催日程と開催の時間のことでご相談したいことがありますので、また後ほどご相談させてください。開催日程の案が令和８年度の第１回定例会の初日、２月16日若しくは17日、18日、休会を飛ばして20日の４日程、いわゆる冒頭初日の本会議の前に行いたいと考えております。時間は午前９時からでございます。若しくは、午前８時30分からも検討しております。</div>
+  <div class="say">訓練内容は、小金井消防署による講習、いつものシェイクアウト訓練、あと、前庭で行う消火訓練の三本立てで考えております。小金井消防署からの講習としては、本庁舎には各フロアに屋内消火栓が設置されておりますので、屋内消火栓のホースを延ばして消火するまでの訓練を消防署から受けたい、そんなふうに考えております。もう１つが、布担架搬送講習。これは前回も行っているんですけれども、人形を用いての布担架の搬送の仕方、布担架がどこにしまってあるかなどの講習を受ける。これが、まず第１部です。</div>
+  <div class="say">第２部が、いつもどおりの小金井市議会避難訓練、シェイクアウト訓練です。第２部のシェイクアウト訓練では、地震が本会議中に起こったことで、机の下に避難をする。そして、議会の外にある本庁舎の前庭、駐車場に避難をする。その中で、消防署から講習を受ける屋内消火栓模擬訓練と布担架搬送模擬訓練も併せて行う。これが第２部です。</div>
+  <div class="say">第３部が、前回も行ったんですけれども、前庭駐車場で訓練用消火器を用いた消火訓練、若しくは、消防署が持っている街角防災車を用いた消火訓練を検討しております。</div>
+  <div class="say">ざっくりとした内容が、この概要でございます。</div>
+  <div class="say">今日ご相談したいのは、この内容も含めてなんですけれども、大きい番号の２番の開催日程（案）の令和８年２月16日、17日、18日、20日のどの辺りでやったら望ましいかというものと、もう１つは、本会議開会の午前10時というのはずらさないので、訓練時間を午前９時から行う１時間にするか、若しくは、今、私どもで検討しているのはどうしても90分かかってしまうので、午前８時半から行うか、若しくは１時間で収めようよというのであれば、60分で行う訓練内容も検討しておりますので、まずはその開催日時、あと訓練時間を中心に今日はご議論いただければと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1344s" data-timestamp="1344"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:24</a>ありがとうございます。</div>
+  <div class="say">総務課長はここで、自席で聞いていただくということで退出していただいて構わないと思いますので、よろしくお願いします。</div>
+  <div class="say">ということで、今日のところは日程と１時間か１時間半かの時間を決めたいということですかね。現時点で皆さんから何かありますか。日程的にはどうですか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1378s" data-timestamp="1378"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:58</a>提案しておいてなんなんですけど、例えば初日の２月16日、本会議初日は、先ほど事務局からもお話を聞いて、四者協議会が午前９時半から入っていたり等々バタバタして忙しいかなと思うので、２月17日、本会議２日目、若しくは２月18日の本会議３日目で、２月20日、金曜日はもしかしたら順調にいけば休会になるやもしれませんので、２月17日若しくは２月18日でご検討いただければなと思いますし、多分今日ご提案して、今日決めるのは難しいかなと思っていたりもするので、もし持ち帰りが必要であれば、第４回定例会初日にたしか議会運営委員会があったような気がするので、そこで決定できたらなと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1425s" data-timestamp="1425"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:45</a>皆さんから何かありますでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1434s" data-timestamp="1434"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:54</a>実行委員の皆様、まとめていただいてありがとうございます。</div>
+  <div class="say">今ご説明いただいた日程のところなんですけれども、確かに初日は難しいなと私も考えていたところです。２月17日、18日の辺りでできた場合に、小金井消防署からの車の派遣みたいなものは可能性があるのかどうか、現時点でもし分かっていれば教えていただきたいと思います。できれば、私はこれも体験して、時間を繰り上げることも検討したいなと思っていますので、分かれば教えてください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1467s" data-timestamp="1467"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:27</a>車というのは街角防災車のことだと思うんですけれども、これは、一応この日程も消防署には提示はしておりまして、今のところ、これではいけるというふうに、その相談した当時の状況ではあるので、そこに町会・自治会、防災会の訓練等が入ってしまっていると、ちょっと今は確定したことが言えないので、日程が決まってから再度消防署と相談をして、空いていればお願いをするという形になるかと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1508s" data-timestamp="1508"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:08</a>他に何かありますか。</div>
+  <div class="say">どちらかというと、２月17日か18日どちらかというような。そうすると、１時間でやれば、午前10時から開会に間に合うと。１時間半の場合は、前倒して午前８時半ぐらいから始めなくてはいけないという、そんな感じですかね。（「どちらも午前９時ではないんですか」と呼ぶ者あり）午前８時半も検討と書いてあるので。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1539s" data-timestamp="1539"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:39</a>説明不足ですみません。基本的には３部構成で行う予定をしておりますので、消防署からの講習、シェイクアウト訓練、消火訓練の三本立てでやると、どうしても90分かかってしまうので、午前８時30分から開会をすることになります。ただ、60分で収めようという声が多いようでありましたら、この３本目の駐車場での消火訓練を省略して、消防署の講習、シェイクアウト訓練の二本立てで行えば60分以内に収まるので、午前９時からということを検討しております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1592s" data-timestamp="1592"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:32</a>午前８時半からなんですか。開催日程（案）の方に時間は午前９時からで、午前８時半も検討となっているけれども、もう午前８時半からということでしょうか。こちらのタイムスケジュールは午前９時からとなっているんだけど、これも30分前倒しで全部計算する感じでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1611s" data-timestamp="1611"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:51</a>開催時間については、実行委員会では90分を検討しているんですけれども、90分だと午前８時半だから早いよとか、そういったような声があれば、60分で収めたいなと思っております。タイムスケジュールは、すみません、午前９時からになっているんですけれども、90分の案でいけば、ここが午前８時半になることであります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">河野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1647s" data-timestamp="1647"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:27</a>１点伺いたいのが、これ、仮に60分の訓練だとした場合、その60分の中に、議会を午前10時に始めるに当たっての余裕の時間、準備したり移動の時間というのは含まれた上での60分の計算になっているのか、その点だけ教えてください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1663s" data-timestamp="1663"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:43</a>60分にしても90分にしても、午前10時から本会議が始められるような体制になっております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1680s" data-timestamp="1680"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:00</a>今の件でちょっと、関連と言えばよかったですね。60分の場合に、小金井消防署からの講評が午前９時55分からという時間でいくと、ご講評いただくのが５分だとしたら午前10時ぴったりになってしまうので、ちょっと時間的に厳しいのかなというので、今、河野委員がおっしゃったことはその疑問かなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1703s" data-timestamp="1703"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:23</a>関連の水谷委員にお答えをしたいと思います。これはちょっと幅を広めにとっていますので、縮めることは十分可能でありますので、ご心配には及びません。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1719s" data-timestamp="1719"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:39</a>ということです。</div>
+  <div class="say">今までの避難訓練も午前10時開会前にやっていたんでしたか。（「違います」と呼ぶ者あり）違った。休会の日にやっていたんでしたか。（「休会日です」と呼ぶ者あり）休会日にやっていたんだね。何か随分早くからやったという記憶はないよね。</div>
+  <div class="say">どうしますか。もしあれだったら、また次の議会運営委員会のところで決定しますか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1756s" data-timestamp="1756"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:16</a>ちょっとこの場では日程は確かに決められないかなと思うので、今、ちらっと聞こえてきたので、第１回定例会でやるかどうかという確認はここでしておきたいなと思いました。</div>
+  <div class="say">もう１つは、60分か90分かはこの場で決められればなと思っておりまして、そうしないと、日程調整するときに、60分でやる日程と90分でやる日程で答えが変わってきてしまうかもしれないので、そこは確定できたらなと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1791s" data-timestamp="1791"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:51</a>第１回定例会で行うということは一応確認はしていたような気がしたんですけど、第１回定例会でやるということで、これはよろしいでしょうか。年度中に１回やるということにたしかなっていたと思う。では、第１回定例会でやるということで、いつやるのかということについては、次回、議会運営委員会で決めたいと思うんですが、60分か90分かについては今日決めてほしいということですかね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1830s" data-timestamp="1830"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:30</a>いろいろ考えていただいて、ありがとうございます。</div>
+  <div class="say">60分と90分のときの何か違いみたいなのを先ほどご説明いただいたかと思うんですけど、90分のものを60分に削った場合、何か訓練の目的から外れてしまうというか、目的をちゃんと達成できなくなるみたいな懸念があるのであれば、教えていただければと思います。削る部分の必要性がどれぐらい重要なのかみたいなのを教えていただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1870s" data-timestamp="1870"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:10</a>確かに３部から２部に削るというのは、どちらかというと目的よりもスケジュール重視で考えたことでありますので、こちらとしては、講習という知識の部分と実技という消火訓練というのは入れておきたいなと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1905s" data-timestamp="1905"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:45</a>ご検討ありがとうございます。</div>
+  <div class="say">60分か90分かで言うと、90分がよろしいのではないかと思っているということと、あと、日程について、ご提案が２月16日、17日、18日、20日ということで、本会議の前というご提案なんですが、本会議、第１回定例会もどうなるか分からないという中、本会議の前に入れることにやや懸念がありまして、ご提案にはなかったんですが、例えば２月19日が休会になっておりまして、恐らく午後２時から一部事務組合の定例会が入っているのかなと思っているので、もし午前中に開催できるのであれば、本会議ではない休会の日に入れた方がよいのではないかと思いました。ここでご議論なのか、持ち帰りになるのか分かりませんが、そういうふうに考えているということでご提案です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=1957s" data-timestamp="1957"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:37</a>ご意見ありがとうございました。</div>
+  <div class="say">私ども実行委員会としても、まずは本当は本会議がある日にやりたいなというところから入って、だからといって、では、本会議の後にやろうかというと時間が見えないので、なかなか消防署の予約が取りづらいということで本会議の前にさせていただいたんですけれども、できたら休会が一番、禁足というか、休会だけど、開会中なので遠くには行っていないだろうなという前提ではあるんですけれども、休会にお願いができるのであれば、そこも日程の候補に入れていただけるとなお助かります。委員長にはその旨、お伝えしておきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=2001s" data-timestamp="2001"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:21</a>だから、定例会前にやるのはちょっときつい感じがしますよね。60分でやるにしても、午前９時から始めてもちょっとぎりぎりという感じがあるので、日程については、２月19日の休会日に行うかどうかということで各会派持ち帰りみたいな形でいかがでしょうか。（「休会日も含めて」と呼ぶ者あり）２月19日の休会日に行うかどうか。もしその他の日程がよければ、その他の日程で。その他の日程でやるとすると、やはり午前８時半から目一杯やるのは何となくきつい感じがしますよね。一応それで日程については持ち帰っていただくということと、60分か90分かということで言うと、ご提案の趣旨からは、きちんと訓練するということで言うと90分が望ましいということなんだろうと思うんですけど、皆さん、いかがですか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">清水委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=2062s" data-timestamp="2062"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:22</a>委員長を始め、いろいろご検討いただいてありがとうございます。２月19日の休会日に90分で、しかも午前中という中で、例えば午前10時からがいいのかなと思うんですけれども、そこでオーケーかどうかを持ち帰っていただければ。ノーだったら、いつがいいのかという、できたらオーケーでお願いできるようにしたいんですけれども、それで委員長、いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=2094s" data-timestamp="2094"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:54</a>分かりました。今、清水委員から提案があったとおり、２月19日の休会日の午前10時から90分避難訓練を行うということでいいかどうかを持ち帰っていただくということでよろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=2113s" data-timestamp="2113"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:13</a>そういうことで、議会ＢＣＰについてはよろしくお願いします。</div>
+  <div class="say">内容については、まだ時間がありますので、また検討したいと思いますので、どうもお疲れさまでした。</div>
+  <div class="say">議会ＢＣＰについては、現時点で質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=2133s" data-timestamp="2133"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:33</a>ご異議なしと認めます。したがって、議会ＢＣＰについての現時点での質疑を終了いたします。</div>
+  <div class="say">次に、（２）主権者教育についてを議題といたします。</div>
+  <div class="say">中央大学附属中学校での主権者教育、皆さんどうもお疲れさまでした。各会派からいろいろ意見を頂きましたので、それはちょっとまとめて皆さんにまたお示ししたいと思います。</div>
+  <div class="say">中央大学附属高等学校と主権者教育をまたやるのかどうかということも今日、結論を出しておきたいと思っていまして、Garoonで皆さんに事前に送っていたと思うんですけど、12月中に実施内容についてある程度情報提供するという話だったのが、11月27日までにぜひもらいたいという先方からの話があったので、やるかどうかを確認したいと思っているんですが、実施するとなると１月13日から２月20日までの間という形になります。</div>
+  <div class="say">それで、正副委員長でちょっと相談したんですけど、予定で言うと２月16日から定例会が始まってくるということと、あと、議会運営委員会と庁舎等建設及び公共施設マネジメント推進調査特別委員会と厚生文教委員会の視察が入るんです。あと、議会報告会もあるという日程の中では、やりたい気持ちはあるんですけど、実際上ちょっと難しいのではないかなと考えておりまして、今回は見送りということでどうかというふうに一応正副委員長では検討しているところなんですが、先方からは、今年度もしやらなくても、来年できなくなるということはありませんと、そこは安心してくださいということで、中学校でやってもらって本当によかったという話は頂いておりますので、そういうことも踏まえて、ちょっとご意見いただけますでしょうか。一応各会派にGaroonで聞いたところによると、れいわ新選組小金井はちょっと日程的に難しいのではないかという意見を頂いているということです。どうでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=2296s" data-timestamp="2296"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:16</a>正副委員長の方の判断でお任せしたいなと思います。できればやれるといいなと思っていましたけど、別にこれは正副委員長の判断でよろしいかなと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=2314s" data-timestamp="2314"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:34</a>準備もある程度やらなくてはいけないのが、結構お正月が挟まったりすることもあるので、今の時点でまだスタートしていないということになるとちょっと大変だなという気もするので、今回は見送りということでよろしいでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=2333s" data-timestamp="2333"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:53</a>できることならやりたいという気持ちはありつつも、日程的に、現実的にはなかなか厳しいのかなと思っております。それに、やるとなったら全会派の皆さんのご協力をいただいて、一致団結してやらないとできない事業だと思いますので、ちょっとご懸念を示されている会派が複数ある中では難しいのかなということで、また次に向けて頑張ればいいかなと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岸田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=2375s" data-timestamp="2375"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:35</a>ノウハウはあるので、やろうと思えばできなくはないと私は思っています。前回のを見ると、人数的にはそんなに、20人、30人集まるということにはならないのではないかと思っていて、そんなに全員が、全会派が出なければいけないという状況でも恐らくないだろうなと思っておりますということで、私はやってもいいのかなと思っていますが、ちょっと難しいというご意見が多数であれば、そこに反対するものではありませんけれども、しかしながら、仮に来年、今、中学校２年生の皆様に対して、中学校３年生になったときにもう１回やりましょうという話になったときに、同じような日程感で進むことになるわけですよね。そうすると、またこの時期になって、やはり今年もちょっと日程的に厳しいよねと言って、高校のがまたやらなくなるということも考えられるのかなと思うと、その辺はしっかりと、今回やらないにしても整理をつけた方がいいのかなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=2439s" data-timestamp="2439"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:39</a>この主権者教育については、今まで議会改革の提案でやってきたものが、要するに、調査事項として取り組むという形になっているので、年間どんなふうにやるかというのを話し合っておかないと、今回、結構行き当たりばったりで中学校をやって、その後、高校をどうするかと考えているみたいなところがあるので、あと、東京電機大学高等学校もありますよね。あと、他にまだ手が挙がっていない私立中学校なんかもあるので、どういうふうに取り組むかということについては、今後ちょっと相談して決めていかないと、その進め方についても議会運営委員会でやるということになると、何か実行委員会みたいな話もあったので、そういうことも含めて検討していった方が、もうちょっと機動的にできたりとかという可能性もないことはないと思うので、それは今後の検討ということで、今回については、中央大学附属高等学校については見送らせていただくということでよろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=2516s" data-timestamp="2516"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:56</a>今回についてはとりあえず見送りということで、今後の主権者教育の取組については、今後また協議をするということで進めていきたいと思います。</div>
+  <div class="say">主権者教育についての現時点での質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=2538s" data-timestamp="2538"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:18</a>ご異議なしと認めます。したがって、主権者教育についての現時点での質疑を終了いたします。</div>
+  <div class="say">次に、（３）その他を行います。</div>
+  <div class="say">その他なんですが、広報・広聴協議会から、議会に対する市民からの意見・要望についての対応フロー図というのを一応作ってあるんです。それについて、広報・広聴協議会で協議するということでいいかどうかというのを議会運営委員会で確認してほしいという話が来ていますので、その確認をしていただきたいと思うんです。だから、フロー図を広報・広聴協議会でまたブラッシュアップするみたいなことの協議を行っていきたいということらしいので、どうかということなんですが、皆さん、何かご意見はありますでしょうか。広報・広聴協議会で意見を聞くわけだから（不規則発言あり）そうですね。ただ、フロー図に関しては、広報・広聴協議会から議会運営委員会で確認してほしいというお話を頂いていますので。では、広報・広聴協議会で取り扱っていただくということでご確認いただけますでしょうか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=2631s" data-timestamp="2631"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:51</a>よろしくお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">岸田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=2633s" data-timestamp="2633"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:53</a>先ほど主権者教育のところで伺えばよかったんですが、中学生の事後アンケートというのはもうとって、お願いはしてあるという状況でしたか。確認です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=2649s" data-timestamp="2649"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:09</a>事後アンケートについては、事前アンケートのときに既に事後アンケートもつけて先方に送っていて、そのことも終わった直後に先生には言ってあるんですが、まだちょっと返信がない状況なので、今日の連絡と併せて催促して、学校側の感想も聞けたらなと思っているので、そういうことも含めて、次の議会運営委員会でご説明できるようにしたいと思いますので、よろしくお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">坂井委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=2679s" data-timestamp="2679"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:39</a>すみません、今の続きというか、恐らく撮影した写真を広報などに使っていいかどうかの確認ということも多分お願いしていたかと思うんですけれども、その件について、多分学校側で担任の先生なのか、見ていただくということになっていたかと思うんですが、その件について何か進捗があったら、お知らせいただきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=2699s" data-timestamp="2699"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:59</a>写真については連絡をもらっています。すみません、坂井委員の方にご連絡していなかったんですけど、それはすぐにお伝えします。幾つかチェックが入った写真があって、使わないでもらいたいというのが来ていますので、それはお知らせします。</div>
+  <div class="say">その他、皆さんから何かありますでしょうか。よろしいでしょうか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=2727s" data-timestamp="2727"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:27</a>お諮りします。議会改革に関する諸問題の調査につきましては、現時点での質疑を終了し、継続調査といたしたいと思います。これにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=GOrPIiY99OI&t=2738s" data-timestamp="2738"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:38</a>ご異議なしと認めます。したがって、本件調査は継続調査と決定いたしました。</div>
+  <div class="say">以上で、当委員会に付託されました案件の審査は全て終了いたしました。</div>
+  <div class="say">これで議会運営委員会の会議を閉じ、散会いたします。</div>
+  <div class="say">午後２時42分散会</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+</body>
+</html>

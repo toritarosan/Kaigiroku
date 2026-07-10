@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和7年9月3日 本会議</title>
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#1d3a63; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* 直接URLで開いた時だけ最上部に「会議一覧に戻る」帯（index分割ビュー内では非表示） */
+  .backbar-top{display:none;}
+  body.standalone{padding-top:40px;}
+  body.standalone .backbar-top{display:flex; align-items:center; gap:6px; position:fixed; top:0; left:0; right:0;
+       z-index:60; height:40px; padding:0 18px; background:var(--navy); color:#fff; font-family:var(--sans);
+       font-size:13px; font-weight:700; text-decoration:none; letter-spacing:.04em; box-shadow:0 1px 4px rgba(0,0,0,.15);}
+  body.standalone .backbar-top:hover{background:#294f86;}
+  body.standalone .prog{top:40px;}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+</style>
+</head>
+<body>
+<a class="backbar-top" href="index.html">← 会議一覧に戻る</a>
+<script id="backbar-js">(function(){try{if(window.self===window.top)document.body.classList.add('standalone');}catch(e){document.body.classList.add('standalone');}})();</script>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和7年9月3日</p>
+    <h1>本会議</h1>
+    <span class="srcbadge"><span class="dot"></span>本文＝小金井市議会 公式会議録（DBSR）</span><span class="src official">本文は公式会議録を一字一句そのまま掲載。要約はAIによる補助、タイムスタンプ・動画はYouTube連携（いずれも非公式の付加情報）。　|　<a href="https://www.city.koganei.tokyo.dbsr.jp/306223?Template=document&amp;Id=10174" target="_blank" rel="noopener">公式会議録の原典 ↗</a></span><span class="genmeta">本文は公式会議録と一致確認済み（verbatim）。要約はAIによる生成で、小金井市議会の公式見解ではありません。<br>最終生成日 2026-07-10</span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <h3>提出議案等一覧</h3>
+<ul>
+<li>議案第45号 小金井市乳児等通園支援事業の設備及び運営に関する基準を定める条例</li>
+<li>議案第46号 小金井市乳幼児の医療費の助成に関する条例の一部を改正する条例</li>
+<li>議案第47号 小金井市義務教育就学児及び高校生等の医療費の助成に関する条例の一部を改正する条例</li>
+<li>議案第48号 小金井市ひとり親家庭等の医療費の助成に関する条例の一部を改正する条例</li>
+<li>議案第49号 小金井市印鑑条例の一部を改正する条例</li>
+<li>議案第50号 小金井市下水道条例の一部を改正する条例</li>
+<li>議案第51号 市道路線の廃止について</li>
+<li>議案第52号 市道路線の認定について</li>
+</ul>
+<h3>議案の審議ごとの要約</h3>
+<h4>議案第45号 小金井市乳児等通園支援事業の設備及び運営に関する基準を定める条例</h4>
+<p>子ども・子育て支援法等の一部改正に伴い、乳児等通園支援事業（こども誰でも通園制度）の設備及び運営に関する基準を定める条例案が提出された。この制度は令和7年4月1日から制度化され、令和8年4月1日から給付される。条例案は、内閣府令で定める基準に従い、総則、乳児等通園支援事業の個別の基準（一般型と余裕活用型）、雑則、付則で構成されている。質疑は行われず、本件は厚生文教委員会に付託された。</p>
+<h4>議案第46号 小金井市乳幼児の医療費の助成に関する条例の一部を改正する条例</h4>
+<p>東京都の乳幼児医療費助成に係る要綱改正により、所得制限が撤廃されること、および個人番号カードによるオンライン資格確認が導入されることに伴い、条例の規定整備を行うための改正案が提出された。改正内容は、所得制限撤廃に伴う規定の削除、用語の整備、個人番号カードによる資格確認開始に伴う規定の整備である。施行日は令和7年10月1日（個人番号カードによる資格確認は令和8年4月1日）とされている。質疑は行われず、本件は厚生文教委員会に付託された。</p>
+<h4>議案第47号 小金井市義務教育就学児及び高校生等の医療費の助成に関する条例の一部を改正する条例</h4>
+<p>東京都の義務教育就学児及び高校生等の医療費助成に係る要綱改正により、所得制限が撤廃されること、および個人番号カードによるオンライン資格確認が導入されることに伴い、条例の規定整備を行うための改正案が提出された。改正内容は、所得制限撤廃に伴う規定の削除、用語の整備、個人番号カードによる資格確認開始に伴う規定の整備である。施行日は令和7年10月1日（個人番号カードによる資格確認は令和8年4月1日）とされている。質疑は行われず、本件は厚生文教委員会に付託された。</p>
+<h4>議案第48号 小金井市ひとり親家庭等の医療費の助成に関する条例の一部を改正する条例</h4>
+<p>個人番号カードによるオンライン資格確認の導入に伴い、ひとり親家庭等の医療費助成を受けることができるようにするため、条例の規定整備を行うための改正案が提出された。改正内容は、用語の整備と個人番号カードによる資格確認開始に伴う規定の整備である。個人番号カードによる資格確認については令和8年4月1日から施行される。質疑は行われず、本件は厚生文教委員会に付託された。</p>
+<h4>議案第49号 小金井市印鑑条例の一部を改正する条例</h4>
+<p>住民情報システムの標準化に伴い、印鑑登録原票の様式変更に対応するため、条例の規定整備を行うための改正案が提出された。具体的には、印鑑登録原票から宛名番号の項目がなくなることに伴い、第8号を削除するなどの改正が行われる。施行日は新システム稼働開始の10月27日とされている。質疑は行われず、本件は総務企画委員会に付託された。</p>
+<h4>議案第50号 小金井市下水道条例の一部を改正する条例</h4>
+<p>災害時その他非常の場合において、排水設備等の工事が円滑に実施できるよう、指定工事店の指定に関し特例を設けるための条例改正案が提出された。改正内容は、災害等の非常時には、市長が認める場合に限り、他の市町村長が指定した工事店でも工事を行えるようにするただし書を第7条第1項に加えるものである。施行日は公布の日からとされている。質疑は行われず、本件は建設環境委員会に付託された。</p>
+<h4>議案第51号 市道路線の廃止について</h4>
+<p>市道第307号線（隣接地権者への払下げに伴う廃止）と市道第775号線（小金井街道の終点延長に伴う一時的な廃止）の2本の市道路線を廃止する議案が提出された。質疑は行われず、本件は建設環境委員会に付託された。</p>
+<h4>議案第52号 市道路線の認定について</h4>
+<p>市道第775号線（小金井街道のJR中央本線高架下部分の市管理追加）と、開発行為により築造・移管された市道第847号線から市道第851号線までの5本の道路、合計6本の市道路線を認定する議案が提出された。質疑は行われず、本件は建設環境委員会に付託された。</p>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/FioGq1m2WV4" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
+  </section>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=213s" data-timestamp="213"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:33</a>おはようございます。ただいまから本日の会議を開きます。</div>
+  <div class="say">日程第１、議案第45号、小金井市乳児等通園支援事業の設備及び運営に関する基準を定める条例を議題とします。</div>
+  <div class="say">提案理由の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">市長（白井　亨）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=233s" data-timestamp="233"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:53</a>おはようございます。</div>
+  <div class="say">議案第45号、小金井市乳児等通園支援事業の設備及び運営に関する基準を定める条例をご提案申し上げます。</div>
+  <div class="say">子ども・子育て支援法等の一部を改正する法律の施行に伴う児童福祉法の改正により、乳児等通園支援事業の設備及び運営に関する基準を定める必要があるため、本案を提出するものであります。</div>
+  <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">子ども家庭部長（堤　直規）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=272s" data-timestamp="272"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:32</a>それでは、細部につきまして説明いたします。</div>
+  <div class="say">令和６年６月12日に公布された子ども・子育て支援法等の一部を改正する法律により、生後６か月から満３歳未満で保育所などに通っていない子どもを育てている家庭が、月一定時間までの利用可能枠の中で、就労要件を問わず時間単位等で柔軟に利用できる新たな通園給付として、乳児等通園支援事業、通称こども誰でも通園制度が創設されました。この制度は令和７年４月１日から制度化され、令和８年４月１日から給付されます。改正法による改正後の児童福祉法第34条の16第１項において、市町村は、乳児等通園支援事業の設備及び運営について、条例で基準を定めなければならないと規定されていることから、本案を提出するものでございます。</div>
+  <div class="say">なお、同条第２項において、条例は、内閣府令で定める基準に従い定め、またはそれを参酌するものとされておりますので、内閣府の示した乳児等通園支援事業の設備及び運営に関する基準に基づき規定しております。</div>
+  <div class="say">条例案をご覧ください。第１章は総則について定めており、第１条は、ただいま申し上げた趣旨に関する規定です。</div>
+  <div class="say">第２条は、最低基準を定める目的について規定しています。詳細は条文をご覧ください。</div>
+  <div class="say">第３条は、最低基準の向上について定めています。児童福祉法第34条の15第４項において、認可に当たっては、あらかじめ市町村児童福祉審議会を設置している場合にあってはその意見を、その他の場合にあっては児童の保護者、その他児童福祉に関わる当事者の意見を聴かなければならないとされており、その旨を規定しています。</div>
+  <div class="say">第４条は、事業者は、最低基準を超えて、設備及び運営を向上させる旨を規定しています。</div>
+  <div class="say">第５条は、事業者の一般原則を定めており、詳細は条文をご覧ください。</div>
+  <div class="say">第６条は、非常災害における設備、計画、訓練等について、第７条は、安全計画の策定について規定しておるものです。</div>
+  <div class="say">第８条は、自動車を運行する場合の利用、乳幼児の所在確認について定めています。</div>
+  <div class="say">第９条は、事業に従事する職員の一般的条件を、第10条は、職員の知識及び技能の向上について定めております。</div>
+  <div class="say">第11条は、他の社会福祉施設等を併せて設置するときの設備及び職員の基準を定めています。</div>
+  <div class="say">第12条は、利用乳幼児を平等に扱う原則を、第13条は、虐待等の防止、第14条は、衛生管理について定めているものです。</div>
+  <div class="say">第15条は、食事の提供を行う場合の設備について定めています。</div>
+  <div class="say">第16条は、定めておかなければならない規程を、第17条は、備えなければならない帳簿について定めています。</div>
+  <div class="say">第18条は、秘密保持等について、第19条は、苦情への対応についての定めです。</div>
+  <div class="say">第20条以降は、第２章として、乳児等通園支援事業の個別の基準等を定めるものです。</div>
+  <div class="say">第１節は通則です。</div>
+  <div class="say">第20条は、乳児等通園支援事業は、一般型乳児通園支援事業と余裕活用型乳児等通園支援事業とがあり、余裕活用型につきましては、利用定員の空きに応じて実施するもので、一般型は余裕活用型以外のものを指すということを規定しております。</div>
+  <div class="say">第２節は、一般型乳児通園支援事業についての定めです。</div>
+  <div class="say">第21条は、設備の基準について定めております。詳細は条文をご覧ください。</div>
+  <div class="say">第22条は、一般型における職員についての定めです。詳細は条文をご覧ください。</div>
+  <div class="say">第23条は、乳児等通園支援事業の内容を、第24条は、保護者との連絡について定めております。</div>
+  <div class="say">第３節は、余裕活用型乳児等通園支援事業についての定めです。</div>
+  <div class="say">第25条は、余裕活用型を実施する場合の設備及び職員の基準を定めています。</div>
+  <div class="say">第26条は、準用についての定めです。第23条及び第24条の規定は、余裕活用型に準用する旨定めております。</div>
+  <div class="say">第３章は雑則です。</div>
+  <div class="say">第27条は、電磁的記録について、第28条は、委任について定めております。</div>
+  <div class="say">最後に付則であります。本条例の施行日は公布の日からとしております。</div>
+  <div class="say">説明は以上です。よろしくご審議の上、ご議決賜りますようよろしくお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=540s" data-timestamp="540"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:00</a>質疑を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=540s" data-timestamp="540"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:00</a>質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=548s" data-timestamp="548"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:08</a>ご異議なしと認め、質疑を終了します。</div>
+  <div class="say">本件は、厚生文教委員会に付託します。</div>
+  <div class="say">─────── ◇ ───────</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=555s" data-timestamp="555"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:15</a>日程第２、議案第46号、小金井市乳幼児の医療費の助成に関する条例の一部を改正する条例を議題とします。</div>
+  <div class="say">提案理由の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">市長（白井　亨）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=566s" data-timestamp="566"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:26</a>議案第46号、小金井市乳幼児の医療費の助成に関する条例の一部を改正する条例をご提案申し上げます。</div>
+  <div class="say">乳幼児の医療費の助成に係る東京都の要綱の改正により、所得制限が撤廃されたことに伴い、助成対象者の所得照会を行う必要がなくなったこと等から、規定の整備を行うため、本案を提出するものであります。</div>
+  <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">子ども家庭部長（堤　直規）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=607s" data-timestamp="607"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:07</a>それでは、議案第46条の細部についてご説明申し上げます。</div>
+  <div class="say">乳幼児の医療費の助成事業に関しましては、東京都の子どもの医療費助成制度を基本として実施しているものであります。今般、子どもの医療費助成に係る東京都の実施要綱が令和７年４月15日付けで改正され、令和７年10月から所得制限が撤廃されるため、助成対象者の所得照会を行う必要がなくなりました。</div>
+  <div class="say">また、国が構築する自治体と医療機関等をつなぐ情報連携基盤、ＰＭＨシステムと申します、を接続することで、子どもの医療費助成など、地方単独医療費助成制度の医療証を個人番号カードの保険証に一体化し、医療機関等においてオンラインによる資格確認を行うことで助成を受けられるよう令和７年３月６日付けの東京都の同要綱が改正されたものでございます。このことに伴いまして、条例の一部を改正するものでございます。</div>
+  <div class="say">条例の改正内容についてご説明いたします。資料、小金井市乳幼児の医療費の助成に関する条例の一部を改正する条例新旧対照表をご覧ください。</div>
+  <div class="say">第２条第３項につきまして、所得制限撤廃に伴い規定を削除し、以下、項を繰り上げるものでございます。</div>
+  <div class="say">次に、第３条第１項、第６条第１項及び第２項につきましては、用語を整備するものです。</div>
+  <div class="say">第７条第１項につきましては、個人番号カードによる資格確認の開始に伴う規定及び用語を整備するものでございます。</div>
+  <div class="say">付則でございます。付則第１項は施行期日で、本条例は令和７年10月１日から施行すること。また、個人番号カードによる資格については、令和８年４月１日から施行すると規定しております。</div>
+  <div class="say">付則第２項は医療費助成の認定に関する経過措置で、改正後の第２条の規定は施行日以降の認定に適用し、同日前の認定については、なお従前の例によると規定しております。</div>
+  <div class="say">以上で説明を終わらせていただきます。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=731s" data-timestamp="731"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:11</a>質疑を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=731s" data-timestamp="731"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:11</a>質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=737s" data-timestamp="737"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:17</a>ご異議なしと認め、質疑を終了します。</div>
+  <div class="say">本件は、厚生文教委員会に付託します。</div>
+  <div class="say">─────── ◇ ───────</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=744s" data-timestamp="744"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:24</a>日程第３、議案第47号、小金井市義務教育就学児及び高校生等の医療費の助成に関する条例の一部を改正する条例を議題とします。</div>
+  <div class="say">提案理由の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">市長（白井　亨）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=761s" data-timestamp="761"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:41</a>議案第47号、小金井市義務教育就学児及び高校生等の医療費の助成に関する条例の一部を改正する条例をご提案申し上げます。</div>
+  <div class="say">義務教育就学児及び高校生等の医療費の助成に係る東京都の要綱の改正により、所得制限が撤廃されたことに伴い、助成対象者の所得照会を行う必要がなくなったこと等から、規定の整備を行うため、本案を制定するものであります。</div>
+  <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">子ども家庭部長（堤　直規）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=795s" data-timestamp="795"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:15</a>細部につきましてご説明申し上げます。</div>
+  <div class="say">義務教育就学児及び高校生等の医療費の助成事業に関しましては、東京都の子どもの医療費助成制度を基本とし、実施しておるものであります。今般、子どもの医療費助成に係る東京都の実施要綱が令和７年４月15日付けで改正され、令和７年10月から所得制限が撤廃されるため、助成対象者の所得照会を行う必要がなくなりました。</div>
+  <div class="say">また、先ほどの説明と同じでありますが、情報連携基盤（ＰＭＨシステム）に接続することで、子どもの医療費助成など、地方単独医療助成制度の医療証を個人番号カードの保険証に一体化し、オンラインによる資格確認を行うことで助成が行われるように東京都の要綱が改正されたものでございます。このことに伴いまして、規定の整備を行うため、条例の一部を改正するものでございます。</div>
+  <div class="say">改正内容についてご説明いたします。資料の条例新旧対照表の方をお開きください。第２条第３項第３号につきましては、用語の定義に係る規定を整備するものでございます。</div>
+  <div class="say">同条第４項につきましては、所得制限撤廃に伴い規定を削除し、以下、項を繰り上げるものでございます。</div>
+  <div class="say">第３条第１項及び第６条第１項につきましては、用語を整備するものでございます。</div>
+  <div class="say">第７条第１項につきましては、個人番号カードによる資格確認の開始に伴う規定及び用語を整備するものでございます。</div>
+  <div class="say">付則でございます。付則第１項は施行期日で、本条例は令和７年10月１日から施行すること。また、個人番号カードによる資格確認については、令和８年４月１日から施行すると規定しております。</div>
+  <div class="say">付則第２項は医療費助成の認定に関する経過措置で、改正後の第２条の規定は施行日以後の認定に適用し、同日前の認定については、なお従前の例によると規定しているものでございます。</div>
+  <div class="say">以上で説明を終わらせていただきます。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=920s" data-timestamp="920"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:20</a>質疑を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=923s" data-timestamp="923"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:23</a>質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=925s" data-timestamp="925"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:25</a>ご異議なしと認め、質疑を終了します。</div>
+  <div class="say">本件は、厚生文教委員会に付託します。</div>
+  <div class="say">─────── ◇ ───────</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=933s" data-timestamp="933"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:33</a>日程第４、議案第48号、小金井市ひとり親家庭等の医療費の助成に関する条例の一部を改正する条例を議題とします。</div>
+  <div class="say">提案理由の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">市長（白井　亨）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=946s" data-timestamp="946"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:46</a>議案第48号、小金井市ひとり親家庭等の医療費の助成に関する条例の一部を改正する条例をご提案申し上げます。</div>
+  <div class="say">医療機関等において個人番号カードによる資格確認を行うことで医療費の助成を受けることができるようにするため、本案を提出するものであります。</div>
+  <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">子ども家庭部長（堤　直規）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=972s" data-timestamp="972"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:12</a>こちらも国が構築する情報連携基盤（ＰＭＨシステム）に接続することで、地方単独医療制度の助成制度の医療証を個人番号カードの保険証と一体化し、オンラインによる資格確認を行うことで助成が行われるよう、令和７年３月６日付けで東京都の実施要綱が改正されました。そのことに伴いまして、規定の整備を行うために条例の一部を改正するものでございます。</div>
+  <div class="say">改正内容についてご説明いたします。資料の条例新旧対照表をご覧ください。第６条第１項及び第３項につきましては、用語を整備するものでございます。</div>
+  <div class="say">第７条第１項は、個人番号カードによる資格確認の開始に伴う規定及び用語を整備するものでございます。</div>
+  <div class="say">付則でございます。本条例は、個人番号カードによる資格確認については令和８年４月１日から施行し、その他の用語の整備については公布の日から施行すると規定しております。</div>
+  <div class="say">以上で説明を終わらせていただきます。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1041s" data-timestamp="1041"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:21</a>質疑を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1041s" data-timestamp="1041"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:21</a>質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1044s" data-timestamp="1044"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:24</a>ご異議なしと認め、質疑を終了します。</div>
+  <div class="say">本件は、厚生文教委員会に付託します。</div>
+  <div class="say">─────── ◇ ───────</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1050s" data-timestamp="1050"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:30</a>日程第５、議案第49号、小金井市印鑑条例の一部を改正する条例を議題とします。</div>
+  <div class="say">提案理由の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">市長（白井　亨）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1063s" data-timestamp="1063"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:43</a>議案第49号、小金井市印鑑条例の一部を改正する条例をご提案申し上げます。</div>
+  <div class="say">住民情報システムの標準化に伴い、規定を整備する必要があるため、本案を提出するものであります。</div>
+  <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">市民部長（深澤　亘）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1084s" data-timestamp="1084"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:04</a>それでは、細部についてご説明いたします。</div>
+  <div class="say">まず、改正の趣旨でございます。本年10月に予定されております住民情報システムの標準化に伴いまして、規定を整備する必要があるため、条例を改正するものでございます。</div>
+  <div class="say">３ページ目、条例の新旧対照表の上段、第８条をご覧ください。現在、印鑑登録を行った際には、個人の印鑑に関する情報が記載された印鑑登録原票をシステム上にて備えることとなっております。この度、住民情報システムの標準化に伴いまして、標準化後の様式では印鑑登録原票に宛名番号の項目がなくなることから、第８号を削除するほか、所要の改正を行うものでございます。</div>
+  <div class="say">付則でございます。施行日につきましては、新システムが稼働開始となります10月27日としております。なお、様式につきましては、条例施行規則で定めておりまして、本議案のご議決をいただきました後、施行日までに別途改正を行う予定でおります。</div>
+  <div class="say">以上でご説明とさせていただきます。よろしくご審議の上、ご議決賜りますようお願いいたします。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1158s" data-timestamp="1158"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:18</a>質疑を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1158s" data-timestamp="1158"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:18</a>質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1161s" data-timestamp="1161"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:21</a>ご異議なしと認め、質疑を終了します。</div>
+  <div class="say">本件は、総務企画委員会に付託します。</div>
+  <div class="say">─────── ◇ ───────</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1167s" data-timestamp="1167"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:27</a>日程第６、議案第50号、小金井市下水道条例の一部を改正する条例を議題とします。</div>
+  <div class="say">提案理由の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">市長（白井　亨）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1179s" data-timestamp="1179"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:39</a>議案第50号、小金井市下水道条例の一部を改正する条例をご提案申し上げます。</div>
+  <div class="say">災害時、その他非常の場合において指定工事店の指定に関し特例を設けることに伴い、規定の整備をする必要があるため、本案を提出するものであります。</div>
+  <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">環境部長（柿崎健一）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1204s" data-timestamp="1204"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:04</a>それでは、細部についてご説明いたします。</div>
+  <div class="say">排水設備等の新設等の工事は、小金井市下水道条例第７条第１項において、市長が指定した小金井市排水設備指定工事店でなければ行うことができません。ところが、令和６年１月に発生した能登半島地震では、多くの家屋で排水設備等が破損し、また、指定工事店自身も被災したことから、排水設備等の復旧が遅れることとなりました。このことから、災害等の非常時では排水設備等の工事が円滑に実施できるよう、市長が他の市町村長が指定した指定工事店に工事を行わせる必要があると認めるときは、他の市町村長が指定した指定工事店であっても排水設備等の新設等の工事を施行できるよう、規定の整備を行うものです。</div>
+  <div class="say">それでは、条例改正の内容です。議案資料の新旧対照表をご覧ください。第７条の第１項において、先ほどもご説明したとおり、災害等の非常時では他の市町村長の指定を受けた工事店が工事を行うことができるようただし書を加えたものです。</div>
+  <div class="say">付則です。改正条例は公布の日から施行するものです。</div>
+  <div class="say">以上で説明とさせていただきます。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1296s" data-timestamp="1296"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:36</a>質疑を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1296s" data-timestamp="1296"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:36</a>質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1301s" data-timestamp="1301"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:41</a>ご異議なしと認め、質疑を終了します。</div>
+  <div class="say">本件は、建設環境委員会に付託します。</div>
+  <div class="say">─────── ◇ ───────</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1308s" data-timestamp="1308"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:48</a>日程第７、議案第51号、市道路線の廃止についてを議題とします。</div>
+  <div class="say">提案理由の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">市長（白井　亨）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1318s" data-timestamp="1318"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:58</a>議案第51号、市道路線の廃止についてをご提案申し上げます。</div>
+  <div class="say">当該道路のうち、整理番号307については隣接地権者への払下げに伴い路線を廃止するため、整理番号775については終点の延長に伴い路線を廃止するため、道路法第10条第３項の規定により準用する第８条第２項の規定により議会の議決を要することから、本案を提出するものであります。</div>
+  <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">都市整備部長（若藤　実）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1359s" data-timestamp="1359"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:39</a>それでは、市道路線の廃止についてご説明いたします。</div>
+  <div class="say">廃止路線は２本ございます。調書には路線名と起点、終点を記載してございます。</div>
+  <div class="say">初めに、資料１の案内図をご覧ください。市道第307号線でございます。貫井南町一丁目28番２地先から同７番２地先の道路でございます。</div>
+  <div class="say">資料２の見取図をご覧ください。道路幅員1.82メートル、延長は81.50メートルでございます。本件につきましては、隣接地権者への払下げに伴い、市道路線の廃止をするものでございます。</div>
+  <div class="say">続きまして、資料３の案内図をご覧ください。市道第775号線です。本町一丁目1834番21地先から本町六丁目1904番地先の道路でございます。</div>
+  <div class="say">資料４の見取図をご覧ください。道路幅員が16.00メートルから112.08メートル、延長は250.98メートルでございます。本件につきましては、小金井市で管理している小金井街道の終点の延長に伴い、一旦路線を廃止するものでございます。</div>
+  <div class="say">説明は以上でございます。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1448s" data-timestamp="1448"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:08</a>質疑を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1451s" data-timestamp="1451"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:11</a>質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1454s" data-timestamp="1454"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:14</a>ご異議なしと認め、質疑を終了します。</div>
+  <div class="say">本件は、建設環境委員会に付託します。</div>
+  <div class="say">─────── ◇ ───────</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1461s" data-timestamp="1461"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:21</a>日程第８、議案第52号、市道路線の認定についてを議題とします。</div>
+  <div class="say">提案理由の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">市長（白井　亨）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1471s" data-timestamp="1471"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:31</a>議案第52号、市道路線の認定についてをご提案申し上げます。</div>
+  <div class="say">当該道路のうち、整理番号775については前原坂上交差点からＪＲ中央本線高架下部分までは東京都との協議により市が管理している道路、整理番号847から整理番号851までについては都市計画法第29条第１項に規定する開発行為の許可を受け築造、移管された道路であり、道路法第８条第２項の規定により、議会の議決を要することから、本案を提出するものであります。</div>
+  <div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">都市整備部長（若藤　実）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1520s" data-timestamp="1520"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:20</a>それでは、市道路線の認定についてご説明をいたします。</div>
+  <div class="say">認定路線は６本ございます。調書には路線名と起点、終点を記載してございます。</div>
+  <div class="say">初めに、資料１の案内図をご覧ください。市道第775号線でございます。本町一丁目1834番21地先から本町五丁目1803番１地先の道路でございます。</div>
+  <div class="say">資料２の見取図をご覧いただきたいと存じます。道路幅員は15.50メートルから112.08メートル、延長は284.19メートルでございます。本件につきましては、東京都との協議により、小金井街道のＪＲ中央本線高架下部分を追加で市が管理することから認定をするものでございます。</div>
+  <div class="say">続きまして、資料３の案内図をご覧ください。市道第847号線でございます。貫井北町五丁目676番13地先から同４地先の道路でございます。</div>
+  <div class="say">資料４の見取図をご覧ください。道路幅員は5.00メートル、延長は78.41メートルでございます。本件につきましては、開発行為によりまして築造、移管された道路でございます。</div>
+  <div class="say">続きまして、資料５の案内図をご覧ください。市道第848号線でございます。貫井北町三丁目1047番９地先から同18地先の道路でございます。</div>
+  <div class="say">資料６の見取図をご覧ください。市道第848号線は、道路幅員5.00メートル、延長は94.70メートルでございます。</div>
+  <div class="say">続きまして、資料７の案内図をご覧ください。市道第849号線でございます。貫井北町三丁目1054番18地先から同23地先の道路でございます。</div>
+  <div class="say">資料８の見取図をご覧ください。市道第849号線は道路幅員が5.00メートル、延長は71.11メートルでございます。本件につきましては、開発行為によりまして築造、移管された道路でございます。</div>
+  <div class="say">続きまして、資料９の案内図をご覧いただきたいと存じます。市道第850号線でございます。東町四丁目1062番32地先から同37地先の道路でございます。</div>
+  <div class="say">資料10の見取図をご覧いただきたいと存じます。市道第850号線は、道路幅員5.00メートル、延長46.13メートルでございます。本件につきましては、開発行為によりまして築造、移管をされた道路でございます。</div>
+  <div class="say">続きまして、資料11の案内図をご覧いただきたいと存じます。市道第851号線でございます。東町四丁目1062番14地先から同26地先の道路でございます。先ほどの市道第850号線の南側に位置してございます。</div>
+  <div class="say">資料12の見取図をご覧いただきたいと存じます。市道第851号線は道路幅員5.00メートル、延長50.10メートルでございます。本件につきましては、開発行為によりまして築造、移管をされた道路でございます。</div>
+  <div class="say">説明は以上でございます。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1757s" data-timestamp="1757"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:17</a>質疑を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1757s" data-timestamp="1757"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:17</a>質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=FioGq1m2WV4&t=1758s" data-timestamp="1758"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:18</a>ご異議なしと認め、質疑を終了します。</div>
+  <div class="say">本件は、建設環境委員会に付託します。</div>
+  <div class="say">以上で、本日の日程は全て終了いたしました。</div>
+  <div class="say">本日はこれをもって散会いたします。</div>
+  <div class="say">午前10時26分散会</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+</body>
+</html>

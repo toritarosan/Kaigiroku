@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和7年9月16日 総務企画委員会</title>
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#1d3a63; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* 直接URLで開いた時だけ最上部に「会議一覧に戻る」帯（index分割ビュー内では非表示） */
+  .backbar-top{display:none;}
+  body.standalone{padding-top:40px;}
+  body.standalone .backbar-top{display:flex; align-items:center; gap:6px; position:fixed; top:0; left:0; right:0;
+       z-index:60; height:40px; padding:0 18px; background:var(--navy); color:#fff; font-family:var(--sans);
+       font-size:13px; font-weight:700; text-decoration:none; letter-spacing:.04em; box-shadow:0 1px 4px rgba(0,0,0,.15);}
+  body.standalone .backbar-top:hover{background:#294f86;}
+  body.standalone .prog{top:40px;}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+</style>
+</head>
+<body>
+<a class="backbar-top" href="index.html">← 会議一覧に戻る</a>
+<script id="backbar-js">(function(){try{if(window.self===window.top)document.body.classList.add('standalone');}catch(e){document.body.classList.add('standalone');}})();</script>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和7年9月16日</p>
+    <h1>総務企画委員会</h1>
+    <span class="srcbadge"><span class="dot"></span>本文＝小金井市議会 公式会議録（DBSR）</span><span class="src official">本文は公式会議録を一字一句そのまま掲載。要約はAIによる補助、タイムスタンプ・動画はYouTube連携（いずれも非公式の付加情報）。　|　<a href="https://www.city.koganei.tokyo.dbsr.jp/897762?Template=document&amp;Id=10196" target="_blank" rel="noopener">公式会議録の原典 ↗</a></span><span class="genmeta">本文は公式会議録と一致確認済み（verbatim）。要約はAIによる生成で、小金井市議会の公式見解ではありません。<br>最終生成日 2026-07-10</span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <h3>提出議案等一覧</h3>
+<ul>
+<li>7陳情第14号 ふるさと納税返礼品から「特定外来生物被害防止基本方針」に収録のある生物種の排除を求める陳情書</li>
+<li>7陳情第16号 ふるさと納税返礼品指定体制の改善を求める陳情書</li>
+<li>7陳情第30号 小金井市第一庁舎にエレベーター設置を求める陳情書</li>
+<li>7陳情第31号 小金井市議会は国会に対し、地方税法343条が定める固定資産税の廃止を求める意見書を提出するよう求める陳情書</li>
+<li>7陳情第32号 陳情者は小金井市議会に対し「小金井市長宛ての市民の声」制度の廃止の働きかけを求める陳情書</li>
+<li>7陳情第35号 選挙時の法定ビラの配布方法の規制緩和について国に意見書を提出していただくことを求める陳情書</li>
+<li>議案第38号 小金井市議会議員及び小金井市長の選挙における選挙運動の公費負担に関する条例の一部を改正する条例</li>
+<li>7陳情第42号 核保有国による攻撃的行為の停止と平和構築のための要望書提出に関する陳情書</li>
+<li>7陳情第55号 小金井市民は世界連邦法を受諾したことになるか否かについて聞く陳情書</li>
+<li>7陳情第64号 フェスティバルコートの政治活動・選挙運動への利用拡大を求める陳情書</li>
+<li>議案第39号 小金井市個人番号の利用並びに特定個人情報の利用及び提供に関する条例の一部を改正する条例</li>
+<li>議案第40号 小金井市職員の勤務時間、休日、休暇等に関する条例の一部を改正する条例</li>
+<li>議案第41号 職員の育児休業等に関する条例の一部を改正する条例</li>
+<li>議案第49号 小金井市印鑑条例の一部を改正する条例</li>
+<li>所管事務調査 自治体ＤＸの取組について</li>
+<li>行政報告1 第５次小金井市基本構想・後期基本計画（素案）に対するパブリックコメントの実施について</li>
+<li>行政報告2 令和７年度課別時間外勤務時間数等について</li>
+</ul>
+<h3>議案の審議ごとの要約</h3>
+<h4>7陳情第14号 ふるさと納税返礼品から「特定外来生物被害防止基本方針」に収録のある生物種の排除を求める陳情書 及び 7陳情第16号 ふるさと納税返礼品指定体制の改善を求める陳情書</h4>
+<p>ふるさと納税返礼品に関する2件の陳情が一括で審議された。質疑・討論の後、7陳情第14号は不採択と決定された。7陳情第16号も不採択と決定された。</p>
+<h4>7陳情第30号 小金井市第一庁舎にエレベーター設置を求める陳情書</h4>
+<p>小金井市第一庁舎へのエレベーター設置を求める陳情が審議された。質疑・討論の後、本件は不採択と決定された。</p>
+<h4>7陳情第31号 小金井市議会は国会に対し、地方税法343条が定める固定資産税の廃止を求める意見書を提出するよう求める陳情書</h4>
+<p>固定資産税の廃止を求める意見書提出に関する陳情が審議された。質疑・討論の後、本件は不採択と決定された。</p>
+<h4>7陳情第32号 陳情者は小金井市議会に対し「小金井市長宛ての市民の声」制度の廃止の働きかけを求める陳情書</h4>
+<p>「小金井市長宛ての市民の声」制度の廃止の働きかけを求める陳情が審議された。質疑・討論の後、本件は不採択と決定された。</p>
+<h4>7陳情第35号 選挙時の法定ビラの配布方法の規制緩和について国に意見書を提出していただくことを求める陳情書 及び 議案第38号 小金井市議会議員及び小金井市長の選挙における選挙運動の公費負担に関する条例の一部を改正する条例</h4>
+<p>選挙時の法定ビラの配布方法の規制緩和を求める陳情と、選挙運動の公費負担に関する条例改正案が一括で審議された。選挙管理委員会事務局から、令和7年3月23日執行の小金井市議会議員選挙に係る候補者別公費負担状況等一覧について説明があった。委員からは、ビラとポスターの公費負担額の感覚的な差や、公費負担制度の民主的公平性の維持に関する意見が出された。7陳情第35号は採択の上、関係機関に意見書を送付すべきものと決定され、意見書の案文は後日賛成委員で調整されることになった。議案第38号は原案のとおり可決と決定された。</p>
+<h4>7陳情第42号 核保有国による攻撃的行為の停止と平和構築のための要望書提出に関する陳情書 及び 7陳情第55号 小金井市民は世界連邦法を受諾したことになるか否かについて聞く陳情書</h4>
+<p>核保有国による攻撃的行為の停止と平和構築のための要望書提出に関する陳情と、世界連邦法に関する陳情が一括で審議された。委員から、自治体の外交業務の役割や世界連邦法の法的効力について質疑があり、広報秘書課長は、小金井市は現状外交を行っておらず、世界連邦法に法的効力はないと答弁した。委員からは、陳情が行政の役割になじまない、世界連邦法が構想段階であることなどから賛成できないとの意見が出された。質疑・討論の後、7陳情第42号は不採択と決定された。7陳情第55号も不採択と決定された。</p>
+<h4>7陳情第64号 フェスティバルコートの政治活動・選挙運動への利用拡大を求める陳情書</h4>
+<p>フェスティバルコートの政治活動・選挙運動への利用拡大を求める陳情が審議された。委員からは、若者の政治参加を増やすことの重要性や、フェスティバルコートが市街地再開発の権利問題が未整理の私有地であること、行政が強く働きかけることの難しさなどが指摘された。市長からは、若者の政治参加促進への思いや、気候市民会議などの取り組みを通じて市政への興味関心を高めることの重要性について答弁があった。委員から、フェスティバルコートの管理主体や他市での私有地における政治活動の事例に関する資料要求があり、副市長は調整の上提出すると答弁した。本件は継続審査と決定された。</p>
+<h4>議案第39号 小金井市個人番号の利用並びに特定個人情報の利用及び提供に関する条例の一部を改正する条例</h4>
+<p>小金井市個人番号の利用並びに特定個人情報の利用及び提供に関する条例の一部を改正する条例が審議された。質疑・討論の後、本件は原案のとおり可決と決定された。</p>
+<h4>議案第40号 小金井市職員の勤務時間、休日、休暇等に関する条例の一部を改正する条例 及び 議案第41号 職員の育児休業等に関する条例の一部を改正する条例</h4>
+<p>職員の勤務時間、休日、休暇等に関する条例と育児休業等に関する条例の改正案が一括で審議された。職員課長から、子育て部分休暇及び部分休業の活用状況について説明があった。委員からは、年度途中での制度変更の柔軟性、男性職員の取得状況、申請者数と取得者数の差、取得可能時間に対する平均取得時間の割合、非正規職員への適用状況について質疑があった。職員課長は、年度途中変更は原則不可だが想定外の事情があれば検討すること、男性職員も数人取得していること、取得状況は家庭の事情に応じた柔軟な取得の結果であること、会計年度職員にも同様の対応を図る予定であることを答弁した。また、育児時短制度利用職員の業務を代行する同僚職員へのインセンティブやフォローアップ体制について質疑があり、職員課長は、業務分担の見直しや周囲の協力呼びかけを行っているが、給与面での特別な報酬は難しいと答弁した。委員からは、男性も取得しやすい職場環境づくりや、制度利用を応援する方々が気持ちよく働ける体制整備への要望が出された。他自治体や民間企業との制度比較、育児休業の意向確認方法についても質疑があり、職員課長は、他自治体との差はなく、民間法制に準じたものと考えていること、意向確認は書面で行い、必要に応じて職員課が本人に確認することを答弁した。質疑・討論の後、議案第40号は原案のとおり可決と決定された。議案第41号も原案のとおり可決と決定された。</p>
+<h4>議案第49号 小金井市印鑑条例の一部を改正する条例</h4>
+<p>小金井市印鑑条例の一部を改正する条例が審議された。質疑・討論の後、本件は原案のとおり可決と決定された。</p>
+<h4>所管事務調査 自治体ＤＸの取組について</h4>
+<p>自治体ＤＸの取組について所管事務調査を行うことが決定された。調査事項は「市民目線でのサービスの質の向上」「デジタル技術を活用した業務効率化の推進」「ＤＸ推進の意識醸成とデジタル人材の育成」の3点。調査期間は令和7年9月から令和9年3月まで。本日は資料要求にとどめ、質疑は閉会中から行うこととされた。委員から、令和7年のアクションプランに基づく進捗と積み残し案件、新たなアクションプランの方針、市役所内部のデジタル概念図、他市事例、生成AIの利用実績と今後の展望、自治体クラウドのシステム標準化のフォーマット新旧対照表、今後6か月程度の各部署での具体的なDXの取り組みに関する資料要求があった。企画財政部長は、調整の上、提出できるものについて提出すると答弁した。本件は継続調査と決定された。</p>
+<h4>行政視察に係る所管事務調査の継続審査議決</h4>
+<p>総務企画委員会の行政視察として、「こまきスマート窓口について」及び「オープンデータの取組・データ連携基盤の利活用を始めとするＤＸについて」を視察項目とすることが決定され、これらを当委員会の所管事務調査事件として閉会中の継続調査とすることが決定された。閉会中の委員派遣は、議長に対し委員派遣承認要求を行い、派遣委員、日時、場所、目的及び経費等の手続きは委員長に一任されることになった。</p>
+<h4>行政報告1 第５次小金井市基本構想・後期基本計画（素案）に対するパブリックコメントの実施について</h4>
+<p>企画政策課長から、第5次小金井市基本構想・後期基本計画（素案）に対するパブリックコメントの実施について報告があった。令和7年9月19日から同年10月31日までの期間でパブリックコメントを実施し、寄せられた意見は長期計画審議会で検討される予定。また、9月20日土曜日に市民フォーラムがオープンハウス形式で実施される。質疑はなかった。</p>
+<h4>行政報告2 令和７年度課別時間外勤務時間数等について</h4>
+<p>人事制度等担当課長から、令和7年度課別時間外勤務時間数等について報告があった。令和7年4月から7月までの時間外勤務時間は3万3,609時間で、前年同時期より3,404時間減少したが、今年度の目標である9万時間を切る目標に対しては603時間の増加となっている。今後も目標達成に向けた取り組みを強化する。質疑はなかった。</p>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/9Try9HiFTS4" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
+  </section>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">おはようございます。ただいまから総務企画委員会の会議を開きます。</div>
+  <div class="say">直ちに本日の議事に入ります。</div>
+  <div class="say">当委員会に付託されております案件は、陳情９件、議案５件、所管事務調査２件です。以上16件につきましては、総務企画委員会審査予定表の順序で行うことといたします。</div>
+  <div class="say">初めに、７陳情第14号、ふるさと納税返礼品から「特定外来生物被害防止基本方針」に収録のある生物種の排除を求める陳情書及び７陳情第16号、ふるさと納税返礼品指定体制の改善を求める陳情書につきまして、一括して議題といたしたいと思います。これにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認め、そのように決定いたします。</div>
+  <div class="say">部局から発言がありましたら、これを求めます。</div>
+  <div class="say">（「特にございません」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">これから質疑を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">特に発言がないようでしたら、休憩をして取扱いの協議ということになりますが、よろしいですか。</div>
+  <div class="say">休憩します。</div>
+  <div class="say">午前10時04分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午前10時05分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">再開いたします。</div>
+  <div class="say">７陳情第14号、ふるさと納税返礼品から「特定外来生物被害防止基本方針」に収録のある生物種の排除を求める陳情書につきまして、委員長報告に載せる意見・要望がございましたら、発言をお願いいたします。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、質疑を終了いたします。</div>
+  <div class="say">これから討論を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、討論を終了いたします。</div>
+  <div class="say">それでは、直ちに採決いたします。</div>
+  <div class="say">お諮りいたします。本件は採択の上、市長に送付することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+  <div class="say">（「異議あり」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議がありますので、本件は起立採決をいたします。</div>
+  <div class="say">本件は採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div>
+  <div class="say">（起立なし）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">起立なし。したがって、本件は不採択と決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">次に、７陳情第16号、ふるさと納税返礼品指定体制の改善を求める陳情書につきまして、委員長報告に載せる意見・要望がございましたら、発言をお願いします。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、質疑を終了いたします。</div>
+  <div class="say">これから討論を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、討論を終了いたします。</div>
+  <div class="say">それでは、直ちに採決いたします。</div>
+  <div class="say">お諮りいたします。本件は採択の上、市長に送付することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+  <div class="say">（「異議あり」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議がありますので、本件は起立採決をいたします。</div>
+  <div class="say">本件は採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div>
+  <div class="say">（賛成者起立）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">起立少数。したがって、本件は不採択と決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">次に、７陳情第30号、小金井市第一庁舎にエレベーター設置を求める陳情書を議題といたします。</div>
+  <div class="say">部局から発言がありましたら、これを求めます。</div>
+  <div class="say">（「特にございません」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">これから質疑を行います。</div>
+  <div class="say">質疑なしということでよろしいですか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">休憩いたします。</div>
+  <div class="say">午前10時08分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午前10時09分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">再開いたします。</div>
+  <div class="say">本件につきまして、委員長報告に載せる意見・要望がございましたら発言をお願いいたします。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、質疑を終了いたします。</div>
+  <div class="say">これから討論を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、討論を終了いたします。</div>
+  <div class="say">それでは、直ちに採決いたします。</div>
+  <div class="say">お諮りいたします。本件は採択の上、市長に送付することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+  <div class="say">（「異議あり」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議がありますので、本件は起立採決をいたします。</div>
+  <div class="say">本件は採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div>
+  <div class="say">（起立なし）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">起立なし。したがって、本件は不採択と決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">次に、７陳情第31号、小金井市議会は国会に対し、地方税法343条が定める固定資産税の廃止を求める意見書を提出するよう求める陳情書を議題といたします。</div>
+  <div class="say">部局から発言がありましたらこれを求めます。</div>
+  <div class="say">（「特にございません」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">これから質疑を行います。</div>
+  <div class="say">質疑なしということでよろしいですか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">では、休憩します。</div>
+  <div class="say">午前10時10分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午前10時11分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">再開いたします。</div>
+  <div class="say">本件につきまして、委員長報告に載せる意見・要望がございましたら発言をお願いいたします。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、質疑を終了いたします。</div>
+  <div class="say">これから討論を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、討論を終了いたします。</div>
+  <div class="say">それでは、直ちに採決いたします。</div>
+  <div class="say">お諮りいたします。本件は採択の上、関係機関に意見書を送付することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+  <div class="say">（「異議あり」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議がありますので、本件は起立採決をいたします。</div>
+  <div class="say">本件は採択の上、関係機関に意見書を送付することに賛成の皆さんの起立を求めます。</div>
+  <div class="say">（起立なし）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">起立なし。したがって、本件は不採択と決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">次に、７陳情第32号、陳情者は小金井市議会に対し「小金井市長宛ての市民の声」制度の廃止の働きかけを求める陳情書を議題といたします。</div>
+  <div class="say">部局から発言がありましたら、これを求めます。</div>
+  <div class="say">（「特にございません」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">これから質疑を行います。</div>
+  <div class="say">質疑ございませんか。よろしいですか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">それでは、休憩いたします。</div>
+  <div class="say">午前10時12分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午前10時13分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">再開いたします。</div>
+  <div class="say">本件につきまして、委員長報告に載せる意見・要望がございましたら発言をお願いいたします。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、質疑を終了いたします。</div>
+  <div class="say">これから討論を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、討論を終了いたします。</div>
+  <div class="say">それでは、直ちに採決いたします。</div>
+  <div class="say">お諮りいたします。本件は採択することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+  <div class="say">（「異議あり」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議がありますので、本件は起立採決をいたします。</div>
+  <div class="say">本件は採択することに賛成の皆さんの起立を求めます。</div>
+  <div class="say">（起立なし）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">起立なし。したがって、本件は不採択と決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">次に、７陳情第35号、選挙時の法定ビラの配布方法の規制緩和について国に意見書を提出していただくことを求める陳情書及び議案第38号、小金井市議会議員及び小金井市長の選挙における選挙運動の公費負担に関する条例の一部を改正する条例につきまして、一括して議題といたしたいと思います。これにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認め、そのように決定いたします。</div>
+  <div class="say">本日、部局から資料が提出されておりますので、初めに資料の説明を求めます。お願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">六町選挙係長</span></div>
+  <div class="say">それでは、選挙管理委員会事務局より提出いたしました資料、令和７年３月23日執行小金井市議会議員選挙に係る候補者別公費負担状況等一覧についてご説明いたします。</div>
+  <div class="say">こちらの資料は、当該選挙における立候補届出番号順に候補者ごとの公費負担執行額等を一覧表にしたものでございます。</div>
+  <div class="say">なお、ビラの作成費用及びポスター作成費用につきまして、限度額を超えての支出のありました候補者につきましては、その超過額、自己負担額、こちらも記載しておりまして、また、資料右側の備考欄のところに費用の総額も併せて記載しております。詳細につきましては資料をご覧ください。</div>
+  <div class="say">説明は以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">これから質疑を行います。質疑はございませんか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say">選挙時の法定ビラの配布方法の規制緩和については、前回質問いたしましたので、ないんですけれども、フェスティバルコート、政治活動選挙運動への利用。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">それは議題が違う。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say">ごめんなさい。間違えました。失礼いたしました。</div>
+  <div class="say">小金井市議会議員及び小金井市長の選挙における選挙運動の公費負担に関する条例の一部を改正する条例ということなんですけれども、資料を提出していただきまして、ビラで満額まで使っている人が15人、ポスターは７人ということからすると、感覚的にはビラ作成の公費負担が安く、ポスター作成が比較的高いのではないかと、私は全然データとして成り立たないと思いますけれども、私自身はこのポスターの費用とビラの費用に感覚的な負担額の作成に差があるのではないかなという、一般的に言うとビラの方が少し安いのではないかなという気がするので、これはここで言ってもしようがないんですけど、何かの機会にこの額の違い自体は何かあってもいいのかなと思います。</div>
+  <div class="say">ただ、公費負担が高いとか安いとかそういうのは、例えばデザインなんかをこの中に含めて一式として発注する場合もあるでしょうし、最近───────などありまして、デザインの方はちょっと別であって、（「社名は言わない方が」と呼ぶ者あり）失礼しました。訂正いたします。安い印刷方法などもある。デザインは何か別個でやるとか、そういういろんな事情があると思うので、その中でどれだけの額を使用するとか、法に決められた範囲の中で候補者が決めることかなと思っております。公費負担がこうやってある中で、金銭的な公平感を持って候補者が選挙に臨むということができていますので、ぜひとも今後ともこの制度については民主的公平性ある制度として維持していくべきだと考えますということを意見だけ申し上げて、質問ではありません。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ながとり委員、先ほど企業名を特定する発言がありましたよね。あれは訂正しますか。どうしますか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say">訂正できますか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">発言訂正の申出をしていただければ訂正ができると思うんだけど。（「本人が言っていただければ」と呼ぶ者あり）本人がその部分は訂正すると言っていただければ、議事進行で手を挙げてもらって。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say">議事進行。先ほど特定の企業名を発言しましたけれども、この部分について訂正いたしますので、発言削除をお願いいたしたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">分かりました。</div>
+  <div class="say">意見だからいいのかな。質問はしていない。</div>
+  <div class="say">他にございますか。質問でなくても、意見でもありましたら承っておきますが、ありませんか。</div>
+  <div class="say">なければ休憩して、取扱いの協議ということになってまいりますが、休憩していいですね。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">休憩します。</div>
+  <div class="say">午前10時18分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午前10時19分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">再開いたします。</div>
+  <div class="say">７陳情第35号、選挙時の法定ビラの配布方法の規制緩和について国に意見書を提出していただくことを求める陳情書につきまして、委員長報告に載せる意見・要望がございましたら、ご発言をお願いいたします。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、質疑を終了いたします。</div>
+  <div class="say">これから討論を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、討論を終了いたします。</div>
+  <div class="say">それでは、直ちに採決いたします。</div>
+  <div class="say">お諮りいたします。本件は採択の上、関係機関に意見書を送付することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+  <div class="say">（「異議あり」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議がありますので、本件は起立採決をいたします。</div>
+  <div class="say">本件は採択の上、関係機関に意見書を送付することに賛成の皆さんの起立を求めます。</div>
+  <div class="say">（賛成者起立）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">起立多数。したがって、本件は採択の上、関係機関に意見書を送付すべきものと決定いたしました。</div>
+  <div class="say">なお、意見書の案文につきましては、後日、賛成委員で調整、ご協議いただきたいと思いますのでよろしくお願いいたします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">次に、議案第38号、小金井市議会議員及び小金井市長の選挙における選挙運動の公費負担に関する条例の一部を改正する条例につきまして、委員長報告に載せる意見・要望がございましたら、ご発言をお願いいたします。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、質疑を終了いたします。</div>
+  <div class="say">これから討論を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、討論を終了いたします。</div>
+  <div class="say">それでは、直ちに採決いたします。</div>
+  <div class="say">お諮りいたします。本件は原案のとおり可決することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、本件は原案可決と決定いたしました。</div>
+  <div class="say">ただいま、ながとり委員から、先ほどの発言の一部を取り消したいとの申出がありました。</div>
+  <div class="say">お諮りいたします。この申出を許可することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、ながとり委員からの発言の取消しの申出を許可することと決定いたしました。</div>
+  <div class="say">なお、関連発言部分につきましては、委員会記録を調査の上、委員長においてしかるべき処置をとることといたします。よろしくお願いいたします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">７陳情第42号、核保有国による攻撃的行為の停止と平和構築のための要望書提出に関する陳情書及び７陳情第55号、小金井市民は世界連邦法を受諾したことになるか否かについて聞く陳情書につきまして、一括して議題といたしたいと思います。これにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認め、そのように決定いたします。</div>
+  <div class="say">部局から発言がありましたら、これを求めます。</div>
+  <div class="say">（「特にございません」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say">７陳情第42号について、行政の業務の役割の中で、外交についてもその業務として含まれているのかという点と、あと55号につきましては、世界連邦法について法的効力若しくは実行力があるのかという点について確認させていただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木広報秘書課長</span></div>
+  <div class="say">まず、自治体の外交ということですけれども、自治体によってはインバウンドや国際交流の観点で自治体独自に行っている場合もあるかと思いますが、現状、小金井市としては行っておりません。</div>
+  <div class="say">次に、世界連邦法の法的効力ということにつきましては、世界連邦法というものが国際法として広く交付されているわけではございませんので、効力はないと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say">ありがとうございます。現在、小金井市として、外交についてはまだ業務として担っていない、役割として持っていないという点と、あと世界連邦法につきましても法的効力はないという点を踏まえまして、採決に臨ませていただきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">たゆ委員</span></div>
+  <div class="say">質問はないんですけれども、ちょっと賛成はできないと考えていますので、その理由だけ述べておきたいと思います。</div>
+  <div class="say">まず、７陳情第42号についてなんですけれども、核兵器廃絶や平和の実現は求めるもの、当然なんですけれども、行政の役職の方々が各国の大使館へ要求書を渡しに行くというのは、それよりもまずは日本政府に対する要求なのかなと思いますし、陳情としてなじまないと感じておりまして、賛成はできないと考えております。</div>
+  <div class="say">７陳情第55号につきましては、こちらもまず同じように世界から武力や戦争がなくなることは当然求めるものであるんですけれども、世界連邦はいまだ構想という段階であるということや、陳情内容を見ても個人を拘束することはできないと思いますし、内心の自由は一人ひとりにあると考えて、その点から賛成できないので、この陳情２つは反対したいと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">他にございませんか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">それでは、休憩いたします。</div>
+  <div class="say">午前10時26分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午前10時27分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">再開いたします。</div>
+  <div class="say">７陳情第42号、核保有国による攻撃的行為の停止と平和構築のための要望書提出に関する陳情書につきまして、委員長報告に載せる意見・要望がございましたら、ご発言をお願いします。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、質疑を終了いたします。</div>
+  <div class="say">これから討論を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、討論を終了いたします。</div>
+  <div class="say">それでは、直ちに採決いたします。</div>
+  <div class="say">お諮りします。本件は採択の上、関係機関に意見書を送付することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+  <div class="say">（「異議あり」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議がありますので、本件は起立採決をいたします。</div>
+  <div class="say">本件は採択の上、関係機関に意見書を送付することに賛成の皆さんの起立を求めます。</div>
+  <div class="say">（起立なし）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">起立なし。したがって、本件は不採択と決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">次に、７陳情第55号、小金井市民は、世界連邦法を受諾したことになるか否かについて聞く陳情書につきまして、委員長報告に載せる意見・要望がございましたら、ご発言お願いいたします。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、質疑を終了いたします。</div>
+  <div class="say">これから討論を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、討論を終了いたします。</div>
+  <div class="say">それでは、直ちに採決いたします。</div>
+  <div class="say">お諮りいたします。本件は採択することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+  <div class="say">（「異議あり」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議がありますので、本件は起立採決をいたします。</div>
+  <div class="say">本件は採択することに賛成の皆さんの起立を求めます。</div>
+  <div class="say">（起立なし）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">起立なし。したがって、本件は不採択と決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">次に、７陳情第64号、フェスティバルコートの政治活動・選挙運動への利用拡大を求める陳情書を議題といたします。</div>
+  <div class="say">本件は、陳情者から発言の申出がありますので、委員会協議会を開催するため、しばらく休憩いたします。</div>
+  <div class="say">午前10時29分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午前10時38分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">再開いたします。</div>
+  <div class="say">休憩前に引き続き、７陳情第64号、フェスティバルコートの政治活動・選挙運動への利用拡大を求める陳情書を議題といたします。</div>
+  <div class="say">部局から発言がありましたら、これ求めます。</div>
+  <div class="say">（「特にございません」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">小林委員</span></div>
+  <div class="say">陳述もいただきましたので、簡単に質疑させていただきたいと思いますけども、私もこの日本青年会議所関東地区東京ブロック協議会のイベントにブースを出さないかということで、後輩の方から声が上がりまして、ブースの方にも参加をさせていただいた１人であります。今、陳述にもありましたように、政治を学ぼうということではなくて、本当に通りすがりの方が話しかけていただいて、そこから思いもよらないような会話につながったという意味では非常に有効な場であったなというように感じているところであります。</div>
+  <div class="say">また、今、小金井市議会で行われております主権者教育につきましても、現在の状況まで積み上がってきたというところは非常に喜ばしいことであり、また、我々の議会の課題というものも改めて確認をされている、挑戦していかなければいけないなという形で感じているところであります。</div>
+  <div class="say">今回の陳情に関してですが、非常にこういった有権者について接点を増やしていくということはもう大いに賛成しておりますし、そういった場が広がっていくということは、しっかりと手続を踏めばよろしいことかなというようには考えているところでありますが、ことこのフェスティバルコートというところについては、市街再開発の第２地区の権利の問題などがまだ整理がついていない状況でしょうかね。そういったところからすると、ピンポイントにここをどうにか開いていくという話というのは、今、市政にとってはなかなか難しいこともあろうかなと思います。やはり民間外交というようなところで、しっかりと理解をいただきながら、一つひとつのイベントを自然発生的に行っていくというところが、今の小金井の市民力というところでは非常に有効なのかなというように感じているところでありますが、ちょっと総合的に伺いたいんですが、市政の若者に対する政治発信というか、そういった関心を高める活動、政策、そういったところがここ数年間、様々行われてきたと思いますが、それについて簡単にご説明をいただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">廣田企画政策課長</span></div>
+  <div class="say">小林委員からの若者の政治参加という形のご質問をいただきました。若者の政治への参加といいますか市民参加という視点で言いますと、私どもで市民参加推進会議というのを行っておりまして、この間いろんな提言をいただいたりしているところでございます。今回、新しい委員で始める市民参加推進会議におきましても、若者の市民参加について検討しているところでございまして、そういったところでいろんなご議論いただきながら、活用できるものは活用していきたいと考えてございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">小林委員</span></div>
+  <div class="say">ありがとうございます。</div>
+  <div class="say">市民参加という観点からいろいろ取組をしてきていただいておりまして、それを実際の市の施策に大きく生かしていくところまではあと一歩なのかなと思っておりますけども、市長の方に、あえて伺いたいと思います。</div>
+  <div class="say">一緒に市議会議員だった時代にも、政治参加についてはいろんな取組、新城市の取組などを紹介しながら進めてきた経過もあろうと思います。今の市政の課題ですとか、こういった陳情も踏まえて、更に一歩広げていきたいというような思いとか政策意思とかがございましたら伺っておきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">白井市長</span></div>
+  <div class="say">小林委員の方から、先ほどの陳述も含めて、そういった意味合いを含めての若者の政治参加、若しくは市政参加というところ、これに関する市長の考えと思いというところ、ご質問をいただきました。</div>
+  <div class="say">まず、先ほど陳述の中で触れられた、この陳情書にも書かれていますけども、昨年の日本青年会議所の関東地区東京ブロック協議会のイベントについては私も一応お招きをいただいて参加をさせていただき、トークセッションなどで一緒に若者の政治参加若しくは、どういうふうに政治に関わっていくべきか、そこの課題みたいなところについてちょっとお話もさせていただいたところです。</div>
+  <div class="say">まず、あのイベント自体は非常に面白かったといいますか、過去にないイベントだったなと私自身も非常にうれしく思ってはいたものの、ただ、ちょっと課題として聞いたのは、なかなかやはり集客が難しかったというようなお話もいただいているところです。ただし、若者の、特に20代30代の投票率が低いということ、これは日本の国としても課題であり、これは小金井市としてもやはり課題であるということで、やはり若い方々が、政治そのものについて親和性をしっかり高めながらそこに関わっていくという、言及していくという、こういう動きというのはよりもっと強めていかなければならないと私自身も考えているところです。</div>
+  <div class="say">政治参加というところについては、なかなか市長の立場では申し上げにくいところはございますが、やはり入り口は自分の住む町、若しくは自分の生活と政治というものがどう密接に関わっているかということを、いかに実感できるかということが鍵なんだろうなと私は思うんです。ですので、市長の立場でいきますと、主権者教育も取り組みたいところはあったりもするんですけども、まずは若い人たちが市政、若しくは自分の住む町で起こっていることについて、より興味を持っていただくというところから、市としての関わりをもっと進めていくことができないかなと考えているところです。</div>
+  <div class="say">一つ具体的に言いますと、先日、第３回の会議を終えました小金井市気候市民会議ですね。全て無作為抽出なんですけども、若い方々をちょっと多く無作為で抽出してお誘いをしたところ、ご年配の方も実はいらっしゃったんですけども、大半が30代以下の方々で、若い人たちが集まって、これからの気候について何かできるかどうか、市への提言、そして市民一人ひとりとして何をすべきかどうか、こういうことについて話し合っていただいたということであります。こういう、市としての無作為抽出の働きかけの中で、若い人たちがいかにこういう取組に関わっていけるのかというお誘い、若しくはそういうアプローチをもっと強めていくということ、こういったことは市としてもまだできるかなと思っています。</div>
+  <div class="say">また、市政として私自身が掲げている大きな課題の一つは、やはり地域人材の発掘と育成ということだと掲げて、庁内の中でも共有しているところです。ですので、今後、より若い人たちに対していろんな働きかけをすることによって、この町を自分事として考えていただき、自分としても何かできることはないか、何か声を上げる必要があるかどうか、若しくは、自分自身が何かやろうかどうか、こういう思いを持っていただけるような働きかけというのを、より一層強めていかなければならないよねという話も庁内でやっているところです。</div>
+  <div class="say">今はまだ具体的には申し上げられませんが、そういうことを通じて、若い人たちが、まず、自分の住む町、若しくはつながるところはやはり市政だったりもしますので、そういったところの関係性をしっかり認識いただけるような働きかけというのは今後、より行っていきたいと、そのようには考えているところでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">小林委員</span></div>
+  <div class="say">ありがとうございます。市長からもご答弁いただきました。</div>
+  <div class="say">今のお話にもありましたけど、市民の方にお声かけすると、私は政治には関心ないのでとか政治に関係ないのでと言われる方がいらっしゃるんですけど、まさに政治は暮らしであり生活でありますから、本当に皆さんの日々の暮らしに全てがコミットしているという意味からすると、やはり我々がいろんなところで接点を設けていくということ、そしてその方々の声を市政に届けていくということが非常に重要でありまして、この議場の中にずっと夜中まで缶詰になっていることが、もちろん一つひとつの陳情、議案、それを慎重審査する上で、しっかりと限られた時間の中で議決をしていく、その役割を果たす上で、やはり地域の中に入って声を聞いていくということが重要なんだなということを、この陳情を通して感じさせていただいたというところであります。</div>
+  <div class="say">最初に申し上げたように、本陳情は少し具体的な街区についてのご指定でございますので、取扱いについては、また、皆様と協議させていただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say">陳情、ありがとうございます。いろいろ考えさせられました。市民がもっと政治に参加できるようにという趣旨は、非常に興味深く聞かせていただきました。ただ、やはりこれは、もし市がこれを要求してしまうと圧力に見えるのではないかなという懸念を私は持っていまして、今すぐこちらに賛成というのはなかなか難しいかなと思っています。ただ、場所を増やすというのをもっと包括的に考えていくということは大事なのではないかと思いますので、ちょっと意見として述べさせていただきたいと思います。ありがとうございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご意見ということで、他にございますか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say">ありがとうございます。陳述者の意図からして、今回の陳情につきましては、若い方も含めて、政治参加の低迷をご懸念されているというところで、皆さんの興味関心を引くための手段としてのご提案と受け取りました。人が集まるという点と集まりやすい場所でという視点は非常に大切であると考えますが、先ほどもありましたように、世代別に分析した際に投票率が低い世代として出るのは10代から20代というところで、フェスティバルコートの利用拡大を広げることによって世代別の皆さんの興味を引かれるかというところについては慎重に議論が必要かと考えております。加えまして、また、私有地ですので、行政として強く働きかけるというところについては引き続き継続して慎重に審議をしていく必要があるのではないかなと考えております。意見です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">たゆ委員</span></div>
+  <div class="say">すみません、私も意見だけ述べたいと思います。</div>
+  <div class="say">陳情及び陳述にもありました政治参加を広げていきたいというところは当然私も同じように思っていますし、大切なことだと思っております。この陳情は私有地に対して求めるということで、なかなか無理にはできないものではあるとは思うんですけども、相手の合意があれば、円満な手続があるのならとてもよいことではあると思いますので、そういう意味で賛成していきたいと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say">陳情者の陳情、大変興味深く聞かせていただきました。ここに記載のように、青年会議所がイベントを行ったということも私も記憶しておりまして、大変良い取組であったなと思っております。</div>
+  <div class="say">それから、青年とか若者に限らず政治参加を促進していくということについては、もう本当に私も大賛成。特に小林委員もおっしゃっていましたけれども、やはり私もずっと思って発言をしてまいりましたが、政治というのは、特に地方議会においては日常生活と密着したところで、この政治というものは語られるべきだと。だから、政治を語るということではなくて、我々の日常生活をどうするかということを語るんだという意味で、こういった身近な問題として関わっていく、政党関係なく関わっていくということ、それから先ほども陳情者の発言でありましたけれども、政治家に意図せず出会って、そしてまたこの身近なことを語っていくというのは大変大事なことではないかと、私も賛成するところではあります。しかし、一方で一つ確認したいんですけれども、このフェスティバルコートがこの陳情書にあるとおり、これ確認なんですけども、アクウェルモール管理組合及びＩ・IIＦＣ（フェスティバルコート）管理・運営協議会が管理しているということは、これは事実なのかどうか、それを一つ確認させてください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">答弁できますか。</div>
+  <div class="say">ながとり委員、多分、今質疑された内容だと、所管が都市整備部になってしまうかなと思うんですよね。今、総務企画委員会の所管外の話になってしまうというところがありますね。ですから、関連の資料要求をされるとかそういう形で整理していただけると、陳情を審査していく上で有効になっていくのかなと思っていますが、どうしますか。</div>
+  <div class="say">議事進行で、そういった形にしていただく。誰が答えるかだよね。代表して答えていただいて、次回答弁なのか、資料要求なのか。資料要求ということであれば、資料要求の旨を伝えていただくという形です。</div>
+  <div class="say">休憩します。</div>
+  <div class="say">午前10時55分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午前10時57分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">再開します。</div>
+  <div class="say">答弁をお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">神山副市長</span></div>
+  <div class="say">ただいま委員からお話ありました件につきましては、手元に資料等がございませんので、現段階ではお答えすることができません。大変申し訳ございません。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say">ありがとうございました。</div>
+  <div class="say">それでは、その点については、陳情にあるようにアクウェルモール管理組合及びＩ・IIＦＣ（フェスティバルコート）管理・運営協議会が管理していることが事実かどうかの資料を要求させていただきたいと思います。</div>
+  <div class="say">加えて、もう一つ資料要求させていただきたくて、こういう私有地に関して一般的な政治活動ができるように働きかけたという事例が他市にあるのかどうか、これについてもお伺いしたいと思います。なければないということで構わないんですけど、26市でこの事例があるのであれば資料要求をしたいと思います。できる限りいいので、他市で事例があればお願いしたいと思います。その点を勘案して、今回は市が私有地の所有者に対して何か要請をしてくれという陳情の趣旨かと思いますけれども、それの判断をしたいと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">神山副市長</span></div>
+  <div class="say">ただいま要求いただきました資料につきましては、要求委員と調整の上、提出できるものにつきましては提出をさせていただきたいと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">斎藤委員</span></div>
+  <div class="say">陳述もいただきまして、こういった内容で若い方々に、政治また選挙に関して関心を持っていただきたいという活動をしていただきまして、本当に感謝を申し上げたいと思います。私も参政党という政党に所属しておりまして、政治に参加する党と書くわけですけれども、誰が参加するかといえば、今、陳情をいただいているような若い方々、一般市民の方々、国民がぜひとも政治に参加していただきたいという呼びかけをしている政党でありまして、この陳情をいただいた方との思いも一緒だと思います。</div>
+  <div class="say">しかしということになってしまうんですけれども、このフェスティバルコートに関しては、陳情者の方もお分かりのように民間の私有地であるということ。私有地であるけれども高い公共性を帯びている、だから公共空間なんだという言い方が、ちょっと所有者に対して抵抗があるのではないかなと思います。ご存じのとおり、フェスティバルコートのほとんどが言ってみればヨーカドーなんです。ヨーカドーも企業ですから、企業の戦略を含めた形で公開をしているところであります。企業戦略だということが一つ。そこになかなか政治的な活動を求めるというのはハードルが高いのかなと思うのと、市街地再開発の中で一体であそこを再開発しておりますけれども、その敷地に関しては、それぞれの区分所有、それぞれ敷地の境界線があって、ほとんどがヨーカドーの敷地だということであります。これが総合設計のような形で公開空地を持って、空地を公開することによって容積率をアップさせるというような総合設計における公開空地に関して、こういったことを求めるということは当然私はあるんだろうと思っておりますが、第一種市街地再開発のこの敷地を持って、ふだん公開しているからそこも政治的に公開しろというのは少しハードルが高い、方向性が少し違うんだろうなと思っております。</div>
+  <div class="say">加えて、３つのそれぞれの敷地の所有者の中では、市も地権者の１人であるわけですけども、そこの部分の整理がなかなかついていない部分もあり、そしてまた、ふだんの政治活動においても、演説中に足一歩を踏み込んでも注意されるエリアと、その辺は多少今のところは緩くしていただけるという部分も正直あります。ですから、その敷地に対して政治的な、こういった政治活動を求めるということを思いたいのはよく分かるんですけれども、今、ある程度曖昧にしていただいているところ自体を逆にすぼめてしまう可能性ということがありまして、この陳情書を恐らく採択すると、私は逆効果になってしまう可能性の方が強いと今の段階では感じていまして、これは私の判断が正しいかどうかは分かりません。分かりませんけど、今の私にとってはそのような判断ができる状況なので、この陳情を採択すると、逆に、政治活動がしづらくなるという可能性がありますので、陳述者の方には大変申し訳ないんですけれども、これを私は採択することができないということは、これは明確に申し上げたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say">この陳情書を拝見いたしまして、その中でいろいろな事例を紹介していただいておりまして、そして今発言していただいた中での説明、私はとても分かりやすかったです。すごく陳情者の方の熱い思いがすごく伝わりました。ですけど、ピンポイントで場所を指していただくとちょっとというところがあったかなと思いますので、あまり長々としゃべってもしようがないですから、ちょっとそれらのことで考えさせていただければと思っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">他にございますか。</div>
+  <div class="say">休憩いたします。</div>
+  <div class="say">午前11時04分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午前11時05分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">再開いたします。</div>
+  <div class="say">お諮りします。本件は現時点での質疑を終了し、引き続き審査する必要があると認め、継続審査といたしたいと思います。これにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、本件は継続審査と決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">次に、議案第39号、小金井市個人番号の利用並びに特定個人情報の利用及び提供に関する条例の一部を改正する条例を議題といたします。</div>
+  <div class="say">部局から発言がありましたら、これを求めます。</div>
+  <div class="say">（「特にございません」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">これから質疑を行います。</div>
+  <div class="say">質疑なしということでよろしいですか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">休憩いたします。</div>
+  <div class="say">午前11時06分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午前11時07分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">再開いたします。</div>
+  <div class="say">本件につきまして、委員長報告に載せる意見・要望がございましたら、ご発言をお願いいたします。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、質疑を終了いたします。</div>
+  <div class="say">これから討論を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、討論を終了いたします。</div>
+  <div class="say">それでは、直ちに採決いたします。</div>
+  <div class="say">お諮りいたします。本件は原案のとおり可決することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、本件は原案可決と決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">次に、議案第40号、小金井市職員の勤務時間、休日、休暇等に関する条例の一部を改正する条例及び議案第41号、職員の育児休業等に関する条例の一部を改正する条例につきまして、一括して議題といたしたいと思います。これにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認め、そのように決定いたします。</div>
+  <div class="say">本日、部局から資料が提出されておりますので、初めに資料の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西川職員課長</span></div>
+  <div class="say">それでは、総務部職員課より提出しております資料、子育て部分休暇及び部分休業の活用状況についてご説明いたします。</div>
+  <div class="say">本資料は令和７年７月末時点の子育て部分休暇及び部分休業の申請者数と、令和７年７月の取得者数、１人当たりの平均取得時間、取得可能時間及び取得可能時間に対する平均取得時間の割合を一覧にまとめたものでございます。詳細は資料をご覧ください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">たゆ委員</span></div>
+  <div class="say">幾つか端的に伺いたいと思います。</div>
+  <div class="say">40号と41号一括で合わせてなんですけれども、まず１つ目が、年度の最初にどちらかを選ぶようになったということなんですけれども、途中で事情があれば変更ができるのかということについて、できるというようなことを伺った気がしているんですが、それの確認と、あとそれはぜひとも柔軟に対応していただきたいと求めますけれども、その辺の見解をまず伺います。</div>
+  <div class="say">あと、資料もいただきまして、男性の取得についてはちょっと資料から読み取れないんですけれども、どういう状況なのかということを伺いたいと思います。</div>
+  <div class="say">それと、この40分の25なんです。申請者数が40人に対して取得者数が25人ということで、全員が取得していない状況があるんですけれども、その理由をちょっと伺いたいと思います。</div>
+  <div class="say">それと、取得可能時間に対する平均取得時間の割合が43.4％ということで、これも理由を、ちょっと資料から読み取れない部分の事情を伺いたいと思います。</div>
+  <div class="say">あと、この資料が正規職員の実績ということで、非正規職員の状況も分からないのでその点をちょっと、非正規職員も正規職員と変わらず、同じ条件でとれることができるようになっているのか確認したいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say">関連。今の資料の部分について、たゆ委員の質問に関連して、ここに１人当たりの平均取得時間というのがあるんですけども、これが職員課として喜ばしい、つまり、比較的多いと考えているのか、少ないと考えているのか教えていただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say">関連。すみません、ここで私も関連させていただきます。</div>
+  <div class="say">たゆ委員から、43.4％の割合についてですけども、これは私もちょっと不思議なところだったんですけども、今後の見通しというか、何か考えていらっしゃるのか。例えば低いと考えていらっしゃるのであれば、これをどうやったら上げられるのかなと考えていらっしゃるのか。その辺のところはこれからだということであれば分析などはできていらっしゃるのか、それについてイメージだけでもいいですけど、対応策はどのように考えていらっしゃるのかあったら教えてください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西川職員課長</span></div>
+  <div class="say">それでは、たゆ委員からのご質問にお答えさせていただきます。</div>
+  <div class="say">まず、年度途中の変更に関する柔軟な対応というところですが、一応こちらは年度当初に申請していただいたものについては原則変更不可という制度になっております。ただし、条例にも定めておりますとおり、当初想定できなかった事情によって、例えば配偶者の方が病気になられるとか、そういった事情によって変更しなければならないような状況については一件対応ということで検討してまいるような対応になるかと思います。</div>
+  <div class="say">あと、男性の取得率についてですが、すみません、この中で何人という資料を今は持っていないんですけれども、男性の方で取得を申請していらっしゃる方も数人ですが含まれております。</div>
+  <div class="say">あと、全員が取得していない理由、こちらは関連でながとり委員と吹春委員からもいただいたところかなと思いますが、全員取得していない、取得率が低いというところについてですが、こちらにつきましては、今回のこの制度、子育て部分休暇及び部分休業につきましては、育児期の柔軟な働き方を実現するための制度でありまして、取得可能時間の範囲内でそれぞれの家庭の事情に応じた取得ができるものとなっております。ですので、取得者数や取得時間割合というのは、対象職員がそれぞれ必要に応じて柔軟に取得した結果と理解しております。</div>
+  <div class="say">あとは、会計年度の対応についてです。会計年度職員につきましては、今回ご提案しております部分休業、子育て部分休暇の拡充等について同様の対応を図る予定となっており、会計年度任用職員については規則にて規定をしておりますので、今後、規則の改定を予定しているところです。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">たゆ委員</span></div>
+  <div class="say">答弁いただきました。</div>
+  <div class="say">意見と、質問がもう１個あるんですけど、まず、ぜひ男性も取得しやすい職場環境づくりを努めていっていただきたいと思います。あとは、男性も女性も限らず、こういったものが取りづらいような雰囲気がない職場づくりを努めていっていただきたいと求めます。あと、正規と非正規で差がないように、そういう答弁はいただきましたけれども、継続して行っていただきたいと思っております。</div>
+  <div class="say">質問は答弁が若干なかったというか、関連も併せて答弁いただいたんですけど、答弁いただいたのは取得可能時間マックスに対して実際取った時間が43.4％の理由は述べていただいたんですけども、私はもう１個質問していまして、申請者数が40人に対して取得したのが25人と、これは時間に関わらずというふうに読めるんですけども、ちょっとこの資料の読み方とあわせて、なぜその40人に対して、申請したということは１時間でもとりたいという方が申請しているわけですよね。それなのに取得は25人、この理由背景を伺いたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say">ありがとうございました。</div>
+  <div class="say">私の理解だと、柔軟に対象職員が取得した結果であるというご回答だったんですが、ということはこれを多くするとか少なくするとかいうこと自体は評価の対象にならないということで私は受け止めましたので、万が一、そうではないということがあればお答えください。そうでなければもうこれで結構です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西川職員課長</span></div>
+  <div class="say">それでは、たゆ委員から、答弁が漏れていましてすみません。申請者数に対応して取得者数が少ないのではないかというご質問についてです。</div>
+  <div class="say">こちら、申請につきましては、毎日必ず必要だという方でなくても、今後必要な可能性がある、必要なときにとりたいというような方も申請していると考えておりますので、先ほどの答弁と重なるところもございますが、それぞれの家庭が事情に応じて柔軟に取得した結果、７月１か月の実績としてはこの人数だったと理解しております。</div>
+  <div class="say">あと、ながとり委員の方から、これを割合を多くするのが評価されるものなのかそうではないのかというところについては、おっしゃっていただいたとおり、これが取得率が高いから評価されるものではないと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say">育児に携わる方にとって働きやすい職場になることはすばらしいことであると考えておりますので、制度改善につきましては積極的に取り組んでいただければと思っております。</div>
+  <div class="say">その中でちょっと１点質問させていただきたいんですけれども、育児時短制度やこうした仕組みを取得した職員の業務を代行してくださる同僚職員の方に対して、インセンティブやフォローアップ体制について制度として整っているのかについて教えていただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西川職員課長</span></div>
+  <div class="say">職場のフォローといいますか、休暇をとる職員のフォローする職員への対応というところかと思います。</div>
+  <div class="say">各職場におきましては、職員が安心して制度を利用できるように、また、同じ職場の職員が安定して業務が行えるように、必要に応じた業務分担の見直しだったりですとか、周囲の職員の協力を呼びかけるなどの支援が行われているものと認識しております。また、人事担当といたしましても、休暇休業制度等の情報提供や、取得事例の紹介など、積極的に取得できる環境づくりに努めているところです。</div>
+  <div class="say">今回ご意見いただきました、正規職員が休んでいる方について一定の業務をフォローしていかなければならないというような状況についてですが、おっしゃるとおりそのような状況は生じるものと考えておりまして、ただ一方で、インセンティブ、給与面での対応ということになろうかと思いますが、職員の給与手当については都準拠としておりますことから、特別な報酬だったりインセンティブというのは現状においては難しいところと考えております。今後、東京都だったり他市の状況を注視してまいりたいと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野委員</span></div>
+  <div class="say">ありがとうございます。</div>
+  <div class="say">今後、多分男性の育休の推進なども含めて制度を利用される方が増えていくかとも考えております。制度を利用される方が気持ちよく制度を利用するためには、周囲の方々の理解も必要であると思います。私自身もそうでしたし、時短制度を使うとなると、やはり周囲の目を気にしたりですとか、業務負担を考えてなかなか取りづらいなという気持ちにもなったりしたこともありましたので、周囲の方々の理解も含めて促進していただければなと考えておりますので、先ほどちょっと難しいというご答弁もございましたが、例えば査定時に加点するなどといった、市としてもしできるような工夫があるのであれば前向きにご検討をいただきまして、制度を利用される職員や利用を応援されている方々皆様が気持ちよく働けるような体制を整えていただければと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say">私、以前は国の研究機関に勤めておりまして、そこはかなり特殊ではあるんですけども、ちょっと事例を紹介させてください。</div>
+  <div class="say">基本的に、月に働かないといけない時間数が決まっていて、その時間数働いていればいいみたいな感じ、それはもちろん申請した有給休暇と実際に働いた時間と合わせてその時間であればいいと。１日２時間以上、最低２時間申請すれば、それでその日は出勤に当たるというような、そういった極めて柔軟な運用になっておりました。何か特別休暇があったらその特別休暇も有給休暇と一緒に使えるというような形でした。ただ、そこまでやっていたのは研究職の者だけだと思いまして、一般的な事務員もそうだったかと言われると、すみません、多分違うのではないかなとは思うんですけども、そういったやり方もあるということ、いきなりそれにしろとかということも全然申しませんけども、そういったところもあるということだけ知っていただけるといいかなと思って発言させていただきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say">私、一般質問でも、小金井市が選ばれる自治体になるように、小金井市の働き方のポイントを訴求するということを求めてきました。その観点からお伺いしますけれども、この勤務時間、休暇、育児休業の制度は、都や他の自治体と比較して進んでいるのでしょうか。それとも同等でしょうか。それから、ちょっと答えにくいかもしれませんけど、一般的な企業、中小企業とか大企業とかあると思うんですけど、比較して取組が進んでいるのでしょうか。一つお伺いします。</div>
+  <div class="say">あと一つは、育児休業の申出をした職員に意向確認をするということなんですけど、これは誰がするのかということと、確認した意向はデータベースとかになるんでしょうか。分かりませんが、確認した意向はどのようにどのように反映されていくのか、その２点をお伺いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西川職員課長</span></div>
+  <div class="say">他自治体との比較についてでございます。今回ご提案している制度の変更については、国の地方公務員の育児休業法に基づくものであり、あと東京都の条例等にも従ってやっておりますので、他自治体との差はないものと考えております。</div>
+  <div class="say">また、民間と比較してというところなんですけれども、様々な休暇全てを比較することは難しいかなと思いますが、今回ご提案させていただいた内容については、国の通知におきましては、民間の労働法制において導入される、労働者が就業しつつ子を養育することを容易にするための新たな休暇に相当する措置として、１年に10日相当時間数の範囲内で、１日当たりの上限時間数なく育児休業を取得できるパターンを追加するとされておりますので、民間の法制に従ったものというふうにも考えております。</div>
+  <div class="say">あと、育休の確認、申出方法といいますが、意向確認についてのご質問についてです。基本的には現在も対応している内容となりますが、制度の周知につきましては、育児介護等の制度を利用しやすい職場環境を整えるために、職員次世代育成支援ハンドブックを作成しておりまして、庁内のイントラネットにて周知する予定としております。</div>
+  <div class="say">また、意向確認については、書面による意向確認の提出を案内するとともに、職員から両立支援制度について所属長に相談があった場合には、職員課へも相談することといたしまして、職員課から本人にその取得の意向を確認するというような対応を考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say">ありがとうございました。</div>
+  <div class="say">まず１点目については答弁いただいたとおりであります。一般企業と比較してといっても、一般企業というのはいっぱいあるので、それを比較してということはないでしょうけれども、普通に考えると、公務員は国の法規などに関連して、こうやって今回もそうですけども、ある意味自動的に制度が反映されていくものと。例えば、私の息子も小企業で働いていますけれども、小企業であったらまた違うとか、大企業だとまた違うとかあると思うんですけど、比較的一般論として充実しているだろうと思われますので、今後とも働きやすさのポイントをリクルート活動などでも生かしていただいて、こういうふうな充実しているところがあるんだよということは小金井市を目指す方に訴求していただければなと思います。</div>
+  <div class="say">そして、私、勘違いしていたんですが、意向確認というのは書面なんですね。私は面接するのかと思っておりましたので、書面だということですね。であれば、その書面をしっかりと把握して、それを反映していくということだと思いますので、ぜひともそれはお願いします。</div>
+  <div class="say">水谷委員の一般質問の中でも、勤務インターバル制度など、勤務時間に関する制度改革の余地というのは今後もあると思います。今回は国の法改正ということであろうかと思いますけれども、お答えいただかなくても結構ですが、ぜひとも市長にも、職員が働きやすい環境づくり、そして制度づくりを積極的に取り組んでいただければと思っております。市長の答弁は求めません。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">他にございますか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">休憩します。</div>
+  <div class="say">午前11時26分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午前11時27分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">再開いたします。</div>
+  <div class="say">議案第40号、小金井市職員の勤務時間、休日、休暇等に関する条例の一部を改正する条例につきまして、委員長報告に載せる意見・要望がございましたらご発言をお願いいたします。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、質疑を終了いたします。</div>
+  <div class="say">これから討論を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、討論を終了いたします。</div>
+  <div class="say">それでは、直ちに採決いたします。</div>
+  <div class="say">お諮りいたします。本件は、原案のとおり可決することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、本件は原案可決と決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">次に、議案第41号、職員の育児休業等に関する条例の一部を改正する条例につきまして、委員長報告に載せる意見・要望がございましたら、ご発言をお願いいたします。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、質疑を終了いたします。</div>
+  <div class="say">これから討論を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、討論を終了いたします。</div>
+  <div class="say">それでは、直ちに採決いたします。</div>
+  <div class="say">お諮りいたします。本件は原案のとおり可決することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、本件は原案可決と決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">次に、議案第49号、小金井市印鑑条例の一部を改正する条例を議題といたします。</div>
+  <div class="say">部局から発言がありましたら、これを求めます。</div>
+  <div class="say">（「特にございません」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">これから質疑を行います。質疑はございませんか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">休憩します。</div>
+  <div class="say">午前11時28分休憩</div>
+  <div class="say">────────────</div>
+  <div class="say">午前11時29分開議</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">再開いたします。</div>
+  <div class="say">本件につきまして、委員長報告に載せる意見・要望がございましたら、ご発言をお願いいたします。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、質疑を終了いたします。</div>
+  <div class="say">これから討論を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、討論を終了いたします。</div>
+  <div class="say">それでは、直ちに採決いたします。</div>
+  <div class="say">お諮りいたします。本件は原案のとおり可決することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、本件は原案可決と決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">次に、所管事務調査（自治体ＤＸの取組について）を議題といたします。</div>
+  <div class="say">お諮りいたします。本件は、お手元にご配布いたしました申出書のとおり、調査事項、自治体ＤＸの取組について、（１）市民目線でのサービスの質の向上、（２）デジタル技術を活用した業務効率化の推進、（３）ＤＸ推進の意識醸成とデジタル人材の育成。調査目的、自治体ＤＸの取組について調査するため。調査方法、通常の議案審査と同様の方法をとり、閉会中も継続して調査できるものとする。調査期限、令和７年９月から令和９年３月まで。</div>
+  <div class="say">以上のとおり決定いたしたいと思います。これにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、そのように決定いたしました。</div>
+  <div class="say">これから質疑を行うところですが、本日は資料要求にとどめ、質疑は閉会中から行うことといたしたいと思います。これにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認め、そのように決定いたします。</div>
+  <div class="say">それでは、資料要求をお受けいたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">小林委員</span></div>
+  <div class="say">資料要求ということで、１点、今新たなＤＸ推進方針を策定されているところで申し訳ないんですが、令和７年のアクションプランに基づく進捗、どこまで進んで達成できたのか、また、積み残しの案件が何なのか。そしてまた、次のアクションプランの方針にもつながるんですが、新たに取り組もうとされている内容、年次の計画、出せるところまで一表にして出していただきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">梅原企画財政部長</span></div>
+  <div class="say">資料につきましては、要求委員と調整の上、提出できるものについて提出させていただきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">斎藤委員</span></div>
+  <div class="say">市役所内部のデジタルの概念図、ＬＧＷＡＮ含めて、今ガバメントクラウド、いわゆる市役所の情報、個人情報を含めた形でのガバメントクラウドに預けるというか、それ以外の様々な情報の扱い方、若しくはそうするとＬＧＷＡＮとの関係、その辺が私自身もちょっと分かりづらいので、その辺が分かるような概念図というものをもしつくれるとすれば出していただいて、今回のこの調査事項の中ではどの部分を調査できるのかということを分かりやすくしていただきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">梅原企画財政部長</span></div>
+  <div class="say">資料につきましては、調整の上、提出できるものについて提出をさせていただきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say">今、斎藤委員から資料要求があったところなんですけども、今から聞くことはもしできるのであればという話であって、概念図だけにとどまらず、詳しいネットワーク構成図が欲しいなと私は思うわけです。それこそＩＰアドレスは何がついているレベルまでちょっと見たいなと個人的には思うんですけれども、それが果たして出せるかどうかというのは協議させていただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">梅原企画財政部長</span></div>
+  <div class="say">よく協議させていただいた上で、提出できるものについて提出させていただきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say">（１）市民目線でのサービスの質の向上と（３）ＤＸの意識醸成とデジタル人材の育成についてなんですけども、これ、東京都から来ているこういうふうなやり方がありますというようなこともあったりとかすると思うのと、それと他市事例としても導入されていて、何か変わった部分があったりとかするのであれば、それをそれぞれ箇条書でも構いませんので教えていただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">梅原企画財政部長</span></div>
+  <div class="say">それでは、調整の上、掲出できるものについて提出をさせていただきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">たゆ委員</span></div>
+  <div class="say">資料要求２点お願いします。</div>
+  <div class="say">１個は、生成ＡＩ、決算で求めたものと同じでいいんですけど委員会の資料としても出していただきたくて、生成ＡＩの利用実績と今後の展望が分かるもの。</div>
+  <div class="say">もう一つが、これは出せたらでいいんですけど、自治体クラウドのシステムの標準化が行われると思うんですけど、そのフォーマットの新旧対照表、出せるかどうか。何かフォーマットがあって項目があると思うんですけど、それが何がなくなって何が追加されてみたいなのが一目で比較して分かるようなものを出せたらお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">梅原企画財政部長</span></div>
+  <div class="say">資料につきましては調整させていただき、提出できるものについて提出をさせていただきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say">期間はご相談しますけれども、今後６か月ぐらいの自治体ＤＸの各部署での具体的な取組、例えばオンライン申請が今後９日で、こういう項目について導入とか、割と具体的な項目で、今後の取組について項目別に、今後６か月程度出していただければと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">梅原企画財政部長</span></div>
+  <div class="say">資料につきましては、要求委員と調整の上、提出できるものについて提出をさせていただきます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">よろしいですか。</div>
+  <div class="say">お諮りいたします。本件については、引き続き調査する必要があると認め、継続調査といたしたいと思います。これにご異議ございませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、本件は継続調査と決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">次に、行政視察に係る所管事務調査の継続審査議決を行います。</div>
+  <div class="say">総務企画委員会の行政視察は、こまきスマート窓口について及びオープンデータの取組・データ連携基盤の利活用を始めとするＤＸについてを視察項目として実施することとし、こまきスマート窓口について及びオープンデータの取組・データ連携基盤の利活用を始めとするＤＸについてを当委員会の所管事務調査事件とし、閉会中の継続調査とすることにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、ただいま申し上げましたとおり決定いたしました。</div>
+  <div class="say">なお、閉会中の委員派遣は、議長に対し委員派遣承認要求を行うこととし、派遣委員、日時、場所、目的及び経費等の手続については委員長にご一任願いたいと思います。これにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、ただいま申し上げたとおり決定いたしました。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">次に、行政報告を行います。</div>
+  <div class="say">初めに、行政報告１、第５次小金井市基本構想・後期基本計画（素案）に対するパブリックコメントの実施について行います。</div>
+  <div class="say">部局の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">廣田企画政策課長</span></div>
+  <div class="say">第５次小金井市基本構想・後期基本計画（素案）に対するパブリックコメントの実施について報告いたします。</div>
+  <div class="say">第５次小金井市基本構想における本市の将来像、いかそうみどり、増やそう笑顔、つなごう人の輪、小金井市を実現するため、令和８年度から令和12年度までを計画期間とする第５次小金井市基本構想・後期基本計画（素案）の検討を公募市民、学識経験者等によって構成される長期計画審議会において審議してきました。</div>
+  <div class="say">この度、長期計画審議会において第５次小金井市基本構想・後期基本計画（素案）を取りまとめ、本日開催予定の長期計画審議会で受ける中間答申を踏まえ、令和７年９月19日から同年10月31日までの期間でパブリックコメントの実施を予定しています。パブリックコメントで寄せられたご意見については長期計画審議会で検討を行い、その検討結果については、同年11月下旬頃に市ホームページ等にて公表する予定です。</div>
+  <div class="say">あわせて、第５次小金井市基本構想・後期基本計画（素案）に関する市民フォーラムを９月20日土曜日９時30分から17時まで小金井 宮地楽器ホール１階のスペースを活用し、オープンハウス形式で実施いたします。ご来場は自由となっていますので、お気軽にご参加ください。</div>
+  <div class="say">報告は以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">これから質疑を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">それでは、以上で本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、本件に対する質疑を終了いたします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">次に、行政報告２、令和７年度課別時間外勤務時間数等について行います。</div>
+  <div class="say">部局の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">大久保人事制度等担当課長</span></div>
+  <div class="say">それでは、行政報告、令和７年度課別時間外勤務時間数等についてでございます。</div>
+  <div class="say">令和７年４月から７月までの状況につきまして、課ごとの時間外勤務時間数及び時間外手当の金額について、前年度との比較を一覧にまとめたものでございます。</div>
+  <div class="say">資料裏面、一番下の合計欄をご覧ください。４月から７月までの実績は３万3,609時間で、前年同時期と比べまして3,404時間の減となっておりまして、今年度の目標である９万時間を切る目標に対しましては603時間の増となっております。今後も目標達成に向けまして、取組の徹底強化を図り、引き続き時間外勤務の抑制に取り組んでまいります。</div>
+  <div class="say">報告は以上でございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">これから質疑を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">ご異議なしと認めます。したがって、本件に対する質疑を終了いたします。</div>
+  <div class="say">以上で、行政報告を終了いたします。</div>
+  <div class="say">以上で、本日の日程は全部終了いたしました。</div>
+  <div class="say">本日は、以上で総務企画委員会を閉会いたします。</div>
+  <div class="say">午前11時41分閉会</div>
+  <div class="say">総務企画委員会所管事項記録</div>
+  <div class="say">午前11時42分総務企画委員会協議会開会</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">総務企画委員会協議会を開会いたします。</div>
+  <div class="say">所管事項について行います。</div>
+  <div class="say">初めに、避難所の備蓄倉庫管理についてであります。お願いいたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say">所管事項で質問させていただきます。備蓄倉庫の中身についてではなくてその管理についてなんですけれども、これは一般質問でもさせていただいたんですが、よく防災について調べていく中で、備蓄倉庫の管理を調べていくと、みんな驚くことがいろいろと報告がなされているんですけれども、幸いなことに、都内では大きな震災等が発生したことはございません。それで全く使っていなかった、開けていなかったということがよくあるわけでございます。実際に数年ぶりに開けてみると、その内容が違っていたりとか、例えば毛布などそういった衣類関係のものがもう使えない状態になってしまっていたりとかすることがあるということはいまだによく報告がなされていることがあるわけですけども、それで小金井市の方の管理を確認したところ、３年前に350万円ほどかけて１回見直しをされたと。しっかりとデータ化してそれで管理されているということですけども、やはりもうそれから３年経っているわけですよね。やはりここは毎年やっていただければと思うところでございますので、できれば、別に毎年380万円かけてほしいというわけではございませんけども、それらせっかくつくっていただいた棚卸しなどなされているデータなどを基に、毎年管理などをしていただいて、もし何か起こったときのためにも使えるようにしていただくべきだと思いますけども、それについてはいかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">宮奈地域安全課長</span></div>
+  <div class="say">備蓄管理の在り方につきまして、委員ご発言いただきましたとおり、一昨年度、災害時における避難者への物資提供の迅速化を図るために、避難所となる学校の備蓄倉庫の備蓄品の棚卸しですとかデータ管理、資機材の動作確認を大規模に行いまして、備蓄管理の見直しを行ったところでございます。</div>
+  <div class="say">見直し後以降に訓練等を行っておりまして、その中で備蓄倉庫内の出し入れというものは行っているところでございまして、そのような中ですけれども、職員と地域の方々などと確認をしながら元に戻したり入替え等を行っているというところで、現状、備蓄整理等はできているという状況でございます。</div>
+  <div class="say">現時点で早急に対応方法について検討するという段階には至っておりませんけれども、引き続き委員ご発言いただきましたとおり定期的な点検ですとか管理というのは行って、適正な、効率的な管理運営に努めてまいりたいと考えてございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say">ご答弁いただきました。ありがとうございます。</div>
+  <div class="say">備蓄品については管理されながら進めていっていただいているということは分かったんですけども、やはり訓練のときに使うって、全部出すわけではなかったりとかするところがあるかと思います。そこはやはり毎年１回、定期的にこういった形で管理しています、整理していますということができるようになっていただければと思いますので、今後また、更にこの部分におきまして、私は市の職員の方の手を使ってでもというふうな形では思っておりません。なぜならば他に仕事がたくさんありますし、他にも重要なこともあるわけですし、かといって、備蓄倉庫の管理というのはとっても大事なことですので、これはしっかりとした取り決めなどをつくっていただいて、その上で管理して、市民の安全のために寄与していただければと思うところでございますので、今後ともどうぞよろしくお願いいたします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">次に、市職員対象の避難訓練について、吹春委員、お願いいたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say">小金井市では市の職員の方々を対象として、火災審査避難訓練というのを１年に一度行っていらっしゃいます。そのことについて全く私は問題ないと思っています。ちょっと気になるのが、火災と震災で避難するタイミングだったりとか避難の仕方が全然違うんだろうなと思いますけども、そこは100歩譲っておきましょう。訓練は毎年やっていただかなければならないですし、継続していただくことで効果が更に高まると言われているところでございます。</div>
+  <div class="say">それで、これはちょっと感じたことなんですけども、一般質問のときにも申し上げましたけども、小金井市議会議員の皆様、今年度、新しく当選された方以外にこれまでずっと議員として当選された方などは市議会での震災避難訓練、震災についての避難訓練というのをやってまいりました。２回やったんですけど、その２回とも布担架というのを使ってやったんですけど、これは消防署の指導によるものでございます。そして、私も実際、実生活でこの間ちょっと乗ってしまったりとかして、非常に効果があるんだなということを感じまして、であれば、とても効果があるものを使った火災震災避難訓練をその場でも使ってみていただいて、もし何か起こったときのために備えていただくのはいかがかと思うんですけれども、いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">田中管財課長</span></div>
+  <div class="say">職員対象の庁舎震災火災訓練についてのご質問ということでいただいているかと思ってございます。</div>
+  <div class="say">ご指摘いただきました布担架の使用も含めまして、これから今年度の内容の方を検討していくという段でございますので、その辺りも含めまして、検討の方を進めていくような対象のものかなと理解はしてございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say">ご答弁いただきまして、ありがとうございます。</div>
+  <div class="say">布担架で別に、第二庁舎の８階から１回まで下ろしてほしいというものではないですから、例えば２階あたりからでもやっていただいて、若しくは３階から布担架で搬送していただいて、２階の踊り場あたり交代の方などがいらっしゃればすごく効果があると思いますので、事務局にはありますので、ぜひお借りするなどしていただいて、ぜひ市民の安全のためにこちらも寄与していただければと思います。よろしくお願いいたします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">次に、ガバメントクラウドの進捗について、斎藤委員の発言を許可します。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">斎藤委員</span></div>
+  <div class="say">ガバメントクラウドの移行期間が本年の10月までということが示されておりまして、この当委員会におきましても、次回から所管事務調査の自治体ＤＸの取組という形で質疑ができるのかなと思いまして、所管事項の中では今日が最後の質問かなというところなんですが、また、ガバメントクラウドについては、担当の方からも様々な説明をいただいております。</div>
+  <div class="say">今日は議案第49号の提案理由の中には、住民情報システムの標準化に伴いということで、これももう終わっているのかなと思いましたけど、例えばこの印鑑条例に関しては、この議案が25日に可決された後に作業してからガバメントクラウドに移行するのかなというふうにも思っておりまして、現在、進行状況と、いつぐらいまでに全てが終わるのかということと、現段階で何かトラブルではないですけど、何か引っかかるようなことがあるのかないのか、併せてご答弁ください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">山口情報システム課長</span></div>
+  <div class="say">ガバメントクラウドの進捗状況についてでございます。</div>
+  <div class="say">利用状況でございますけども、委員がおっしゃったように、10月27日に本市の住民情報システムは標準準拠システムへ移行を行うわけでございますけれども、運用するクラウドとしては、ガバメントクラウドに既に接続をしてございます。ですので、基本的にトラブルとなるようなご報告をするような状況はございません。</div>
+  <div class="say">印鑑条例ともども、いろんなシステム化を行うための条例等の整備を現在やっているところでございまして、システム自体は現在は運用テストをしてございますので、条例可決後に既にそれが利用できるような形になっているところでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say">よろしいですか。</div>
+  <div class="say">以上で、所管事項を終了いたします。</div>
+  <div class="say">以上で、総務企画委員会協議会を終了いたします。</div>
+  <div class="say">午前11時51分閉会</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+</body>
+</html>

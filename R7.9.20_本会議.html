@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和7年9月20日 本会議</title>
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#1d3a63; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* 直接URLで開いた時だけ最上部に「会議一覧に戻る」帯（index分割ビュー内では非表示） */
+  .backbar-top{display:none;}
+  body.standalone{padding-top:40px;}
+  body.standalone .backbar-top{display:flex; align-items:center; gap:6px; position:fixed; top:0; left:0; right:0;
+       z-index:60; height:40px; padding:0 18px; background:var(--navy); color:#fff; font-family:var(--sans);
+       font-size:13px; font-weight:700; text-decoration:none; letter-spacing:.04em; box-shadow:0 1px 4px rgba(0,0,0,.15);}
+  body.standalone .backbar-top:hover{background:#294f86;}
+  body.standalone .prog{top:40px;}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+</style>
+</head>
+<body>
+<a class="backbar-top" href="index.html">← 会議一覧に戻る</a>
+<script id="backbar-js">(function(){try{if(window.self===window.top)document.body.classList.add('standalone');}catch(e){document.body.classList.add('standalone');}})();</script>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和7年9月20日</p>
+    <h1>本会議</h1>
+    <span class="srcbadge"><span class="dot"></span>本文＝小金井市議会 公式会議録（DBSR）</span><span class="src official">本文は公式会議録を一字一句そのまま掲載。要約はAIによる補助、タイムスタンプ・動画はYouTube連携（いずれも非公式の付加情報）。　|　<a href="https://www.city.koganei.tokyo.dbsr.jp/306223?Template=document&amp;Id=10212" target="_blank" rel="noopener">公式会議録の原典 ↗</a></span><span class="genmeta">本文は公式会議録と一致確認済み（verbatim）。要約はAIによる生成で、小金井市議会の公式見解ではありません。<br>最終生成日 2026-07-10</span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <h3>提出議案等一覧</h3>
+<ul>
+<li>市長報告</li>
+</ul>
+<h3>議案の審議ごとの要約</h3>
+<h4>市長報告</h4>
+<p>市長報告に対する質疑が行われました。委員からは、自然環境への影響、特に絶滅危惧種の保全について、市長の見解を求める質疑がありました。また、都市計画道路3・4・11号線の検証結果について、交通量データと優先性の根拠、一方通行化の問題、緊急輸送道路としての役割について質疑がありました。</p>
+<p>市長は、動植物への影響は限定的であり、影響を最小限に抑えるよう市として意見していくと答弁しました。都市計画課長は、交通処理機能の評価は将来交通量推計に基づくものであり、一方通行化については現在の消防関係者のルートをヒアリングした結果であると説明しました。また、緊急輸送道路は現道に指定されており、未整備の都市計画道路には指定されていないと述べました。</p>
+<p>狭い道路の拡幅については、委員からセットバックや用地買収による整備の可能性について質疑があり、道路管理課長は、民有地の取得や計画線の設定が必要であり、現状では困難であると答弁しました。</p>
+<p>別の委員からは、市長が過去に都市計画道路整備に否定的な立場であったことと、現在の独自検証の結果が市民や議会の理解を得られていない現状について指摘があり、市長の政治的判断を問う質疑がありました。市長は、これまでの経過は事実であるとし、独自検証は中途半端ではないと考えており、今回の市長報告に基づいて東京都へ要望していくことは自身の政治的判断であると述べました。</p>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/4PVv3cU1JRg" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
+  </section>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=4PVv3cU1JRg&t=57s" data-timestamp="57"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>00:57</a>おはようございます。ただいまから本日の会議を開きます。</div>
+  <div class="say">日程第１、市長報告を行います。</div>
+  <div class="say">昨日に引き続き、市長報告に対する質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">２４番（森戸よう子議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=4PVv3cU1JRg&t=156s" data-timestamp="156"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:36</a>自然環境に対する問題について、市長報告に対して幾つか質問をいたしました。しかし、市長からは、大きな影響があった場合という文言の問題だと合理的な説明はありませんでした。ただ、保全対策について確認し、できる限り最小限に抑えていくという答弁しかなく、これでは全くこの自然環境が守られるかどうかは補償がありません。しかも、できる限り最小限に抑えていくということについて、例えばと言って、私は絶滅危惧種がもし保全できなかったらどうするんだということを伺っていますが、明快な答弁はありません。その点について、改めて市長の見解を伺いたいと思います。この絶滅危惧種が絶滅するようなことになれば、一体誰が責任を取るんでしょうか。そういう点でどうかということです。ぜひもうちょっと具体的にお答えをいただきたいと思います。</div>
+  <div class="say">それから、検証結果の問題でありますが、検証結果については、一つは混雑対策の問題として、都市計画道路３・４・11号線が挙げられているわけです。課長からは、交通機能は6,000台だと、6,000台以上のところということなんですが、令和３年はもっと下がっているじゃないですか。連雀通りを含めて3,000台だとか下がっているにもかかわらず、6,000台に合わせる理由は何なんですか。平成27年の交通センサスに合わせていて、令和３年の交通センサスに合わせていないのはどういうことなんですかと聞いています。その点、しっかりとした答弁を頂きたいし、課長もお認めになったように、1.25を超えているところはないということで、優先性の検証として行っているということなんですが、1.25以下のところの優先性が都市計画道路３・４・11号線になる理由は分かりません。小金井街道の渋滞解消とかおっしゃっていたわけですよね。しかし、実際の数字を見ると、ここを整備しなかったとしたら、小金井街道はどうかというと、ほとんど変わりないではないですか。１以下ではないですか。なぜここが優先されるということになるんですか。全くこの検証が、もしこの数字が正しいとすれば、最終的な結論が全く違う方向になっていて、問題がある検証だと言わざるを得ませんが、その点でどうでしょうか。</div>
+  <div class="say">それと一方偏集の問題であります。天文台を通る理由は確認していないということでありますが、私はさっき府中市側の都市計画道路が開けばと言ったんですが、開かなくても、人見街道から天文台通りに抜けて、東八道路を左折し、二枚橋の市道437号線に入るということはできるわけですよね。（不規則発言あり）人見街道から天文台通りで連雀通りに行くのは遠過ぎるから、五丁目に行きたいのであれば、東八道路を通って、二枚橋の横で一丁目の市道437号線を通った方が全然早いということなんじゃないですか。クランクになっていると、左折したり、右折したりというのはありますよ。しかし、そうにしたって、最も早くどう行き着くかということであれば、そういうやり方があるわけで、ぜひ消防署とは、今日いらっしゃらないけど、誰がこれを言うのか分からないですが、しっかりと調整をする必要があるのではないでしょうか。したがって、一方偏集が、もちろん一方偏集になることは、一つの解決策であると思います。では、貫井南町三丁目辺りに崖がありますが、あそこに例えば道路を通して、一方偏集を解消するのかということになると、そうはならないでしょう。だから、あそこは新小金井街道から、例えば南から向かってきて左折して、貫井南町に入るということになると思うんですよ。（不規則発言あり）一方偏集、例えば崖があるじゃないですか。だから、小金井はどこだって崖があるわけで、そこの一方偏集を言い始めたら切りがないわけで、だから、やれるべきことをしっかりとやっていくということなんじゃないでしょうか。そういう点で、私は、そのことと合わせて、そこだけを広げても意味がないと言っているわけですよ。それを広げる以上に必要なことは、狭い道路を何とかしたいということなわけでしょう。狭い道路があるから、難しい難しいと言われるわけですよ。だったら、狭い道路をもう少しセットバックしてもらって、そこを買収するということも含めてやっていけばいいじゃないですか。そういうお金も出さないで道路だけを広げるというのは、やはりまちづくりの在り方としての優先順位としてどうなのかということが問われるのではないかと思います。その点では、市長も、道路だけを広げることではないとおっしゃってはいますが、もう少しその辺りの計画を示すべきではないですか。その点、いかがでしょうか。</div>
+  <div class="say">それから、輸送道路の問題で、緊急輸送道路のことを私がなぜ言っているかというと、以前の議論の中で、小金井公園から武蔵野公園に物資を輸送する必要があるという論があったと思うんですよ。しかし、武蔵野公園は広域避難所ですから、東町五丁目の皆さんは広域避難所には避難しない。まずは一時避難所ですよ。だから、一時避難所は東中学校なわけで、ここに物資を輸送するということはあると思うんですよ。広域避難所の場合は、何回も言いますが、東京都が運営するわけですよ。東京都が物資を輸送する場合は、立川市の防災センターから第一次緊急輸送道路を通して、物資を輸送するんじゃないですかと。</div>
+  <div class="say">先ほどの課長答弁の中で、都市計画道路３・４・11号線は緊急輸送道路には指定されていないということでありますから、その点からすると、この道路を活用して、小金井公園から物資を輸送するというような役割を持った道路ではないということだと思います。そういう点で、私は緊急輸送道路を活用した物資輸送を東京都に依頼するわけですから、この都市計画道路がなければ、物資が輸送できないということにはならない。そのことは申し上げておきたいと思います。その点で見解があれば、伺います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">市長（白井　亨）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=4PVv3cU1JRg&t=705s" data-timestamp="705"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:45</a>絶滅危惧種も含めて、また再質問いただきました。</div>
+  <div class="say">市長報告にも書いておりますが、動植物への影響の範囲は限定的であり、多くの種の存続は維持され、事業区域外にも同質の環境を広く分布するため、生物多様性を支える主要な生息生育の場は残存し、生物の相互関係への影響は維持されると評価されているということであります。</div>
+  <div class="say">絶滅危惧種が絶滅していいとは当然思いません。それも含めて、影響を最小限に抑えることができるように、市としてもしっかり意見をしていきたいということでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">都市計画課長（田部井一嘉）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=4PVv3cU1JRg&t=751s" data-timestamp="751"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:31</a>森戸議員から再度ご質問を頂戴いたしました。</div>
+  <div class="say">１次検証についてのご質問でございます。繰り返しの答弁になりますけれども、先ほどご案内のあった混雑度については、１次検証についての評価ではございません。あくまでも１次検証についての評価は、交通処理機能の交通量6,000台でございます。これの根拠というのは、将来交通量推計によるものでございます。</div>
+  <div class="say">続きまして、一方偏集についてのご提案、ご質問でございますけれども、その到達ルートのご提案も頂いているところでございますが、我々の検証はあくまでも現在の消防関係者の現状のルートをヒアリングした結果、現状と分析ということでございます。あと、狭い道路の拡幅が難しいということでございますので、その解決の方法として、都市計画道路の整備が有効だということでございます。</div>
+  <div class="say">続きまして、緊急輸送道路についてのご質問でございますけれども、緊急輸送道路は現道に指定されているものでございますので、未整備の都市計画道路には指定されていないということでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">２４番（森戸よう子議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=4PVv3cU1JRg&t=830s" data-timestamp="830"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:50</a>議事進行。狭い道路は難しいということではなくて、狭い道路をまず広げることが優先課題じゃないですかと言っているわけですよ。その点について答弁を求めていますので、よろしくお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">道路管理課長（日野靖久）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=4PVv3cU1JRg&t=850s" data-timestamp="850"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:10</a>狭い道路を拡幅するという件でございます。</div>
+  <div class="say">まず、建築基準法の中で２項道路というものがございまして、中心線から２メーターについては、建築する際はセットバックするというルールがございます。それから、ご提案のとおり、県道を5.5メーターに拡幅するという場合であっても、沿道の民有地を取得しなければならず、結局は用地買収が必要となります。そうすると、沿道の方のご理解やご協力が不可欠となってまいります。さらにそういう道路については、都市計画道路３・４・11号線のように計画線が存在しないと。計画線をつくるところから始まりますので、そうすると、制度上、なかなか難しいのかなというところでございますし、また、西武多摩川線のトンネルがボトルネックという状況になります。そのトンネルを拡幅するためには、野川側に拡幅しなければ、現実的には難しいという状況でございますので、したがって、現道拡幅では十分な機能を果たすことができず、また、現実的な整備手法ともならないと考えているところでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">２４番（森戸よう子議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=4PVv3cU1JRg&t=942s" data-timestamp="942"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:42</a>私は、狭い道路を拡幅してくれとは言っていないんですよ。セットバックしたりして、そこの部分を府中市とか調布市は買収しているわけですよ、補助金を出しているんですよ。そういうことができるんじゃないですかと言っているわけ。狭い道路のね。何か都市計画決定をしろとかそういうことじゃないんですよ。だって、府中市は都市計画決定して、狭い道路をわざわざ広げるために補助金を出しているわけじゃないんですよ。そこのことを言っているわけですよ。だから、ちょっと私の質問の意図と答弁が食い違うので、議長、整理をしていただきたいと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=4PVv3cU1JRg&t=992s" data-timestamp="992"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:32</a>そのとおり答弁していると思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">２４番（森戸よう子議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=4PVv3cU1JRg&t=992s" data-timestamp="992"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:32</a>整理をしていただきたいと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say">今、森戸議員がおっしゃったとおりに答弁しておりますので。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">２４番（森戸よう子議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=4PVv3cU1JRg&t=992s" data-timestamp="992"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:32</a>整理をしていただきたいと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=4PVv3cU1JRg&t=994s" data-timestamp="994"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:34</a>ですから、森戸議員と同じことを答弁しました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">２４番（森戸よう子議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=4PVv3cU1JRg&t=998s" data-timestamp="998"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:38</a>議長、違うんですよ。私は拡幅しろと言っていないんですよ。現在道をセットバックして、（不規則発言あり）違う違う。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say">セットバックと拡幅は同じですよ。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">２４番（森戸よう子議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=4PVv3cU1JRg&t=1008s" data-timestamp="1008"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:48</a>それは都市計画決定をして拡幅する話と違うんですよ。そこの、例えば４メートルとかしかないところで、そこだけ狭くなっているところについて、補助金を出して、通行ができるように広げてもらうという、そういうことなんですよ。だったら、何で府中市や調布市でできているんですかということですよ。都市計画決定してやっているわけじゃないでしょう、隅切りを広げるにしてもね。そのことを言っているので、私の質問の中身が悪かったら申し訳ないんだけど、もし課長が誤解をされていたら、その辺りは答弁をいただきたいと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=4PVv3cU1JRg&t=1044s" data-timestamp="1044"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:24</a>計画線と言ったから勘違いしているので、計画線がないからつくるじゃなくて、だから、いずれにしろ民地を買収しなきゃいけないということで、買収若しくは協力をいただかなければいけないというふうにお答えすればいいのではないかと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">道路管理課長（日野靖久）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=4PVv3cU1JRg&t=1080s" data-timestamp="1080"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:00</a>それでは、繰り返しの答弁になりますが、また答弁させていただきます。</div>
+  <div class="say">ご提案のとおりに、現道を5.5メーターに拡幅する場合であっても、沿道の民有地を取得しなければならないですよね。そこまでは分かりますよね。民有地を取得しなければなりません。ということは、結局、用地買収が必要となります。そうすると沿道の方のご理解やご協力が不可欠となってまいります。さらに、そういう道路については、どこまでセットバックしたらいいのか、どこまで買収したらいいのかという計画線がございません。線がございません。その線をつくるところから始まります。そうすると、現状ではなかなか単独で、計画線がある道路ですら難しい状況であるのであれば、これから計画線をつくって整備をするのは、さらに困難を極めてくるのかなと思ってくるところでございます。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=4PVv3cU1JRg&t=1152s" data-timestamp="1152"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:12</a>答弁をいただきました。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">１９番（岸田正義議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=4PVv3cU1JRg&t=1159s" data-timestamp="1159"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:19</a>先ほど関連では、市長には厳しいことを申し上げたと思っております。市議会議員の時代に考えが浅かったのかということについて、視野が狭かった、あるいは認めたくはないけれども、否定はできないというご答弁だったかなと思っております。</div>
+  <div class="say">一定こういうときには、やはりそれを責めたいわけではなくて、けじめが必要であろうと私自身は考えております。というのも、私はこの優先整備２路線の問題を政治問題化させ、市民の分断をも生みかねない状況をつくったのは、白井市長ご自身であると考えています。都市計画道路３・４・11号線については、小金井市長が了解できない状況下での東京都での事業化は進めないよう求め、東京都に３回の要請書と、２回の面談で意思を伝えてきたけれども、それでは足りないと何度も強い口調で指摘をしてきたのが白井議員でありました。そのような優先整備２路線について、否定的な意向が強いということを受け止めて、市長選での公約を掲げられて、緑や自然を守るために、西岡前市長以上の東京都への働きかけを期待されて当選されたにもかかわらず、東京都への中止・見直しの要望は調整中との答弁を１年間も繰り返し、一度も実現することはないままに、突然に令和６年度予算で独自検証を行うことを施政方針で述べられました。それから何をどう検証するのか多くの議員から質疑があり、答弁は二転三転し、道路整備の賛否に関わらず、独自検証に係る決議が２本も提出される事態となったわけでございます。そのような状況から始めようとした第１次検証と第２次検証の内容は、誰がどう見ても、客観性、公平性、透明性が担保されるものにならなければ、その結果が出たときに収拾がつかなくなりますよと沖浦議員の紹介もありましたけれども、警鐘を鳴らしてきたところでございます。</div>
+  <div class="say">現状はどうでしょうか、市長。市長は、この検証について何度も、客観性、公平性、透明性が担保されていると答弁されますが、私が何度も助け船を出したけれども、それを受け入れることなく、お金も時間も人もかけない、中途半端な検証を強行した結果が、市長報告の白紙撤回でありました。そこから総合的判断を再整理すると言いながら、半年も具体的な答弁は避けて、このように市長報告が示されたわけでございます。</div>
+  <div class="say">これまでの市民説明会や今日の質疑を聞いていても、市民や議会の理解が進み、市長の説明責任が尽くされているとは、残念ながら言えない状況であると考えます。それでも、この市長報告をもって東京都に伝えるということであれば、それはもう市長の政治的判断だと私は考えます。市長の政治的判断だということであれば、今回の市長報告を私は受け止めたいと思いますが、いかがでしょうか。お答えください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">市長（白井　亨）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=4PVv3cU1JRg&t=1363s" data-timestamp="1363"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:43</a>厳しいことを言われました。この間の経過については、岸田議員から都度、厳しいご指摘、ご提案も頂いてきたわけでございますが、そのご意見として、我々としても検証に当たって反映できることは反映してきたつもりでございますが、ただ、元々検証そのものをするべきではないというご意見があったことも含めて、岸田議員がおっしゃったことは、経過としては事実かなと思っています。</div>
+  <div class="say">中途半端な検証というご発言もございましたが、この間、私たちとしては、いろんなご意見を頂いて、ご指摘も頂いたりはしていますが、決して中途半端だとは思っていません。その結果を含めて、私としてはこの間、判断をしてきた、判断といいますか、この市長報告をどう再整理するかということを考えてきたわけであります。反対のご意見、若しくは納得いかないというご意見、説明会、意見交換会、そして、今日の市長報告も含めて多々頂いているところは、私も認識はしております。結果的には、それも含めて、政治的判断ということは、私としても覚悟して、今回この市長報告に基づいて、東京都へ要望していきたいと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">１９番（岸田正義議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=4PVv3cU1JRg&t=1452s" data-timestamp="1452"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:12</a>ご答弁ありがとうございました。市長の政治的判断であるということを重く受け止めたいと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=4PVv3cU1JRg&t=1460s" data-timestamp="1460"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:20</a>他にございますか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=4PVv3cU1JRg&t=1460s" data-timestamp="1460"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:20</a>質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=4PVv3cU1JRg&t=1468s" data-timestamp="1468"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:28</a>ご異議なしと認め、市長報告を終了します。</div>
+  <div class="say">以上で、本日の日程は全て終了しました。</div>
+  <div class="say">本日は、これをもって散会いたします。</div>
+  <div class="say">午前０時26分散会</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+</body>
+</html>

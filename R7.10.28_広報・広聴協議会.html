@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和7年10月28日 広報・広聴協議会</title>
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#1d3a63; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* 直接URLで開いた時だけ最上部に「会議一覧に戻る」帯（index分割ビュー内では非表示） */
+  .backbar-top{display:none;}
+  body.standalone{padding-top:40px;}
+  body.standalone .backbar-top{display:flex; align-items:center; gap:6px; position:fixed; top:0; left:0; right:0;
+       z-index:60; height:40px; padding:0 18px; background:var(--navy); color:#fff; font-family:var(--sans);
+       font-size:13px; font-weight:700; text-decoration:none; letter-spacing:.04em; box-shadow:0 1px 4px rgba(0,0,0,.15);}
+  body.standalone .backbar-top:hover{background:#294f86;}
+  body.standalone .prog{top:40px;}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+</style>
+</head>
+<body>
+<a class="backbar-top" href="index.html">← 会議一覧に戻る</a>
+<script id="backbar-js">(function(){try{if(window.self===window.top)document.body.classList.add('standalone');}catch(e){document.body.classList.add('standalone');}})();</script>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和7年10月28日</p>
+    <h1>広報・広聴協議会</h1>
+    <span class="srcbadge"><span class="dot"></span>本文＝小金井市議会 公式会議録（DBSR）</span><span class="src official">本文は公式会議録を一字一句そのまま掲載。要約はAIによる補助、タイムスタンプ・動画はYouTube連携（いずれも非公式の付加情報）。　|　<a href="https://www.city.koganei.tokyo.dbsr.jp/830357?Template=document&amp;Id=10257" target="_blank" rel="noopener">公式会議録の原典 ↗</a></span><span class="genmeta">本文は公式会議録と一致確認済み（verbatim）。要約はAIによる生成で、小金井市議会の公式見解ではありません。<br>最終生成日 2026-07-10</span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <h3>提出議案等一覧</h3>
+<ul>
+<li>所管事務調査: 広報広聴ビジョン策定・アクションプラン等の策定に関すること</li>
+<li>所管事務調査: 広報広聴の協議提案書（みらいのこがねい：議会活動の理解・啓発）</li>
+<li>所管事務調査: 広報広聴の協議提案書（日本共産党小金井市議団：広聴（市民との懇談））</li>
+<li>所管事務調査: 広報広聴の協議提案書（日本共産党小金井市議団：広聴（市民からの意見対応））</li>
+<li>所管事務調査: 広報広聴の協議提案書（日本共産党小金井市議団：広報（YouTube動画資料添付））</li>
+<li>所管事務調査: 広報広聴の協議提案書（日本共産党小金井市議団：広聴（公聴会・参考人制度））</li>
+<li>所管事務調査: 広報広聴の協議提案書（小金井市議会公明党：各常任委員会別に各種団体との意見交換の場を）</li>
+<li>所管事務調査: 広報広聴の協議提案書（小金井をおもしろくする会：議会モニター制度の導入について）</li>
+<li>所管事務調査: 広報広聴の協議提案書（れいわ新選組小金井：広聴（広聴手段の多様化））</li>
+<li>所管事務調査: 議会改革の調査事項（公式ホームページの各議員の紹介ページにSNSも掲載について）</li>
+<li>所管事務調査: 広報・広聴協議会の在り方について</li>
+</ul>
+<h3>議案の審議ごとの要約</h3>
+<h4>広報広聴ビジョン策定・アクションプラン等の策定に関すること</h4>
+<p>本件に関する協議は12月の定例会中に行うことが確認された。</p>
+<h4>広報広聴の協議提案書（みらいのこがねい：議会活動の理解・啓発）</h4>
+<p>みらいのこがねいから、20代・30代の若者の投票率向上を目的とした資料が提出された。小金井市と総務省の年代別投票率が示され、20代・30代の投票率が低いことが指摘された。本件に関する協議は12月の定例会中に行うことが確認された。</p>
+<h4>広報広聴の協議提案書（日本共産党小金井市議団：広聴（市民との懇談））</h4>
+<p>日本共産党小金井市議団から、市民団体との懇談に関する報告があった。請願・陳情者との懇談については意見が一致しなかったことが報告され、団体との懇談については小野市議会、横手市議会、防府市議会の実施状況が資料として提出された。これらの市では、10人以上の構成員がいる団体を対象とし、団体からの申込みに応じて懇談を実施している事例が紹介された。本件に関する質疑は12月の定例会中に行うことが確認された。</p>
+<h4>広報広聴の協議提案書（日本共産党小金井市議団：広聴（市民からの意見対応））</h4>
+<p>日本共産党小金井市議団から、市民からの意見・要望に対するフロー図の改定について、議会運営委員会での確認が必要であるとの指摘があった。議会運営委員会での確認後、12月の広報・広聴協議会で議論を行うことが確認された。</p>
+<h4>広報広聴の協議提案書（日本共産党小金井市議団：広報（YouTube動画資料添付））</h4>
+<p>日本共産党小金井市議団から、YouTube動画への一般質問資料添付に関する提案があった。事務局の負担軽減のため、サイボウズシステムを活用した資料公開方法や、YouTube動画の説明欄に資料URLを明示する案が示された。舞鶴市議会の事例も参考に挙げられた。本件に関する協議・質疑は12月の定例会中に行うことが確認された。</p>
+<h4>広報広聴の協議提案書（日本共産党小金井市議団：広聴（公聴会・参考人制度））</h4>
+<p>日本共産党小金井市議団から、公聴会・参考人制度の活用に関する報告があった。計画策定や条例制定、予算決算などにおいて、専門家や当事者の意見を聞くことを目的とし、公聴会と参考人制度の使い分けが提案された。横浜市会の決算公聴会の事例を参考に、公述人の公募や会派推薦、テーマ設定などが説明された。本件に関する質疑は12月の定例会中に行うことが確認された。</p>
+<h4>広報広聴の協議提案書（小金井市議会公明党：各常任委員会別に各種団体との意見交換の場を）</h4>
+<p>小金井市議会公明党から、各常任委員会が所掌に応じて団体を選考し、ヒアリングに重きを置いて意見交換会を実施する提案があった。長野県松本市、北海道登別市、京都府舞鶴市の他市事例が資料として提出され、団体選考方法や議題の決め方などが比較された。本件に関する議論は12月の定例会中に行うことが確認された。</p>
+<h4>広報広聴の協議提案書（小金井をおもしろくする会：議会モニター制度の導入について）</h4>
+<p>小金井をおもしろくする会から、議会モニター制度の導入に関する提案があった。他自治体の調査結果として、ほとんどの市で公募によるモニター制度が導入されており、無作為抽出の事例は少ないことが報告された。公募人数は10名から30名程度、任期は1年が多く、議会だよりを対象とするケースが多いとされた。小金井市での実施案として、対象年齢の絞り込み、公募または限定募集、議会報またはYouTubeをモニター対象とすること、アンケートや意見交換会による聴取方法が提案された。事務局からは、過去の無作為抽出アンケートの経験を踏まえ、必要に応じて確認する旨の回答があった。本件に関する議論は12月の定例会中に行うことが確認された。</p>
+<h4>広報広聴の協議提案書（れいわ新選組小金井：広聴（広聴手段の多様化））</h4>
+<p>れいわ新選組小金井から、施設公聴の提案があった。当初の提案から内容が変更され、各常任委員会の柱に則って対象施設を選定し、参加者の意見・要望を聴取して各委員会に参考意見として報告する流れが示された。東京都中央区の施設見学後のヒアリング・アンケート事例が資料として提出された。本件に関する議論は12月の定例会中に行うことが確認された。</p>
+<h4>議会改革の調査事項（公式ホームページの各議員の紹介ページにSNSも掲載について）</h4>
+<p>公式ホームページの各議員の紹介ページにSNSを掲載することについて、各会派から見解と論点が提出された。委員からは、掲載するSNSの範囲（X、Facebook、YouTube、Instagram、Threadsなど）を明確にする必要があるとの意見が出された。本件に関する協議は12月の定例会中に行うことが確認された。</p>
+<h4>広報・広聴協議会の在り方について</h4>
+<p>広報・広聴協議会の在り方について、以下の2点が持ち帰り事項として確認された。<br />
+1. 会議規則に加え、議会基本条例にも広報・広聴協議会の設置を定義すること。<br />
+2. 名称を「委員会」または「協議会」とするかについて。<br />
+これらの協議は12月の定例会中に行うことが確認された。次回の広報・広聴協議会は12月8日（月）午前10時に開催されることが報告された。</p>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/3CQsnCcntrA" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
+  </section>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=197s" data-timestamp="197"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:17</a>こんにちは。ただいまから広報・広聴協議会の会議を開きます。</div>
+  <div class="say">直ちに議題に入ります。</div>
+  <div class="say">１、協議項目についてを行います。</div>
+  <div class="say">初めに、（１）広報広聴ビジョン策定・アクションプラン等の策定に関することについてを行います。</div>
+  <div class="say">協議については12月の定例会中としたいと考えておりますけれども、そちらでよろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=227s" data-timestamp="227"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:47</a>では、そういったことにさせていただければと思っております。</div>
+  <div class="say">次に、（２）の広報広聴の協議提案書についてを行います。</div>
+  <div class="say">こちらは提案会派から協議報告書が出ておりますので、こちらの説明をしていただきたいと思っております。協議報告書と資料と併せて説明していただければよろしいんですかね。</div>
+  <div class="say">では、まず９－１のみらいのこがねいの議会活動の理解・啓発、こちらの方の協議報告書が出ております。こちらの資料は出されておりますかね。こちらの方、説明いただいてもよろしいですか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吉良委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=283s" data-timestamp="283"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:43</a>みらいのこがねいといたしましては、20代、30代の若者の投票率を上げるということで、今回いただいた資料提出の宿題ですが、小金井市の年代別投票率と総務省の年代別投票率というのを提出させていただきました。こちらを見ていただけたら分かりますが、20代が34.62％、30代が45.66％というのが総務省の投票率、小金井市に関しても20代が25％台、30代が38％台という、そういうのが見ていただけると思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=324s" data-timestamp="324"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:24</a>こちらで何かありますか。他に補足はよろしいですか。</div>
+  <div class="say">質問もとりあえずはいいんですかね。一応資料に対して、今説明されたところに対して何かあれば。特にはよろしいですか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=351s" data-timestamp="351"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:51</a>こちらの協議自体は12月の定例会の中でということになりますが、よろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=361s" data-timestamp="361"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:01</a>資料をどうもありがとうございました。では、こちらの９－１については以上となります。</div>
+  <div class="say">次が、９－２、広聴（市民との懇談）。こちらは日本共産党小金井市議団です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上議員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=396s" data-timestamp="396"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:36</a>代理出席させていただきます。どうもありがとうございます。</div>
+  <div class="say">それでは、９－２、広聴（市民との懇談）についてご報告させていただきます。</div>
+  <div class="say">前回の協議会では、請願・陳情者との懇談については一致しなかったということを聞いております。主な意見は報告書を見ていただきたいと思います。団体との懇談については、他議会の実施状況を資料として提出しておりますので、ご覧いただきたいと思います。小野市議会、横手市議会、防府市議会の３市を調べました。インターネット上で調べたものであります。３市とも対象は市内の10人以上の構成員がいる団体、グループ事業活動を行っているなどです。団体から申込む場合、日時や場所は代表と相談して決めることとなっております。小野市議会は市内法人と園長会と2024年度は懇談、余談ですが、これ以前は一般質問を傍聴に来られた市民との懇談を休憩中に設けております。横手市議会は１年に２回懇談会を開催しております。ＪＡ青年部、横手観光推進機構、青年会議所、若手園長会などです。報告書を作成し、議長に報告します。また、市行政に関する重要なものは議長において取りまとめ、市長に文書等で報告し対応を求めるとされています。防府市議会は不定期ですが、おおむね１年に１回、団体との懇談を開催しております。そこで出された意見を基に国への意見書の提出などを行っております。議会サイドから団体に声をかけて実施するパターンは調べられてはいないという状況です。</div>
+  <div class="say">とりあえず、市民との懇談については以上です。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=533s" data-timestamp="533"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:53</a>ありがとうございました。</div>
+  <div class="say">こちらは市民団体との懇談の実施状況というのが資料として出されているということでよろしいですよね。こちらは質疑もまた12月の定例会で行った方がいいのかなと思いますので、今、水上議員からの説明を聞いたということで、終わらせていただきたいのですが、よろしいですか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=561s" data-timestamp="561"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:21</a>では、９－２については以上となります。</div>
+  <div class="say">次に、９－３、広聴（市民からの意見対応）。こちらも日本共産党小金井市議団ということですが、お願いできますでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上議員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=578s" data-timestamp="578"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:38</a>広聴（市民からの意見対応）ということなんですが、座長からは、議会運営委員会で作成した市民からの意見・要望に対するフロー図というのがあって、広報・広聴協議会でそれを踏まえて改定していいのかどうかということを議会運営委員会で確認してほしいということになっていたと聞いているんですが、もしそういうことだったとすると、議会運営委員会ではまだ確認されておりません。もしそういうことであれば、12月の広報・広聴協議会で議論ができるように、議会運営委員会で確認したいと思いますので、よろしくお願いしたいと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=633s" data-timestamp="633"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:33</a>ありがとうございます。</div>
+  <div class="say">今、水上議員から質問というか何というか、確認があったような形でよろしいですかね。議会運営委員会の方で確認していただいて、その後に広報・広聴協議会で議論するというような流れとなるんですが、多分、議会運営委員会より前に広報・広聴協議会があるんですかね、日程的には、（「３日前の議会で」と呼ぶ者あり）３日前のでいいですか。では、そちらでお願いできればと思いますので、よろしくお願いします。</div>
+  <div class="say">９－３については以上ということで、よろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=695s" data-timestamp="695"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:35</a>では、こちらは以上となります。</div>
+  <div class="say">次が、９－４、広報（YouTube動画資料添付）。これも日本共産党小金井市議団ということで、水上議員、お願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上議員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=705s" data-timestamp="705"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:45</a>９－４、広報（YouTube動画資料添付）についてです。</div>
+  <div class="say">８月の広報・広聴協議会では、１つ目に事務局に負担にならない方法を示していただきたい、２点目に一般質問の資料で自分だけの公開という資料があり、どの資料が出せて、どの資料が出せないのかというルール化が必要であるとの意見をもらいました。事務局の力も借りる必要がありますが、現在私たちが使っているサイボウズのシステムで、外部の提供もできるシステムがあるということを調査する必要があります。今日はそこまで調整ができておりません。もしできるとすると、クラウドを準備し、一般質問のフォルダを作成する。その中に各議員のフォルダを作成します。各議員のフォルダの中に定例会ごとのファイルを作成し、保存するやり方が事務局の手を煩わせないやり方であると思います。YouTube動画の説明欄は、現在視聴回数のみになっています。ここに一般質問の資料のＵＲＬを明示する、この部分は事務局作業になります。他市の自治体では、舞鶴市議会がYouTube動画の説明欄に添付しておられます。詳細を現在問い合わせているところであります。資料は公開している資料のみを公開するということですが、それは皆さんと協議して決めればいいのではないかと考えております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=811s" data-timestamp="811"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:31</a>ありがとうございました。</div>
+  <div class="say">こちらも今、説明を聞いたということで、協議、質疑は12月にしたいと思います。</div>
+  <div class="say">９－４については以上でよろしいでしょうか。９－４の資料は、YouTube動画の一般質問資料添付他市議会の状況についてという資料が一応出てはいるんですよね。結構いっぱい、あれですよね、国分寺市議会から裏面もあるから、瑞穂市議会まで調べていただいているということになっていますね。こちらを見ていただいて、また詳しいことは、この提案についても、併せて12月の定例会のところで質疑というか、協議したいと思います。よろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=874s" data-timestamp="874"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:34</a>では、９－４は以上となります。</div>
+  <div class="say">それから、９－５、広聴（公聴会・参考人制度）。こちらも日本共産党小金井市議団の水上議員、お願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水上議員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=890s" data-timestamp="890"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:50</a>９－５、広聴（公聴会・参考人制度）についてご報告します。</div>
+  <div class="say">資料は２種類提出しております。１点目は公聴会・参考人制度の活用について、もう一つはフロー図です。一つは、小金井市政全体に係る計画策定や変更について。目的は、市長から提案される計画、新たな条例制定、議会が提案する条例等について、専門家や現場、当事者の意見を聞いて、政策論議にいかしていく。公聴会が良いのか参考人が良いのかはケース・バイ・ケースで検討するということになると思います。実施主体は、常任委員会、特別委員会などです。対象範囲は、長期基本構想・基本計画、都市計画マスタープラン、保健福祉総合計画、廃棄物処理基本計画、防災計画、市政全体に係る計画の変更が行われるときとしていますが、併せて予算決算も対象に入ります。資料では抜けていましたので、補充してください。</div>
+  <div class="say">フロー図を見てください。それぞれの内容によってやり方は変わると思います。今回は決算について公聴会を開催した場合のフロー図です。これも固まったものではありません。皆さんと協議し、決めていくこととなります。</div>
+  <div class="say">横浜市会を参考にしてみました。ご覧いただきたいと思います。基本は決算特別委員会で、毎回公聴会を開催することの合意を得ることが前提です。公聴会の日程は議会日程の決算審議に入る前とし、議会運営委員会で決定します。公述人は１人から10人前後とし、公募は５名、会派推薦５名前後（会派によっては希望しない場合もある）とします。定員に達しない場合は、公募や推薦した人数とします。また、公募の定員をオーバーした場合は抽選とします。公述にそぐわない場合は、協議の上で対象から外すこともあります。公募の公述人は、陳述するテーマ、氏名、住所等を書いて事務局に申請するということです。</div>
+  <div class="say">あとは各常任委員会の調査に対する参考人招致の活用です。事務の検査はこの間、市議会では問題が起こったときなどに実施しています。これは各常任委員会の運用によってであると思います。一方、市の施策を深めたりする場合の活用は皆無ではないかと記憶しています。各常任委員会、特別委員会が調査の柱を立てていますが、その調査内容を深めるため、専門家、当事者などに意見を聴きます。ルールとしては、委員会である程度審査した後、議員からテーマについて参考人招致の必要性を提案。全体の合意が取れれば、希望する議員は次回委員会開催の２週間から３週間前（例えば）までに、テーマと参考人の申請を行います。基本的には提案があったものは認めていきます。横浜市会は１人から提案されたものを委員会は認めています。この点はもう少し横浜市会を調べる必要があると思います。例えば厚生文教委員会の調査の柱に子ども施策があります。この中で放課後の子どもの居場所について、専門家を招いて話を聞いた上で各委員が質疑をする形です。招致する参考人の人数にもよりますが、１人の場合はおおむね２時間ぐらいであると考えております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=1132s" data-timestamp="1132"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:52</a>ありがとうございました。</div>
+  <div class="say">何かすごく質問をしたいけど、しょうがない。これは12月の定例会に。すごく詳しく調べていただいてありがとうございます。参考になります。</div>
+  <div class="say">こちらも資料が２つですよね、公聴会・参考人制度の活用についてというタイトルと、公聴会・参考人制度フロー図というものでよろしかったですね。こちらの資料を基に、12月の定例会の中での質疑となると思います。</div>
+  <div class="say">ということで、９－５については以上でよろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=1182s" data-timestamp="1182"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:42</a>では次に、９－６、各常任委員会別に各種団体との意見交換の場を。これは小金井市議会公明党です。こちらも資料が出されておりますので、よろしくお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">太田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=1203s" data-timestamp="1203"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:03</a>一応、協議報告書も提出していたんですけれども、ちょっとサイドブックスの方に反映していなかったみたいなので、ちょっとまた。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say">本当ですか。（「６でしょう」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">太田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=1219s" data-timestamp="1219"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:19</a>９－６。（「６は古いやつか、これ」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say">古い。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">太田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=1225s" data-timestamp="1225"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:25</a>いや、これは資料なんですよ。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=1225s" data-timestamp="1225"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:25</a>ごめんなさい、資料として出ているのは、議会と諸団体の意見交換会の他市事例ですよね。協議報告書は。（「今日のですよね」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">太田委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=1249s" data-timestamp="1249"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:49</a>そうですね。（不規則発言あり）これか、ごめんなさい、失礼いたしました。ありますね、すみませんでした。</div>
+  <div class="say">各常任委員会別に各種団体との意見交換の場をということで、前回の協議会で様々ご意見を頂きまして、会派の考えとして３点、団体の選考方法については、各常任委員会が所掌に応じて団体を選考する。議題については、ヒアリングに重きを置いて、原則、テーマを設定しない。団体との調整の中で、ご希望があればテーマを設定することもできると。意見の取扱いについては、小金井市議会として共有し、議会活動を通して市政に反映という見解になります。</div>
+  <div class="say">添付の資料を見ていただくと、長野県松本市、北海道登別市、あと参考までに京都府舞鶴市、この３市を比較した表を資料として提出いたしました。団体選考方法については、松本市においては、開始当初は市内の主だった団体でしたけれども、現在は、相手方からの要望に応じて開催を検討する形。議題の決め方としては、団体が抱えている課題がテーマとなる。登別市については、常任委員会の所管事務調査と位置付け、委員長は意見交換会の実施について、目的、対象者、時期、場所等を決定し、その概要を年間活動計画により、議長に提出して承認を受けるといった形で、比較が載っていますので、参考にしていただければと思います。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=1407s" data-timestamp="1407"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:27</a>ありがとうございます。</div>
+  <div class="say">こちらもとりあえずよろしいですかね。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=1417s" data-timestamp="1417"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:37</a>では、９－６についても、こちらは12月の定例会での議論としたいと思います。それでよろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=1427s" data-timestamp="1427"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:47</a>では次に、９－７、議会モニター制度の導入について、こちらは小金井をおもしろくする会、ながとり委員お願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=1442s" data-timestamp="1442"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:02</a>小金井をおもしろくする会が提案しております議会モニター制度の導入について、こちらの協議の経過について、賛成、反対というのが前回の議論であまり明確にならなかったので、意見として頂きました、特に公募、推薦にするのか、無作為抽出がいいのかという状況で、それも含めて小金井をおもしろくする会として課題として頂いたのが、他自治体の状況と、それからイメージできるような案を示してくださいということでしたので、資料を提出しました。</div>
+  <div class="say">まず、資料で議会モニター制度調査ということで、ちょっといっぱいあるんですけれども、一つ一つに言及はしませんが、ほとんどのところで公募であると、無作為抽出でやっているところはないんですね。やはり無作為抽出ですと、一定程度の手間とコストがかかる可能性があるということだと多分思うので、理由は分からないんですけど、ということです。それから、公募人数については約10名から最大で30名ぐらい、大体多いのが20何名とか15名とかということで、大体任期は１年ということでやっていますね。対象については、議会だよりが多いかなと。別にこれが多いからいいというわけではないんですけれども、そういう印象を受けました。</div>
+  <div class="say">詳しくはまた定例会でもご説明しますが、それを踏まえて、９－７の資料09にて、ちょっと簡単ではありますけれども、まず、議会モニターを実施するに当たって、全市民にするのか、対象年齢を絞るのか。特にみらいのこがねいからも若者のという声も出ていますので、せっかくだったら対象年齢を絞ってもいいのかなという考えはあります。でも、これは協議の上だと思います。それから、公募または無作為抽出による限定募集とあるんですが、ほとんどのところで公募をやっているという現状から見て、最初にやるのでしたら公募。無作為抽出という方法が、私は具体的に、例えばこれはどこにお願いしたらいいのか分からないんですけど、部局なり、事務局なりにどういう負担がかかるのかというのが、私自身はちょっとイメージできないので、もし無作為抽出ということであれば、これに関してかかるコスト、あるいは人的資源ということをまた協議をしなければいけないかなと思っております。モニター対象は、議会報またはYouTubeとあります。私としてはYouTubeが面白いのかなという気がします。例えば決算だけ見ていただいて、何か意見をもらうとかというのも面白いかと思うんですけれども、それはそれで大変なのかなと思いますので、今こういうふうに２つ並列していますけれども、最初は議会報から始めてみるというのはいかがかなと思っています。それから、聴取方法については、アンケートを作って、例えば15人とか20人にしたら、そんなに手間はかからないのではないかと思いますので、アンケートをやる、あるいは意見交換会を１回開いて聞く程度で、無作為抽出をしなければ、何万円か10万円いかない程度、10万円もかからないのかな、分からないですけど、いけるのではないかなと考えております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=1675s" data-timestamp="1675"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:55</a>ありがとうございます。</div>
+  <div class="say">無作為抽出については、何か事務局から答えられることはあるんですか。分からないですよね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">西村議会事務局次長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=1714s" data-timestamp="1714"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:34</a>2,000人アンケートのときも、確かあれも無作為抽出でやっているかと思うので、過去にやったあれもあるので、ちょっと確認をさせて、もし実際にやるとなったときにはご相談させていただきたいなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=1732s" data-timestamp="1732"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:52</a>補足ですけれども、ほとんどの市で全市民に対する、要するに公募みたいな、ホームページで知らせるとか、議会報で知らせるとか、多分そういうことだと思います。ここで無作為抽出というのを出したのは、前回の議論で出たので、それを追加したということでありますので、当初小金井をおもしろくする会が提案したものではないということだけ伝えておきます。</div>
+  <div class="say">ただ、前回はご意見を頂いているので、定例会でまた頂いて、協議の対象になるかと思っております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=1777s" data-timestamp="1777"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:37</a>議会モニター実施案という資料のところで書いてあるものとしては、小金井をおもしろくする会としては、公募が一応提案だからということだったんですね。だけどそういうご議論があったから、無作為抽出も一応書いておいたと。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=1793s" data-timestamp="1793"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:53</a>紙だけで募集されてしまうのも、来る人が限定されるのもどうかと思うから、無作為抽出がいいのではないかというご意見を頂きました。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=1802s" data-timestamp="1802"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:02</a>分かりました。ありがとうございました。</div>
+  <div class="say">では、こちらも一応資料の説明をいただいたということで、よろしいですか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=1813s" data-timestamp="1813"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:13</a>９－７についても、議論としては12月の定例会ということでお願いいたします。</div>
+  <div class="say">それから、９－８、広聴（広聴手段の多様化）について、れいわ新選組小金井、村上委員、お願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">村上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=1833s" data-timestamp="1833"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:33</a>広聴手段の多様化というところで、施設公聴というものを提案させていただきました。前回いろいろとご意見を頂きまして、反対のところに入れさせてもらっているんですけど、行政の対応ではないかというご指摘もあって、当初は対象施設を事前に選定するということでお伝えしていなかったんですが、下の報告事項のところにちょっと書いていますが、内容を少し変更させていただいて、各常任委員会の柱に則って対象施設を選定して、それについて参加者の意見・要望を聴取して、それを各委員会に参考意見として報告するという流れでまとめさせていただいております。</div>
+  <div class="say">資料としては、施設公聴という方法は一応あるということなんですけども、実際に実施しているのが東京都の中央区の例で、内容をもう少しということだったので、資料として中央区の広報課にヒアリングをして、ちょっと簡単ではございますけれども、アンケート内容について、施設として改善する点、改善に向けて区が取り組むべき点、見学会全体の感想ということで、これはあらかじめ区の方で指定する形ではなくて、そのフローを通じて市民の方から要望があった施設の見学の後に、ヒアリング、アンケートを取って、関連施設にフィードバックしているといったことでございましたということで、資料を提出させていただいております。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=1972s" data-timestamp="1972"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:52</a>これはあれですか。最初の提案書と少し内容が変わったけど、かなり大きく変わっている形になるんですかね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">村上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=1985s" data-timestamp="1985"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:05</a>施設公聴という形は変わっていないんですけど、施設を見て、市民の方からご意見を頂くというのは変わっていないんですけども、まずテーマを踏まえて対象施設を決めるというところが変更させていただいています。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=2005s" data-timestamp="2005"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:25</a>分かりました。とりあえず今のこの資料とこちらの報告ということで、内容についてはまた12月の定例会の中での議論としたいと思います。</div>
+  <div class="say">９－８については、そういった形でよろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=2022s" data-timestamp="2022"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:42</a>では、こちらも終了とします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=2049s" data-timestamp="2049"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:09</a>次に、２、議会改革の調査事項についてを行いたいと思います。</div>
+  <div class="say">直ちに、（１）公式ホームページの各議員の紹介ページにＳＮＳも掲載についてを行いたいと思います。</div>
+  <div class="say">こちらは各会派からの見解と論点を提出していただいていると思います。これは何か補足とかありますか。小金井市議会公明党が提案されている議会改革提案のものですね。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=2092s" data-timestamp="2092"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:52</a>大変申し訳ありません。私は自分の提出が遅くなってしまったので、Garoonの方にちょっとコメントをさせていただきましたけども、簡単に言うと賛成で、ただ、ＳＮＳはどこまで入るんですかねと、そこを決めないといけないのかなというのだけ疑問に思いました。ＸとかFacebookとかは異論がないと思うんですけど、あとYouTubeとかInstagramとか、マイナーなところでいうとThreadsとか、Truth Socialとか、LinkedInとか、挙げ続ければ幾らでもあるので、その辺はどうするのかなというのが疑問に思いましたということだけ、ちょっとコメントを入れさせていただきました。</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=2136s" data-timestamp="2136"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:36</a>ということは、あれですかね。れいわ新選組小金井が書いているみたいに、対象とするＳＮＳの範囲をどうするかということですか。小金井市政を見える化する会のところの意見としては、そういった見解と論点ということになるということです。</div>
+  <div class="say">この件についても、協議についてはまた12月の定例会の中でとなりますので、よろしくお願いいたします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=2179s" data-timestamp="2179"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:19</a>次に、３のその他についてを行いたいと思います。</div>
+  <div class="say">初めに、（１）広報・広聴協議会の在り方についてを行います。</div>
+  <div class="say">こちらは座長からの申し送りというか、前回の９月19日には持ち帰りになっているということについては、（１）として、会議規則に加え、議会基本条例にも広報・広聴協議会の設置を定義することについて、それと（２）として、名称を「委員会」または「協議会」とするかについて、この２点かなということになっているかと思います。持ち帰り事項はこの２点でよろしかったですかね。こちらの協議については、12月の定例会中にしたいと思っておりますので、そういった形でこの件についても終了したいと思います。よろしいでしょうか。</div>
+  <div class="say">（「はい」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=2260s" data-timestamp="2260"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:40</a>それでは、（２）の次回の開催について。</div>
+  <div class="say">こちらは第４回定例会の広報・広聴協議会は、休会日の12月８日と確認いただいていますので、念のため報告いたします。皆さんは確認されていますでしょうか。（「日曜議会の次の日」と呼ぶ者あり）はい。（「何時から」と呼ぶ者あり）10時ではないんですか、何かありましたか。予定が入っていますか。（「漏れていただけです」と呼ぶ者あり）漏れていたの。予定は入っていないですよね、大丈夫ですか。12月８日、月曜日の10時からということで、予定を入れておいてください。</div>
+  <div class="say">次に、（３）その他を行います。何かありますでしょうか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn chair reveal">
+  <div class="meta"><span class="name">片山副座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=3CQsnCcntrA&t=2334s" data-timestamp="2334"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:54</a>以上で、広報・広聴協議会の会議を終了いたします。</div>
+  <div class="say">午後１時38分閉会</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+</body>
+</html>

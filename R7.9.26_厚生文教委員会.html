@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和7年9月26日 厚生文教委員会</title>
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#1d3a63; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* 直接URLで開いた時だけ最上部に「会議一覧に戻る」帯（index分割ビュー内では非表示） */
+  .backbar-top{display:none;}
+  body.standalone{padding-top:40px;}
+  body.standalone .backbar-top{display:flex; align-items:center; gap:6px; position:fixed; top:0; left:0; right:0;
+       z-index:60; height:40px; padding:0 18px; background:var(--navy); color:#fff; font-family:var(--sans);
+       font-size:13px; font-weight:700; text-decoration:none; letter-spacing:.04em; box-shadow:0 1px 4px rgba(0,0,0,.15);}
+  body.standalone .backbar-top:hover{background:#294f86;}
+  body.standalone .prog{top:40px;}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+</style>
+</head>
+<body>
+<a class="backbar-top" href="index.html">← 会議一覧に戻る</a>
+<script id="backbar-js">(function(){try{if(window.self===window.top)document.body.classList.add('standalone');}catch(e){document.body.classList.add('standalone');}})();</script>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和7年9月26日</p>
+    <h1>厚生文教委員会</h1>
+    <span class="srcbadge"><span class="dot"></span>本文＝小金井市議会 公式会議録（DBSR）</span><span class="src official">本文は公式会議録を一字一句そのまま掲載。要約はAIによる補助、タイムスタンプ・動画はYouTube連携（いずれも非公式の付加情報）。　|　<a href="https://www.city.koganei.tokyo.dbsr.jp/782529?Template=document&amp;Id=10228" target="_blank" rel="noopener">公式会議録の原典 ↗</a></span><span class="genmeta">本文は公式会議録と一致確認済み（verbatim）。要約はAIによる生成で、小金井市議会の公式見解ではありません。<br>最終生成日 2026-07-10</span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <h3>提出議案等一覧</h3>
+<ul>
+<li>工事請負金額1,000万以上の契約締結についての報告</li>
+<li>行政報告１ 心身障害者医療費助成制度（マル障）受給者証の誤送付について</li>
+<li>行政報告２ メガロス武蔵小金井におけるシニア運動教室の開催中止について</li>
+<li>行政報告３ 令和７年度小金井市教育委員会の権限に属する事務の管理及び執行の状況の点検及び評価報告書について</li>
+<li>行政報告４ 市立清里山荘における食中毒事故の経過について</li>
+<li>行政報告５ 子ども読書活動推進計画に係る計画期間の延伸について</li>
+<li>行政報告６ 空調機器の不具合による東センターの臨時休館について</li>
+<li>受動喫煙防止対策の状況と今後について</li>
+</ul>
+<h3>議案の審議ごとの要約</h3>
+<h4>工事請負金額1,000万以上の契約締結についての報告</h4>
+<p>令和7年5月1日から7月31日までに契約締結された8件の工事について報告された。これらは学校や公民館の空調設備、校舎等改修、防火設備、トイレ改修に関するもので、いずれも制限付一般競争入札が採用されている。工事の進捗率は8月1日現在で0%から20%であった。質疑は特になかった。</p>
+<h4>行政報告１ 心身障害者医療費助成制度（マル障）受給者証の誤送付について</h4>
+<p>令和7年8月18日にマル障受給者証の一斉送付が行われた際、別の方の受給者証が同封される個人情報漏えいが発生したことが報告された。対象者679人のうち9件の誤送付が判明し、9月8日までに全て回収された。誤送付の原因は、発送時に発送件数を確認しなかったことと、ダブルチェックができていなかったこととされた。再発防止策として、封入封緘作業手順書を作成し、全ての事業で徹底することが示された。委員からは、対応にかかった時間と労力、今後の体制見直しについて質疑があり、課長は、電話連絡や訪問に複数の職員が協力し、今後は個人情報を扱う発送業務で複数体制を検討する考えを示した。</p>
+<h4>行政報告２ メガロス武蔵小金井におけるシニア運動教室の開催中止について</h4>
+<p>令和7年度のシニア運動教室は、メガロス武蔵小金井店で3クール開催予定であったが、7月28日のメガロス東小金井学童クラブでのプール事故を受け、第1クール最終日のプールクラスとスタジオクラスの開催が中止された。また、9月から11月までの第2クールも開催中止が決定され、応募者117人には個別連絡とホームページ等での周知が行われた。第3クールについては、メガロス武蔵小金井店の状況を踏まえて開催の可否を判断する。委員からは、代替措置の検討と、委託契約上の対応について質疑があり、課長は、代替施設での振替開催を検討し、契約上の支払いは1クール終了ごとに行われるため、第1クールは未終了で支払いが行われていない状況であると説明した。来年度の方針については、スポーツクラブを利用した介護予防のニーズがあるため、他の事業所も含めて検討していると述べた。</p>
+<h4>行政報告３ 令和７年度小金井市教育委員会の権限に属する事務の管理及び執行の状況の点検及び評価報告書について</h4>
+<p>地方教育行政の組織及び運営に関する法律に基づき、令和6年度の教育委員会の事業（学校教育分野23事業、生涯学習分野11施策）の自己点検・評価報告書が議会に提出された。有識者3人の知見を踏まえて作成され、全体評価は学校教育分野、生涯学習分野ともに目標をおおむね達成しているB評価以上であった。有識者からは、教員向けの権利研修の必要性、いじめと不登校対策の見直し、図書館での情報発信の充実などの意見が寄せられた。委員からは、学校のきまりや校則の見直し、コミュニティスクールと放課後子ども教室の連携、学区域の見直し、公民館のWi-Fi設備、学識経験者の意見への市の受け止めについて質疑があった。市側は、校長会での指導や、コミュニティスクール制度を活用した放課後活動の充実、学区域の弾力的運用、Wi-Fiの周知と活用、こども基本法を踏まえた意見反映の検討などを説明した。</p>
+<h4>行政報告４ 市立清里山荘における食中毒事故の経過について</h4>
+<p>市立清里山荘で実施された市立小学校林間学校において、73人が食中毒症状を発症した事故について報告された。市長と生涯学習部長から謝罪があり、保健所の指導を受けながら再発防止に取り組んでいると述べられた。9月12日に保護者向け説明会が開催され、31人の保護者が参加した。主な質問は、食中毒の原因や検査、改善策、清里山荘の利用継続、代替行事の可能性などであった。委員からは、症状者数と検査者数の内訳、子どもたちへの説明、来年度の林間学校参加者への説明について質疑があり、市側は、検体提出者数とアンケートでの症状申告者数の違いを説明し、子どもたちへの説明は早急に教育委員会として整理し対応すると述べた。</p>
+<h4>行政報告５ 子ども読書活動推進計画に係る計画期間の延伸について</h4>
+<p>小金井市子ども読書活動推進計画の計画期間を、令和7年度末から令和8年度末まで1年間延伸することが報告された。延伸理由は、東京都の第5次東京都子供読書活動推進計画、第5次小金井市基本構想・後期基本計画及び（仮称）第5次小金井市生涯学習推進計画の内容を反映させる必要性、図書館基本計画との整合を図る必要性の3点である。庁内検討委員会と図書館協議会で承認を得ており、今後、アンケート実施や意見交換を経て、令和8年度末までに第5次計画を策定する予定である。質疑は特になかった。</p>
+<h4>行政報告６ 空調機器の不具合による東センターの臨時休館について</h4>
+<p>令和7年8月13日頃から東センターのエアコンの冷却機能が低下し、完全に停止したため、8月25日から9月30日まで臨時休館することが報告された。設置から25年程度経過しており、部分修繕での復旧は困難との見解が示された。館内温度が30度を超える状況が続いたため、利用者や職員の安全に配慮し休館を決定した。扇風機やスポットクーラーの借用、水の常備などの対策も行われた。10月1日に再開を予定しており、空調機器の復旧に向けて対応する。質疑は特になかった。</p>
+<h4>受動喫煙防止対策の状況と今後について</h4>
+<p>受動喫煙防止対策について、令和6年3月にガイドラインが作成され、今年度、公衆喫煙所設置に向けた具体的な検討が進められていることが報告された。武蔵小金井駅周辺での設置が優先的に検討されており、条例改正の必要性も含め庁内検討委員会で協議される。東京都の医療保健政策区市町村包括補助金を活用し、令和7年から令和11年までの5年間で喫煙所を整備する考えが示された。委員からは、東小金井駅周辺への設置の必要性、武蔵小金井駅での設置時期、補助金の活用について質疑があった。市長は、武蔵小金井駅を優先し、東小金井駅については意見として承ると述べた。補助率は2分の1で、残りの2分の1は市が負担する。</p>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/w23UwQRVXq4" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
+  </section>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=274s" data-timestamp="274"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:34</a>おはようございます。ただいまから厚生文教委員会の会議を開きます。</div>
+  <div class="say">本日の審査案件は、厚生文教委員会審査予定表の順序で行うことといたします。</div>
+  <div class="say">初めに、工事請負金額1,000万以上の契約締結についての報告を行います。</div>
+  <div class="say">本件について、部局の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">田中管財課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=294s" data-timestamp="294"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:54</a>それでは、厚生文教委員会関係の工事請負金額1,000万以上の契約締結について、ご報告いたします。資料をご覧ください。</div>
+  <div class="say">今回は、令和７年５月１日から令和７年７月31日までに契約締結した案件の報告で、件数は８件、契約件名、契約金額、工期、工事概要等につきましては、記載のとおり、学校及び公民館の空調設備関係が３件、校舎等改修関係が１件、防火設備関係が３件、トイレ改修関係が１件の工事となっており、契約方法につきましては、いずれも制限付一般競争入札を採用してございます。</div>
+  <div class="say">工事の進捗率ですが、記載のとおり、令和７年８月１日現在の数字で、番号１が20％、番号２が20％、番号３が10％、番号４が10％、番号５が20％、番号６が10％、番号７が10％、番号８が０％の旨、それぞれ担当課より報告を受けております。</div>
+  <div class="say">報告は以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=366s" data-timestamp="366"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:06</a>これから質疑を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=366s" data-timestamp="366"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:06</a>以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=384s" data-timestamp="384"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:24</a>ご異議なしと認めます。したがって、工事請負金額1,000万円以上の契約締結についての報告を終了いたします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=391s" data-timestamp="391"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:31</a>次に、行政報告を行います。</div>
+  <div class="say">初めに、行政報告１、心身障害者医療費助成制度（マル障）受給者証の誤送付についてを行います。</div>
+  <div class="say">部局の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野自立生活支援課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=406s" data-timestamp="406"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:46</a>それでは、福祉保健部自立生活支援課より、心身障害者医療費助成制度、（マル障）受給者証の誤送付につきまして、ご報告いたします。</div>
+  <div class="say">概要としましては、令和７年８月18日に同年９月１日から有効のマル障受給者証を一斉送付したところ、それを受け取った受給者の方から、同月20日に別の方の受給者証が重なって同封されていた旨の連絡があり、個人情報の漏えいが判明したものでございます。</div>
+  <div class="say">資料の方には、９月２日現在で８件判明、更にもう１件の疑いとありますが、９月８日に１件判明しまして、対象者数と発送数の誤差から判断する９件全てが判明した状況となってございます。</div>
+  <div class="say">それでは、詳細について報告させていただきます。</div>
+  <div class="say">マル障とは、東京都が実施する医療費助成制度で、資料に記載の要件に該当する障がいのある方を対象に、保険診療による医療費の自己負担分の一部または全部を給付するものでございます。市は、東京都の委託を受け、対象要件の確認や受給者証等の送付を行うなどの事務を行っております。</div>
+  <div class="say">今回の発送では、対象者数は679人でございましたが、８月20日に受給者の方から別の方の受給者証が入っていたという連絡を頂き、直ちに発送数を確認したところ、個別対応や施設等へまとめて送付したものを考慮した上でも９件の誤差が分かり、同日プレス発表するとともに市ホームページに掲載し、対象者の方々への謝罪及び連絡の協力依頼をいたしました。その後、同月27日から対象者への電話連絡による調査を開始、９月５日からは電話連絡による確認が取れなかった対象者に郵送による確認依頼を行っておりましたが、９月８日に９件目が判明し、誤送付の可能性があった９件全てを回収した形となっております。</div>
+  <div class="say">対象者の皆様、特に誤って他の方の郵送物を同封してしまった方々に対しましては、大変ご迷惑とご心配をおかけし、誠に申し訳なく思うとともに、発見後すぐにご連絡を頂いた方々へ、この場を借りて改めて感謝申し上げたいと思います。</div>
+  <div class="say">資料提出時にはまだ１件判明していなかったことから、可能性が低いながらも想定し得る懸念事項について記載しており、（１）におきまして、場合により一時的に立替えが必要となることを想定しておりましたが、今回の更新の時期における立替払いが生じたような事例は確認されておりません。</div>
+  <div class="say">次に、誤送付の原因でございます。個別対応を除いた発送すべき件数は、資料の３に記載の対象者679人のうち1)から3)までの６件を差し引いた673件でありましたが、発送時にそれを確認していなかったため、発送した664件という数が発送すべき数より９件少ないということに気付けませんでした。また、複数の職員で読み合わせを行うなどのダブルチェックもできておりませんでした。</div>
+  <div class="say">最後に今後の対応でございますが、（１）につきましては、既に９件全ての回収ができておりますので、対応を終了しております。</div>
+  <div class="say">（２）の再発防止策といたしましては、コンプライアンス事案に関する検証報告書で示された封入封緘作業手順書を基準に、本事業に限らず、全ての事業において封入封緘手順書を作成し、これに従って作業することを徹底することといたします。</div>
+  <div class="say">大変申し訳ありませんでした。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=635s" data-timestamp="635"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:35</a>これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=651s" data-timestamp="651"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:51</a>今、詳しい報告で大体状況は分かったんですけれども、こういった誤送付などがあった場合のそこに対する処理の時間というか、今回なんかは例えばそうやって発見というか、そういった事象が分かってから、そこまでのいろいろな対応をされるではないですか、調査したりとか、また、連絡したりとか。そういったことで、どのぐらいの時間がかかって、どのぐらい人も割いてやらなければいけないのか。そういったことが起こると、非常に事務作業、様々そういった形で人が取られてしまうというか、他の作業が滞ってしまうような形になってしまうのではないかと思っていて、ただ、この間、自立生活支援課関係でも多少そういったこともあったなと思います。</div>
+  <div class="say">先ほどの再発防止としての封入封緘作業手順書、基本というような形でそういったものをつくってということではあるんですが、全体的にこれまでのミスなども含めて、いろいろと全体的な体制の見直しというのが必要なのかなと思いまして、まずは今回の問題に対しての対応にかかった時間と労力と人の状態などについてご報告いただきながら、今後について全体の体制をどういうふうに考えていくのかも考え方をお聞きしたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野自立生活支援課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=754s" data-timestamp="754"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:34</a>発生してから対応するまでの時間ということでございます。</div>
+  <div class="say">まず、８月20日に判明しまして、最初の日にまず３件見つかっております。その後、先ほどご説明したとおり、８月27日、最初の１週間につきましては、ホームページ上で呼びかけて電話連絡を待つような形で確認していただいて、手元にない方、あるいは２枚入っていたという方からの連絡を見るという形で、まず様子を見ていたような状況です。その後、件数が増えないということで、８月27日からは全対象者に電話連絡をしております。そこでまた数件見つかりはしたんですけれども、その後、見つからない方、あるいは電話連絡ができない方も何件かいらっしゃったので、その方々を対象に９月５日から郵送で確認依頼の文書を送っております。そうしたところ、９月８日に最終的に判明したというような状況です。判明したものの中には、電話連絡した際に、自分のものしか入っていませんというご回答を頂いていた方で、実際に医療機関を受診したときに、医療機関で発見されたという例もございまして、それだけ分かりにくかったかなというところと、それで時間がかかってしまったところはございます。</div>
+  <div class="say">その間の作業ですけれども、当然通常の日常業務には支障のない範囲で担当者以外の職員も協力して、電話連絡なり、あるいは見つかったときのご本人宅へ伺ったりというのを分担して行ったというような状況でございます。</div>
+  <div class="say">体制としましては、この業務自体は、障害福祉係というのが大きくは手当医療を関係する職員と、それ以外の庶務的な事業を行う職員に大きく２つに分かれておりまして、手当医療に関しましては、複数種類ある手当医療業務にそれぞれ主担当、副担当等はいるんですけれども、人数の配置の関係上、実際には通常業務は主担当１人で行っているような状況がございます。そういった中で、今回、発送業務というのも主担当正職１人に対して、あとは時給制の会計年度職員でやっていただくという状況で、詳細があまり把握できていなかったというところは反省点かなと思っていますので、そういった個人情報を扱うような発送業務がある際には、もう少し複数体制がとれるようなことを考えていかなければいけないのかなということを現状考えているところでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=955s" data-timestamp="955"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:55</a>大分詳しいことが分かりました。</div>
+  <div class="say">先ほど８月27日からの電話連絡というのは、主担当の方が１人でご連絡されていることとか、どのぐらい、９月５日ぐらいまでかかったということなのか。手当医療の今おっしゃった、別の課への応援も頼んでということかもしれませんけど、人数的にどのぐらい関わったのかというのがはっきりしなかったので、その辺のことをもう少し、先ほどの時系列でおっしゃったところに併せて教えていただければと思います。</div>
+  <div class="say">障害福祉係の手当医療が、今おっしゃったように、主担当１人と会計年度の方は時給制の方ということではあるんですが、何人かついてということでの発送ということなんでしょうか。</div>
+  <div class="say">発送の事務のところでの679人というか、そのぐらいの対象の方々への発送ということですよね。これは例えばどのくらいの割合であるような作業なんでしょうか。発送作業とか、そんなにしょっちゅうあるものなのか、あるいは年に１回とかなのか。だから、有効期限のところでの受給者証の発送ですので、そんなに年に何回もあるようなものではないとは思うんですけども、ただ、他の受給者証以外の何か発送もあるのかもしれませんが、こういったことに対してどのぐらいの手が割かれているのかなというのを確認しておきたいなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">天野自立生活支援課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=1074s" data-timestamp="1074"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:54</a>まず、電話連絡に要した人数ですけれども、そのときに手の空いていた職員、私も含めてですが、リストを何枚かに分けて順番で担当したという形なので、正確には分からないんですけれども、６、７人は恐らく関わっていたかなと思っております。</div>
+  <div class="say">実際の封入封緘作業につきましては、それぞれの工程を１人でやっていたような状況がございます。今回、特に油断してしまったのが、窓開き封筒に受給者証を入れて、受給者証そのものが宛名になるという形なので、通常の封筒ですと、封筒に宛名があって、中身があってというところで、封筒と中身を確認するという作業をするんですけれども、そもそもがイコールだったので、そこの確認がちょっと甘かったというのが反省点でございます。</div>
+  <div class="say">発送回数でございますが、こちらは年に１回更新するという形になっておりますので、年１回の作業ということになります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=1138s" data-timestamp="1138"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:58</a>分かりました。</div>
+  <div class="say">事務作業についても非常に大変な状況かなと思いますけれども、やはり誤送付というのは本当によくない話なので、こういったことは決してないような形でお願いしたいなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say">他は大丈夫ですか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=1167s" data-timestamp="1167"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:27</a>以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=1167s" data-timestamp="1167"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:27</a>ご異議なしと認めます。したがって、本件に対する質疑を終了いたします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=1196s" data-timestamp="1196"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:56</a>次に、行政報告２、メガロス武蔵小金井におけるシニア運動教室の開催中止についてを行います。</div>
+  <div class="say">部局の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">礒端高齢福祉担当課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=1199s" data-timestamp="1199"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:59</a>それでは、メガロス武蔵小金井店におけるシニア運動教室の開催中止について、ご報告をいたします。</div>
+  <div class="say">令和７年度のシニア運動教室は、メガロス武蔵小金井店で３か月を１クール、年３回、スタジオクラスとプールクラスの開催を予定しておりました。既に令和７年５月から７月までの期間で第１クール目のシニア運動教室を開催していたところでございます。令和７年７月28日のメガロス東小金井学童クラブにおけるプール事故を受けまして、第１クール目、最終日の開催予定でありました７月30日のプールクラスと７月31日のスタジオクラスの開催は中止としております。</div>
+  <div class="say">なお、シニア運動教室の開催を中止した場合は振替の対応を行うこととしていますが、現時点で振替の時期等については未定でございます。</div>
+  <div class="say">また、９月から11月までの期間で第２クール目のシニア運動教室を開催予定でございましたが、現時点におきましては、シニア運動教室の開催は困難であると判断し、８月25日に第２クール目のシニア運動教室の開催中止を決定いたしました。既に第２クール目のシニア運動教室にご応募いただきました117人の方に対しましては、８月26日までに当落の通知をすることとしており、電話及びメールにより中止の旨を個別にご連絡いたしました。また、ホームページ及びＳＮＳ、LINE、Ｘでも周知を行いました。</div>
+  <div class="say">さらに、令和８年１月から３月までの期間で第３クール目のシニア運動教室の開催を予定しておりますが、メガロス武蔵小金井店の状況等を踏まえて、開催の可否を判断したいと考えています。</div>
+  <div class="say">報告は以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=1320s" data-timestamp="1320"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:00</a>これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">森戸委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=1332s" data-timestamp="1332"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:12</a>メガロスのプール事故を受けて、シニア運動教室を中止するということであります。ということは、この下半期は全て中止にはならないのかな。来年の１月から３月は未定ということなんですね。状況によってということであります。</div>
+  <div class="say">それで、せっかく100人以上の方が応募をされているということもありますので、代替の何らかのことを考えていくことはできないのか、その点について確認をさせてください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">礒端高齢福祉担当課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=1379s" data-timestamp="1379"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:59</a>森戸委員から、シニア運動教室は大変好評をいただいており、また、代替の措置はとれないかというところでございます。</div>
+  <div class="say">シニア運動教室につきましては、昨年度、非常に好評いただいて、今年度はコースを増やしたりとか、定員を増やしたりという形でやっておりまして、基本は契約上、受託者であるメガロス武蔵小金井の施設でシニア運動教室を実施するという形になっておりまして、今、第１クール目につきましても、最終回につきまして振替がまだできていない状況でございますので、そこの部分についてメガロス武蔵小金井でやるのか、また、代替施設でやるかというところにつきましては、今後検討してまいりたいと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">森戸委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=1428s" data-timestamp="1428"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:48</a>分かりました。</div>
+  <div class="say">まだ途中経過の中ということもあるので、早々には結論は出せないかもしれませんが、期待をしていらっしゃった高齢者の皆さんにとってみると、なくなっちゃったのということになりますので、ぜひ代替も含めて考えていただければと思います。</div>
+  <div class="say">それで、メガロスとの関係なんですが、今回のような事件が起こって、９月から11月は中止ということなわけですが、これは委託契約なんですかね。ということになると、契約上、この３か月間についての委託料などについて、今言うのは早いのかもしれませんが、対応とか、契約上はどうなっているのか、確認をさせてください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">礒端高齢福祉担当課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=1484s" data-timestamp="1484"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:44</a>メガロス武蔵小金井とのシニア運動教室の契約の状況というところでございます。</div>
+  <div class="say">令和７年度のシニア運動教室につきましては、契約上、３か月を１クール12回といたしまして、年３回実施しているという状況でございます。</div>
+  <div class="say">契約上の支払いにつきましては、１クール終了ごとの支払いとしております。ただし、先ほどご報告をさせていただきましたとおり、第１クールにつきましては、スタジオ・プールクラスとも契約上の全12回のうち最終回の１回分をまだ中止しているため、１クールが終了しておらず、支払いができていないという状況でございます。</div>
+  <div class="say">今、状況としては以上でございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">森戸委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=1531s" data-timestamp="1531"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:31</a>分かりました。ということは、残る１回分をどこかでやってもらって、契約を終了ということになるんですか。そういうことなんですね。この１回ができなかったから支払いの一部を減額して払うとか、そういうことにはならないんでしょうかということと、それから、今後についてですが、まだ途中経過ではありますので、なかなか軽々に言えないことだとは思いますけれども、メガロスにこれからも依頼をしていくのかどうか。来年度に向けた予算編成の中では一定考える必要があるのではないかと思いますが、その点については、今後の方向について伺っておきたいと思いますが、いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">礒端高齢福祉担当課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=1597s" data-timestamp="1597"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:37</a>大きく２点頂いておりまして、11回しかできてなくて、減額等の対応はというところですけども、今回、中止ということで、参加いただいていた方から第１クールのことも非常に残念だという声を頂いておりまして、基本的にはどこかで振替という形で対応したいと考えております。</div>
+  <div class="say">ただ、今、メガロス武蔵小金井店の状況といたしましては、９月15日にスタジオが再開、また、プールクラスにつきましては、まだ開いていない状況でございますので、そこら辺の部分で、まずは振替というところでどうできるかというところは考えてまいりたいと、今の時点では考えております。</div>
+  <div class="say">あと、来年度のシニア運動教室の方針というところでございますが、今年度も第１クール、第２クールとも非常に好評をいただいているところであり、スポーツクラブを利用した介護予防の取組のニーズがあるものと認識をしております。担当としては、シニア運動教室の参加を通じまして、習慣的な運動習慣を身につけるきっかけをつくるだけでなくて、地域の通い場とか、そういった社会参加の促進というのも期待しているところでございます。</div>
+  <div class="say">現在、担当におきましては、シニア運動教室を実施している事業所以外のそういった事業所も含めまして、シニア運動教室の実施も含めて、検討をしているという状況でございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=1696s" data-timestamp="1696"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:16</a>他、よろしいでしょうか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=1696s" data-timestamp="1696"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:16</a>以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=1696s" data-timestamp="1696"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:16</a>ご異議なしと認めます。したがって、本件に対する質疑を終了いたします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=1711s" data-timestamp="1711"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:31</a>次に、行政報告３、令和７年度小金井市教育委員会の権限に属する事務の管理及び執行の状況の点検及び評価報告書についてを行います。</div>
+  <div class="say">部局の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">内野庶務課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=1730s" data-timestamp="1730"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:50</a>令和７年度小金井市教育委員会の権限に属する事務の管理及び執行の状況の点検及び評価報告書についてでございます。</div>
+  <div class="say">地方教育行政の組織及び運営に関する法律第26条の規定に基づき、毎年、教育委員会自らがその活動状況の自己点検、評価を行い、その結果に関する報告書を作成し、議会へ提出するとともに公表することが義務付けられていることから、この度、報告書を市議会へ提出いたしましたので、ご報告いたします。</div>
+  <div class="say">令和７年度の点検評価報告書につきましては、令和６年度の教育委員会の事業のうち学校教育分野23事業、生涯学習分野11施策を評価対象とし、昨年度に引き続き、第３次明日の小金井教育プラン及び第４次小金井市生涯学習推進計画に基づき、有識者の知見を踏まえて報告書を作成いたしました。報告書の構成は、昨年度と変更はございませんが、有識者３人については、今年度から新たな委員を委嘱し、それぞれご意見を頂いております。</div>
+  <div class="say">全体の評価としては、学校教育分野及び生涯学習分野ともに目標をおおむね達成しているＢ評価以上となってございます。有識者からは、学校教育分野、生涯学習分野ともに幅広い取組が展開されている、指標について各方針の達成状況を十分に図ることができるよう見直しが必要ではないかといった全体的な評価のほか、教員向けの権利研修について、子どもと向き合う姿勢の変化を伴う研修が必要である、いじめと不登校をセットにした現在の対策面や考え方の見直しが必要である、図書館での事業や親子向け事業の情報発信について、より効果的な方法や充実が求められるなどの具体的なご意見を頂いております。</div>
+  <div class="say">なお、本報告書の公表については、市報などで市民にお知らせし、報告書そのものについては、情報公開コーナー及び図書館へ備え付けるとともに、ホームページへ掲載いたします。</div>
+  <div class="say">報告は以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=1864s" data-timestamp="1864"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:04</a>これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=1870s" data-timestamp="1870"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:10</a>おはようございます。今年も決算の時期に合わせてというか、間に合うような形でご報告をいただいて、ありがとうございます。</div>
+  <div class="say">それで、私が決算特別委員会の方では質問ができないので、何点か質問をさせていただきます。よろしくお願いします。</div>
+  <div class="say">まず、ページ数でいきますと、20ページの施策３、主要事業６の、タイトルはその子らしさを伸ばす教育の推進というところですが、令和６年度の取り組みとして、「学校のきまりや校則を見直すために、児童・生徒の声を聴くよう指導した」とあります。学校のルールの見直しをしていってほしいということは以前からご提案させていただいておりますので、この指導というのは、誰がどのような内容の指導をされたのかということをお聞きしたいと思います。ちょっと細かくて申し訳ないです。</div>
+  <div class="say">次は、２つの項目が関連しているのでまとめてお聞きしますが、32ページの施策７、放課後子ども教室との連携を推進というものと、関連している36ページの主要事業21のところでコミュニティスクールに関係してお聞きします。お伺いしたいのは、令和６年度の目標というところで、36ページに「コミュニティ・スクールにおける放課後子ども教室のビジョンを構築し、学校の教育内容と系統性のある放課後の過ごし方について研究する」というのが目標になっていましたが、このあたりはどういうものをイメージしていらっしゃるのか。コミュニティスクールが中心となって、放課後子ども教室を何かリードしていくようなイメージなのか、具体像が見えないので、分かるような形でご答弁いただければと思います。</div>
+  <div class="say">次は、35ページの主要事業20の学区域の見直しのところなんですけれども、これは以前にも何度か質問させていただいておりまして、進捗というか、現状の確認と今後の考え方についてお聞きしたいんですが、元々学区域の見直しというのはずっとテーマになっていまして、中央線が高架になる前は線路をまたいでの通学がなかなか難しいということで、直線距離で近いところよりも線路の北と南に分かれたような形での学区域が設定されていたと。それが高架化になったことで見直しをしていくというようなお話だったかとは思うんですけれども、なかなか学区域の見直しというのは、地域の皆様のご理解もいただかなければいけないので、難しいというような状況だったと思っております。そういった中、第三小学校が大規模化したことに対応するために、近接している小学校区との57校区の見直しといいますか、希望する方は隣の校区の学校に通えますよということをやってきたのが実態だったかと思っています。</div>
+  <div class="say">一定の成果が出ているということも受け止めておりますけれども、現在は第三小学校のみでやっているということなのか、東小学校の方でもそういうことを考えていらっしゃるようだというのを何かアンケートを取られたというようなこともお聞きしたので、今のところ何をやっていらっしゃるのか、今後どういう方向性で考えていかれるのかということをお聞きしたいと思います。</div>
+  <div class="say">すみません、あと２点あります。</div>
+  <div class="say">次は、44ページで公民館の方ですけれども、施策の柱１－４、「新しい日常、新しい生活様式」を踏まえた学びの推進というところで、公民館でのＷｉ－Ｆｉ設備についてお聞きしたいと思います。こちらはコロナ禍のときにも公民館でもＷｉ－Ｆｉを使った講座運営などができるようにしてほしいというご提案もさせていただいて、それを取り入れていただいて、少しずつ実験しながら、市民の方の協力もいただいて進めてきたものと思っております。質問としては、令和６年度の取り組みのところで、「公民館では全館に設置したＷｉ－Ｆｉ設備について、安定した利用を促すと共に」と書いてあるんですが、安定した利用というのが、市民の方に積極的に使ってくださいというふうにやっているという意味なのか、このあたりの中身がもう少し分かるようにお聞きしたいのと、一番下の改善策【Action】というところで、「公民館では、Ｗｉ－Ｆｉ環境の充実について、今後も検討を行う」となっていますので、今、考えていらっしゃるところで結構ですので、何か方向性がありましたら、教えていただきたいと思います。</div>
+  <div class="say">最後ですけれども、54ページのところで、今年から新しく学識経験者の方の意見を頂いている３人の方がいらっしゃると思います。喜多先生からコメントを頂いておりますけれども、これについてお聞きしたいんですが、たくさんあるのでまとめてお聞きします。まず、54ページのところでは、第１の２）こども基本法11条では、子ども施策全般の評価における子ども（保護者）の意見反映を義務付けているということで、今後そういう措置が求められると書いておられます。次のページの55ページの方に渡りまして、これにも関係してくるんですけれども、第３の２）では、コミュニティスクールなどへの子どもの参加を求めたいというご意見、そして、その下の３）では、さらに、子どもの意見表明や社会参加にはアドボケイト（意見表明支援員）の養成と研修に努めてほしいというご意見も頂いているところです。このあたりの喜多先生のご提案についての市の受け止めと、今、考えていらっしゃることがあれば、お伺いいたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">平田指導室長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=2258s" data-timestamp="2258"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:38</a>まず、水谷委員の方から、学校の決まりや校則を見直すために児童・生徒の意見を聴くように指導したことについて、誰がどのように指導したのか、そういったご質問を頂きました。指導室の重点施策として、子どもの声を聴くがあります。この目標に向かい、各学校が意図的、計画的に教育活動を進めています。また、生徒指導提要に基づいて学校の決まりや校則を見直すことについて、校長会においても依頼をいたしました。そして、この取組が着実に行われていくように各学校の状況を確認し、価値付けるということをしてまいりました。</div>
+  <div class="say">続きまして、コミュニティスクールと放課後子どもとの連携の推進についてでございます。放課後子どもとの連携の推進についてなんですが、コミュニティスクール制度を活用して、学校運営協議会を中心に地域学校協働本部と協働することで、児童・生徒の放課後の充実を図り、地域全体で児童・生徒を育てていく環境を構築することを目指し、進めています。放課後子ども教室のビジョンについてのところでございます。学校の教育内容と系統性を持たせた安全で充実した放課後の過ごし方の研究、実現することを意味しております。このビジョンというものの構築については、コミュニティスクールの制度の枠組みの中で進められていくものと捉えております。</div>
+  <div class="say">私からは以上でございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">笹栗学務課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=2380s" data-timestamp="2380"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:40</a>学区域の見直しについて、ご指摘を受けました。</div>
+  <div class="say">こちらの委員のご指摘のとおり、抜本的な見直しというのが現在できていない状況となっております。令和３年度から学区域の弾力的運用ということで、第三小学校につきましては、人口増による児童の増加に伴いまして、近隣校に就学を希望される保護者に対しまして毎年アンケートを取って、それを参考に弾力的運用の可否について決定をしている状況でございます。本来ならば、学区域の抜本的な見直しというのができればよいのですが、ＪＲ中央線の高架化に伴い、南北の行き来が自由になったときから各区域の見直しというのが一定の課題となっております。学区域自体が既に地域に根差した区域ということになっておりまして、地域の方々との様々な調整が必要であることや、宅地開発などが市内の幾つかで行われ、近年の人口増に伴って児童・生徒数というものが増加傾向の見込みで考えております。学区域の見直しにつきましては、人口の増が落ち着き、学校に余裕教室が生まれる時期に向けて検討すべきものであると考えておりまして、それまではなかなか精緻な見込みが立てづらいという状況がございます。</div>
+  <div class="say">令和８年度入学における学区域の運用につきましては、これまでの第三小学校区域に入学される児童の保護者のアンケートに加えまして、今回、児童数が増加する見込みであります東小学校に入学する児童の保護者に対しても現在アンケートを実施している状況でございます。そちらの結果を踏まえまして、令和８年度の学区域調整につきましては、今、その方向性を検討している最中でございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木公民館長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=2496s" data-timestamp="2496"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:36</a>公民館のＷｉ－Ｆｉ環境について、ご質問をいただいております。</div>
+  <div class="say">公民館におきましては、指定された防災拠点に配置された防災用Ｗｉ－Ｆｉの平時利用と、拠点指定以外の間に独自設置しました２種類のＷｉ－Ｆｉで現在運用しているところでございます。利用方法等、まだまだ公民館利用者に周知が行き届いていない部分もあるかと思っておりますので、今後も努力してまいりたいと考えております。各部屋にＷｉ－Ｆｉの利用について、案内を掲出しているところでございますが、高齢者の方等を中心により利用について広めてまいりたいと考えているところでございます。</div>
+  <div class="say">また、安定した運用ということで、現在、双方の既存環境を十分に活用しつつ、公民館利用者、また、公民館事業において、より快適で安定した運用が図れるように、引き続き検討してまいりたいと考えているところでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">大澤学校教育部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=2569s" data-timestamp="2569"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:49</a>まず、今回の３人の委員の方からは貴重なご意見を頂いたと思ってございます。その中で、喜多先生の方からの内容につきまして、ご質問を頂いたところでございます。</div>
+  <div class="say">喜多先生におかれましては、市長部局の子どもの権利部会にもご参加をしていただいていると認識しており、子どもの権利部会の中で、子どもの意見表明の確保する仕組み等につきまして、幾つかご検討をされていると認識してございます。取りまとめの中で、子どもの意見、議論が実現につながる仕組みづくりの検討だったり、子どもの意見、議論を支援する人材の育成の検討というところが、今後の子どもの権利部会、また、子ども・子育て会議の中で更なる議論がされていくものという形でご意見を承ったと我々としては認識しているところでございます。</div>
+  <div class="say">教育委員会といたしましても、当然、こども基本法の第11条の中に、地方公共団体は、こども施策を策定し、実施し、及び評価するに当たっては、当該こども施策の対象となるこども又はこどもを養育する者その他の関係者の意見を反映させるために必要な措置を講ずるものとすると法律の定めがございます。こういった市長部局全体の動向も踏まえつつ、現在、我々の方におきましては、第４次明日の小金井教育プランというものの策定をしている最中でございます。そこの部分にどのような形で反映させていけるかどうかというところは、検討委員会の中でももんでいきたいと思ってございますし、引き続き市長部局とも連携を深めて、その動向には注視してまいりたいと、そのような形で答弁をさせていただきたいと存じます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=2693s" data-timestamp="2693"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:53</a>たくさん質問したことに答弁いただきまして、ありがとうございます。</div>
+  <div class="say">まず、20ページのところで学校の決まりや校則のことで伺いました。こちらは校長会においてこういったことを進めていくようにということを依頼したということと、各学校の状況の確認をしていただいているということですね。更にこれをもっと進めていただきたいと思っていますので、例えばルールメーキングというようなプロジェクトをやっていらっしゃるＮＰＯなんかもありますし、どうやったら子どもたちが自分のこととして参加してもらえるかということを積極的に取り組んでいただきたいと思います。</div>
+  <div class="say">事前に質問を通知したのが直前だったので、今日はこれ以上詳しいことはお聞きできないと思いますので、引き続きこちらの学校の決まりの見直しについては、積極的に推進していっていただきたいと思います。ルールは自分たちでつくるということを考えていただくのは、本当に大切なことだと思っておりますので、よろしくお願いします。</div>
+  <div class="say">次、放課後子ども教室とコミュニティスクールの連携のことをお聞きしました。今後はコミュニティスクールの枠の中で放課後子ども教室を考えていっていただきたいと、制度の枠の中で考えていただくための研究をというご答弁でしたけれども、まだ私の中でも具体的にイメージができないようなお答えだったかなと思っています。学校ごとにコミュニティスクールの構成員も違いますし、運営委員の皆さんですね。それから、取組も物すごい地域に開いたいろいろなイベントをやっていらっしゃるところもあれば、じっくり熟議をやっていらっしゃるようなところもあれば、いろいろなので、一概には言えないと思うんですが、もうちょっとこれからこういったところが分かりやすいような発信もしていっていただければと思います。コミュニティスクールについては、リーフレットのようなものを作成して、保護者の方にご案内していただいたというところもこの中に出ていましたので、そちらも引き続き、私の方も拝見していきたいと思います。再質問はありません。</div>
+  <div class="say">さっきお聞きして、よく分からなかったところだけ、もう１回お聞きしたいんですけれども、公民館のＷｉ－Ｆｉのことです。安定した利用を促すというところに関しては、元々は防災のＷｉ－Ｆｉしかなかったところで、防災目的ではあるけれども、一般開放というか、１日に１時間掛ける２回、２時間は使えるように開放していただいたということも大変ありがたいと思っていますが、それが掲示などではしているけれども、あまりご利用されていないということですか、今のご答弁の中では。この前、森戸委員だったかどなたかが、生活がなかなか厳しい中で、通信料を払うのが難しい方なんかは、スマートフォンがあれば、Ｗｉ－Ｆｉを利用して就職活動をされたりとか、そういう方もいらっしゃるというご紹介もあったところですので、ここでＷｉ－Ｆｉが無料で使えるということは、分かりやすく通知をしていただきたいと思います。</div>
+  <div class="say">もう１つ、よく分からなかったんですけれども、講座の中でのＷｉ－Ｆｉの活用、Ｗｉ－Ｆｉを使ったオンライン講座の推進みたいなことも考えていらっしゃるのか、現状のところがよく分からなかったので、再度お伺いしたいと思います。</div>
+  <div class="say">最後のところです。喜多先生のご提言に対するところは、現在、子どもの権利部会のところでご検討いただいているということですので、今後また明らかになっていくかと思いますので、今日のところはこれ以上詳しいことは伺わないでもいいかなと思います。</div>
+  <div class="say">明日の小金井教育プランも現在策定中ということですので、そこで子どもの意見をしっかり聞いていただく。事前のアンケートだけではなくて、できたものに対するパブリックコメントのような形で、子どもたちに分かりやすくお示しをして、意見を聴いていくということもやっていただきたいと思いますので、こちらも意見で結構です。</div>
+  <div class="say">再質問は、公民館の件だけお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木公民館長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=2970s" data-timestamp="2970"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:30</a>Ｗｉ－Ｆｉに関して再質問いただきました。</div>
+  <div class="say">安定した利用を促すといったところにつきましては、一定、公民館の内部におきましても、チラシの掲出等で利用者の方々に周知をさせていただいているところでございますが、特にどの程度利用されているかということについて、集計を取っているわけではございません。今後より一層周知を充実させていただいて、利用を促していくということで、取組を進めてまいりたいと考えております。</div>
+  <div class="say">また、事業への展開ということについてでございますが、昨年度におきましては、事業で４回ほどＷｉ－Ｆｉを活用した事業を行っているところでございます。引き続き事業に活用いたしまして、より快適で安定した運用を図れるように努めてまいりたいと考えているところでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">水谷委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=3029s" data-timestamp="3029"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:29</a>ありがとうございます。</div>
+  <div class="say">Ｗｉ－Ｆｉの利用状況は、集計が取れるのかどうかもよく分からないところだと思いますので、無理なことをやってくださいとは申し上げませんけれども、せっかくあるものですので、活用いただけるように今後も周知に努めていただければと思います。</div>
+  <div class="say">あとは、オンラインを活用した講座が４回、事業としてなされたということも分かりました。民間と比べるのも変な話かもしれませんが、リアルタイムで参加できない方でも後で見れるようなアーカイブのようなこともあります。ただ、これは講師の方との合意なども必要だったりしますし、著作権などの権利のことが難しかったりもしますが、少しずつで結構ですので、オンラインを活用した講座なども充実をしていただければと思います。</div>
+  <div class="say">先ほど答弁いただいたのに言うのを忘れましたが、学区域の見直しについては、可能な範囲で今やっていただいているということは分かりましたので、最後に意見だけ言わせていただきます。学区域の見直しというタイトル自体がもう少し表現を変えた方がいいのかなと思っていまして、学区域の検討というか、それも考えていただければと思います。</div>
+  <div class="say">以上で終わります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">村上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=3119s" data-timestamp="3119"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:59</a>まず、24ページの（仮称）教育支援センター設置のところです。新市庁舎移転のときに正式立ち上げということだったと思うんですけども、これを前倒しするというような具体的な検討はされているのかというのを１点お聞きしたいと思います。</div>
+  <div class="say">それと、正式な教育支援センターが出る前に関係部署のコミュニケーション、チームワークを高めていくということだと思うんですけども、現時点で個別の事例を共有したり、具体的に各関係機関がどのような形で交流を図っているのか。今回の評価の理由で、体制構築に向けて読み書き困難等支援員を配置することができたというのがあるんですけども、これはこれで評価できると思うんですが、一番基本的なところは、さっき言ったように、センター設置に向けて関係機関の具体的なコミュニケーションレベルを上げていくということだと思いますので、その辺の実態というか、具体的なところを教えていただければと思います。</div>
+  <div class="say">あと３点目として、フリースクールとの連携というか、相談したときに、フリースクール、市内あるいは市外も含めてなのかもしれないんですけども、何かしらの案内というか、そういった紹介とかもされているのかなということを確認したいと思います。</div>
+  <div class="say">それと、いろいろ飛んでしまうんですけども、次の25ページの特別支援教育の推進のところで、「特別支援教育に関する研修会が計画どおり実施でき」ということが書かれていると思うんですが、この具体的な内容とか頻度というか、実態を教えていただければと思います。</div>
+  <div class="say">前に戻って、16ページのいじめ・不登校に関する対策というところで、これは学識経験者の方からご指摘もされていますけども、これは質問というよりも意見になってしまうかもしれないんですが、ここで書かれている、まず、喜多先生の方からのいじめ、不登校をセットにした対策名を見直すべきではないかというところです。その後に不登校は問題行動ではないからということが書かれているんですけども、まさにそうだと思いますので、これについてどうお考えかということです。</div>
+  <div class="say">あとは伊藤先生の方からご指摘がある２点目はというところで、16ページのところと関連してくるんですが、具体的には各校で個別の指導ファイルを作成して、継続的に観察というか、見ながら適切な対応を取られているということで、それ自体はそれで評価できることだと思うんですけども、ここに書かれているような、伊藤先生からご指摘のあるような、一つは、多様な学びの場ですね。学校以外のところの連携的なことも必要になってくると思いますし、もう一つは、学校がより居心地のよい場所になるようにというところで、不登校ぎみというか、あるいは不登校のお子さんに対して個別に指導されるというのと並行して、学校全体がより居心地のいいというか、通いやすい環境にするということが大事だと思いますので、これについては何か具体的にこれを受けて検討されているのであれば、教えていただきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=3431s" data-timestamp="3431"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:11</a>関連。村上委員の最後のところです。私も学識経験者の方から指摘されているところに対して、どう対応するのかが気になっておりまして、新しいメンバーということではあるんですけれども、非常に重要な指摘をそれぞれされていると思うんです。特に55ページの喜多先生の指摘として、主要事業３のタイトルというか、対策面の見直しというか、今後どのようなくくりにしていくのかということと、そして、その後にも第３の生涯学習に関する意見では、不登校の子どもの多様な学びの場の確保は、生涯学習部に移すことがふさわしいということまで提言されているわけです。そういったことを踏まえて、どのような形で対応していくのか。</div>
+  <div class="say">また、56ページの伊藤先生のところには、７月24日に点検・評価会議が開かれて、そこでいろいろ質問させていただいたということがあるんですが、こういった会議の内容などについては公表されているものなんでしょうか。どこかで見られるような形になっていますでしょうか。</div>
+  <div class="say">このような形で学識の方々から非常に有用なご意見をそれぞれの先生から頂いていると思いますので、そちらについてどういった場で検討され、どのような対応をしたということが報告されるのかということをお伺いしたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">田村統括指導主事</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=3544s" data-timestamp="3544"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:04</a>では、村上委員からご質問のあった教育支援センター構想のことについて、答弁させていただきます。</div>
+  <div class="say">まず、前倒しの検討はというところがありましたけれども、現在、前倒しというよりも、場所が確定するまでにできる内部での連携を充実させていこうというところで今考えているところです。</div>
+  <div class="say">では、その実態はどうかというところでお話があったと思いますが、現在、もくせい教室と教育相談所が以前は同じ場所にあったんですけれども、現在離れているところにあります。そういう状況なんですけれども、入室の受付としては、教育相談所が担っています。そこでお子さんの様子とかをしっかりと聞き取って、それを基にもくせい教室の方と体験の日程調整ですとか、そういうことをやり取りしています。初めの頃はなかなかうまくいかないところもあったんですけれども、ここの部分が円滑に情報のやり取りがされるようになってきたのかなと今思っているところです。</div>
+  <div class="say">また、学務課との連携も就学相談において連携を強くしておりまして、教育相談所が就学相談における発達検査を行っているところです。こちらにつきましても、私、統括指導主事と教育相談職員、学務課職員で情報共有を定期的に行って進めています。こちらの内部の連携というものについては、引き続き充実させていきたいなと考えているところです。</div>
+  <div class="say">また、２点目に移ります。フリースクールとの連携についてというお話がありました。こちらにつきましては、昨年度の不登校対策委員会でフリースクールの団体の代表の方、２団体にお越しいただいて、不登校支援コーディネーターが各校にいるんですけれども、その教員向けにお話をしていただきました。ですので、フリースクールの現状というものを学校の教員に話していただいて、その状況などを不登校支援コーディネーターが各学校で伝達する、そのような形でフリースクールの連携を図っているところです。</div>
+  <div class="say">また、フリースクールの団体の代表の方に来ていただくことについては、今年度も行おうと考えておりますので、また引き続きどんな連携ができるかは研究していきたいと思っています。</div>
+  <div class="say">特別支援教育研修会につきましては、年間５回ほど行っています。これは特別支援教育コーディネーターという教員が各学校におりまして、その教員向けです。ただ、先ほどの不登校と同じで、このコーディネーターは、そこで学んだことを各学校で伝達するという役割、中心になって特別支援を組織的に対応していくという役割を担っております。内容といたしましては、昨年度ですと、例えば特別支援学校の先生にお越しいただいて、具体的に学級でできる支援の方法を教えていただいたり、また、ＷＥＢＱＵというものについて、先生をお呼びしてお話を聞いたり、また、不登校の連携ということも考えて、実際にバーチャル・ラーニング・プラットフォームの中に入って、こういう取組がありますよということを紹介して、不登校との連携を図ったり、研修内容については、様々研究して行っているところです。</div>
+  <div class="say">私からは以上になります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">平田指導室長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=3797s" data-timestamp="3797"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:17</a>村上委員や片山委員の方から、いじめと不登校についてのご質問を頂きました。主に喜多委員に頂いた指摘に基づいてのところで答弁をさせていただきます。</div>
+  <div class="say">喜多委員からは、いじめと不登校をセットにした対策名を見直し、不登校は問題行動ではなく、権利保障の問題として捉え直すべきだという、こういったご指摘を頂きました。不登校支援についての考え方であったり、捉え方を変えていく、そういったお話を伺ったと私は捉えております。次の教育プランの中では、喜多委員の意見を踏まえて、不登校支援について、いじめと不登校を分けて考えていく、そういったものを入れていこうと考えているところでございます。</div>
+  <div class="say">また、多様な学びの場ということについても、示唆に富んだご指摘を頂いたところです。喜多委員は、こども基本法であったり、子どもの権利、また、文部科学省のＣＯＣＯＬＯプランというものに基づいてご指摘を頂きました。喜多委員のご意見を踏まえて、今後一つ一つの施策を見直しながら、次の教育プランに反映していこうと考えているところでございます。</div>
+  <div class="say">また、学校が居心地のよいところになれば、いじめもなくなるし、不登校というものも解消されていくのではないかという、そういったお話も伺いました。教育委員会といたしましては「笑顔いっぱい、わくわくいっぱい」という教育スローガンを持って教育活動を進めております。笑顔いっぱいというところをもう少し厳密に、具体的に考えていくと、一人ひとりの自己肯定感であったり、自尊感情を高めていくということ。そして、わくわくいっぱいというところのわくわくというところは、内発的動機付けというものに基づいて、子どもが本当に学びたいという、そういった意欲を引き出すこと。そういったところに主眼、焦点を当てて、今後、事業改善であったり、学校の教育活動を変えていく、そういったことが必要ではないかなと考えたところです。こういった内容も次の教育プランの中に入れ込んでいきたいなと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">内野庶務課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=3976s" data-timestamp="3976"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:16</a>関連のご質問の点検・評価会議についてでございます。</div>
+  <div class="say">本会議につきましては、有識者からご意見を頂くに当たって、有識者の方からの質疑をお受けする場ということで、毎年、点検・評価会議というものを開催しておりますが、その目的からいたしまして、非公開という形で行っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">村上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=4006s" data-timestamp="4006"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:46</a>ご答弁を頂きました。</div>
+  <div class="say">教育支援センターのところではイメージは分かったんですけど、多分連携はすごくよくなっているであろうというのは受け止めるんですが、これに関してはある程度客観的な評価というか、何かしらコミュニケーションがよくなっていますというだけだと、外から見てというか、客観的に捉えにくいので、何かしらそういった検討もしていただきたいなと思います。それについてお尋ねします。</div>
+  <div class="say">それと、コーディネーターの方に対するフリースクールの方の講演みたいなものをされているということだったんですけども、それはそれでなんですが、それはフリースクールの経営者の方が先生に対してやられていることだと思うんですけども、現実的には不登校のお子さんがいらっしゃるご家庭というのは、すごく切迫していますので、具体的にフリースクールの紹介だとか、そういったものを求めているということがありますので、その辺について、いろいろハードルもあるのかもしれないですけども、ご見解をお聞かせ願いたいと思います。</div>
+  <div class="say">それと、特別支援教育の方では、年５回、特別支援教育コーディネーターの方を対象に研修会をされているということで、その方が他の先生に対して学校の中でレクチャーを行っているという理解でよろしいんでしょうか。その確認です。</div>
+  <div class="say">その内容なんですけども、今、伺ったところによると、特別支援教育的なものについての内容がということだったんですが、これは定例会でもご質問させていただきましたが、インクルーシブ的なところで、いわゆる配慮の必要なお子さんに個別の対応はこうやってやっていくんだよということだけではなくて、全てのお子さんが特徴を持っているというような、いわゆるインクルーシブ教育的なものがこの中に入っているのか。入っていないとすれば、そういった要素も検討していただきたいなと思います。</div>
+  <div class="say">あとは、いじめ・不登校に関するところなんですけども、不登校で一番理想的なのは、学校がすごく通いやすくというか、全てのお子さんが、かつてそうだったんですかね。学校に通えるような状況というのが理想的だと思うんですけども、現実的に考えるとなかなか難しいところがあって、二つの側面から考えた方がいいと私は思っております。一つは、学校自体の通いやすさ、居心地を高めていただくというのがある一方で、学校以外の学びの場所の多様化というものを進めていくという、選択肢を増やしていくというのは、現実的にはどうしても必要だなと思っております。</div>
+  <div class="say">この場でお聞きするのもあれなんですけど、流れでお尋ねしますが、フリースクールの拡充というのは、そうなると一つのポイントになってくると思いますが、ここに対する具体的な支援策というものがご検討されているのであれば、お聞かせいただきたいなと思っています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=4301s" data-timestamp="4301"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:41</a>先ほど指導室長からご答弁あったのは、喜多委員の指摘に対してのところだけというか、具体的にはそこだったんですけれども、全体的にすごく具体的に書かれているので、非常に分かりやすいというか、今、次期の教育プランの中でいかしていきたいというか、何かしらということはおっしゃってはいるんですけれども、他の先生方も、また、喜多委員も他の指摘もされているということもありまして、こういった全体的な指摘に関しては、どこの場で検討されていくのかなというのもちょっとお伺いしていたんです。その辺の答弁がなかったので、改めてお聞きしておきたいと思います。</div>
+  <div class="say">先ほど庶務課長からは、点検・評価会議については非公開だということであるんですけれども、ここで質問されたこととか、質疑応答の内容については非常に興味深いなと思っておりまして、そこの内容についても非公開ということになってしまうんでしょうか。何かしら要点などについては、例えば教育委員会に報告をしているとか、そういったことがあるのかというのを確認しておきたいなと思います。</div>
+  <div class="say">こういった学識の方々から指摘を受けたことがどのようにいかされていくのかなというのを確認したいということでお聞きしておりますので、何かしら分かりやすい形での公表というか、点検・評価会議だけではないとは思いますので、ここで書かれていることについても、恐らくご意見として頂いたものとしては、頂いたものをそのまま載せられているということなのか、頂いたものを何かしら教育委員会の方でまとめたということなのか、あるいはそういった会議などがあって、そこでもいろいろとやり取りがあったんだけれども、ここには短い文章でまとめてもらったということなのか、その辺の確認だけはしておきたいなと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">田村統括指導主事</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=4439s" data-timestamp="4439"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:59</a>まず、村上委員からの客観的な評価が捉えにくいというところについてですが、実は点検・評価、これは一昨年とか昨年ですか、まさにここの部分が実際に教育支援センター構想が動かないことには、具体的な評価は難しいのではないかというご意見を頂いていたところがあります。実際にやはり難しい。その数値として表せることもなかなか難しいですしというところで、内部の連携で充実させていきますというところで、今やっているところなんですけれども、ただ、先ほどの前倒しという表現があったんですが、実際に場所を確定して、前倒しで運用ということは行ってはおりませんが、今回、ある意味前倒しという表現でもいいのかなというところとして、読み書き困難支援というところで支援をスタートさせたということが大きな一歩ではないかなというところで、自己評価をさせていただいたところがあります。こういうところにつきましては、様々どんな支援ができるかというところをまた検討しながら、この教育支援センター構想を今できるところでまずは進めていきたいという思いがあります。まずは、現時点ではそのような答弁とさせていただきます。</div>
+  <div class="say">続きまして、フリースクールの紹介についてです。こちらにつきましては、なかなかこのフリースクールを具体的に、ここをどうぞ、ここをどうぞということは難しいとは思いますけれども、ただ、様々ありますので、現時点でフリースクールというものがどのような形態で行われているのかということ、お話を聞くことで、学校の教員が理解を深めていく。さらに、スクールソーシャルワーカーとも連携しておりますので、スクールソーシャルワーカーから様々な居場所を紹介していく、そういうところにつなげていきたいなとは考えているところです。なので、引き続きまたフリースクールとの連携というもので、つながりを深めていきたいなというところは考えています。</div>
+  <div class="say">続きまして、特別支援教育コーディネーターの役割についてですけれども、こちらは他の教員に様々学んだことを広めていくという役割がまず一つあります。それ以外にも、通常学級でも様々な困り感を抱えて悩んでいるお子さんがたくさんいます。そのような相談を受ける窓口としても、特別支援教育コーディネーターは担っております。ですので、広めることもそうですし、受け止めてその検討を組織の中心となって行っていくという役割もあります。</div>
+  <div class="say">また、インクルーシブというお話がありましたけれども、特別支援教育という話で学校では進めていますが、これは全ての子どもが対象です。通常学級においても、様々な支援、困り感を抱えて支援が必要なお子さんはたくさんおります。それで、例えば今、特別支援教室の教員は全ての学校を巡回しておりますので、日常的にやり取りをして、例えば在籍学級にいるお子さんについて、ここを悩んでいるんだけど、どうしたらいいかなということで、日常的に支援の在り方を話し合ったりしています。また、定期的に月に１回、２回ほどが多いかなと思いますが、校内委員会というものを開いて、各学校において何かしらの支援が必要なお子さんについては、どんな支援が考えられるかを検討しております。そういう意味では、インクルーシブという、全ての子どもへの支援という、先ほどの村上委員のお話には当てはまるかなと考えています。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">平田指導室長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=4686s" data-timestamp="4686"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:06</a>まず、村上委員の方からご質問のあったフリースクール支援について、今後どういうふうに進めていくかというところでございます。現在、教育委員会、指導室として取り組んだことは、学校の先生たちが市内にあるフリースクールがどういうことをやっているか、そういった理解を広げていくということです。これを進めていくと、学校の先生がフリースクールという選択肢もあるよということを保護者に伝えるということは、保護者にとってはすごく広がるんです。学校だけではない、私の子どもが行く場は他にもあって、どこを選択してもいいし、または一緒に学校に来てもいいし、フリースクールに行ってもいい、そういった選択肢があるんだと広がっていくということがまず一番大事なことだと捉えて、今そこを進めております。</div>
+  <div class="say">加えて、東京都の施策である月２万円の補助という、そういった制度もあることも伝えながら、保護者の方に選択肢として提案していくというところで、現状の支援策はそこまでかなというところでございます。これ以上のところは、今後また検討させてください。</div>
+  <div class="say">また、片山委員の方から頂いた各評価委員からの全体的な意見として、今後どのようにやっていくのか、そういったご質問を頂きました。大きな視点をそれぞれ委員から頂きました。喜多委員からは、先ほどお伝えしたこのこども基本法や子どもの権利に基づいて見直すという視点です。また、伊藤委員からは、評価指標という、それぞれの目標に対して、それが本当にちゃんとできているかどうかを測る評価指標がこれで本当にいいのか、そういった評価指標について、次期教育プランではしっかり立ててほしいと、そういったこともご意見を頂き、今、検討をしているところです。また、田中委員からは、それぞれ学校の細かな施策は非常にいいと、そういった評価を頂きました。加えて、ここから一歩更に充実していくには、保護者の理解であったり、地域の理解、そうやって保護者や地域を巻き込んでいく。また、関係機関との連携をどう更に深くしていくか、そういったところが課題であり、もっとこの周知啓発、学校はこういうことをやっているよということを理解してもらうような努力をしたらどうかという、そういったご指摘を頂いたと捉えております。</div>
+  <div class="say">それぞれの委員からのこの大きな３つの視点を踏まえて、次の教育プラン、見直しをやっていこうと考えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">内野庶務課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=4885s" data-timestamp="4885"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:25</a>点検・評価会議についてでございます。本市のこの点検・評価につきましては、小金井市教育委員会の事務の管理及び執行の状況についての点検及び評価の実施に関する要綱を定めておりまして、その要綱の中では、教育委員会は前年度の施策及び事業の進捗状況等を取りまとめ、点検及び評価に関する有識者の意見を聴取した上で、点検及び評価を行うものとすると定めておりますので、点検・評価会議につきましては、この要綱に定めがあるものではなく、あくまでも先ほどご答弁申し上げましたとおり、有識者からの意見に際しまして、その疑問点、質疑等を受ける場ということでの会議の設定ということになっておりますので、非公開という形になっているところでご理解をいただければと思います。</div>
+  <div class="say">なお、教育委員会への報告という観点につきましては、有識者、学識経験者からの意見提出後、評価を行った後、今回、議会の方にも提出しています報告書を議案という形で、今年度で言いますと、８月26日の教育委員会定例会に提出をし、議決を経ておりまして、その中では有識者からの意見の内容についてもご説明をしてございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">大澤学校教育部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=4970s" data-timestamp="4970"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:50</a>学識の見解につきましては、頂いたものを全文そのまま載せさせていただいております。</div>
+  <div class="say">喜多先生の方から、多様な居場所のところにつきまして、生涯学習とかという言葉が出たところはございます。居場所に関しましては、教育委員会に限らず、子ども家庭部も踏まえて対応しているところがございます。一概にまとめる方がいいのかどうかというところは、なかなか組織改正等も踏まえてというところがございますので、現状でいきますと、学校、当然指導室、または生涯学習部、子ども家庭部、そういったところの中で対応していきたいという考え方は持っていますが、一応出された先生の意見につきましては、とりあえず受け止めさせていただいたという形で、その際、ご答弁をさせていただいた経過がございますので、その旨、まずご答弁させていただきたいと存じます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">村上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=5048s" data-timestamp="5048"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:08</a>ご答弁いただきました。</div>
+  <div class="say">最後はちょっと意見という形で終わらせていただきたいと思います。</div>
+  <div class="say">まずは、教育支援センターのところです。何回も同じようなことを言っているんですけど、多分いろいろコミュニケーションレベルが上がって、現実的にすごく支援体制はレベルアップしているというのは、私も感じ取るところではございますが、やはり一般論でもありますけども、何かしらそれを客観的に捉えるような仕組みというのも必要なのかなと思いますので、ちょっとご検討いただきたいなと思います。</div>
+  <div class="say">それと、フリースクールの案内というところですけども、私も不登校の親の会とかいろいろ出させていただいているんですが、やはり非常に切実・切迫しておりますので、保護者の方からは、フリースクールはどこがあるのとか、あるいは医療機関はどこがいいのとか、具体的に知りたいという要望が非常に強いわけです。すぐにつながりたい、対応したいというのがありますので、行政としてどこまでできるかというのはあると思うんですけども、検討していただきたいなと思っております。</div>
+  <div class="say">それと、特別支援教育のところでは、ちょっとご答弁を頂いて、個別配慮が必要な方への対応の知見を高めていくというような要素がちょっと強いのかなと感じましたので、インクルーシブ的なところを今後の内容の中でもう一度見直していただけるといいのかなと、これは意見としてお伝えしておきます。</div>
+  <div class="say">それと、いじめ・不登校というところで、フリースクールへの支援なんですが、一般質問でもさせていただいたんですけども、小金井市内でせっかく新規参入された事業者の方もいらっしゃるわけですが、現実的にやはり運営するための資金、なかなかやはり難しいのではないのかなということで、継続させていきたい、あるいは更に新規参入を増やしていきたいというところで、これは意見・要望になりますけども、引き続き支援の強化をお願いしたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吉良委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=5240s" data-timestamp="5240"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:20</a>38ページの教員の働き方改革について教えていただきたいと思います。教員の長時間労働が課題となっていますが、出退勤システムを活用して勤務時間の見える化を図り、在校時間の適切な把握と意識改革の推進を図るということで、こちらの方ですが、まずお伺いしたいことは、実際の取組の中で出退勤システムの在校時間の適切な把握を図って、その中でスクール・サポート・スタッフ、あと、部活動指導員、外部指導員全校配置、副校長補佐全校配置というところで、その方たちがどういった業務をされるのか、その内容をちょっと教えていただきたい。</div>
+  <div class="say">あと２つ目は、部活動の指導員のアウトソーシングを進めるということで書いていらっしゃいますが、こちらの方のアウトソーシングの進捗状況を教えていただけたらと思います。</div>
+  <div class="say">３つ目は、特に時間外勤務の大きな理由となっていることは何かということ把握されているのかなというのをちょっと教えていただきたいと思います。出退勤システムを把握して、在校時間を減らすことは本当にいいことなんですけれども、終わらない業務を持ち帰って在宅でやるようにならないように、実際に時間外となっている大きな理由というものを把握されているようでしたら、そちらの方を教えてください。</div>
+  <div class="say">あと２つ目の質問は、47ページの学びの継続と成果の活用の推進というところです。こちらの方で、まなびあい出前講座の実施23回、参加者331名となっております。こちらの方なんですけれども、どんな講座のリクエストが多かったのか、内容的にどういったものを皆さんが求めて出前講座を頼まれたのかを知りたいです。</div>
+  <div class="say">また、利用団体のつどい（公民館まつり）の実施というところなんですけれども、こちらの方は利用団体のつどい（公民館まつり）自体、私ちょっと勉強不足で分かっていないので、そちらの内容を教えていただけますでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">平田指導室長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=5388s" data-timestamp="5388"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:29:48</a>教員の働き方改革についてご質問を頂きました。</div>
+  <div class="say">まず、スクール・サポート・スタッフですが、各学校、本市ですと、全小・中学校に配置されております。学校の先生方の教材の準備であったり、例えば教室に掲示を貼るときの手伝いであったり、学校の先生は授業以外に様々なことをいろいろやっているんですが、そういったことを先生の依頼に基づいて支援するというのがスクール・サポート・スタッフです。</div>
+  <div class="say">そして、副校長補佐につきましては、もう名前のとおりなんですが、副校長を補佐する立場にございます。副校長が持っている業務範囲は非常に広いものがあります。その中でも、管理職しかできない仕事は副校長そのままが行うんですが、それ以外のデータの処理であったり、それぞれ資料をまとめて配布したり、また、会議の議事録を起こしたり、そういった内容については、副校長ではない人でもできるだろうと、そういった部分について、副校長補佐が行っております。これについても本市は小・中学校全校に配置されております。</div>
+  <div class="say">部活動指導のアウトソーシングという言葉なんですが、部活動の指導を教員以外の人ができるようにするという意味で、このアウトソーシングという言葉を使ってございます。ですので、ここの中で、部活動指導員や外部指導員がその立場を担っております。部活動指導員は、今年度ですと、全校３名、配置されております。</div>
+  <div class="say">終わらない業務を持ち帰っていることはないでしょうかというところがございます。学校の教員の仕事の中で、やはり授業の準備、いい授業をつくりたいという願いは、もう全ての教員が持ってございます。ですので、教材研究というものに終わりはないというところが実はございます。どうしてもやはり時間を超えて、もっといい授業をつくりたいと思うばかりに、家にそういった教材、読み込む資料であったり、家でワークシートを更につくり直したり、そういったことが行われているということは把握しているところでございます。ですので、学校の中でそれぞれの教員がつくったワークシートであったり、そういったものをＩＣＴを活用しながら共有したらどうですかであったり、教科担任制のように、お互いの授業でも得意分野の授業でクラスを交換しながら行ったり、そういうことも組み合わせてやっていくことで、今まで全部の授業を教員１人が準備していたんですが、それを分担していく、チームでやっていくという方向に今進んでいます。そういうことをしながら、終わらない業務、持ち帰りをなくしていこうという取組は進んでいると捉えております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木公民館長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=5623s" data-timestamp="5623"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:43</a>利用団体のつどい（公民館まつり）の状況についてのご質問でございます。市内に公民館は５館ございますけれども、５館それぞれで独自で行っておりますイベントということになります。主に土日を中心に、年に１回、それぞれ開催をしているイベントということになります。</div>
+  <div class="say">内容といたしましては、日頃利用されている団体の方々が、その活動の成果を披露する場ということになってございます。また、様々、将棋大会ですとか、そういった文化的な行事についても併せて行っているところでございます。</div>
+  <div class="say">参加者につきましては、おおむね500人から1,000人程度ということになっておりまして、各館でそれぞれ盛り上げて、地域の方の参加をいただきながら行っている状況ということになっております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">濱松生涯学習課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=5688s" data-timestamp="5688"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:48</a>まなびあい出前講座の人気のある講座はどういったものかというご質問だったかと思います。令和６年度の実績で多かったものといたしましては、「乳幼児編－ブラッシング習慣をつけよう」という、子ども向けの歯磨きの講座のようなものが複数回ございまして、こちらの方は保育園からご要望があったと記憶してございます。</div>
+  <div class="say">また、同程度で多かったものといたしましては、「災害に備えて安全対策を」ということで、防災の関係の講座のニーズが多かったのかなと認識してございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吉良委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=5733s" data-timestamp="5733"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:33</a>ありがとうございます。</div>
+  <div class="say">まず、学校の方の教員の働き方改革なんですけれども、友人の先生から本当に大変なんだという声を聞いて、疲れ切ったところを見ていたので、内容を知りたかったので、助かりました。</div>
+  <div class="say">部活動の方なんですけれども、こちらの方は部活動指導員の方を外部のアウトソーシングということで伺いました。こちらの方はアウトソーシング、こういった方は例えば資格とかは必要なんでしょうか。資格を持った方がこういったものを応援してくださっているのか、そこだけ聞かせてください。</div>
+  <div class="say">あと、先生たちがお互いに得意分野を交換し合いながら、お互いにチームとしてクラスをつくっていくということは、本当に共鳴を受けました。先生たちが生き生きと職場をつくっていけるように、ぜひともよろしくお願いします。</div>
+  <div class="say">こちらの方は、部活動の資格、先生をどんな方が応援してくださっているのかというのだけ聞かせてください。</div>
+  <div class="say">あとは、公民館の方も内容は分かりました。</div>
+  <div class="say">おまつりの方は、500人から1,000人の方が参加されるということで、目的としては、皆さんが普段の活動を披露なさったりとか、あと、それを見に来た方が私も参加したいなということで、参加してくださることを目的とされているのかなと思います。公民館の方たちが少しでも活動できる場が増えていくように願っておりますので、こちらの方の事業を頑張っていただけたらと思います。こちらは意見で終わります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">平田指導室長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=5857s" data-timestamp="5857"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:37</a>部活動指導員の資格について、ご質問をいただきました。部活動指導員について、明確に例えばこういった免許が必要だとか、そういったものはございません。しかしながら、募集するに当たって、これまで生徒、子どもを指導した経験があるであったり、その運動や文化行事についての専門的な知識を持っていたり、また、本市が定めた部活動ガイドラインというものを読み、そこを理解しているか、そういった幾つかの条件を踏まえて、その学校の部活動をお願いするに当たってふさわしい人物かどうかは見極めているところでございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">吉良委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=5912s" data-timestamp="5912"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:32</a>分かりました。ありがとうございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">森戸委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=5924s" data-timestamp="5924"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:44</a>このような時間帯ですので、２点に絞って、このような時間帯ではない、このような時間帯であっても、しっかりと質問をするということで、すみません、余計な。</div>
+  <div class="say">14ページの人権教育に係る教員研修の実施のことで、先ほど出たかな。喜多先生から人権教育について、教員の権利研修が行われてしかるべきであるということが述べられているんです。今回の令和６年度の取組では、「校長会において小金井市の子どもの権利に関する条例の研修を校長先生が各学校で実施するよう指導を行った」ということであります。あわせて、夏季研修では主に中堅教諭を対象としたジェンダーバイアスに関する研修、また、階層ごとに研修へ参加してもらったということでありますが、喜多先生がおっしゃることについて、子どもの権利条約の一般原則などを含む教員の権利研修をもう少し強化すべきではないかという指摘だと思うんですが、この辺りについてどう考えていらっしゃるのか伺います。</div>
+  <div class="say">それとあわせて、いじめ・不登校問題、これはまたどこかで行いたいと思いますが、16ページのいじめ・不登校に関する対策で、かねてから相当教育長とバトルいたしましたメタバース問題、あと、ちょっと新しくバーチャル・ラーニング・プラットフォームということで、不登校のお子さんたちの多様な学びの場の設定の取組について述べられておりまして、メタバース実証事業は、武蔵野市と三鷹市と今回共同で行ってきたということでありまして、12名の児童・生徒が参加されたということなんですが、この辺りがどうなっているのか。</div>
+  <div class="say">また、バーチャル・ラーニング・プラットフォーム、これはちょっとよく分からないんですが、一応これも仮想空間の中でのものだと思うんですが、児童・生徒の参加になるのかな、これは。これがどういうふうになっているのか伺っておきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=6097s" data-timestamp="6097"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:41:37</a>関連。森戸委員の２点目について質問したいと思うんですけれども、先ほど村上委員の方から、いじめと不登校というようなお話が出た際に、私もちょっとよく分からないんですけれども、いじめ、それから不登校ということを、いじめと不登校を一くくりにしないで、別々の問題として喜多先生は指摘をなさっているということでしたので、その件について、なぜいじめと不登校を分けて説明をして、公表していったらいいのかということについて、お聞かせいただきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">平田指導室長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=6144s" data-timestamp="6144"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:24</a>まず、森戸委員から頂きました、喜多委員の人権教育に関する研修について、答弁させていただきます。喜多委員がおっしゃる人権教育というところは、現在、小金井市として取り組んできた人権教育の研修に加えて、教員が子どもの権利条約の４つの一般原則、差別の禁止、子どもの最善の利益、生命・生存・発達の保障、意見表明・参加権という、この４つについてもっと深く理解する必要がある。そして、日常の教育実践にいかしていくことが必要なのではないですか、そういったご指摘を頂いたところでございます。こういったことが進んでいくと、その先に子どもたちが安心して意見が言えるような心理的安全性の高い環境ができて、また、その結果として個性と創造力が更に伸びていくのではないか、そういったご意見なんですが、喜多委員の意見を十分に踏まえながら、今後考えていきたいなと思っております。</div>
+  <div class="say">２点目は、メタバースとＶＬＰ（バーチャル・ラーニング・プラットフォーム）についてでございます。教育メタバースについての不登校支援というものも、年度を繰り返し、だんだんと内容が充実してきたところでございます。今回は12人のお子様がそれに参加したいという意欲を示して、申込みがございました。やはりこの参加の申込状況を見ると、実は減ってはいるんです。しかし、この子たちは、過去を見ていくと、前年度に参加していいなという実感を得た子が、また参加していただいたというところでございます。やはり子どもの中にこういったメタバースといった、こういったＩＣＴを活用した支援というところにニーズがあるんだということは把握したところです。ですので、教育メタバースが全ての子どもにとっていいのではなく、やはりこういった空間が非常に居心地がいいという子どもたちがいるということはすごく認識をして、この子どもたちのためにやはり続けていくということが必要ではないかなと捉えております。</div>
+  <div class="say">教育メタバースとちょっと似たものとして、東京都が行っているバーチャル・ラーニング・プラットフォームという施策がございます。これも内容としては、ＩＣＴを使った仮想空間における支援策でございますが、中身のソフト面に大きな違いがございます。ＶＬＰの方は、中で子どもたちが主体的にやってみたいというプログラムがちょっと薄いところがございます。こういったところがＶＬＰの方の課題かなと思ってございます。</div>
+  <div class="say">メタバースの方は、年々どんどん充実しておりますので、今年も実施する予定でございます。</div>
+  <div class="say">遠藤委員から頂いた、いじめと不登校というものを分けてはどうかというところでのご質問がございました。では、これまでなぜいじめと不登校が一緒だったかといいますと、文部科学省の学校の問題行動調査というものがございます。その問題行動調査の中にいじめと不登校というカテゴリーが入っておりました。ここに大きな認識のずれが近年生じているというところでございます。いじめは、いじめ問題ですので、しっかりと問題として捉えてやっていくべきものであると。しかし、不登校は問題なのかというところは捉え直す必要があるという見直しが入っております。これが文部科学省のＣＯＣＯＬＯプランの中でも言われていることなんですが、これからは多様な学びの場を準備して、子どもが主体的に選択していく、そういった方向に変わっていくんだ。ですので、学校や教員、または教育委員会も考え方を変えて、不登校は問題行動という、その捉え方を変えましょうという立場に立っております。ですので、分けるということを喜多委員は言っております。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">森戸委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=6480s" data-timestamp="6480"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:00</a>私は、問題行動という言葉はずっとやめるべきだということで、予算上も出てきているんですよね。文部科学省がそういう使い方をしていてよくないなと思っておりまして、改善は求めてきたんですが、すみません、遠藤委員の質問を取ってしまって申し訳ないんですが、いじめ、不登校のところで、そういう捉え方はよくないなということで思っております。</div>
+  <div class="say">それから、喜多先生の教員研修のところで、権利条約の一般原則をもう少ししっかりとやるべきではないかということだと思うんです。この辺りは、こういう指摘を受けてどうされるのかということと、それから、喜多先生の54ページの意見のところで、やはりこども基本法が子どもの意見反映を義務付けていて、今後の教育施策の点検評価に関しても子どもの意見の聴取と反映への具体的な措置が求められるのではないかということであります。この辺りは非常に重要なことかなと思っておりまして、今つくられている教育の計画がありますけれども、その中も含めて、ぜひ位置付けていただきたいなと思いますので、その点を伺いたいと思います。</div>
+  <div class="say">それから、２点目に教育メタバースとバーチャル・ラーニング・プラットフォームということで、年々減っているということでありますが、教育メタバースはずっと実証事業ということでやっているんですが、これはもう実証事業に協力をしているということでよろしいですかということを確認したいのと、バーチャル・ラーニング・プラットフォームも東京都の事業だけれども、協力をしているということで捉えさせていただいていいでしょうかということです。</div>
+  <div class="say">それから、一つ言い忘れて、52ページの社会教育施設の活用の推進のところで、すみません、ちょっと途中から。やはり駄目だよね。（「決算」と呼ぶ者あり）決算でやります。いいです。予約しておきます。ちょっと市営グラウンドの件で質問したかったので、よろしくお願いしたいと思います。</div>
+  <div class="say">そこら辺について伺いたいということで、よろしくお願いいたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=6693s" data-timestamp="6693"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:51:33</a>分かりました。</div>
+  <div class="say">小金井市にも青少年問題協議会とか、いろいろな問題がつくような子どもたちを論議するような場がいろいろあると思うんですけども、いじめというのは問題行動の一つである。でも、不登校というのは、問題ということのくくりの中で論じられることではないというのがよく分かりました。</div>
+  <div class="say">私も子どもがいっとき不登校になりかけたことがあるので、やはり不登校の親の気持ちというのはすごく痛いほど分かります。なので、問題という枕言葉をつけられると、やはりうちの子は問題なのかなと思ってしまうので、喜多委員がおっしゃるように、小金井市としてもこれからはいじめと不登校は別々に考えて、いじめは問題ということであるけれども、不登校に関してはそうではないという位置付けでやっていくという、市としても分けて考えていくという進み方をするということでよろしいんですね。分かりました。ありがとうございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">平田指導室長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=6769s" data-timestamp="6769"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:52:49</a>森戸委員から質問を頂きました。喜多委員の言う、子どもの権利条約に対する教員の研修についてでございます。既に行っているものもありますし、ただ、喜多委員の方からは、更に加えて何かもう少し充実させてほしい、そういうメッセージがあったと私は捉えておりますので、今後、教員研修の見直しを図っていこうと考えております。</div>
+  <div class="say">２点目の教育メタバースについては、これは実証事業に協力しているものでございます。バーチャル・ラーニング・プラットフォーム、東京都の施策の方については、小金井市として参加の意思を表示して、バーチャル・ラーニング・プラットフォームの環境を借りて、そして、中の運用は本市がやっているという、そういった施策でございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">大澤学校教育部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=6843s" data-timestamp="6843"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:54:03</a>先ほど水谷委員の質問にもお答えをさせていただいたとおり、この点検・評価のところにつきましては、市長部局の方でも中で検討されていると認識してございます。</div>
+  <div class="say">我々の方の計画の時期にちょっと間に合うかどうかというところはあるかと思いますけども、我々の方でも対応というのは考えていきたいと思っていますし、市長部局の動向も注視をしていきたいという形で、今日の時点ではご答弁させていただきたいと存じます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=6872s" data-timestamp="6872"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:54:32</a>他の方はいらっしゃいますか。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=6882s" data-timestamp="6882"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:54:42</a>以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=6882s" data-timestamp="6882"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:54:42</a>ご異議なしと認めます。したがって、本件に対する質疑を終了いたします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=6893s" data-timestamp="6893"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:54:53</a>次に、行政報告４、市立清里山荘における食中毒事故の経過についてを行います。</div>
+  <div class="say">部局の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">平野生涯学習部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=6902s" data-timestamp="6902"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:02</a>それでは、行政報告を差し上げる前に、私から一言申し上げさせていただきます。</div>
+  <div class="say">この度、市立清里山荘で実施された市立小学校林間学校におきまして、73人の方が下痢・腹痛等の食中毒症状を発症されたことにつきまして、清里山荘を管理・運営する者として、改めまして深くお詫びを申し上げます。</div>
+  <div class="say">清里山荘では、平成19年度にも同様の事故を起こしており、この間、指定管理者とともに細心の注意を払って食の安全確保に努めてまいりましたが、再びこのような事故を起こしてしまったことについて、大変重く受け止めてございます。</div>
+  <div class="say">現在、清里山荘では、保健所に指導等をいただきながら、再発防止に全力で取り組んでいるところでございます。再び市民の皆様を始め、全ての方が安心して利用でき、楽しい思い出をつくることができる施設となるよう努めてまいります。本当に申し訳ございませんでした。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">濱松生涯学習課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=6968s" data-timestamp="6968"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:56:08</a>それでは、改めて生涯学習課から清里山荘における食中毒事故の経過についてご報告いたします。</div>
+  <div class="say">改めまして私からも、青少年の健全育成等を目的とする施設で、林間学校行事の中で食中毒事故を起こしてしまったことについて、深くお詫び申し上げます。誠に申し訳ございませんでした。</div>
+  <div class="say">それでは、お配りしている資料をご覧ください。こちらの資料を使用いたしまして、令和７年９月12日、金曜日、午後７時から、当該小学校の体育館をお借りして、保護者向けの説明会を実施いたしました。元々は９月５日、金曜日に予定していたところ、台風15号の接近に伴い、１週間延期した上で実施しております。延期に伴いまして、資料上、日付が９月５日となっておりますが、保護者へは日付を12日に改めたものを配布しております。</div>
+  <div class="say">当日は、31人の保護者の方々にご参加をいただき、指定管理者も同席の上、保護者の皆様に、冒頭、挨拶と謝罪をいたしまして、現時点での経過や対応についてご説明差し上げました。その後、保護者の皆様からご質問をお受けし、おおむね１時間で終了しております。</div>
+  <div class="say">保護者の皆様から頂いたご意見、ご質問といたしましては、当日、丁寧にご対応を頂いた学校、先生方への感謝が一番多く聞かれました。また、主なご質問といたしましては、食中毒の原因や検査について、改善策等について、提供メニューについて、林間学校における清里山荘の利用継続について、指定管理者の選定方法について、代替行事の可能性について、児童への説明について等の質問がございました。</div>
+  <div class="say">当日使用した資料につきましては、翌13日、土曜日に学校がまなびポケットを通じて保護者へ配信するとともに、改めて16日、火曜日に生涯学習課名で、不明点等は生涯学習課へ問い合わせるよう文書を添えてお送りいたしました。また、当該学校は13日、土曜日が学校公開でございましたが、本件に関してご意見等は特に寄せられていないと聞いてございます。</div>
+  <div class="say">また、現時点で生涯学習課の方にも、特段お問合せ等は来ていない状況でございます。</div>
+  <div class="say">ご報告は以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=7124s" data-timestamp="7124"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:58:44</a>これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">森戸委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=7137s" data-timestamp="7137"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:58:57</a>１つ、症状が出た人は73人で、検査を受けた人が33人ということなんでしょうか。全体の73人と33人という、この数字について説明していただきたいのと、子どもたちへの説明はどういうふうになさっているのか、その点、確認させてください。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">遠藤委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=7168s" data-timestamp="7168"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:59:28</a>関連。すみません、森戸委員の今の質問に対して関連をさせていただきます。</div>
+  <div class="say">来年度に向けて、やはり林間学校に参加する子どもたち、親に対して、こういうことがありましたということで説明をなさっていくつもりかどうかということについて、安心して参加できるようにということも含めまして、お願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">濱松生涯学習課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=7200s" data-timestamp="7200"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:00:00</a>まず、73人と33人の内訳でございますけれども、まず、33人の方は検体を提出した方の数でございます。症状と人数の方にカウントされている人数につきましては、アンケート等で症状が出たという方も、こちらの方に含まれていると聞いてございます。</div>
+  <div class="say">あと、遠藤委員の関連の子どもへの質問に関しましては、保護者会の方でもご回答差し上げたところなんですけれども、これから少し検討してご回答差し上げるところでございます。ごめんなさい。今のは森戸委員の方です。</div>
+  <div class="say">遠藤委員の来年度の説明につきましても、今後、学校からご要望がございましたら、調整しながら説明差し上げると考えてございますので、その際には学校教育部の方から、要望がございましたら、私どもも出向いて、ご報告というか、ご説明差し上げるような形で、今のところは考えてございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">森戸委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=7274s" data-timestamp="7274"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:01:14</a>１点目は分かりました。</div>
+  <div class="say">２点目の子どもたちへの教育的な報告というか、必要ではないかと思いますが、教育委員会としてはどういうふうに考えていらっしゃるか、指導室との関係になるのかな、伺っておきたいと思います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">大澤学校教育部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=7300s" data-timestamp="7300"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:01:40</a>保護者への説明をさせていただいた際に、子どもたちにどのように説明をするのかという形のご質問を受けたところでございます。その他にも、代替の関係のお話もございました。あと、今回の場合、原因が確定されているわけではないというところもあり、どのようにご説明をするかというところと、どういった場所を活用するのかというところが、その際にはすぐに回答ができなかったというところがございます。</div>
+  <div class="say">今日、まず議会にも報告をさせていただき、また、来られていない方のご意見等も踏まえてというような形で考えてございますので、どのような形で報告をしなければいけないかというところは、早急に教育委員会としても整理をさせていただいて、しかるべき対応を取りたいという形でご答弁させていただきと存じます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=7360s" data-timestamp="7360"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:02:40</a>以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=7360s" data-timestamp="7360"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:02:40</a>ご異議なしと認めます。したがって、本件に対する質疑を終了いたします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=7371s" data-timestamp="7371"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:02:51</a>次に、行政報告５、子ども読書活動推進計画に係る計画期間の延伸についてを行います。</div>
+  <div class="say">部局の説明を行います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">三浦図書館長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=7382s" data-timestamp="7382"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:03:02</a>それでは、子ども読書活動推進計画に係る計画期間の延伸につきまして、ご報告を申し上げます。</div>
+  <div class="say">小金井市では、子どもの読書活動の推進に関する法律に基づき、平成16年度に第１次計画を策定して以降、現在の令和３年度から令和７年度までを計画期間とする第４次計画まで、間断なく子どもの読書活動を推進してきたところでございます。</div>
+  <div class="say">今般、現計画の計画期間が令和７年度末をもって終了するところでございますが、計画期間を１年延伸し、令和８年度末までとすることといたしましたので、この旨、ご報告を申し上げます。</div>
+  <div class="say">計画を延伸する理由は大きく３点でございます。１点目は、令和７年度中に東京都が策定を予定する第５次東京都子供読書活動推進計画の内容を見定める必要があること。２点目は、同様に令和７年度中に策定を予定している第５次小金井市基本構想・後期基本計画及び（仮称）第５次小金井市生涯学習推進計画の内容を本計画に反映させる必要があること。３点目は、図書館の個別計画である図書館基本計画の策定を令和８年度に予定しており、この計画との整合を図る必要があること。以上３点でございます。</div>
+  <div class="say">なお、この間、令和７年７月29日、火曜日、に（仮称）第５次子ども読書活動推進計画庁内検討委員会において、また、翌30日には令和７年度第１回小金井市図書館協議会を開催し、現計画に係る計画期間の延伸についてご報告の上、それぞれご承認をいただいたところでございます。</div>
+  <div class="say">今後につきましては、先ほど申し上げました庁内検討委員会の下部組織といたしまして、作業部会を設置の上、アンケート項目等について検討を行い、本年の秋から冬頃にかけまして、児童生徒の皆様を対象にアンケートを実施したいと考えてございます。</div>
+  <div class="say">また、図書館協議会の皆様とも意見交換をさせていただきながら、令和８年度末までに第５次小金井市子ども読書活動推進計画を策定したいと考えてございます。</div>
+  <div class="say">報告は以上でございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=7516s" data-timestamp="7516"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:05:16</a>これから質疑を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=7522s" data-timestamp="7522"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:05:22</a>以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=7522s" data-timestamp="7522"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:05:22</a>ご異議なしと認めます。したがって、本件に対する質疑を終了いたします。</div>
+  <div class="say">──────────────────</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=7535s" data-timestamp="7535"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:05:35</a>次に、行政報告６、空調機器の不具合による東センターの臨時休館についてを行います。</div>
+  <div class="say">部局の説明を求めます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木公民館長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=7545s" data-timestamp="7545"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:05:45</a>それでは、公民館から空調機器の不具合による東センターの臨時休館についてご報告いたします。</div>
+  <div class="say">令和７年８月13日頃から東センターのエアコンの冷却機能が低下し、その後、完全に停止したことから、８月18日及び19日に冷暖房設備保守点検委託事業者、メーカーに確認をしてもらったところ、設置から25年程度経過しているため、これまでのような部分修繕による復旧は難しいとの見解が示されました。</div>
+  <div class="say">エアコンが停止して以降、東センターの館内温度は午前中から30度を超え、午後には35度を超えるような状態になることもございました。このため、館内備品の扇風機約10台のほか、学校からスポットクーラー８台、大型扇風機３台、教育委員会庶務課、学務課から扇風機３台、清掃関連施設から大型扇風機２台を借用するなどし、可能な限り室温の低下に努めたところでございます。また、水分補給ができるよう、備蓄用のペットボトルの水を地域安全課から調達し、管内に常備いたしました。</div>
+  <div class="say">しかしながら、直接冷風を浴びることができない箇所については、施設利用には厳しい状況にあったことから、庁内で検討の結果、利用者や職員の安全等に配慮し、令和７年８月25日から翌９月30日までの間、臨時休館することといたしました。ご利用の皆様には、ご不便、ご迷惑をおかけすることとなり、大変申し訳ございません。</div>
+  <div class="say">臨時休館に係る周知につきましては、市ホームページ、LINE及び東センター管内にその旨を記載したチラシを掲出したほか、既に予約されている団体につきましては、メール、電話等で連絡を行ったところでございます。</div>
+  <div class="say">なお、再開につきましては、令和７年10月１日を予定しており、市ホームページ等で周知を行っているところでございます。</div>
+  <div class="say">また、空調機器につきましては、今後、復旧に向けて適切に対応してまいります。</div>
+  <div class="say">報告は以上です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=7668s" data-timestamp="7668"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:07:48</a>これから質疑を行います。</div>
+  <div class="say">（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=7674s" data-timestamp="7674"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:07:54</a>以上で、本件に対する質疑を終了することにご異議ありませんか。</div>
+  <div class="say">（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=7674s" data-timestamp="7674"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:07:54</a>ご異議なしと認めます。したがって、本件に対する質疑を終了いたします。</div>
+  <div class="say">以上で、行政報告を終了いたします。</div>
+  <div class="say">以上で、本日の日程は全部終了いたしました。</div>
+  <div class="say">本日は、以上で厚生文教委員会を閉会いたします。</div>
+  <div class="say">午後０時07分閉会</div>
+  <div class="say">厚生文教委員会所管事項記録</div>
+  <div class="say">午後０時07分厚生文教委員会協議会開会</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=7733s" data-timestamp="7733"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:08:53</a>厚生文教委員会協議会を開会いたします。</div>
+  <div class="say">所管事項について行います。</div>
+  <div class="say">初めに、受動喫煙防止対策の状況と今後についてについて、森戸よう子委員の発言を許可いたします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">森戸委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=7751s" data-timestamp="7751"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:09:11</a>お時間を頂きまして、ありがとうございます。端的に、また、時間をかけないように伺いたいと思います。</div>
+  <div class="say">受動喫煙防止対策については、健康づくり審議会の中でも、この受動喫煙防止対策のガイドラインを今年の３月で確定をし、それぞれの実行に移すということだと思います。</div>
+  <div class="say">最も問題になってきたのは、武蔵小金井駅北口の小金井街道沿いの角の喫煙場所について、多くの声が出るという状況があって、早期に対策を打つということですが、併せて、私の方からは東小金井の駅周辺にもスポットをつくっていくことが必要であるということで質問をさせていただきました。</div>
+  <div class="say">市の方としては、一つは、まちをきれいにする条例の条例改正で、ポイ捨て禁止区域の解除が必要だということなどもあって、条例改正などを含めてどういうふうに考えていらっしゃるのか伺いたいというのが１点であります。</div>
+  <div class="say">２点目は、この北口にしても、公衆喫煙所をつくるに当たっては、東京都のどういう補助金を活用するのかということと、東京都の補助金が期間が３年間ぐらいだと思うんですが、その間の中でやはりつくっていくということが求められているのではないかと思いますが、その点はどうか。</div>
+  <div class="say">３つ目に、場所をどうするかということが一番大事なところだと思います。民地を借りるのか、それとも公共の道路、道路にはつくれないけど、公共用地でつくっていくのか、その辺りも含めて、ガイドラインの後の受動喫煙防止計画が私は必要なのではないかなと思いますが、あと、ロードマップですね。その点についてどう考えていらっしゃるか伺います。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">伊藤健康課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=7931s" data-timestamp="7931"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:12:11</a>受動喫煙対策です。</div>
+  <div class="say">まずは、令和６年７年３月にガイドラインを作成しまして、今年度、公衆喫煙所設置に向けまして具体的に検討している段階でございます。現在の進捗としては、駅周辺での受動喫煙防止対策の要望が寄せられている状況や、また、駅の利用者数などを考慮して、武蔵小金井駅周辺ということで設置を考えているところでございます。森戸委員からは、健康づくり審議会においても、東小金井駅にも必要ではないかというご意見を頂いたことは認識しているところでございますが、まずはそのような理由から、武蔵小金井駅ということで考えているところでございます。</div>
+  <div class="say">条例改正についても、改正が必要なのかどうかも含めまして、今後、庁内検討委員会の方で検討を協議していきたいと考えてございます。</div>
+  <div class="say">２点目、補助金についてです。こちらは東京都の医療保健政策区市町村包括補助金というのがあります。その中のメニューで、受動喫煙防止対策の強化に伴う喫煙関係の整備事業というメニューがありますので、そちらを活用する予定でございます。こちらの補助金は、令和６年度までだったんですけども、ここで５年間延長されまして、令和７年から令和11年までということになっていますので、その期間内に喫煙所を整備する考えでございます。</div>
+  <div class="say">３点目、場所ですね。こちらにつきましては、先ほど申し上げたとおり、今、武蔵小金井駅周辺で検討している段階です。</div>
+  <div class="say">計画やロードマップが必要ではないかということでございますが、一旦令和６年度にガイドラインを策定しまして、それに基づいて、今、健康課の方が動いているところでございます。ですので、ガイドラインに基づいて、今、設置に向けて動いております。あと、ロードマップ、スケジュールについては、今、武蔵小金井駅周辺で考えてございますが、様々関係機関と調整する必要があるというところで、今は明確にスケジュールというのが明言できないところではございますが、早急に設置に向けまして努めていきたいと考えてございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">森戸委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=8094s" data-timestamp="8094"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:14:54</a>分かりました。現在の進捗状況としては、武蔵小金井の駅周辺で設置をしていきたいということは分かりました。</div>
+  <div class="say">それで、関係機関と調整をしているということでありますけれども、ぜひ武蔵小金井駅だけではなく、東小金井駅もきちんと俎上にのせて議論をしていただきたいなと。私は３年前からずっと担当の部長も含めてお願いをしてきて、市長にもたしか要望書がいっているのではないかと、地元東町からいっていると思うんですよ。したがって、そこは諦めてもらわないようにしなければいけないと思うんですよ。なかなか難しいんだったらもういいよと、土地を提供するというところがあれば、それはちゃんと適切な場所かどうかというのはあるかもしれないけど、民有地などで土地を提供するというところがあれば、それは逃がすわけにはいかないでしょうと。そんな簡単に場所は確保できないわけですから、その辺りはやってもいいですよとおっしゃっている前向きな気持ちを受け止めて、ぜひ前に進めていただきたいなと思うわけです。その点で見解を伺いたいと思います。</div>
+  <div class="say">武蔵小金井駅はいつつくっていただけるんですか。準備をいろいろやっているというのは分かるんだけど、来年度は設置に向けてできるようにしていただきたいんですよね。もう三鷹市もできている、武蔵野市もできている、中央線沿線でないのは小金井市だけということなわけですから、これを何とか改善しなければいけないと思うので、市長はどういうふうに考えていますか。めどとしては。よろしくお願いします。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">白井市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=8247s" data-timestamp="8247"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:17:27</a>めどについては、具体的にはお答えできません。</div>
+  <div class="say">ちなみに、私、ちょうど10年前の一般質問で、路上のポイ捨てが多いということを自分で歩いて調べて、ポイ捨てを禁止という啓発だけではなくて、管理するという意味で、喫煙所の設置ということについて、私としてもご提案をした記憶がございます。まず、武蔵小金井駅を考えています。物事には順番があると思っていますので、東小金井駅については、今のところ何とも言えない状況でございますが、そういった声があるということも認識をしておりますので、まずは、ご意見として改めて承ります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">森戸委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=8293s" data-timestamp="8293"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:18:13</a>時期は言えないということであります。武蔵小金井は早急にやるべきだということでよろしいんですよね。東小金井は分からないと。分からないと言わないでぜひやっていただきたいんですよ。</div>
+  <div class="say">東京都は10分の10の補助ですよね。そうではなかったでしたか。その辺りも含めてもう一度確認したいんですが、ぜひ東京都の補助金が活用できる中でやる必要あると。コンテナ型は1,700万円、それから、そうではない施設は400万円も出るわけですよね。だから、ぜひ５年間ということですから、５年間の範囲の中で２か所につくっていただきたいと思うんですが、いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">伊藤健康課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=8352s" data-timestamp="8352"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:19:12</a>補助金の補助率についてでございます。今、森戸委員からの紹介がありましたとおり、コンテナ型だと上限が1,700万円、コンテナ以外だと上限400万円。ただ、補助率としては２分の１ということでございます。なので、先ほど申し上げましたが、５年間というところで期限が限られておりますので、その期間内に設置するように、スケジュールは、今、明言はできないところでございますが、早急に設置していきたいと考えてございます。まずは武蔵小金井駅を優先的に整備したいと考えてございます。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">森戸委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=8395s" data-timestamp="8395"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:19:55</a>議事進行。補助率なんですが、東京都が２分の１、市が２分の１でいいですかということを確認させてください。市の方です。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">伊藤健康課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=8408s" data-timestamp="8408"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:20:08</a>補助率は２分の１なので、設置費用の２分の１が都から補助金をもらって、残り２分の１は市の方で負担ということになります。</div>
+</div>
+
+<div class="turn reveal">
+  <div class="meta"><span class="name">沖浦委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=w23UwQRVXq4&t=8421s" data-timestamp="8421"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:20:21</a>以上で、所管事項を終了いたします。</div>
+  <div class="say">以上で、厚生文教委員会協議会を終了いたします。</div>
+  <div class="say">午後０時18分閉会</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+</body>
+</html>
