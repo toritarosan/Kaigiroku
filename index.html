@@ -257,6 +257,23 @@ svg{display:block;}
   line-height:1.35;
   letter-spacing:.01em;
 }
+.qa-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  margin:0 0 16px;
+  padding:12px 24px;
+  color:#fff;
+  background:var(--primary-dark);
+  border-radius:var(--radius);
+  font-weight:700;
+  font-size:.95rem;
+  letter-spacing:.04em;
+  text-decoration:none;
+  transition:background-color .12s ease;
+}
+.qa-cta:hover{background:var(--primary-ink);}
+.qa-cta:focus-visible{outline:2px solid rgba(237,174,47,.42);outline-offset:2px;}
 .hero-lead{
   margin:7px 0 18px;
   max-width:760px;
@@ -1131,6 +1148,10 @@ svg{display:block;}
 <section class="searchband" aria-label="会議録検索">
   <div class="container inner">
     <div class="hero-copy">
+      <a class="qa-cta" href="qa.html">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        AIで会議録に質問（β）
+      </a>
       <p class="hero-lead">キーワード、発言者名、議案番号から、小金井市議会の会議録とAI速報をまとめて探せます。</p>
 
       <form class="searchbar" action="search.html" method="get" onsubmit="return goSearch(event)" role="search" aria-label="会議録検索">
