@@ -303,7 +303,7 @@ header.h a.back:hover{text-decoration:underline;}
   q.addEventListener('input',function(){ clearTimeout(q._t); q._t=setTimeout(render,120); clearTimeout(q._lt); q._lt=setTimeout(logSearch,1500); });
 
   fetch('search_index.json').then(function(r){return r.json();}).then(function(d){
-    DATA=d; loading.style.display='none'; try{var _q=new URLSearchParams(location.search).get('q'); if(_q){q.value=_q;}}catch(e){} buildCatFacets(); render();
+    DATA=d; loading.style.display='none'; var _q=''; try{_q=new URLSearchParams(location.search).get('q')||''; if(_q){q.value=_q;}}catch(e){} buildCatFacets(); render(); if(_q){setTimeout(logSearch,1200);}
   }).catch(function(e){
     loading.style.display='none';
     status.textContent='インデックスの読み込みに失敗しました: '+e;
