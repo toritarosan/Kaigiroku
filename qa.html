@@ -79,6 +79,7 @@ header.h a.back:hover{text-decoration:underline;}
     <div class="askrow">
       <button id="go">質問する</button>
       <span class="count"><span id="len">0</span>/200字</span>
+      <span class="count" id="quota"></span>
     </div>
     <div class="examples">
       <button class="ex">庁舎問題についてはどういう議論がある？</button>
@@ -107,9 +108,18 @@ header.h a.back:hover{text-decoration:underline;}
 <script>
 (function(){
   var API = "https://nagatori-gijiroku-qa.hf.space/ask";
+  var HEALTH = API.replace(/\/ask$/, '/health');
   var q = document.getElementById('q'), go = document.getElementById('go');
   var status = document.getElementById('status'), out = document.getElementById('out');
-  var len = document.getElementById('len');
+  var len = document.getElementById('len'), quota = document.getElementById('quota');
+
+  function renderQuota(remaining, limit){
+    if(remaining == null || limit == null) return;
+    quota.textContent = '（本日のAI残り '+remaining+'/'+limit+'件）';
+  }
+  fetch(HEALTH).then(function(r){ return r.json(); })
+    .then(function(d){ renderQuota(d.daily_remaining, d.daily_limit); })
+    .catch(function(){});
 
   q.addEventListener('input', function(){ len.textContent = q.value.length; });
   document.querySelectorAll('.ex').forEach(function(b){
@@ -171,6 +181,7 @@ header.h a.back:hover{text-decoration:underline;}
       .then(function(r){ return r.json(); })
       .then(function(d){
         status.style.display = 'none';
+        renderQuota(d.daily_remaining, d.daily_limit);
         if(d.type === 'answer'){ renderAnswer(d); }
         else if(d.type === 'search'){ renderSearch(d, text.split(/\s+/).filter(Boolean)); }
         else { out.innerHTML = '<div class="answer">'+esc(d.message||'回答できませんでした。')+'</div>'; }
