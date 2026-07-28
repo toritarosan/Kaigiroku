@@ -4,14 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>令和8年4月20日 総務企画委員会</title>
-<meta name="description" content="令和8年4月20日 総務企画委員会の会議録（非公式アーカイブ）。発言全文・タイムスタンプ付き動画・AI要約。小金井市議会がYouTubeで公開する中継をもとに作成。">
-<meta property="og:type" content="article">
-<meta property="og:site_name" content="小金井市議会 非公式会議録">
-<meta property="og:title" content="令和8年4月20日 総務企画委員会">
-<meta property="og:description" content="令和8年4月20日 総務企画委員会の会議録（非公式アーカイブ）。発言全文・タイムスタンプ付き動画・AI要約。小金井市議会がYouTubeで公開する中継をもとに作成。">
-<meta property="og:url" content="https://toritarosan.github.io/Kaigiroku/R8.4.20_%E7%B7%8F%E5%8B%99%E4%BC%81%E7%94%BB%E5%A7%94%E5%93%A1%E4%BC%9A.html">
-<meta property="og:image" content="https://toritarosan.github.io/Kaigiroku/ogp.png">
-<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
 <style>
   :root{
     --paper:#ffffff; --ink:#17150f; --navy:#157a4b; --pop:#e8482a;
@@ -26,18 +19,47 @@
   .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
   .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
 
+  /* サイト共通ヘッダー（トップと同系の緑＋クリーム）。iframe埋め込み時は html.embedded で非表示 */
+  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
+  html.embedded .sitenav{display:none;}
+  .sitenav-in{max-width:1100px;margin:0 auto;padding:0 18px;min-height:52px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .sitenav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#157a4b;font-weight:700;font-size:1rem;white-space:nowrap;}
+  .sitenav-brand img{display:block;border-radius:2px;}
+  .sitenav-links{margin-left:auto;display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+  .sitenav-links a{color:#2a2620;font-size:.84rem;font-weight:600;text-decoration:none;padding:8px 11px;border-radius:2px;white-space:nowrap;}
+  .sitenav-links a:hover{color:#157a4b;background:#e7f4ec;}
+  .sitenav-links .ext{color:#8a8073;font-size:.8em;margin-left:1px;}
+  @media(max-width:640px){.sitenav-in{min-height:0;padding:8px 14px;}.sitenav-links a{padding:6px 9px;font-size:.8rem;}}
+
+  /* パンくず */
+  .crumb{background:#fbf9f4;border-bottom:1px solid #eee7db;position:sticky;top:52px;z-index:59;}
+  html.embedded .crumb{display:none;}
+  .crumb-in{max-width:1100px;margin:0 auto;padding:8px 18px;font-size:.76rem;color:#8a8073;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.5;}
+  .crumb a{color:#157a4b;text-decoration:none;font-weight:600;}
+  .crumb a:hover{text-decoration:underline;}
+  .crumb .sep{color:#c9c0b2;}
+  .crumb .cur{color:#4a443b;font-weight:600;}
+  @media(max-width:640px){.crumb{position:static;} .sitenav-in{flex-wrap:nowrap;} .sitenav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}}
+
   .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
        letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
   .top .sq{width:9px;height:9px;background:var(--pop);}
-  .top a{color:var(--muted); text-decoration:none;}
-  .top a:hover{color:var(--pop);}
 
   .hero{padding:16px 0 24px;}
   .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
   .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
            letter-spacing:.01em; margin:0; color:var(--ink);}
-  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px;
-             display:inline-block;}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  /* 未定稿（公式だが校正中）＝確定版と一目で区別できるようコーラル地にする */
+  .hero .srcbadge.draft{background:var(--coral-dark, #b83a25);}
+  .hero .srcbadge.draft .dot{background:#ffd9cf;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
 
   /* 要約 */
   .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
@@ -92,29 +114,6 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 .sum:target{background:#fff8e1;}
 /*qsearch-end*/
 
-  /* サイト共通ヘッダー（トップと同系の緑＋クリーム） */
-  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
-  html.embedded .sitenav{display:none;}
-  .sitenav-in{max-width:1100px;margin:0 auto;padding:0 18px;min-height:52px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-  .sitenav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#157a4b;font-weight:700;font-size:1rem;white-space:nowrap;}
-  .sitenav-brand img{display:block;border-radius:2px;}
-  .sitenav-links{margin-left:auto;display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
-  .sitenav-links a{color:#2a2620;font-size:.84rem;font-weight:600;text-decoration:none;padding:8px 11px;border-radius:2px;white-space:nowrap;}
-  .sitenav-links a:hover{color:#157a4b;background:#e7f4ec;}
-  .sitenav-links .ext{color:#8a8073;font-size:.8em;margin-left:1px;}
-  @media(max-width:640px){.sitenav-in{min-height:0;padding:8px 14px;}.sitenav-links a{padding:6px 9px;font-size:.8rem;}}
-
-  /* パンくず */
-  .crumb{background:#fbf9f4;border-bottom:1px solid #eee7db;position:sticky;top:52px;z-index:59;}
-  html.embedded .crumb{display:none;}
-  .crumb-in{max-width:1100px;margin:0 auto;padding:8px 18px;font-size:.76rem;color:#8a8073;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.5;}
-  .crumb a{color:#157a4b;text-decoration:none;font-weight:600;}
-  .crumb a:hover{text-decoration:underline;}
-  .crumb .sep{color:#c9c0b2;}
-  .crumb .cur{color:#4a443b;font-weight:600;}
-
-  @media(max-width:640px){.crumb{position:static;} .site-header{position:static;} .sitenav-in{flex-wrap:nowrap;} .sitenav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}}
-
   /* ページトップへ戻る */
   .to-top{position:fixed;bottom:20px;right:20px;z-index:900;width:44px;height:44px;border:none;border-radius:50%;background:#157a4b;color:#fff;font-size:20px;line-height:1;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,background .15s;box-shadow:0 2px 8px rgba(0,0,0,.2);}
   .to-top.show{opacity:.92;visibility:visible;transform:none;}
@@ -129,8 +128,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
   a.sum-jump:hover{color:#12633d;}
   .copy-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(8px);background:#157a4b;color:#fff;font-size:13px;padding:9px 16px;border-radius:4px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;z-index:1100;box-shadow:0 2px 10px rgba(0,0,0,.25);}
   .copy-toast.show{opacity:1;visibility:visible;transform:translateX(-50%);}
-.spk-unverified::after{content:"?";color:#c9814f;cursor:help;font-weight:700;font-size:.82em;margin-left:.18em;vertical-align:super;}.spk-find{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}</style>
-  <link rel="icon" type="image/svg+xml" href="icon.svg">
+</style>
 </head>
 <body>
 <script>try{if(window.self!==window.top)document.documentElement.classList.add('embedded');}catch(e){document.documentElement.classList.add('embedded');}</script>
@@ -147,7 +145,6 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
   </div>
 </nav>
 <nav class="crumb" aria-label="パンくずリスト"><div class="crumb-in"><a href="index.html">ホーム</a><span class="sep">›</span><a href="list.html">全会議一覧</a><span class="sep">›</span><span class="cur">令和8年4月20日 総務企画委員会</span></div></nav>
-
 <div class="prog" id="prog"></div>
 <div class="wrap">
 
@@ -156,107 +153,50 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
   <header class="hero reveal">
     <p class="date">令和8年4月20日</p>
     <h1>総務企画委員会</h1>
-    <span class="src">YouTube字幕＋AI校正による記録（非公式）</span><div class="hero-note" style="font-family:var(--sans);font-size:13px;line-height:1.7;color:var(--muted);margin-top:10px;">本会議・委員会等の中継動画をもとに、文字起こし・校正・要約を行った非公式アーカイブです。<br><span style="color:#c0392b;font-weight:700;">致命的な話者の誤りや語句の誤りを含んでいます。転載などには適しません。最終的には必ず原典に当たってください。</span></div>
+    <span class="srcbadge draft"><span class="dot"></span>本文＝小金井市議会 公式会議録（<strong>未定稿・校正中</strong>）</span><span class="src official">校正中の未定稿を一字一句そのまま掲載しています。<strong>確定版で修正されることがあります</strong>（確定版が公開され次第、差し替えます）。要約はAIによる補助、タイムスタンプ・動画はYouTube連携（いずれも非公式の付加情報）。　|　<a href="https://www.city.koganei.tokyo.dbsr.jp/pdf/2026.04.20sk.pdf" target="_blank" rel="noopener">公式の未定稿PDF ↗（掲載期間中のみ）</a></span><span class="genmeta">本文は公式会議録（未定稿）と一致確認済み（verbatim）。未定稿は市議会が校正中の版で、確定版で修正されることがあります。要約はAIによる生成で、小金井市議会の公式見解ではありません。<br>最終生成日 2026-07-28</span>
   </header>
 
-  <section class="sum reveal" id="summary">
+  <section class="sum reveal">
     <p class="lab">A I 要 約</p>
-    <div>
-      <h3>提出議案の一覧</h3>
-<ol>
-<li>陳情第1号 新宿区において顕在化した事例を受けて政党機関紙の庁舎内勧誘行為に関する早期の実態把握と再発防止を求める件</li>
-<li>所管事務調査 自治体DXの取り組みについて</li>
+    <h3>提出議案等一覧</h3>
+<ul>
+<li>8陳情第1号 新宿区において顕在化した事例を受けて、政党機関紙の庁舎内勧誘行為に関する早期の実態把握と再発防止を求める陳情書</li>
 <li>行政報告1 小金井市教育大綱の策定について</li>
 <li>行政報告2 小金井市行財政改革2030の策定について</li>
 <li>行政報告3 小金井市第7次男女共同参画行動計画の策定について</li>
-<li>行政報告4 小金井市特定事業主行動計画第2次女性職員活躍推進プラン（前期）について</li>
-<li>行政報告5 第3次人材育成基本方針主な事業の改定について</li>
-<li>行政報告6 小金井市民葬儀の制度改定について</li>
-<li>行政報告7 市民共同支援センター再検討委員会における市民祭りの検討状況について</li>
-<li>所管事項（協議会にて再度質疑） トイレカード導入の進捗について</li>
-</ol>
+<li>行政報告4 小金井市特定事業主行動計画・第2次女性職員活躍推進プラン（前期）について</li>
+<li>行政報告5 第3次人材育成基本方針「主な事業」の改定について</li>
+<li>行政報告6 小金井市市民葬儀の制度改定について</li>
+<li>行政報告7 市民協働支援センター再検討委員会における市民まつりの検討状況について</li>
+<li>所管事務調査 自治体DXの取組について</li>
+</ul>
 <h3>議案の審議ごとの要約</h3>
-<h4>陳情第1号 新宿区において顕在化した事例を受けて政党機関紙の庁舎内勧誘行為に関する早期の実態把握と再発防止を求める件</h4>
-<ul>
-<li><strong>議題概要</strong>: 新宿区での事例を踏まえ、庁舎内での政党機関紙勧誘行為の実態把握と再発防止を求める陳情。</li>
-<li><strong>審議経過</strong>: 質疑は行われず、天野委員の欠席を理由に継続審査と決定された。</li>
-</ul>
-<h4>所管事務調査 自治体DXの取り組みについて</h4>
-<ul>
-<li><strong>部局説明</strong>: 「小金井市DX推進方針アクションプラン」（令和8年度～令和10年度）と「小金井市ガバメントクラウド標準化概要図」について説明があった。アクションプランは「市民に優しい」「職員が働きやすい」「基盤の整備」の3つのビジョン実現に向けた16の具体的な取り組みを記載している。</li>
-<li><strong>質疑概要</strong>:<ul>
-<li><strong>情報セキュリティ</strong>: アクションプランにおける「継続的なセキュリティ監査」として、OS脆弱性試験、ペネトレーションテスト、外部公開サイト定期診断、標的型攻撃メール・フィッシング訓練などを実施していることを確認。外部サーバーのセキュリティはベンダーが管理している。</li>
-<li><strong>ゼロトラストセキュリティ</strong>: 国の指針を注視しつつ、現行の「ベータダッシュモデル」での技術的対策をゼロトラスト移行の準備段階と位置付け、今後の研究を進める方針。</li>
-<li><strong>市ホームページの多言語・優しい日本語連携</strong>: 市ホームページの多言語変換機能と「優しい日本語」変換機能が、異なる外部サービスのドメインによる仕様上の制約で同時利用できない問題が指摘された。改善は困難であるとの回答。</li>
-<li><strong>DX人材育成</strong>: データ分析スキル向上研修、実践型研修、AIリテラシー向上など専門的知識・技術を有する職員の育成・確保を進める方針が示された。これに加え、職員自らが学び、改善する仕組みと人材発掘の重要性が提言された。</li>
-<li><strong>AI活用</strong>: 現在導入しているチャットGPTベースの対話型生成AIは機密情報を学習させない仕組みで運用されている。クラウドAIの導入は、機密情報の適切な運用や職員の情報リテラシー向上が課題であり、慎重な姿勢。職員が過剰な懸念から無料ツールに頼らないよう、情報セキュリティに関するガイドラインや知識の浸透が必要であると提言。</li>
-<li><strong>マイナンバーカードの利活用</strong>: 利便性向上を推進するが、カード未取得者への配慮も求められ、関係課・国・都と連携し適切に対応する方針。</li>
-<li><strong>教育のデジタル化</strong>: デジタル学習基盤やAI活用は、教育内容への干渉・介入を避け、関係課と合意形成しながら慎重に進める必要があるとの指摘があった。AIによる思考力低下の可能性にも配慮が求められた。</li>
-<li><strong>住民参加型デジタルプラットフォーム</strong>: 「デシディム」というツールを後期基本計画策定時に試行導入したが、投稿数は少なく、今後の活用方法を検討していく。</li>
-<li><strong>デジタルポイント事業</strong>: 地域通貨とは直接的な関係はないが、他市事例も参考に地域に寄与できる仕組みを関係部署と研究する方針。</li>
-<li><strong>防災DX</strong>: アクションプランでは避難所運営のデジタル化を検討。マイナンバーカードを活用した避難者入所対応のデジタル化や、東京都市長会の取り組みを参考に研究を進める。災害時の物資配分、ボランティア対応、情報収集・発信などDXを活用した全庁的な対策に関する資料要求が出された。</li>
-<li><strong>テレワーク制度</strong>: 時間・場所に縛られない柔軟で生産性の高い働き方を目指し、最終的に市民サービス向上に繋げるビジョンが示された。課題は多いが関係部署と連携し乗り越える方針。</li>
-</ul>
-</li>
-<li><strong>審議結果</strong>: 継続調査と決定された。</li>
-</ul>
+<h4>8陳情第1号 新宿区において顕在化した事例を受けて、政党機関紙の庁舎内勧誘行為に関する早期の実態把握と再発防止を求める陳情書</h4>
+<p>質疑はなく、本件は継続審査と決定された。</p>
+<h4>所管事務調査（自治体DXの取組について）</h4>
+<p>自治体DX推進担当課長より、小金井市DX推進方針のアクションプランについて説明があった。令和8年度から令和10年度までの3か年で、三つのビジョン（市民にやさしい、職員が働きやすい、基盤の整備）を実現するための具体的な取組内容が記載されている。情報システム課長からは、ガバメントクラウド標準化概要図について説明があった。</p>
+<p>委員からは、アクションプランにおける情報セキュリティ（継続的なセキュリティ監査、ゼロトラスト・セキュリティ）の具体的な内容について質疑があった。情報システム課長は、外部監査としてOS等の脆弱性試験やペネトレーションテスト、内部監査としてマイナンバー取扱部署への監査などを実施していると答弁した。ゼロトラスト・セキュリティについては、将来的な移行を注視しつつ研究を進める考えを示した。また、市のホームページの「やさしいにほんご」と多言語変換機能の併用時に遷移しない問題について質疑があり、広報秘書課長は、外部サービスの仕様上の問題であり、改修は困難であると答弁した。</p>
+<p>委員からは、DX人材育成において、長期的な研修だけでなく、自ら学ぶ人材の発掘と仕組みづくりを求める意見があった。また、クラウドAIの活用について、機密情報の学習利用に関する整理ができていないため導入していない現状が説明された。委員は、AIエージェントの急速な進展を踏まえ、クラウドAIの導入や、職員が萎縮しないよう情報セキュリティに関するガイドラインの作成と浸透を求めた。</p>
+<p>マイナンバーカードの利活用については、カード取得が義務ではないため、持っていない人が取り残されないよう配慮を求める質疑があった。自治体DX推進担当課長は、関係課や国・東京都と連携し、適切に対応していくと答弁した。教育のデジタル化については、AI活用が考える力に影響する可能性を指摘し、強引に進めず教育内容に介入しないよう丁寧な対応を求める意見があった。住民参加型デジタルプラットフォームについては、試行的に「Decidim」を導入したが、投稿数が少なかったため、今後の検討課題であると説明があった。</p>
+<p>デジタルポイント事業については、地域通貨とは異なるイメージであると説明があった。委員からは、地域通貨との連携や、ボランティア活動へのポイント還元など、市民の利便性向上と参加促進につながる一元的な取り組みを求める意見があった。避難所運営のデジタル化については、アクションプランに記載されているが、災害時のDX活用について、福祉や健康分野を含めた全庁的な取り組みを求める資料要求があった。テレワーク制度については、時間と場所に縛られない柔軟な働き方を目指し、市民サービスの向上につなげたいとの考えが示された。委員からは、他市の先進事例を参考に、デジタルデバイド対策を含めた「市民にやさしい」DX推進を求める意見があった。</p>
+<p>本件は継続調査と決定された。</p>
 <h4>行政報告1 小金井市教育大綱の策定について</h4>
-<ul>
-<li><strong>概要</strong>: 平成27年策定の「小金井市教育文化の振興に関する総合的施策の大綱」を見直し、令和8年3月に新たな「小金井市教育大綱」を策定した。パブリックコメント（6人から11件の意見）と総合教育会議での承認を経て決定され、意見は具体的な教育政策が多く、大綱案に変更はなかった。</li>
-<li><strong>質疑</strong>: なし。</li>
-<li><strong>審議結果</strong>: 質疑終了。</li>
-</ul>
+<p>令和8年3月に新たな小金井市教育大綱が策定されたことが報告された。パブリックコメントの結果、具体的な教育施策に対する意見が多く、大綱案からの修正はなかった。令和8年2月10日の総合教育会議で承認され、市報、市ホームページ、市公式SNSで周知されている。質疑はなかった。</p>
 <h4>行政報告2 小金井市行財政改革2030の策定について</h4>
-<ul>
-<li><strong>概要</strong>: 行財政改革審議会の答申を踏まえ、令和8年3月31日に「小金井市行財政改革2030」を策定した。今後は市報、施設設置、職員説明会で周知する予定。</li>
-<li><strong>質疑</strong>: なし。</li>
-<li><strong>審議結果</strong>: 質疑終了。</li>
-</ul>
+<p>令和8年3月31日に小金井市行財政改革2030が承認され、正式に策定されたことが報告された。市議会には4月7日に配布され、市ホームページや市報5月1日号での公表、職員向け説明会が予定されている。質疑はなかった。</p>
 <h4>行政報告3 小金井市第7次男女共同参画行動計画の策定について</h4>
-<ul>
-<li><strong>概要</strong>: 令和8年3月に「小金井市第7次男女共同参画行動計画」を策定。期間は令和8年度から令和12年度までの5年間。従来の理念・目標を継承し、新たに「困難な問題を抱える女性への支援に関する法律」に基づく計画を内包し、複合的な問題への相談支援を重点施策に追加した。審議会、市民懇談会、パブリックコメント（6人から15件の意見）を経て策定された。</li>
-<li><strong>質疑</strong>: なし。</li>
-<li><strong>審議結果</strong>: 質疑終了。</li>
-</ul>
-<h4>行政報告4 小金井市特定事業主行動計画第2次女性職員活躍推進プラン（前期）について</h4>
-<ul>
-<li><strong>概要</strong>: 女性活躍推進法の延長に伴い、令和8年3月に「第2次女性職員活躍推進プラン」を策定した。期間は令和8年度から令和11年度までの4年間。特定事業主行動計画策定等検討委員会での検討や職員アンケートを踏まえ、目標1を「女性管理職比率30%」に設定。女性管理職を対象としたキャリア支援研修、ワークライフバランス支援、キャリア相談窓口設置、定期的な意識調査などが盛り込まれた。目標2（男性育児休業取得率）は50%から100%に、目標3（出産・育児休暇取得率）は100%で継続。</li>
-<li><strong>質疑</strong>: なし。</li>
-<li><strong>審議結果</strong>: 質疑終了。</li>
-</ul>
-<h4>行政報告5 第3次人材育成基本方針主な事業の改定について</h4>
-<ul>
-<li><strong>概要</strong>: 令和7年度で計画期間が終了する主な事業を見直し、令和8年度から令和12年度までの5年間を計画期間とする16事業に改定。既存の13事業を継続し、新たに「デジタル人材の育成確保」「多様な採用試験方式の実施」「職員の魅力等の発信」の3事業を追加した。庁内検討委員会と職員意見募集を経て取りまとめられた。</li>
-<li><strong>質疑</strong>: なし。</li>
-<li><strong>審議結果</strong>: 質疑終了。</li>
-</ul>
-<h4>行政報告6 小金井市民葬儀の制度改定について</h4>
-<ul>
-<li><strong>概要</strong>: 市民葬儀取り扱い業者が組織する連絡協議会からの要望を受け、令和8年4月1日付けで「小金井市民葬儀実施要綱」を改正。人件費や物価高騰を受け、葬祭料を近隣市並みに改定した（過去20年以上値上げなし）。利用者の経済的負担軽減のため「直葬」や告別式を行わない区分を新設し、安価な葬儀にも対応。市財政への影響はない。</li>
-<li><strong>質疑概要</strong>:<ul>
-<li><strong>葬儀事業者の協力</strong>: 市からの助成や補助金はなく、事業者自身の利幅を少なくし、福祉的観点から最低限の利益で運営してくれているため、非営利に近い形で安価な費用を実現している。</li>
-<li><strong>料金設定の理由</strong>: 公営斎場の有無（火葬料金の違い）や他市での市民葬儀利用件数の違い（小金井市は年間約200件）が料金に影響している。今回の値上げは物価高騰を反映したものであり、直葬プランの新設などにより値上げ幅を抑える配慮をした。市からの助成・補助金の検討は行われていない。</li>
-</ul>
-</li>
-<li><strong>審議結果</strong>: 質疑終了。</li>
-</ul>
-<h4>行政報告7 市民共同支援センター再検討委員会における市民祭りの検討状況について</h4>
-<ul>
-<li><strong>概要</strong>: コミュニティ文化課が令和7年度および令和8年度に設置している市民共同支援センター再検討委員会で、市民共同支援センター機能の見直しを行い、その一環として市民祭りのあり方について整理を進めている。第4回委員会では他市事例を共有し、センター機能や市民祭りの検討を行った。市民祭りは、団体等との交流や担い手発掘・養成分野の機能として想定されており、令和8年度も引き続き委員会で検討を進める予定。</li>
-<li><strong>質疑</strong>: なし。</li>
-<li><strong>審議結果</strong>: 質疑終了。</li>
-</ul>
-<h4>所管事項（協議会にて再度質疑） トイレカード導入の進捗について</h4>
-<ul>
-<li><strong>質疑概要</strong>:<ul>
-<li><strong>進捗状況</strong>: 首都直下地震発生時の避難者の健康維持・命を守る上で災害用トイレの確保は重要と認識。熊本地震や能登半島地震の教訓も踏まえ、担当課で先行導入している自治体の事例調査を開始し、導入手続き、経費（導入・維持管理）、他自治体との相互支援ネットワークへの加入のあり方などを確認中。</li>
-<li><strong>委員意見</strong>: トイレカー導入はゴールではなく新たな始まりであり、今後も取り組みを継続するよう要望。他市事例を参考に、精度高く吸収・改善してほしいとの提言があった。</li>
-</ul>
-</li>
-<li><strong>審議結果</strong>: 質疑終了。</li>
-</ul>
-    </div>
-  </details>
+<p>令和8年3月に小金井市第7次男女共同参画行動計画が策定されたことが報告された。計画期間は令和8年度から令和12年度までの5年間で、困難な問題を抱える女性への支援に関する法律に基づく市町村基本計画を内包し、複合的な問題を抱えた女性を支援するための各種相談支援が重点施策に加わった。パブリックコメントや男女平等推進審議会の答申を経て策定された。質疑はなかった。</p>
+<h4>行政報告4 小金井市特定事業主行動計画・第2次女性職員活躍推進プラン（前期）について</h4>
+<p>女性の職業生活における活躍の推進に関する法律の有効期限延長に伴い、令和8年度から令和11年度までの4年間を計画期間とする第2次女性職員活躍推進プランが策定されたことが報告された。女性管理職比率30%を目標とし、女性キャリア支援研修の対象拡大、ワーク・ライフ・バランスを保つための取組、女性職員キャリア相談窓口の実施、意識調査の定期実施などが盛り込まれている。男性職員の育児休業取得率は100%を目標としている。質疑はなかった。</p>
+<h4>行政報告5 第3次人材育成基本方針「主な事業」の改定について</h4>
+<p>第3次人材育成基本方針の「主な事業」が、令和8年度から令和12年度までの5年間を計画期間として改定されたことが報告された。これまでの13事業に加え、新たに「デジタル人材の育成・確保」「多様な採用試験方式の実施」「市職員の魅力等の発信」の3事業が追加され、計16事業となる。質疑はなかった。</p>
+<h4>行政報告6 小金井市市民葬儀の制度改定について</h4>
+<p>令和8年4月1日付けで小金井市市民葬儀実施要綱が改正されたことが報告された。人件費等の物価高騰を受け、葬祭料が近隣他市並みに改定された。また、利用者の要望に応え、通夜や告別式を行わない「直葬」区分が新たに設けられた。市財政への影響はない。</p>
+<p>委員からは、葬儀事業者の協力内容や、他市と比較して小金井市の料金が安くならない理由について質疑があった。市民課長は、市民葬儀が福祉的な観点を持つ制度であり、事業者が利益を大きく追求せず、最低限の利幅で運営していることが協力内容であると説明した。料金については、公営斎場の有無や事業者の経営状況、利用件数の違いなどが影響していると答弁した。また、市からの助成や補助金は検討していないが、直葬プランを設けることで、できるだけ値上げをしないよう配慮したと説明した。</p>
+<h4>行政報告7 市民協働支援センター再検討委員会における市民まつりの検討状況について</h4>
+<p>市民協働支援センター再検討委員会において、市民まつりのあり方等について整理が進められていることが報告された。令和8年3月30日に開催された第4回委員会では、他市事例の共有やセンター機能について重視すべき項目の検討が行われた。市民まつりは、センター機能のうち団体等間の交流や担い手発掘、養成分野で取り組むことを想定しており、令和8年度も引き続き検討が進められる。質疑はなかった。</p>
+<h4>所管事務調査（トイレカーの導入の進捗について）</h4>
+<p>委員より、施政方針に記載されたトイレカー導入の進捗状況について質疑があった。地域安全課長は、多摩東部を震源とする直下地震発生時のトイレ環境整備の重要性を認識しており、現在、先行導入自治体の事例調査を開始し、導入手続き、経費、維持管理費、相互支援ネットワークへの加入のあり方などを確認している段階であると答弁した。委員は、トイレカー導入が災害時のトイレ施策の「新しい始まり」であると述べ、引き続き注視していく意向を示した。</p>
   </section>
 
   <section class="media reveal">
@@ -265,679 +205,610 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
     <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
   </section>
 
-<div class="turn reveal" id="t0">
-  <div class="meta"><span class="name">企画財政部長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=101s" data-timestamp="101"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:41</a>おはようございます。管理職の人事異動につきましてご報告させていただきます。令和8年度4月1日付けを持ちまして管理職の人事異動発令をいたしました。本委員会の関係者につきまして、本日ここでご紹介させていただきます。</div><div class="say">庁舎建設担当部長には、筒井 直前の子ども家庭部長を配置換えいたしました。よろしくお願いいたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=132s" data-timestamp="132"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:12</a>新たに設置をいたしました防災安全担当部長には、富田、前の子供家庭センター長を昇任の上配置いたしました。富田でございます。よろしくお願いいたします。</div><div class="say">自治体DX推進担当課長には、岩谷 健一郎 前の環境政策課長を配置換えいたしました。よろしくお願いします。</div><div class="say">男女共同参画担当課長には、中川 京子 前のコミュニティ文化課長を配置換えいたしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=165s" data-timestamp="165"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:45</a>よろしくお願いいたします。</div><div class="say">地域安全課長には、佐々木 正 前の自治体DX推進担当課長を配置換えいたしました。でございます。よろしくお願いいたします。</div><div class="say">コミュニティ文化課長には、伊藤 孝志 前の健康課長を配置換えいたしました。よろしくお願いします。</div><div class="say">市民税課長には、平岡 美穂 前の児童青少年課長を配置換えいたしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=197s" data-timestamp="197"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:17</a>納税課長には、天野 文 前の自立生活支援課長を配置換えいたしました。よろしくお願いします。</div><div class="say">議会事務局次長には、宮下 和明 前の地域安全課長を配置換えいたしました。よろしくお願いいたします。</div><div class="say">以上でございます。よろしくお願いいたします。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=461s" data-timestamp="461"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:41</a>おはようございます。ただいまから総務企画委員会の会議を開きます。</div>
+  <div class="say">直ちに本日の議事に入ります。</div>
+  <div class="say">当委員会に付託されております案件は、陳情１件、所管事務調査１件です。以上２件につきましては、総務企画委員会審査予定表の順序で行うことといたします。</div>
+  <div class="say">初めに、８陳情第１号、新宿区において顕在化した事例を受けて、政党機関紙の庁舎内勧誘行為に関する早期の実態把握と再発防止を求める陳情書を議題といたします。</div>
+  <div class="say">部局から発言がありましたら、これを求めます。（「特にございません」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal" id="t1">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=236s" data-timestamp="236"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:56</a>それでは改めましておはようございます。開会前の協議会ということで始めていきたいと思います。まず協議事項、協議会協議事項お手元にお配りしております、ご確認ください。</div><div class="say">委員会の進行予定ということで、本日の審査予定表の順序で行うということでございます。（1）審査案件、陳情が1件、そして所管事務調査が1件と計2件ということになっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=268s" data-timestamp="268"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:28</a>（2）行政報告は本日多めとなっておりまして7件でございます。</div><div class="say">所管事務調査についてはいつものように自治体DXの取り組みについてということで、（1）市民目線でのサービスの質の向上、（2）デジタル技術を活用した業務効率化の推進、（3）DX推進の意識醸成とデジタル人材の育成ということでございます。ここまでよろしいですか。</div><div class="say">2の所管事務調査について、何か皆様からございましたらここでご発言を承りますが、特に、あ、斎藤委員どうぞ。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=498s" data-timestamp="498"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:18</a>これから質疑を行います。質疑はございませんか。（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal" id="t2">
-  <div class="meta"><span class="name">斎藤 康夫</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=300s" data-timestamp="300"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:00</a>今日、天野委員、お休みなのかな。で、採決等どうされるか説明があるのかなと思ったんですが。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=511s" data-timestamp="511"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:31</a>ないということでいいですね。</div>
+  <div class="say">休憩します。午前10時05分休憩午前10時05分開議</div>
 </div>
 
-<div class="turn chair reveal" id="t3">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">はい。何もなければ私の方から発言させていただこうと思っておりました。まさに今、斎藤委員がお気にされていた通りでございまして、天野委員が欠席ということなので、私としては皆さんご了解いただければ継続という形でお諮りしたいと思っておりますが。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=335s" data-timestamp="335"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:35</a>はい、藤川委員。私の記憶では天野委員が資料請求したんじゃないかと思うんですけども。なので、継続の方がよろしいかと思います。</div><div class="say">はい、ありがとうございます。資料要求、要求資料についてはのちほど部局から発言があるのかなと思っておりまして、そこも含めて皆様差し支えなければ継続という形で。質疑はできますが、取り扱いについては継続という形でご了解いただけるとありがたいなと思っておりますが、よろしいですか。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=533s" data-timestamp="533"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:53</a>再開いたします。</div>
+  <div class="say">お諮りいたします。本件は、現時点での質疑を終了し、継続審査といたしたいと思います。これにご異議ありませんか。（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal" id="t4">
-  <div class="meta"><span class="name">企画財政部長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=367s" data-timestamp="367"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:07</a>部局との資料調整の中で今回資料提出はないようなので、特に部局からはございません。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=547s" data-timestamp="547"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:07</a>ご異議なしと認めます。したがって、本件は継続審査と決定いたしました。</div>
 </div>
 
-<div class="turn chair reveal" id="t5">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">あ、ということですね。分かりました。それでは、次は所管事務調査について、いかがですか。吹春委員。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=560s" data-timestamp="560"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:20</a>次に、所管事務調査（自治体ＤＸの取組について）を議題といたします。</div>
+  <div class="say">本日、部局から資料が提出されておりますので、初めに、資料の説明を求めます。</div>
 </div>
 
-<div class="turn reveal" id="t6">
-  <div class="meta"><span class="name">吹春 やすたか</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=390s" data-timestamp="390"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:30</a>はい。所管事務調査で、トイレカードの導入について進捗状況をお尋ねしたいと思います。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">岩佐自治体ＤＸ推進担当課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=577s" data-timestamp="577"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:37</a>それでは、自治体ＤＸ推進担当より、小金井市ＤＸ推進方針のアクションプランについて、ご説明をさせていただきます。</div>
+  <div class="say">本アクションプランにつきましては、令和８年３月に策定しました小金井市ＤＸ推進方針で定めた三つのビジョンを実現するため、令和８年度から令和10年度までの３か年を期間としまして、具体的な取組内容等を記載したものでございます。</div>
+  <div class="say">少しお時間を頂きまして、アクションプランの中身について、ご説明をさせていただきます。</div>
+  <div class="say">まず、スライド２枚目をご覧ください。スライド２枚目では、各業務や事業の目的を踏まえまして、デジタル化が有効な場合はデジタル技術を手段としてうまく活用し、各業務の効率化に取り組んでほしいということを示したものでございます。</div>
+  <div class="say">続きまして、スライド３枚目では、ＣＩＯ、第１副市長のメッセージとしまして、アクションプラン実行に当たっての心構えや理念的な内容を掲げたものでございます。</div>
+  <div class="say">スライド４枚目では、アクションプラン策定の背景、ＤＸ推進方針で掲げる市の目指す姿の実現に向けまして、本市の現状、本市を取り巻く環境を踏まえまして、本アクションプランの期間中の取組の方向性を示したものでございます。</div>
+  <div class="say">スライド５枚目から７枚目につきましては、ＤＸ推進方針で掲げました三つのビジョンを実現するための取組を記載しまして、取組①から⑯の目次的な位置付けとなります。</div>
+  <div class="say">重点取組としているものにつきましては、ＤＸ推進方針や後期基本計画においても、重点テーマとしてのＤＸの推進による地域社会の発展と位置付けまして、横断的な五つの視点に関連させたものとなります。</div>
+  <div class="say">アクションプランの中核となる部分につきましては、スライド９枚目から26枚目までとなっておりまして、①から⑯までの取組ごとに、取組概要、背景、アウトカムの視点、あるべき姿、個別取組など、必要な内容をまとめたものでございます。</div>
+  <div class="say">本アクションプランにつきましては、市のホームページですとか、職員向けには庁内のインフォメーション等でも周知しておりますが、今後、庁内においても関係課と連携しながら、ＤＸ推進の取組を進めていきたいと考えております。</div>
+  <div class="say">説明は以上となります。</div>
 </div>
 
-<div class="turn chair reveal" id="t7">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=402s" data-timestamp="402"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:42</a>はい。他にどなたかいらっしゃいますか。なし。他にはないということでよろしいですか。はい、藤川委員。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">山口情報システム課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=758s" data-timestamp="758"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:38</a>情報システム課から、小金井市ガバメントクラウド標準化概要図として資料を提出いたしました。</div>
+  <div class="say">本資料は、斎藤委員のご要求によるものでございまして、令和７年度内に標準化・共通化した住民情報システムと、その運用を行うガバメントクラウド等を一覧にしたものでございます。</div>
+  <div class="say">詳細はご覧いただければと思います。</div>
 </div>
 
-<div class="turn reveal" id="t8">
-  <div class="meta"><span class="name">藤川 賢治</span></div>
-  <div class="say">すみません。これちょっと確認なんですけども、DX関係だと、所管事務調査についての方で質問すればいいってことでよろしいですね。その他の方ではありません。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=777s" data-timestamp="777"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:57</a>資料の説明は以上ですか。</div>
+  <div class="say">これから質疑を行います。</div>
 </div>
 
-<div class="turn chair reveal" id="t9">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">はい。藤川委員は所管事務調査の方でやられるということですね。他にございますか。なし。了解です。それでは吹春委員のトイレカードの導入は所管事務調査ということですね。分かりました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=444s" data-timestamp="444"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:24</a>2、3、4は終わってからでよろしいですか。それでは協議会事項の2、3、4は終了後の協議会ということで、また皆様と協議していきたいと思います。よろしくお願いいたします。ではお願いします。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=805s" data-timestamp="805"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:25</a>まず、小金井市ＤＸ推進方針アクションプランに関して、セキュリティの件に関してお伺いします。ページで言うと、スライド右肩にある数字で、23です。こちらに、下の方に四つ並んでいて、情報セキュリティポリシーの浸透、継続的なセキュリティ監査、ゼロトラスト・セキュリティ、インシデント対応体制の強化ということで書かれているんですが、このうち、継続的なセキュリティ監査、また、ゼロトラスト・セキュリティとは具体的にどういうことをされているか、お聞かせください。</div>
+  <div class="say">上に関しては、ＯＳの脆弱性スキャンとか外部公開サイトの定期診断、あと、フィッシングの訓練とかそういったことが入っているのかなと思うんですけれども、こちらの辺りを詳しくお聞かせください。これがアクションプランに関することです。</div>
+  <div class="say">もう１つ質問がありまして、今日、資料が出ているわけではないんですけれども、前回もお聞きしたんですが、市のホームページが多言語化対応をされているということで、それはどういう仕組みでそうなっているか、どういう仕組みで再構築されたかということを前回お聞きしました。そこで気付いたんですけれども、「やさしいにほんご」というボタンがあるんです。「やさしいにほんご」を押すと、要は、ルビを振る、振り仮名が振られるページになるんですけれども、利用を考えると、日本語が得意でない方がルビのボタンを、「やさしいにほんご」ボタンを押して使うことを想定されているのかなと思うんですよね。それでも分からないときに、自国語、自分の言語のボタンを押して切り替えるのではないかと思うんですけれども、それをしたときに、どうも反応しないようになっているのではないかなと思いますので、これは何が起きているのかなと思って、ＵＲＬとか、どういうふうに遷移しているかなと思って、何となく分かったんですけれども、そちらに関してどういう状況になっているか、お聞かせください。</div>
 </div>
 
-<div class="turn chair reveal" id="t10">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">おはようございます。</div><div class="say">ただいまから総務企画委員会の会議を開きます。直ちに本日の議事に入ります。当委員会に付託されております案件は陳情1件、所管事務調査1件です。以上2</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=475s" data-timestamp="475"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:55</a>件につきましては総務企画委員会審査予定表の順序で行うことといたします。</div><div class="say">初めに陳情第1号 新宿区において顕在化した事例を受けて政党機関紙の庁舎内勧誘行為に関する早期の実態把握と再発防止を求める件を議題といたします。部局から発言がありましたらこれを求めます。</div><div class="say">これから質疑を行います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=507s" data-timestamp="507"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:27</a>質疑はございませんか。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">山口情報システム課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=979s" data-timestamp="979"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:19</a>２問頂きました。</div>
+  <div class="say">１点目ですが、継続的なセキュリティ監査とは何かというご質問を頂きました。具体、詳細な内容につきましては、セキュリティに関することですので、一部差し控えさせていただきつつ、実施している項目について答弁を申し上げます。</div>
+  <div class="say">毎年度、実施する外部監査としては、技術的情報セキュリティ診断によるＯＳ等の脆弱性試験、ペネトレーションテストを実施しております。外部公開サイトの定期診断は、ペネトレーションテストの形式ではございませんが、定期的に運用ベンダーによって、チェックが行われているところです。</div>
+  <div class="say">標準型攻撃メールの訓練、フィッシングの訓練については、実施をしてございます。</div>
+  <div class="say">内部監査としては、マイナンバー取扱部署への監査の実施、そして、管理職を内部監査員とした外部部署への現地監査を、ローテーションで実施をしているところでございます。</div>
+  <div class="say">続きまして、ゼロトラスト・セキュリティについてでございます。ゼロトラスト・セキュリティでございますが、こちらは、内部ネットワークやデバイスからのアクセスを信頼せず、常にアクセスの信頼性を検証することで、情報資産やＩＴ資産を保護することに焦点を当てたセキュリティの考え方でございまして、信頼がないアクセスは境界内であっても許さない点が、現在の境界型防御と異なるものと定義をされているところでございます。</div>
+  <div class="say">国は、デジタル社会の実現に向けた重点計画におきまして、現行の自治体ネットワーク構成である３層分離、３層の対策について、地方公共団体の意見も聞きながら抜本的な見直しを行うとともに、将来的には、政府情報システムと歩調を合わせつつ、地方自治体におけるゼロトラスト・アーキテクチャーの考えに基づくネットワーク構成に対応するよう検討を行ってきており、令和８年３月、先月でございますが、国・地方ネットワークの将来像の実現に向けた検証事業の最終報告書におきましては、将来像への移行開始を令和12年からとしているところでございます。</div>
+  <div class="say">ゼロトラスト・セキュリティの運用により、住民記録系、ＬＧＷＡＮ系、インターネット系のネットワーク領域の３層の対策のネットワーク間に壁がない業務運用について行っていくことを将来像としてございますが、現時点で総務省がセキュリティポリシー、方針として示している、ゼロトラストの前段階としてのアルファダッシュモデルやベータダッシュモデルへの移行についても、全国的に進展が見込めていない中においては、実感としては、はるか先の将来像のように思えるところでございますが、本市につきましては令和５年度に、セキュリティ強化モデルを、インターネットを主体としたベータダッシュモデルへの移行で行っているところでございまして、現行モデルでも実施をしている技術的なセキュリティ対策につきましては、ゼロトラスト移行までの準備段階にもあると感じるところでございます。</div>
+  <div class="say">今後は、将来的なゼロアーキテクチャーへの移行に関する展開を注視しつつ、これからの研究を行っていきたいと考えているところでございます。</div>
 </div>
 
-<div class="turn voice reveal" id="t11">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">ない。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木広報秘書課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1191s" data-timestamp="1191"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:51</a>市ホームページの「やさしいにほんご」と多言語変換機能を使うと遷移しない問題について、ご質問いただきました。</div>
+  <div class="say">やさしい日本語変換機能と多言語変換機能は、それぞれ外部のサービスをホームページの管理システム事業者を通じて、現状は契約しております。やさしい日本語に変換した上で、多言語変換できない原因といたしましては、それぞれのサービスにおける仕様の問題となっております。</div>
+  <div class="say">多言語翻訳に遷移する際に、遷移する前のページのドメインが小金井市のホームページであるかどうかを判断している仕様となっており、やさしい日本語に変換すると、遷移元がやさしい日本語変換サービスのドメインとなるため、参照元のドメインが契約情報と異なることから、エラーとなってしまっております。</div>
+  <div class="say">こちらの改修につきましては、各提供サービスの仕様上、できないものとなっております。</div>
 </div>
 
-<div class="turn chair reveal" id="t12">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">はい。それでは取り扱いについては先ほど協議させていただいたように継続という形でお諮りさせていただくということでよろしいですね。はい。それでは再開して、継続というところで進めてまいります。再開いたします。</div><div class="say">お諮りいたします。本件は現時点での質疑を終了し、継続審査といたしたいと思います。これにご異議ありませんか。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1283s" data-timestamp="1283"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:23</a>お答えいただき、ありがとうございます。</div>
+  <div class="say">まず、情報セキュリティに関してなんですけれども、毎年、外部監査によって、ＯＳの脆弱性などをチェックしているという話がありました。また、外部公開サイトに関しては、定期的に運用ベンダーによってチェックが行われていますということなので、これだけをちょっと質問をさせてください。</div>
+  <div class="say">既に、基本的には外部サーバーで提供されているので、サーバーのセキュリティに関しては外部業者がやっているという理解でいいのか、これだけをお聞かせください。</div>
+  <div class="say">また、内部ではしっかりやっているという話と、外部に関しては外部サーバーの業者がやっているという話、そして、次が大事だと思うんですけれども、標的型攻撃メール訓練、フィッシング訓練の実施は行っていると。</div>
+  <div class="say">詳しいことに関しては、いろいろ、そこはよく分かります。詳しいことは言えないということなんですけれども、これは結構大事でして、どうしても一番危ないのは、これをクリックしてくださいみたいなメールが来て、思わずクリックしてしまって、何か問題が発生する。特に最近、ランサムウェア攻撃とか、身代金を要求されるものですよね。データを暗号化されたりして、解凍してほしくばお金を払えみたいなことがあるので、そこが非常に重要になってくるので、対策は、質問には入れていないんですけれども、教育を徹底することと訓練をすることでしかなくて、これは本当に訓練すると引っかかるんですよね。</div>
+  <div class="say">某組織では、どこが某組織だという話ですけれども、某組織でも、やると引っかかるんですよね、あんな組織であっても。だから、一般で全員が引っかからないというのはなかなか難しいと思うんです。その場合は、引っかかったとしても、あくまで訓練なので、何人、引っかかった人がいましたということになるだけなんですけれども、非常に難しい問題で、常日頃というか、時々、抜き打ちでやって、教育は常日頃やって、抜き打ちでテストもして、それで対応していくということになるかと思うんですけれども、本当に大変な作業ですけれども、皆さんは常日頃、その辺に気を遣っていただき、本当にありがとうございます。少なくとも私だったら、そういう業務はやりたくないなと思うぐらい、非常に大変な業務ですので、これからもよろしくお願いします。</div>
+  <div class="say">どのぐらい頑張るかということが非常に難しい問題で、すごく頑張ったら絶対大丈夫ということもないし、といって、頑張らなくても運がいいと大丈夫みたいなところもあって、本当にどれぐらい頑張るかというのは難しいところなんですけれども、その辺も、周囲の状況とかを考え、見ながら実施していただければなと思います。</div>
+  <div class="say">次に、やさしい日本語に関してですけれども、実は私、最初にこれに気付いたときは、もうちょっと違う挙動でして、ルビが振ってあるページが更に翻訳されて、変な英語になるなというのを最初に見つけたら、しばらくしたらそれが直っていたなと思っていて、どちらかというと今の方がましかなと実は思ったりするところなので、現時点では仕方がないかなと思うところでありますが、もし何か解決策がありましたら実施していただいて、業者にいろいろ頼んでいる以上、そういう細かいところまで頼めないのかもしれないんですけれども、何かできることがあれば対応していただきたいなと思うところです。</div>
 </div>
 
-<div class="turn voice reveal" id="t13">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">なし。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">吉本情報システム係長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1577s" data-timestamp="1577"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:17</a>藤川委員のご質問の中に、外部公開サイトのサーバーについてのチェックについてのご質問がございました。</div>
+  <div class="say">委員がお見込みのとおり、外部サーバーは、外部サーバーを管理しているベンダーにおいて運用しておりますので、チェックもそのベンダーの方に依頼をしているというところでございます。</div>
 </div>
 
-<div class="turn chair reveal" id="t14">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=549s" data-timestamp="549"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:09</a>ご異議なしと認めます。従って本件は継続審査と決定いたしました。</div><div class="say">次に所管事務調査自治体DXの取り組みについてを議題といたします。本日部局から資料が提出されておりますので初めに資料の説明を求めます。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">藤川委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1600s" data-timestamp="1600"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:40</a>外部サーバーしかないという意味に取れますけど、大丈夫ですよね。ありがとうございます。</div>
+  <div class="say">今の時代、市がサーバーを持って管理するということはないと思いますので、引き続き、そのように対応していただければなと思います。</div>
 </div>
 
-<div class="turn reveal" id="t15">
-  <div class="meta"><span class="name">企画政策課主査</span></div>
-  <div class="say">担当です。</div>
-</div>
-
-<div class="turn reveal" id="t16">
-  <div class="meta"><span class="name">自治体DX推進担当課長</span></div>
-  <div class="say">はい。それでは自治体DX推進担当より小金井市</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=581s" data-timestamp="581"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:41</a>DX推進方針のアクションプランについてご説明させていただきます。</div><div class="say">本アクションプランにつきましては、令和8年3月に策定しました小金井市DX推進方針で定めた3つのビジョンを実現するため、令和8年度から令和10年度までの3年間を期間としまして、具体的な取り組み内容等を記載したものでございます。少しお時間をいただきまして、アクションプランの中身についてご説明させていただきます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=613s" data-timestamp="613"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:13</a>まずスライド2枚目をご覧ください。スライド2枚目では、各業務や事業の目的を踏まえまして、デジタル化が有効な場合はですね、デジタル技術を手段としてうまく活用し、各業務の効率化に取り組んでほしいということを示したものでございます。</div><div class="say">続きましてスライド3枚目では、CIOである副市長のメッセージとしまして、アクションプラン実行にあたっての展開や理念的な</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=645s" data-timestamp="645"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:45</a>内容を掲げたものでございます。</div><div class="say">スライド4枚目ではアクションプラン策定の背景、DX推進方針で掲げる市の目指す姿の実現に向けまして、本市の現状、本市を取り巻く環境を踏まえまして本アクションプランの期間中の取り組みの方向性を示したものでございます。</div><div class="say">スライド5枚目から7枚目につきましては、DX推進方針で掲げました3つのビジョンを実現するための取り組みを記載</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=677s" data-timestamp="677"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:17</a>しまして、取り組みの（1）から（16）の目次的な位置付けとなります。重点取り組みとしているものにつきましては、DX推進方針や、後期基本計画においても重点テーマとしてのDXの推進による地域社会の発展と位置づけまして、横断的な5つの視点に関連させたものとなります。</div><div class="say">アクションプランの中核となる部分につきましては、スライド9枚目から26枚目までとなっておりまして、（1）から（16）までの取り組みごとに、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=711s" data-timestamp="711"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:51</a>取り組み概要、背景、アウトカムの視点、あるべき姿、個別取り組みなど、必要な内容をまとめたものでございます。</div><div class="say">本アクションプランにつきましては、市のホームページですとか職員向けには庁内のインフォメーション等でも周知しておりますが、今後庁内においても関係課と連携しながらDX推進の取り組みを進めていきたいと</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=741s" data-timestamp="741"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:21</a>考えております。説明は以上となります。</div>
-</div>
-
-<div class="turn chair reveal" id="t17">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">以上ですね。</div>
-</div>
-
-<div class="turn reveal" id="t18">
-  <div class="meta"><span class="name">情報システム課長</span></div>
-  <div class="say">失礼しました。情報システム課から、小金井市ガバメントクラウド標準化概要図として資料を提出いたしました。</div><div class="say">本市では、先にご要求いただいたものでございまして、令和7年度に標準化された</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=773s" data-timestamp="773"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:53</a>住民情報システムと、その運用を行うガバメントクラウド等を一覧にしたものでございます。</div><div class="say">詳細はご覧いただければと思います。以上です。</div>
-</div>
-
-<div class="turn chair reveal" id="t19">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">資料の説明は以上ですかね。はい、これから質疑を行います。藤川委員。</div>
-</div>
-
-<div class="turn reveal" id="t20">
-  <div class="meta"><span class="name">藤川 賢治</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=803s" data-timestamp="803"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:23</a>それでは、まず、この小金井市DX推進方針アクションプランに関して、セキュリティの件に関してちょっとお伺いします。</div><div class="say">ページで言うと23ページ、スライドの方ですね。スライドの右肩にある数字で23です。こちらに、下の方に4つ並んでいて、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=835s" data-timestamp="835"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:55</a>情報セキュリティの浸透、継続的なセキュリティ監査、ゼロトラストセキュリティ、インシデント対応体制の強化ということで書かれているんですが、このうちですね、継続的なセキュリティ監査、またゼロトラストセキュリティって具体的にどういうことされているかお聞かせください。これは、OSの脆弱性スキャン、外部</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=866s" data-timestamp="866"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:26</a>公開サイトの定期診断、あとフィッシング訓練とかそういったことが入っているのかなと、上に関しては思うんですけども、こちらの辺り詳しくお聞かせください。これがアクションプランに関することです。</div><div class="say">もう1つ質問がありまして、今日資料が出ているわけではないんですけども、前回もお聞きしたんですけども、市のホームページが、多言語化対応されているということで、どういう仕組みで、再構築されたかということを前回お聞きしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=897s" data-timestamp="897"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:57</a>そこでちょっと気づいたんですけれども、優しい日本語っていうボタンがあるんですね。優しい日本語っていうのを押すと、要はルビが振られるようなページになるんですけども、利用を考えるとちょっとやっぱり日本語</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=930s" data-timestamp="930"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:30</a>が得意でない方がそのルビのボタンを押し、そこ、優しい日本語ボタンを押して使うこと想定されてるのかなと思うんですよね。それともやっぱり分からない時に、自国語、自分の言語のボタンを押して切り替えるんじゃないかと思うんですけども、それをした時にどうも反応しないようになってるんじゃないかなと思いますので、実はこれ何が起きてんのかなと思って、URLとかどういう</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=960s" data-timestamp="960"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:00</a>風になってるかなとか思って、なんとなく分かってたんですけど、そちらに関して、どういう状況になっているかお聞かせください。はい、以上です。</div>
-</div>
-
-<div class="turn reveal" id="t21">
-  <div class="meta"><span class="name">情報システム課長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=972s" data-timestamp="972"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:12</a>はい。2問いただきました。1点目ですが、継続的なセキュリティ監査とは何かというご質問いただきました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=990s" data-timestamp="990"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:30</a>詳細の内容につきましては、セキュリティに関することですので一部差し控えさせていただきつつ、実施している項目についてご答弁申し上げます。毎年度実施する外部監査としてはですね、技術的情報セキュリティ診断によるOS等の脆弱性試験、ペネトレーションテストを実施をしております。</div><div class="say">外部公開サイトの定期診断は、ペネトレーションテストの形式ではございませんが、定期的に運用ベンダーによってチェックが行われている</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1021s" data-timestamp="1021"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:01</a>ところです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1021s" data-timestamp="1021"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:01</a>標準型攻撃メールの訓練、フィッシングの訓練については実施をしてございます。内部監査としては、マイナンバー取り扱い部署への監査の実施、そして管理職を内部監査員とした外部部署への現地監査をローテーションで実施をしているところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1053s" data-timestamp="1053"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:33</a>続きまして、ゼロトラストセキュリティについてでございます。ゼロトラストセキュリティでございますが、こちらは内部ネットワークやデバイスからのアクセスを信頼せず、常にアクセスの信頼性を検証することで、情報資産やIT資産を保護することに焦点を当てたセキュリティの考え方でございまして、信頼がないアクセスは、境界内であっても許さない点が、現在の境界型防御と異なるものと定義をされているところでございます。<br />
-<a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1118s" data-timestamp="1118"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:38</a>　国は、デジタル社会の実現に向けた重点計画におきまして、現行の自治体ネットワーク構成である三層分離、三層の対策について、地方公共団体の意見も聞きながら抜本的な見直しを行うとともに、将来的には政府情報システムと歩を合わせ、地方自治体におけるゼロトラストアーキテクチャーの考えに基づくネットワーク構成に対応するよう検討を行ってきており、令和8年2026年3月、先月でございますが、国の、地方ネットワークの将来像の実現に向けた検証事業の最終報告書におきましては、将来像への移行開始を令和12年2030年からとしているところでございます。</div><div class="say">ゼロトラストセキュリティの運用により、住民記録系、LGWAN系、インターネット系のネットワーク領域の三層の対策のネットワーク化に壁がない業務運用について行っていくことを将来像としてございますが、現時点で総務省がセキュリティ方針として示しているゼロトラストの前段としてのアルファダッシュモデルやベータダッシュモデルの移行についても全国的に進展が見込めていない中においては、実感としてはるか先の将来像に思えるところでございますが、本市につきましては、令和5年度にセキュリティ強化モデルをインターネット主体としたベータダッシュモデルへの移行を行っているところでございまして、現行モデルでも実施をしている技術的なセキュリティ対策につきましては、ゼロトラスト移行までの準備段階にもあると感じるところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1181s" data-timestamp="1181"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:41</a>今後は、将来的なゼロトラストアーキテクチャーへの移行に関する展開を注視しつつ、これからの研究を行っていきたいと考えてるところでございます。以上です。</div>
-</div>
-
-<div class="turn reveal" id="t22">
-  <div class="meta"><span class="name">広報秘書課長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1191s" data-timestamp="1191"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:51</a>はい。市ホームページの優しい日本語と多言語変換機能を使うと遷移しない問題についてご質問いただきました。優しい日本語変換機能と多言語変換機能は、それぞれ外部のサービスをホームページの管理システム事業者を通じて現状契約しております。</div><div class="say">優しい日本語に変換した上で多言語変換できない原因といたしましては、それぞれのサービスにおける仕様の問題となっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1222s" data-timestamp="1222"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:22</a>多言語翻訳に遷移する際に遷移する前のページのドメインが小金井市のホームページであるかどうかを判断している仕様となっており、優しい日本語に変換すると遷移が優しい日本語変換サービスのドメインとなるため、参照元のドメインが契約情報と異なることから、エラーとなってしまっております。こちらの改修につきましては、各提供サービスの仕様上、できないものとなっております。</div>
-</div>
-
-<div class="turn chair reveal" id="t23">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1284s" data-timestamp="1284"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:24</a>藤川さんです。</div>
-</div>
-
-<div class="turn reveal" id="t24">
-  <div class="meta"><span class="name">藤川賢治</span></div>
-  <div class="say">はい。お答えいただきありがとうございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1292s" data-timestamp="1292"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:32</a>まず、情報セキュリティに関してなんですけども、毎年外部監査によって、OSの脆弱性などをチェックしているという話がありました。<br />
-<a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1315s" data-timestamp="1315"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:55</a>　また、外部公開サイトに関しては定期的に運用ベンダーによってチェックが行われていますということなので、これだけちょっと質問させてください。すでに基本的には外部サーバーで提供されているということで、サーバーのセキュリティに関しては外部業者がやっているという、そういう理解でいいのか、これだけお聞かせください。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1338s" data-timestamp="1338"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:18</a>また、内部ではしっかりやっているという話と、外部に関しては外部サーバーの業者がやっているという話。そして、これはやはり大事だと思うんですけども、標的型攻撃メール訓練、フィッシング訓練の実施は行っていると。詳しいことに関しては、色々よく分かります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1377s" data-timestamp="1377"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:57</a>　詳しいことは言えないということなんですけども、これ結構やはり大事でして、どうしてもやはり1番危ないのは、メールが来てクリックしてください、のようなメールが来て思わずクリックしてしまい、何か問題が発生するという、特に最近ランサムウェア攻撃とか、身代金要求されるやつですよね。データを暗号化されたりして、回答して欲しくばお金払え、のようなことがあるので、そこが非常に重要になってくるんで、これ対策はやはり、この質問には入れてないですけども、教育を徹底することと訓練をすることでしかなくてですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1408s" data-timestamp="1408"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:28</a>これ本当に訓練すると引っかかるんですよね。某組織では、どこが某組織かという話ですけども、やはり某組織でも、やると引っかかるんですよね。あんな組織であっても。だから、一般で全員が引っかからないというのはなかなか難しいと思うんです。</div><div class="say">その場合は引っかかったとしても、あくまで訓練なので、何人引っかかった人がいました、ということになるだけなんですけども、非常に難しい問題で、常日頃から教育を行い、時々抜き打ちでテストもして対応していくことになるかと思います。<br />
-<a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1469s" data-timestamp="1469"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:29</a>　本当に大変な作業ですけども、皆さん常日頃、その辺、気を遣っていただき本当にありがとうございます。少なくとも私だったらそういう業務やりたくないなと思うぐらい、非常に大変な業務ですので、これからもよろしくお願いします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1480s" data-timestamp="1480"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:40</a>これどのぐらい頑張るかということが非常に難しい問題で、すごく頑張ったら絶対大丈夫ってこともないし、と言って、頑張らなくても運がいいと大丈夫、みたいなところもあってですね。本当にどれぐらい頑張るかっていうのは難しいところなんですけど、その辺も周囲の状況などを考えながら、実施していただければなと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1534s" data-timestamp="1534"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:34</a>　<a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1565s" data-timestamp="1565"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:05</a>　<a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1510s" data-timestamp="1534"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:34</a>翻訳されて、変な英語とかになるな、というのを最初にちょっと見つけたら、しばらくしたらそれが治ってたなと思ってて、どちらかというと今の方がマシかなと実は思ったりするところなので、現時点では仕方がないかなと思うところでありますが、もし何か改善がありましたら、実施していただいて、業者に色々頼んでる以上、そういう細かいところまで頼めないのかもしれないんですけども、何かできることがあれば対応していただきたいなと思うところです。以上です。</div>
-</div>
-
-<div class="turn reveal" id="t25">
-  <div class="meta"><span class="name">情報システム課長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1569s" data-timestamp="1569"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:09</a>はい。藤川委員のご質問の中に、外部公開サイトのサーバーについてのチェックについてのご質問がございました。委員お見込みの通り、外部サーバーを管理しているベンダーにおいて運用しておりますので、チェックもそのベンダーの方に依頼をしているというところでございます。</div><div class="say">以上です。</div>
-</div>
-
-<div class="turn reveal" id="t26">
-  <div class="meta"><span class="name">藤川賢治</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1601s" data-timestamp="1601"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:41</a>もう外部サーバーしか、ないというような意味に捉えますけど大丈夫ですよね。はい、ありがとうございます。もう今の時代その市がサーバー持って何か管理するってことはないと思いますので、引き続きそのように対応していただければなと思います。以上です。</div>
-</div>
-
-<div class="turn chair reveal" id="t27">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1615s" data-timestamp="1615"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:55</a>他にございますか。ながとり委員。</div>
-</div>
-
-<div class="turn reveal" id="t28">
-  <div class="meta"><span class="name">ながとり太郎</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1620s" data-timestamp="1620"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:00</a>アクションプランを拝見いたしました。アクションプラン実行にあたってのですね、「正解は現場の思考と対話にしかない」「組織の学ぶ力が最大の武器になる」という記載に共感するところでございまして、小金井市の意気込みがすごく感じられるなという風に思いました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1651s" data-timestamp="1651"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:31</a>それで1つ、前回の総務企画委員会のご答弁で、これはDX推進担当課長から頂いたんですけども、基礎自治体でもAIに関するデジタルサービスの活用が市民サービスに大変影響するということ。そして、AIを含む先進技術は特別なものではない。<br />
-<a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1680s" data-timestamp="1680"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:00</a>　職員の日常的なパートナーとして推進すべきということと、それから、もう1つ大事なのは個人情報や重要情報などの漏洩のセキュリティ事項。</div><div class="say">これに関しては、確実に起こらないように守って保護をしていきます、というお話をいただいております。この観点からお伺いしていきます。そしてそのアクションプランの観点からお伺いしていきます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1700s" data-timestamp="1700"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:20</a>まずアクションプランに、DX人材の育成確保の項目がございまして、人材の育成について研修とAIガバナンス、AIガバナンスプロンプトの庁内共有が主な方策ということなんですけれども、DX人材の育成についてもう少し具体的にお考えをお聞かせください。これが1つですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1730s" data-timestamp="1730"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:50</a>それから、AIのさらなる活用についてもう1つお伺いします。<br />
-<a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1743s" data-timestamp="1743"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:03</a>　小金井市が現時点で導入しているのは、チャットGPTベースの対話型生成AIのみという風に私は認識しております。しかし、前回の一般質問でも申し上げましたけれども、この数ヶ月にAI、特にAIエージェント、これ全く別のものなんですけども、急速な進展を遂げております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1775s" data-timestamp="1775"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:35</a>　今まではAIは検索の代わりとして、そこに書き込んでお答えを得るというもの、知識を問うもの、知らないことを尋ねるものというのが、まだまだ例えば無料AIツールを使っている段階の人などではそれが当たり前の認識だと思うんですけれども、実際にプログラミングやパソコン上での操作を代わりにやる、迅速にやる、そういうツール、あるいはもう自分自身でシステムを作る、そういうツールが登場しております。すぐにこれが導入されるとは思いませんけれども、プログラミングやツールの知識がない人材でも迅速な問題解決ができるツールを作成できる状況となってきております。<br />
-<a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1807s" data-timestamp="1807"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:07</a>　最新のAI機能を活用でき、活用できるクラウドAIの利活用は絶対に必要ではないかと考えておりますが、この点はいかがでしょうか。</div>
-</div>
-
-<div class="turn reveal" id="t29">
-  <div class="meta"><span class="name">自治体DX推進担当課長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1838s" data-timestamp="1838"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:38</a>　それでは私から、ながとり委員の1問目、DX人材の育成について答弁させていただきます。</div><div class="say">先月改定いたしました小金井市DX推進方針の中でも、DX推進による市民の満足度向上のため、3つのビジョン、「市民に優しい」、「職員が働きやすい」、「基盤の整備」の実現に向けた取り組みを、市役所全体で意識して取り組むこととしておりまして、市役所のデジタル化の基盤整備、職員の意識改革、人材育成や確保、推進体制の整備などが求められているところでございます。</div><div class="say">アクションプランの方にも明記しておりますけれども、16ある取り組みの1つにですね、DX人材の育成確保を歌っておりまして、限られた人的資源をさらなる行政サービスの向上につなげていくため、DXを支える専門的知識、技術を有する職員を確保するとともに、効果的かつ効率的な職員の能力開発によりまして、DXを推進していく人材を育成していきたいと考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1904s" data-timestamp="1904"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:44</a>具体的には、デジタル人材像、スキル要件を踏まえた育成、確保の方針等の検討・策定の他、データ分析スキル向上のための研修ですとか、業務で使える実践型研修プログラムの実施、AIリテラシー向上のための取り組みを進めていきたいと考えております。以上です。</div>
-</div>
-
-<div class="turn reveal" id="t30">
-  <div class="meta"><span class="name">情報システム課長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1939s" data-timestamp="1939"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:19</a>　はい。AIツールについて、クラウドAIなどの活用と、ガイドラインなどの作成についてのご質問かと思います。</div><div class="say">ご紹介のありましたクラウドAIにつきましては、インターネット経由でクラウド環境にアクセスすることで、クラウドサービスプロバイダーが提供する最新のAI機能を活用できるツールであるとの認識を持ってございます。代表的なものとしては、クラウドサービスプロバイダーのMicrosoft Azure、Amazon Web Services、Googleなどが提供する生成AIアシスタント等が挙げられるかと思いますが、現時点では、生成AI特有の配慮事項として、入力した機密情報を学習させない仕組みを導入するのか、または、機密情報の適切な運用による学習させない利用方法を確立させるのかなどの整理ができてございませんため、導入には慎重になっているところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1971s" data-timestamp="1971"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:51</a>現在、利用している生成AIアシスタントについては、入力した情報学習に利用させない仕組みを採用しており、安全な環境が保たれた上での運用となってございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2004s" data-timestamp="2004"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:24</a>また、現時点で、本市の生成AI利用ガイドラインは独自の作成をしておらず、東京都の生成AI利用ガイドラインを参照としているところでございます。</div><div class="say">クラウドAIの特徴でございます。クラウドコンピューティングの必要な時に必要なだけのリソースを使えるという利点と、AIの大量のデータから学習し高精度な予測や判断を行うといった利点が、組み合わさったサービスを利用することは、感じているところではございますが、今後、こうしたクラウドAIを利用可能とするためには、まずは、ユーザー職員の情報リテラシーをさらに向上させる必要があると考えてございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2034s" data-timestamp="2034"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:54</a>取り扱う機密情報の機密性レベル別分類につきましては、市の情報セキュリティである情報セキュリティ対策基準では、既に改定し、明確化はしているところでございますが、生成AIで取り扱える機密情報のレベルの取り決めと、利用者職員の理解をさらに深める必要があると考えているところでございます。以上でございます。</div>
-</div>
-
-<div class="turn reveal" id="t31">
+<div class="turn reveal">
   <div class="meta"><span class="name">ながとり委員</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2066s" data-timestamp="2066"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:26</a>　情報システム課長、すいません。私、ガイドラインまで聞いてなかったんですけど、お答えいただきました。ありがとうございました。</div><div class="say">まず、この職員のDX人材育成の観点から言いまして、長期的な観点から言えば、生成AI、ごめんなさい、DX推進の人材育成を確保するということは大事だと思うんですけれども、私が今考えているのは、こういう長期的な観点よりもっと早くDXが今進展しておりますので、例えば、職員の中でDXやりたいけどちょっとできない、やってみたいけれども、庁内の仕組みがあまり整ってないからできないというような人材をですね、ぜひ、例えば、この場でそういう話が出てくるかもしれませんし、そういうの得意な、自ら学ぶような人材がいると私は思っておりますので、そういう人材の発掘、長期的に研修などを行いながら育成するのも大事なんですけれども、そういう人が自ら学んでいくような仕組みと、その人材発掘をお願いしたいなと思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2098s" data-timestamp="2098"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:58</a>それから、AI、まだクラウド型のAIは採用していないということ、でありました。これは、もちろんAIエージェントの前の話になってしまいますので、どんどんクラウドエージェントを使っていただきたいということと、それから、それにですね、個人情報や機密情報のプロンプト入力が問題を引き起こす、あるいはこれからDXが進展していく中で、職員自身が萎縮してしまう、つまり、ガイドラインというか、自分がどういうふうにしたら何が起こるかということが分からない状態でAIを使っていけば、当然のことながら、それを使わない方がいいという選択肢になってしまいますから、これ自身は、ぜひともですね、今おっしゃっていただいたガイドライン、まだまだ国の基準とのことだと思うんですけれども、ぜひとも近い将来にですね、そういうガイドラインを作っていただく、あるいはガイドラインのガイドライン、ガイドラインに対してもっと分かりやすい、こういうことが起こったらこういうことが起こります、という情報セキュリティに関する知識を職員に対して、しっかりと浸透させるような仕組みを作っていただきたいなと思っています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2193s" data-timestamp="2193"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:33</a>この数ヶ月で、しつこいようですけれども、AIエージェントなどがすごく急速な進展を遂げております。まだ小金井市においてはクラウドAIも導入していない状況ですけれども、先般も一般質問で取り上げましたけれども、今後の雇用状況や不透明さ、あと業務は増大していくということが、ほぼほぼ確実ではないかと思います。市民サービスの向上や業務の質の向上がさらに求められると思っておりまして、クラウドAIの使用などは当然のこととして、大規模なDXだけでなく、個々の職員が自らの日常の業務を自ら置き換えていく、自ら改善していく、その方策を考えていただければなと思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2224s" data-timestamp="2224"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:04</a>セキュリティや個人情報の方は、その点においても本当に一番重要だと思っておりますので、はい。あ、ごめんなさい、すいません。非常に大事なことだと思っておりますので、と思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2256s" data-timestamp="2256"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:36</a>で、あの、先ほども繰り返しになりますけれども、過剰な懸念によって、職員が無断で、無料のクラウドを例えば使用してしまうとか、それから情報を持ち出して処理をしてしまう、ということがですね、起こってしまうと、せっかくシステム的に例えば、ガバメントクラウドでしっかり守られている、先ほどのサーバーの話もありましたけれども、サーバーはセキュリティがしっかり守られているにも関わらず、人的な原因でセキュリティが守られないという状況は、私も危惧しておりますので、その辺りをしっかりと守るような取り組みをお願いいたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2287s" data-timestamp="2287"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:07</a>こうやって、一つ一つ、しっかりと情報セキュリティを守りながら最新のシステム、あるいはAIを使っていくということは、非常に大きな予算を必要とせずに、この市役所の業務全体の改革が行われると私は思っておりますので、ぜひとも積極的な取り組みをお願いして、質問を終わります。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1626s" data-timestamp="1626"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:06</a>アクションプランを拝見いたしました。アクションプラン実行に当たっての項の、正解は、現場の「試行」と「対話」の中にしかない、組織の「学ぶ力」が、最大の武器になるという記載は、大変共感するところでございまして、神山副市長の意気込みがすごく感じられるなと思いました。</div>
+  <div class="say">一つ、前回の総務企画委員会のご答弁で、これは自治体ＤＸ推進担当課長からいただいたんですけれども、基礎自治体でも、ＡＩに関するデジタルサービスの包摂が市民サービスに大変影響するということ、そして、ＡＩを含む先端先進技術は特別なものではない、職員の日常的なパートナーとして推進すべきだということと、それから、もう１つ大事なのは、個人情報や重要市政情報などの漏えいのセキュリティ事故、これに関しては確実に起こらないように守って、保護をしていきますというお話をいただいております。この観点からお伺いしていきます。そして、そのアクションプランの観点からお伺いしていきます。</div>
+  <div class="say">まず、アクションプランに、ＤＸ人材の育成・確保の項目がございまして、人材の育成について、研修とＡＩガバナンス・プロンプトの庁内共有が主な方策ということなんですけれども、ＤＸ人材の育成について、もう少し具体的にお考えをお聞かせください。これが一つです。</div>
+  <div class="say">それから、ＡＩツールの更なる活用についても、一つお伺いします。小金井市が現時点で導入しているのは、ChatGPTベースの対話型生成ＡＩのみと私は認識しております。しかし、前回の一般質問でも申し上げましたけれども、この数か月に、ＡＩや特にＡＩエージェント、これは全く別のものなんですけれども、急速な進展を遂げております。今までは、ＡＩは検索の代わりとして、そこに書き込んで答えを得るというもの、知識を問うもの、知らないことを尋ねるものというのが、まだまだ、例えば無料ＡＩツールを使っている人などではそれが当たり前の認識だと思うんですけれども、実際にプログラミングやパソコン上での操作を代わりにやる、迅速にやる、あるいは、自分自身でシステムを作る、そういうツールが登場しております。すぐにこれが導入されるとは思いませんけれども、プログラミングやツールの知識がない人材でも、身近な問題解決ができるツールを作成できる状況となってきております。最新のＡＩ機能を活用できるクラウドＡＩの利活用は絶対に必要ではないかと考えておりますが、この点はいかがでしょうか。</div>
 </div>
 
-<div class="turn chair reveal" id="t32">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2351s" data-timestamp="2351"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:11</a>　他にございますか。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">岩佐自治体ＤＸ推進担当課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1818s" data-timestamp="1818"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:18</a>それでは、私から、ながとり委員の１問目、ＤＸ人材の育成について答弁させていただきます。</div>
+  <div class="say">先月、改定いたしました小金井市ＤＸ推進方針の中でも、ＤＸ推進による市民の満足度向上のため、三つのビジョン、市民にやさしい、職員が働きやすい、基盤の整備の実現に向けた取組を、市役所全体で意識して取り組むこととしておりまして、市役所のデジタル化の基盤整備、職員の意識改革、人材育成や確保、推進体制の整備などが求められているところでございます。</div>
+  <div class="say">アクションプランの方にも明記しておりますけれども、16ある取組の一つに、ＤＸ人材の育成・確保をうたっておりまして、限られた人的資源を更なる行政サービスの向上につなげていくため、ＤＸを支える専門的知識・技術を有する職員の確保をするとともに、効果的かつ効率的な職員の能力開発によりまして、ＤＸを推進していく人材を育成していきたいと考えております。具体的には、デジタル人材像・スキル要件を踏まえた育成・確保の方針等の検討・策定のほか、データ分析スキル向上のための研修ですとか、あと、「業務で使える」実践型研修プログラムの実施、ＡＩリテラシー向上のための取組を進めていきたいと考えております。</div>
 </div>
 
-<div class="turn voice reveal" id="t33">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">はい。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">山口情報システム課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=1928s" data-timestamp="1928"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:08</a>ＡＩツールについて、クラウドＡＩなどの活用とガイドラインなどの作成についてのご質問かと思います。ご紹介のありましたクラウドＡＩにつきましては、インターネット経由でクラウド環境にアクセスすることで、クラウドサービスプロバイダーが提供する最新のＡＩ機能を活用できるツールであるとの認識を持ってございます。</div>
+  <div class="say">代表なものとしては、クラウドサービスプロバイダーのマイクロソフトアジュール、アマゾンウェブサービス、グーグルなどが提供する生成ＡＩアシスタント等が挙げられるかと思いますが、現時点では、生成ＡＩ特有の配慮事項として、入力した要機密情報を学習させない仕組みを導入するのか、または、機密性情報の適切な運用による、学習させない利用方法を確立させるのかなどの整理ができてございませんため、導入はしていないところでございます。</div>
+  <div class="say">現在、利用している生成ＡＩアシスタントツールにつきましては、入力した情報を学習に利用させない仕組みを採用しており、セキュアな環境が保たれた上での運用となってございます。</div>
+  <div class="say">また、現時点で、本市の生成ＡＩ利用ガイドラインは独自の作成をしておらず、東京都の文章生成ＡＩ利用ガイドラインを参照としているところでございます。</div>
+  <div class="say">クラウドＡＩの特徴でございます、クラウドコンピューティングの必要なときに必要なだけのリソースを使えるという利点と、ＡＩの大量のデータから学習し、高精度な予測や判断を行うといった利点が組み合わさったサービスを利用するところは、感じているところでございますが、今後、こうしたクラウドＡＩを利用可能とするためには、まずはユーザー職員の情報リテラシーを更に向上させる必要があると考えてございます。</div>
+  <div class="say">取り扱う情報の機密性レベル別分類につきましては、市の情報セキュリティポリシーである情報セキュリティ対策基準では、既に改定し、明確化しているところでございますが、生成ＡＩで取り扱える機密性情報のレベルの取決めと、利用者、ユーザー、職員の理解を更に深める必要があると考えているところでございます。</div>
 </div>
 
-<div class="turn chair reveal" id="t34">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">たゆ委員。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">ながとり委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2071s" data-timestamp="2071"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:31</a>すみません、私はガイドラインまで聞いていなかったんですけど、お答えいただきましてありがとうございました。</div>
+  <div class="say">まず、職員のＤＸ人材育成の観点からいいまして、長期的な観点から言えば、こうやってＤＸ推進の人材育成を確保するということは大事だと思うんですけれども、私が今、考えているのは、長期的な観点よりもっと早く、ＤＸが今、進展しておりますので、例えば職員の中で、ＤＸをやりたいけど、ちょっとできない、やってみたいけれども、庁内の仕組みがまだ整っていないからできないという人材をぜひ、例えばＣｏＣｏチャレの中で、そういう話が出てくるかもしれませんし、そういうものが得意な、自ら学ぶ人材がいると私は思っておりますので、そういう人材の発掘で、長期的に研修などを行いながら育成するのも大事なんですけれども、そういう人が自ら学んでいく仕組みとその人材発掘をお願いしたいなと思っております。</div>
+  <div class="say">それから、まだクラウドベースのＡＩは採用していないということでありました。これはもちろん、ＡＩエージェントの前の話になってしまいますので、どんどんクラウドエージェントをやっていただきたいということと、それから、それに対して、個人情報や機密情報のプロンプト入力が情報漏えいを引き起こす、あるいは、これからＤＸが進展していく中で、職員自身が萎縮してしまう。つまり、ガイドラインというか、自分がどうしたら何が起こるかということが分からない状態でＡＩを使っていけば、当然のことながら、それを使わない方がいいという選択肢になってしまいますから、これ自身はぜひとも、今おっしゃっていただいたガイドラインは、まだまだ国基準と都基準ということだと思うんですけれども、ぜひとも近い将来に、そういうガイドラインを作っていただく。あるいは、ガイドラインのガイドラインで、ガイドラインに対して、もっと分かりやすい、こういうことが起こったらこういうことが起こりますという情報セキュリティに関する知識を、職員に対してしっかりと浸透させる仕組みをつくっていただきたいなと思っています。</div>
+  <div class="say">この数か月で、しつこいようですけれども、ＡＩエージェントなどがすごく急速な進展を遂げております。まだ小金井市においては、クラウドＡＩも導入していない状況ですけれども、先般も一般質問で取り上げましたが、今後の雇用状況や、不透明さ、あと、業務量は増大していくということがほぼ確実ではないかと思います。</div>
+  <div class="say">市民サービスの向上や業務の質の向上が更に求められると思っておりまして、クラウドＡＩの使用などは当然のこととして、大規模なＤＸだけでなく、個々の職員が自らの日常の業務を自ら置き換えていく、自ら改善していく、その方策を考えていただければなと思っております。</div>
+  <div class="say">セキュリティや個人情報の保護は、その点においても本当に一番、一丁目一番地に、非常に大事なことだと思っております。</div>
+  <div class="say">先ほども、もう一度、繰り返しになりますけれども、過剰な懸念によって、職員が無断で無料のクラウドＡＩを、例えば使用してしまうとか、それから、情報を持ち出して処理をしてしまうということが起こってしまうと、せっかくシステム的に、例えばガバメントクラウドでしっかり守られている、小金井市の先ほどのサーバーの話もありましたけど、サーバーはセキュリティがしっかり守られているにもかかわらず、人的な原因でセキュリティが守られないという状況は、非常に私も憂慮しておりますので、その辺をしっかりと守る取組をお願いいたします。</div>
+  <div class="say">こうやって一つ一つ、しっかりと情報セキュリティを守りながら、最新のシステム、あるいはＡＩを使っていくということは、非常に大きな予算を必要とせずに市役所の業務全体の改革が行われると私は思っておりますので、ぜひとも、今後とも積極的な取組をお願いして、質問を終わります。</div>
 </div>
 
-<div class="turn reveal" id="t35">
+<div class="turn reveal">
   <div class="meta"><span class="name">たゆ委員</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2385s" data-timestamp="2385"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:45</a>　あ、いいですか？</div><div class="say">はい。</div><div class="say">えっと、では3つ、どれも端的な質問なんですけれども、伺いたいと思います。</div><div class="say">まず、スライド12番のマイナンバーカードの利活用のところであります。取り残される人がいないようにしてほしいというふうに求めたいんですけれども、マイナンバーカードを、もう一定普及してまして、現時点で、要求することは何かということであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2417s" data-timestamp="2417"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:17</a>日本共産党のマイナンバーカードに対する考え方は、これまでも議会で述べてきた通りでありまして、普及促進はするべきではないと言ってきましたし、普及する中でも取り残される人がいてはならないということも述べてきましたが、改めてちょっとここでも、こういった計画が出てきましたので、マイナンバーカード機能の活用というところで新サービスの検討調整、そして導入ということが示されておりますが、それを行っていく中で、マイナンバーカード取得は義務ではありませんから持ってない人も当然いるわけで、そういった方々が、取り残されないようにすべきだと思いますけれども、いかがでしょうかということです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2447s" data-timestamp="2447"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:47</a>で、次がスライド14ページの教育のデジタル化のところであります。当然、総務企画委員会で答えられる内容での質問になります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2480s" data-timestamp="2480"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:20</a>デジタル学習基盤の活用のところで、週3回以上発表、教職員・生徒同士のやり取りで活用する学習比率というのが目標になってまして、これはですね、当然活用ありきになるべきではないと思っております。</div><div class="say">またその下のAIを活用した個別最適化学習、共同学習で学習場面でのAI活用開始というのがありまして、その学習場面でのAI活用というのは、危険性をはらんでいると思います。AIが考える力に影響するという指摘もありまして、それをしっかりとですね、頭に入れていく必要があると思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2512s" data-timestamp="2512"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:52</a>つまりAIによってすぐに結論が出てしまう、結果が出てしまうので、考えていくプロセスを経ないということが起こる可能性があります。教育内容は教育委員会が考えることでありますけれども、担当課としてはそのいわゆるDXを全庁に進めていく中で、号令をかけていく大きな力が必要だと思うんですけれども、ここの部分については、強引に進めないで教育内容には、干渉・介入しないように、丁寧に慎重に進めていく必要があると思いますけれども、いかがでしょうかということと、あと3つ目、最後が、ちょっとこれは確認的な質問なんですけれども、スライド22ページのDX推進体制の強化で、個別取り組みに住民参加型デジタルプラットフォームを活用した市政推進ということがありまして、これがちょっと、なかなかイメージが捉えられなくて、これを読んだ市民の方もそうだと思いますので、ちょっとその、担当課としてどういったものを具体的にイメージしているのか、先行事例、参考にしている事例などがあったら、ここでご説明いただきたいと思います。以上です。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2395s" data-timestamp="2395"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:55</a>三つ、どれも端的な質問なんですけれども、伺いたいと思います。</div>
+  <div class="say">まず、スライド12番のマイナンバーカードの利活用のところであります。取り残される人がいないようにしてほしいと求めたいんですけれども、マイナンバーカードは一定普及していまして、現時点で要求することは何かということであります。共産党のマイナンバーカードに対する考え方は、これまでも市議会で述べてきたとおりでありまして、普及促進はするべきではないと言ってきましたし、普及する中でも、取り残される人がいてはならないということを述べてきましたが、改めてここでも、こういった計画が出てきましたので、マイナンバーカード機能の活用というところで、新サービスの検討・調整、そして導入ということが示されております。それを行っていく中で、マイナンバーカード取得は義務ではありませんから、持っていない人も当然いるわけで、そういった方々が取り残されないようにすべきだと思いますけれども、いかがでしょうかということです。</div>
+  <div class="say">次が、スライド14ページの教育のデジタル化のところであります。当然、総務企画委員会で答えられる内容での質問になります。デジタル学習基盤の活用のところで、週３回以上「発表・表現、教職員・生徒同士でのやり取り」で活用する学校比率というのが目標になっていまして、これは当然、活用ありきになるべきではないと思っております。</div>
+  <div class="say">また、その下のＡＩを活用した個別最適化学習・協働学習で、学習場面でのＡＩ活用開始というのがありまして、学習場面でのＡＩ活用というのは、危険性が潜んでいると思います。ＡＩは、考える力に影響するという指摘もありまして、それをしっかりと頭に入れていく必要があると思います。つまり、ＡＩによってすぐに結論が出てしまう、結果が出てしまう、なので、考えていくプロセスを経ないということが起こる可能性があります。教育内容は教育委員会が考えることでありますけれども、担当課としては、いわゆるＤＸを全庁に進めていく中で、号令をかけていく大きな力が必要だと思うんですけれども、ここの部分については強引に進めないで、教育内容には干渉、介入しないように、丁寧に進めていく必要があると思いますけれども、いかがでしょうか。</div>
+  <div class="say">あと三つ目、最後が、これは確認的な質問なんですけど、スライド22ページのＤＸ推進体制の強化で、個別取組に、住民参加型デジタルプラットフォームを活用した市政推進ということがありまして、これがなかなかイメージが捉えられなくて、これを読んだ市民の方もそうだと思いますので、担当課として、どういったものを具体的にイメージしているのか、先行事例、参考にしている例などがあったら、ここで披瀝していただきたいと思います。</div>
 </div>
 
-<div class="turn reveal" id="t36">
-  <div class="meta"><span class="name">自治体DX推進担当課長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2640s" data-timestamp="2640"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:00</a>　お答えさせていただきます。まず、マイナンバーカードの利活用でございます。こちらの方は、アクションプランの方にも書かせていただいておりますが、取り組みの背景としましては、健康保険証ですとか運転免許証など各種カード類との併用を始めまして、今後さらに利用するシーンの拡大が想定されております。<br />
-ここら辺の部分につきましては、いろんな関係課等の取り組みもございますし、あと国とか東京都との連携ということもございますので、そこら辺情報共有をしっかりと図りながら適切に対応していきたいと考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2673s" data-timestamp="2673"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:33</a></div><div class="say">それから2点目、教育のデジタル化の部分でございますけれども、ここら辺の部分につきましても関係課と、他議員の方からもご意見ございましたけれども、合意形成をしっかりしながら丁寧に、対応していきたいと考えております。以上です。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">岩佐自治体ＤＸ推進担当課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2614s" data-timestamp="2614"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:34</a>たゆ委員の方から３点、質問を頂きました。私の方で答えられる範囲について、答えさせていただきます。</div>
+  <div class="say">まず、マイナンバーカードの利活用ということでございます。こちらはアクションプランの方にも書かせていただいていますけれども、取組の背景としましては、健康保険証ですとか運転免許証など各種カード類と併合を始めまして、今後、更に利用するシーンの拡大が想定されております。ここら辺の部分につきましては、いろいろな関係課との取組もございますし、国とか東京都との連携ということもございますので、そこら辺は情報共有をしっかりと図りながら、適切に対応していきたいということで考えております。</div>
+  <div class="say">それから、２点目、教育のデジタル化の部分でございますけれども、ここら辺の部分につきましても関係課と、たゆ委員の方からもご意見がございましたけれども、合意形成をしっかりしながら、丁寧に対応していきたいということで考えております。</div>
 </div>
 
-<div class="turn reveal" id="t37">
-  <div class="meta"><span class="name">企画政策課長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2704s" data-timestamp="2704"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:04</a>　はい。議員から3問目ですね。デジタルプラットフォーム、住民参加型デジタルプラットフォームを活用した施策についてご質問いただきました。<br />
-こちらの実は、今回後期基本計画を策定するにあたりまして、広く市民の方に意見を募るために、小金井市版のデシディムという形のを試行的に実施することといたしました。こちらは、いわゆる市民参加型の新たな取り組みとしてデジタルプラットフォームを活用した意見募集を行うという形のものでございますが、こちらのパブリックコメントとはまた異なりまして、意見に対していただいたものに対しフィードバックできたり、または徐々に議論を活性化させることが可能な、そういったツールとなっておりまして、後期計画の策定の意見募集の際に活用させていただいたという経過がございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2735s" data-timestamp="2735"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:35</a><br />
-ただこちら、実際活用は試行的に解説はしましたが、投稿数が4件という形でかなり少ない形で結果としては終わりましたので、こちら反省を踏まえて、今年度どうしていくかということも踏まえて検討していきたいと考えているところでございまして、そのようなツールの取り組みをしていくという形でございます。以上です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2766s" data-timestamp="2766"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:06</a></div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">廣田企画政策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2695s" data-timestamp="2695"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:55</a>たゆ委員から、３問目で、住民参加型デジタルプラットフォームを活用した市政推進について、ご質問を頂きました。</div>
+  <div class="say">実は今回、後期基本計画を策定するに当たりまして、広く市民の方に意見を募るために、小金井市版Ｄｅｃｉｄｉｍという形のものを試行的に実施いたしました。こちらは、いわゆる市民参加型の新たな取組として、デジタルプラットフォームを活用した意見募集を行うという形のものでございますが、パブリックコメントとはまた異なりまして、意見に対する、頂いたものに対してフィードバックできたり、または徐々に議論を活性化させていくことが可能なツールとなっておりまして、後期基本計画の策定の意見募集の際に活用させていただいたという経過がございます。</div>
+  <div class="say">ただ、こちらは実際に活用は、試行的に開設はしましたが、結果としては投稿数が４件というかなり少ない形で終わってしまったので、反省を踏まえて、今年度はどうしていくかということも踏まえて、検討していきたいと考えているところでございまして、そのようなツールの取組をしていくという形でございます。（「ちょっと聞き取れなかったんですけど、デシビルですか」と呼ぶ者あり）Ｄｅｃｉｄｉｍ。（「ありがとうございます」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal" id="t38">
-  <div class="meta"><span class="name">たゆ 久貴</span></div>
-  <div class="say">ちょっと聞き取れなかったんですけど、「デシビル」ですか？</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">たゆ委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2788s" data-timestamp="2788"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:28</a>特に質問はないです。１個目のマイナンバーカードの件と教育のデジタル化のところは、適切な対応、丁寧な対応を行っていただきたいと求めたいと思います。</div>
+  <div class="say">三つ目のところも、住民参加型で実際にプラットフォームを活用した市政推進で、Ｄｅｃｉｄｉｍというものを既に試行していたということで、すみません、私は頭に入っていなくて失礼いたしましたが、どのようなものなのか、私もちゃんと注視していきたいと思っております。</div>
 </div>
 
-<div class="turn reveal" id="t39">
-  <div class="meta"><span class="name">企画政策課長</span></div>
-  <div class="say">「デシディム」です。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">小林委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2833s" data-timestamp="2833"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:13</a>３点ほど質問したいと思います。</div>
+  <div class="say">元々あれだったんですが、せっかく推進方針の方が出てきたので、それに沿って聞きたいと思います。質問は簡単なんですが、まず、取組⑤のところにデジタルポイント事業というのがあるんですけれども、これは、地域通貨みたいなものをイメージした話だったんでしょうか。それについて教えていただきたいのと、どういう方向で検討しているのか、2026年度が検討となっておりますが、検討の方向性について確認したいと思います。</div>
+  <div class="say">それから、同じ取組⑤の地域のデジタル化のところですが、避難所運営のデジタル化というところで、今年と来年の中で内容の検討、令和10年の防災訓練等での運用開始という形になっておりますけれども、そのほかに、今はアクションプラン自体が、平時の対応というのがほとんどであって、防災、震災などが起きたときの対応というのは、避難所運営のデジタル化という、ここだけなのかなという感じも取れるわけですけれども、そのほかの部分で、福祉や健康とかいろいろな部分で、災害時にデジタルを活用した取組などが既に検討されていれば示していただきたいと思いますが、いかがでしょうかということです。</div>
+  <div class="say">それから、取組⑦で、効率的な職場環境の整備というところがございまして、テレワーク制度の確立ということであります。継続的に試行が今年度に行われて、2027年度には本格実施開始・推進となっておりますけれども、改めて、テレワークについて、どういう方向に持っていこうとされているのか。要するに今、庁舎の課題などもございますけれども、４分の１ぐらいが出社しないでいい形をとるとか、それとも、その方自身が窓口に対応しないのであれば、基本的にはどちらでもいいようにしていく。日常的なかなりの会議は、基本はオンラインでやるとか、最終的な市の持っていき方というところで、ビジョンみたいなものを念のために確認しておきたいと思います。</div>
 </div>
 
-<div class="turn reveal" id="t40">
-  <div class="meta"><span class="name">たゆ 久貴</span></div>
-  <div class="say">ありがとうございます。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">岩佐自治体ＤＸ推進担当課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3010s" data-timestamp="3010"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:10</a>小林委員の方から大きく２点、ご質問を頂きました。</div>
+  <div class="say">まず、取組⑤の地域のデジタル化の部分でございますけれども、背景としまして、社会全体でキャッシュレス化ですとか行政手続のオンライン化が加速しております。この変化で、新たな障壁ではなくて、高齢者ですとか子育て世代の方、あと障がいのある方にとっても、新たな利便性となる必要がございますので、支援体制の整備が求められているところでございます。利用サービス等の選定とか実施事業の検討は今後、関係課を踏まえてやっていきたいと思います。</div>
+  <div class="say">利用サービス等の導入の運用開始については、まだ具体的には見えてきておりませんけれども、他市の事例ですとかそういったところも含めまして、より良いサービスになるように検討していきたいということで考えております。</div>
+  <div class="say">それから、取組⑦番の効率的な職場環境の整備ということで、テレワークの部分でご質問を頂きました。こちらは今、試行実施中でございますけれども、将来的に、時間と場所に縛られない、柔軟で生産性の高い働き方の選択が標準となったり、その上で、市民サービスの向上に集中できるデジタルファーストな環境を求めていきたいと思います。</div>
+  <div class="say">様々な課題がある部分もございますけれども、そこら辺は関係課を含めて調整していって、将来的に、それが市民サービスの向上につながるように努めていきたいということで考えております。</div>
 </div>
 
-<div class="turn reveal" id="t41">
-  <div class="meta"><span class="name">たゆ 久貴</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2797s" data-timestamp="2797"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:37</a>　はい。2問、特に質問はないです。1個目のマイナンバーカードの件と、教育のデジタル化のところは、適切な対応、丁寧な対応を行っていただきたいと求めたいと思います。<br />
-3つ目のところも、住民参加型デジタルプラットフォームを活用した市民推進と、デシディムというものを、既に試行していたということで、すいません、私頭に入ってなくて失礼いたしましたが、どのようなものなのか私もちゃんと視していきたいと思っております。以上です。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">佐々井地域安全課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3134s" data-timestamp="3134"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:14</a>災害時のデジタル化の対応についてでございます。委員がご紹介のとおり、アクションプランにおきましては、避難所へのデジタル化というところで、そこを検討しております。</div>
+  <div class="say">それ以外のところなんですが、スライド12のマイナンバーカードの利活用のところに例として記載しておりますが、こちらも避難所の関係になるんですが、入所対応のデジタル化、これは例としてマイナンバーカードの活用を書いてありますが、そういうものでスムーズなというか、確実な避難者の受入れ体制というのをデジタル化できればと考えております。</div>
+  <div class="say">それ以外の部分につきましては、今年度、東京都市長会の方で、災害対応の部分に関して力を入れてくださって、いろいろなメニューを用意してくださるということを聞いておりますので、その中で、デジタル化の対応も研究・検討をしていきたいと考えております。</div>
 </div>
 
-<div class="turn chair reveal" id="t42">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2828s" data-timestamp="2828"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:08</a>　他にございますか？小林さん。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">小林委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3206s" data-timestamp="3206"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:26</a>議事進行。２問目で聞くことは聞くんですが、１問目のデジタルポイント事業については、これは地域通貨の事業というイメージなのかということを聞いているので、それをシンプルに答えていただければと。</div>
 </div>
 
-<div class="turn reveal" id="t43">
-  <div class="meta"><span class="name">小林正樹</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2859s" data-timestamp="2859"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:39</a>　3点ほど質問したいと思います。元々あれだったんですが、せっかく推進方針の方が出てきたので、それに沿って聞きたいと思いますが、質問は簡単なんですが、まず取り組み後のところにあるデジタルポイント事業というのがあるんですけども、これって地域通貨みたいなものをイメージした話だったんでしょうか？<br />
-それについて教えていただきたいのと、どういう方向で検討しているのかというですね、26年度が検討となっておりますが、その検討の方向性について確認したいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2892s" data-timestamp="2892"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:12</a></div><div class="say">それから、同じ取り組み後の地域のデジタル化のところですが、避難所運営のデジタル化というところで、今年と来年の中で内容の検討、令和10年の防災訓練等での運用開始というような形になっておりますけれども、その他、今アクションプラン自体が、やはりこの平時の対応というのがほとんどであって、防災、何か震災などが起きた時の対応というのはこの避難運営のデジタル化という、ここだけなのかなというような感じも取れるわけですけども、その他の部分で、福祉や健康とか、いろんな部分で、災害時にそのデジタルを活用した取り組みなどが、検討されていれば示していただきたいと思いますがいかがでしょうかということです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2923s" data-timestamp="2923"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:43</a></div><div class="say">それから取り組みの7のところで効率的な職場環境の整備というところございまして、テレワーク制度の確立ということであります。継続的に試行が今年度行われて、2027年度には本格実施開始推進というようになっていますけれども、改めてこのテレワークについて、どういう方向に持っていこうとされているのかというですね、要するにその今庁の課題などもございますけれども、1/4ぐらいが出社しなくていいような形を取るとかですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2954s" data-timestamp="2954"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:14</a><br />
-それともその方自身が窓口に対応しないのであれば、基本的にはどちらでもいいようにしていく。日常的な庁内の会議は、基本オンラインでやるとかですね。その最終的な市の持っていき方というところで、ビジョンみたいなものを念のため確認をしておきたいと思います。以上です。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">岩佐自治体ＤＸ推進担当課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3248s" data-timestamp="3248"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:08</a>直接的には、続く地域通貨ということで、直接的なところは関係しないということで聞いておりますけれども、そこら辺も踏まえて、調整を図っていきたい、できることはやっていきたいと考えております。</div>
 </div>
 
-<div class="turn reveal" id="t44">
-  <div class="meta"><span class="name">DX推進担当課長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=2985s" data-timestamp="2985"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:45</a>　はい。小林委員の方からですね、2点ご質問の方いただきました。まず取り組みの地域のデジタル化の部分でございますけれども、こちらの背景としましてですね、社会全体でキャッシュレス化ですとか行政手続きのデジタル化ですね、進んでおります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3035s" data-timestamp="3035"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:35</a><br />
-この変化でですね、新たな障壁ではなくて、高齢者ですとか、子育て世代の方、障害のある方にとっても、新たな利便性となる必要がございますので、支援体制の整備が求められているところでございます。<br />
-利用サービス等の選定とか実施事業の検討はですね、今後、関係課踏まえてやっていきたいと思います。利用サービス等の導入の運用開始についてはまだ具体的には見えてきておりませんけども、他市の事例ですとかそういったところも含めましてですね、今よりサービスになるように検討していきたいと考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3066s" data-timestamp="3066"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:06</a></div><div class="say">それからですね、取り組み丸7番の、効率的な職場環境の整備ということで、テレワークの部分ですね、ご質問の方いただきました。こちらはですね、今試行実施中でございますけれども、将来的にですね、時間と場所に縛られない柔軟で生産性の高い働き方の選択が標準となったりですね、その上でですね、市民サービスの向上に集中できるデジタルファーストな環境を求めていきたいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3098s" data-timestamp="3098"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:38</a><br />
-様々課題がある部分もございますけれども、そこら辺に関係課含めて調整していってですね、将来的にそれが市民サービスの向上につながるように努めていきたいと考えております。以上です。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">小林委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3267s" data-timestamp="3267"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:27</a>ご答弁をありがとうございます。</div>
+  <div class="say">デジタルポイント事業については、地域通貨とは異なるという話でしたけれども、それをダブルスタンダードでやっていくと市民の方も混乱するのかなと思って、既にやられているところというのは、スマートフォンでもできるし、デジタルデバイド対応で、カードでやることもできる。小金井市でイメージすると、さくらポイントカードに代わるもので、全てのいろいろな市内事業者で、いろいろな環境のいろいろな世代の人が皆さん使えるようになる。もっと言えば、例えば今回、5,000円が４月後半から配られますけれども、そういったところも、デジタルポイントのところにぽんと行って使える。さらに、一般質問でも少し出ていましたけれども、東京アプリみたいなものとも連携をして、いろいろなポイントが集められていく、それが地域で使える。いろいろ今、ボランティアも地域でやっていただいていますけれども、いろいろなポイント事業がばらばらにあるので、それを一つにしていくというのも必要ですし、そういったところのボランティアの成り手不足というところで、都内では、運動会の見守りとか、保護者が通常、何も言わずにやっていたことが、そういったものもポイントで何か還元されることで、ボランティアの参加者も増えていく。そんな取組を、この間、視察で行ったところですかね、４年前に。そういったところも、千葉でしたけれども、一括してやることによって、それにスケールメリットが出るという取組をしていたと思うんですが、今のお話だと、それぞれでまた検討していきたいということでありまして、この表を見ると、「全ての課」となっていたので、経済課とか教育委員会というところも全部一緒に検討していくので、大丈夫な方向なのかなと思ったんですが、ちょっと今の答弁を聞いて心配になりましたが、その辺、今、私が説明したことを踏まえて、そういえば一緒でしたという話なのか、これをあえて別々に考えていくんだということなのか、今後の展開によって考えていくのか、改めて伺っておきたいと思います。</div>
+  <div class="say">避難所運営のデジタル化について、ご答弁をいただきました。取組12のマイナンバーカード、これも多分、基本的にはここの部分ですよね。同じ、避難所運営の受付のところが一番混乱しますので、そういったところで、マイナンバーカードを使って受付をするという取組というのも増えていると思っております。</div>
+  <div class="say">それ以上のことが、突然聞きましたので答えが出なかったので、これは資料要求をお願いしたいんですが、全庁における、防災ＤＸという観点で、災害時に、地域安全の分野もありますね、避難所運営など。また、健康課の医療、高齢者の福祉の環境、そういったことも含めて、いろいろなＤＸを使った対策というのがあると思います、全国の事例の中では。当然、物資の配分ですとかボランティアの対応、情報の収集、集約、また、発信、こういったところをしっかりと一元的に管理しながら、災害対策をやっていくということが必要だと思います。</div>
+  <div class="say">いろいろな技術が出ておりますので、市内でも実はこういうものはあるよ、全然連携はしていないけれども、こういったものがあるんだよと。例えば健康課と医師会では、こういったものがいざというときには有効に活用される。フェーズフリーで、普段使われていることが災害時にもそのまま役立つということを意識して運用されているのであれば、それも含めてで結構です。更にこれから検討していこうというものもあれば、一表にして資料にまとめてお出しいただければなと思いますので、よろしくお願いをいたします。質問はございません。</div>
+  <div class="say">もう１つが、テレワークの件は多分、職員課が答えた方が分かりやすいのか、もし、具体的な将来像というか、ゴールのビジョンが今、答えられないのであれば、資料で頂ければと思いますし、今、答えられるものがあれば、再質問でお答えいただければと思います。</div>
 </div>
 
-<div class="turn reveal" id="t45">
-  <div class="meta"><span class="name">地域安全課長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3131s" data-timestamp="3131"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:11</a>　はい。災害時のデジタル化の対応についてでございます。委員ご紹介の通りですね、アクションプランにおきましては、避難所運営のデジタル化というところでそこを検討しております。<br />
-それ以外のところなんですが、スライド12のですね、マイナンバーカードの利活用のところに例として記載しておりますが、避難所の、こちらも避難所の関係になるんですが、入所対応のデジタル化、これは例としてマイナンバーカードの活用書いてありますが、そういうもので、スムーズなというか確実な、避難者の受け入れ体制というのをデジタル化できればという風に考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3162s" data-timestamp="3162"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:42</a><br />
-それ以外の部分につきましては、今年度、東京都市長会の方で、デジタル化の、すいません、災害対応の部分に関して力を入れてくださって、いろんなメニュー用意してくださるというようなことを聞いておりますので、その中でデジタル化の対応もですね、研究検討していきたいという風に考えております。以上でございます。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">岩佐自治体ＤＸ推進担当課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3570s" data-timestamp="3570"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:30</a>小林委員の方から再質問を頂きました。</div>
+  <div class="say">まず、地域のデジタル化の部分でございますけれども、担当課が全ての課ということになっておりますので、展開によって、地域にも寄与できる仕組みという部分につきましては、他市の事例ですとかそこら辺も踏まえて、関係課とも研究・検討をしていきたいということで考えております。</div>
+  <div class="say">それから、テレワークの具体的な将来像のところでございますけれども、こちらの部分は、最終的には、市民サービスの向上というところが大義名分ということであるかと思います。そのために、まだまだ試行実施ということでやっておりますけれども、課題を含めて、クリアしなければいけないところもあると思いますので、そこら辺は関係課とも連携しながら、乗り越えていきたいなということで考えております。それが、職員の働きやすさとか、将来的には市民サービスの向上にもつながればということで考えております。</div>
 </div>
 
-<div class="turn reveal" id="t46">
-  <div class="meta"><span class="name">小林正樹</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3193s" data-timestamp="3193"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:13</a>　2問目で聞くことは聞くんですが、1問目のですね、デジタルポイント事業についてはこれは地域通貨の事業というイメージなのかということを聞いてるので、それちょっとシンプルに答えていただければ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3243s" data-timestamp="3243"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:03</a><br />
-そっか。全職と。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">西川職員課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3649s" data-timestamp="3649"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:49</a>テレワークの将来的なビジョンということで、職員課の立場でというところですが、職員課としては、働き方改革を推進する上で、テレワークは有効な施策の一つであるという認識でございまして、柔軟な働き方、多様な職員が活用できる環境を提供する制度と捉えております。</div>
+  <div class="say">一方、自治体ＤＸ推進担当課長からもあったかもしれないんですが、課題としては、市民サービスの向上に向けて、テレワークの目標の一つである、業務の効率化というのをどのように図っていくのか、導入に当たっての制度設計につきましては、まだ引き続き試行中というところもございますので、担当課とも連携の上、検討する必要があると考えております。</div>
 </div>
 
-<div class="turn reveal" id="t47">
-  <div class="meta"><span class="name">DX推進担当課長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3243s" data-timestamp="3243"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:03</a>　はい。DX推進担当課長。<br />
-直接的にはですね、地域通貨ということで、直接的なところは関係しないということで聞いておりますけども、そこら辺も踏まえてですね、調整の方は図っていきたいで、できることはやっていきたいという風に考えております。以上です。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">冨田防災安全担当部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3702s" data-timestamp="3702"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:42</a>防災ＤＸの観点での資料のご要求をいただいたかと思っております。要求委員と調整の上、提出できるものは提出いたしたいと考えております。</div>
 </div>
 
-<div class="turn reveal" id="t48">
-  <div class="meta"><span class="name">小林正樹</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3273s" data-timestamp="3273"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:33</a>　ご答弁ありがとうございます。デジタルポイント事業については、地域通貨とは異るという話でしたけども、それ、ダブルスタンダードでやっていくと結構市民の方も混乱するのかなと思って、既にやられているようなところっていうのは、スマホでもできるし、デジタルデバイド対応でカードでやることもできると。<br />
-小金井でイメージすると桜ポイントカードに代わるようなもので、全てのいろんな市内事業者で、いろんな環境のいろんな世代の人が皆さん使えるようになる。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3307s" data-timestamp="3307"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:07</a><br />
-もっと言えば、例えば今回5000円が4月後半から配られますけども、そういったところもこのデジタルポイントのところにボンと行って、使える形をしていろんなポイントがこう集められていく。で、それが地域で使える。<br />
-いろんな、今ボランティアも地域でやっていただいてますけども、いろんなポイント事業がこうバラバラにあるので、それを1つにしていくというのも必要ですし、そういったところボランティアの成り手不足っていうところで、都内では、運動会の見守りとか、そういう、保護者が通常何も言わずにやっていたようなことがですね、そういったものもポイントで何か還元されることで、ボランティアの参加者も増えていく。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3337s" data-timestamp="3337"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:37</a><br />
-そんな取り組みを、この間視察で行ったとこですかね、4年前にね。千葉でしたけども、一括してやることによって総利にスケールメリットが出るというような取り組みをしていたと思うんですが、今のお話だと、それぞれで、また検討していきたいっていうようなことでありまして、この表を見ると、全てってなってたので、経済課とか教育委員会とかそういうところも全部一緒に検討していくので大丈夫な方向なのかなと思ったんですが、ちょっと今の答弁聞いて心配になりましたが、その辺今私が説明したようなことを踏まえて、何か、そういえば一緒でしたっていう話なのか</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3433s" data-timestamp="3433"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:13</a>をするという取り組みも増えていると思っております。<br />
-もう少し詳しいことが、突然聞きましたので答えでなかったので、これは資料要求をお願いしたいんですが、全庁におけるですね、災害時、その防災DXという観点で、災害時に、地域安全の分野もあります。<br />
-例えば医療の分野など、また健康課と医会の、高齢者の福祉の環境、そういったことも含めて、いろいろなこのDXを使った対策というのが、あるかと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3465s" data-timestamp="3465"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:45</a><br />
-全国の事例の中ではですね、当然物資の配分ですとか、ボランティアの対応、情報の収集、集約、また発信、こういったところをしっかりとこの、一元的に管理しながら、防災対策というのを、災害対策をやっていくことが必要だと思います。<br />
-いろんな技術出ておりますので、市内でもう実はこういうのはあるよと、全然連携をしてないけども、こういったものがあるんだよ。<br />
-例えば健康課と医会ではこういったものがいざという時には有効にも活用される、フェーズフリーで、普段使われていることが災害時にもそのまま役立つということを意識して運用されているんであれば、それも含めてで結構です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3528s" data-timestamp="3528"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:48</a><br />
-で、さらにこれから検討していこうというものもあれば、一覧にしてですね、ちょっと資料にまとめて、お出しいただければなと思いますのでよろしくお願いをいたします。<br />
-質問はございません。<br />
-もう一つが何でしたっけ？<br />
-テレワークの件は、多分、あまり考えて、職員課の方が答えた方が分かりやすいのか、もし具体的な将来像というかゴールのビジョンが今答えられないんであれば資料でいただければと思いますし、今答えられるものがあれば再質問でお答えいただければと思います。以上です。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">小林委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3718s" data-timestamp="3718"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:58</a>ありがとうございます。防災ＤＸは今、資料を出していただけるということでありまして、それ以外のデジタルポイントとテレワークのところについては、もう少し検討が必要ということだと思います。</div>
+  <div class="say">何か方向性を資料で出せるタイミングが来たときに、行政報告ではなくて、所管のところでお示しいただきたいなと思いますので、今日はそういったことで申し上げておきたいと思います。</div>
 </div>
 
-<div class="turn reveal" id="t49">
-  <div class="meta"><span class="name">自治体DX推進担当課長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3563s" data-timestamp="3563"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:23</a>　小林委員の方から再質問をいただきました。<br />
-まず地域のデジタル化の部分でございますけども、こちらの部分ですね、担当課が全ての課ということでなっておりますので、展開によってですね、地域にも寄与できる仕組みという部分につきましては、他市の事例ですとか、そこら辺も含めてですね、関係部署とも研究の方をしていきたいということで考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3597s" data-timestamp="3597"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:57</a></div><div class="say">それから、テレワークの具体的な将来像のところでございますけども、こちらの部分はですね、最終的にはやはり市民サービスの向上というところが大義名分であるかと思います。<br />
-そのためにですね、まだまだ途上ということでやっておりますけども、課題含めてですね、クリアしなきゃいけないところもあると思いますので、そこら辺はですね、関係部署も連携しながらですね、乗り越えていきたいなということで考えております。<br />
-それがですね、職員の働きやすさとか、将来的にはですね、市民サービスの向上にもつながればということで考えております。以上です。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3754s" data-timestamp="3754"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:34</a>とても簡単な質問でございます。資料をありがとうございます。非常に重厚で、見やすく作っていただきまして。</div>
+  <div class="say">私がお尋ねしたいのは、スライドの９番のところなんですけれども、「市民にやさしい」とございます。たまたま市民の方たちとお話ししている上で、ＤＸ化についてお話しすると、基盤的なことだったり、バックヤードの部分だったりということで聞かれることが多いんですが、いえいえ、違うんですよ、使う側、市民の目線に立って、非常にやりやすい、使いやすい市役所になるんですよと言うと、へえーとみんなびっくりしてくださって、それは早く進められるといいねという話になるんですけれども、それで、先ほど、たゆ委員からも、漏れのないように進めてほしいということがありましたけれども、それに関連する話なんですけれども、ここの個別取組に、「行かない」「待たない」「書かない」、そして「迷わない」。すごいな、ついにいよいよこういうふうに小金井市はなっていくんだと思っているところでございます。</div>
+  <div class="say">ただ、いかにデジタル化が進もうとも、それにみんながみんな、ついていっているわけではないなと非常に感じることが最近、とても多くあります。いろいろ商業施設やお店で物を買った際、精算所に並びます。そうすると随分ご高齢の方たちが、スマートフォンを出しながら決済される方たちをよく拝見するんですけれども、それが必ずしもするっと流れていくわけではなく、いえいえ違うんですよと、ちょっと詰まってしまって、分からないからどうやったらいいのと、そこで発生したりします。</div>
+  <div class="say">つまり、どんな状態であっても、どれほど使いやすいデバイスや機器などが出ていたとしても、みんながみんな、それにちゃんと対応できるわけではないんだなと思うんですけれども、ただ残念ながら、「市民にやさしい」のところに、それらに関してどのように対応するかということが、残念なんだけど、ちょっと目線が行っていないのかなというところを感じたところでございます。</div>
+  <div class="say">もし、そういったことで、他市との連携もあるかと思うんですけれども、何か今、お考えだったり、いろいろな情報とかを集めていらっしゃるということがあったら、教えていただければと思います。</div>
 </div>
 
-<div class="turn reveal" id="t50">
-  <div class="meta"><span class="name">職員課長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3649s" data-timestamp="3649"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:49</a>　はい。テレワークの将来的なビジョンということで職員課の方の立場でというところですが、職員課としては働き方改革を推進する上で、テレワーク有効な施策の1つであるという認識でございまして、柔軟な働き方、多様な職員が活用できる環境を提供する制度というふうに捉えております。</div><div class="say">一方、DX担当課長からもあったかもしれないんですが、課題としては、市民サービスの向上に向けて、テレワークの目標の1つである業務の効率化というのをどのように図るのか、導入にあたっての制度設計につきましては、まだ引き続き検討中というところもございますので、関係部署とも連携の上、検討する必要があると考えております。以上です。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">岩佐自治体ＤＸ推進担当課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3907s" data-timestamp="3907"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:07</a>吹春委員から、市民にやさしい、使いやすいという観点でご質問を頂きました。</div>
+  <div class="say">ご指摘いただきました、取組①のフロントヤード改革の推進のところには、そのような表記はないんですけれども、取組⑤に、地域のデジタル化というところでございますけれども、個別取組の中で、デジタルデバイド向けの支援ということで、講座とか相談会等も載せております。いろいろな立場の方がいらっしゃると思いますので、デジタルの方は急速に発展してきている中でございますけれども、誰一人取り残されないということで、それぞれ使い勝手等もございますので、そこら辺は、多くの市民の方に使いやすくできるサービスをつくっていきたいということで考えていますし、現時点でできることは発信していきたいということで考えていますし、あと、各市でいろいろな取組をやっていますので、東京都全体で取組を共有する機会もございますので、そういった機会を捉えて、より良いものについては採用して、関係課とも協議しながら、一人でも多くの方に使いやすいサービスとなるように努めていきたいということで考えております。</div>
 </div>
 
-<div class="turn reveal" id="t51">
-  <div class="meta"><span class="name">防災安全担当部長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3690s" data-timestamp="3690"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:30</a>　はい。防災DXの観点での資料のご要求をいただいたかと思っております。<br />
-要求議員と調整の上提出できるものは提出いたしたいと考えております。以上です。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3996s" data-timestamp="3996"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:36</a>ご答弁いただきまして、ありがとうございます。</div>
+  <div class="say">これは小金井市だけで起こっていることに対して、小金井市だけで考えるのも大事だと思うんですけれども、他市でとか、先進的にこういう取組があるよというところがあったら、ぜひともそれらを、アンテナを高くして吸収していただいて、改善につなげていっていただければと思いますので、どうぞよろしくお願いいたします。</div>
 </div>
 
-<div class="turn reveal" id="t52">
-  <div class="meta"><span class="name">小林正樹</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3718s" data-timestamp="3718"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:58</a>　ありがとうございます。防災DXは今資料を出していただけるということでありまして、それ以外のデジタルポイントとテレワークのところについては、もう少し検討が必要ということだと思います。<br />
-何か方向性、資料で出せるようなタイミングが来た時にですね、この所管で、行政報告ではなく、所管のところでお示しいただきたいなと思いますので、今日はそういったことで申し上げておきたいと思います。以上です。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3999s" data-timestamp="3999"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:39</a>他にございますか。（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal" id="t53">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3751s" data-timestamp="3751"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:31</a>　他はございますか？</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4028s" data-timestamp="4028"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:08</a>以上で、本件に対する現時点での質疑を終了することにご異議ありませんか。（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal" id="t54">
-  <div class="meta"><span class="name">吹春やすたか</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3756s" data-timestamp="3756"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:36</a>　はい。簡単な質問でございます。<br />
-資料ありがとうございます。非常に重厚で、見やすく作っていただきまして、私が質問しますのはスライドの9番のところなんですけども、市民に優しいとございます。<br />
-たまたま市民の方たちとお話ししている上でそのDXについてお話しすると、何か結構基盤的なことだったりとかバックヤードの整理部分だったりとか、そういうことで聞かれること多いんです。<br />
-いやいや違うんですよ、使う側市民の目線にとって非常にやりやすいような、使いやすい市役所になるんですよということを皆驚いてくださって、それ早く進めるといいなって話になったんですけども、それで、先ほどたゆ委員からもですね、漏れのないように進めてほしいということがありましたけども、それに関連するような話なんですけども、ここの個別取り組み「行かない、待たない、書かない」そして「迷わない」。すごいなと、いよいよこういうふうに小金井市になるんだなと思っているところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3812s" data-timestamp="3812"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:32</a><br />
-ただですね、いかにデジタル化が進もうとも、それにみんながみんなついていってるわけじゃないなというのを非常に感じることが最近とても多くあります。<br />
-まず、いろいろ物を買った時、商業施設やお店で物を買った際、レジで並びます。そうすると随分ご高齢の方たちがスマートフォンを出しながら決済される方たちをよく拝見するんですけども、それが必ずしもすっと流れていくわけではなく、いやいや違うんですよってちょっと詰まってしまって、いや分からないからどうやったらいいのってそこで発生したりとかします。<br />
-つまり、どんな状態であっても、どれほど使いやすいデバイスや機器などが出てたとしても、とてもみんながみんなそれにちゃんと対応できるわけではないんだろうなと思うんですけども、ただ残念ながらこの市民に優しいところに、それに関連してどのように対応するかということ、残念だけどちょっと目線が行ってないのかなというところを感じていたところでございます。<br />
-もしそういったことで私からの連携もあろうかと思うんですけども、何か今お考えだったりとか、いろいろな情報とか集めていらっしゃるとかいうことだったら教えていただければと思います。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4037s" data-timestamp="4037"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:17</a>ご異議なしと認め、本件に対する現時点での質疑を終了いたします。</div>
+  <div class="say">お諮りいたします。本件は引き続き調査する必要があると認め、継続調査といたしたいと思います。これにご異議ありませんか。（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal" id="t55">
-  <div class="meta"><span class="name">自治体DX推進担当課長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3909s" data-timestamp="3909"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:09</a>　はい。吹春委員からですね、市民に優しい使いやすいという観点でご質問をいただきました。<br />
-ご指摘いただきました取り組み①のフロントヤード改革の推進のところには、そのような表記はないんですけども、取り組み⑤にですね、地域のデジタル化というところでございますけども、その個別取り組みの中でですね、デジタルデバイド向けの支援ということで、講座や相談会なども載せております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=3940s" data-timestamp="3940"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:40</a><br />
-いろんな方、立場のいらっしゃると思いますので、このデジタルの方はですね、急速に発展してきてる中ではございますけども、誰1人取り残されないということで、それぞれ使い勝手などもございますので、そこら辺はですね、多くの市民の方に、使いやすくできるサービスを作っていきたいということで考えてますし、現時点でできることは発信していきたいということで考えてますし、あと各市、いろんな取り組みをやってますので、東京都全体でですね、取り組みを共有する機会もございますので、そういった機会を捉えてですね、より良いものについては採用して、関係部署とも協議しながらですね、1人でも多くの方に使いやすいサービスとなるように努めていきたいということで考えております。以上です。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4053s" data-timestamp="4053"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:33</a>ご異議なしと認め、本件は継続調査と決定いたしました。</div>
 </div>
 
-<div class="turn reveal" id="t56">
-  <div class="meta"><span class="name">吹春やすたか</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4000s" data-timestamp="4000"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:40</a>　はい。ご答弁いただきましてありがとうございます。<br />
-これはやはり小金井市だけで起こってること、小金井市だけで考えるのも大事だと思うんですけども、やはり他市事例とか、先進的にこういう取り組みがあるよっていうところがあったら、是非ともそれらは精度高くして吸収していただいて改善につなげていっていただければと思いますので、どうぞよろしくお願いいたします。以上です。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4058s" data-timestamp="4058"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:38</a>次に、行政報告を行います。</div>
+  <div class="say">初めに、行政報告１、小金井市教育大綱の策定についてを行います。</div>
+  <div class="say">部局の説明を求めます。</div>
 </div>
 
-<div class="turn chair reveal" id="t57">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4019s" data-timestamp="4019"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:59</a>　他はございますか？</div><div class="say">◯（呼ぶ声）<br />
-<a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4023s" data-timestamp="4023"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:03</a>　はい。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">廣田企画政策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4076s" data-timestamp="4076"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:56</a>小金井市教育大綱の策定について、報告します。</div>
+  <div class="say">地方教育行政の組織及び運営に関する法律第１条の３に基づき、教育、学術及び文化の振興に関する総合的な施策の大綱として、平成27年に、小金井市教育・文化の振興に関する総合的施策の大綱を策定しましたが、策定から一定の期間が経過したこと、また、教育委員会で作成する小金井市教育委員会の教育目標、小金井市教育委員会の基本方針、明日の小金井教育プラン及び小金井市生涯学習推進計画が改定されることを踏まえ、令和８年３月に、新たな小金井市教育大綱を策定しました。</div>
+  <div class="say">策定の経過としましては、令和７年12月11日の総務企画委員会において、小金井市教育大綱（案）を令和７年11月20日から同年12月19日までの間、パブリックコメントを実施している旨の報告を行いましたが、その後のパブリックコメントの結果については、６人の方から延べ11件のご意見を頂いたところです。</div>
+  <div class="say">ご意見については、具体的な教育施策に対するご意見が多くを占めており、小金井市教育大綱（案）から修正を加えた部分はございませんでした。</div>
+  <div class="say">この結果を踏まえ、令和８年２月10日開催の総合教育会議において、パブリックコメントの意見及び検討結果を報告し、策定についてご承認いただいたことから、小金井市教育大綱として策定したものでございます。</div>
+  <div class="say">小金井市教育大綱については、既に市報、市ホームページ及び市公式ＳＮＳにおいて周知を行っています。</div>
+  <div class="say">報告は以上です。</div>
 </div>
 
-<div class="turn chair reveal" id="t58">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4023s" data-timestamp="4023"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:03</a>　よろしいですか。はい、以上で本件に対する現時点での質疑を終了することにご異議ありませんか。</div><div class="say">◯（呼ぶ声）<br />
-<a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4034s" data-timestamp="4034"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:14</a>　異議なし。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4167s" data-timestamp="4167"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:27</a>これから質疑を行います。（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal" id="t59">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4037s" data-timestamp="4037"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:17</a>　ご異議なしと認め、本件に対する現時点での質疑を終了いたします。<br />
-お諮りいたします。本件は引き続き調査する必要があると認め、継続調査といたしたいと存じます。これにご異議ありませんか。</div><div class="say">◯（呼ぶ声）<br />
-<a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4054s" data-timestamp="4054"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:34</a>　異議なし。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4176s" data-timestamp="4176"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:36</a>以上で、本件に対する質疑を終了することにご異議ありませんか。（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal" id="t60">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4055s" data-timestamp="4055"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:35</a>　ご異議なしと認め、本件は継続審査と決定いたしました。</div><div class="say">次に行政報告を行います。<br />
-始めに行政報告1「小金井市教育大綱の策定について」を行います。<br />
-部局の説明を求めます。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4185s" data-timestamp="4185"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:45</a>ご異議なしと認めます。したがって、本件に対する質疑を終了いたします。</div>
 </div>
 
-<div class="turn reveal" id="t61">
-  <div class="meta"><span class="name">企画政策課長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4071s" data-timestamp="4071"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:51</a>　はい。小金井市教育大綱の策定について報告します。<br />
-地方教育行政の組織及び運営に関する法律第1条の3に基づき、教育学術及び文化の振興に関する総合的な施策の大綱として平成27年に、小金井市教育文化の振興に関する総合的施策の大綱を策定しましたが、策定から一定の期間が経過したこと、また、教育委員会で作成する小金井市教育委員会の教育目標、小金井市教育委員会の基本方針、新たな小金井教育プラン及び小金井市生涯学習推進計画が改定されることを踏まえ、令和8年3月に新たな小金井市教育大綱を策定しました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4096s" data-timestamp="4096"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:16</a><br />
-策定の経過としましては、令和7年12月11日の総務企画委員会において、小金井市教育大綱案を、令和7年11月20日から同年12月19日までの間、パブリックコメントを実施している旨の報告を行いましたが、その後のパブリックコメントの結果については、6人の方からのべ11件のご意見をいただいたところです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4128s" data-timestamp="4128"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:48</a><br />
-ご意見については具体的な教育政策に対するご意見が多くを占めており、小金井市教育大綱案から修正を加えた部分はございませんでした。<br />
-この結果を踏まえ、令和8年2月10日開催の総合教育会議においてパブリックコメントの意見及び検討結果を報告し、策定についてご承認いただいたことから、小金井市教育大綱として策定したものでございます。<br />
-小金井市教育大綱についてはすでに市報、市ホームページ及びSNSにおいて周知を行っています。報告は以上です。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4190s" data-timestamp="4190"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:50</a>次に、行政報告２、小金井市行財政改革2030の策定についてを行います。</div>
+  <div class="say">部局の説明を求めます。</div>
 </div>
 
-<div class="turn chair reveal" id="t62">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4165s" data-timestamp="4165"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:25</a>　これから質疑を行います。<br />
-ありませんか。ない。じゃあ終わっていいですかね。はい。以上で本件に対する質疑を終了することにご異議ありませんか。</div><div class="say">◯（呼ぶ声）<br />
-<a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4188s" data-timestamp="4188"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:48</a>　なし。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">森行政経営担当課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4204s" data-timestamp="4204"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:04</a>小金井市行財政改革2030の策定について、ご報告いたします。</div>
+  <div class="say">令和８年３月19日の行財政改革審議会において市長に対し提出された答申を踏まえ、３月24日及び３月31日に、行財政改革再建推進本部を開催し、３月31日の同本部において、小金井市行財政改革2030が承認され、正式に策定をしたところでございます。</div>
+  <div class="say">市議会に対しては、議会事務局を通じて４月７日に、行財政改革審議会答申及び小金井市行財政改革2030を配布しております。</div>
+  <div class="say">また、市ホームページ及び市報５月１日号での公表及び各施設への設置を行う予定でございます。</div>
+  <div class="say">さらに、職員への周知を目的に、庁内に向けた説明会を実施する予定でございます。</div>
+  <div class="say">報告は以上です。</div>
 </div>
 
-<div class="turn chair reveal" id="t63">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4189s" data-timestamp="4189"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:49</a>　ご異議なしと認めます。従って本件に対する質疑を終了いたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4192s" data-timestamp="4192"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:52</a></div><div class="say">次に行政報告2「小金井市行財政改革2030の策定について」を行います。<br />
-部局の説明を求めます。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4263s" data-timestamp="4263"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:03</a>これから質疑を行います。（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal" id="t64">
-  <div class="meta"><span class="name">行政経営担当課長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4200s" data-timestamp="4200"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:00</a>　小金井市行財政改革2030の策定についてご報告いたします。<br />
-令和8年3月19日の行財政改革審議会において市長に対し提出された答申を踏まえ、3月24日及び3月31日に行財政改革推進本部を開催し、3月31日の同本部において小金井市行財政改革2030が承認され、正式に策定をしたところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4226s" data-timestamp="4226"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:26</a><br />
-審議会に対しては議会事務局を通じて4月7日に、行財政改革審議会答申及び小金井市行財政改革2030を配布しております。<br />
-また市報5月1日号での公表及び各施設への設置を行う予定でございます。</div><div class="say">さらに、職員への周知を目的に、庁内向けた説明会を実施する予定でございます。報告は以上です。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4275s" data-timestamp="4275"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:15</a>以上で、本件に対する質疑を終了することにご異議ありませんか。（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal" id="t65">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">告は以上です。これから質疑を行います。ありませんか。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4281s" data-timestamp="4281"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:21</a>ご異議なしと認めます。したがって、本件に対する質疑を終了いたします。</div>
 </div>
 
-<div class="turn voice reveal" id="t66">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">なし。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4287s" data-timestamp="4287"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:27</a>次に、行政報告３、小金井市第７次男女共同参画行動計画の策定についてを行います。</div>
+  <div class="say">部局の説明を求めます。</div>
 </div>
 
-<div class="turn chair reveal" id="t67">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">なしということでよろしいですか。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">中川男女共同参画担当課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4299s" data-timestamp="4299"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:39</a>小金井市第７次男女共同参画行動計画の策定について、ご報告いたします。</div>
+  <div class="say">本計画は、小金井市男女平等基本条例第10条第１項に基づく、男女共同参画施策を総合的かつ計画的に推進するための行動計画として、また、男女共同参画社会基本法、配偶者からの暴力の防止及び被害者の保護等に関する法律、女性の職業生活における活躍の推進に関する法律及び困難な問題を抱える女性への支援に関する法律に規定する市町村基本計画、または市町村推進計画として、令和８年３月に策定しました。</div>
+  <div class="say">本計画の期間は、令和８年度から令和12年度までの５年間とし、基本的な考え方としては、これまでの男女共同参画に関する施策を今後も引き続き推進していくため、第６次男女共同参画行動計画における基本理念及び基本目標を継承しています。</div>
+  <div class="say">また、新たに、困難な問題を抱える女性への支援に関する法律に基づく市町村基本計画を内包することに伴い、複合的な問題を抱えた女性を支援するための各種相談支援の実施を新たに重点施策に加えています。</div>
+  <div class="say">計画の策定に当たっては、男女平等推進審議会に諮問し、令和６年４月１日から令和８年３月31日までの間、11回の審議会を開催して審議していただいたほか、庁内の関係課の課長職で構成する男女共同参画施策推進行政連絡会議等で検討してきました。</div>
+  <div class="say">男女平等推進審議会で取りまとめていただいた素案について、令和７年11月８日に市民懇談会を実施し、令和７年12月12日から令和８年１月13日までの間、パブリックコメントを実施、６人の方から延べ15件のご意見を頂きました。</div>
+  <div class="say">その後、令和３年３月６日付けで、男女平等推進審議会から計画案の答申が提出され、市では、それらを尊重する形で計画を策定しました。</div>
+  <div class="say">今後、本計画に基づく施策について、男女平等推進審議会からご意見を伺うほか、小金井市男女平等基本条例第11条の規定により、男女平等社会の形成の現況及び男女共同参画施策の実施状況について報告書を作成し、毎年度、公表していきます。</div>
+  <div class="say">報告は以上です。</div>
 </div>
 
-<div class="turn voice reveal" id="t68">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">はい。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4458s" data-timestamp="4458"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:18</a>これから質疑を行います。（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal" id="t69">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">以上で本件に対する質疑を終了することにご異議ありませんか。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4461s" data-timestamp="4461"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:21</a>以上で、本件に対する質疑を終了することにご異議ありませんか。（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn voice reveal" id="t70">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">異議なし。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4472s" data-timestamp="4472"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:32</a>ご異議なしと認めます。したがって、本件に対する質疑を終了いたします。</div>
 </div>
 
-<div class="turn chair reveal" id="t71">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">ご異議なしと認めます。従って、本件に対する質疑を終了いたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4288s" data-timestamp="4288"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:28</a>次に行政報告3、小金井市第7次男女共同参画行動計画の策定について行います。部局の説明を求めます。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4479s" data-timestamp="4479"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:39</a>次に、行政報告４、小金井市特定事業主行動計画・第２次女性職員活躍推進プラン（前期）についてを行います。</div>
+  <div class="say">部局の説明を求めます。</div>
 </div>
 
-<div class="turn reveal" id="t72">
-  <div class="meta"><span class="name">男女共同参画担当課長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4300s" data-timestamp="4300"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:40</a>はい。小金井市第7次男女共同参画行動計画の策定についてご報告いたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4312s" data-timestamp="4312"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:52</a>本計画は、小金井市男女平等基本条例第10条第1項に基づく男女共同参画施策を総合的かつ計画的に推進するための行動計画として、また、男女共同参画社会基本法、配偶者からの暴力の防止及び被害者の保護等に関する法律、女性の職業生活における活躍の推進に関する法律及び困難な問題を抱える女性への支援に関する法律に規定する市町村基本計画または市町村推進計画として、令和8年3月に策定しました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4344s" data-timestamp="4344"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:24</a>本計画の期間は令和8年度から令和12年度までの5年間とし、基本的な考え方としては、これまでの男女共同参画に関する施策を今後も引き続き推進していくため、第6次男女共同参画行動計画における基本理念及び基本目標を継承しています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4366s" data-timestamp="4366"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:46</a>また、新たに困難な問題を抱える女性への支援に関する法律に基づく市町村基本計画を内包することに伴い、複合的な問題を抱えた女性を支援するための各種相談支援の実施を新たに重点施策に加えています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4377s" data-timestamp="4377"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:57</a>計画の策定にあたっては男女平等推進審議会に諮問し、令和6年4月1日から令和8年3月31日までの間、11回の審議会を開催して審議していただいた他、庁内の関係課の課長職で構成する男女共同参画推進行政連絡会議等で検討してきました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4399s" data-timestamp="4399"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:19</a>男女平等推進審議会で取りまとめていただいた素案について、令和7年11月8日に市民懇談会を実施し、令和7年12月12日から令和8年1月13日までの間、パブリックコメントを実施、6人の方からの延べ15件のご意見をいただきました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4432s" data-timestamp="4432"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:52</a>その後、令和3年3月6日付けで男女平等推進審議会から計画案の答申が提出され、市ではそれらを尊重する形で計画を策定しました。今後、本計画に基づく施策について男女平等推進審議会からご意見を伺う他、小金井市男女平等基本条例第11条の規定により、男女平等社会の形成の言及び男女共同参画施策の実施状況について報告書を作成し、毎年度公表していきます。報告は以上です。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">西川職員課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4491s" data-timestamp="4491"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:51</a>それでは、小金井市特定事業主行動計画・第２次女性職員活躍推進プランについて、ご報告いたします。</div>
+  <div class="say">女性の職業生活における活躍の推進に関する法律の有効期限が10年延長され、令和18年３月までとなったことから、令和８年３月で計画期間を終了する女性職員活躍推進プランについて、第２次女性職員活躍推進プランを策定いたしましたので、報告します。</div>
+  <div class="say">なお、計画期間につきましては、特定事業主行動計画として一体となっている次世代育成支援プランの最終年度と合わせ、計画期間を令和８年度から令和11年度までの４年間といたします。</div>
+  <div class="say">資料１ページ目の目次をご覧ください。２ページから16ページまでは、令和７年度に策定いたしました第３次小金井市職員次世代育成支援プランとなっており、17ページから23ページまでが、今回策定いたしました第２次小金井市女性職員活躍推進プランとなっております。</div>
+  <div class="say">策定に当たりましては、行動計画の策定等について調査・検討を行うために設置している、庁内組織であります特定事業主行動計画策定等検討委員会を令和７年度中に計３回、開催し、行動計画の内容について検討をいたしました。</div>
+  <div class="say">また、本計画の認知度や取組内容の意識等を調査するため、正規職員を対象としてアンケートを実施し、実態の把握に努めたところでございます。</div>
+  <div class="say">アンケート結果につきましては、64ページ以降に掲載しておりますので、後ほどご確認ください。</div>
+  <div class="say">資料の19ページをご覧ください。１、はじめにの（１）に、特定事業主行動計画及び女性職員活躍推進プランについての説明を記載しております。</div>
+  <div class="say">女性職員活躍推進プランについては、平成28年度から令和７年度の第１次計画に続き、今回、今までのプランにおいて必要な見直しを行い、令和８年度から令和11年度までの４年間の計画として、第２次小金井市女性職員活躍推進プランを策定したものでございます。</div>
+  <div class="say">20ページをご覧ください。（２）は計画期間、（３）が女性職員の活躍の推進に向けた体制整備等についてでございます。</div>
+  <div class="say">２、アンケート調査結果では、プラン策定に当たり実施いたしましたアンケート調査結果から分かる傾向及び状況をまとめております。</div>
+  <div class="say">21ページをご覧ください。３、今までの取組内容では、これまでの女性職員活躍推進プランに基づき実施してきた取組内容をまとめております。</div>
+  <div class="say">４、現在の課題では、アンケート結果等の分析から、課題についてまとめており、（１）では、女性職員の昇任試験申込率を向上させることが必要であること、また、令和７年４月１日現在の管理職の女性割合は20.6％と、前計画策定時の令和３年４月１日に比べて上がったものの、低い割合で推移していることを記載しております。</div>
+  <div class="say">また、次のページの（２）、（３）では、キャリア相談窓口、キャリアデザイン等に関する課題、（４）では、両立支援制度を利用しやすい状況が求められることについて記載しております。</div>
+  <div class="say">５、女性職員の活躍における数値目標及びその取組についてです。現在の課題を踏まえ、目標１を女性管理職比率30％とし、取組内容を設定しております。</div>
+  <div class="say">取組内容の主な変更点は、これまで男性管理監督職を対象に実施してきた女性キャリア支援研修について、女性管理監督職も対象として実施することとし、（２）のとおり、管理監督職のための女性キャリア支援研修を実施し、女性職員のキャリア形成支援及び職場風土づくりを推進します、としました。</div>
+  <div class="say">また、（４）のとおり、職員のモチベーションを高め、能力を最大限に引き出すことによって組織力の向上を目指すことを目的に、これまで取り組んできたキャリアデザインを構築するための取組に加え、ワーク・ライフ・バランスを保つための取組を実施します。</div>
+  <div class="say">また、（５）のとおり、女性職員のキャリア形成支援及び今後の昇任に向けた職員個別の不安払拭を図ることを目的とした女性職員キャリア相談窓口を実施します。</div>
+  <div class="say">また、（６）のとおり、女性職員を対象にした意識調査を定期的に実施し、職員の意識や課題等の把握に努めます。</div>
+  <div class="say">次に、23ページの目標２、目標３については、令和７年度に策定いたしました次世代育成支援プランの目標と同じになっておりまして、目標２、男性職員の育児休業取得率は、前プランの50％から、100％に変更しております。目標３、出産支援休暇及び育児参加休暇取得率は、前プランと同じく100％としております。</div>
+  <div class="say">報告は以上です。</div>
 </div>
 
-<div class="turn chair reveal" id="t73">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">これから質疑を行います。ございませんか。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4815s" data-timestamp="4815"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:15</a>これから質疑を行います。（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn voice reveal" id="t74">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">なし。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4827s" data-timestamp="4827"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:27</a>以上で、本件に対する質疑を終了することにご異議ありませんか。（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal" id="t75">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">以上で本件に対する質疑を終了することにご異議ありませんか。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4831s" data-timestamp="4831"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:31</a>ご異議なしと認めます。したがって、本件に対する質疑を終了いたします。</div>
 </div>
 
-<div class="turn voice reveal" id="t76">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">異議なし。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4839s" data-timestamp="4839"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:39</a>次に、行政報告５、第３次人材育成基本方針「主な事業」の改定についてを行います。</div>
+  <div class="say">部局の説明を求めます。</div>
 </div>
 
-<div class="turn chair reveal" id="t77">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">ご異議なしと認めます。従って、本件に対する質疑を終了いたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4479s" data-timestamp="4479"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:39</a>次に行政報告4、小金井市特定事業主行動計画第2次女性職員活躍推進プラン（前期）についてを行います。部局の説明を求めます。職員課長。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">大久保人事制度等担当課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4851s" data-timestamp="4851"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:51</a>それでは、行政報告５、第３次人材育成基本方針「主な事業」の改定についてでございます。</div>
+  <div class="say">第３次人材育成基本方針においては、計画期間内に取り組む主な事業を定めておりまして、令和３年度から令和７年度までの５年間を計画期間といたしまして、13事業の取組を掲げ、取り組んでまいりました。令和７年度が最終計画年度であったことから、令和８年度から令和12年度までの５年間を計画期間とした主な事業として改定いたしましたので、ご報告させていただきます。</div>
+  <div class="say">今回の改定に当たりましては、庁内から公募した委員等から成る小金井市人材育成実施計画策定等検討委員会を設置し、令和７年度中に計３回、開催いたしました。委員会においては、早稲田大学マニフェスト研究所、人材マネジメント部会への派遣研修事業に参加した職員からの意見等も参考に、改定内容について検討し、庁内の意見募集を経て、取りまとめたものでございます。</div>
+  <div class="say">資料をご覧ください。第３次人材育成基本方針のうち、今回改定をしました主な事業について抜粋をしたものになります。</div>
+  <div class="say">計画期間である令和８年度から令和12年度までの５年間に取り組む主な事業16事業を、第３次人材育成基本方針に掲げる四つのアプローチに沿ってまとめております。</div>
+  <div class="say">これまで取り組んできた13事業については、引き続き実施することとし、本計画期間においては、新たに三つの事業を追加してございます。一つ目が、資料の２ページ目、ナンバー６、デジタル人材の育成・確保、二つ目が資料３ページ目、ナンバー15、多様な採用試験方式の実施、三つ目が同じく３ページ目のナンバー16、市職員の魅力等の発信の３事業でございます。</div>
+  <div class="say">報告は以上でございます。</div>
 </div>
 
-<div class="turn reveal" id="t78">
-  <div class="meta"><span class="name">職員課長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4494s" data-timestamp="4494"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:54</a>それでは、小金井市特定事業主行動計画第2次女性職員活躍推進プランについてご報告いたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4504s" data-timestamp="4504"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:04</a>女性の職業生活における活躍の推進に関する法律の有効期限が10年延長され、令和18年3月までとなったことから、令和8年3月で計画期間を終了する女性職員活躍推進プランについて、第2次職員活躍推進プランを策定いたしましたので報告します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4530s" data-timestamp="4530"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:30</a>なお、計画期間につきましては、特定事業主行動計画として一体となっている次世代育成支援プランの最終年度と合わせ、計画期間を令和8年度から11年度までの4年間といたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4540s" data-timestamp="4540"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:40</a>資料1ページ目の目次をご覧ください。2ページから16ページまでは令和7年度に策定いたしました第3次世代育成支援プランとなっており、17ページから23ページまでが今回策定いたしました第2次職員活躍推進プランとなっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4565s" data-timestamp="4565"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:05</a>策定にあたりましては、行動計画の策定等について調査検討を行うために設置している庁内組織であります、特定事業主行動計画策定等検討委員会を令和7年度中に計3回開催し、行動計画の内容について検討をいたしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4588s" data-timestamp="4588"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:28</a>また、本計画の認知度や取り組み内容の意識等を調査するため、正規職員を対象としてアンケートを実施し、実態の把握に努めたところでございます。アンケート結果につきましては64ページ以降に掲載しておりますので、後ほどご確認ください。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4606s" data-timestamp="4606"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:46</a>資料の19ページをご覧ください。1（1）に特定事業主行動計画及び女性職員活躍推進プランについての説明を記載しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4622s" data-timestamp="4622"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:02</a>女性職員活躍推進プランについては、平成28年度から令和7年度の第1次計画に続き、今回今までのプランにおいて必要な見直しを行い、令和8年度から令和11年度までの4年間の計画として、第2次小金井市女性職員活躍推進プランを策定したものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4638s" data-timestamp="4638"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:18</a>20ページご覧ください。（2）は計画期間、（3）が女性職員の活躍の推進に向けた体制整備等についてでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4648s" data-timestamp="4648"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:28</a>2アンケート調査結果では、プラン策定にあたり実施いたしましたアンケート調査結果から分かる傾向及び状況をまとめております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4659s" data-timestamp="4659"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:39</a>21ページをご覧ください。3、今までの取り組み内容では、これまでの女性職員活躍推進プランに基づき実施してきた取り組み内容をまとめております。4現在の課題ではアンケート結果等の分析から課題についてまとめており、（1）では女性職員の昇任試験申し込み率を向上させることが必要であること。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4682s" data-timestamp="4682"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:02</a>また、令和7年4月1日現在の管理職の女性割合は20.6%と全計画策定時の令和3年4月1日に比べて上がったものの、低い割合で推移していることを記載しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4695s" data-timestamp="4695"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:15</a>また、次のページの（2）（3）ではキャリア相談窓口、キャリアデザイン等に関する課題、（4）では両立支援制度を利用しやすい状況が求められることについて記載しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4708s" data-timestamp="4708"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:28</a>5女性職員の活躍における数値目標及びその取り組みについてです。現在の課題を踏まえ、目標1を女性管理職比率30%とし、取り組み内容を設定しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4722s" data-timestamp="4722"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:42</a>取り組み内容の主な変更点は、これまで男性管理監督職を対象に実施してきた女性キャリア支援研修について、今後は女性管理監督職を対象として実施することとし、（2）の通り管理監督職のための女性キャリア支援研修を実施し、女性職員のキャリア形成支援及び職場風土作りを推進しますとしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4746s" data-timestamp="4746"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:06</a>また（4）の通り職員のモチベーションを高め能力を最大限に引き出すことによって、組織力の向上を目指すことを目的に、これまで取り組んできたキャリアデザインを構築するための取り組みに加え、ワークライフバランスを保つための取り組みを実施します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4765s" data-timestamp="4765"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:25</a>また（5）の通り、女性職員のキャリア形成支援及び今後の昇任に向けた職員個別の不安払拭を図ることを目的とした女性職員キャリア相談窓口を実施します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4780s" data-timestamp="4780"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:40</a>また（6）の通り、女性職員を対象にした意識調査を定期的に実施し、職員の意識や課題等の把握に努めます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4791s" data-timestamp="4791"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:51</a>次に23ページの目標2、目標3については、令和7年度に策定いたしました次世代育成支援プランの目標と同じになっておりまして、目標2男性職員の育児休業取得率は全プランの50%から100%に変更しております。目標3出産支援休暇及び育児休暇取得率は全プランと同じく100%としております。報告は以上です。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4986s" data-timestamp="4986"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:06</a>これから質疑を行います。（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal" id="t79">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">これから質疑を行います。ありませんか。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4989s" data-timestamp="4989"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:09</a>以上で、本件に対する質疑を終了することにご異議ありませんか。（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn voice reveal" id="t80">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">なし。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4997s" data-timestamp="4997"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:17</a>ご異議なしと認めます。したがって、本件に対する質疑を終了いたします。</div>
 </div>
 
-<div class="turn chair reveal" id="t81">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">以上で本件に対する質疑を終了することにご異議ありませんか。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5004s" data-timestamp="5004"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:24</a>次に、行政報告６、小金井市市民葬儀の制度改定についてを行います。</div>
+  <div class="say">部局の説明を求めます。</div>
 </div>
 
-<div class="turn voice reveal" id="t82">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">異議なし。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">江見戸籍係長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5020s" data-timestamp="5020"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:40</a>それでは、提出した資料「小金井市市民葬儀の制度改定について」について、市民課より説明いたします。</div>
+  <div class="say">市民葬儀取扱業者が組織する小金井市市民葬儀連絡協議会からの要望を受けまして、令和８年４月１日付けで、小金井市市民葬儀実施要綱を改正いたしました。市民生活に影響がある内容も含まれていることから、この場でご報告させていただきます。</div>
+  <div class="say">資料中段、３、葬祭料の改定をご覧ください。葬祭料については、消費税増税に伴う増税分の値上げを除き、過去20年以上、値上げをしておりませんが、この度、人件費を始めとした物価高騰を受けまして、葬儀事業者の経営上の理由から、近隣他市並みに改定をしております。</div>
+  <div class="say">また、値上げ後においても、比較的低廉な価格で葬儀ができるよう、利用者からも要望が多かった、直葬という、通夜や告別式を行わずに故人をお見送りできる区分を新たに設けております。</div>
+  <div class="say">４、葬儀内容等の改定をご覧ください。葬祭料のほか、祭壇や装飾品等について、利用者のニーズに柔軟に対応できるようにするなど、利用者にとって分かりやすい改正をしております。</div>
+  <div class="say">５、その他でございます。市民葬儀の制度は、利用者の経済的負担を軽減するため、葬儀事業者の善意とご協力で、ほぼ非営利で運営いただいており、結果として低廉な費用を実現していただいているものでございます。そのため、本改定による市財政への影響はございません。また、葬儀事業者様の経営状況を踏まえ、改定内容は適切と考えております。</div>
+  <div class="say">裏面は、26市の市民葬儀の料金比較となっております。市民葬儀の価格は、公営斎場の有無や葬儀事業者が行うプランによって異なりますので、一概には申し上げられませんが、公営斎場のない自治体では、一般的な価格となっていると考えております。</div>
+  <div class="say">資料説明は以上です。</div>
 </div>
 
-<div class="turn chair reveal" id="t83">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4833s" data-timestamp="4833"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:33</a>ご異議なしと認めます。従って、本件に対する質疑を終了いたします。次に行政報告5、第3次人材育成基本方針主な事業の改定についてを行います。部局の説明を求めます。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5167s" data-timestamp="5167"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:07</a>これから質疑を行います。</div>
 </div>
 
-<div class="turn reveal" id="t84">
-  <div class="meta"><span class="name">人事制度等担当課長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4848s" data-timestamp="4848"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:48</a>はい。それでは、行政報告、第3次人材育成基本方針主な事業の改定についてでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4859s" data-timestamp="4859"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:59</a>第3次人材育成基本方針においては、計画期間内に取り組む主な事業を定めておりまして、令和3年度から令和7年度までの5年間を計画期間といたしまして、13事業の取り組みを掲げ取り組んでまいりました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4882s" data-timestamp="4882"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:22</a>令和7年度が最終計画年度であったことから、令和8年度から令和12年度までの5年間を計画期間とした主な事業として改定いたしましたのでご報告させていただきます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4892s" data-timestamp="4892"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:32</a>今回の改定にあたりましては、庁内から公募した委員等からなる小金井市人材育成実施計画策定等検討委員会を設置し、令和7年度中に計3回開催いたしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4908s" data-timestamp="4908"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:48</a>委員会においては、早稲田大学マニフェスト研究所人材マネージメント部会への派遣研修事業に参加した職員からも意見等も参考に改定内容について検討し、庁内の意見募集を経て取りまとめたものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4928s" data-timestamp="4928"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:08</a>資料をご覧ください。第3次人材育成基本方針のうち、今回改定をしました主な事業について抜粋をしたものになります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4941s" data-timestamp="4941"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:21</a>計画期間である令和8年度から令和12年度までの5年間に取り組む主な事業、16事業を第3次人材育成基本方針に掲げる4つのアプローチに沿ってまとめております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4954s" data-timestamp="4954"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:34</a>これまで取り組んできた13事業については引き続き実施することとし、本計画期間においては新たに3つの事業を追加してございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=4966s" data-timestamp="4966"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:46</a>1つ目が資料の2ページ目ナンバー6、デジタル人材の育成確保。2つ目が資料3ページ目ナンバー15、多様な採用試験方式の実施。3つ目が同じく3ページ目のナンバー16、職員の魅力等の発信の3事業でございます。報告は以上でございます。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">たゆ委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5175s" data-timestamp="5175"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:15</a>少しだけ伺います。資料を頂きまして、人件費等の高騰を受けて、どの業界もなかなか大変な状況だと思うんですけれども、資料の中に、葬儀事業者のご協力をいただいているというところが、それで成り立っている制度であるという説明がありまして、本当にこれは感謝を申し上げるものであります。</div>
+  <div class="say">そこを、具体的に何かというのを聞けたら、聞きたいんですけれども、ご協力というものが、言える範囲でいいんですが、つかんでいるものは何かということを伺います。事業者の方に何か実費の負担が生じているのかとか、また、利益が少なくてもやっていただけるということなのか、伺います。</div>
+  <div class="say">もう１つが、小金井市の改定後の料金が22万4,870円から43万3,870円になるということなんですけれども、他市比較も資料を頂きまして、他市ではそれよりも、高いところもありますけど、低い価格でやっているところもありまして、低い料金設定で実現できているところがあるのはどういった理由なのか、小金井市がなぜそれに倣った金額にできないのかという理由を述べていただきたいと思います。</div>
 </div>
 
-<div class="turn chair reveal" id="t85">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">これから質疑を行います。ありませんか。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">東條市民課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5268s" data-timestamp="5268"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:48</a>たゆ委員から２点、ご質問を頂きました。</div>
+  <div class="say">１点目は、葬祭事業者の方にいただいているご協力はどういったものかというご質問だったかと思います。</div>
+  <div class="say">係長の答弁の方にも触れさせていただいたんですが、市民葬儀というものが、経済的に困窮している方でも、きちんとお見送りということができるための制度ということがございまして、非常に福祉的な観点を持った制度でございます。</div>
+  <div class="say">一方で、市民葬儀という制度に対して、国だとか、東京都だとか市から補助金が入っているわけでもないところですので、あくまで事業者たちが、自分たちの利益の中で、できるだけやってあげたいという気持ちでやっていただいている制度でございまして、本当に利幅がない形で、最低限でもやっていただいているというものになっておりますので、赤字になってはいけない部分で今回、値上げというのをさせていただいているんですけれども、大きく利益をこれで稼ごうとなっていないところが、ご協力いただいている部分かなと思います。</div>
+  <div class="say">２点目が、葬儀料金についてでございます。小金井市よりも安いところ、高いところがあるところで、もっと安くできないのかなというところのご質問だったかと思います。</div>
+  <div class="say">１点目が、まずは公営斎場の有無というところが非常に大きくて、要は火葬料のところが多少、違う部分があるというのが一つでございます。</div>
+  <div class="say">一方で、公営斎場のない、例えばこの表でいう武蔵野市とかは、小金井市よりも若干安い金額で、制度自体はされているというところで、こういったところに何市か、話も聞いてみたところなんですけれども、どちらかというと、物価高騰ですとか人件費の高騰で、値上げをしていれば小金井市と同じぐらい、値上げをしていなければまだそのままというぐらいの違いのような印象はございます。</div>
+  <div class="say">そこがどういう理由かというのは定かではないんですが、例えば小金井市でいうと、年間200件ぐらい利用があるんですけれども、武蔵野市でいうと、年間で50件に満たないぐらいしか利用がないという状況もありまして、結局、先ほど申し上げたとおり、市民葬儀の値段、料金というのが、市側、行政側が決めているというよりも、事業者側の設定する金額がベースになっているというところもございますので、事業者の経営が成り立っているかどうかという違いで、例えば件数の大小だとか、そういったところも影響しているのかなと思います。</div>
 </div>
 
-<div class="turn voice reveal" id="t86">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">なし。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">たゆ委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5455s" data-timestamp="5455"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:30:55</a>状況を伺いました。ありがとうございます。事業者の皆さんのお気持ちで成り立っている事業ということで、改めて理解をするところであります。背景も理解しますし、事業者の要望も本当にそのとおりだと思います。</div>
+  <div class="say">その中で、小金井市として何かできることはなかったのか、検討したのかというのを伺いたいんですけれども、つまり、値上げにならないように、市民の方への助成、また、事業者への助成など、そういった方法もあったのではないかと考えますが、その辺の検討はしなかったのかどうかを伺います。</div>
 </div>
 
-<div class="turn chair reveal" id="t87">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">以上で本件に対する質疑を終了することにご異議ありませんか。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">東條市民課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5492s" data-timestamp="5492"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:32</a>市民葬儀についての市の助成ですとかそういったことを検討されなかったのかというご質問かと思います。</div>
+  <div class="say">これに対して、市の助成だとか補助金ということを検討した経過はございません。</div>
+  <div class="say">ただ一方で、今回の値上げで言いますと、高い方の値上げ幅を見ていただくと、大体10万円ぐらい値上がりがしているんですけれども、これが今回の人件費を始めとした値上げを反映した金額なんです。</div>
+  <div class="say">安い方が20万円から22万円と、２万円しか増えていないのは何かというところになりますが、同じ内容で葬儀をするという形になると、これも30万円ぐらいになってしまうということがあったというところで、安く、まずは最低限、お見送りだけでもしたいという方にとっては、華美なお葬式ではなくてもよいというニーズもあったというところもありまして、先ほど答弁させていただいた直葬というプランを増やさせていただいて、できるだけ値上げはしないようにという配慮はさせていただいたところでございます。</div>
 </div>
 
-<div class="turn voice reveal" id="t88">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">異議なし。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5572s" data-timestamp="5572"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:52</a>他にございますか。（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn chair reveal" id="t89">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">ご異議なしと認めます。従って、本件に対する質疑を終了いたします。</div><div class="say">次に行政報告6、小金井市民葬儀の制度改定についてを行います。部局の説明を求めます。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5576s" data-timestamp="5576"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:56</a>以上で、本件に対する質疑を終了することにご異議ありませんか。（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal" id="t90">
-  <div class="meta"><span class="name">市民部長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5018s" data-timestamp="5018"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:38</a>失礼しました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5020s" data-timestamp="5020"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:40</a>それでは、提出した資料、小金井市市民葬儀の制度改定について、市民部長より説明いたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5029s" data-timestamp="5029"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:49</a>市民葬儀取り扱い業者が組織する小金井市民葬儀連絡協議会からの要望を受けまして、令和8年4月1日付けで小金井市民葬儀実施要綱を改正いたしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5044s" data-timestamp="5044"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:04</a>市民生活に影響がある内容も含まれていることからこの場でご報告させていただきます。資料中段3段目、葬祭料の改定をご覧ください。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5056s" data-timestamp="5056"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:16</a>葬祭料については消費税増税に伴う増税分の値上げを除き、過去20年以上値上げをしておりませんが、この度人件費をはじめとした物価高騰を受けまして、葬儀事業者の経営上の理由から近隣市並みに改定をしております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5077s" data-timestamp="5077"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:37</a>また、値上げにおいても比較的安価な価格で葬儀ができるよう要望が多かった直葬という区分や、告別式を行わずに個人をお見送りできる区分を新たに設けております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5089s" data-timestamp="5089"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:49</a>4葬儀内容等の改定をご覧ください。葬祭料の他、祭壇や装飾品等についても利用者のニーズに柔軟に対応できるようにするなど、利用者にとって分かりやすいような改正をしております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5105s" data-timestamp="5105"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:05</a>5、その他でございます。市民葬儀の制度は利用者の経済的負担を軽減するため、葬儀事業者の善意とご協力で、ほぼ非営利で運営いただいており、結果として安価な費用を実現していただいているものでございます。そのため、本改定による市財政への影響はございません。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5134s" data-timestamp="5134"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:34</a>また、葬儀業者様の経営状況を踏まえ、改定内容は適切と考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5141s" data-timestamp="5141"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:41</a>なお、26ページに市民葬儀の料金比較となっております。市民葬儀の価格は公営斎場や、葬儀事業者が行うプランによって異なりますので、一概には申し上げられませんが、公営斎場の無い自治体では一般的な価格となっていると考えております。資料説明は以上です。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5583s" data-timestamp="5583"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:03</a>ご異議なしと認めます。したがって、本件に対する質疑を終了いたします。</div>
 </div>
 
-<div class="turn chair reveal" id="t91">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">はい、これから質疑を行います。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5588s" data-timestamp="5588"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:08</a>次に、行政報告７、市民協働支援センター再検討委員会における市民まつりの検討状況についてを行います。</div>
+  <div class="say">部局の説明を求めます。</div>
 </div>
 
-<div class="turn voice reveal" id="t92">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">はい。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">伊藤コミュニティ文化課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5605s" data-timestamp="5605"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:25</a>市民協働支援センター再検討委員会における市民まつりの検討状況について、報告いたします。</div>
+  <div class="say">コミュニティ文化課では、令和７年度及び令和８年度の２か年度で、市民協働支援センター再検討委員会を設置して、市民協働支援センター機能の見直しを行い、見直しの一環として、市民まつりの在り方等について整理を行うこととしています。</div>
+  <div class="say">令和８年３月30日に、第４回市民協働支援センター再検討委員会を開催いたしました。第４回再検討委員会では、市民協働に係る近年の他市事例等を共有いたしました。その後、三つのグループに分かれ、平成24年度の答申、小金井市における市民協働及び（仮称）小金井市市民協働支援センターの在り方等についてで整理された、センター機能について重視すべき項目の検討を行い、たくさんのご意見を頂きました。</div>
+  <div class="say">コミュニティ文化課では、市民まつりについては、市民協働支援センター機能のうちの一つである団体等間の交流や担い手発掘、養成分野において取り組むことを想定しております。令和８年度は、委員会を４回開催し、更なる検討に取り組みます。</div>
+  <div class="say">報告は以上です。</div>
 </div>
 
-<div class="turn chair reveal" id="t93">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">はい。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5687s" data-timestamp="5687"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:47</a>これから質疑を行います。（「なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal" id="t94">
-  <div class="meta"><span class="name">たゆ 久貴</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5178s" data-timestamp="5178"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:18</a>少しだけ伺います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5180s" data-timestamp="5180"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:20</a>資料をいただきまして、人件費の高騰を受けて、どの業界もなかなか大変な状況だと思うんですけれども、資料の中に葬儀事業者のご協力をいただいているというところが、それで成り立っている制度であるという説明がありまして、本当にこれは感謝を申し上げるものであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5202s" data-timestamp="5202"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:42</a>で、そこを具体的に何かというのをですね、聞けたら聞きたいんですけれども、そのご協力というものが、言える範囲でいいんですが、掴んでいるものは何かということを伺います。その事業者の方に何か実費の負担が生じているのかとか、また利益が少なくてもやっていただけるということなのか、伺います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5246s" data-timestamp="5246"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:26</a>が生じているのかとか、また利益が少なくてもやっていただけるということなのか、ちょっと伺います。それともう1つが小金井市の、え、改定後の料金が、えっと、約22万4870円から43万3870円になるということなんですけれども、他比較も資料いただきまして、他では、それよりも定な価格、高いところもありますけど、低い価格でやっているところもありまして、そういったところの低い料金設定で実現できているところがあるのは、どういった理由なのかっていうのをですね、小金井市がなぜ、それに倣った金額にできないのかという理由をですね、述べていただきたいと思いました。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5694s" data-timestamp="5694"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:54</a>以上で、本件に対する質疑を終了することにご異議ありませんか。（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn reveal" id="t95">
-  <div class="meta"><span class="name">市民課長</span></div>
-  <div class="say">市民課長です。委員から2点ご質問いただきました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5276s" data-timestamp="5276"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:56</a>1点目ですね、総裁事業者様の方にいただいているご協力はどういったものかというご質問だったかと思います。<br />
-えっとですね、課長の説明答弁の方からにも、ちょっとお触れさせていただいたのですが、この市民葬儀というものがですね、やはり経済的に困窮している方でも、きちっと見送りということができるための制度というものがございまして、非常に福祉的な観点を持った制度でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5310s" data-timestamp="5310"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:30</a>一方で、この市民葬儀という制度に対して、国だとか東京都だとか市から補助金が入っているわけでもないところですので、あくまでその事業者さんたちが、自分たちの利益の中でできるだけやってあげたいっていう気持ちでやっていただいている制度でございまして、本当に利幅がないような形で、最低限でも、やっていただいているっていうものになっておりますので、赤字になってはいけない部分で今回、値上げというのはさせていただいているんですけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5341s" data-timestamp="5341"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:29:01</a>大きく利益をこれで稼ごうというふうに、なっていないというところがご協力いただいている部分かなと思います。</div><div class="say">2点目が葬儀料金についてでございます。小金井市よりも安いところ、高いところがある中で、もっと安くできないのかなというところのご質問だったかと思います。</div><div class="say">1点目がですね、まずは公営上の有無っていうところがやはり非常に大きくて、要は火葬量ですね、そこのところが多少違う部分があるっていうのが1つでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5373s" data-timestamp="5373"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:29:33</a>一方でですね、公営斎場の無い、例えばこの表でいう武蔵野市さんですとか、小金井市よりも若干安い金額で、制度自体はされているというところで、こういったところに何社かですね、話も聞いてみたところなんですけれども、どちらかと言うとですね、この物価高騰ですとか人件費の高騰で値上げをしていれば、小金井市と同じ</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5405s" data-timestamp="5405"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:30:05</a>ぐらい値上げをしていなければまだそのままっていうぐらいの違いのような印象はございます。</div><div class="say">そこがどういう理由かっていうのは定かではないんですが、例えば小金井市で言うと年間200件ぐらい利用があるんですけれども、武蔵野市さんで言うと年間で50件に満たないぐらいしか利用がないっていう状況もありまして、結局この先ほど申し上げた通り市民葬儀の料金というのが、市側、行政側が決めているというよりも、事業者さん側の設定する金額がベースになっているというところもございますので、事業者さんの経営が成り立っているかどうかっていう違いで、例えば数の大小だとかそういったところも影響しているのかなとは思います。以上でございます。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5703s" data-timestamp="5703"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:03</a>ご異議なしと認めます。したがって、本件に対する質疑を終了いたします。</div>
+  <div class="say">以上で、行政報告を終了いたします。</div>
+  <div class="say">以上で、本日の日程は全部終了いたしました。</div>
+  <div class="say">本日は、以上で総務企画委員会を閉会いたします。午前11時32分閉会総務企画委員会所管事項記録午前11時33分総務企画委員会協議会開会</div>
 </div>
 
-<div class="turn reveal" id="t96">
-  <div class="meta"><span class="name">たゆ 久貴</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5467s" data-timestamp="5467"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:07</a>はい、状況伺いました。ありがとうございます。事業者の皆さんの気持ちで成り立っている事業ということで、改めて理解をするところであります。背景も理解しますし、事業者の要望も本当にその通りだと思います。</div><div class="say">その中で小金井市として、何かできることはなかったのか、検討したのかというのをちょっと伺いたいんですけども、つまりですね、その値上げにならないようにその市民の方への助成、また事業者への助成などそういった方向もあったのではないかと考えますが、その辺の検討はしなかったのかどうかですね、伺います。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5790s" data-timestamp="5790"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:30</a>総務企画委員会協議会を開会いたします。</div>
+  <div class="say">初めに、トイレカーの導入の進捗について、吹春委員の発言を許可します。</div>
 </div>
 
-<div class="turn reveal" id="t97">
-  <div class="meta"><span class="name">市民課長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5499s" data-timestamp="5499"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:39</a>えっと、市民葬儀についてのは、まあ、市の助成ですとかそういったことを検討されなかったのかというご質問かと思います。これに対してその市の、助成だとか補助金だとかということを検討した経過はございません。</div><div class="say">一方で今回の値上げで言いますと、あの、えっとですね、高い方の値上げ幅を見ていただくと大体10万円ぐらい値上がりがしているんですけれども、これが今回の人件費を始めとした</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5529s" data-timestamp="5529"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:09</a>値上げを反映した金額なんですね。で、安い方が20万から22万と2万しか増えていないとは何かっていうことになりますが、同じ内容で葬儀をするっていう形になるとやっぱりこれも30万ぐらいになってしまうっていうことがあったっていうところで、やはりこの安く、まずはその最低限送りだけでもしたいっていう方にとっては、過度な、お葬式ではなくても良いというニーズもあったというところもあり</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5560s" data-timestamp="5560"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:40</a>まして、先ほど答弁させていただいた直葬というプランを増やさせていただいて、できるだけ値上げがしないようにという配慮はさせていただいたところでございます。以上です。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5808s" data-timestamp="5808"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:48</a>今年の施政方針で、クラウドファンディングを使って導入されて、トイレカーの配置をということが、記載があったので、予算特別委員会でも数人の方がお尋ねしたところ、まだ何も決まっていないようなご回答でした。当然そうかと思いますけれども、それから新しい体制でスタートされていて、そろそろ取りかかっていらっしゃるのかなと思うところでもございます。</div>
+  <div class="say">できれば、言える部分だけでも構わないので、表に出せる部分だけでも構いませんので、トイレカーについて、どのような形で進捗されているのか、お答えいただければと存じます。</div>
 </div>
 
-<div class="turn chair reveal" id="t98">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">いいですか？</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">佐々井地域安全課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5853s" data-timestamp="5853"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:33</a>トイレカーの進捗についてでございます。本市におけます大きな被害が想定されます、多摩東部を震源とする直下地震が発生した際におけますトイレ環境の整備でございますが、こちらは、避難者の健康維持、更には命を守るための大切な取組であるものと認識しております。</div>
+  <div class="say">熊本地震や令和６年の能登半島地震の教訓からも、劣悪なトイレ環境は、避難者の水分摂取抑制を招き、それが脱水症状やエコノミークラス症候群、ひいては災害関連死の拡大につながるおそれがあるものと、担当としては認識をしております。担当といたしましても、被災者の尊厳を守り、衛生的な環境を確保できる災害用トイレの確保の必要性は認識しております。</div>
+  <div class="say">そこで、委員からご照会がありましたトイレカーにつきましては、現在、担当の方で、先行して導入している自治体の事例の調査を開始した段階でございまして、導入手続であったり導入経費を始め、維持管理費を含めたコスト面、発災時における他自治体との相互支援ネットワークへの加入の在り方などの確認を開始しております。</div>
 </div>
 
-<div class="turn voice reveal" id="t99">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">はい。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">吹春委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5937s" data-timestamp="5937"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:57</a>ご答弁いただきまして、ありがとうございます。いろいろと進める上においては、表に出せない部分もたくさんあるかと思いますが、それは分かっております。大丈夫です。</div>
+  <div class="say">ただ、私はトイレカーの導入について随分以前から、繰り返し質問だったり提案とかをさせていただいておりましたが、ついにやっとというところであると同時に、トイレカーの導入というのは、トイレ防災、災害発災時のトイレ施策において、これは決してゴールではないんです。むしろ新しい始まりだと捉えておかないといけないと、私は思っております。</div>
+  <div class="say">そして、たまたまなんですけど、先日、金沢市の方とお話をする機会がございました。能登半島地震があったとき、金沢市内の方に住んでいらっしゃるらしいんですけれども、その方は、とても揺れた、震度５の地震だった、トイレが使えなくなってしまったと。その方がそういう状況を説明された後、何が必要でしたか、何が一番大事だと思いましたかと聞いたところ、トイレだよとおっしゃったんです。</div>
+  <div class="say">やはりこれは、震災等発災したときに必ず必要になるということで、また改めて思ったということと、小金井市におきましても、医療関係の皆様から、トイレこそ大事だ、もっといろいろと進められるように取り計らっていただけるように、話を進めてほしいということも応援いただいておりますので、これからも注視してまいりますので、どうぞよろしくお願いいたします。ありがとうございます。</div>
 </div>
 
-<div class="turn chair reveal" id="t100">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">他にございますか？</div>
-</div>
-
-<div class="turn voice reveal" id="t101">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">なし。</div>
-</div>
-
-<div class="turn chair reveal" id="t102">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">はい。以上で本件に対する質疑を終了することにご異議ありませんか？</div>
-</div>
-
-<div class="turn voice reveal" id="t103">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">異議なし。</div>
-</div>
-
-<div class="turn chair reveal" id="t104">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">ご異議なしと認めます。従って本件に対する質疑を終了たします。</div><div class="say">次に行政報告7、市民共同支援センター再検討委員会における市民祭りの検討状況についてを行います。部局の説明を求めます。</div>
-</div>
-
-<div class="turn reveal" id="t105">
-  <div class="meta"><span class="name">コミュニティ文化課長</span></div>
-  <div class="say">コミュニティ文化課長。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5592s" data-timestamp="5592"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:12</a>市民共同支援センター再検討委員会における市民祭りの検討状況について、報告いたします。</div><div class="say">コミュニティ文化課では、令和7年度及び令和8年度の2年度で市民共同支援センター委員会を設置して、市民共同</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5623s" data-timestamp="5623"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:43</a>支援センター機能の見直しを行い、見直しの一環として市民祭りのあり方等について整理を行うこととしています。令和8年3月30日に、第4回市民共同支援センター再検討委員会を開催いたしました。</div><div class="say">第4回再検討委員会では、市民共同にかかる近年の他市事例等を共有いたしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5654s" data-timestamp="5654"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:14</a>その後、3つのグループに分かれ、平成24年度の答申、小金井市における市民共同及び仮称、小金井市民共同支援センターのあり方等についてで整理された、センター機能について重視すべき項目の検討を行い、たくさんのご意見をいただきました。</div><div class="say">コミュニティ文化課では、市民祭りについては、市民共同支援センター機能のうちの1つである団体等との交流や、担い手発掘・養成分野において取り組むことを想定しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5686s" data-timestamp="5686"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:46</a>令和8年度は委員会を4回開催し、さらなる検討に取り組みます。報告は以上です。</div>
-</div>
-
-<div class="turn chair reveal" id="t106">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">これから質疑を行います。ございませんか？</div>
-</div>
-
-<div class="turn voice reveal" id="t107">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">なし。</div>
-</div>
-
-<div class="turn chair reveal" id="t108">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">以上で本件に対する質疑を終了することにご異議ありませんか？</div>
-</div>
-
-<div class="turn voice reveal" id="t109">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">異議なし。</div>
-</div>
-
-<div class="turn chair reveal" id="t110">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">ご異議なしと認めます。従って本件に対する質疑を終了いたします。以上で行政報告を終了いたします。以上で本日の日程は全部終了いたしました。本日は以上で総務企画委員会を閉会いたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5724s" data-timestamp="5724"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:24</a>で、関係のない部局は退席していただいて結構です。</div>
-</div>
-
-<div class="turn chair reveal" id="t111">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5791s" data-timestamp="5791"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:31</a>[咳払い] 総務企画委員会協議会を開会いたします。初めに、トイレカード導入の進捗について、吹春委員の発言を許可します。</div>
-</div>
-
-<div class="turn reveal" id="t112">
-  <div class="meta"><span class="name">吹春 やすたか</span></div>
-  <div class="say">はい。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5823s" data-timestamp="5823"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:03</a>えっと、今年の姿勢方針でクラウドファンディングを使って導入されて、トイレカーの配備というふうなことが記載があったので、予算特別委員会でも状況の方がお尋ねしたところまだ何も決まってないようなご回答でした。もちろんそうかと思いますけれども、この新しい体制でスタートされていて、そろそろ取りかかっていらっしゃるのかなと思うところでございます。できれば言える部分だけでも構いませんので、トイレカーについてどのような形で進捗されているのかお答えいただければと存じます。</div><div class="say">以上です。</div>
-</div>
-
-<div class="turn reveal" id="t113">
-  <div class="meta"><span class="name">地域安全課長</span></div>
-  <div class="say">地域安全課長です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5854s" data-timestamp="5854"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:34</a>はい。トイレの進捗についてでございます。本市におけます、首都直下地震が発生した際におけます、環境の整備でございますが、こちらは避難者の健康維持、さらには命を守る上での、大切な取り組みでも認識しております。</div><div class="say">熊本地震や令和6年の能登半島地震の教訓からもですね、劣悪なトイレ環境は、避難者の、水分摂取抑制を招き、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5884s" data-timestamp="5884"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:04</a>それが脱水症状、エコノミークラス症候群、ひいてはですね、災害関連死の拡大につながる恐れがあるものと、担当としては認識をしております。担当といたしましても、被災者の尊厳を守り、衛生的な環境を確保できる災害用トイレの確保の必要性は認識しております。</div><div class="say">そこで議員ご紹介がありましたトイレカーにつきましては、現在、担当の方で先行</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5915s" data-timestamp="5915"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:35</a>して導入している自治体の事例の調査を開始した段階でございまして、導入手続きであったりとか、導入経費を始め、維持管理費を含めたコスト面、発災時における、他自治体との総合支援ネットワークへの加入のあり方などの確認を開始しております。以上でございます。</div>
-</div>
-
-<div class="turn reveal" id="t114">
-  <div class="meta"><span class="name">吹春 やすたか</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5954s" data-timestamp="5954"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:39:14</a>はい、ご答弁いただけました。ありがとうございます。色々と、進める上においては話せない部分もたくさんあるかと思いますが、それは分かっております。大丈夫です。</div><div class="say">ただですね、私このトイレカーの導入について随分以前から繰り返し繰り返し質問だったりとか提案とかさせていただいておりましたが、ついにやっとというところであると同時にトイレの導入というのは、トイレ防災、災害発災時のトイレ政策においてこれ決してゴールじゃないんですね。むしろ新しい始まりだと捉えておかないといけないと私は思っております。</div><div class="say">たまたまなんですけど、先日金沢の方とお話をする機会がございました。能登半島地震があった</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=5985s" data-timestamp="5985"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:39:45</a>時、金沢市内の方に住んでらっしゃるらしいんですけども、その方はとっても揺れたと。震度〇の地震だったと。で、トイレが使えなくなってしまった。その方がそういう状況説明されたと何が必要でしたか？何が一番大事だと思いましたかと聞いたところ、トイレだよと、そんなことをおっしゃったんですね。</div><div class="say">やはりこれはもう災害が発生した時に必ず必要になるということでまた改めて思ったということと、小金井市におきましても、医療関係の皆様からトイレ防災についてもっともっと色々と進めて、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=6018s" data-timestamp="6018"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:18</a>進められるように、働きかけていただけるように話を進めてほしいということも応援いただいておりますので、またこれからも働きかけをしてまいりますので、どうぞよろしくお願いいたします。ありがとうございます。以上です。</div>
-</div>
-
-<div class="turn chair reveal" id="t115">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">えっと、じゃあよろしいですね。はい、以上で所管事項を終了いたします。以上で総務企画委員会協議会を終了たします。お疲れ様でした。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=6153s" data-timestamp="6153"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:33</a>えっと、お疲れ様です。まず、協議事項のまず2です。令和8年第2回定例会閉会中の委員会開催日ということで、協議させていただきたいと思ってます。お手元に3ヶ月の行事予定表をお配りしました。</div><div class="say">見ていただくと分かるのですが、7月ですと22日、23日、29日、8月だと、今見たところだと</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=6186s" data-timestamp="6186"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:43:06</a>7日、17日も良いでしょうかね。17日、21日、26日っていうのも初日の前だから、えっと、いかがでしょう？7月だと21日、あ、ごめんなさい。7月22日、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=6219s" data-timestamp="6219"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:43:39</a>23日、29日、8月ですと7日、17日、21日。8月の7日とかいかがですか？特にこれまでご意見ないので、皆空いているのかなと思ってますが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=6288s" data-timestamp="6288"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:48</a>　7月は全て問題ないですか。7月29日で異議がなければ、この辺りで決めさせていただきますが、よろしいでしょうか。</div>
-</div>
-
-<div class="turn voice reveal" id="t116">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">はい。</div>
-</div>
-
-<div class="turn chair reveal" id="t117">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">では、7月29日水曜日、定例会閉会中の委員会は7月29日。</div>
-</div>
-
-<div class="turn reveal" id="t118">
-  <div class="meta"><span class="name">吹春 やすたか</span></div>
-  <div class="say">大変申し訳ないのですが、29日は私だと欠席になりそうなので、先に申し上げておきます。</div>
-</div>
-
-<div class="turn chair reveal" id="t119">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say">あ、そうおっしゃいましたね。はい。よろしいでしょうか。</div>
-</div>
-
-<div class="turn reveal" id="t120">
-  <div class="meta"><span class="name">吹春 やすたか</span></div>
-  <div class="say">あ、庁舎の特別委員会です。</div>
-</div>
-
-<div class="turn chair reveal" id="t121">
-  <div class="meta"><span class="name">委員長</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=6319s" data-timestamp="6319"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:19</a>　そうですよね。はい、分かりました。では、一部都合の悪い方もいらっしゃいますが、庁舎担当の委員の方々もいらっしゃいますので、29日の10時ということで決めさせていただきます。はい、よろしくお願いします。</div>
+<div class="turn reveal">
+  <div class="meta"><span class="name">鈴木委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=LmEkrwQkBLc&t=6030s" data-timestamp="6030"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:30</a>以上で、所管事項を終了いたします。</div>
+  <div class="say">以上で、総務企画委員会協議会を終了いたします。午前11時37分閉会</div>
 </div>
 
 </div>
