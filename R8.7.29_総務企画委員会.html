@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和8年7月29日 総務企画委員会</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#157a4b; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* サイト共通ヘッダー（トップと同系の緑＋クリーム）。iframe埋め込み時は html.embedded で非表示 */
+  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
+  html.embedded .sitenav{display:none;}
+  .sitenav-in{max-width:1100px;margin:0 auto;padding:0 18px;min-height:52px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .sitenav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#157a4b;font-weight:700;font-size:1rem;white-space:nowrap;}
+  .sitenav-brand img{display:block;border-radius:2px;}
+  .sitenav-links{margin-left:auto;display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+  .sitenav-links a{color:#2a2620;font-size:.84rem;font-weight:600;text-decoration:none;padding:8px 11px;border-radius:2px;white-space:nowrap;}
+  .sitenav-links a:hover{color:#157a4b;background:#e7f4ec;}
+  .sitenav-links .ext{color:#8a8073;font-size:.8em;margin-left:1px;}
+  @media(max-width:640px){.sitenav-in{min-height:0;padding:8px 14px;}.sitenav-links a{padding:6px 9px;font-size:.8rem;}}
+
+  /* パンくず */
+  .crumb{background:#fbf9f4;border-bottom:1px solid #eee7db;position:sticky;top:52px;z-index:59;}
+  html.embedded .crumb{display:none;}
+  .crumb-in{max-width:1100px;margin:0 auto;padding:8px 18px;font-size:.76rem;color:#8a8073;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.5;}
+  .crumb a{color:#157a4b;text-decoration:none;font-weight:600;}
+  .crumb a:hover{text-decoration:underline;}
+  .crumb .sep{color:#c9c0b2;}
+  .crumb .cur{color:#4a443b;font-weight:600;}
+  @media(max-width:640px){.crumb{position:static;} .sitenav-in{flex-wrap:nowrap;} .sitenav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  /* 未定稿（公式だが校正中）＝確定版と一目で区別できるようコーラル地にする */
+  .hero .srcbadge.draft{background:var(--coral-dark, #b83a25);}
+  .hero .srcbadge.draft .dot{background:#ffd9cf;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
+
+  /* ページトップへ戻る */
+  .to-top{position:fixed;bottom:20px;right:20px;z-index:900;width:44px;height:44px;border:none;border-radius:50%;background:#157a4b;color:#fff;font-size:20px;line-height:1;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,background .15s;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+  .to-top.show{opacity:.92;visibility:visible;transform:none;}
+  .to-top:hover{opacity:1;background:#12633d;}
+
+  /* 発言パーマリンク＆要約→本文アンカー */
+  .turn-link{margin-left:8px;font-size:12px;text-decoration:none;opacity:0;transition:opacity .15s;color:#8a8073;}
+  .turn:hover .turn-link,.turn-link:focus{opacity:.7;}
+  .turn-link:hover{opacity:1;}
+  .turn:target,.turn.turn-hl{background:#fff8e1;transition:background .3s;}
+  a.sum-jump{color:#157a4b;font-weight:700;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;cursor:pointer;}
+  a.sum-jump:hover{color:#12633d;}
+  .copy-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(8px);background:#157a4b;color:#fff;font-size:13px;padding:9px 16px;border-radius:4px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;z-index:1100;box-shadow:0 2px 10px rgba(0,0,0,.25);}
+  .copy-toast.show{opacity:1;visibility:visible;transform:translateX(-50%);}
+</style>
+</head>
+<body>
+<script>try{if(window.self!==window.top)document.documentElement.classList.add('embedded');}catch(e){document.documentElement.classList.add('embedded');}</script>
+<nav class="sitenav" aria-label="サイト共通ナビ">
+  <div class="sitenav-in">
+    <a class="sitenav-brand" href="index.html"><img src="icon.svg" alt="" width="30" height="30"><span>非公式会議録</span></a>
+    <div class="sitenav-links">
+      <a href="index.html">ホーム</a>
+      <a href="search.html">全文検索</a>
+      <a href="list.html">会議一覧</a>
+      <a href="https://www.city.koganei.tokyo.dbsr.jp/" target="_blank" rel="noopener">公式会議録<span class="ext">↗</span></a>
+      <a href="https://www.youtube.com/koganei_shigikai" target="_blank" rel="noopener">原典動画<span class="ext">↗</span></a>
+    </div>
+  </div>
+</nav>
+<nav class="crumb" aria-label="パンくずリスト"><div class="crumb-in"><a href="index.html">ホーム</a><span class="sep">›</span><a href="list.html">全会議一覧</a><span class="sep">›</span><span class="cur">令和8年7月29日 総務企画委員会</span></div></nav>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和8年7月29日</p>
+    <h1>総務企画委員会</h1>
+    <span class="src">YouTube字幕＋AI校正による記録（非公式）</span><div class="hero-note" style="font-family:var(--sans);font-size:13px;line-height:1.7;color:var(--muted);margin-top:10px;">本会議・委員会等の中継動画をもとに、文字起こし・校正・要約を行った非公式アーカイブです。<br><span style="color:#c0392b;font-weight:700;">致命的な話者の誤りや語句の誤りを含んでいます。転載などには適しません。最終的には必ず原典に当たってください。</span></div><span class="genmeta">本文・要約はAIによる自動生成で、小金井市議会の公式見解ではありません。発言者名や語句に誤りを含む場合があります。公式会議録が公開され次第、公式版に差し替えます。<br>最終生成日 2026-07-29</span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <h3>議事の概要</h3>
+<p>小金井市議会総務企画委員会は令和8年7月29日、閉会中の委員会を開き、付託されている陳情5件と所管事務調査1件を審査した。開会前の協議会では、審査予定表の順序で進めること、8陳情第21号と第22号を前回と同様に一括議題とすることが確認され、冒頭で確認する所管事項は「今日はない」とされた。所管事務調査は例年どおり（1）市民目線でのサービスの質の向上、（2）デジタル技術を活用した業務効率化の推進、（3）DX推進の意識醸成とデジタル人材の育成の3項目で行うことも確認された。審査の結果、8陳情第1号、8陳情第14号、8陳情第18号の3件は、いずれも現時点での質疑を終了して保留と決定した。委員長からは、これらは定例会中の委員会で結論を出していきたいとの考えが示された。</p>
+<p>一方、建設資材の不足・価格高騰に関する8陳情第21号・第22号は、一括議題として質疑を行った後、休憩中の協議会で取り扱いを協議した。緊急性を理由に採決すべきだという意見と、判断材料が出そろっていないとして保留を求める意見、趣旨採択を検討してほしいという意見が出たが、最終的に委員会として採決へ進み、両件とも異議なしで採択すべきものと決定した（第21号は市長に送付、第22号は関係機関に意見書を送付。意見書の案文は正副委員長で調整の上、後日協議）。これは委員会段階の議決で、本会議での採決は令和8年第3回定例会の冒頭になるとの説明が協議の中でなされている。所管事務調査「自治体DXの取り組みについて」は、情報公開制度のデジタル化や国の重点計画、DX人材育成などをめぐる質疑ののち、継続調査と決定した。委員会閉会後の協議会では、令和8年第3回定例会後の閉会中委員会について、開催日をここでは決めず次回改めて協議することが了承された。</p>
+<h3>審査した事件の一覧</h3>
+<ul>
+<li>8陳情第1号 新宿区において顕在化した事例を受けて、政党機関紙の庁舎内勧誘行為に対する早期の実態把握と再発防止を求める陳情書（保留）</li>
+<li>8陳情第14号 地方消費者行政の維持・強化のための対策を求める意見書を国会等に提出することを求める陳情書（保留）</li>
+<li>8陳情第18号 「司法修習生採用選考審査基準」に国籍条項を設けることを求める意見書提出に関する陳情書（保留）</li>
+<li>8陳情第21号 建設資材不足と価格高騰にあえぐ中小事業者、個人事業者に対する支援として、小金井市独自の補助金制度の創設を求める陳情書（採択の上、市長に送付）</li>
+<li>8陳情第22号 国に対し、原材料・建設資材の供給安定化と価格高騰対策を速やかに講じるための意見書提出を求める陳情書（採択の上、関係機関に意見書を送付）</li>
+<li>所管事務調査「自治体DXの取り組みについて」（継続調査）</li>
+</ul>
+<h3>事件ごとの要約</h3>
+<h4>8陳情第1号 新宿区において顕在化した事例を受けて、政党機関紙の庁舎内勧誘行為に対する早期の実態把握と再発防止を求める陳情書（保留）</h4>
+<p>委員長が本件を議題とし部局からの発言を求めたが、本文中に部局の説明は記録されていない。続く質疑では委員からの発言はなく、委員長が「この陳情についてはなしということでよろしいですか」と確認したうえで休憩に入った。休憩中の取り扱い協議では、藤川賢治委員が「資料請求は出ていましたかね」と確認し、委員長は「これは特にありません」と答え、藤川委員は了解したとされている。再開後、委員長が現時点での質疑を終了し保留とすることを諮り、異議なしと認められて保留と決定した。実質的な内容審査はこの日は行われず、判断は先送りとなった形である。</p>
+<h4>8陳情第14号 地方消費者行政の維持・強化のための対策を求める意見書を国会等に提出することを求める陳情書（保留）</h4>
+<p>本日部局から資料が提出されていたため、まず経済課長が経済課提出資料「PIO-NETについて」を説明した。経済課長は、この資料はPIO-NET（全国消費生活情報ネットワークシステム）とは何か、その目的・用途をまとめたもので、詳細は資料のとおりであると述べた。質疑では藤川賢治委員が、前回も述べた点として、陳情の「求める内容」3番の最後に「地方財政法第10条を改正して国の恒常的な財源措置を検討すること」とあるのは改正が前提になっているように読めるため、「改正を含めて検討する」等としないと縛りがきついのではないかと指摘した。ただし藤川委員は、方向性としてはこれでよく、それに反対するものではないので、その方向性で決議に向かいたいとも述べている。委員長はこれを意見として受け止め、他に質疑がないことを確認して休憩に入った。再開後、現時点での質疑を終了して保留とすることが諮られ、異議なしと認められて保留と決定した。</p>
+<h4>8陳情第18号 「司法修習生採用選考審査基準」に国籍条項を設けることを求める意見書提出に関する陳情書（保留）</h4>
+<p>委員長が本件を議題とし部局からの発言を求めたが、本文中に部局の説明は記録されていない。質疑を行ったが委員からの質疑はなく、委員長の確認を経て休憩に入った。休憩中、委員長から取り扱いについて、先の2本の陳情と同様に、委員長としては定例会中の委員会で結論を出していく考えであり、委員の理解が得られるなら保留という形にしたいとの提案があったとされる。これに対する異論は本文には記録されていない。再開後、委員長が現時点での質疑を終了し保留とすることを諮り、異議なしと認められて保留と決定した。</p>
+<h4>8陳情第21号・第22号（一括議題）— 建設資材の不足・価格高騰への支援と国への意見書</h4>
+<p>質疑では、まず経済課長が要求資料「中東情勢悪化等に伴う近隣市の補助状況について」（令和8年第2回定例会で予算措置された事業をまとめたもの）を説明した。ながとり太郎委員は、資材不足・価格高騰で建設業が苦しいことには同意するとしつつ、資料で補助を行っているのは三鷹市（市内公衆浴場のガス代）・小平市（融資あっせん）・国分寺市（直接補助で製造業・運輸業全般も対象）であり、事実上独自の補助金は国分寺市だけだと指摘し、他業種との公平性の観点から建設業に範囲を区切った補助は慎重に考えるべきで、市内事業者全体が持続可能となる支援が必要ではないかと述べた。経済課長は、他市・市内事業者・関係団体・金融機関にヒアリングし、資材調達の遅延、入荷の遅れ、梱包材の品薄による代替資材の使用、資材価格の上昇、仕入れ先の変更、資金繰りへの影響といった課題を確認しており、市内中小事業者に対する事業の検討を進めていると答弁した。市長は、前回の委員会以降、他自治体の調査や金融機関・各事業者へのヒアリングを行い、自身も様々な会合で業種ごとの状況や中東情勢の影響を聞き取ってきたとした上で、何らかの支援は必要と考えるが、陳情書に書かれているとおりの100%かどうかは今の段階では約束できない、国からの交付金は約3000万円しかなく市がどこまで負担するかを含め庁内で検討中だと述べた。斎藤康夫委員は、第22号は国に対する意見書として根本的な解決を目指すもの、第21号は緊急性が最も大事なものと、両者の性格を分けて考えるべきだとした上で、融資・補助金に加えて「明日の仕事」を市が作り出す就労支援などメニューを広げるよう求め、コロナ融資の返済が残り借りられない人もいる、行政に見放されていないという精神面の意味も大きいとして、市長の政治的判断による早期解決を求めた。斎藤委員はまた、ナフサの問題はナフサ自体が絶対的に不足して起きているのではなく、経済状況の中で大手の買いだめ・買い占めなどにより需給のバランスが崩れた結果であり、米不足のあとに米価が急落した経緯と同じだとして、国にも十分な対策を求めるべきだと述べた。あわせて、公共事業を絞り込んできた経緯が日本の建設業を縮小させたという認識も示している。これに対し市長は、業種・業態・規模・経営状態で状況が異なるため支援の選択肢が複数ある方が望ましいと感じており、多方面から検討中で、できるだけ早く示せるよう努めたいと答えた。小林正樹委員は、27日の特別国会閉会時の総理記者会見でも物価への適切な施策が示されなかったこと、今年上半期の中小企業の倒産件数が昨年を上回っているとの話が出ていることを挙げて市独自の対応の必要性を述べ、前回求めた医療・介護・農業など他分野の調査状況、9月定例会の補正予算を待たずに動けないか、3000万円の枠内でしか考えない発想ではなく調査に基づき適切な手を打つべきだと質した。市長は、医療・介護は東京都に補助メニューがあり、医師会との懇談では中東情勢の影響はあると聞くが強い要望として受け止めている印象ではない、介護は明確に答えられないとした上で、9月定例会に示すのがリミットだと考えている、交付金3000万円の枠だけで考えるのは限界があり市としても出すことになるだろうが金額を決めずに出せるものでもなく、効果的・適切なやり方を検討する必要があると答えた。小林委員は、市長懇談だけでなく部局として正式に医療・介護の話を聞くべきであり、必要なら8月末の9月定例会冒頭も含め検討をと求めた。また小林委員は、第22号については6月定例会で議会として既に国へ意見書を提出しており、そういう意味ではほぼ要件は満たされているとの見方も示した。藤川賢治委員は、第21号は緊急性が高く、件名には建設業と書かれておらず地域経済全体への影響を述べた内容であるため、市が建設業に限らず市民全体・地域経済への支援として応えるのであれば陳情者も納得できるとの考えを示し、議会として早期の回答を求める形をとるべきだと述べた。たゆ久貴委員は、この日も多くの市民が傍聴に訪れているとして市長にその声を聞いてほしいと述べた上で、東京土建小金井国分寺支部のニュースから、ナフサ不足で現場が止まった、新築着工が延び延び、現場が止まれば収入がゼロ、通常2500円のシンナーが目詰まり解消シンナーでは1万3500円で高くて買えない、といった声を紹介した。近隣では隣の国分寺市が給付金の支給を決め、中野もゼロゼロ融資などを行っていると先行例を挙げ、下請け・二次下請け・一人親方の声を聞いているかを質し、経済課長は市内事業者・個人事業者・関係団体・金融機関から話を聞き状況を認識したと答弁した。たゆ委員が「9月に示すのがリミット」は状況説明的だとして市長の意思を確認したところ、市長は庁議等を通していないので何とも言えないとした上で「意思としては9月に示したい」と答えた。吹春やすたか委員が資料の3市以外に動きを感じたものはないかと確認したのに対し、経済課長は、資料は令和8年第2回定例会で予算措置された事業のみで近隣市ではこの3市のみ、小平市・国分寺市は定例会最終日の上程で事業が実施されているかは現段階では把握していないと答えた。</p>
+<p>質疑ののち、休憩中の協議会で取り扱いが協議された。委員長は、市が一定の対応を検討しているとの答弁があり市長からも第3回定例会（9月議会）がリミットだという話があった一方、支援の時期も対象もまだはっきりしたものが出てきていないとして、今日は保留とし9月の定例会中の委員会で結論を出す進め方を提案した。これに対し斎藤康夫委員は、今日採決すれば9月定例会冒頭の本会議採決になるが保留にすれば最終日の採決となり約1か月のタイムラグが生じると整理し、「行政の具体的内容が決まっていないから」という理由は逆で、陳情の趣旨は具体的なところまで立ち入っておらず、議会が方向性を示して行政の施策に結びつけるのが本来であり、行政が決めたことを後押しするだけでは議会の意味がない、二元代表制の否定になると述べて採決を求めた。たゆ久貴委員も緊急性を理由に採決すべきだとし、藤川賢治委員も、建設業として求めるが市がより広い範囲で判断するならそれで構わないとしつつ、陳情者の意見を大事にして採決すべきだとした。一方、ながとり太郎委員は前向きな答弁は出たが判断の材料が全部出ておらず慎重に審議したいとして保留を求めた。小林正樹委員は、斎藤委員の言われることはもっともであり、皆が採決を求めるということになれば自分も採決で問題ないとした上で、それとは別に、陳情の一部を認める通常の趣旨採択ではなく「もっと広い範囲で議会として求めている」という意味での趣旨採択も検討してほしいと投げかけた。吹春やすたか委員は、困っている人をなんとかしたいという思いは自分も持っているとした上で、小林委員の言う広い意味での趣旨採択もありうるとの考えを示し、あわせて、採決に当たって欠席している天野委員をどのように取ればよいのかを質した。委員長は、欠席している議員のことはひとまず横に置き、今ここにいる委員の意見で取り扱いを協議したいと述べ、これを受けて吹春委員は保留を希望した。ながとり委員も、趣旨採択という案であれば会派に持ち帰らないとこの場で結論は出せないと述べた。委員長は、自分も委員長という職を離れれば複数会派の一員であり、この日のような展開ではその場で決断できる会派とできない会派があるのではないかとの見方も示した上で、まず趣旨採択で一致できるかを確かめ、難しければ保留か採決かを諮る進め方を示した。手続きについて、議会事務局長からは、趣旨採択であれば全会一致が基本なのでこの場で採決するのは難しいとの説明があり、その上で、継続にすると小金井市議会のルールでは9月定例会後の10月・11月の閉会中委員会での審査になり選択肢になりにくいこと、保留なら9月定例会中の委員会で採決すること、この場で採決する場合は賛否を採ること、の3パターンが示された。趣旨採択でまとめる場合も手続き上は保留・継続と同じ形になるという整理は、委員長と小林委員から述べられている。斎藤委員は、趣旨採択とすれば委員外議員や複数会派の持ち帰りが必要で結局9月定例会中の委員会から最終本会議となるものの全会一致という形は残る、他方この場で採決すれば9月定例会初日の本会議採決になるが賛否が分かれる可能性は否定できない、と両案の得失を整理した上で、行政が前向きな姿勢を見せているのだから議会として後押しするために採決すべきだと述べた。休憩を挟んで協議会を再開した後、たゆ委員が斎藤委員と同じく採決を希望すると述べ、斎藤委員の希望も改めて確認された。ながとり委員は「大勢に従います」と述べ、小林委員も全体が採決できるなら採決に臨むと表明したため、委員長は自らの保留提案を改め、採決へ進めることとした。</p>
+<p>採決に先立ち、委員長は委員長報告に載せる意見要望を募り、続いて質疑の終了と討論の機会を置いたが、いずれも発言はなかった。採決では、第21号について委員長が「採択の上、市長に送付することにご異議ありませんか」と諮り、異議なしと認められて採択の上、市長に送付すべきものと決定した。第22号については、採決に先立つ休憩・協議会で「願意がすでに満たされている陳情をどう扱うか」が議論され、斎藤康夫委員は、陳情の採択にはまだ起こっていないことを求めて先へ進める場合と、すでに願意が満たされているから採択する場合があり、本件は後者に当たるのではないかと受け止めていると述べ、小林正樹委員も同様に受け止めているとしつつ、重要な委員会の採決なので委員全体で共通認識を持って臨んだ方がよいと考えたと説明した。委員長は、6月に同じ内容のものが出ており9月にもう一度出すつもりでいたと述べた上で、委員会としてどちらにするかという問題だと整理し、議会事務局長からは、解説書に書かれている扱いとして願意が満たされた上で採択する方法、審査しないで（審議未了で）流す方法、陳情を取り下げてもらう方法の3つがあり、取り下げを除けば改めて採決するか審議未了で流すかのパターンになること、採択となれば通常の進め方として意見書は正副委員長に一任して調整し、既存の意見書に足りない部分があればそれをフォローした案を示し、特になければ意見書は出さないという整理が示された。再開後、委員長が「採択の上、関係機関に意見書を送付することにご異議ありませんか」と諮り、異議なしと認められて採択の上、関係機関に意見書を送付すべきものと決定し、意見書の案文は正副委員長で調整の上、後日協議することとされた。</p>
+<h4>所管事務調査「自治体DXの取り組みについて」（継続調査）</h4>
+<p>藤川賢治委員は、情報公開制度のDX推進として、一度開示された文書は同一内容の請求があれば原則同様に開示されるという理解でよいかを確認したうえで、非公開情報を除いた公開可能なものは市ホームページで継続的に公開すれば、市民が改めて請求せずに閲覧でき、市民・職員双方の手間削減にもなると提案した。総務課長は、同一請求への原則同様の開示については「原則としてそのとおり」と答えた一方、情報公開請求は各人固有の権利行使であり個別の決定がされることが原則であるとして、ホームページで具体の内容を不特定多数に公開することは現時点では考えていないと答弁し、対象文書には100ページ超・時には数百ページに及ぶものもあり事務作業上も難しいと説明した。同時に総務課長は、市民が求める情報を積極的・迅速に提供する必要性は認識しており情報提供施策の拡充に努めたい、現状も運用状況の中で請求の件名までは掲載していると述べた。藤川委員は市の考え方は理解したとしつつ、一度出したものは公開しておき請求時に「ここに公開している」と伝える対応もできる、資料が膨大な点は普段からあらゆるものをデジタル化して保管しておくことがDX推進につながる、と意見を述べた。ながとり太郎委員は、（2）デジタル技術を活用した業務効率化の推進と（3）DX推進の意識醸成とデジタル人材の育成に関わるとして、7月21日に閣議決定された国の「デジタル社会の実現に向けた重点計画」の受け止め、AIを含む共通基盤の把握、AIエージェント活用に向けた内部人材育成、CoCoチャレの参加状況と褒める文化・DX人材の掘り起こし、BPRと業務の見える化、生活応援給付金事業の誤送付（原因は手作業でのデータ貼り付けと聞いているとの発言）を踏まえたRPA等による自動化の6点を質問した。自治体DX推進担当課長は、重点計画は「誰一人取り残されない、人に優しいデジタル化」を掲げる重要な指針と認識しており、東京都の生成AIプラットフォームや国（デジタル庁）の生成AI利用環境などの共通基盤は費用対効果・セキュリティ・運用面・庁内要望を十分検証したいと答弁し、今年3月策定のDX推進方針・アクションプランに先進技術の調査研究とDX人材の育成確保を掲げていると述べた。行政経営担当課長は、CoCoからチャレンジ・こがねいは平成30年度開始で、令和6年度の7課14件から令和7年度は13課28件へ広がり、部長職の書面評価と市長・副市長・教育長による選考委員会、職員が講師となる研修会での横展開を行っており、「褒める文化」を制度の根幹に据えていると答弁した。横展開の具体例としては、環境政策課のサウンディング型市場調査の事例や、令和7年度の市民税課「待たない、待たせない、すぐできる市民税申告相談予約」の取り組みが研修会で共有されたと説明されている。情報システム課長は、部分的な最適化にとどまりBPRの実施までには至っておらず全庁的な業務量調査の予定は現段階でないとしつつ、まず例規等に基づく本市独自のアナログ規制の点検・見直しに着手していると説明した。これは、国におけるアナログ規制の見直しが約99%完了見込みとなり、地方公共団体の例規等に基づく見直しが急がれている状況を踏まえたものだという。システムからデータを出して手加工して戻す作業については、データの桁数が許容範囲を超えてエラーコードが発生した場合の修正などを例に挙げ、そうした作業はイレギュラーなレアケースにおける応急的な対応であると想定されるためあらかじめ把握することは困難で、RPA等の利活用やプログラムの追加も難しい分野ではないかと思われる、人が慎重に手作業で行うのが現実的だと考える、と答弁した。一方でRPAは定型的なルーチンワークに適しており、令和8年度から住民情報システム標準化に伴い対象業務システムへの実装を予定しているとも述べた。ながとり委員は、重点計画で新たに「AX」という語が出たこと、ガバメントクラウドへの移行が市でも完了し今後はマイナンバーカードと情報の活用が重要になること、BPRは一度で終わらずアジャイルに回すべきこと、人材育成は研修派遣ではなく部署を問わない意欲ある職員の発掘と横展開であること、答弁システム「ゲンナイ」（自治体の半分が使っているという伝聞は自身では未確認と明言）を含めAIツールの検討・研究、隠れてAIを使う事態を避けるためのセキュリティ基準の整備を求める意見を述べた。委員長が現時点での質疑終了を諮って異議なしで終了し、本件は引き続き調査する必要があると認められ、異議なしで継続調査と決定した。</p>
+<h4>（委員会閉会後の協議会）令和8年第3回定例会後の閉会中委員会の日程</h4>
+<p>委員会閉会後の協議会で、委員長が令和8年第3回定例会の閉会中委員会をどうするかを協議事項として示し、11月に市長選挙が控えていることも踏まえ開催しない選択もあると説明した。小林正樹委員は、9月定例会の終わりから次の定例会までの間隔も短く、選挙の状況も踏まえて今回はなくてもよいのではないかと述べた。委員長は、今日保留とした1、2、3本目については次の定例会中の委員会で結論が出ると思われ陳情の処理は一区切りつくとの見通しを示した。藤川賢治委員は、慣例が分からないので判断ができないとしつつ、慣例的にそういうものだということであればそれでよいのではないかと述べ、委員長は、慣例というよりそういうこともあるということだと応じた。たゆ久貴委員は、現時点で開催しないことに異論はないとしつつ、9月定例会の委員会の時に緊急で閉会中に必要な案件が出るかもしれないので、その際に日程を入れられる余地・意見を言える状況は残しておいてほしいと求めた。ながとり太郎委員は日程枠だけ確保しておくことが可能かを純粋な質問として尋ね、委員長は、次の次の回の日程調整は今期から初めて行っているもので市長の日程確保のために事前に決めておく運用だが、今回は選挙日程があるため次回定例会で改めて諮る形になり、必要があればそこで開催の余地は残ると説明した。結果として、開催をしないと決めるのではなく、開催日についてはここでは決めないという整理で異議なく了承され、次回改めて確認することとなった。</p>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/90fgBuWcV2s" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
+  </section>
+
+<div class="turn chair reveal" id="t0">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=90s" data-timestamp="90"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:30</a>　おはようございます。ちょっと早いんですが、皆さんお揃いですので、開会前の協議会ということで始めさせていただいてもよろしいですか。はい、ありがとうございます。今日はよろしくお願いいたします。</div><div class="say">まず、お手元にお配りしております総務企画委員会協議会の協議事項をご覧ください。まず1番、委員会の進行予定についてであります。（1）、ご覧のとおりであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=120s" data-timestamp="120"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:00</a>　この「審査予定表の順序で審査を行うことについて」ということで、これは裏側の審査予定表もご覧いただきながらということになりますが、陳情5件、所管事務調査1件の計6件、所管事務調査についてはいつもの通り自治体DXの取り組みということで、（1）市民目線でのサービスの質の向上、（2）デジタル技術を活用した業務効率化の推進、3番がDX推進の意識醸成とデジタル人材の育成ということ。これもいつも通りとなっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=152s" data-timestamp="152"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:32</a>　（2）番です。一括議題とすることについてでありますが、これは前回と同じなんですが、8陳情第21号と第22号、これを一括で審査を進めていくということになっております。ここまでで何かございますか。</div><div class="say">大丈夫ですね。はい。この他は私の方から特にございません。皆様の方から何かございますか。</div><div class="say">◯（呼ぶ声）<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=186s" data-timestamp="186"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:06</a>　ない。</div>
+</div>
+
+<div class="turn chair reveal" id="t1">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。冒頭で伺っておかなければいけないのは所管事項についてであります。これは今ここで聞いておくという話ですよね。所管事項についてどなたかございますか。</div>
+</div>
+
+<div class="turn voice reveal" id="t2">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">今日はない。なし。</div>
+</div>
+
+<div class="turn chair reveal" id="t3">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">じゃあ、所管事項については今日は特にないということでよろしいですね。はい。では、陳情が1、2、3、4、5、ここで所管事務調査ということですね。はい。ではこれで開会していってよろしいですね。じゃあ始めてまいりたいと思います。お願いします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=218s" data-timestamp="218"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:38</a>　おはようございます。ただ今から総務企画委員会の会議を開きます。直ちに本日の議事に入ります。当委員会に付託されております案件は陳情5件、所管事務調査1件です。以上6件につきましては、総務企画委員会審査予定表の順序で行うことといたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=248s" data-timestamp="248"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:08</a>　初めに、8陳情第1号　新宿区において顕在化した事例を受けて、政党機関紙の庁舎内勧誘行為に対する早期の実態把握と再発防止を求める陳情書を議題といたします。部局から発言がありましたら、これを求めます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=281s" data-timestamp="281"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:41</a>　はい、これから質疑を行います。質疑はございませんか。この陳情についてはなしということでよろしいですか。はい。では休憩します。</div><div class="say">取り扱いについていかがいたしましょうか。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=312s" data-timestamp="312"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:12</a>　藤川さん。</div>
+</div>
+
+<div class="turn reveal" id="t4">
+  <div class="meta"><span class="name">藤川賢治</span></div>
+  <div class="say">これ、資料請求は出ていましたかね。</div>
+</div>
+
+<div class="turn chair reveal" id="t5">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">これは特にありません。</div>
+</div>
+
+<div class="turn reveal" id="t6">
+  <div class="meta"><span class="name">藤川賢治</span></div>
+  <div class="say">はい。失礼しました。</div>
+</div>
+
+<div class="turn chair reveal" id="t7">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=371s" data-timestamp="371"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:11</a>　はい。再開いたします。お諮りいたします。本件は現時点での質疑を終了し、保留といたしたいと思います。これにご異議ありませんか。</div>
+</div>
+
+<div class="turn voice reveal" id="t8">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">異議なし。</div>
+</div>
+
+<div class="turn chair reveal" id="t9">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">ご異議なしと認めます。従って本件は保留と決定いたしました。</div><div class="say">次に、8陳情第14号　地方消費者行政の維持・強化のための対策を求める意見書を国会等に提出することを求める陳情書を議題といたします。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=413s" data-timestamp="413"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:53</a>　本日部局から資料が提出されておりますので、初めに資料の説明を求めます。経済課長。</div>
+</div>
+
+<div class="turn reveal" id="t10">
+  <div class="meta"><span class="name">経済課長</span></div>
+  <div class="say">はい。それでは、経済課提出資料「PIO-NETについて」ご説明いたします。本資料はPIO-NET、全国消費生活情報ネットワークシステムの内容につきまして、PIO-NETとは、PIO-NETの目的、用途についてまとめた資料でございます。詳細は資料をご覧ください。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t11">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=443s" data-timestamp="443"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:23</a>　はい、これから質疑を行います。〇〇さん。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=474s" data-timestamp="474"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:54</a></div>
+</div>
+
+<div class="turn reveal" id="t12">
+  <div class="meta"><span class="name">藤川賢治</span></div>
+  <div class="say">これ、私、前回も申したんですけども、この求める内容の3番の最後の方、方向性としてはこれでいいと思うんですけども、最後の3番の最後に、地方財政法第10条を改正して国の恒常的な財源措置を検討すること、と書いてあって、これはなんか改正が前提になっているみたいになっているので、ここは改正を含めて検討する、とかにしないと、ちょっと縛りがきついかなと思っています。ただ、方向性としては、それに反対するものではないので、その方向性で決議に向かいたいと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t13">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、ご意見ということでよろしいですか。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=505s" data-timestamp="505"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:25</a>　はい。他にございますか。特になければ、取り扱いの協議ということになってまいります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=557s" data-timestamp="557"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:17</a>　では、質疑がないようですので休憩します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=590s" data-timestamp="590"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:50</a>　じゃあ、お願いします。再開いたします。お諮りいたします。本件は現時点での質疑を終了し、保留といたしたいと思います。これにご異議ありませんか。ご異議なしと認めます。従って本件は保留と決定いたしました。</div><div class="say">次に、8陳情第18号　「司法修習生採用選考審査基準」に国籍条項を求めることを求める意見書提出に関する陳情書を議題といたします。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=626s" data-timestamp="626"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:26</a>　部局から発言がありましたら、これを求めます。はい。</div><div class="say">これから質疑を行います。どなたか質疑ございませんか。ということでよろしいですか。はい、では休憩いたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=656s" data-timestamp="656"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:56</a>　これはまた取り扱いについてでございます。先ほどの2本の陳情と同様に、委員長といたしましては、定例会中の委員会で結論を出していくということで、もし皆さんのご理解いただけるようでしたら、保留という形にさせていただきたいのですが、いかがでしょうか。大丈夫でしょうか。</div><div class="say">では、ありがとうございます。では再開させていただいて、保留という形で進めさせていただきます。じゃあ、お願いします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=689s" data-timestamp="689"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:29</a>　再開いたします。お諮りいたします。本件は現時点での質疑を終了し、保留といたしたいと思います。これにご異議ありませんか。ご異議なしと認めます。従って本件は保留と決定いたしました。ありがとうございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=721s" data-timestamp="721"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:01</a>　次に、8陳情第21号　建設資材不足と価格高騰にあえぐ中小事業者、個人事業者に対する支援として、小金井市独自の補助金制度の創設を求める陳情書及び、8陳情第22号　国に対し、原材料・建設資材の供給安定化と価格高騰対策を速やかに講じるための意見書提出を求める陳情書につきまして、一括して議題といたしたいと思います。これにご異議ありませんか。</div>
+</div>
+
+<div class="turn voice reveal" id="t14">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">異議なし。</div>
+</div>
+
+<div class="turn chair reveal" id="t15">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">ご異議なしと認め、そのように決定いたします。本日部局から資料が提出されておりますので、初めに資料の説明を求めます。経済課長。</div>
+</div>
+
+<div class="turn reveal" id="t16">
+  <div class="meta"><span class="name">経済課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=765s" data-timestamp="765"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:45</a>　はい。それでは、経済課提出資料「中東情勢悪化等に伴う近隣市の補助状況について」ご説明いたします。本資料は、本市を含む近隣市における中東情勢悪化等に伴い、令和8年第2回定例会において予算措置された事業をまとめた資料でございます。</div><div class="say">詳細は資料をご覧ください。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t17">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal" id="t18">
+  <div class="meta"><span class="name">ながとり太郎</span></div>
+  <div class="say">はい。私の要求に応じていただきまして、資料を提出していただきました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=801s" data-timestamp="801"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:21</a>　前回も申し上げているんですけれども、まず、ナフサ、それから部材不足の声については私もよく聞いておりまして、建設業界の事業が芳しくない、苦しいということは、もう完全に同意するものでありますし、事業継続できるようにしなければならないということも、やっていかなければいけないということであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=834s" data-timestamp="834"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:54</a>　私が資料を要求しました経緯についてはですね、ただ、一方で、これは建設業界にというこの、陳情の外でありますけれども、例えば担当事業者との公平性とか、影響を慎重に判断する必要がある、また、小金井独自ということでありましたので、この状況も見て考えなければいけないということで、資料要求をいたしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=864s" data-timestamp="864"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:24</a>　ところですね、近隣、他でやっていない、このですね、近隣市の中東情勢悪化に伴う近隣の補助状況については、やっていないところはここに載っていないわけですけども、やっているところは三鷹市、小平市、国分寺市であると。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=895s" data-timestamp="895"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:55</a>　その中で、小平市については、補助事業ということでなくて、事業継続をやっていく、できるような、持続可能な事業、持続可能であるようにということで、融資あっせんということですね。</div><div class="say">で、この中で三鷹市と国分寺市が、直接的な補助ということになっています。三鷹市は市内公衆浴場ですね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=926s" data-timestamp="926"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:26</a>　<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=9り、<a href=" data-timestamp="926"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:26</a>　何千万の単位でなっているわけですけれども、これ自身がですね、資材不足の、今回の陳情に関しては資材不足、高騰についての独自の補助金ということが概要だと思うんですけれども、実際にはこれ、電気への補助をしているということで、これが直接的であるか間接的であるかというのがよく分からないということと、事実上、独自の補助金を出しているのは国分寺市だけであるということですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=992s" data-timestamp="992"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:32</a>　で、国分寺市に関しては、合わせてここに書いてありますけれども、製造業、運輸という、なんてですかね、もちろん建設業にも補助しているわけですけれども、合わせて製造業全般、運輸業全般に対する補助も行っているということでありますので、直接的な、建設業という一定の範囲を区切った中での補助というものは、慎重にちょっと考えていき、これから市内の事業者、これは建設業ももちろんそうです。それから市内の事業者、全てが持続可能な、小金井市内でですね、持続可能な事業を行っていく。もちろん商店とかも、様々、メーカー、製造業とかも様々ありますので、ということが必要なんではないかなと私は思っています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1024s" data-timestamp="1024"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:04</a>　ということで、ちょっと市の、まずは経済課としてですね、この点について、どのような今後の対応を考えていらっしゃるのか、もしあればお聞きしたいと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t19">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">経済課長。</div>
+</div>
+
+<div class="turn reveal" id="t20">
+  <div class="meta"><span class="name">経済課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1057s" data-timestamp="1057"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:37</a>　はい。ながとり委員のご質問に対してのご答弁とさせていただきます。今、委員の方から色々と状況を説明していただきました。我々もこの間ですね、他の市町村にお話を聞いたりもさせていただいております。</div><div class="say">市内事業者の方、それから関係団体の方々、それから金融機関などにもですね、現状についてお話を伺っているところでございます。中東情勢の悪化を受けていて、影響の程度にはですね、差があるというところもございますが、各業において様々な影響に及んでいるというところは、部局としても認識させていただいたところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1089s" data-timestamp="1089"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:09</a>　実際にお話を伺う中ではですね、やはり資材調達の遅延であるとか、発注した資材が予定通り入荷されないといった供給面での影響、それから、従来使用していた梱包材の品薄により代替資材を使用せざるを得ない状況、それから資材価格の上昇、仕入れ先の変更であるとか、さらには資金繰りの影響、そういったものの課題が生じるというところのお話をいただいたところです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1120s" data-timestamp="1120"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:40</a>　最終的に、ながとり委員のですね、今後どのような対応をですね、市としてしていくのかというところでございますけれども、市としましては、様々な業種の方に影響が及んでいるというところは認識しているところでございますので、その状況を受けましてですね、市内中小事業者に対しての事業の検討を進めさせていただいております。部局としては、説明としては以上でございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t21">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1150s" data-timestamp="1150"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:10</a>　ながとりさん。</div>
+</div>
+
+<div class="turn reveal" id="t22">
+  <div class="meta"><span class="name">ながとり太郎</span></div>
+  <div class="say">はい、ありがとうございました。市内事業者への何らかの支援っていうことは、ここにいらっしゃる方々も必要なんだろうなということは思うわけです。で、市としても検討をね、前向きに、何らかの検討を、ということで今受け止めました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1181s" data-timestamp="1181"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:41</a>　ただですね、それはそれで、しっかりとまた、私が申し上げたことも含めて、市の方にも検討していただかなきゃいけないなと、私は強く思うわけですけれども、一方で、この事業というのは、もちろん経済課として必要だということはありますけれども、ある程度ですね、大きな観点から考えていかなきゃいけないし、他の施策との関連もあると思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1214s" data-timestamp="1214"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:14</a>　そういう意味で、一度ですね、市長がこの件についてどうお考えになっているのか、大枠でいいんですけれども、方向性みたいなものをお知らせいただければいいかなと思うんですけれども、どうでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t23">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">市長。</div>
+</div>
+
+<div class="turn reveal" id="t24">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">はい。ながとりさんの方から、市長がどう考えているのかということでございました。これは、前回の委員会でも、一定の考え方はお伝えしたつもりではございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1246s" data-timestamp="1246"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:46</a>　今、課長の方から答弁をさせていただいたように、前回の委員会以降ですね、他の自治体の調査、もしくは金融機関や各事業者に様々なヒアリングをするなど、行ってきたところで、私自身もですね、様々な会合で、例えば〇〇さんであったりだとか金融機関、また、様々な事業者の、市民の方々ともお会いする機会がございますので、その度ごとに、それぞれの業種の状況であったりだとか、全体的なその経済の動向であったりだとか、その中東情勢の影響っていうものが具体的にどういうものなのかっていうことを、私自身もヒアリングをさせていただいているところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1276s" data-timestamp="1276"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:16</a>　で、結論から申し上げると、今まだ具体的に申し上げる段階にはないっていうこと。ただし、何らかのやっぱり支援っていうのは必要であると考えているということ。ただしですね、この陳情書に書かれてある、そのままの100%がどうかっていうのは、ちょっと今の段階ではお約束はできません。</div>
+</div>
+
+<div class="turn reveal" id="t25">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1306s" data-timestamp="1306"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:46</a>　さきほど課長の方からも申し上げました通り、他の業種でも、その程度、影響の程度っていうのは差があるかもしれませんが、様々な影響があるっていうことは私も認識をしておりますので、一方ですね、国からの交付金は約3000万円という原資、3000万円しかないという。それだけでは収まらないと思いますんで、じゃあ市でどこまで負担して、できるのか、やるべきなのかっていうことも含めてですね、様々な観点から精査が必要だということで、今なお庁内で検討中でございます。以上です。</div>
+</div>
+
+<div class="turn reveal" id="t26">
+  <div class="meta"><span class="name">ながとり太郎</span></div>
+  <div class="say">何らかの支援が必要ということですね。</div>
+</div>
+
+<div class="turn chair reveal" id="t27">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、ながとりさん、3問目です。</div>
+</div>
+
+<div class="turn reveal" id="t28">
+  <div class="meta"><span class="name">ながとり太郎</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1336s" data-timestamp="1336"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:16</a>　はい、3問目ですので、簡潔に行きますけれども、経済課のお答えと今の市長のお答えからすると、状況、様々な検討材料があると。今おっしゃってたのは、例えば財源の問題、それから市内の事業者さん、もちろん建設業界をはじめとして、どういう状況にあるかということは検討していかなきゃいけない。しかし、今前向きに何かをしなければいけないということは、検討でなお時間が必要であるという風に私は取りました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1369s" data-timestamp="1369"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:49</a>　そのような中でですね、例えば小平さんなんかは全然違う方面から支援をやってらっしゃったりとか、いうこともあります。それが、利子補給ということですけれども、利子補給ということだけじゃなくて、市内の事業者さんがもっとお金を〇〇するとか、そういうことも考えられると思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1400s" data-timestamp="1400"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:20</a>　いろんな多方面から色々考える必要があると思っていまして、もう少し時間が欲しいんじゃないかなというご答弁と私は受け止めました。ですので、今後採決に至る過程においてそのことを念頭において望みたいと考えております。以上です。最後、意見です。</div>
+</div>
+
+<div class="turn chair reveal" id="t29">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">他はございますか。斎藤さん。</div>
+</div>
+
+<div class="turn reveal" id="t30">
+  <div class="meta"><span class="name">斎藤康夫</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1430s" data-timestamp="1430"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:50</a>　陳情第21号と22号、一括ですけれども、21号と22号、なんていうか、緊急性というか、時系列にはですね、ちょっと別に考えた方がいいかなという風に思っておりまして、22号に関しては、国に対する意見書ということですので、緊急課題ではありますけれども、ある程度その根本的な解決を目指してということで、21号に関しては、ごめんなさい、22号は短期的な政策の提案というか、主張というか、そういうものですけど、21号に関しては緊急性が1番大事なんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1463s" data-timestamp="1463"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:23</a>　で、今、市長からの答弁で、いまだ検討中ということで、先ほどこの陳情審査の冒頭で、部局から発言がないかというところで期待をしていたんですけれども、全くなくて、今の市長の答弁を聞いても検討中ということで。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1496s" data-timestamp="1496"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:56</a>　例えば、他の市のですね、この補助状況に関してもですね、ガス料金の補助、それから支援金、融資、電気代の支援、電気代ガソリン代の支援、言ってみれば、融資関係を、融資の件と、それから補助金という、2つの制度になるんですけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1527s" data-timestamp="1527"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:27</a>　私はそれに加えてですね、就労支援と言いますか、目の前の明日の仕事を市で何か作り出すということをですね、是非考えていただきたいと。困ってる方々にも、それぞれ事情があるもんですから、融資を受けたいという方もいるし、補助金ということでいただきたいと。明日の仕事がないから、明日の仕事を何か、専門でなくてもいいから増して欲しいというような形で、メニューをですね、少し広げて、それぞれのニーズにあった形でですね、考えていただきたいなという風に思っておりまして、プラス緊急性ですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1589s" data-timestamp="1589"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:29</a>　特に建設業の方々、日本のこの建設の構造の中でですね、個人事業主、要するに職人さんですよね、というのは、極端に言うとですね、明日仕事がなければ明日賃金が発生しないという形で、非常にこう、もう仕事がないイコールもう生活費がないという可能性があるわけで、そういう方もいらっしゃるという状況で、この21号ほどですね、これは急ぐ陳情はないという風に考えておりまして、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1621s" data-timestamp="1621"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:01</a>　ただですね、こういった補助制度を作ったとしても、これ根本的な解決にはならないんですよ。何かと言うと、それぞれお考えと思います。困ってる方は、市からとか行政からですね、自分たちはもうこの日本の社会構造の中から、状況の中で、行政からね、見放されてない、行政が自分たちのことを見てくれてるんだという精神的なですね、問題というのもね、これはすごく大きいことなんですよ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1653s" data-timestamp="1653"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:33</a>　こういう構造の中では、もう建設業はやっていけないという形で職種を変えたりするとですね、これが、前からですね、小泉政権から始まって、民主党政権のコンクリートから人へという形で公共事業を絞りに絞ってですね、日本の建設業を、こう縮小させてしまった、萎縮させてしまったということの流れでありますので、これはとにかく早く、どういう形でも考えていただきたいというのが私の考えでありまして、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1684s" data-timestamp="1684"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:04</a>　そして、緊急融資に関してもですね、これコロナの関係で融資を受けて、今仕事がないのに返済をしなければ、またここで融資と言っても、借りたとしても、もう返せないよという方もいらっしゃいますし、それぞれ〇〇が違うんですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1716s" data-timestamp="1716"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:36</a>　是非その、市長におかれてですね、前回の委員会でですね、私も同じようなことを主張したわけでありますけれども、とにかく緊急に、1番早くですね、この問題の解決、主張というものをですね、是非。市長の、これね、課長や部長では私は答弁できないという風に思っておりまして、政治的な解決で、市長がですね、どうするかということに全てかかってるという風に思っておりますので、是非お答えいただければと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t31">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。</div>
+</div>
+
+<div class="turn reveal" id="t32">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1747s" data-timestamp="1747"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:07</a>　はい。斎藤さんの方から、そういうご質問をいただきました。おっしゃった通りですね、ニーズと言いますか、状況っていうものが、おそらく例えば業種、業態、また、その事業規模によって、状況っていうのはおそらく異なると思いますんで、もしくはその経営状態っていうのも、同じ業種業態の同じ規模であっても違うケースがあります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1779s" data-timestamp="1779"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:39</a>　なので、斎藤さんがおっしゃったように、ニーズという言葉が適切かどうか分かりませんが、状況に応じて色々支援の選択肢がある方が望ましいっていうことは、私も、以前も斎藤さんもおっしゃってたと思いますけども、感じたところでございます。</div><div class="say">いずれにいたしましても、先ほどながとり議員に答弁した通りですね、今の段階で具体的なことは申し上げられませんが、しかし我々としては、多方面から、この何らかの支援が必要だということで検討を進めてるということは事実でございますので、できるだけ早く、そういったものをお示しできるように努めたいと思います。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t33">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">斎藤さん。</div>
+</div>
+
+<div class="turn reveal" id="t34">
+  <div class="meta"><span class="name">斎藤康夫</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1809s" data-timestamp="1809"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:09</a>　市の方からも、できるだけ早くということで、白井市長の政治姿勢からすればですね、その言葉を是非期待をしたいというところでありますけれども、ついてはこの陳情書を議会がどういう風に扱うかということにも大きな問題になるという風に思いますので。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1852s" data-timestamp="1852"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:52</a>　繰り返しになりますけども、繰り返しというかですね、このナフサの問題は、前回も申し上げましたけども、ナフサ自体が不足して起こってる問題ではなくてですね、いわゆるこの経済状況の中で、言ってみればお米と一緒ですよね。いわゆる昨年、一昨年の米不足で、今、逆に米の価格が急落しているではないですか。それと同じようなことのね、繰り返しがこれでナフサで起こっているわけでありますので、日本の政府にも、もっと十分に対策をしていただかなければならないし、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1884s" data-timestamp="1884"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:24</a>　その日本の産業の業態、メーカーにしろですね、エンドユーザー、エンドユーザーと言いましても、その大手ですね、スーパーゼネコンと言われてるところが、要するに、買いだめ、買い占め、なんだ、要するに自分のところでストックするような買い方をすればですね、これはもう需要と供給のバランスがあっという間に崩れて、今のような状況になるという中で、1番苦しむのが、個人事業主である職人さんたちなんですよ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1918s" data-timestamp="1918"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:58</a>　日本の建設業を支えてるのは、そういった個人事業主の職人さんたちなんですよね。だから、そういう方々が仕事して立ち行かなくなれば、日本の建設業自体がもう成り立たないという状況にこうなるというぐらいですね、今、大変な状況になっているんだということを是非、市長、お分かりおきの上でですね、対策を講じていただければという風に思いますので、よろしくお願いいたします。</div>
+</div>
+
+<div class="turn chair reveal" id="t35">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1959s" data-timestamp="1959"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:39</a>　本当は、〇〇ですね、共鳴したり、騒いでしまうということはできませんので、ご協力をお願いします。はい、小林さん。</div>
+</div>
+
+<div class="turn reveal" id="t36">
+  <div class="meta"><span class="name">小林正樹</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=1991s" data-timestamp="1991"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:11</a>　おはようございます。前回も質疑をしてまいりましたけども、あまり答弁が、進んでるところと、中身がよく見えないところがあるなというところがありまして、スピード感をもう少し持って対応していただきたいという思いで質問しますけども、27日の特別国会閉会の時のですね、総理の記者会見を見ましても、この現下のこの物価に対するですね、適切な施策というものが打ち出されないというような、発言として出てこないというところに非常に危機感も覚えてるところであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2023s" data-timestamp="2023"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:43</a>　行政の答弁などでは、国や東京都の動き、またそういったところの補助も見ながら対応したいというようなところもよく出るわけですが、国が全くそこに向き合っていないという状況を、改めて確認をしてですね、これは市として適切な対応が必要であろうということを改めて感じたわけであります。既に、今年の上半期の中小企業の倒産件数というのは昨年の件数を上回ってるというような話も出ておりますので、そういった意味でも、小金井においてもですね、同じような状況というものが起きているんだろうなということを改めて実感をしてるところであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2053s" data-timestamp="2053"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:13</a>　で、22号についてはですね、実はこれ6月の定例会の中で、6月の定例会ですかね、もう議会として国に意見書を上げてまして、そういった意味では、もうほぼ要件を満たしてるというところはあろうかなというところは申し上げておきたいと思いますが、前回の私の質疑の中で、情報収集に努めていきたいという答弁がありました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2084s" data-timestamp="2084"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:44</a>　今、前段の答弁の中で、近隣市や金融機関からもヒアリングしたということがございましたけども、私が、もう1つその中で強く確認をさせていただいたのが、医療、介護、農業など、他の、我々の暮らしに影響のある分野についても、どういう状況になってるのかということも調査をしてほしいということをお願いをしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2116s" data-timestamp="2116"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:16</a>　それに対する答弁というのが今までなかったものですから、この別の分野に対する、この庁内全体のですね、調査の状況、そして、市長が一定、何らかのことを考えたいということを言われましたが、そういったところも含めての対応なのかということをですね、改めて伺っておきたいと思います。細かなことはですね、6月の4日の一般質問の中でも十分時間をかけて質問してまいりましたので、割愛しますが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2149s" data-timestamp="2149"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:49</a>　今の質疑の中で、具体的なところは今申し上げられないというように言われましたけども、普通に行けばですね、次が9月の定例会の補正予算というような形になります。その時に、しっかりとした対応が出てくるのか、本来だとそのスピード感でいいのかという問題もあるんですが、そこについてですね、改めて、その定例会を待たずに何らかの手立てを打たないのかという考え方、また、具体的なところでもう少し一歩踏み込んで話ができないのかということで答弁を促したいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2180s" data-timestamp="2180"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:20</a>　お金がその3000万円しかない、国の交付金の残りが3000万しかないので、その中で何ができるかという趣旨の答弁だったように私は思うんですが、あらゆる分野、生活全てに関わるところがですね、今、大変厳しい状況になってるということからすると、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2212s" data-timestamp="2212"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:52</a>　また先ほど申し上げたように、国の対応の考え方、こういったことからすると、やはりこの市のお金もですね、一財も出してでも対策を考えなければならない。何でもかんでも出せばいいということを言ってるわけではなくて、あくまでもその3000万の中でしか考えないよという発想ではなくて、しっかりと調査をした上で適切な手を打つべきであろうと考えますが、それについてのご答弁を市長から求めたいと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t37">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2299s" data-timestamp="2299"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:19</a>　市長。</div>
+</div>
+
+<div class="turn reveal" id="t38">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">すいません。私の方から答弁させていただきます。</div>
+</div>
+
+<div class="turn reveal" id="t39">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">医療介護分野について、ヒアリング等ね、そのニーズの調査をしているのかということでございましたが、医療と介護の分野に関しては、これ東京都の方で一応補助のメニューがあって、私自身も、特に医療分野の医師会の皆さんとちょっと懇談する機会はあったんですけども、そのやはり中東情勢の影響はあるっていう話は聞いておりますが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2330s" data-timestamp="2330"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:50</a>　今のところ強い要望として受け止めている印象ではないということでございます。ちょっと介護については、今すいません、明確にはお答えできませんが。で、9月の定例会でどうするのかと。</div><div class="say">要するに、その前の段階で動くことはあるのかということでございますが、ちょっと今の段階でですね、明確には申し上げられませんが、少なくとも9月の定例会に、我々としてはお示しするのがもうリミットだと考えてはおります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2363s" data-timestamp="2363"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:23</a>　で、最後に、私のおそらく先ほどの答弁で、国の交付金が3000万円しかないっていう話をしたことを受けて、小林さんの方で先ほど発言があったと思うんですが、一応すいません、先ほど私の方からは、国の交付金は3000万円しかない、ただ、それにプラスしてね、市としても出すことになるだろうけども、どこまで出すかっていうことも含めて、検討が必要という答弁をしたつもりでございますので、交付金の3000万円の枠だけで考えるっていうのは、ちょっとやっぱりできることには限界がございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2395s" data-timestamp="2395"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:55</a>　ただ、それこそ、もう金額を決めずにドンと、いつ大きなお金を出せるかっていうところは、様々な財政運営上の課題もございますので、そこは色々見定める必要がございますので、さっきおっしゃっていただいたように、効果的な適切な手を打つべきということで、前回の委員会でも私は、やはり効果的にお金を使わないといけないっていうことを申し上げたつもりでございますので、3000万に限らず、正しい効果的なやり方っていうのはどうなのかっていうことを、お金の面も含めて検討する必要があると、このように認識をしております。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t40">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2432s" data-timestamp="2432"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:32</a>　小林さん。</div>
+</div>
+
+<div class="turn reveal" id="t41">
+  <div class="meta"><span class="name">小林正樹</span></div>
+  <div class="say">ありがとうございます。医療介護のことについては、現場から強い要望を伺っていないということでありますが、まず市長とのね、懇談の中の話ですので、行政と行政というか、部局としてもですね、しっかりと正式にお話は聞いて対策を考えるべきだろうなと思っております。また、3000万の枠に限らずですね、しっかりとした対策をご検討いただけるという話もございました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2465s" data-timestamp="2465"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:05</a>　これは、上限なくということを私も言ってるわけではございません。また時期については、今の段階では言えないが、9月の定例会にはというようなご趣旨だったと思います。必要に応じてはですね、議会にしっかり説明をしていただいて、9月の冒頭に、定例会冒頭にですね、8月の末ですよね、できるようなことも含めて、しっかりとご検討いただきたいと、このようにお願いをしておきたいと思います。</div><div class="say">大丈夫です。</div>
+</div>
+
+<div class="turn chair reveal" id="t42">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2495s" data-timestamp="2495"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:35</a>　他にございますか。藤川さん。</div>
+</div>
+
+<div class="turn reveal" id="t43">
+  <div class="meta"><span class="name">藤川賢治</span></div>
+  <div class="say">まずやはり、この陳情第21号に関してなんですけども、もうとにかくこれは緊急性が高いということが1番です。はい。それで、これ、もちろん陳情の要旨の枠としては、最終的には建設業の中小事業者や個人事業者などを支援するためにということではあるんですけども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2527s" data-timestamp="2527"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:07</a>　実はその件名自体は、これ建設業の中小企業とは書いてないんですよね。で、中身を見ても、その地域経済の維持活性化のためにも、とあるように、この建設業でまず問題が生じてしまうと。で、問題が生じるんだけども、それが市民全体に影響を及ぼすよという内容なんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2557s" data-timestamp="2557"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:37</a>　ですから、その意見書としては、もちろんその建設業、要旨には書いてありますから、建設業の支援をしてくださいっていう内容での要旨となりますけども、それを例えば、市が建設業だけじゃなくて、やっぱり市民全体、地域経済が滞ってしまうから、そういう方全部に対して支援をしますよということで返してくれれば、それはもう、私はその陳情者も納得できるところではあると思うんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2589s" data-timestamp="2589"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:09</a>　ですから、あくまでその求めるのは、もちろん建設業のってことで求めますけども、それに対しては、まずそこにこだわらずということを、市がするとするんであれば、それは了とされるという風に考えています。ですから、その辺も踏まえてですね、緊急性ということ、緊急度が高いということで、なるべく早く回答をいただけるように、やっぱりこちらが議会として求めるというのは、やっぱり形としては私はすべきなのではないかと。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2621s" data-timestamp="2621"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:41</a>　で、それに応じて市がどういう判断を下すかというのは、それはもう市のお考えもありますけども、そこ限られた範囲じゃないっていうことだったとしてもですね、支援をするということをしていただければと思いますので、それを早いサイクルでやっていただきたいと思いますと。で、質問すること、内容に関してはですね、もうかなり議論も進んでますので、これも意見で終わらせていただきたいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2651s" data-timestamp="2651"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:11</a>　それで、是非ですね、9月にという、今、小林さんの質問の中で、9月議会だから8月の最初の方にでも来るんじゃないかということでありましたので、その方向で進めていただければと思います。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t44">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">他にございますか。はい、たゆさん。</div>
+</div>
+
+<div class="turn reveal" id="t45">
+  <div class="meta"><span class="name">たゆ久貴</span></div>
+  <div class="say">それでは質問させていただきますが、この内容はですね、陳情は緊急性が高いことから、早く採決することが重要と考えております。是非とも陳情の採決をすべきものと考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2688s" data-timestamp="2688"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:48</a>　それで、この陳情は継続審査になって、今日また審査しているわけですけれども、前回に一定の見解を述べましたが、改めて申し上げるとすれば、東京土建小金井国分寺支部のニュースが手元にあります。で、今日も多くの方が傍聴にいらしてくださいまして、市長にはですね、こういった声をしっかりと聞いていただきたいと思いますし、そのニュースの中にも、中小事業者や個人事業者の切実な声が紹介されております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2719s" data-timestamp="2719"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:19</a>　少し取り上げますと、ナフサ不足で物がなくなって現場が止まってしまった。新築の着工が延び延びになっている。現場が止まれば収入がゼロになってしまう。また、シンナーの目詰まり解消の対策を政府が行っていまして、これは工務店を始めとするシンナーの需要家に対して、卸売業者を経由せずにシンナーメーカーから直接販売するための仕組みだそうでありますが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2749s" data-timestamp="2749"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:49</a>　これが注文ができても、その値段が高くて、普段のシンナーがいつも2500円のものが、目詰まり解消シンナーは1万3500円ということで、5倍にも上る1万円超えという状況だと聞いております。で、高くて買えないという声が上がっております。で、このような状況から、やはり市としての独自の施策が必要ではないでしょうか。</div><div class="say">近隣市では、お隣の国分寺が給付金の支給を決めました。で、中野も、以前紹介しましたが、中野もゼロゼロ融資などやっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2781s" data-timestamp="2781"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:21</a>　一定規模の事業所は材料が確保できているところもあるとは想像しますが、元請けとなるそのような事業所から下請け、さらに二次下請けなど、その先にいる一人親方や個人事業主は大変で、そういった方々の声を聞いていただきたいと思います。で、1つ目の質問としては、そういった方々の声をしっかりと聞いているのかどうか、まず伺います。</div>
+</div>
+
+<div class="turn reveal" id="t46">
+  <div class="meta"><span class="name">経済課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2815s" data-timestamp="2815"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:55</a>　経済課長です。</div>
+</div>
+
+<div class="turn chair reveal" id="t47">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">経済課長。</div>
+</div>
+
+<div class="turn reveal" id="t48">
+  <div class="meta"><span class="name">経済課長</span></div>
+  <div class="say">はい。先にもですね、ご答弁させていただきましたけれども、この間ですね、市内事業者の方、個人事業者の方もそうですけれども、そういった方々とか、そういった方々が所属する関係団体の方々、それから、そのような方のお困りごとに相談に乗っている金融機関の方、こういったところからもですね、お話を聞かせていただいております。そういったところで、市としては状況を認識したというところでございます。</div><div class="say">以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t49">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2847s" data-timestamp="2847"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:27</a>　たゆさん。</div>
+</div>
+
+<div class="turn reveal" id="t50">
+  <div class="meta"><span class="name">たゆ久貴</span></div>
+  <div class="say">はい。是非ですね、そのおっしゃった通り、下請け、二次下請けなどですね、そういった方々の声をですね、しっかり聞いていただきたいと思います。で、2本目の質問はですね、市独自の施策について実現しないかと、部局及び市長に聞くつもりだったんですけど、それはもう答弁が出てまして、検討中である、できるだけ早く示すよう努めたいということで、それは良かったと思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2877s" data-timestamp="2877"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:57</a>　で、また、いつかということも聞こうと思ってたんですけど、それも、9月に示すのがリミットと考えているという市長からの答弁をいただきました。これもすごく良かったと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2907s" data-timestamp="2907"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:27</a>　で、ちょっと改めて伺いたいのが、その9月に示すのがリミットと考えているっていう表現が、ちょっと状況説明的な表現なので、市長の意思が全面に出るような答弁をいただきたいと思いまして、つまり、9月の定例会に予算計上する予定ということで答弁をいただきたいと思いますが、そういう考えでいいのかどうか確認します。</div>
+</div>
+
+<div class="turn reveal" id="t51">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">委員長。</div>
+</div>
+
+<div class="turn chair reveal" id="t52">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">市長。</div>
+</div>
+
+<div class="turn reveal" id="t53">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">まだ庁議等もね、通してないので何とも言えませんが、意思としては9月に示したいということです。</div>
+</div>
+
+<div class="turn chair reveal" id="t54">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。たゆさん。</div>
+</div>
+
+<div class="turn reveal" id="t55">
+  <div class="meta"><span class="name">たゆ久貴</span></div>
+  <div class="say">はい。意思として9月に示したいという市長のお言葉をいただきました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2941s" data-timestamp="2941"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:01</a>　当然すぐにやるべきものではあったんですけれども、もうすでに現状、市の独自施策が行われててもいいような状況だとは考えますが、でも現状から考えて、次の最短の定例会9月に出すという意思を示していただきましたので、それは是非ともですね、期待しますし、必ずやっていただきたいと、強く求めて終わります。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t56">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=2971s" data-timestamp="2971"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:31</a>　はい。他にございますか。吹春さん。</div>
+</div>
+
+<div class="turn reveal" id="t57">
+  <div class="meta"><span class="name">吹春やすたか</span></div>
+  <div class="say">端的にお伺いいたします。21号、陳情第21号に対して資料を出していただきました。近隣市の補助状況についてということで3市、こういった補助がなされているということですけども、これ、それぞれにリサーチなさってる際に、実際にやってらっしゃったのはこの3市だったところが、そろそろやりますよとか、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3001s" data-timestamp="3001"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:01</a>　もしくは進めてますよなどのこと、どういうんですかね、今回まではここに掲載されなかったけども、何かこう感じられるようなものとか、そういったものがおありになったのかどうかなということを教えていただければ、それだけです。</div>
+</div>
+
+<div class="turn chair reveal" id="t58">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">経済課長。</div>
+</div>
+
+<div class="turn reveal" id="t59">
+  <div class="meta"><span class="name">経済課長</span></div>
+  <div class="say">はい。資料のお話でございますけれども、資料につきましてはですね、やはり近隣市の方々、やはり検討している状況っていうのは変わらないと思うんですが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3031s" data-timestamp="3031"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:31</a>　その中において、令和8年の第2回定例会においてですね、小平、国分寺、三鷹というところで予算措置されている。特に小平、国分寺につきましては、定例会中のですね、最終日に上程しているというような状況もございますので、まだこの事業が実施されてるかどうかっていうところはですね、ちょっと今の段階では、ちょっとごめんなさい、我々としては把握しておりませんけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3064s" data-timestamp="3064"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:04</a>　この事業をスタートしていくというところについてはご案内があって、他の市にもあっていると思います。以上でございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t60">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">吹春さん。</div>
+</div>
+
+<div class="turn reveal" id="t61">
+  <div class="meta"><span class="name">吹春やすたか</span></div>
+  <div class="say">はい。すいません。この3市以外では、そういった感じとかなかったかっていうのを聞きたかったんです。</div>
+</div>
+
+<div class="turn chair reveal" id="t62">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">経済課長。</div>
+</div>
+
+<div class="turn reveal" id="t63">
+  <div class="meta"><span class="name">経済課長</span></div>
+  <div class="say">はい。資料にお示しの通りですね、令和8年第2回定例会において予算措置された事業のみということで、近隣市の中ではこの3市のみという形になっております。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t64">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3097s" data-timestamp="3097"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:37</a>　よろしいですか。はい。他にはもうありませんね。はい、休憩します。</div><div class="say">緊急性があるんだというお話が出ております。で、ただ、今日皆さん質疑をしたことによって、市の物価対策については、一定の対応を検討しているといったような答弁が出ていたかなと思っています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3130s" data-timestamp="3130"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:10</a>　で、これもやはり、市長からは9月議会、第3回定例会がリミットだというお話もあったかなと思っています。しかし、まだ具体的な内容についてはもう少し精査をしていく必要があるので、今の私の受け止め方としては、もう少し時間をもらいたいといったような趣旨のご発言だったかなと思っています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3161s" data-timestamp="3161"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:41</a>　どのような対応になるかということについては、本日のところはまだ分かっていないというところですが、私、委員長としては、一定前向きな発言があったかなと受け止めているところであります。この陳情、今回どういった扱いにしていくかということについては、その具体策的な中身が前向きの答弁ではありましたが、具体的な中身についてまだ明らかになっていないというところで考えますと、今後提案されてくるその施策の中身、これをやはりしっかり見極めていく必要があるのかなという風には私としては考えておりまして、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3195s" data-timestamp="3195"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:15</a>　こういった状況を踏まえてですね、定例会中の委員会で結論を出していくということで考えますと、今日のところはですね、保留とさせていただきまして、先ほど申し上げましたように、9月の定例会中の総務企画委員会で結論を出していくという進め方でいかがなのかなと。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3226s" data-timestamp="3226"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:46</a>　委員長からは、そういった取り扱いということでご理解いただけないかと考えておりますが、進め方としていかがでしょうか。斎藤さん。</div>
+</div>
+
+<div class="turn reveal" id="t65">
+  <div class="meta"><span class="name">斎藤康夫</span></div>
+  <div class="say">これ、協議会ですね。</div>
+</div>
+
+<div class="turn chair reveal" id="t66">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。</div>
+</div>
+
+<div class="turn reveal" id="t67">
+  <div class="meta"><span class="name">斎藤康夫</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3260s" data-timestamp="3260"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:20</a>　今後これを、今日採決すれば、第3回定例会、9月定例会の冒頭で、本会議で採決するという形になります。</div>
+</div>
+
+<div class="turn reveal" id="t68">
+  <div class="meta"><span class="name">斎藤康夫</span></div>
+  <div class="say">で、今日保留にして、第3回定例会の定例会中の委員会で採決をすれば、9月定例会の最終日に採決、本会議採決をするということで、約1ヶ月間のタイムラグができるということをどう捉えるかという、この委員会としてね、どういうふうにそれを捉えるかということですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3294s" data-timestamp="3294"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:54</a>　で、大変申し訳ないんですけど、今、委員長のあの発言で、行政の具体的内容が決まってないから云々ということがあったんですが、私はそれが逆だと思ってまして、陳情の趣旨に関しては、そこの具体的なことまでには立ち入っていないわけですよ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3325s" data-timestamp="3325"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:25</a>　だから逆に、我々議会としては、先ほど私の発言の中にも入れたんですけれども、議会としてね、この陳情の趣旨に関して行政に求めて、行政はそれを受けた形で、行政が決定していく施策に結びつけていくのが本来で、行政がやることが決まってたら、それを後押ししたんだったら、議会の意味が全くないわけであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3359s" data-timestamp="3359"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:59</a>　で、大変申し訳ないんですけど、委員長の先ほどの発言は、私は納得できていませんので、本日は採決を求めるか、委員会の中でね、ちょっと下打ち合わせで、保留にして、9月定例会の冒頭でというふうに、ちょっと私、勘違いしたところがありまして、今日採決しなければ、9月定例会の冒頭での本会議採決っていうのもあり得ないので。ですよね、局長ね、これはね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3391s" data-timestamp="3391"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:31</a>　ええ、なので申し訳ないんですけど、委員長と少し前にお話ししたことと違う形で、採決を求めていきたいというふうに思っております。はい。</div>
+</div>
+
+<div class="turn chair reveal" id="t69">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。他はございますか。たゆさん、どうぞ。</div>
+</div>
+
+<div class="turn reveal" id="t70">
+  <div class="meta"><span class="name">たゆ久貴</span></div>
+  <div class="say">私もやっぱりこの陳情の緊急性を考えて、質問でも申し上げましたが、採決をすべきものだと考えております。</div>
+</div>
+
+<div class="turn chair reveal" id="t71">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">他はございますか。藤川さん。</div>
+</div>
+
+<div class="turn reveal" id="t72">
+  <div class="meta"><span class="name">藤川賢治</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3422s" data-timestamp="3422"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:02</a>　私も採決を求めます。で、あくまで先ほども私が言いましたように、建設業だということで求めてはいくんですけども、全体を見るとやっぱり市の全体の経済が全部繋がってますから、それで、市が判断して建設業だけじゃなくて、もっと広い範囲でということを判断されるのは、もちろんそれで、より良いことだとは思いますので、それで構わないんですけど、やっぱり私としてはこの人の意見を大事にして、採決をして、市に求めていくのが筋ではないかと考えます。</div>
+</div>
+
+<div class="turn chair reveal" id="t73">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3453s" data-timestamp="3453"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:33</a>　はい。今、お三方から採決するべきではないかというお話をいただきました。ただ今、市長も含めた部局の答弁をいただく中では、タイミングについてもまだ固まっていないような印象で、聞いてないから。</div><div class="say">で、逆に、そうなんです。今、斎藤さんがおっしゃったように、そうは言っても緊急性というところは考慮するべきだなという、なんて言うんだろう、委員会の意思というのはお伝えしているわけです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3488s" data-timestamp="3488"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:08</a>　ただ、ここでそのタイミングについても明確に、今、どういうことか示されていないのかなって思って、今、受け止めているということと、あともう1つ、なんだろう、物価高騰対策として支援を行っていくという、この、なんて言うんでしょうかね、考え方、これについても、部局は、私の今のその受け止め方ですと、一定そのお考えがあるような印象でしてね。その対象をどうしていくのかっていうことについても、まだそのはっきりしたものが出てきていないと、委員長としてはそういった受け止めで今いますので、保留でお願いできないかということで今考えているということは、まずお伝えしておきたいと思います。何かご意見ありましたら。</div><div class="say">ながとりさん。</div>
+</div>
+
+<div class="turn reveal" id="t74">
+  <div class="meta"><span class="name">ながとり太郎</span></div>
+  <div class="say">私、先ほどの中でも申し上げましたけれども、かなり前向きな一定の答弁が出たなと思っています。ただ、その内容についてまだ私自身も分からないというか、判断に迷う、全部の材料が出てきていないのでということがありまして、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3551s" data-timestamp="3551"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:11</a>　もう少し時間が欲しいということであれば、慎重に審議しなきゃいけないかなと思っております。なので、採決ということではなく、保留にしていただけたらいいかなという考えであります。</div>
+</div>
+
+<div class="turn chair reveal" id="t75">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">斎藤さん。</div>
+</div>
+
+<div class="turn reveal" id="t76">
+  <div class="meta"><span class="name">斎藤康夫</span></div>
+  <div class="say">すいません。2回目の発言になって申し訳ないんですけれども、行政が何をやるかが決まって、メニュー全部決めてスタートできる状態になればね、そんなもん議会の意思、必要ないんですよ。行政、やるって言ってるんだから。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3591s" data-timestamp="3591"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:51</a>　我々議会とすれば、二元代表制の中で我々議会が必要だということで、だから大まかな方向性をですね、決めて行政にそれを求めて、できれば行政がそれを受けて、具体的な政策に、事業として進めていくという形を求めるのであって、行政がここで決まってないから議会がその意思を決定できないっていうのは全く本末転倒であり、二元代表制の否定であり、議会の否定になるというふうに言わざるを得ないというふうに考えてますんで、よくその辺をお考えいただいた上で、ご発言いただければと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t77">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">斎藤さんのご意見、分かりました。他にございますか。今言ったことを受けて何か。小林さん。</div>
+</div>
+
+<div class="turn reveal" id="t78">
+  <div class="meta"><span class="name">小林正樹</span></div>
+  <div class="say">受けてということでは私はないんですが、斎藤さんの言われることはごもっともだと私も思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3653s" data-timestamp="3653"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:53</a>　なので、皆さんが採決を求めるということになれば、私も採決で問題ないと思っております。また、市長に対しては9月冒頭、議決も含めてですね、強く要望しておりますので、しっかり進めていただきたいと思います。ただ1点、その採決、保留、継続じゃない上で、ご検討いただきたいのは、私が、すでにずっと言われたように、藤川さんの解釈と逆でですね、やっぱり全体の部分をしっかりとカバーをしていくということを考えればですね、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3686s" data-timestamp="3686"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:26</a>　これ、趣旨採択というのは、よく使うのはこの中の一部をという趣旨採択ということがあるんですが、私としてはもっと広い範囲で、議会としては求めているという意味での趣旨の採択ということもですね、ご検討いただければなと。これは前向きな議論になると思いますので、委員長に投げかけておきたいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3717s" data-timestamp="3717"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:57</a>　採決については、皆さんが望まれれば私もそういうことで、お願いをしておきたいと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t79">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。小林さんのご意見、伺いました。他、ご発言されていない方、いかがでしょうか。私も、委員長という職を離れて考えると複数会派であります。ですから今日のような展開で、決断できる会派とできない会派があるのかなって思っておりまして、その辺りも含めてご意見いただければと思います。吹春さん。</div>
+</div>
+
+<div class="turn reveal" id="t80">
+  <div class="meta"><span class="name">吹春やすたか</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3751s" data-timestamp="3751"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:31</a>　はい。今、先ほど小林さんから趣旨採択という提案がありましたけども、私はもう、やっぱりそうですよ。困ってる方がいらっしゃる、なんとかしてあげたいっていう気持ちは私ももちろん持ってるわけですし、なんとか解決するための努力をしなければいけないわけですけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3783s" data-timestamp="3783"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:03</a>　委員長が整理していただいたように、斎藤さんが言っていることは分かるんですけれども、どうですかね。やっぱりここは広い意味での取り方としたいなと思うと、やっぱり趣旨採択というのもありかなというところでございます。ただ、採決について、天野さんはお休みされてますけど、そのことはどのように取ればよろしいんですか。</div>
+</div>
+
+<div class="turn chair reveal" id="t81">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3814s" data-timestamp="3814"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:34</a>　今、欠席している議員のことについては、まず横に置いておいていただいていいのかなと思ってまして、今ここにいる皆さんのご意見ということで、その取り扱いについていかがいたしましょうかっていうお話なので、まずそこで見解表明していただくとありがたいなと思ってます。</div>
+</div>
+
+<div class="turn reveal" id="t82">
+  <div class="meta"><span class="name">吹春やすたか</span></div>
+  <div class="say">はい。いいですか。であれば保留を希望いたします。</div>
+</div>
+
+<div class="turn chair reveal" id="t83">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3848s" data-timestamp="3848"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:08</a>　ながとりさん。</div>
+</div>
+
+<div class="turn reveal" id="t84">
+  <div class="meta"><span class="name">ながとり太郎</span></div>
+  <div class="say">ですね、先ほど小林さんがおっしゃったことで、斎藤さんのおっしゃることは非常に理解はできるところであります。なるべく早く結論を出さなければいけないということもあると思いますので。ただ、私としてもまだ非常に悩んでるところもあります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3879s" data-timestamp="3879"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:39</a>　趣旨採択ということをおっしゃってたんですけれども、ということであれば、ちょっと持ち帰りをさせていただかないと、ここで結論は出せないんですけれども、その辺の検討というかですね、ありまして、いや、というのが私の考えであります。</div>
+</div>
+
+<div class="turn chair reveal" id="t85">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">採択するということは、ちょっと局長から手順を言っていただきたいんですが、結局、保留もしくは継続するということと同じなので、イコールで、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3910s" data-timestamp="3910"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:10</a>　それと、採択の場合は全会一致ですから、その辺も踏まえた形で協議したいなというふうに思ってます。ここで、進め方について局長からちょっと解説をいただけますでしょうか。</div>
+</div>
+
+<div class="turn reveal" id="t86">
+  <div class="meta"><span class="name">議会事務局長</span></div>
+  <div class="say">趣旨採択ということであれば全会一致が基本ですので、ここで採決っていうのは難しいということになります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3942s" data-timestamp="3942"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:42</a>　ただ、現段階において採択ではだめだということが、そういう会派がいらっしゃれば、先ほどの元に戻って採決か、保留かという選択になろうかと思いますので、そこはもう一度ご確認をいただきたいなと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t87">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">小林さん。</div>
+</div>
+
+<div class="turn reveal" id="t88">
+  <div class="meta"><span class="name">小林正樹</span></div>
+  <div class="say">非常に難しい問題になってて、斎藤さんの言われてる通りだと思います、通常であればですね。ただ、趣旨採択ということを委員会が全体が一致をして、その先でですね、ここにいらっしゃらないところ、会派の確認もしてという形になるので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=3974s" data-timestamp="3974"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:14</a>　手続き上は保留もしくは継続という形にはなりますけども、この中で一致しているということであれば、それは一定のですね、我々の意思表示に、行政に対してはなるのかなというように考えて提案をしたんですが、採択すら持ち帰るという会派が出てしまうとですね、もうおっしゃる通りの展開になってしまいますので、何もここでは結論が出なかったということになってしまうので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=4007s" data-timestamp="4007"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:47</a>　なかなか私の意にそわないなということだけはですね、申し上げておきたいと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t89">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。ご意見ありがとうございました。今、委員長としては、今、小林さんが言われたようなことかなと。で、局長からも説明がありました。で、まずね、趣旨採択という形、それぞれお考えがあると思っています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=4039s" data-timestamp="4039"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:19</a>　で、まず委員長としては、趣旨採択ということで一致できるかどうかっていうことを確認して、だめだったらば、その先、保留なのか採決なのかという形でお諮りしていくという進め方になるかと思います。で、今のその趣旨採択ということで、趣旨採択ということだったら受け入れられないよという方は、もしいらっしゃったら、ご発言お願いしたいと思います。その影響については先ほど局長から説明があったと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=4072s" data-timestamp="4072"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:52</a>　今日のところは一度保留して、これを、所属していない会派の皆さんに確認していくということになっていきますが、今日のところは保留という形でお諮りするという形になっていくと思いますが、いかがでしょう。斎藤さん。</div>
+</div>
+
+<div class="turn reveal" id="t90">
+  <div class="meta"><span class="name">斎藤康夫</span></div>
+  <div class="say">ここで、趣旨で、この委員会が仮に一致したとすると、委員会に所属してない議員も含めて、また、複数会派の方は会派に戻って協議して、全会一致で趣旨採択の方向ということで協議するために時間が必要で、結局、9月定例会中の委員会で諮り、最終本会議で採決をするという形になる。全会一致であれば、趣旨採択という形で、正しい全会一致という形が残るわけですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=4137s" data-timestamp="4137"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:57</a>　で、今日、あくまでも採択を求めて、保留にするか、採決かという、採決じゃなくて、話なんだっけ。保留でもいいんだっけ。保留、保留でもいい。保留にするか採決するかということをやると、ある程度こう、賛否が分かれた状態で、仮にこれが通らなければ保留になるし、通った場合でも、9月定例会の初日の本会議採決で、これは賛否が分かれる可能性があるわけですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=4170s" data-timestamp="4170"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:30</a>　だから、その辺を我々は、言ってみればその進め方としてね、考えていかなければいけない状況、どっちがいいのかということを考える。9月末に全会一致で趣旨採択が通るのがいいのか、もしくは、通るとは限らないですね、反対ということで採決で否決されることももちろんあるわけですけれども、ただ、今、行政がね、今日の答弁の中で、かなり前向きな答弁なので、それは、なんていうのかな、否決されることはなさそうな気がするけれども、賛否が分かれる可能性は否定できないということですね。だって中身見なきゃわかんないって言ってて、中身見たら反対だっていう形が出る可能性があるわけだから、賛否が分かれる可能性があるんですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=4231s" data-timestamp="4231"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:31</a>　その状況の中で、どう進めるかということなんですが、我々はそれを、そういった条件の中、どう、結論、採決をあくまでも求めていくのか、趣旨採択に乗るのかということを、我々1人1人の議員が、委員がですね、判断しなければいけない状況という、今、状況になってますということを言った上で、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=4261s" data-timestamp="4261"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:01</a>　私はできれば、今、採決をしてですね、行政側があれだけ、ある程度、ちょっと時期は分からないけども、前向きな姿勢を見せてるんだから、やることはやる、早くやるか遅くなるか分からないけども、それを議会として後押しするためにね、この陳情を採択して、採決して、結果、採択になって行政の後押し、行政も、そうすれば議会も言ってるからということで、事業を進めやすいわけですよ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=4291s" data-timestamp="4291"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:31</a>　議会から押されてるよという形で。ですから私は、採決を求めたいというふうに思っております。</div>
+</div>
+
+<div class="turn chair reveal" id="t91">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、ありがとうございました。分かりました。で、今その、趣旨採択で持ち帰った場合、保留の場合と、もう1つ継続した場合、それぞれのその違いについて、もう一度、局長、ご説明いただけないでしょうか。</div>
+</div>
+
+<div class="turn reveal" id="t92">
+  <div class="meta"><span class="name">議会事務局長</span></div>
+  <div class="say">継続となりますと、次の、うちの小金井市議会のルールですと、次は9月定例会の後の10月、11月の閉会中の委員会で審査という形になりますので、継続という、今、皆さんのお話の中では、ちょっとその選択肢っていうのはなかなかないのかなと思います。</div>
+</div>
+
+<div class="turn reveal" id="t93">
+  <div class="meta"><span class="name">議会事務局長</span></div>
+  <div class="say">で、保留ということになれば、先ほど斎藤委員からもお話がありました通り、9月の定例会中の総務企画委員会で次に議題に上がりますので、その際に、採決なりを行っていただくということ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=4361s" data-timestamp="4361"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:41</a>　それから採決、この場で採決ということになれば、賛否をそれぞれ、採決いただくということになる。この3つのパターンかなとは思ってございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t94">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">今、休憩中ですよね。休憩中ですが、休憩させてください。休憩します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=4953s" data-timestamp="4953"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:33</a>　じゃ、協議会ということで再開いたします。先ほど、趣旨採択でいかがですかといったご意見があったわけですが、趣旨採択ではなくて、採択をということなのかなと思うんですが、この点についていかがでしょうか。たゆさん。</div>
+</div>
+
+<div class="turn reveal" id="t95">
+  <div class="meta"><span class="name">たゆ久貴</span></div>
+  <div class="say">私も先ほど斎藤さんが申し上げてたのと同じで、採決を希望します。</div>
+</div>
+
+<div class="turn chair reveal" id="t96">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=4984s" data-timestamp="4984"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:04</a>　はい。斎藤さんも採決を希望されるということでよろしいですね。はい。ながとりさん。</div>
+</div>
+
+<div class="turn reveal" id="t97">
+  <div class="meta"><span class="name">ながとり太郎</span></div>
+  <div class="say">私も、先ほど、趣旨採択の発言をいたしましたけれども、大勢に従います。</div>
+</div>
+
+<div class="turn chair reveal" id="t98">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">皆さんよろしいですか。はい。小林さん。</div>
+</div>
+
+<div class="turn reveal" id="t99">
+  <div class="meta"><span class="name">小林正樹</span></div>
+  <div class="say">私は、先ほども、全体が採決できるということであれば採決に臨むと申し上げておりますので、よろしくお願いします。</div>
+</div>
+
+<div class="turn chair reveal" id="t100">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5016s" data-timestamp="5016"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:36</a>　分かりました。委員長としても、先ほど、委員長としては保留をお願いしたいということを発言させていただいたわけですが、改めて皆さんのご意見を踏まえて、ということであれば、採決をという形で進めてまいりたいと思います。そういう形でよろしいですね。</div><div class="say">では、再開をして採決へということで進めてまいりたいと思います。よろしくお願いします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5050s" data-timestamp="5050"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:10</a>　再開いたします。8陳情第21号 建設資材不足と価格高騰にあえぐ中小事業者、個人事業者に対する支援として、小金井市独自の補助金制度の創設を求める陳情書につきまして、委員長報告に載せる意見要望がございましたらご発言お願いいたします。</div><div class="say">以上で本件に対する質疑を終了することにご異議ありませんか。ご異議なしと認めます。従って質疑を終了いたします。これから討論を行います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5080s" data-timestamp="5080"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:40</a>　本件に対する討論を終了することにご異議ありませんか。</div>
+</div>
+
+<div class="turn voice reveal" id="t101">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">異議なし。</div>
+</div>
+
+<div class="turn chair reveal" id="t102">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">ご異議なしと認めます。従って討論を終了いたします。それでは直ちに採決いたします。お諮りいたします。本件は採択の上、市長に送付することにご異議ありませんか。</div>
+</div>
+
+<div class="turn voice reveal" id="t103">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">なし。</div>
+</div>
+
+<div class="turn chair reveal" id="t104">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">ご異議なしと認めます。従って本件は採択の上、市長に送付すべきものと決定いたしました。</div>
+</div>
+
+<div class="turn reveal" id="t105">
+  <div class="meta"><span class="name">小林正樹</span></div>
+  <div class="say">一旦休憩させてください。</div>
+</div>
+
+<div class="turn chair reveal" id="t106">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5135s" data-timestamp="5135"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:35</a>　はい、小林さん。</div>
+</div>
+
+<div class="turn reveal" id="t107">
+  <div class="meta"><span class="name">小林正樹</span></div>
+  <div class="say">はい。</div>
+</div>
+
+<div class="turn chair reveal" id="t108">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。ちょっと休憩します。</div>
+</div>
+
+<div class="turn reveal" id="t109">
+  <div class="meta"><span class="name">小林正樹</span></div>
+  <div class="say">これ採決されるということで、私は前向きに捉えているんですが、先ほど申し上げたように、議会としてもこれ意見書出てるんですが、これもう1回、これを内容踏まえて意見書を出すということなんです。その一応その確認だけ先にして採決にした方がいいかなと思ったので。</div>
+</div>
+
+<div class="turn chair reveal" id="t110">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5168s" data-timestamp="5168"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:08</a>　斎藤さん。</div>
+</div>
+
+<div class="turn reveal" id="t111">
+  <div class="meta"><span class="name">斎藤康夫</span></div>
+  <div class="say">すいません。陳情を採択する上で、例えば、まだ起こってないことに対して、求めて、先へ進めるという時と、もうすでに願意が満たされてるから、採択するというケースがあるじゃないですか。で、そういうものにも当たるんじゃないかなという風に、私は受け止めております。</div>
+</div>
+
+<div class="turn chair reveal" id="t112">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">小林さん。</div>
+</div>
+
+<div class="turn reveal" id="t113">
+  <div class="meta"><span class="name">小林正樹</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5198s" data-timestamp="5198"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:38</a>　私もそのように受け止めておりますが、全体の一致を持っておいた方がいいかなと思ったものですから。</div>
+</div>
+
+<div class="turn chair reveal" id="t114">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">ということは、結果が出るということで、これ採択された場合に意見書は出ているもので、その上で、そこを踏まえて判断していくということ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5240s" data-timestamp="5240"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:20</a>　内容、ただね、陳情書、改めてこの22号と、国に対して、供給安定化と対策を速やかに講じるための意見書提出を求める陳情なんですよね。で、しかし願意は満たされて、結果が出る。ここのところをどう考えるかなんですけど。私としては、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5273s" data-timestamp="5273"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:53</a>　6月に、同じ内容のが出て、9月でももう1回出すっていうつもりではいたんですが、うん、ただ、委員会としてどっちにしようかっていうことであれば、あの。</div>
+</div>
+
+<div class="turn reveal" id="t115">
+  <div class="meta"><span class="name">議会事務局長</span></div>
+  <div class="say">事務的にですか。事務的にできるのか。それはもう議会の判断になろうかと思いますが、願意が満たされた陳情の採決っていうのが、先ほど、斎藤委員がおっしゃられた通り、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5303s" data-timestamp="5303"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:23</a>　願意が満たされた上で採択するっていう方法もありますし、このまま、なんて言いましたっけ。審査しないで流しちゃうっていうパターンもありますし、あと、もう1つあるとすれば、陳情を取り下げてもらう。この3つが、解説には書いてあるかなと思いまして、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5337s" data-timestamp="5337"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:57</a>　なかなか、最後の部分っていうのは選択肢として外れるとして、議会の中で、採決もう1回改めてするか、あるいは、審議未了で流すというようなパターンが、解説書なんかでは書いてあるというようなことになります。</div>
+</div>
+
+<div class="turn chair reveal" id="t116">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5461s" data-timestamp="5461"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:01</a>　最終的には、なんだっけ、今のところ、〇〇、採決になった場合は、意見書の案文については、正副で調整の上、後日またご協議いただくという形になります。ですので、精査を踏まえて過不足があれば、その部分を補足した意見書を正副からお示しさせていただくと。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5491s" data-timestamp="5491"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:31</a>　万が一、含まれているよ、今回の陳情のが含まれているよってことであれば、そういう形になりましたよってことを皆さんにお知らせする形になりますかね。ちょっと待ってくださいね。確認します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5531s" data-timestamp="5531"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:11</a>　今、協議会です。何かありますか。</div>
+</div>
+
+<div class="turn reveal" id="t117">
+  <div class="meta"><span class="name">議会事務局長</span></div>
+  <div class="say">はい。これ簡易で、採択ということになれば、その意見書の、これ通常の進め方なんですが、正副委員長にご一任いただいて調整すると。その上で、そう、その上で、ご協議いただくという形になります。次第上はね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5562s" data-timestamp="5562"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:42</a>　で、その内容はというと、今、斎藤さんが言われたところ、過不足、もし足らないところがあれば、そういった内容をフォローした意見書案を正副委員長の方から皆さんにお示しさせていただく。特になければ、お、特になければそのままでいいのかな。意見書は出さずに、ということで、になりますが、</div>
+</div>
+
+<div class="turn chair reveal" id="t118">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">そういった形でご確認いただけますか。いい、大丈夫ですか。小林さん。</div>
+</div>
+
+<div class="turn reveal" id="t119">
+  <div class="meta"><span class="name">小林正樹</span></div>
+  <div class="say">委員長、事務局にまとめていただきましてありがとうございます。重要な委員会の採決ですので、共通認識を持って臨んだ方がいいと思ったので、ありがとうございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t120">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5601s" data-timestamp="5601"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:21</a>　では、進め方は今私がお話したような進め方で、採決後の対応については正副委員長にご一任いただくという形で進めてまいりたいと思います。これ再開をして、はい。なので、この先は、採決を図っていくという形になります。</div><div class="say">で、その上で、委員長から先ほどの意見書の取り扱いについて発言させていただくという形になりますということで、再開してよろしいでしょうか。いい。はい、では、じゃあお願いします。再開します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5642s" data-timestamp="5642"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:02</a>　次に、8陳情第22号 国に対し、原材料・建設資材の供給安定化と価格高騰対策を速やかに講じるための意見書提出を求める陳情書。お諮りいたします。本件は採択の上、関係機関に意見書を送付することにご異議ありませんか。</div>
+</div>
+
+<div class="turn voice reveal" id="t121">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">なし。</div>
+</div>
+
+<div class="turn chair reveal" id="t122">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5675s" data-timestamp="5675"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:35</a>　ご異議なしと認めます。本件は採択の上、関係機関に意見書を送付すべきものと決定いたしました。なお、意見書の案文につきましては正副委員長で調整の上、後日ご協議いただきたいと思いますので、よろしくお願いいたします。</div><div class="say">はい。次に、所管事務調査、自治体DXの取り組みについてを議題といたします。部局から発言がありましたら、これを求めます。これから質疑を行います。藤川さん。</div>
+</div>
+
+<div class="turn reveal" id="t123">
+  <div class="meta"><span class="name">藤川賢治</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5710s" data-timestamp="5710"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:10</a>　それでは、情報公開制度のDX推進について、質問させてください。小金井市のホームページには、情報公開・個人情報保護等に関するページとして、情報公開・個人情報保護、個人情報保護の、まずページがございます。その中の情報公開制度のページに書いてあることは、「何人にも、市政情報に関する知る権利を保障するとともに、市は原則市政情報を公開することで」、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5742s" data-timestamp="5742"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:42</a>　原則市政情報を公開するって書いてありますね。で、「公正で透明な市政を推進する制度です。また、市政情報の公開のほか、市政に関する分かりやすい情報を提供するよう、情報提供施策等を拡充し、情報公開を統合的に推進していきます」と、推進していく旨も書かれています。</div><div class="say">また、運用状況のページから、小金井市情報公開条例及び個人情報保護制度の運用状況が公開されており、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5773s" data-timestamp="5773"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:13</a>　情報公開請求の内容や決定状況を確認できます。で、この運用状況については議会でも、報告いただいています。で、同じ内容が、市民にも、公開されていることを確認していますと。</div><div class="say">情報、提供、施策をですね、拡充されていることを実感、しております。これに関しては、まずありがとうございます。そこでですね、確認させてください。この情報公開請求によって一度開示された文書についてはですね、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5804s" data-timestamp="5804"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:44</a>　その後、同一内容の請求があった場合にも原則として同様に開示されるという理解でいいのか。また、その理解で良いのであればですね、1度開示した文書のうち、個人情報その他の非公開情報を除いてですね、公開可能なものについてはですね、市のホームページ上でもう継続的、ずっと公開するということも考えられるのではないかなと思うのです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5835s" data-timestamp="5835"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:15</a>　これによって市民が改めて情報公開請求を行わなくても必要な情報を閲覧できるようになり、市政情報に関する知る権利の保障とかですね、公正で透明な市政の推進につながるとともにですね、情報提供施策等を拡充し、情報公開を統合的に推進すると、この推進の旨ですね。これの方針にも合致するものと考えます。またですね、これ、市側から見てもですね、1度作成・開示したデータを継続的に活用することによりですね、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5867s" data-timestamp="5867"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:47</a>　行政の方の手間も削減できますし、市の方、市民の方の手間も削減できるのに加えましてですね、行政の方の手間も削減できますと。職員が同じ文書について開示作業を繰り返す必要も、減るのでですね、市民サービスの向上にもですね、行政事務の効率化、さらにはDXの推進にも資するものと考えます。ですので、ちょっと質問をまとめますと、現在1度開示した文書をホームページ等で継続的に公開するような運用は行われていますでしょうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5897s" data-timestamp="5897"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:17</a>　で、もし行われてない場合は、その理由とですね、今後そのような運用を導入する考えはありますでしょうか。以上になります。</div>
+</div>
+
+<div class="turn chair reveal" id="t124">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">総務課長。</div>
+</div>
+
+<div class="turn reveal" id="t125">
+  <div class="meta"><span class="name">総務課長</span></div>
+  <div class="say">はい。情報公開請求により一度開示された文書について、その後同一の請求があった場合は原則として同様に開示されるかということでございますが、こちらにつきましては、現実、原則としてはそのとおり同様の、内容で開示されるものと考えます。また、開示した文書をホームページ等で継続的に、公開する運用についてでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5932s" data-timestamp="5932"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:52</a>　情報公開請求につきましては、何人にも基本的人権としての市政情報に関する知る権利を実効的に保障するものであり、その請求内容も、各人固有の、権利の行使であり、多岐にわたります。各人固有の請求に対し個別の決定がされることがまずもっての原則と考えますので、現時点ではホームページにおいてその具体の内容を不特定多数に公開していくことは、現時点では考えておりません。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5965s" data-timestamp="5965"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:39:25</a>　しかしながら、開かれた市政を実現するためには、市民が求める情報を的確に把握し、市政に関する正確で分かりやすい情報を積極的かつ迅速に提供することが必要との、認識ではございますので、情報提供施策の拡充について、努力してまいりたいと思います。また現状、情報公開条例及び個人情報保護制度の運用状況の中で、各請求があった件名までは載せさせていただいております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=5997s" data-timestamp="5997"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:39:57</a>　ただ、ご請求により対象となった文書等につきましては、内容によっては100ページを越すものや、特に時には数百ページに及ぶものもございます。そういった点からしても、それらをホームページ等に上げていくことにつきましては、事務的作業から考えましてもなかなか難しい状況に、あると考えるところでございます。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t126">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">藤川さん。</div>
+</div>
+
+<div class="turn reveal" id="t127">
+  <div class="meta"><span class="name">藤川賢治</span></div>
+  <div class="say">まず、お答えいただきありがとうございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6028s" data-timestamp="6028"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:28</a>　また、考え方としまして、ですね、個人1人1人の権利に基づいて、こちらが、その権利に、対応していくという考えで行っているということも、よくわかりました。ただ、やはりですね、で、もちろん、これからは、もう積極的に情報を公開していくという、ことも考えているということも、答弁いただきましたので、それは進めていただきたいと、思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6059s" data-timestamp="6059"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:59</a>　で、私としましては、それともやっぱり、1度開示したものはもう出しておけばいいのではないかなという考えはありますとね。要求がまた来ることはあるんですけども、それはしっかり、そこは対応すると。で、その時の対応として、やっぱり同じように渡すでもいいし、で、渡す前に、ここに今もう公開してますよっていうことを伝えるということも、できると思いますので、それで、業務の手間も含めて、削減するので、市民の方の手間も、削減するというのがいいのではないかと。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6089s" data-timestamp="6089"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:41:29</a>　また、資料が膨大であるということに関しては、これは、情報公開請求があってからどうにかするって対応だと、多分そうなるだろうなっていうのは、これはよくわかります。やっぱりそこに関しては、普段から、あらゆるものをデジタル化して、保管しておいて、いつでも使えるようにするというのが、今後やっていくことではないかなと。DX推進ということにも、繋がりますので、そういうことを考えていただければなと思います。</div><div class="say">以上です。意見として終わります。</div>
+</div>
+
+<div class="turn chair reveal" id="t128">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6120s" data-timestamp="6120"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:00</a>　はい。他にございますか。ないの。いいの。あればどうぞ。どうぞ、どうぞ。はい。ながとりさん。</div>
+</div>
+
+<div class="turn reveal" id="t129">
+  <div class="meta"><span class="name">ながとり太郎</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6151s" data-timestamp="6151"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:31</a>　はい。それでは、所管事務調査の自治体DXの取り組みについて、（2）デジタル技術を活用した業務効率化の推進、（3）DX推進の意識醸成とデジタル人材の育成というところで、質問をさせていただきます。いくつか、何点かありますのでお願いします。</div><div class="say">まずですね、この度7月に、国のデジタル社会の実現に向けた重点計画というのが閣議決定されました。で、この内容についてなんですけれども、また後でもうお話をしますけれども、デジタル、今までデジタルを実装しようね、実装しようねという話で、来ました。</div>
+</div>
+
+<div class="turn reveal" id="t130">
+  <div class="meta"><span class="name">ながとり太郎</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6195s" data-timestamp="6195"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:43:15</a>　で、ここに来て、実装の段階からどうやって活用するかという段階に変わったのかなというのも、本当に、この1週間、1週間前ぐらいですかね、閣議決定されたのは。なので、新しい、方向転換ということではないですけれども、次のフェーズに入ったということがありまして、小金井市でも、その実現に向けてですね、どういうお考えがあるのかについて聞いてまいります。まず、この重点計画についてどのようにお考えになっているのかということを1つお伺いします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6226s" data-timestamp="6226"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:43:46</a>　それから2点目です。今後の関係において、AIも含めた共通基盤がありますけれども、どのようなものがあるか把握されているでしょうか。新たな単独調達を急がないで共通基盤も活用することを含めてですね、国も推奨しておりますので、この辺について方針など、もちろんDX推進方針にあることは分かっていますけれども、改めてあるかどうかお伺いいたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6258s" data-timestamp="6258"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:18</a>　あと、今回の閣議決定ではですね、AIのみならずAIエージェント、実際に仕事をしてもらうためのAIですね、の活用も問われております。DX推進方針にもAIエージェントの活用が、当然入っているわけですね。で、府中市などでも、もうちょっと古い例になりますけれども、Copilot Studioを使ってAIボットを内製したとか、そういう例なんかもございます。</div><div class="say">私としては、AIエージェントの活用については、内部人材の育成が非常に重要なんじゃないかと思っているんですけれども、そういった内部人材の育成を行う計画、方針があるかどうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6292s" data-timestamp="6292"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:52</a>　質問4番目です。あとはですね、ちょっと詳しいことになっちゃうんですけど、今のデジタル人材の育成ということに関して、CoCoチャレについてお伺いをするんですが、これ、ですね、これから、参加件数、部署の広がり、表彰と横展開の仕組みは、どれくらいあるかということと、先日の福島、郡山、特に福島ですね、福島で伺った、あれ、何だったっけ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6325s" data-timestamp="6325"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:25</a>　カエルチャレンジというのがありました。そこで私もすごく印象的だったのが、とにかく褒めるという、行政というのは褒められることが少ないんだよという、笑いながらおっしゃっていましたけれども、褒められることが少ないんだけれども、ここでは思いっきり褒めてあげるんだよということが、非常に印象に残ったわけですけれども、そういう褒める文化がありますと。これはあると思うんですけどね。</div><div class="say">褒める文化があるかどうか、CoCoチャレを使って褒めてあげているかどうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6355s" data-timestamp="6355"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:55</a>　そして、これからそういったDX内部人材の掘り出し、私が一番重要だと思っているのは、部署に関わらず、そういった業務改革とか、何でしたっけね、例えばExcelのマクロを作るとかですね、そういうのが得意な人がいると思うんですよ。私自身もそういうのが大好きで、会社員時代はいろいろ作ってみた経験がありまして、それは例えば技術者であるとか文系の人材であるとか関係なく、好きな人はいると思うんですね。で、そういう人の、内部人材の掘り起こしができないかどうかということをお伺いします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6386s" data-timestamp="6386"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:46:26</a>　質問5問目です。あとは業務の見える化なんですけれども、DXの基盤となることですね。郡山STANDARD、これは郡山市に視察に行った時に、土台はですね、業務調査だったわけです。</div><div class="say">で、その業務調査が必ずしも、何て言うんですか、客観的で普遍的なものかどうかというのは分からないんですけれども、やっぱり見える、分かるようにする、そして目標に向かって進むということは非常に大事なことなんじゃないかと思っています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6418s" data-timestamp="6418"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:46:58</a>　まずですね、BPRを行って、そしてそれに伴う業務フローの策定が必要だということと、DXの基盤となるBPRも少しずつでも展開する、過去にやったことはもちろん、何度も質問していますので存じ上げていますけれども、もっともっと広げる予定はないかということですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6449s" data-timestamp="6449"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:47:29</a>　それから質問6問目です。ちょっと、生活応援給付金事業において、今回、誤送付がありましたね。で、別に誤送付があったことは、もちろんしょうがないし、改善をしていただければいいことなんですけれども、原因は、手作業でデータを貼り付けしていたということを聞いています。</div><div class="say">詳しいところまでは分かりませんけれども、そういうふうに伺っています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6479s" data-timestamp="6479"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:47:59</a>　複数人でチェックしたりとか、頑張りますということでもですね、複数人でやってもまた漏れは出てくるわけでありまして、例えばシステムから出して加工して戻すという作業が例えばどれだけあるのか、棚卸しをしてRPA等の自動化の対象にする考えはないかということをお伺いいたします。これで質問6でおしまいですね。はい。</div><div class="say">以上6点についてお伺いしますので、ご答弁お願いいたします。</div>
+</div>
+
+<div class="turn reveal" id="t131">
+  <div class="meta"><span class="name">自治体DX推進担当課長</span></div>
+  <div class="say">DX推進担当課長です。</div>
+</div>
+
+<div class="turn chair reveal" id="t132">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">DX推進担当課長。</div>
+</div>
+
+<div class="turn reveal" id="t133">
+  <div class="meta"><span class="name">自治体DX推進担当課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6509s" data-timestamp="6509"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:29</a>　はい。私の方からはですね、国のデジタル社会の実現に向けた重点計画、それからAIも含めた共通基盤、それからAIエージェントの関係、3点についてですね、答弁させていただきます。まず、デジタル社会の実現に向けた重点計画をどのように捉えているかについてでございます。</div><div class="say">国、デジタル庁によりますと、2026年、今年のですね、今月の7月21日、ちょうど1週間ちょっと前ですけども、デジタル社会の実現に向けた重点計画が閣議決定されております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6541s" data-timestamp="6541"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:01</a>　この計画の中ではですね、目指すべき社会の姿を、デジタルの活用によりまして、一人一人のニーズに合ったサービスを選ぶことができ、多様な幸せが実現できる社会として、誰一人取り残されない、人に優しいデジタル化につなげるとしております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6573s" data-timestamp="6573"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:33</a>　人口減少ですとか人手不足と、自治体におけるリソースの逼迫等のですね、課題がある中で、今後の取り組み、課題解決ですとか情勢変化対応のためのですね、4つの柱としまして、国・自治体のAX、DX基盤の高度化、強靱化、国民の暮らしのAX、DXの推進、AX、DXの徹底的推進による経済成長の加速などが、重点政策としてですね、掲げられております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6603s" data-timestamp="6603"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:03</a>　本市といたしましても、この重点計画はですね、自治体DXをさらに推進していく上でですね、重要な指針であると認識しておりますので、国ですとか東京都の動向を踏まえながらですね、市民サービスの向上と業務効率化の両立を図っていきたいということで考えております。</div><div class="say">続きまして、2点目、今後の関係において、AIを含めたですね、共通基盤についてでございます。東京都ではですね、生成AIプラットフォームをですね、都庁職員向けの共通基盤としまして、また国ではですね、デジタル庁がですね、生成AIの利活用、利用環境、現内をですね、各府省庁にですね、展開しているということで聞いております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6636s" data-timestamp="6636"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:36</a>　本市としましても、こうした動向を注視しておりまして、東京都がですね、提供するサービスですとか、国の共通基盤をですね、活用できるものにつきましては、費用対効果、そしてセキュリティですとか運用面、庁内の要望等ですね、十分に検証していきたいということで考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6668s" data-timestamp="6668"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:51:08</a>　また、市の業務上ですね、必要となる機能につきましては、共通基盤の整備時期ですとか機能等を踏まえまして、市民サービスの向上に向けてですね、最適な手法を検討するとともに、今後もアンテナを高く張りまして、情報収集にですね、努めていきたいというふうに考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6698s" data-timestamp="6698"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:51:38</a>　最後に、AIエージェントですとか内部人材育成についてでございます。近年はですね、生成AIに加えまして、複数の業務を自律的に実行するAIエージェントの活用が注目されておりまして、国の重点計画においてもですね、生成AI、AIエージェント等の新技術の急速な進展とですね、経済成長への期待が示されているところでございます。また、委員からですね、ご紹介いただいたようにですね、他の自治体ではですね、職員自らがAI検索ボットなどをですね、内製する事例もですね、出てきております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6730s" data-timestamp="6730"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:52:10</a>　本市におきましても、AIをですね、単に利用するだけではなくてですね、職員自らが業務改善につながるAIツールを企画・構築できる人材の育成も課題でもありますので、先進自治体の取り組みを参考にしながらですね、デジタル人材の育成について検討していきたいと考えております。</div><div class="say">今年3月に策定しました小金井市DX推進方針、DX推進方針アクションプランにおきましても、取り組みの1つにですね、先進技術の調査研究を掲げておりまして、AIエージェント等の先進サービスの活用検討等を個別取り組みとして、またですね、DX人材の育成確保も掲げておりまして、デジタル人材像、スキル要件の定義等ですね、個別取り組みとしておりまして、引き続き先進事例、先進自治体のですね、事例研究を進めていきたいということで考えております。以上です。</div>
+</div>
+
+<div class="turn reveal" id="t134">
+  <div class="meta"><span class="name">行政経営担当課長</span></div>
+  <div class="say">はい。行政経営担当課長です。</div>
+</div>
+
+<div class="turn chair reveal" id="t135">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">行政経営担当課長。</div>
+</div>
+
+<div class="turn reveal" id="t136">
+  <div class="meta"><span class="name">行政経営担当課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6792s" data-timestamp="6792"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:53:12</a>　CoCoからチャレンジ・こがねいにつきましてご質問いただきました。CoCoからチャレンジ・こがねいにつきましては、平成30年度の開始以降、職員の意識改革を進める運動として実施してまいりました。近年の参加状況ではございますが、こちらは、直近ですと令和6年度が7課14件であったのに対し、令和7年度は13課28件と、件数、部署ともに広がりが見られているところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6823s" data-timestamp="6823"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:53:43</a>　仕組みとしましては、部長職による書面評価で入賞を選定し、入賞者によるプレゼンテーションを行う報告会を開催した上で、市長、副市長、教育長からなる選考委員会が、最優秀取り組み等を決定しております。併せて、最も報告の多い部署を最多取り組みとして認定をしており、そういった報告会などでも、多数の報告をしてもらっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6856s" data-timestamp="6856"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:54:16</a>　横展開につきましては、報告会に加え、優秀な取り組みを全庁で共有するための、職員が講師になっていただいて、職員による研修会を実施しております。前年度に成果を上げた取り組みの実施者が講師となり、具体的な事例を庁内に紹介するもので、過去には環境政策課のサウンディング型市場調査の事例であったり、令和7年度に関しては市民税課の、待たない、待たせない、すぐできる市民税申告相談予約の取り組みを対象に実施したところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6887s" data-timestamp="6887"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:54:47</a>　研修会を通じて、関心のある課が、実施した課、これから実施を検討する課との間で直接コンタクトを取れる仕組みも構築し、横展開を図っているところでございます。本運動は、平成30年度の開始当初から、自ら課題を発見し、解決に取り組む職員、職場を認め、励まし合うことで挑戦する職場風土を醸成することを目的としており、委員ご指摘の褒める文化は、まさに制度の根幹に据えているところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6919s" data-timestamp="6919"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:19</a>　また、これまでの取り組みの中には、システムに明るい職員がGIS等を活用した改善取り組みにチャレンジした事例も出てきております。CoCoチャレは、こうしたデジタルに意欲のある職員の取り組みも活かし、庁内で共有する場ともなっており、ご指摘のDX人材の掘り起こしという観点からも、引き続き活用してまいりたいと考えてございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t137">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">情報システム課長。</div>
+</div>
+
+<div class="turn reveal" id="t138">
+  <div class="meta"><span class="name">情報システム課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6960s" data-timestamp="6960"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:56:00</a>　はい。5問目と6問目、私からお答えします。5問目の、業務の見える化に関連して、BPRにつきましてのご質問をいただきました。この間ですね、DX推進のための業務効率化、デジタル化につながるネットワーク環境の整備や、アプリケーション、機器等の導入は随時行ってきておりまして、これらを活用した各課の業務における事務効率化、デジタル化は、各課において進みつつあるものと認識はしているところでございますが、業務全体の中の部分的な最適化にとどまっておりまして、業務のプロセスや仕組み自体を見直す業務改革であるBPRの実施までには至っていないと感じているところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=6992s" data-timestamp="6992"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:56:32</a>　BPRの推進におきましては、ご紹介にございましたような全庁的な業務量調査の実施予定は現段階ではございませんが、DX推進方針におけるアクションプランとして、まずは各課、各事業でのBPRを行うための前段階としまして、例規等に基づく本市独自のアナログ規制の点検、見直しに着手をしているところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7023s" data-timestamp="7023"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:57:03</a>　これはですね、従来のアナログなルールや、書面、対面、目視などの慣習が、デジタル化の阻害要因となっているということを前提としまして、こうしたアナログ規制を、例規等のレベルで見直すとともに、既存の業務プロセスを抜本的に改変し、デジタル技術の活用による行政サービスの変革を進めるために実施をするものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7053s" data-timestamp="7053"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:57:33</a>　なお、国におけるアナログ規制の見直し取り組み状況につきましては、約99%が完了見込みとなっておりまして、地方公共団体の例規等に基づくアナログ規制の見直しが、現状急がれているところでございます。</div><div class="say">こうしたアナログ規制の見直し、撤廃と並行しましてですね、これまでDXの推進のために導入いたしましたデジタル環境、デジタル技術の効果的な活用によりまして、各課、各事業におけるBPRの推進を図り、アクションプランにおける目標値の達成を目指していきたいと考えるところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7085s" data-timestamp="7085"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:58:05</a>　続きまして、すみません、6問目でですね、データ、作業、手作業データ処理の自動化についての考えについてのご質問だと思います。</div><div class="say">ご質問にございました、システムから出して手で加工をして戻す作業というのは、例えばですね、システムの稼働運用中に、データの桁数が許容範囲を超えてエラーコードが発生した場合などにおいて、システムから当該エラー部分のデータを抽出し、削除、置き換え等の修正を加えて正しいデータとした上で、システム内に戻して反映させるといった作業が考えられるところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7147s" data-timestamp="7147"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:59:07</a>　こうした作業はですね、イレギュラーなレアケースにおける応急的な対応であると想定されるため、そうした作業が例えば住民記録系のシステム全体でどれほど存在するかなどをあらかじめ把握することが、なかなか困難であると考えるものでございます。</div><div class="say">またですね、作業負担の軽減やヒューマンエラーを未然に防ぐための方策としてのRPA等のツールの利活用、システムへのプログラムの追加などを行うのも、なかなか難しい部分、分野ではないかと思われまして、こうしたイレギュラーなケース、レアケースであるがゆえにですね、人間が慎重に手作業で行うことが現実的な作業対応と考えるところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7180s" data-timestamp="7180"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:59:40</a>　一方でRPAの活用につきましては、ご存じのように、今まで人間が行ってきた定型的なパソコン操作を、ソフトウェアのロボットが代替して行うため、処理のルールを定義したシナリオに沿って業務を自動化するツールとなりますので、単純な反復作業などのルーチンワークに適しているものでございます。令和8年度からは、令和7年度に完了した住民情報システムの標準化に伴いまして、対象業務システムへの実装を予定してございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7213s" data-timestamp="7213"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:00:13</a>　RPAによる自動化が適すると考えられる業務につきましては、今後も効果測定等を行いつつ、適切な分野での運用の拡大を視野に入れている状況でございます。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t139">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">ながとりさん。</div>
+</div>
+
+<div class="turn reveal" id="t140">
+  <div class="meta"><span class="name">ながとり太郎</span></div>
+  <div class="say">はい。ご答弁ありがとうございました。よく分かりました。重点計画についてきっちりと認識されているということがよく分かりました。共通基盤はですね、費用対効果やセキュリティを検証しながら活用を検討していくことが大事だと思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7244s" data-timestamp="7244"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:00:44</a>　すいません、改めてになるんですけど、今のその閣議決定されたですね、重点計画なんですけれども、AXという言葉が初めて出てきています。DXはあったんですけど、AIを活用した発展的な取り組みということなわけですけれども、AIフレンドリーな環境の整備をしましょうということが改めて出されております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7275s" data-timestamp="7275"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:01:15</a>　それから進め方としてはですね、今、BPRがなかなか全庁的に難しいよねという話だったんですけど、それは当たり前というか、大変難しい話で、1回BPRをやってもまた状況が変わってしまって、事態が変わるということもありますので、重点計画においてもアジャイルということをですね、その場でやってみて、またそれを回転させながら状況を考えて、また検討していくということももちろん必要で、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7307s" data-timestamp="7307"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:01:47</a>　BPRって1回やってしまうと、じゃあこれは毎年毎年やるのかとか、そういうことになってきますので、その場その場で最適な解決を、方法を見つけてやっていただければいいかなと思っております。とりあえず、ガバメントクラウドとかへの移行も、今回、市の方でも完了して、これからはマイナンバーカードと情報の活用ということが非常に大切になってくるということです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7339s" data-timestamp="7339"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:02:19</a>　あと1つはですね、今ご回答いただいたんですけれども、やはり人材の育成で、人材の育成っていうと、なんか研修に行って勉強してきてくださいということなんですけども、私が申し上げているのはそういうことではなくて、今ある人材が積極的に自分の自発的な力で、しかも部署に関係なく、共通化、共通基盤となる小さな技術でもいいんですけど、それについては現状で共有して、積極的な方がいらっしゃればその方を発掘して、そしてその方が庁内に、その小さな改善を広めていくということが一番大事なんじゃないかなというふうに私は思っていますので、これからも申し上げていきますけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7401s" data-timestamp="7401"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:03:21</a>　その人材の発掘と、それからそういう人たちが、意見というか、その自分の持っているやり方だったりツールだったりを広められるような環境、それもCoCoチャレですね、使ってやっていただくということと、褒めていただくということが大事かなと思っています。アナログ規制の点検、見直しの着手とかですね、されていかれると思いますので、具体的な取り組みが確認できましたので、今後とも進めていただければと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7433s" data-timestamp="7433"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:03:53</a>　共通基盤っていうのはですね、人口減少、人手不足で自治体のリソースが逼迫していく中で、国、自治体のAX、DX基盤の高度化、強靱化を柱に掲げています。先ほどおっしゃった、あのゲンナイなんですけれども、これは答弁システムなんですよね。私、ちょっと別のところで研修を受けてきたんですけれども、その方がおっしゃるには、もう自治体の半分が使っているって言うんですけど、ちょっと私、確認していませんから分かりません。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7464s" data-timestamp="7464"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:04:24</a>　基本機能は無料で使えるんだそうです。今、確認されているということなので、確認させていただいて、機能的にはゲンナイはまだ、ものすごく使えるものになっているのかなというのは、難しいところはあると思うんですけれども、今後は例えば、調べ物をして、そして答弁を作って、そしてまたそれをフィードバックしていくという作業は、1回1回で終わってしまっているのかなという感じはしますけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7494s" data-timestamp="7494"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:04:54</a>　そういった答弁システムを使って、必要なデータを資源、リソースとして使って、そしてまたそれを正確に引き出して使う、その繰り返し、何と言うんですかね、循環、ループをですね、確立するためには、もうこういった答弁システムも絶対に必要なんじゃないかなと思っておりますので、このゲンナイという答弁システムに限りませんけれども、必要なAIツールなどを積極的に検討、研究をご検討いただければと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7525s" data-timestamp="7525"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:05:25</a>　繰り返しになりますが、あと人材の関連に関しましては、私はAX、DXの主役は外部事業者ではなくて、もちろん外部事業者も大きなシステムについては使っていかなければいけませんけれども、我々一人一人、そして職員の方一人一人が主役であるということを、しつこく申し上げておりますけれども、その方々が必要な、例えばExcelのマクロなんかはですね、もうAIで作れる時代になっています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7556s" data-timestamp="7556"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:05:56</a>　何でしたっけ、庁内のAIについては、今は積極的な展開はされていませんけれども、今後も展開されるご予定があるということなので、セキュリティには十分に注意をしていただくのは当然のこととして、それを展開できるような仕組みづくりで、まだちょっとご回答は得ていませんけれども、セキュリティの基準も、基準ですよね、基準も作られている最中だと私は受け止めておりますので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7588s" data-timestamp="7588"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:06:28</a>　それができた暁には、しっかりとAIを、あまりこれで遅れていくとですね、隠れてAIを使うということが、今、よろしくはないですけれども、結構いろいろな企業とかではあるんだそうですね。そういうことになってしまわないように、しっかりとした基準を作って、そして市としてAIを使っていくんだと、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7618s" data-timestamp="7618"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:06:58</a>　正しい使い方を広げていただくということをお願い申し上げます。業務改革については、全庁的な業務の調査の予定は現段階ではないということでした。私、先ほども申し上げましたけれども、BPRを全庁的にやるというのは1回で終わってしまって、これがまた毎年やらなければいけないんだ、それが目的になってしまって、業務を圧迫するなんていうことになっては本末転倒なので、何でしたっけ、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7649s" data-timestamp="7649"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:07:29</a>　常々、どうしても全部に対してやらなければいけないとは思っていませんが、必要なところに関しては必ずやっていただいて、効果測定と合わせてですね、他の業務にも計画的に進めていただきたいと思います。重点計画で、誰一人取り残されない、人に優しいデジタル化ということを、通り一遍の話、キャッチフレーズですけれども、言われていますけれども、やはりDX自体が目的化しないように、それを使ったら便利になりますよ、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7681s" data-timestamp="7681"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:08:01</a>　それから自発的にこれを使ったらいいよねということが言えるような、そういった仕組みづくりを、ご提案申し上げて、私の最後の意見で終わります。</div>
+</div>
+
+<div class="turn chair reveal" id="t141">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">他にございますか。ないということで閉めていいですか。</div>
+</div>
+
+<div class="turn voice reveal" id="t142">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">はい。</div>
+</div>
+
+<div class="turn chair reveal" id="t143">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">以上で本件に対する現時点での質疑を終了することにご異議ありませんか。ご異議なしと認め、本件に対する現時点での質疑を終了いたします。</div><div class="say">お諮りいたします。本件は引き続き調査する必要があると認め、継続調査といたしたいと思います。これにご異議ありませんか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7722s" data-timestamp="7722"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:08:42</a>　ご異議なしと認め、本件は継続調査と決定いたしました。以上で本日の日程は全部終了しました。本日は以上で総務企画委員会を閉会いたします。お疲れさまでした。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7752s" data-timestamp="7752"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:09:12</a>　終了後の、協議会というところで、よろしいでしょうか。ですね、この協議会を始めます。ここで皆さんにご協議いただきたいのは、2番です。令和8年第3回定例会、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7784s" data-timestamp="7784"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:09:44</a>　閉会中の委員会をどうするかということなんですね。おそらく閉会中ということなんですが、11月に市長選挙が控えているということもあります。そこも踏まえて、この閉会中委員会、これは開催をしないという選択もあります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7814s" data-timestamp="7814"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:10:14</a>　特に何か、その閉会中どうしても開催をするということになれば、ここで協議をして日程を固めていくということになるんですが、ここをちょっと協議したいと思いますが、皆様から何かございますか。</div>
+</div>
+
+<div class="turn reveal" id="t144">
+  <div class="meta"><span class="name">不明</span></div>
+  <div class="say">ああ、そういうことで、分かった。</div>
+</div>
+
+<div class="turn chair reveal" id="t145">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7852s" data-timestamp="7852"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:10:52</a>　どうぞ。小林さん。</div>
+</div>
+
+<div class="turn reveal" id="t146">
+  <div class="meta"><span class="name">小林正樹</span></div>
+  <div class="say">9月定例会の終わりも短くてですね、その次の定例会までの間隔も短いので、今回はその色々な政治、選挙の状況を踏まえて、なくても良いのかなとは考えますが、いかがでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t147">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">ありがとうございます。ご意見、他にご意見があれば伺うんですが、委員長としても、今日保留をお願いした、1、2、3本、これについては次の定例会中の委員会で結論が出ていくと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7884s" data-timestamp="7884"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:11:24</a>　ですから陳情の処理というか審査は一区切りつくのかなというふうには思います。その上で何か動きがあれば伺うと。特に必要なければ、開会はしないでいいのではないかといったところなのかなと思いますが、いかがでしょう。</div>
+</div>
+
+<div class="turn reveal" id="t148">
+  <div class="meta"><span class="name">藤川賢治</span></div>
+  <div class="say">はい。私、慣例が分からないので、ちょっと判断ができないので、慣例的にはそういうものだということであれば、それでいいのではと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t149">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7919s" data-timestamp="7919"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:11:59</a>　慣例というか、そういうこともあるということです。はい、何かございますか。はい、たゆさん。</div>
+</div>
+
+<div class="turn reveal" id="t150">
+  <div class="meta"><span class="name">たゆ久貴</span></div>
+  <div class="say">市長選挙があるので、そういう状況から、やらないというのも、〇〇かなとは思うので、現時点では、いいんですが、一応その余地を残しておくというか、その9月定例会の委員会の時に、もしかしたらその時、緊急で閉会中に必要な案件が出てくるかもしれないんで、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7956s" data-timestamp="7956"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:12:36</a>　そしたら、その時に、もし空いている日程があれば入れられるという状況と、意見をして、入れてくださいって言えるような状況は残しておいてほしいかなと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t151">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">分かりました。ながとりさん。</div>
+</div>
+
+<div class="turn reveal" id="t152">
+  <div class="meta"><span class="name">ながとり太郎</span></div>
+  <div class="say">今、たゆさんがおっしゃったとおり、閉会中は開催しないというのもありかなと思うんですけれども、例えばなんですよ、日程だけ何か確保しておくとか、そういうことはできるんですか。それはできない、難しいんですか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=7988s" data-timestamp="7988"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:13:08</a>　いや、しろと言っているわけじゃなくて、今、たゆさんが緊急の時にって言って、その時にやろうと思ったけどできないっていうんじゃあ、あれなので、ここでやるかもしれないという枠を残しておくことは可能なのか、純粋な質問です。</div>
+</div>
+
+<div class="turn chair reveal" id="t153">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">そうなんですよ。実はね、次の次の回の日程調整って、これまで行ってこなかったんですね。でね、初めて今期からなんです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=8018s" data-timestamp="8018"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:13:38</a>　市長がすごく日程がたくさん入っていて、なかなかその常任委員会、特別委員会の日程調整に、これまでもお互いに苦労してきたということがあって、今期から次の次の回の日程を一応決めておきましょうね、で、市長の日程を確保してもらうということでやってきたところですが、今回に限っては、その政治的な、選挙の日程があるということになるので、もちろん〇〇のご意見も、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=8050s" data-timestamp="8050"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:14:10</a>　次回改めてね、定例会の時にこれまたお諮りする形になりますので、必要があればそこで開催をする余地は残っているということですね。ということになりますので、何かあればそこでまた協議できるかなというふうに考えています。そういった形で今回特に、閉会中の委員会日程については決定をしないということでよろしいですか。</div>
+</div>
+
+<div class="turn voice reveal" id="t154">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">はい。</div>
+</div>
+
+<div class="turn chair reveal" id="t155">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">じゃあ、開催をしないということではなく、ここではとりあえず、とりあえずじゃない、開催日についてはここでは決めないよという形で整理させてもらっていいですか。</div>
+</div>
+
+<div class="turn voice reveal" id="t156">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">はい。</div>
+</div>
+
+<div class="turn chair reveal" id="t157">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">次回でまた確認していくという形になります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=90fgBuWcV2s&t=8090s" data-timestamp="8090"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:14:50</a>　ということであります。3番のその他でありますが、何か皆さんからございますか。</div>
+</div>
+
+<div class="turn voice reveal" id="t158">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">なし。</div>
+</div>
+
+<div class="turn chair reveal" id="t159">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">なければ、これで全て終了という形になります。お疲れさまでした。ありがとうございました。</div>
+</div>
+
+<div class="turn voice reveal" id="t160">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">ありがとうございました。</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
+<button class="to-top" type="button" aria-label="ページ上部へ戻る" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>(function(){var b=document.querySelector('.to-top');if(!b)return;function u(){b.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>300);}window.addEventListener('scroll',u,{passive:true});u();})();</script>
+<script id="anchor-js">
+(function(){
+  try{
+    var turns=[].slice.call(document.querySelectorAll('.turn[id]'));
+    if(!turns.length) return;
+    var firstBy={};
+    turns.forEach(function(t){
+      var nm=t.querySelector('.name'); if(!nm) return;
+      var key=(nm.textContent||'').trim(); if(!key||key==='—') return;
+      if(!firstBy[key]) firstBy[key]=t.id;
+    });
+    var toast;
+    function showToast(){
+      if(!toast){ toast=document.createElement('div'); toast.className='copy-toast'; toast.textContent='この発言へのリンクをコピーしました'; document.body.appendChild(toast); }
+      toast.classList.add('show'); clearTimeout(toast._t); toast._t=setTimeout(function(){toast.classList.remove('show');},1800);
+    }
+    function hl(el){ turns.forEach(function(x){x.classList.remove('turn-hl');}); if(el) el.classList.add('turn-hl'); }
+    // ② 発言パーマリンク
+    turns.forEach(function(t){
+      var meta=t.querySelector('.meta'); if(!meta) return;
+      var a=document.createElement('a');
+      a.className='turn-link'; a.href='#'+t.id; a.title='この発言へのリンクをコピー'; a.setAttribute('aria-label','この発言へのリンクをコピー');
+      a.textContent='🔗';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault();
+        var url=location.origin+location.pathname+'#'+t.id;
+        try{ history.replaceState(null,'','#'+t.id); }catch(e){}
+        if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(showToast).catch(function(){ location.hash=t.id; }); }
+        else { location.hash=t.id; showToast(); }
+        hl(t);
+      });
+      meta.appendChild(a);
+    });
+    // ① 要約中の発言者名(太字)→本文へ
+    [].slice.call(document.querySelectorAll('.sum strong')).forEach(function(st){
+      var txt=(st.textContent||'').trim(); if(!txt||txt.length<2) return;
+      var id=null;
+      for(var k in firstBy){ if(k.indexOf(txt)>=0 || txt.indexOf(k)>=0){ id=firstBy[k]; break; } }
+      if(!id) return;
+      var a=document.createElement('a');
+      a.className='sum-jump'; a.href='#'+id; a.textContent=st.textContent; a.title='本文の発言へ';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault(); var el=document.getElementById(id);
+        if(el){ hl(el); el.scrollIntoView({block:'center',behavior:'smooth'}); try{history.replaceState(null,'','#'+id);}catch(e){} }
+      });
+      st.parentNode.replaceChild(a, st);
+    });
+    // 直リンクで #tN が指定されていたらハイライト
+    if(location.hash){ var el0=document.getElementById(location.hash.slice(1)); if(el0&&el0.classList&&el0.classList.contains('turn')) el0.classList.add('turn-hl'); }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
