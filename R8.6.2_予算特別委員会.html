@@ -4,14 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>令和8年6月2日 予算特別委員会</title>
-<meta name="description" content="令和8年6月2日 予算特別委員会の会議録（非公式アーカイブ）。発言全文・タイムスタンプ付き動画・AI要約。小金井市議会がYouTubeで公開する中継をもとに作成。">
-<meta property="og:type" content="article">
-<meta property="og:site_name" content="小金井市議会 非公式会議録">
-<meta property="og:title" content="令和8年6月2日 予算特別委員会">
-<meta property="og:description" content="令和8年6月2日 予算特別委員会の会議録（非公式アーカイブ）。発言全文・タイムスタンプ付き動画・AI要約。小金井市議会がYouTubeで公開する中継をもとに作成。">
-<meta property="og:url" content="https://toritarosan.github.io/Kaigiroku/R8.6.2_%E4%BA%88%E7%AE%97%E7%89%B9%E5%88%A5%E5%A7%94%E5%93%A1%E4%BC%9A.html">
-<meta property="og:image" content="https://toritarosan.github.io/Kaigiroku/ogp.png">
-<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
 <style>
   :root{
     --paper:#ffffff; --ink:#17150f; --navy:#157a4b; --pop:#e8482a;
@@ -26,18 +19,47 @@
   .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
   .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
 
+  /* サイト共通ヘッダー（トップと同系の緑＋クリーム）。iframe埋め込み時は html.embedded で非表示 */
+  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
+  html.embedded .sitenav{display:none;}
+  .sitenav-in{max-width:1100px;margin:0 auto;padding:0 18px;min-height:52px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .sitenav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#157a4b;font-weight:700;font-size:1rem;white-space:nowrap;}
+  .sitenav-brand img{display:block;border-radius:2px;}
+  .sitenav-links{margin-left:auto;display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+  .sitenav-links a{color:#2a2620;font-size:.84rem;font-weight:600;text-decoration:none;padding:8px 11px;border-radius:2px;white-space:nowrap;}
+  .sitenav-links a:hover{color:#157a4b;background:#e7f4ec;}
+  .sitenav-links .ext{color:#8a8073;font-size:.8em;margin-left:1px;}
+  @media(max-width:640px){.sitenav-in{min-height:0;padding:8px 14px;}.sitenav-links a{padding:6px 9px;font-size:.8rem;}}
+
+  /* パンくず */
+  .crumb{background:#fbf9f4;border-bottom:1px solid #eee7db;position:sticky;top:52px;z-index:59;}
+  html.embedded .crumb{display:none;}
+  .crumb-in{max-width:1100px;margin:0 auto;padding:8px 18px;font-size:.76rem;color:#8a8073;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.5;}
+  .crumb a{color:#157a4b;text-decoration:none;font-weight:600;}
+  .crumb a:hover{text-decoration:underline;}
+  .crumb .sep{color:#c9c0b2;}
+  .crumb .cur{color:#4a443b;font-weight:600;}
+  @media(max-width:640px){.crumb{position:static;} .sitenav-in{flex-wrap:nowrap;} .sitenav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}}
+
   .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
        letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
   .top .sq{width:9px;height:9px;background:var(--pop);}
-  .top a{color:var(--muted); text-decoration:none;}
-  .top a:hover{color:var(--pop);}
 
   .hero{padding:16px 0 24px;}
   .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
   .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
            letter-spacing:.01em; margin:0; color:var(--ink);}
-  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px;
-             display:inline-block;}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  /* 未定稿（公式だが校正中）＝確定版と一目で区別できるようコーラル地にする */
+  .hero .srcbadge.draft{background:var(--coral-dark, #b83a25);}
+  .hero .srcbadge.draft .dot{background:#ffd9cf;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
 
   /* 要約 */
   .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
@@ -92,29 +114,6 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 .sum:target{background:#fff8e1;}
 /*qsearch-end*/
 
-  /* サイト共通ヘッダー（トップと同系の緑＋クリーム） */
-  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
-  html.embedded .sitenav{display:none;}
-  .sitenav-in{max-width:1100px;margin:0 auto;padding:0 18px;min-height:52px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-  .sitenav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#157a4b;font-weight:700;font-size:1rem;white-space:nowrap;}
-  .sitenav-brand img{display:block;border-radius:2px;}
-  .sitenav-links{margin-left:auto;display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
-  .sitenav-links a{color:#2a2620;font-size:.84rem;font-weight:600;text-decoration:none;padding:8px 11px;border-radius:2px;white-space:nowrap;}
-  .sitenav-links a:hover{color:#157a4b;background:#e7f4ec;}
-  .sitenav-links .ext{color:#8a8073;font-size:.8em;margin-left:1px;}
-  @media(max-width:640px){.sitenav-in{min-height:0;padding:8px 14px;}.sitenav-links a{padding:6px 9px;font-size:.8rem;}}
-
-  /* パンくず */
-  .crumb{background:#fbf9f4;border-bottom:1px solid #eee7db;position:sticky;top:52px;z-index:59;}
-  html.embedded .crumb{display:none;}
-  .crumb-in{max-width:1100px;margin:0 auto;padding:8px 18px;font-size:.76rem;color:#8a8073;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.5;}
-  .crumb a{color:#157a4b;text-decoration:none;font-weight:600;}
-  .crumb a:hover{text-decoration:underline;}
-  .crumb .sep{color:#c9c0b2;}
-  .crumb .cur{color:#4a443b;font-weight:600;}
-
-  @media(max-width:640px){.crumb{position:static;} .site-header{position:static;} .sitenav-in{flex-wrap:nowrap;} .sitenav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}}
-
   /* ページトップへ戻る */
   .to-top{position:fixed;bottom:20px;right:20px;z-index:900;width:44px;height:44px;border:none;border-radius:50%;background:#157a4b;color:#fff;font-size:20px;line-height:1;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,background .15s;box-shadow:0 2px 8px rgba(0,0,0,.2);}
   .to-top.show{opacity:.92;visibility:visible;transform:none;}
@@ -129,8 +128,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
   a.sum-jump:hover{color:#12633d;}
   .copy-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(8px);background:#157a4b;color:#fff;font-size:13px;padding:9px 16px;border-radius:4px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;z-index:1100;box-shadow:0 2px 10px rgba(0,0,0,.25);}
   .copy-toast.show{opacity:1;visibility:visible;transform:translateX(-50%);}
-.spk-unverified::after{content:"?";color:#c9814f;cursor:help;font-weight:700;font-size:.82em;margin-left:.18em;vertical-align:super;}.spk-find{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}</style>
-  <link rel="icon" type="image/svg+xml" href="icon.svg">
+</style>
 </head>
 <body>
 <script>try{if(window.self!==window.top)document.documentElement.classList.add('embedded');}catch(e){document.documentElement.classList.add('embedded');}</script>
@@ -147,7 +145,6 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
   </div>
 </nav>
 <nav class="crumb" aria-label="パンくずリスト"><div class="crumb-in"><a href="index.html">ホーム</a><span class="sep">›</span><a href="list.html">全会議一覧</a><span class="sep">›</span><span class="cur">令和8年6月2日 予算特別委員会</span></div></nav>
-
 <div class="prog" id="prog"></div>
 <div class="wrap">
 
@@ -156,26 +153,16 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
   <header class="hero reveal">
     <p class="date">令和8年6月2日</p>
     <h1>予算特別委員会</h1>
-    <span class="src">YouTube字幕＋AI校正による記録（非公式）</span><div class="hero-note" style="font-family:var(--sans);font-size:13px;line-height:1.7;color:var(--muted);margin-top:10px;">本会議・委員会等の中継動画をもとに、文字起こし・校正・要約を行った非公式アーカイブです。<br><span style="color:#c0392b;font-weight:700;">致命的な話者の誤りや語句の誤りを含んでいます。転載などには適しません。最終的には必ず原典に当たってください。</span></div>
+    <span class="srcbadge draft"><span class="dot"></span>本文＝小金井市議会 公式会議録（<strong>未定稿・校正中</strong>）</span><span class="src official">校正中の未定稿を一字一句そのまま掲載しています。<strong>確定版で修正されることがあります</strong>（確定版が公開され次第、差し替えます）。要約はAIによる補助、タイムスタンプ・動画はYouTube連携（いずれも非公式の付加情報）。　|　<a href="https://www.city.koganei.tokyo.dbsr.jp/pdf/2026.06.02y1.pdf" target="_blank" rel="noopener">公式の未定稿PDF ↗（掲載期間中のみ）</a></span><span class="genmeta">本文は公式会議録（未定稿）と一致確認済み（verbatim）。未定稿は市議会が校正中の版で、確定版で修正されることがあります。要約はAIによる生成で、小金井市議会の公式見解ではありません。<br>最終生成日 2026-07-31</span>
   </header>
 
-  <section class="sum reveal" id="summary">
+  <section class="sum reveal">
     <p class="lab">A I 要 約</p>
-    <div>
-      <p>ご提示いただいた会議録は、予算特別委員会における役員選出の様子を記録したものであり、「議案の質疑」や「一般質問」には該当いたしません。本会議録は委員会運営のための「役員選出」に関する議題で構成されています。</p>
-<h3>予算特別委員会 役員選出の要約</h3>
-<ul>
-<li><strong>委員長の選出</strong><ul>
-<li>指名推薦により、森戸よう子委員が委員長に選出された。森戸委員からは、議員生活36年目で初めての予算特別委員長就任となる旨と、円滑な委員会運営に向けた抱負が述べられた。</li>
-</ul>
-</li>
-<li><strong>副委員長の選出</strong><ul>
-<li>指名推薦により、吉良のりこ委員が副委員長に選出された。提案者からは、吉良委員の論旨明快な質疑姿勢や活躍が評価され、新任の委員長を補佐することが期待された。吉良委員からは、全力で委員長を支え、円滑な運営に努める旨の挨拶があった。</li>
-</ul>
-</li>
-</ul>
-    </div>
-  </details>
+    <h3>提出議案等一覧</h3>
+<p>（なし）</p>
+<h3>議案の審議ごとの要約</h3>
+<h4>予算特別委員会の委員長および副委員長の互選</h4>
+<p>予算特別委員会の委員長互選について、指名推選による選出が決定され、森戸よう子委員が委員長に推薦され、異議なく選出された。森戸委員長は、36年の経験の中で初めての予算特別委員長であり、不慣れながらも委員会の協力を得て議会の権能が発揮できるよう努めると挨拶した。続いて副委員長の互選が行われ、指名推選により吉良のりこ委員が副委員長に推薦され、異議なく選出された。吉良副委員長は、議員になって2年目であり不慣れな点が多いが、全力で委員長を支える意向を示した。</p>
   </section>
 
   <section class="media reveal">
@@ -184,77 +171,108 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
     <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
   </section>
 
-<div class="turn reveal" id="t0">
-  <div class="meta"><span class="name">—</span></div>
-  <div class="say">◯（臨時議長）<br />
-<a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=14s" data-timestamp="14"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>00:14</a>　ただいまから予算特別委員会の会議を開きます。本日は年長の私が、委員長が選出されるまでの間、委員長の職務を行います。</div><div class="say">直ちに議題に入ります。議題は当委員会の委員長の選出についてであります。選出の方法についてはいかがいたしましょうか。どなたか選出方法についてご意見がありますでしょうか。</div><div class="say">◯（発言者）<br />
-<a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=46s" data-timestamp="46"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>00:46</a>　指名推薦でお願いいたします。</div>
+<div class="turn chair reveal" id="t0">
+  <div class="meta"><span class="name">遠藤座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=28s" data-timestamp="28"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>00:28</a>ただいまから予算特別委員会の会議を開きます。</div>
+  <div class="say">本日は、年長の私が、委員長が互選されるまでの間、委員長の職務を行います。</div>
+  <div class="say">直ちに議題に入ります。</div>
+  <div class="say">議題は、当委員会の委員長の互選についてであります。互選の方法についてはいかがいたしましょうか。どなたか選出方法についてご意見はありますでしょうか。</div>
 </div>
 
-<div class="turn voice reveal" id="t1">
-  <div class="meta"><span class="name">（臨時議長）</span></div>
-  <div class="say">ただいま指名推薦による選出方法についてのご意見がありましたが、指名推薦による決定にすることにご異議ありませんか。</div>
+<div class="turn reveal" id="t1">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=49s" data-timestamp="49"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>00:49</a>指名推選でお願いいたします。</div>
 </div>
 
-<div class="turn voice reveal" id="t2">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">異議なし。</div>
+<div class="turn chair reveal" id="t2">
+  <div class="meta"><span class="name">遠藤座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=51s" data-timestamp="51"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>00:51</a>ただいま、選出方法について、指名推選によるとのご意見がありますが、指名推選により決定することにご異議ありませんか。（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn voice reveal" id="t3">
-  <div class="meta"><span class="name">（臨時議長）</span></div>
-  <div class="say">ご異議なしと認め、ただいま申し上げました通り決定いたします。どなたかご推薦いただけますでしょうか。</div>
+<div class="turn chair reveal" id="t3">
+  <div class="meta"><span class="name">遠藤座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=63s" data-timestamp="63"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:03</a>ご異議なしと認め、ただいま申し上げましたとおり決定いたします。どなたかご推薦いただけますでしょうか。</div>
 </div>
 
-<div class="turn voice reveal" id="t4">
-  <div class="meta"><span class="name">（発言者）</span></div>
-  <div class="say">はい。片山委員。</div><div class="say">◯（片山かおる委員）<br />
-<a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=78s" data-timestamp="78"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:18</a>　おそらくですね、この議員生活の中で今回初めてだということをお聞きしました。30数年以上のですね、議員生活の中で初めてということで、予算特別委員会の委員長として、あの、お願いしたいと思っております。森戸よう子議員に、是非とも委員長をお願いしたいと思っております。</div><div class="say">どうぞよろしくお願いします。</div><div class="say">ただ、あの、この予算ですね、生活保護の非常に重要な議案なども入っておりますので、ま、その時は是非ですね、ご質問も何かしらの形で交代して行うとかですね、是非、慎重な審議をお願いというか、慎重な質問というか、是非とも質問もしっかりとした形でできればいいかなというふうに考えております。よろしくお願いいたします。</div><div class="say">◯（臨時議長）<br />
-<a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=110s" data-timestamp="110"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:50</a>　ただいま森戸よう子委員を委員長にとご推薦がございました。お諮りいたします。森戸よう子委員を委員長に選出することにご異議ありませんか。</div>
+<div class="turn reveal" id="t4">
+  <div class="meta"><span class="name">片山委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=72s" data-timestamp="72"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:12</a>恐らく、議員生活の中で今回初めてだということをお聞きしました。30数年以上の議員生活の中で初めて予算特別委員会の委員長ということで、森戸よう子委員に是非ともお願いしたいと思っております。どうぞよろしくお願いします。</div>
+  <div class="say">ただ、この予算は生活保護の非常に重要な議案なども入っているので、そのときはご質問も何かしらの形で交代して行うとか、是非慎重な審議というか、慎重な質問というか、是非とも質問もしっかりとした形でできればいいかなと考えております。よろしくお願いいたします。</div>
 </div>
 
-<div class="turn voice reveal" id="t5">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">異議なし。</div>
+<div class="turn chair reveal" id="t5">
+  <div class="meta"><span class="name">遠藤座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=124s" data-timestamp="124"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:04</a>ただいま、森戸よう子委員を委員長にとのご推薦がございました。</div>
+  <div class="say">お諮りいたします。森戸よう子委員を委員長に選出することにご異議ありませんか。（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn voice reveal" id="t6">
-  <div class="meta"><span class="name">（臨時議長）</span></div>
-  <div class="say">ご異議なしと認めます。したがって、ただいまお示ししました通り選出することを決定いたしました。ただいま選出されました森戸よう子委員のご挨拶をお願いいたします。</div><div class="say">◯（森戸よう子委員）<br />
-<a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=145s" data-timestamp="145"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:25</a>　はい。先ほど皆様の、あの、委員長に推薦また選任していただきましてありがとうございます。先ほどもありましたように、36年の経験の中で初めての予算特別委員長でございます。</div><div class="say">不慣れではございますが、是非とも、皆様のご協力をいただきまして、議会の権能が十分に発揮できる予算特別委員会として頑張っていきたいと思いますので、どうぞ皆様のご協力よろしくお願いいたします。ありがとうございました。</div><div class="say">これで私の職務は終了いたしました。委員長と交代するため、しばらく休憩いたします。</div><div class="say">◯（委員長）<br />
-<a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=221s" data-timestamp="221"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:41</a>　はい、ありがとうございます。再開いたします。</div><div class="say">これから副委員長の選出を行います。選出の方法についてはいかがいたしましょうか。どなたか選出方法についてご意見ありませんか。</div>
+<div class="turn chair reveal" id="t6">
+  <div class="meta"><span class="name">遠藤座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=133s" data-timestamp="133"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:13</a>ご異議なしと認めます。したがって、ただいま指名しましたとおり選出することに決定しました。</div>
+  <div class="say">ただいま委員長に選出されました森戸よう子委員のご挨拶をお願いいたします。</div>
 </div>
 
-<div class="turn voice reveal" id="t7">
-  <div class="meta"><span class="name">（水上洋志委員）</span></div>
-  <div class="say">指名推薦でお願いします。</div>
+<div class="turn reveal" id="t7">
+  <div class="meta"><span class="name">森戸委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=154s" data-timestamp="154"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:34</a>先ほど皆様の満場一致で委員長に推薦、また、選任していただきましてありがとうございます。先ほどもありましたように、36年の経験の中で初めての予算特別委員長でございます。不慣れではございますが、是非とも皆様のご協力をいただきまして、議会の権能が十分に発揮できる予算特別委員会として頑張っていきたいと思いますので、どうぞ皆様のご協力よろしくお願いいたします。ありがとうございます。</div>
 </div>
 
-<div class="turn voice reveal" id="t8">
-  <div class="meta"><span class="name">（委員長）</span></div>
-  <div class="say">ただいま選出方法について指名推薦による、とのご意見がありますが、指名推薦により決定することにご異議ありませんか。</div><div class="say">◯（呼ぶ声）<br />
-<a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=252s" data-timestamp="252"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:12</a>　なし。</div>
+<div class="turn chair reveal" id="t8">
+  <div class="meta"><span class="name">遠藤座長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=187s" data-timestamp="187"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:07</a>これで私の職務は終了いたしました。委員長と交代するため、しばらく休憩いたします。午後１時41分休憩午後１時41分開議</div>
 </div>
 
-<div class="turn voice reveal" id="t9">
-  <div class="meta"><span class="name">（委員長）</span></div>
-  <div class="say">ご異議なしと認め、ただいま申し上げました通り決定をいたします。どなたかご推薦いただけますか。</div>
+<div class="turn reveal" id="t9">
+  <div class="meta"><span class="name">森戸委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=227s" data-timestamp="227"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:47</a>再開いたします。</div>
+  <div class="say">これから副委員長の互選を行います。互選の方法についてはいかがいたしましょうか。どなたか選出方法についてご意見はありませんか。</div>
 </div>
 
-<div class="turn voice reveal" id="t10">
-  <div class="meta"><span class="name">（水上洋志委員）</span></div>
-  <div class="say">新人議員でありながら、市民要求に基づき、論旨明快に、堂々と質疑されてる姿はとても新人議員とは思えない活躍をされております。吉良のりこ議員を副委員長に推薦したいと思います。</div><div class="say">何分、委員長が予算特別委員長初めてということで、新人でありますので、ぜひ支えていただいて、円滑な議事進行に努めていただきたいと思います。よろしくお願いします。</div><div class="say">◯（委員長）<br />
-<a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=297s" data-timestamp="297"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:57</a>　ただいま吉良のりこ委員を副委員長にと推薦がございました。お諮りいたします。吉良のりこ委員を副委員長に選出することにご異議ありませんか。</div>
+<div class="turn reveal" id="t10">
+  <div class="meta"><span class="name">水上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=239s" data-timestamp="239"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:59</a>指名推選でお願いします。</div>
 </div>
 
-<div class="turn voice reveal" id="t11">
-  <div class="meta"><span class="name">（呼ぶ声）</span></div>
-  <div class="say">異議なし。</div>
+<div class="turn reveal" id="t11">
+  <div class="meta"><span class="name">森戸委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=239s" data-timestamp="239"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:59</a>ただいま、選出方法について、指名推選によるとのご意見がありますが、指名推選により決定することにご異議ありませんか。（「異議なし」と呼ぶ者あり）</div>
 </div>
 
-<div class="turn voice reveal" id="t12">
-  <div class="meta"><span class="name">（委員長）</span></div>
-  <div class="say">ご異議なしと認めます。したがって、ただいま指名しました通り選出することに決定をいたしました。ただいま副委員長に選出された吉良のりこ委員のご挨拶をお願いいたします。ご指名いただきましてありがとうございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=332s" data-timestamp="332"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:32</a>　議員になってまだ2年目で、本当に不慣れなところ多いと思いますけれども、精一杯全力で委員長を支えていきたいと思います。委員会の皆さんにはご協力をお願い申し上げます。よろしくお願いいたします。</div><div class="say">他に皆さんの方でございませんね。それでは以上で予算特別委員会の会議を終了いたします。お疲れ様でした。</div>
+<div class="turn reveal" id="t12">
+  <div class="meta"><span class="name">森戸委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=250s" data-timestamp="250"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:10</a>ご異議なしと認め、ただいま申し上げましたとおり決定をいたします。どなたかご推薦いただけますか。</div>
+</div>
+
+<div class="turn reveal" id="t13">
+  <div class="meta"><span class="name">水上委員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=258s" data-timestamp="258"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:18</a>新人議員でありながら、市民要求に基づき論旨明快に堂々と質疑されている姿はとても新人議員とは思えない活躍をされております吉良のりこ委員を副委員長に推薦したいと思います。何分委員長が、予算特別委員長は初めてということで、新人でありますので、是非支えていただいて、暴走することはないと思いますが、円滑な議事進行に努めていただきたいと思います。よろしくお願いします。</div>
+</div>
+
+<div class="turn reveal" id="t14">
+  <div class="meta"><span class="name">森戸委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=296s" data-timestamp="296"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:56</a>ただいま、吉良のりこ委員を副委員長にとの推薦がございました。</div>
+  <div class="say">お諮りいたします。吉良のりこ委員を副委員長に選出することにご異議ありませんか。（「異議なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal" id="t15">
+  <div class="meta"><span class="name">森戸委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=309s" data-timestamp="309"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:09</a>ご異議なしと認めます。したがって、ただいま指名いたしましたとおり選出することに決定をいたしました。</div>
+  <div class="say">ただいま副委員長に選出された吉良のりこ委員のご挨拶をお願いいたします。</div>
+</div>
+
+<div class="turn reveal" id="t16">
+  <div class="meta"><span class="name">吉良副委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=325s" data-timestamp="325"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:25</a>ただいま副委員長にご選任いただきましてありがとうございます。議員になってまだ２年目で、本当に不慣れなところが多いと思いますけれども、精いっぱい全力で委員長を支えていきたいと思います。委員会の皆さんにはご協力をお願い申し上げます。よろしくお願いいたします。</div>
+</div>
+
+<div class="turn reveal" id="t17">
+  <div class="meta"><span class="name">森戸委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=349s" data-timestamp="349"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:49</a>他に皆さんの方からございませんね。（「なし」と呼ぶ者あり）</div>
+</div>
+
+<div class="turn reveal" id="t18">
+  <div class="meta"><span class="name">森戸委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=RJ2wog43Yvc&t=352s" data-timestamp="352"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:52</a>以上で、予算特別委員会の会議を終了いたします。午後１時43分閉会</div>
 </div>
 
 </div>
