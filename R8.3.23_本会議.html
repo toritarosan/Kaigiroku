@@ -4,14 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>令和8年3月23日 本会議</title>
-<meta name="description" content="令和8年3月23日 本会議の会議録（非公式アーカイブ）。発言全文・タイムスタンプ付き動画・AI要約。小金井市議会がYouTubeで公開する中継をもとに作成。">
-<meta property="og:type" content="article">
-<meta property="og:site_name" content="小金井市議会 非公式会議録">
-<meta property="og:title" content="令和8年3月23日 本会議">
-<meta property="og:description" content="令和8年3月23日 本会議の会議録（非公式アーカイブ）。発言全文・タイムスタンプ付き動画・AI要約。小金井市議会がYouTubeで公開する中継をもとに作成。">
-<meta property="og:url" content="https://toritarosan.github.io/Kaigiroku/R8.3.23_%E6%9C%AC%E4%BC%9A%E8%AD%B0.html">
-<meta property="og:image" content="https://toritarosan.github.io/Kaigiroku/ogp.png">
-<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
 <style>
   :root{
     --paper:#ffffff; --ink:#17150f; --navy:#157a4b; --pop:#e8482a;
@@ -26,6 +19,28 @@
   .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
   .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
 
+  /* サイト共通ヘッダー（トップと同系の緑＋クリーム）。iframe埋め込み時は html.embedded で非表示 */
+  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
+  html.embedded .sitenav{display:none;}
+  .sitenav-in{max-width:1100px;margin:0 auto;padding:0 18px;min-height:52px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .sitenav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#157a4b;font-weight:700;font-size:1rem;white-space:nowrap;}
+  .sitenav-brand img{display:block;border-radius:2px;}
+  .sitenav-links{margin-left:auto;display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+  .sitenav-links a{color:#2a2620;font-size:.84rem;font-weight:600;text-decoration:none;padding:8px 11px;border-radius:2px;white-space:nowrap;}
+  .sitenav-links a:hover{color:#157a4b;background:#e7f4ec;}
+  .sitenav-links .ext{color:#8a8073;font-size:.8em;margin-left:1px;}
+  @media(max-width:640px){.sitenav-in{min-height:0;padding:8px 14px;}.sitenav-links a{padding:6px 9px;font-size:.8rem;}}
+
+  /* パンくず */
+  .crumb{background:#fbf9f4;border-bottom:1px solid #eee7db;position:sticky;top:52px;z-index:59;}
+  html.embedded .crumb{display:none;}
+  .crumb-in{max-width:1100px;margin:0 auto;padding:8px 18px;font-size:.76rem;color:#8a8073;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.5;}
+  .crumb a{color:#157a4b;text-decoration:none;font-weight:600;}
+  .crumb a:hover{text-decoration:underline;}
+  .crumb .sep{color:#c9c0b2;}
+  .crumb .cur{color:#4a443b;font-weight:600;}
+  @media(max-width:640px){.crumb{position:static;} .sitenav-in{flex-wrap:nowrap;} .sitenav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}}
+
   .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
        letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
   .top .sq{width:9px;height:9px;background:var(--pop);}
@@ -38,6 +53,9 @@
   .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
        color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
   .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  /* 未定稿（公式だが校正中）＝確定版と一目で区別できるようコーラル地にする */
+  .hero .srcbadge.draft{background:var(--coral-dark, #b83a25);}
+  .hero .srcbadge.draft .dot{background:#ffd9cf;}
   .hero .src.official{display:block; margin-top:8px;}
   .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
   .hero .src.official a:hover{text-decoration:underline;}
@@ -96,29 +114,6 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 .sum:target{background:#fff8e1;}
 /*qsearch-end*/
 
-  /* サイト共通ヘッダー（トップと同系の緑＋クリーム） */
-  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
-  html.embedded .sitenav{display:none;}
-  .sitenav-in{max-width:1100px;margin:0 auto;padding:0 18px;min-height:52px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-  .sitenav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#157a4b;font-weight:700;font-size:1rem;white-space:nowrap;}
-  .sitenav-brand img{display:block;border-radius:2px;}
-  .sitenav-links{margin-left:auto;display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
-  .sitenav-links a{color:#2a2620;font-size:.84rem;font-weight:600;text-decoration:none;padding:8px 11px;border-radius:2px;white-space:nowrap;}
-  .sitenav-links a:hover{color:#157a4b;background:#e7f4ec;}
-  .sitenav-links .ext{color:#8a8073;font-size:.8em;margin-left:1px;}
-  @media(max-width:640px){.sitenav-in{min-height:0;padding:8px 14px;}.sitenav-links a{padding:6px 9px;font-size:.8rem;}}
-
-  /* パンくず */
-  .crumb{background:#fbf9f4;border-bottom:1px solid #eee7db;position:sticky;top:52px;z-index:59;}
-  html.embedded .crumb{display:none;}
-  .crumb-in{max-width:1100px;margin:0 auto;padding:8px 18px;font-size:.76rem;color:#8a8073;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.5;}
-  .crumb a{color:#157a4b;text-decoration:none;font-weight:600;}
-  .crumb a:hover{text-decoration:underline;}
-  .crumb .sep{color:#c9c0b2;}
-  .crumb .cur{color:#4a443b;font-weight:600;}
-
-  @media(max-width:640px){.crumb{position:static;} .site-header{position:static;} .sitenav-in{flex-wrap:nowrap;} .sitenav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}}
-
   /* ページトップへ戻る */
   .to-top{position:fixed;bottom:20px;right:20px;z-index:900;width:44px;height:44px;border:none;border-radius:50%;background:#157a4b;color:#fff;font-size:20px;line-height:1;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,background .15s;box-shadow:0 2px 8px rgba(0,0,0,.2);}
   .to-top.show{opacity:.92;visibility:visible;transform:none;}
@@ -134,7 +129,6 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
   .copy-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(8px);background:#157a4b;color:#fff;font-size:13px;padding:9px 16px;border-radius:4px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;z-index:1100;box-shadow:0 2px 10px rgba(0,0,0,.25);}
   .copy-toast.show{opacity:1;visibility:visible;transform:translateX(-50%);}
 </style>
-  <link rel="icon" type="image/svg+xml" href="icon.svg">
 </head>
 <body>
 <script>try{if(window.self!==window.top)document.documentElement.classList.add('embedded');}catch(e){document.documentElement.classList.add('embedded');}</script>
@@ -151,7 +145,6 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
   </div>
 </nav>
 <nav class="crumb" aria-label="パンくずリスト"><div class="crumb-in"><a href="index.html">ホーム</a><span class="sep">›</span><a href="list.html">全会議一覧</a><span class="sep">›</span><span class="cur">令和8年3月23日 本会議</span></div></nav>
-
 <div class="prog" id="prog"></div>
 <div class="wrap">
 
@@ -160,185 +153,66 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
   <header class="hero reveal">
     <p class="date">令和8年3月23日</p>
     <h1>本会議</h1>
-    <span class="srcbadge"><span class="dot"></span>本文＝小金井市議会 公式会議録（DBSR）</span><span class="src official">本文は公式会議録を一字一句そのまま掲載。要約はAIによる補助、タイムスタンプ・動画はYouTube連携（いずれも非公式の付加情報）。　|　<a href="https://www.city.koganei.tokyo.dbsr.jp/214108?Template=document&amp;Id=10421#one" target="_blank" rel="noopener">公式会議録の原典 ↗</a><span class="genmeta">本文は公式会議録と一致確認済み（verbatim）。要約はAIによる生成で、小金井市議会の公式見解ではありません。<br>最終生成日 2026-06-30</span></span>
+    <span class="srcbadge"><span class="dot"></span>本文＝小金井市議会 公式会議録（DBSR）</span><span class="src official">本文は公式会議録を一字一句そのまま掲載。要約はAIによる補助、タイムスタンプ・動画はYouTube連携（いずれも非公式の付加情報）。　|　<a href="https://www.city.koganei.tokyo.dbsr.jp/895933?Template=document&amp;Id=10421#one" target="_blank" rel="noopener">公式会議録の原典 ↗</a></span><span class="genmeta">本文は公式会議録と一致確認済み（verbatim）。要約はAIによる生成で、小金井市議会の公式見解ではありません。<br>最終生成日 2026-07-31</span>
   </header>
 
-  <section class="sum reveal" id="summary">
+  <section class="sum reveal">
     <p class="lab">A I 要 約</p>
-    <h3>提出議案等一覧</h3>
+    <h3>この日の会議</h3>
+<p>令和8年3月23日に開催された小金井市議会定例会では、陳情から予算案まで計38件の議案が審議されました。特に、障害者交通手当条例や一般会計予算に対する修正案・組替え動議が複数提出され、活発な議論が交わされました。</p>
+<h3>提出議案等一覧</h3>
 <ul>
-<li>議案第3号 令和７年度小金井市一般会計補正予算（第１１回）</li>
-<li>議案第4号 令和７年度小金井市国民健康保険特別会計補正予算（第２回）</li>
-<li>議案第5号 令和７年度小金井市介護保険特別会計補正予算（第２回）</li>
-<li>議案第6号 令和７年度小金井市後期高齢者医療特別会計補正予算（第２回）</li>
-<li>議案第7号 令和７年度小金井市下水道事業会計補正予算（第２回）</li>
-<li>議案第8号 令和８年度小金井市一般会計予算</li>
-<li>議案第9号 令和８年度小金井市国民健康保険特別会計予算</li>
-<li>議案第10号 令和８年度小金井市介護保険特別会計予算</li>
-<li>議案第11号 令和８年度小金井市後期高齢者医療特別会計予算</li>
-<li>議案第12号 令和８年度小金井市下水道事業会計予算</li>
-<li>議案第15号 小金井市職員の勤務時間、休日、休暇等に関する条例の一部を改正する条例</li>
-<li>議案第16号 小金井市会計年度任用職員の報酬等に関する条例の一部を改正する条例</li>
-<li>議案第17号 特別職の給与に関する条例の一部を改正する条例</li>
-<li>議案第18号 職員の給与に関する条例の一部を改正する条例</li>
-<li>議案第19号 地方税法等の一部を改正する法律の施行に伴う関係条例の整理に関する条例</li>
-<li>議案第20号 小金井市国民健康保険税条例の一部を改正する条例</li>
-<li>議案第21号 小金井市奨学資金支給条例の一部を改正する条例</li>
-<li>議案第22号 小金井市公民館条例の一部を改正する条例</li>
-<li>議案第23号 小金井市障害者交通手当条例</li>
-<li>議案第24号 小金井市子ども・子育て会議条例の一部を改正する条例</li>
-<li>議案第25号 小金井市立保育園における乳児等通園支援事業に関する条例</li>
-<li>議案第26号 小金井市市民集会所条例の一部を改正する条例</li>
-<li>議案第27号 小金井市下水道条例の一部を改正する条例</li>
-<li>議案第28号 東京都後期高齢者医療広域連合規約の一部を変更する規約</li>
-<li>議案第29号 小金井市介護福祉条例の一部を改正する条例</li>
-<li>議案第30号 令和８年度小金井市一般会計補正予算（第１回）</li>
-<li>7陳情第19号 教育長は男女差別事案を真摯に受け止め、適切な事後処理を行うことを求める陳情書</li>
-<li>7陳情第20号 市民体育祭ゴルフ競技の改善を求める陳情書</li>
-<li>7陳情第21号 市民体育祭ゴルフ競技参加者に関する陳情書</li>
-<li>7陳情第23号 市議会への請願書及び陳情書に関して、オンライン提出を可能にすることを求める陳情書</li>
-<li>7陳情第36号 ３・４・11号線など都市計画道路問題に関して参考人制度や公聴会制度の活用を求める陳情書</li>
-<li>7陳情第38号 差別的な事業の是正を求められるに至った原因書類について、市は職権を用いて市民の知る権利に応えることを求める陳情書</li>
-<li>7陳情第39号 小金井カントリー様に対して男女平等の参加資格をもって市民体育祭へのご協力を頂けるよう市長、教育長は努力すべしとする陳情書</li>
-<li>7陳情第40号 個人情報保護に適切なリスク対応を施さなかった部局の責任を問うと伴に二度とそのようなことが無いよう求める陳情書</li>
-<li>7陳情第41号 現在進行中の個人情報漏洩危機に対して緊急に手当てすることを求める陳情書</li>
-<li>7陳情第68号 小金井３・４・11号線と３・４・１号線を「優先整備路線」としないことを東京都に意見書の提出を求める陳情書</li>
-<li>8陳情第1号 新宿区において顕在化した事例を受けて、政党機関紙の庁舎内勧誘行為に関する早期の実態把握と再発防止を求める陳情書</li>
-<li>8陳情第2号 市役所の部長職、課長職の管理職手当の大幅引き上げに反対する陳情書</li>
-<li>8陳情第3号 市役所職員ＯＢ（再任用職員）のボーナスの大幅引き上げに反対する陳情書</li>
-<li>8陳情第8号 現メガロス東小金井学童クラブ運営事業者への補助金交付の停止等及び同事業者における事業の停止命令等を求める陳情書</li>
-<li>8陳情第9号 閉会中継続審査案件</li>
-<li>8陳情第13号 閉会中継続審査案件</li>
-<li>所管事務調査 議会改革に関する諸問題の調査</li>
-<li>所管事務調査 行政視察に係る所管事務調査（議会運営委員会）</li>
-<li>所管事務調査 地域福祉計画の進捗について</li>
-<li>所管事務調査 子ども施策について</li>
-<li>所管事務調査 行政視察に係る所管事務調査（厚生文教委員会）</li>
-<li>所管事務調査 循環型社会の形成及び温室効果ガス削減に関する調査</li>
-<li>所管事務調査 都市計画道路に関する調査</li>
-<li>所管事務調査 閉会中の行政視察の視察項目（建設環境委員会）</li>
-<li>所管事務調査 自治体ＤＸの取組について</li>
-<li>所管事務調査 閉会中の行政視察の視察項目（総務企画委員会）</li>
+<li>７陳情第23号、市議会への請願書及び陳情書に関して、オンライン提出を可能にすることを求める陳情書から日程第38、議案第12号、令和８年度小金井市下水道事業会計予算までの38件</li>
+<li>先ほど厚生文教委員長報告を行いました議案第23号、小金井市障害者交通手当条例に対して、24番森戸よう子議員外２人から修正案が提出されておりますので、本件</li>
+<li>先ほど予算特別委員長報告を行いました議案第８号、令和８年度小金井市一般会計予算に対して、16番水上洋志議員外２人から組替え動議が提出されておりますので、本件</li>
+<li>先ほど予算特別委員長報告を行いました議案第８号、令和８年度小金井市一般会計予算に対して、10番河野麻美議員外３人から組替え動議が提出されておりますので、本件</li>
+<li>議案第30号、令和８年度小金井市一般会計補正予算（第１回）</li>
+<li>閉会中継続審査案件</li>
+<li>委員会特定事件継続調査案件</li>
 </ul>
-<h3>議案の審議ごとの要約</h3>
-<h4>7陳情第23号 市議会への請願書及び陳情書に関して、オンライン提出を可能にすることを求める陳情書</h4>
-<p>本陳情は、市議会への請願書及び陳情書のオンライン提出を可能にすることを求めるもので、議会運営委員会で審査されました。オンライン提出された陳情を通常の陳情と同様に審査の対象とすることについて、本人確認の手続きの必要性や悪意のある攻撃・不正な申請のリスク、大量の陳情書提出の可能性が議論されましたが、全会一致に至らず、不採択と決定されました。</p>
-<h4>議案第20号 小金井市国民健康保険税条例の一部を改正する条例</h4>
-<p>本議案は、国民健康保険税条例の一部改正に関するもので、厚生文教委員会で原案可決と決定されました。反対意見として、税率改定による加入者の保険税負担増、特に子ども・子育て支援分の新設による負担増、および一般会計からの法定外繰入金削減が市民負担増の原因である点が挙げられました。</p>
-<h4>議案第21号 小金井市奨学資金支給条例の一部を改正する条例</h4>
-<p>本議案は、奨学資金支給条例の一部改正に関するもので、厚生文教委員会で原案可決と決定されました。</p>
-<h4>議案第22号 小金井市公民館条例の一部を改正する条例</h4>
-<p>本議案は、公民館の使用料を有料化する条例改正に関するもので、厚生文教委員会で原案可決と決定されました。反対意見として、社会教育法の目的に反する懸念、社会教育団体と登録団体間の公平性の欠如、教育委員会による公民館活動への介入、財政効果の不確実性などが挙げられました。</p>
-<h4>議案第23号 小金井市障害者交通手当条例</h4>
-<p>本議案は、障害者交通手当条例の制定に関するもので、厚生文教委員会で原案可決と決定されました。修正案が提出され、支給額の減額を元に戻し、対象者全員に3,000円を支給するよう求められましたが、修正案は否決されました。原案は、交通手当の一律支給化により、これまで利用していなかった対象者にも支給が拡大されること、利便性向上および行政の事務負担軽減が見込まれる点が評価されました。</p>
-<h4>議案第24号 小金井市子ども・子育て会議条例の一部を改正する条例</h4>
-<p>本議案は、子ども・子育て会議条例の一部改正に関するもので、厚生文教委員会で原案可決と決定されました。</p>
-<h4>議案第25号 小金井市立保育園における乳児等通園支援事業に関する条例</h4>
-<p>本議案は、市立保育園における乳児等通園支援事業に関する条例で、厚生文教委員会で原案可決と決定されました。</p>
-<h4>議案第28号 東京都後期高齢者医療広域連合規約の一部を変更する規約</h4>
-<p>本議案は、東京都後期高齢者医療広域連合規約の一部変更に関するもので、厚生文教委員会で原案可決と決定されました。</p>
-<h4>議案第29号 小金井市介護福祉条例の一部を改正する条例</h4>
-<p>本議案は、介護福祉条例の一部改正に関するもので、厚生文教委員会で原案可決と決定されました。</p>
-<h4>7陳情第19号 教育長は男女差別事案を真摯に受け止め、適切な事後処理を行うことを求める陳情書</h4>
-<p>本陳情は、教育長が男女差別事案を真摯に受け止め、適切な事後処理を行うことを求めるもので、厚生文教委員会で不採択と決定されました。</p>
-<h4>7陳情第20号 市民体育祭ゴルフ競技の改善を求める陳情書</h4>
-<p>本陳情は、市民体育祭ゴルフ競技の改善を求めるもので、厚生文教委員会で不採択と決定されました。</p>
-<h4>7陳情第21号 市民体育祭ゴルフ競技参加者に関する陳情書</h4>
-<p>本陳情は、市民体育祭ゴルフ競技参加者に関するもので、厚生文教委員会で不採択と決定されました。</p>
-<h4>7陳情第38号 差別的な事業の是正を求められるに至った原因書類について、市は職権を用いて市民の知る権利に応えることを求める陳情書</h4>
-<p>本陳情は、差別的な事業の是正を求められるに至った原因書類について、市が職権を用いて市民の知る権利に応えることを求めるもので、厚生文教委員会で不採択と決定されました。</p>
-<h4>7陳情第39号 小金井カントリー様に対して男女平等の参加資格をもって市民体育祭へのご協力を頂けるよう市長、教育長は努力すべしとする陳情書</h4>
-<p>本陳情は、小金井カントリーに対して男女平等の参加資格をもって市民体育祭への協力を得るよう市長、教育長に努力を求めるもので、厚生文教委員会で不採択と決定されました。</p>
-<h4>7陳情第40号 個人情報保護に適切なリスク対応を施さなかった部局の責任を問うと伴に二度とそのようなことが無いよう求める陳情書</h4>
-<p>本陳情は、個人情報保護に適切なリスク対応を施さなかった部局の責任を問い、再発防止を求めるもので、厚生文教委員会で不採択と決定されました。</p>
-<h4>7陳情第41号 現在進行中の個人情報漏洩危機に対して緊急に手当てすることを求める陳情書</h4>
-<p>本陳情は、現在進行中の個人情報漏洩危機に対して緊急に手当てすることを求めるもので、厚生文教委員会で不採択と決定されました。</p>
-<h4>議案第27号 小金井市下水道条例の一部を改正する条例</h4>
-<p>本議案は、下水道条例の一部改正に関するもので、建設環境委員会で原案可決と決定されました。反対意見として、2027年4月からの下水道使用料の値上げ（目標改定率20.6%）が物価高騰下の市民生活に大きな負担となる点が挙げられました。</p>
-<h4>7陳情第36号 ３・４・11号線など都市計画道路問題に関して参考人制度や公聴会制度の活用を求める陳情書</h4>
-<p>本陳情は、都市計画道路問題に関して参考人制度や公聴会制度の活用を求めるもので、建設環境委員会で採択と決定されましたが、本会議では不採択と決定されました。</p>
-<h4>議案第15号 小金井市職員の勤務時間、休日、休暇等に関する条例の一部を改正する条例</h4>
-<p>本議案は、職員の勤務時間、休日、休暇等に関する条例の一部改正に関するもので、総務企画委員会で原案可決と決定されました。</p>
-<h4>議案第16号 小金井市会計年度任用職員の報酬等に関する条例の一部を改正する条例</h4>
-<p>本議案は、会計年度任用職員の報酬等に関する条例の一部改正に関するもので、総務企画委員会で原案可決と決定されました。</p>
-<h4>議案第17号 特別職の給与に関する条例の一部を改正する条例</h4>
-<p>本議案は、特別職の給与に関する条例の一部改正に関するもので、総務企画委員会で原案可決と決定されました。</p>
-<h4>議案第18号 職員の給与に関する条例の一部を改正する条例</h4>
-<p>本議案は、職員の給与に関する条例の一部改正に関するもので、総務企画委員会で原案可決と決定されました。</p>
-<h4>議案第19号 地方税法等の一部を改正する法律の施行に伴う関係条例の整理に関する条例</h4>
-<p>本議案は、地方税法等の一部改正に伴う関係条例の整理に関するもので、総務企画委員会で原案可決と決定されました。</p>
-<h4>議案第26号 小金井市市民集会所条例の一部を改正する条例</h4>
-<p>本議案は、市民集会所条例の一部改正に関するもので、総務企画委員会で原案可決と決定されました。</p>
-<h4>8陳情第2号 市役所の部長職、課長職の管理職手当の大幅引き上げに反対する陳情書</h4>
-<p>本陳情は、市役所の部長職、課長職の管理職手当の大幅引き上げに反対するもので、総務企画委員会で不採択と決定されました。</p>
-<h4>8陳情第3号 市役所職員ＯＢ（再任用職員）のボーナスの大幅引き上げに反対する陳情書</h4>
-<p>本陳情は、市役所職員OB（再任用職員）のボーナス大幅引き上げに反対するもので、総務企画委員会で不採択と決定されました。</p>
-<h4>議案第3号 令和７年度小金井市一般会計補正予算（第１１回）</h4>
-<p>本議案は、令和7年度一般会計補正予算（第11回）に関するもので、予算特別委員会で原案可決と決定されました。</p>
-<h4>議案第4号 令和７年度小金井市国民健康保険特別会計補正予算（第２回）</h4>
-<p>本議案は、令和7年度国民健康保険特別会計補正予算（第2回）に関するもので、予算特別委員会で原案可決と決定されました。</p>
-<h4>議案第5号 令和７年度小金井市介護保険特別会計補正予算（第２回）</h4>
-<p>本議案は、令和7年度介護保険特別会計補正予算（第2回）に関するもので、予算特別委員会で原案可決と決定されました。</p>
-<h4>議案第6号 令和７年度小金井市後期高齢者医療特別会計補正予算（第２回）</h4>
-<p>本議案は、令和7年度後期高齢者医療特別会計補正予算（第2回）に関するもので、予算特別委員会で原案可決と決定されました。</p>
-<h4>議案第7号 令和７年度小金井市下水道事業会計補正予算（第２回）</h4>
-<p>本議案は、令和7年度下水道事業会計補正予算（第2回）に関するもので、予算特別委員会で原案可決と決定されました。</p>
-<h4>議案第8号 令和８年度小金井市一般会計予算</h4>
-<p>本議案は、令和8年度一般会計予算に関するもので、予算特別委員会で否決と決定されました。本会議では、二つの組替え動議が提出されました。一つは、市民生活支援のために予算を組み替えるものでしたが、否決されました。もう一つは、都市計画道路に係る調査研究支援委託料を削除し、予備費に積み増すもので、可決されました。市長は、可決された組替え動議の内容に即した補正予算を次回の定例会に提出することを約束しました。最終的に、原案は可決されました。</p>
-<h4>議案第9号 令和８年度小金井市国民健康保険特別会計予算</h4>
-<p>本議案は、令和8年度国民健康保険特別会計予算に関するもので、予算特別委員会で原案可決と決定されました。</p>
-<h4>議案第10号 令和８年度小金井市介護保険特別会計予算</h4>
-<p>本議案は、令和8年度介護保険特別会計予算に関するもので、予算特別委員会で原案可決と決定されました。</p>
-<h4>議案第11号 令和８年度小金井市後期高齢者医療特別会計予算</h4>
-<p>本議案は、令和8年度後期高齢者医療特別会計予算に関するもので、予算特別委員会で原案可決と決定されました。</p>
-<h4>議案第12号 令和８年度小金井市下水道事業会計予算</h4>
-<p>本議案は、令和8年度下水道事業会計予算に関するもので、予算特別委員会で原案可決と決定されました。</p>
-<h4>議案第30号 令和８年度小金井市一般会計補正予算（第１回）</h4>
-<p>本議案は、令和8年度一般会計補正予算（第1回）に関するもので、歳入歳出予算の総額に6,498万4,000円を追加し、総額を546億6,498万4,000円とするものです。主な内容は、低所得世帯向けエアコン設置等緊急支援事業補助金（都支出金）と、住民税非課税世帯等および生活保護受給世帯へのエアコン購入費助成です。質疑では、周知方法、エアコンの使用年数基準（15年）、一時的な自己負担の課題、社会福祉協議会との連携、ゼロエミポイントの活用などが議論されました。委員会付託を省略し、原案可決と決定されました。</p>
-<h4>所管事務調査 議会改革に関する諸問題の調査</h4>
-<p>議会運営委員会は、議会改革に関する諸問題の調査について、引き続き調査する必要があると認め、継続調査と決定しました。</p>
-<h4>所管事務調査 行政視察に係る所管事務調査（議会運営委員会）</h4>
-<p>議会運営委員会は、1月20日に岐阜県可児市（議選監査委員の活用）、21日に愛知県尾張旭市（議会における主権者教育、市民意見聴取、政策立案機能強化の取組）を視察し、報告書が提出されました。</p>
-<h4>所管事務調査 地域福祉計画の進捗について</h4>
-<p>厚生文教委員会は、地域福祉計画の進捗について、引き続き調査する必要があると認め、継続調査と決定しました。</p>
-<h4>所管事務調査 子ども施策について</h4>
-<p>厚生文教委員会は、子ども施策について、引き続き調査する必要があると認め、継続調査と決定しました。</p>
-<h4>所管事務調査 行政視察に係る所管事務調査（厚生文教委員会）</h4>
-<p>厚生文教委員会は、1月26日、27日に大阪府大東市（高齢者支援の地域協同事業）、滋賀県野洲市（くらし支えあい条例）を視察し、報告書が提出されました。</p>
-<h4>所管事務調査 循環型社会の形成及び温室効果ガス削減に関する調査</h4>
-<p>建設環境委員会は、循環型社会の形成及び温室効果ガス削減に関する調査について、引き続き調査する必要があると認め、継続調査と決定しました。</p>
-<h4>所管事務調査 都市計画道路に関する調査</h4>
-<p>建設環境委員会は、都市計画道路に関する調査について、引き続き調査する必要があると認め、継続調査と決定しました。</p>
-<h4>所管事務調査 閉会中の行政視察の視察項目（建設環境委員会）</h4>
-<p>建設環境委員会は、閉会中の行政視察の視察項目として、ゼロカーボン・アクションの取組、歩行者利便増進道路「ほこみち」の取組、歩行者のための路肩の柔軟な活用（パークレット）についてを所管事務調査事件として、閉会中の継続調査と決定しました。</p>
-<h4>所管事務調査 自治体ＤＸの取組について</h4>
-<p>総務企画委員会は、自治体DXの取組について、引き続き調査する必要があると認め、継続調査と決定しました。</p>
-<h4>所管事務調査 閉会中の行政視察の視察項目（総務企画委員会）</h4>
-<p>総務企画委員会は、閉会中の行政視察の視察項目として、福島市職員ひとり1改善・1改革運動「かえるチャレンジ」について、郡山市STANDARDについてを所管事務調査事件として、閉会中の継続調査と決定しました。</p>
-<h4>8陳情第1号 新宿区において顕在化した事例を受けて、政党機関紙の庁舎内勧誘行為に関する早期の実態把握と再発防止を求める陳情書</h4>
-<p>総務企画委員会は、本陳情について、引き続き審査する必要があると認め、継続審査と決定しました。</p>
-<h4>8陳情第8号 現メガロス東小金井学童クラブ運営事業者への補助金交付の停止等及び同事業者における事業の停止命令等を求める陳情書</h4>
-<p>厚生文教委員会は、本陳情について、引き続き審査する必要があると認め、継続審査と決定しました。</p>
-<h4>8陳情第9号 閉会中継続審査案件</h4>
-<p>本陳情は、閉会中の継続審査案件として、所管の常任委員会に付託されました。</p>
-<h4>8陳情第13号 閉会中継続審査案件</h4>
-<p>本陳情は、閉会中の継続審査案件として、所管の常任委員会に付託されました。</p>
-<h4>議員案第1号 衆議院解散権の行使に関する法的明確化と民主的正当性の確保を求める意見書</h4>
-<p>本意見書は、衆議院解散権の行使に関する法的明確化と民主的正当性の確保を求めるもので、原案可決と決定されました。</p>
-<h4>議員案第2号 公立病院への財政支援を抜本的に強化することを求める意見書</h4>
-<p>本意見書は、公立病院への財政支援を抜本的に強化することを求めるもので、反対意見として、医療費と死亡率の相関関係の欠如や、病床数増加による医療費増大の懸念が挙げられましたが、原案可決と決定されました。</p>
-<h4>議員案第3号 統一協会との関係の疑惑を全容解明することを求める意見書</h4>
-<p>本意見書は、統一協会との関係の疑惑を全容解明することを求めるもので、原案可決と決定されました。</p>
-<h4>議員案第4号 地方交付税の拡充を求める意見書</h4>
-<p>本意見書は、地方交付税の拡充を求めるもので、原案可決と決定されました。</p>
-<h4>議員案第5号 アメリカ、イスラエル及びイランにおける平和の即時実現を求める決議</h4>
-<p>本決議は、アメリカ、イスラエル及びイランにおける平和の即時実現を求めるもので、原案可決と決定されました。</p>
-<h4>議員案第6号 障害者交通手当支給対象者への配慮を求める決議</h4>
-<p>本決議は、障害者交通手当支給対象者への配慮を求めるもので、原案可決と決定されました。</p>
-<h4>議員案第7号 建設工事費が約４０億円も膨れ上がった新庁舎等建設について市民への説明を求める決議</h4>
-<p>本決議は、建設工事費が約40億円も膨れ上がった新庁舎等建設について市民への説明を求めるもので、否決と決定されました。</p>
-<h4>議員案第8号 市民交流センター指定管理委託料その２に関する決議</h4>
-<p>本決議は、市民交流センター指定管理委託料その2に関するもので、反対意見として、指定管理者の責任、市の対応の問題点、文化芸術活動への支援不足、消費税転嫁の問題、指定管理者制度の実態などが挙げられましたが、原案可決と決定されました。</p>
+<h3>議案・陳情の審議</h3>
+<h4>７陳情第23号、市議会への請願書及び陳情書に関して、オンライン提出を可能にすることを求める陳情書から日程第38、議案第12号、令和８年度小金井市下水道事業会計予算までの38件</h4>
+<p>小金井市議会では、請願・陳情のオンライン提出や障害者交通手当条例改正など38件を審議。<br />
+議会運営委員会はオンライン提出陳情を不採択、厚生文教委員会は障害者交通手当条例を可決したが修正動議が提出された。<br />
+建設環境委員会は都市計画道路に関する陳情を採択、総務企画委員会は職員給与関連議案を可決。<br />
+予算特別委員会は令和8年度一般会計予算を否決し、複数の組替え動議が提出された。</p>
+<h4>先ほど厚生文教委員長報告を行いました議案第23号、小金井市障害者交通手当条例に対して、24番森戸よう子議員外２人から修正案が提出されておりますので、本件</h4>
+<p>障害者交通手当条例の修正案が提出された。<br />
+修正案は、現行の支給額3,000円を維持し、減額しないことを求める。<br />
+物価高騰下での障害者世帯への経済的支援の必要性が論点となった。</p>
+<h4>先ほど予算特別委員長報告を行いました議案第８号、令和８年度小金井市一般会計予算に対して、16番水上洋志議員外２人から組替え動議が提出されておりますので、本件</h4>
+<p>予算特別委員長報告された令和8年度小金井市一般会計予算に対し、市民生活支援と大規模事業への政治姿勢表明のため組替え動議が提出された。<br />
+歳出増として市民説明会開催費、中小事業者・ひとり親家庭支援、国保税・就学援助費・奨学資金・副教材費・修学旅行費・学童保育所維持管理費・障害者交通手当・家具転倒防止器具設置委託料・ことぶき理容・高齢者訪問理美容サービス・補聴器購入費助成・敬老事業・集会施設Wi-Fi設置・都市計画道路市民調査委員会設置費を計上。<br />
+歳出減として都市計画道路3・4・8号線整備用地取得費、東小金井駅北口土地区画整理事業委託料、武蔵小金井駅北口駅前東地区第一種市街地再開発事業補助金、公民館有料化に伴う経費を削減。<br />
+質疑では、ことぶき理容と高齢者訪問理美容サービスの利用者負担の整合性、東小金井駅北口土地区画整理事業委託料10%減による事業遅延への見解が問われた。<br />
+動議は討論・採決を一時保留と決定した。</p>
+<h4>先ほど予算特別委員長報告を行いました議案第８号、令和８年度小金井市一般会計予算に対して、10番河野麻美議員外３人から組替え動議が提出されておりますので、本件</h4>
+<ul>
+<li>都市計画道路に係る調査研究支援委託料の削除と予備費への積み増しを求める組替え動議が提出された。</li>
+<li>提案議員は、事業内容や目的、成果が不明瞭なため、現段階での公金投入の妥当性に疑問があるとした。</li>
+<li>市長は、環境への配慮を重視し、東京都の調査結果を踏まえて市として意見を述べるために調査委託費が必要と説明。</li>
+<li>議員からは、過去の検証の不十分さや、市長の公約違反、組替え動議の法的拘束力や政治的意味合いについて質疑があった。</li>
+<li>提案議員は、会派としての提案であり、可決の見込みがあると考えていると答弁。</li>
+<li>採決は一時保留となった。</li>
+</ul>
+<h4>議案第30号、令和８年度小金井市一般会計補正予算（第１回）</h4>
+<p>小金井市議会で審議された「議案第30号、令和８年度小金井市一般会計補正予算（第１回）」に関する主な論点と市の回答は以下の通りです。</p>
+<ul>
+<li><strong>エアコン購入費助成事業の周知方法</strong>：市報での掲載回数を増やすことやLINEの活用を求める意見に対し、市は市報での複数回周知やLINE活用を検討すると回答。</li>
+<li><strong>エアコンの対象要件（製造から15年経過、故障）</strong>：15年という年数の根拠や、故障していなくても15年経過で対象とすべきとの意見に対し、市は先行自治体や国の調査を根拠とし、15年経過と故障がセット要件だが、故障の判断は柔軟に対応すると説明。</li>
+<li><strong>購入費助成の一時的な自己負担</strong>：低所得世帯にとって10万円の自己負担が困難であるため、市が一時的に肩代わりする制度や社会福祉協議会との連携を求める意見に対し、市は東京ゼロエミポイントの活用を促し、社会福祉協議会との連携を検討すると回答。</li>
+<li><strong>スポット型冷風機等の対象可否</strong>：スポット型冷風機や扇風機が助成対象となるかとの質疑に対し、市は熱中症対策の観点から対象外と回答。</li>
+<li><strong>職員による自宅確認の体制</strong>：高齢者等で製造日の写真提出が困難な場合、職員が自宅確認する体制について、市は限られた人員で柔軟に対応すると回答。</li>
+<li><strong>賃貸住宅でのエアコン設置</strong>：賃貸住宅の場合、大家の承諾を得て入居者が助成を受ける形となり、エアコンの所有権は世帯に属すると市は説明。</li>
+</ul>
+<p>本議案の採決結果は本文に明記されていません。</p>
+<h4>閉会中継続審査案件</h4>
+<p>各常任委員会等から、審査・調査中の事件について閉会中も継続して審査したい旨の申出があった。<br />
+議長が諮ったところ、異議なく継続審査と決定した。</p>
+<h4>委員会特定事件継続調査案件</h4>
+<p>総務企画委員会と建設環境委員会から、特定事件の閉会中継続調査の要求があった。<br />
+議長が異議の有無を確認したところ、異議なしと認められた。<br />
+委員会特定事件継続調査案件は、要求通り継続調査と決定された。</p>
   </section>
 
   <section class="media reveal">
@@ -388,7 +262,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t5">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=332s" data-timestamp="332"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:32</a>ご異議なしと認め、議会運営委員長の報告どおり決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=336s" data-timestamp="336"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:36</a>ご異議なしと認め、議会運営委員長の報告どおり決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
@@ -401,7 +275,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t7">
   <div class="meta"><span class="name">１６番（水上洋志議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=394s" data-timestamp="394"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:34</a>議会運営委員会委員長報告を行います。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=377s" data-timestamp="377"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:17</a>議会運営委員会委員長報告を行います。</div>
   <div class="say">議会運営委員会は、令和８年３月３日に開催し、陳情１件、調査１件の計２件を審査いたしましたので、その審査の概要と結果につきまして、ご報告申し上げます。</div>
   <div class="say">なお、議会改革に関する諸問題の調査につきましては、引き続き調査する必要があると認め、継続調査と決定しております。</div>
   <div class="say">７陳情第23号、市議会への請願書及び陳情書に関して、オンライン提出を可能にすることを求める陳情書。本件は、令和７年６月10日の本会議において当委員会に付託され、６月11日、８月１日、10月17日、令和８年２月２日及び３月３日の計５回にわたり審査を行いました。３日の委員会では、特段の質疑もなく、起立採決の結果、起立少数により不採択すべきものと決定いたしました。</div>
@@ -436,7 +310,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t12">
   <div class="meta"><span class="name">１１番（沖浦あつし議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=540s" data-timestamp="540"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:00</a>厚生文教委員会委員長報告を行います。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=530s" data-timestamp="530"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:50</a>厚生文教委員会委員長報告を行います。</div>
   <div class="say">厚生文教委員会は、令和８年３月４日及び18日の計２回にわたり開催し、議案８件、陳情８件、所管事務調査２件の計18件を審査いたしましたので、その審査の概要と結果につきまして、ご報告申し上げます。</div>
   <div class="say">なお、８陳情第８号、現メガロス東小金井学童クラブ運営事業者への補助金交付の停止等及び同事業者における事業の停止命令等を求める陳情書につきましては、引き続き審査する必要があると認め、継続審査と決定しております。</div>
   <div class="say">また、所管事務調査（地域福祉計画の進捗について）及び所管事務調査（子ども施策について）の以上２件につきましては、引き続き調査する必要があると認め、継続調査と決定しております。</div>
@@ -462,7 +336,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t13">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=1037s" data-timestamp="1037"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:17</a>厚生文教委員長の報告に対する質疑を行います。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=1040s" data-timestamp="1040"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:20</a>厚生文教委員長の報告に対する質疑を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
@@ -505,7 +379,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t20">
   <div class="meta"><span class="name">４番（清水　学議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=1106s" data-timestamp="1106"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:26</a>建設環境委員会委員長報告を行います。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=1105s" data-timestamp="1105"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:25</a>建設環境委員会委員長報告を行います。</div>
   <div class="say">建設環境委員会は、令和８年３月５日及び18日の計２回にわたり開催し、議案１件、陳情１件、所管事務調査３件の計５件を審査いたしましたので、その審査の概要と結果につきまして、ご報告申し上げます。</div>
   <div class="say">なお、所管事務調査（循環型社会の形成及び温室効果ガス削減に関する調査）及び所管事務調査（都市計画道路に関する調査）の以上２件につきましては、引き続き調査する必要があると認め、継続調査と決定しております。</div>
   <div class="say">議案第27号、小金井市下水道条例の一部を改正する条例。本件につきましては、令和８年２月18日の本会議において当委員会に付託され、３月５日及び18日の委員会で審査を行いました。３月18日の委員会では、特段の質疑もなく、起立採決の結果、起立多数により、原案のとおり可決すべきものと決定いたしました。</div>
@@ -534,7 +408,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t24">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=1273s" data-timestamp="1273"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:13</a>次に、総務企画委員長の報告を求めます。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=1285s" data-timestamp="1285"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:25</a>次に、総務企画委員長の報告を求めます。</div>
   <div class="say">（２０番鈴木成夫議員登壇）</div>
 </div>
 
@@ -558,13 +432,13 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t26">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=1568s" data-timestamp="1568"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:08</a>総務企画委員長の報告に対する質疑を行います。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=1571s" data-timestamp="1571"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:11</a>総務企画委員長の報告に対する質疑を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t27">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=1577s" data-timestamp="1577"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:17</a>質疑を終了することにご異議ありませんか。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=1575s" data-timestamp="1575"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:15</a>質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
@@ -598,7 +472,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t31">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=1921s" data-timestamp="1921"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:01</a>予算特別委員長の報告に対する質疑を行います。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=1926s" data-timestamp="1926"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:06</a>予算特別委員長の報告に対する質疑を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
@@ -610,7 +484,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t33">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=1930s" data-timestamp="1930"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:10</a>ご異議なしと認め、質疑を終了し、予算特別委員長の報告を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=1933s" data-timestamp="1933"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:13</a>ご異議なしと認め、質疑を終了し、予算特別委員長の報告を終了します。</div>
 </div>
 
 <div class="turn reveal" id="t34">
@@ -691,7 +565,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t43">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=2500s" data-timestamp="2500"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:40</a>質疑を行います。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=2503s" data-timestamp="2503"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:43</a>質疑を行います。</div>
 </div>
 
 <div class="turn reveal" id="t44">
@@ -702,7 +576,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t45">
   <div class="meta"><span class="name">２４番（森戸よう子議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=2570s" data-timestamp="2570"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:50</a>この提案は、最も支援をしなければならない障がい者のところを最優先に、物価高騰や現下の経済状況の支援を行うというのは当然のことだと、私たちは思っております。本来ならこれは、減額するものではないと思うわけです。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=2568s" data-timestamp="2568"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:48</a>この提案は、最も支援をしなければならない障がい者のところを最優先に、物価高騰や現下の経済状況の支援を行うというのは当然のことだと、私たちは思っております。本来ならこれは、減額するものではないと思うわけです。</div>
   <div class="say">あわせて、私たち日本共産党は、この間、予算特別委員会、また一般質問などで、現下の経済状況に鑑みて、経済的支援を行うべき提案をさせていただきました。とりわけ、ひとり親家庭を始め、今日これから提案される低所得者へのエアコンの助成問題、それから、中小業者がこれからガソリン代が大変になるという、電気、光熱水費、これらについてもしっかりと支援をすべきだということを提案させていただきました。</div>
   <div class="say">どこまで支援を行うのかというのは、もちろん、限られた財源の中ですから、限界があるのは当然のことでありますが、国や東京都に緊急の支援を要望するということも併せて行いながら、小金井市が当面、ガソリン代が高くなっているときに、障がい者のガソリン助成などを含めて、手当を下げることはないではないか、なぜこんなことをやるんだということでありまして、ぜひ皆さん、ここで一致して、市長にこの条例を突きつけていくことが必要なのではないでしょうか。</div>
   <div class="say">それが私たち議員としての役割だと考え、提案をさせていただきましたので、ぜひ鈴木議員におかれましてもご賛同いただきますよう、よろしくお願いいたします。</div>
@@ -710,13 +584,13 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t46">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=2706s" data-timestamp="2706"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:06</a>以上で、質疑を終了することにご異議ありませんか。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=2703s" data-timestamp="2703"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:03</a>以上で、質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t47">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=2706s" data-timestamp="2706"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:06</a>ご異議なしと認め、質疑を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=2709s" data-timestamp="2709"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:09</a>ご異議なしと認め、質疑を終了します。</div>
   <div class="say">提案議員は自席にお戻りください。</div>
   <div class="say">本件は、原案とともに、討論、採決を一時保留することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
@@ -780,7 +654,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t52">
   <div class="meta"><span class="name">４番（清水　学議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=3292s" data-timestamp="3292"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:52</a>ご提案いただきまして、ありがとうございます。２点、お伺いいたします。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=3294s" data-timestamp="3294"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:54</a>ご提案いただきまして、ありがとうございます。２点、お伺いいたします。</div>
   <div class="say">１点が、歳出増のことぶき理容と高齢者訪問理美容サービス事業についてであります。私も、予算特別委員会の方で取り上げていただいて、一部発言も修正をしたところなんですけれども、私は、高齢者訪問理美容サービスをやるところで、いわゆる出張費というか、出張料は、今、1,000円に予定しているんですけれども、もう少し上乗せしてもいいかなと思っているんですが、これを全額、いわゆる利用者負担の方に予算を使うというところのお考えは受け止めましたというか、ちょっと考えが違うなというところで申し上げておきます。</div>
   <div class="say">あと、ことぶき理容を同時並行で行うということで、高齢者訪問理美容サービスは、利用者が全額負担なし、一方で、ことぶき理容の場合は現行どおりということは、利用者が一部負担をすると。同じ制度なんだけれども、負担額が違う。この整合性をどのようにお考えなのか、１点伺います。</div>
   <div class="say">もう１点、歳出減の東小金井駅北口土地区画整理事業のところなんですけれども、今回、予算特別委員会の質問でも、令和10年度をめどに駅前公園が整備をされると、いよいよ目標が設定をされて動き出しているわけで、今回の計上されている予算というのは、いわゆる駅前公園予定地の地権者が換地をするときの換地先の大型な案件を動かすというか、動いていただくための予算がプラス２億円以上で計上されているということで、10％減となると、事業が遅れてしまうことが予想されていて、東小金井駅北口のまちづくりというのが、また一歩遅れてしまう。もっと言えば、駅前を降りたらまだまだガードレールとかがある状況を、先延ばししてしまうということは、私はあり得ないなと考えているんですけれども、ご見解をお伺いをいたします。</div>
@@ -788,7 +662,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t53">
   <div class="meta"><span class="name">１６番（水上洋志議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=3427s" data-timestamp="3427"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:07</a>まず、ことぶき理容については、既存事業がなくなるということについて、私たちは存続すべきであると。本来であれば自己負担なしでやるのがいいのかなと思いますが、今回の提案としては、存続ということで、とりあえずご提案させていただいたということと、新たに始まる理美容サービスに関しては、これは一定、必要とされる方の状況を考えると、自己負担なしという形で事業を進めるのがふさわしいのではないかと。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=3426s" data-timestamp="3426"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:06</a>まず、ことぶき理容については、既存事業がなくなるということについて、私たちは存続すべきであると。本来であれば自己負担なしでやるのがいいのかなと思いますが、今回の提案としては、存続ということで、とりあえずご提案させていただいたということと、新たに始まる理美容サービスに関しては、これは一定、必要とされる方の状況を考えると、自己負担なしという形で事業を進めるのがふさわしいのではないかと。</div>
   <div class="say">ことぶき理容についても、本来はできるだけ自己負担をなくすという、なるべく負担を少なくしていくという考えでありますが、理美容サービスについては、そういう考えで一応、自己負担をなくす、新しい事業でもあるということであります。</div>
   <div class="say">あと、東小金井駅北口の区画整理事業委託料なんですが、10％減ということなので、事業そのものに大きな影響は、私は出てこないのではないかなと考えています。委託料については、結構毎回、要するに繰越明許みたいな形になっている状況もありますし、市の予算全体は、聞くところによると、全体査定が入って、10％ぐらいの査定が入るのではないかなと思っていますので、区画整理事業についても、満額というよりも、10％削減ということで、政治姿勢を示すという内容になっておりますので、別に事業を止めようとかそういうことは考えておりませんので、その辺をご理解いただきたいと思います。</div>
 </div>
@@ -807,7 +681,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t56">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=3547s" data-timestamp="3547"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:07</a>ご異議なしと認め、質疑を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=3552s" data-timestamp="3552"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:12</a>ご異議なしと認め、質疑を終了します。</div>
   <div class="say">提案議員は自席にお戻りください。</div>
   <div class="say">本件は、討論、採決を一時保留することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
@@ -815,7 +689,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t57">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=3571s" data-timestamp="3571"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:31</a>ご異議なしと認め、討論、採決を一時保留することと決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=3575s" data-timestamp="3575"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:35</a>ご異議なしと認め、討論、採決を一時保留することと決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
@@ -831,7 +705,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t59">
   <div class="meta"><span class="name">１０番（河野麻美議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=3616s" data-timestamp="3616"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:16</a>議案第８号、令和８年度小金井市一般会計予算に対する組替え動議を、別紙のとおり提出させていただきます。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=3598s" data-timestamp="3598"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:58</a>議案第８号、令和８年度小金井市一般会計予算に対する組替え動議を、別紙のとおり提出させていただきます。</div>
   <div class="say">本提案は、予算特別委員会の質疑を踏まえまして、都市計画道路に係る調査研究支援委託料を削除し、予備費に積み増すものでございます。</div>
   <div class="say">本市の財政状況というのは依然として厳しい状況にあり、限られた財源をどのように配分するかについては、より一層の慎重さが求められております。しかしながら、本件、都市計画道路に係る調査研究支援委託料については、事業の具体的な内容や目的、どのような成果を想定し、東京都にどのような形で報告され反映されるかという点について、道路整備の賛否にかかわらず多くの質疑がございましたが、現時点では、必ずしも十分に整理されているとは言い難い状況でございます。</div>
   <div class="say">なお、本動議は、都市計画道路３・４・11号線の整備の在り方について、それぞれ異なる立場や考え方を持つ議員で提出させていただいておりますが、あくまで当該事業の位置付けや進め方について、現段階で公金を投じることの妥当性に課題があるのではないかという問題意識を共有し、提出に至ったものでございます。</div>
@@ -855,7 +729,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t62">
   <div class="meta"><span class="name">９番（小林正樹議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=3931s" data-timestamp="3931"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:31</a>ご質問いただきまして、ありがとうございます。まず、私の方から答弁をさせていただきたいと思います。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=3936s" data-timestamp="3936"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:36</a>ご質問いただきまして、ありがとうございます。まず、私の方から答弁をさせていただきたいと思います。</div>
   <div class="say">５月に出てきたものに対する意見を、市の方から東京都にお伝えすること自体を否定するものではありません。</div>
   <div class="say">今、ご質問の中にもありましたように、予算特別委員会の質疑の中で、市長も、東京都も環境に配慮した橋梁案の概略設計を行っていただいていると言われたところであります。また、今、お話にもありましたように、地元の声というものはこの間、数多く、市としては受け止めてきたものだと思っております。ここへ来て、435万6,000円をかけて、改めて調査をしないと伝えられないのかということが大きな観点かと思っております。しっかりと、今まで頂いてきたお声を、市としてお伝えするべきことがあれば、道路建設について否めないとした上で、伝えることは伝えていただいていいわけでありますが、調査の結果の取扱いなどがまだ不明瞭な中で、これを事業化するということはそぐわないということで、考えとして述べておきたいと思います。</div>
   <div class="say">また、これが可決したときに、原案についてどうするかということでありますが、組替え案の質疑の中で、原案の採決態度について述べることは適切ではないと考えております。しかしながら、我々はこの項目を大きな課題だと捉えておりますので、結果いかんにおいては、前向きな検討をしていきたいと考えております。</div>
@@ -885,7 +759,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t65">
   <div class="meta"><span class="name">４番（清水　学議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=4517s" data-timestamp="4517"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:17</a>水谷議員からの１問目と３問目について、お答えをいたします。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=4523s" data-timestamp="4523"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:23</a>水谷議員からの１問目と３問目について、お答えをいたします。</div>
   <div class="say">この間、定例会では私、道路に関する調査についての意見というのは述べてきておりませんので、この場をお借りして、意見を述べさせていただきたいと思います。</div>
   <div class="say">当初、市長からご提案があったときは、質疑も聞いていて、市長が、整備前提で調査を行うんだというご答弁がありましたので、私は当初は、市長が整備前提で行うのであれば、調査をしてもいいのではないかと考えておりました。調査の結果、アウトプットを東京都に出して、それを採用するかどうか、意見を受け止めるかどうかは東京都が判断することだと考えておりますので、当初は考えておりましたけれども、質疑を聞いていて、やはり調査内容がまだはっきりしない。調査方法も同じくで、調査した内容をどのように活用するのか、東京都に伝えるとはいうものの、なかなか明らかになってこない。また、一部の方からは、調査する専門家の方をどう選ぶのかといった、一部不信というか、そういったものの意見も受け止めております。</div>
   <div class="say">そのときに、私が当時、振り返って思い出したのが、令和６年第１回定例会のときに、白井市長の方から、市独自の都市計画道路に関する検証が提案をされまして、そのときは、予算は計上されたものの、なかなかまだ中身が詰まっていないということで、その後の建設環境委員会においても様々議論があって、まだ検討中ですとか、例えば部長からは、走りながら進めておりますという答弁がありまして、その結果、私は提案がなされたときに、当時、決議です。十分な説明責任を果たさない白井市長に優先整備２路線に対する直営２次検証を行わないことを求める決議というものに賛成をいたしまして、もう一個、同時に出た、優先整備２路線の検証について、白井市長の提案姿勢の反省と議会への説明を求める決議、これは、調査を引き続きすることは否定しない決議に対しては、私は反対をいたしました。</div>
@@ -930,7 +804,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t69">
   <div class="meta"><span class="name">１９番（岸田正義議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=5464s" data-timestamp="5464"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:04</a>今の質疑がございまして、ちょっと重複するかなと思われる部分もありますが、私なりの見解を示した上で、皆さんのお考えをお伺いしたいと思っております。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=5466s" data-timestamp="5466"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:06</a>今の質疑がございまして、ちょっと重複するかなと思われる部分もありますが、私なりの見解を示した上で、皆さんのお考えをお伺いしたいと思っております。</div>
   <div class="say">そもそも本組替え動議の基となる調査委託料については、昨年９月の市長報告に書かれたことが基であるということは、答弁の中でも出ておりました。市長報告の基というのは、先ほど清水議員もおっしゃられたように、一昨年、令和６年の優先整備２路線の独自検証ということに当たるわけです。</div>
   <div class="say">一昨年の予算特別委員会では、検証結果と総合的判断が、誰が見ても客観性、公平性、透明性が保たれ、東京都に要望するに足る根拠を持つためには、しっかりと時間と予算をかけた方がいいのではないかと、私たち旧みらいのこがねい会派としては提案をし、決議も出させていただき、清水議員にはご賛同いただきましたけれども、そういった状況の中で、市長は、現段階では必要ない、必要に応じて、必要があれば、必要な措置を、必要なときに提案すると答弁されました。しかし、結局は予算もかけず、行政決定したわけでもない。個人的に意見聴取した専門家との調整が整わずに、市長報告の撤回に追い込まれ、その質疑では、スタートとしてやり方が間違っていた、もっと早く予算措置すべきだったが、予算措置せずに個人的にお願いすることになってしまったと答弁する始末でございました。</div>
   <div class="say">そこでお伺いしたいのは、昨年９月に行われた市長報告ですが、提案議員の皆様は、この市長報告は環境面での調査が十分に行われた結果であるとお考えかどうか、ご答弁ください。</div>
@@ -938,12 +812,12 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t70">
   <div class="meta"><span class="name">９番（小林正樹議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=5585s" data-timestamp="5585"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:05</a>ご質問をありがとうございます。市議会公明党としては、この検証については、環境面での調査結果が出たものと、その上で、市長が選挙公約を覆してまで、この道路整備は否めないと発言したものだと思っております。だからこそ、その中で、一定の方向が整った話を更に蒸し返す形で、また、それまでに、市長報告をするに至るに当たって、検証のみならず、多くの市民の方からの懇願ですとか、いろいろな調査結果といったものを承っておきながら、更に予算をかけて調査をするということについては疑問であるということで、今回提案をさせていただきました。ありがとうございます。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=5583s" data-timestamp="5583"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:03</a>ご質問をありがとうございます。市議会公明党としては、この検証については、環境面での調査結果が出たものと、その上で、市長が選挙公約を覆してまで、この道路整備は否めないと発言したものだと思っております。だからこそ、その中で、一定の方向が整った話を更に蒸し返す形で、また、それまでに、市長報告をするに至るに当たって、検証のみならず、多くの市民の方からの懇願ですとか、いろいろな調査結果といったものを承っておきながら、更に予算をかけて調査をするということについては疑問であるということで、今回提案をさせていただきました。ありがとうございます。</div>
 </div>
 
 <div class="turn reveal" id="t71">
   <div class="meta"><span class="name">１０番（河野麻美議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=5639s" data-timestamp="5639"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:59</a>先ほどの答弁と重複するところもございますが、自由民主党小金井としましても、市の独自検証において、環境面も踏まえて検証されているといったところで、十分と考えております。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=5638s" data-timestamp="5638"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:58</a>先ほどの答弁と重複するところもございますが、自由民主党小金井としましても、市の独自検証において、環境面も踏まえて検証されているといったところで、十分と考えております。</div>
 </div>
 
 <div class="turn reveal" id="t72">
@@ -977,7 +851,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t76">
   <div class="meta"><span class="name">２２番（渡辺大三議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=6024s" data-timestamp="6024"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:24</a>重ねてのご質問ということであります。ということで、予算特別委員会の中で明らかになったことは、委託事業の中で知見を有する者３名の意見を聞くとありました。どういう基準で人選するかということについて質問させていただいたところ、これは都市計画道路３・４・11号線の整備をする前提で人選をするということの趣旨の答弁がございましたよね。そのようなやり方で果たして、環境を守れる調査研究ができるのかどうかということに関しては、大変私は怪しいと思っています。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=6022s" data-timestamp="6022"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:22</a>重ねてのご質問ということであります。ということで、予算特別委員会の中で明らかになったことは、委託事業の中で知見を有する者３名の意見を聞くとありました。どういう基準で人選するかということについて質問させていただいたところ、これは都市計画道路３・４・11号線の整備をする前提で人選をするということの趣旨の答弁がございましたよね。そのようなやり方で果たして、環境を守れる調査研究ができるのかどうかということに関しては、大変私は怪しいと思っています。</div>
   <div class="say">さっき岸田議員が言われた観点で言うとするならば、市長が、必要性は否めないとか消極的に賛成だという答えを一旦撤回して、例えば、高槻先生とか学術会議の元会長の大西先生、こういった方々もこの件に関心を持っていただいて、非常に専門的な知見を有していらっしゃる方がいらっしゃって、事業そのものにネガティブな考え方を持っている学識経験者、知見を有する方の声もきちんと聞いていく。こういうところに立ち返るのであれば、意味のある調査研究になるのではないかと思いますが、現状はそれは全く見えませんので、だから、予算を単に認めても、結局は整備前提、お茶を濁す程度のことになるだけだから、だとしたら意味がないと。</div>
   <div class="say">ただ、岸田議員が環境問題に関して懸念されているのと同じ懸念も持っていますから、だとしたら、さっき言ったプロセスを経ないと、このまま突入しても、予算だけ認めても何の意味もないと思います。むしろ有害だと思います。</div>
 </div>
@@ -1015,7 +889,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t80">
   <div class="meta"><span class="name">４番（清水　学議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=6641s" data-timestamp="6641"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:41</a>坂井議員からのご質問で、混乱を生じさせるという発言があったことについての見解です。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=6639s" data-timestamp="6639"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:39</a>坂井議員からのご質問で、混乱を生じさせるという発言があったことについての見解です。</div>
   <div class="say">先ほども申し上げましたとおり、令和６年に提案された検証で、なかなか熟度が低い、もっと言えば、走りながら進めているというご答弁があったので、それは事実かと考えておりますけれども、そういった中で、委員会においても様々ご提案を申し上げてきました。こうした方がいいのではないかとか、こういう調査を行った方がいいのではないかと建設環境委員会で提案をしてきました。その結果、私たちの声も、市民の皆さんの声も含めていただいたものが、検証として行われたと考えております。その結果、議会の中でも、この調査は、本当にこれは調査として役に立っているのかとか、この調査はこの検証、調査が必要だったのではないかという声は、様々この間、聞こえてきております。</div>
   <div class="say">議会は、市民の皆さんの声を反映している会議体だと考えておりますので、議会からそういう声が発生しているということは、市民の皆さんも同じように思っている。せっかく市が行った、市の職員が時間をかけて行った調査も、本当にこれが適切な調査だったのか、結果だったのかという声は議会からも出ている。これはまさに混乱を生じている事態だと考えております。</div>
 </div>
@@ -1044,7 +918,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t84">
   <div class="meta"><span class="name">４番（清水　学議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=6915s" data-timestamp="6915"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:15</a>すみません、お答えが漏れておりました。可決の見通しがあるかどうかということですけれども、もちろんそれはある前提でご提出をしておりますし、質疑の場を通して皆さんに、私たちが、少なくとも私がどう考えているのかを、しっかりと真正面からお答えすることが、この見通しを更に強くするものだと考えております。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=6912s" data-timestamp="6912"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:12</a>すみません、お答えが漏れておりました。可決の見通しがあるかどうかということですけれども、もちろんそれはある前提でご提出をしておりますし、質疑の場を通して皆さんに、私たちが、少なくとも私がどう考えているのかを、しっかりと真正面からお答えすることが、この見通しを更に強くするものだと考えております。</div>
 </div>
 
 <div class="turn reveal" id="t85">
@@ -1103,7 +977,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t93">
   <div class="meta"><span class="name">１４番（藤川賢治議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=7542s" data-timestamp="7542"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:05:42</a>では、質問したいこととかは全部出ていますので、簡単に意見だけ言わせてください。特に私、いろいろ混乱させたうちの一人でもありますので、意見だけは言わせていただきたいと思います。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=7541s" data-timestamp="7541"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:05:41</a>では、質問したいこととかは全部出ていますので、簡単に意見だけ言わせてください。特に私、いろいろ混乱させたうちの一人でもありますので、意見だけは言わせていただきたいと思います。</div>
   <div class="say">元々推進の立場なんだけれども、予算をかける、今から調査するというのは納得はいきませんでした。ですが、そうは言っても、少しでもよくするために、これは進めていくべきだということをおっしゃる方がたくさんいらっしゃいまして、これは議員の方もいらっしゃいますし、あと、環境問題があるので道路を造りたくないとおっしゃっている市民の方からも、そういう意見ではあるんだけれども、やはり調査研究費だけは、いざというときのためにやった方がいいという意見も複数、頂いています。そのことを、逆に推進なんだけれども、環境だけは絶対に守りたいので、この予算はあるべきだとおっしゃる方もいて、非常に私は悩みました。</div>
   <div class="say">なんですけれども、やはり議会などももう一度見させていただいて、一番は、渡辺議員がおっしゃったことに近いんですけれども、100の悪いことがあって、１個改善されてどうこうということとちょっとつながるところもあるんですが、どういう提案を都が出してきて、どういう研究をしていたらそれを修正できるかという具体的なものがちょっと見えないんです。聞こえはいいんですよ。そのために、都が出してくるもので、環境を破壊する、環境に影響を及ぼすものが、調査研究があれば改善できるというのは聞こえはいいんですけど、では具体的に、どういうケースだったらそれがうまく働くかというのは、やはりそこは見えないなということを思いまして、これに関しては予算をつけるべきではないのではないかなということが、今、考えていることです。</div>
   <div class="say">また、よく、この動議に賛成してしまうと、むしろ推進、環境調査とかはしなくていいんだという意見だと取られるということも言われるんですけど、逆に、動議に反対して、つまり、予算のこの項目に対して賛成しているということになると、逆に、道路を造ることには賛成で、あとは環境を、いかに影響を及ぼさないかということだけを注視していく立場なんですねと言われかねない。言うかどうか分かりませんよ。そう言われかねないという解釈もできるわけで、どっちもどっちではないかなと私は正直、そこに関しては思います。</div>
@@ -1118,7 +992,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t95">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=7722s" data-timestamp="7722"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:08:42</a>以上で、質疑を終了することにご異議ありませんか。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5waqcrru-II&t=7720s" data-timestamp="7720"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:08:40</a>以上で、質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
@@ -1226,7 +1100,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t109">
   <div class="meta"><span class="name">９番（小林正樹議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=wC7UKXmhvr0&t=1306s" data-timestamp="1306"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:46</a>先ほど来、質疑で出ていますけども、これは東京都の補助金を使っての事業ということなので、一斉にこの需要が増すと考えますので、通常でも非常に猛暑が続いているということで、夏の間の工事が間に合わないということもあります。また、今質疑あったように、安いエアコンをゲットすることが難しくなるということもあります。本来、昨年の型落ちのエアコンは、２月、３月あたりが買い時だったりとかもします。そういう意味では一刻も早く通知をしていただきたいということでありまして、何か年度早々に5,000円の支給がありますけど、あれも通知が行かないのかな、もらえる人は。何か市から通知を出す機会があれば、そこにも書き加えるとかしていただきながらやっていただきたいということは要望しておきたいと思います。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=wC7UKXmhvr0&t=1303s" data-timestamp="1303"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:43</a>先ほど来、質疑で出ていますけども、これは東京都の補助金を使っての事業ということなので、一斉にこの需要が増すと考えますので、通常でも非常に猛暑が続いているということで、夏の間の工事が間に合わないということもあります。また、今質疑あったように、安いエアコンをゲットすることが難しくなるということもあります。本来、昨年の型落ちのエアコンは、２月、３月あたりが買い時だったりとかもします。そういう意味では一刻も早く通知をしていただきたいということでありまして、何か年度早々に5,000円の支給がありますけど、あれも通知が行かないのかな、もらえる人は。何か市から通知を出す機会があれば、そこにも書き加えるとかしていただきながらやっていただきたいということは要望しておきたいと思います。</div>
   <div class="say">一つ事務的に伺いたいのは、この10万円というのは申請で後から支払うということになるんでしょうか。やはり持ち出しができない世帯というのは非常に多いと思うんです。お店によっては最初に決済しないと工事費が決められないとか、そういったことがあると思うんですが、ある程度エアコンがついていないことを確認できたとか、そういった場合に、しっかりと支払いを市が肩代わりするような手だてにするのか、10万円を預けてしまうというのも心配なことでありますので、何か購入設置までスピーディーに行える、かつ、一時持ち出しがないような、そういう進め方をしないとなかなか伸びないのかなというように思いますけども、その点についていかがでしょうか。</div>
 </div>
 
@@ -1237,7 +1111,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t111">
   <div class="meta"><span class="name">２４番（森戸よう子議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=wC7UKXmhvr0&t=1450s" data-timestamp="1450"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:10</a>関連。今回、エアコン購入費助成を予算化していただきましてありがとうございました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=wC7UKXmhvr0&t=1452s" data-timestamp="1452"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:12</a>関連。今回、エアコン購入費助成を予算化していただきましてありがとうございました。</div>
   <div class="say">それで、今、小林議員からもあったんですが、低所得世帯についてはエアコン購入後なんですね。先ほどもあったように、やはり10万円ぐらいのお金を出すというのは非常に困難な家庭が多いわけで、何らかの方策を考える必要があると思いますが、その点、どうでしょうか。例えば小金井市の証明を持っていけば後払いで受けてもらえるとか、そういうことにしていかないとなかなか難しいかなと思います。その点、見解を伺います。</div>
 </div>
 
@@ -1263,7 +1137,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t115">
   <div class="meta"><span class="name">２４番（森戸よう子議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=wC7UKXmhvr0&t=1794s" data-timestamp="1794"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:54</a>なかなか難しいということなのですが、ぜひ考えていただきたいなと。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=wC7UKXmhvr0&t=1790s" data-timestamp="1790"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:50</a>なかなか難しいということなのですが、ぜひ考えていただきたいなと。</div>
   <div class="say">先ほどあったように、市内電気屋等であれば、何らかの保証、市の証明があって、事前にまず市に問い合わせてもらって、証明をもらって、電気屋にそれを持っていってか、それとも電気屋と相談して見積りをとってもらって、それを市に提出するとか、それで市と電気屋との間か、そこまでやるとちょっとややこしくなるので、当人と電気屋がやはりやり取りするという形でやっていただけないかということです。</div>
   <div class="say">社会福祉協議会という話もあるんですが、保証人をつけたりなかなか難しいんですよ。やれる人はやれるけれども、なかなか受けるのは難しいと思いますよ、低所得者の方で。しかも高齢者だとより一層難しくなる可能性もあって、借りられる人はそれでいいですけど、そうではない人に対する支援をしっかりやっていただきたいと思いますが、市長、いかがでしょうか。見解を伺います。</div>
 </div>
@@ -1297,7 +1171,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t119">
   <div class="meta"><span class="name">地域福祉課長（根本礼太）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=wC7UKXmhvr0&t=2488s" data-timestamp="2488"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:28</a>森戸議員から主質問をいただきました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=wC7UKXmhvr0&t=2485s" data-timestamp="2485"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:25</a>森戸議員から主質問をいただきました。</div>
   <div class="say">まず、１問目の補助の条件の関係でございます。確かに議員おっしゃるとおり、地域の実情に応じて柔軟に設定ということは定めてございます。一方で、必ず守ることとしましては、対象世帯が居住する住宅において使用するということでございます。</div>
   <div class="say">一方で、先ほどの15年経過したというのは、各市区町村によってつけたりつけていなかったりというところがございます。我々の方は、今回これをそれぞれではなくまとめて、居住する、かつ15年で故障としたところは、実態としては、自治体によっては申請があったときに各住宅を訪問して、確かに故障していることを職員が確認をして決定通知をという流れをしているところがございます。一方で、私どもの今の限られた人員の中でこの事業をやっていく中では、１軒１軒、申請後に訪問して確認というのが難しいところがあるかなと考えてございます。それを担保する上でも、居住するというところは当然としながら、故障中ということが、はっきり我々か確認しなくても、15年経っていれば、極端な話、ある程度動いていて少し風が弱まっていても故障ということで、15年さえ担保できれば補助対象としましょうという、少し柔軟な設定になっているという考え方で、今回、居住、15年、故障中ということをまとめて設定させていただきました。</div>
   <div class="say">次に、15年の判断は誰がするのかということでございますけども、これは東京ゼロエミもそうなんですが、15年が分かるシール、若しくは銘板みたいなのがエアコンの下に貼ってあったりしますので、そこの写真を添付して提出していただくような形になります。</div>
@@ -1307,7 +1181,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t120">
   <div class="meta"><span class="name">２４番（森戸よう子議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=wC7UKXmhvr0&t=2701s" data-timestamp="2701"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:01</a>１点目の問題で、補助の条件については、東京都は柔軟な対応をしていいよと言っているわけですよね。ですから、今の説明だと15年という条件をつけたりつけなかったりしているところがあるということなのですよね。だから15年である必要はないではないでしょうか。せめて10年というのはあるかもしれませんが、エアコンは寿命が大体10年と言われていると聞いていますが、そういう点で、つけなくてもって、買い換えたばっかりを買い換えることは必要ないんですが、やはり10年ぐらいでもいいのではないんでしょうか。その辺りは柔軟にはできないんでしょうか。15年で、なおかつ故障していなければいけないんですよね。故障していれば15年でなくてもいいということですか、逆に。その辺り、ちょっと確認をさせてください。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=wC7UKXmhvr0&t=2702s" data-timestamp="2702"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:02</a>１点目の問題で、補助の条件については、東京都は柔軟な対応をしていいよと言っているわけですよね。ですから、今の説明だと15年という条件をつけたりつけなかったりしているところがあるということなのですよね。だから15年である必要はないではないでしょうか。せめて10年というのはあるかもしれませんが、エアコンは寿命が大体10年と言われていると聞いていますが、そういう点で、つけなくてもって、買い換えたばっかりを買い換えることは必要ないんですが、やはり10年ぐらいでもいいのではないんでしょうか。その辺りは柔軟にはできないんでしょうか。15年で、なおかつ故障していなければいけないんですよね。故障していれば15年でなくてもいいということですか、逆に。その辺り、ちょっと確認をさせてください。</div>
   <div class="say">あと、15年の証明はシールを写真で撮るということでいいということなんですが、低所得者、また生活保護を受けている方々で、写真が撮れない場合はどうするんですかねという話ですよね。携帯電話を持っていないとか、そういう方もいらっしゃいますし、その辺りも含めて対応は丁寧にしていただきたいんですが、いかがでしょうか。</div>
   <div class="say">それから、３点目のゼロエミッションとの関係で、これは周知をしていくということなんですが、ゼロエミッションで最高８万円のポイントがもらえたと。例えば15万円だったら残る７万円を市に申請するわけですけど、その辺りのポイントが出されているよという証明もしっかりもらった上での申請書類ということになるのかどうか、その辺りを教えていただきたいですし、さっき私が言ったのは、購入助成がありますよということだけを伝えると、間違って自分は対象ではないのに購入する人がいるので、その辺りは分かるように、目立つようにしていただきたいなということがありますので、市報なども含めて、あんまり細かい字で書かないようにしていただきたいんです。高齢者、細かい字はあまり読めないし、読まないんですよね。なので、そういう対象にならないというのはしっかりお願いしたいと思います。</div>
   <div class="say">それから、社会福祉協議会については分かりました。そういうことだということで受け止めておきたいと思います。</div>
@@ -1392,7 +1266,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t132">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=wC7UKXmhvr0&t=3833s" data-timestamp="3833"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:53</a>ご異議なしと認め、質疑を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=wC7UKXmhvr0&t=3836s" data-timestamp="3836"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:56</a>ご異議なしと認め、質疑を終了します。</div>
   <div class="say">お諮りします。本件は委員会付託を省略し、討論、採決を一時保留することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
@@ -1415,20 +1289,20 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t135">
   <div class="meta"><span class="name">１６番（水上洋志議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=235s" data-timestamp="235"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:55</a>休憩中に議会運営委員会を開催いたしましたので、その結果についてご報告いたします。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=248s" data-timestamp="248"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:08</a>休憩中に議会運営委員会を開催いたしましたので、その結果についてご報告いたします。</div>
   <div class="say">議員提出議案として、意見書４件、決議４件が提出されましたので、その取扱いについて協議いたしました。その結果、議員案第１号から議員案第８号の計８件につきましては、本日の本会議に上程し、説明、質疑、委員会付託を省略し即決することと決定いたしました。</div>
   <div class="say">以上で、議会運営委員会の報告を終了いたします。</div>
 </div>
 
 <div class="turn chair reveal" id="t136">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=279s" data-timestamp="279"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:39</a>議会運営委員長の報告に対して、質疑はありませんか。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=276s" data-timestamp="276"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:36</a>議会運営委員長の報告に対して、質疑はありませんか。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t137">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=279s" data-timestamp="279"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:39</a>質疑を終了することにご異議ありませんか。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=283s" data-timestamp="283"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:43</a>質疑を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
@@ -1488,7 +1362,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t145">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=641s" data-timestamp="641"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:41</a>起立少数。よって、本件は不採択と決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=634s" data-timestamp="634"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:34</a>起立少数。よって、本件は不採択と決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
@@ -1522,13 +1396,13 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t149">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=859s" data-timestamp="859"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:19</a>起立多数。よって、本件は原案可決と決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=864s" data-timestamp="864"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:24</a>起立多数。よって、本件は原案可決と決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
 <div class="turn chair reveal" id="t150">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=859s" data-timestamp="859"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:19</a>議案第21号、小金井市奨学資金支給条例の一部を改正する条例。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=864s" data-timestamp="864"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:24</a>議案第21号、小金井市奨学資金支給条例の一部を改正する条例。</div>
   <div class="say">これから討論を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
@@ -1550,7 +1424,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t153">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=900s" data-timestamp="900"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:00</a>ご異議なしと認め、本件は原案可決と決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=899s" data-timestamp="899"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:59</a>ご異議なしと認め、本件は原案可決と決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
@@ -1583,7 +1457,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t157">
   <div class="meta"><span class="name">７番（安田けいこ議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=1282s" data-timestamp="1282"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:22</a>議案第22号、小金井市公民館条例の一部を改正する条例に対し、生活者ネットワークとして賛成の立場で討論いたします。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=1279s" data-timestamp="1279"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:19</a>議案第22号、小金井市公民館条例の一部を改正する条例に対し、生活者ネットワークとして賛成の立場で討論いたします。</div>
   <div class="say">本議案は、小金井市で72年間続いた社会教育施設としての公民館の在り方を大きく変えかねない重要な議案であります。生活者ネットワークは、基本的に公民館への有料化導入には反対です。これだけの大きな変更を行おうとするなら、市は公民館運営審議会だけでなく、もっと幅広く市民に開かれた学習の場や意見交換の場を用意して、時間をかけて検討の機会を持つべきでした。市民が説明や話合いを要望してからは、利用者懇談会やその後の真摯な議論の場もできたと聞いております。長年公民館を利用し、協働関係を育んできた市民や利用者団体等との一定の協議を経てきたという経緯を踏まえ、本条例案には賛成の立場をとり、討論いたします。</div>
   <div class="say">地域における集い、学び合う拠点の公民館がこの間果たしてきた地域づくりの実績からも、公民館活動の受益者は地域であり、行政であると生活者ネットワークは述べてきました。公民館講座の受講者たちが受講後に任意団体の設立からＮＰＯ法人格を取得し、緑の剪定作業や子どもの遊び場づくりなどの市の事業を受託している事例も複数あります。自主グループを設立して、趣味を磨きながら継続的に仲間づくりを進めるサークルや、子どもと一緒の環境学習を地域で行う団体もあります。市民が自主的、主体的に楽しんで行う多様な活動は、コミュニケーション能力を高め、今、地域で最も求められる自助、共助の力を高め、顔の見えるコミュニティづくりにつながっています。だからこそ、社会教育施設である公民館は、いつでも、どのような人でも無料で使えることが社会教育法で定められています。</div>
   <div class="say">小金井市では、公民館運営審議会で議論され、第35期公民館運営審議会答申を踏まえて、小金井市教育委員会が発行した小金井市公民館中長期計画で、公民館施設使用料の有料化について、公民館使用料は無料と明記されています。しかし、今回、公民館に施設使用料を導入する理由として、小金井市が行財政改革大綱で公共施設に受益者負担の原則を定めていることと、公民館の利用実態で塾や習い事のような社会教育活動とは言えない利用があることや、無料で利用できるために、少人数で広い会場を抑えるなどの問題が起きていることが挙げられました。</div>
@@ -1603,7 +1477,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t159">
   <div class="meta"><span class="name">２３番（片山かおる議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=1629s" data-timestamp="1629"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:09</a>議案第22号、小金井市公民館条例の一部を改正する条例に対し、会派子どもの権利／情報公開を代表して、反対の立場から討論します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=1627s" data-timestamp="1627"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:07</a>議案第22号、小金井市公民館条例の一部を改正する条例に対し、会派子どもの権利／情報公開を代表して、反対の立場から討論します。</div>
   <div class="say">条例の審議や予算委員会の中での答弁などからは、誰でも使える公民館を目指し、無料の原則を掲げる三多摩テーゼの精神に反していることが明らかになりました。小金井の公民館の在り方を大きく変える条例であり、これまでの小金井の歴史の中で、市民と職員とで共同で育んできた社会教育の在り方にも大きく影響する重大な問題です。</div>
   <div class="say">今回の有料化に関する市民説明会のお知らせは不十分であり、利用者に行き渡っていません。議事録が非公開となっていて、参加者の意見を把握できない状態です。そもそも説明会の回数が不十分です。もっと時間をかけて多くの市民とともに議論すべき問題でした。社会教育における受益者負担とはという議論も不十分です。社会教育は個人だけではなく、社会全体に影響を及ぼすという観点からは、受益者は社会全体と言えます。また、公民館利用者について、社会教育に資さない活動をしている団体が多いような誤解を与える答弁があったことは非常に問題があると考えます。もし利用に関して問題があるのであれば、社会教育施設なのですから、なぜ公民館利用について、利用者との話合いを重ねて理解を得なかったのでしょうか。それを有料化することで排除するというやり方は、とても社会教育の在り方とは言えません。</div>
   <div class="say">このままでは、社会教育の場が縮小し、誰もが使える公民館から遠ざかります。これまでは公民館主催講座に参加した人たちが自主グループをつくり、学びを深めていくという活動を推奨していたはずなのに、趣味、仲間内の活動といった言い方で市民活動を狭めています。これまで意識していなかった層に対し、社会教育についての理解を深める機会でもあったのに、お金を払えば使える貸し館に成り下がり、社会教育の裾野が狭まりました。</div>
@@ -1629,7 +1503,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t162">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=1888s" data-timestamp="1888"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:28</a>議案第23号、小金井市障害者交通手当条例。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=1892s" data-timestamp="1892"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:32</a>議案第23号、小金井市障害者交通手当条例。</div>
   <div class="say">本件は討論を行います。</div>
   <div class="say">本件に賛成の者の発言を許可します。</div>
   <div class="say">（２０番鈴木成夫議員登壇）</div>
@@ -1667,26 +1541,26 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t166">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2218s" data-timestamp="2218"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:58</a>起立全員。したがって、本件は原案可決と決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2190s" data-timestamp="2190"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:30</a>起立全員。したがって、本件は原案可決と決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
 <div class="turn chair reveal" id="t167">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2223s" data-timestamp="2223"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:03</a>議案第24号、小金井市子ども・子育て会議条例の一部を改正する条例。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2198s" data-timestamp="2198"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:38</a>議案第24号、小金井市子ども・子育て会議条例の一部を改正する条例。</div>
   <div class="say">これから討論を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t168">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2223s" data-timestamp="2223"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:03</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2199s" data-timestamp="2199"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:39</a>本件に対する討論を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t169">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2223s" data-timestamp="2223"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:03</a>ご異議なしと認め、討論を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2218s" data-timestamp="2218"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:58</a>ご異議なしと認め、討論を終了します。</div>
   <div class="say">直ちに採決します。</div>
   <div class="say">本件についての厚生文教委員長の報告は原案可決です。</div>
   <div class="say">お諮りします。委員長報告どおり、原案のとおり可決することにご異議ありませんか。</div>
@@ -1701,7 +1575,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t171">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2223s" data-timestamp="2223"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:03</a>議案第25号、小金井市立保育園における乳児等通園支援事業に関する条例。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2229s" data-timestamp="2229"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:09</a>議案第25号、小金井市立保育園における乳児等通園支援事業に関する条例。</div>
   <div class="say">これから討論を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
@@ -1714,7 +1588,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t173">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2229s" data-timestamp="2229"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:09</a>ご異議なしと認め、討論を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2248s" data-timestamp="2248"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:28</a>ご異議なしと認め、討論を終了します。</div>
   <div class="say">直ちに採決します。</div>
   <div class="say">本件は起立採決をします。</div>
   <div class="say">本件についての厚生文教委員長の報告は原案可決です。</div>
@@ -1737,13 +1611,13 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t176">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2279s" data-timestamp="2279"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:59</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2282s" data-timestamp="2282"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:02</a>本件に対する討論を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t177">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2315s" data-timestamp="2315"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:35</a>ご異議なしと認め、討論を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2285s" data-timestamp="2285"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:05</a>ご異議なしと認め、討論を終了します。</div>
   <div class="say">直ちに採決します。</div>
   <div class="say">本件についての厚生文教委員長の報告は原案可決です。</div>
   <div class="say">お諮りします。委員長報告どおり、原案のとおり可決することにご異議ありませんか。</div>
@@ -1752,26 +1626,26 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t178">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2329s" data-timestamp="2329"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:49</a>ご異議なしと認め、本件は原案可決と決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2299s" data-timestamp="2299"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:19</a>ご異議なしと認め、本件は原案可決と決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
 <div class="turn chair reveal" id="t179">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2334s" data-timestamp="2334"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:54</a>議案第29号、小金井市介護福祉条例の一部を改正する条例。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2299s" data-timestamp="2299"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:19</a>議案第29号、小金井市介護福祉条例の一部を改正する条例。</div>
   <div class="say">これから討論を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t180">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say">本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2306s" data-timestamp="2306"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:26</a>本件に対する討論を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t181">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2334s" data-timestamp="2334"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:54</a>ご異議なしと認め、討論を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2315s" data-timestamp="2315"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:35</a>ご異議なしと認め、討論を終了します。</div>
   <div class="say">直ちに採決します。</div>
   <div class="say">本件についての厚生文教委員長の報告は原案可決です。</div>
   <div class="say">お諮りします。委員長報告どおり、原案のとおり可決することにご異議ありませんか。</div>
@@ -1780,7 +1654,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t182">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say">ご異議なしと認め、本件は原案可決と決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2329s" data-timestamp="2329"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:49</a>ご異議なしと認め、本件は原案可決と決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
@@ -1809,13 +1683,13 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t186">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2366s" data-timestamp="2366"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:26</a>起立少数。よって、本件は不採択と決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2372s" data-timestamp="2372"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:32</a>起立少数。よって、本件は不採択と決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
 <div class="turn chair reveal" id="t187">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2379s" data-timestamp="2379"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:39</a>７陳情第20号、市民体育祭ゴルフ競技の改善を求める陳情書。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2376s" data-timestamp="2376"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:36</a>７陳情第20号、市民体育祭ゴルフ競技の改善を求める陳情書。</div>
   <div class="say">これから討論を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
@@ -1838,26 +1712,26 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t190">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2405s" data-timestamp="2405"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:05</a>起立少数。よって、本件は不採択と決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2407s" data-timestamp="2407"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:07</a>起立少数。よって、本件は不採択と決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
 <div class="turn chair reveal" id="t191">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2405s" data-timestamp="2405"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:05</a>７陳情第21号、市民体育祭ゴルフ競技参加者に関する陳情書。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2417s" data-timestamp="2417"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:17</a>７陳情第21号、市民体育祭ゴルフ競技参加者に関する陳情書。</div>
   <div class="say">これから討論を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t192">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2559s" data-timestamp="2559"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:39</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2425s" data-timestamp="2425"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:25</a>本件に対する討論を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t193">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2562s" data-timestamp="2562"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:42</a>ご異議なしと認め、討論を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2428s" data-timestamp="2428"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:28</a>ご異議なしと認め、討論を終了します。</div>
   <div class="say">直ちに採決します。</div>
   <div class="say">本件は起立採決をします。</div>
   <div class="say">本件についての厚生文教委員長の報告は不採択です。</div>
@@ -1867,26 +1741,26 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t194">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2628s" data-timestamp="2628"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:48</a>起立少数。よって、本件は不採択と決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2448s" data-timestamp="2448"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:48</a>起立少数。よって、本件は不採択と決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
 <div class="turn chair reveal" id="t195">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say">７陳情第38号、差別的な事業の是正を求められるに至った原因書類について、市は職権を用いて市民の知る権利に応えることを求める陳情書。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2452s" data-timestamp="2452"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:52</a>７陳情第38号、差別的な事業の是正を求められるに至った原因書類について、市は職権を用いて市民の知る権利に応えることを求める陳情書。</div>
   <div class="say">これから討論を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t196">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2641s" data-timestamp="2641"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:01</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2559s" data-timestamp="2559"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:39</a>本件に対する討論を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t197">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2641s" data-timestamp="2641"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:01</a>ご異議なしと認め、討論を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2564s" data-timestamp="2564"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:44</a>ご異議なしと認め、討論を終了します。</div>
   <div class="say">直ちに採決します。</div>
   <div class="say">本件は起立採決をします。</div>
   <div class="say">本件についての厚生文教委員長の報告は不採択です。</div>
@@ -1896,7 +1770,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t198">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say">起立少数。よって、本件は不採択と決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2587s" data-timestamp="2587"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:07</a>起立少数。よって、本件は不採択と決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
@@ -1909,13 +1783,13 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t200">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2641s" data-timestamp="2641"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:01</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">本件に対する討論を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t201">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2641s" data-timestamp="2641"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:01</a>ご異議なしと認め、討論を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2592s" data-timestamp="2592"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:12</a>ご異議なしと認め、討論を終了します。</div>
   <div class="say">直ちに採決します。</div>
   <div class="say">本件は起立採決をします。</div>
   <div class="say">本件についての厚生文教委員長の報告は不採択です。</div>
@@ -1938,13 +1812,13 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t204">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2641s" data-timestamp="2641"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:01</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say">本件に対する討論を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t205">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2641s" data-timestamp="2641"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:01</a>ご異議なしと認め、討論を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2592s" data-timestamp="2592"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:12</a>ご異議なしと認め、討論を終了します。</div>
   <div class="say">直ちに採決します。</div>
   <div class="say">本件は起立採決をします。</div>
   <div class="say">本件についての厚生文教委員長の報告は不採択です。</div>
@@ -1960,20 +1834,20 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t207">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say">７陳情第41号、現在進行中の個人情報漏洩危機に対して緊急に手当てすることを求める陳情書。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2592s" data-timestamp="2592"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:12</a>７陳情第41号、現在進行中の個人情報漏洩危機に対して緊急に手当てすることを求める陳情書。</div>
   <div class="say">これから討論を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t208">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2641s" data-timestamp="2641"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:01</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2603s" data-timestamp="2603"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:23</a>本件に対する討論を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t209">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2641s" data-timestamp="2641"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:01</a>ご異議なしと認め、討論を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2603s" data-timestamp="2603"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:23</a>ご異議なしと認め、討論を終了します。</div>
   <div class="say">直ちに採決します。</div>
   <div class="say">本件は起立採決をします。</div>
   <div class="say">本件についての厚生文教委員長の報告は不採択です。</div>
@@ -1983,13 +1857,13 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t210">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say">起立少数。よって、本件は不採択と決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2628s" data-timestamp="2628"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:48</a>起立少数。よって、本件は不採択と決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
 <div class="turn chair reveal" id="t211">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2663s" data-timestamp="2663"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:23</a>議案第27号、小金井市下水道条例の一部を改正する条例。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2630s" data-timestamp="2630"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:50</a>議案第27号、小金井市下水道条例の一部を改正する条例。</div>
   <div class="say">これから討論を行います。</div>
   <div class="say">（１６番水上洋志議員登壇）</div>
 </div>
@@ -2006,7 +1880,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t213">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2803s" data-timestamp="2803"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:43</a>以上で討論を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2798s" data-timestamp="2798"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:38</a>以上で討論を終了します。</div>
   <div class="say">直ちに採決します。</div>
   <div class="say">本件については起立採決をします。</div>
   <div class="say">本件についての建設環境委員長の報告は原案可決です。</div>
@@ -2016,26 +1890,26 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t214">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2838s" data-timestamp="2838"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:18</a>起立多数。よって、本件は原案可決と決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2832s" data-timestamp="2832"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:12</a>起立多数。よって、本件は原案可決と決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
 <div class="turn chair reveal" id="t215">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2838s" data-timestamp="2838"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:18</a>７陳情第36号、３・４・１１号線など都市計画道路問題に関して参考人制度や公聴会制度の活用を求める陳情書。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2844s" data-timestamp="2844"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:24</a>７陳情第36号、３・４・１１号線など都市計画道路問題に関して参考人制度や公聴会制度の活用を求める陳情書。</div>
   <div class="say">これから討論を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t216">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say">本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2880s" data-timestamp="2880"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:00</a>本件に対する討論を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t217">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2856s" data-timestamp="2856"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:36</a>ご異議なしと認め、討論を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2880s" data-timestamp="2880"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:00</a>ご異議なしと認め、討論を終了します。</div>
   <div class="say">直ちに採決します。</div>
   <div class="say">本件は起立採決をします。</div>
   <div class="say">本件についての建設環境委員長の報告は採択です。</div>
@@ -2045,13 +1919,13 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t218">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2875s" data-timestamp="2875"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:55</a>起立少数。よって、本件は不採択と決定しました。</div>
+  <div class="say">起立少数。よって、本件は不採択と決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
 <div class="turn chair reveal" id="t219">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2875s" data-timestamp="2875"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:55</a>議案第15号、小金井市職員の勤務時間、休日、休暇等に関する条例の一部を改正する条例。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2880s" data-timestamp="2880"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:00</a>議案第15号、小金井市職員の勤務時間、休日、休暇等に関する条例の一部を改正する条例。</div>
   <div class="say">これから討論を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
@@ -2079,7 +1953,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t223">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2905s" data-timestamp="2905"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:25</a>議案第16号、小金井市会計年度任用職員の報酬等に関する条例の一部を改正する条例。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2910s" data-timestamp="2910"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:30</a>議案第16号、小金井市会計年度任用職員の報酬等に関する条例の一部を改正する条例。</div>
   <div class="say">これから討論を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
@@ -2101,7 +1975,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t226">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2932s" data-timestamp="2932"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:52</a>ご異議なしと認め、本件は原案可決と決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2936s" data-timestamp="2936"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:56</a>ご異議なしと認め、本件は原案可決と決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
@@ -2114,13 +1988,13 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t228">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2970s" data-timestamp="2970"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:30</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2961s" data-timestamp="2961"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:21</a>本件に対する討論を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t229">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2970s" data-timestamp="2970"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:30</a>ご異議なしと認め、討論を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2961s" data-timestamp="2961"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:21</a>ご異議なしと認め、討論を終了します。</div>
   <div class="say">直ちに採決します。</div>
   <div class="say">本件についての総務企画委員長の報告は原案可決です。</div>
   <div class="say">お諮りします。委員長報告どおり、原案のとおり可決することにご異議ありませんか。</div>
@@ -2129,26 +2003,26 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t230">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say">ご異議なしと認め、本件は原案可決と決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2964s" data-timestamp="2964"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:24</a>ご異議なしと認め、本件は原案可決と決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
 <div class="turn chair reveal" id="t231">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2970s" data-timestamp="2970"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:30</a>議案第18号、職員の給与に関する条例の一部を改正する条例。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2964s" data-timestamp="2964"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:24</a>議案第18号、職員の給与に関する条例の一部を改正する条例。</div>
   <div class="say">これから討論を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t232">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2970s" data-timestamp="2970"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:30</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3027s" data-timestamp="3027"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:27</a>本件に対する討論を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t233">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2979s" data-timestamp="2979"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:39</a>ご異議なしと認め、討論を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3030s" data-timestamp="3030"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:30</a>ご異議なしと認め、討論を終了します。</div>
   <div class="say">直ちに採決します。</div>
   <div class="say">本件についての総務企画委員長の報告は原案可決です。</div>
   <div class="say">お諮りします。委員長報告どおり、原案のとおり可決することにご異議ありませんか。</div>
@@ -2158,33 +2032,33 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t234">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=2988s" data-timestamp="2988"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:48</a>ご異議がありますので、本件は起立採決をします。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3038s" data-timestamp="3038"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:38</a>ご異議がありますので、本件は起立採決をします。</div>
   <div class="say">お諮りします。委員長報告どおり、原案のとおり可決することに賛成の皆さんの起立を求めます。</div>
   <div class="say">（賛成者起立）</div>
 </div>
 
 <div class="turn chair reveal" id="t235">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3010s" data-timestamp="3010"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:10</a>起立多数。よって、本件は原案可決と決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3042s" data-timestamp="3042"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:42</a>起立多数。よって、本件は原案可決と決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
 <div class="turn chair reveal" id="t236">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3017s" data-timestamp="3017"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:17</a>議案第19号、地方税法等の一部を改正する法律の施行に伴う関係条例の整理に関する条例。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3043s" data-timestamp="3043"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:43</a>議案第19号、地方税法等の一部を改正する法律の施行に伴う関係条例の整理に関する条例。</div>
   <div class="say">これから討論を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t237">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3027s" data-timestamp="3027"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:27</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3043s" data-timestamp="3043"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:43</a>本件に対する討論を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t238">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3030s" data-timestamp="3030"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:30</a>ご異議なしと認め、討論を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3043s" data-timestamp="3043"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:43</a>ご異議なしと認め、討論を終了します。</div>
   <div class="say">直ちに採決します。</div>
   <div class="say">本件についての総務企画委員長の報告は原案可決です。</div>
   <div class="say">お諮りします。委員長報告どおり、原案のとおり可決することにご異議ありませんか。</div>
@@ -2193,7 +2067,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t239">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3042s" data-timestamp="3042"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:42</a>ご異議なしと認め、本件は原案可決と決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3043s" data-timestamp="3043"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:43</a>ご異議なしと認め、本件は原案可決と決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
@@ -2328,7 +2202,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t258">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3276s" data-timestamp="3276"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:36</a>ご異議なしと認め、討論を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3245s" data-timestamp="3245"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:05</a>ご異議なしと認め、討論を終了します。</div>
   <div class="say">直ちに採決します。</div>
   <div class="say">本件についての予算特別委員長の報告は原案可決です。</div>
   <div class="say">お諮りします。委員長報告どおり、原案のとおり可決することにご異議ありませんか。</div>
@@ -2337,26 +2211,26 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t259">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3291s" data-timestamp="3291"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:51</a>ご異議なしと認め、本件は原案可決と決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3266s" data-timestamp="3266"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:26</a>ご異議なしと認め、本件は原案可決と決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
 <div class="turn chair reveal" id="t260">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3299s" data-timestamp="3299"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:59</a>議案第５号、令和７年度小金井市介護保険特別会計補正予算（第２回）。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3266s" data-timestamp="3266"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:26</a>議案第５号、令和７年度小金井市介護保険特別会計補正予算（第２回）。</div>
   <div class="say">これから討論を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t261">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3299s" data-timestamp="3299"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:59</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3276s" data-timestamp="3276"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:36</a>本件に対する討論を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t262">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3299s" data-timestamp="3299"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:59</a>ご異議なしと認め、討論を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3276s" data-timestamp="3276"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:36</a>ご異議なしと認め、討論を終了します。</div>
   <div class="say">直ちに採決します。</div>
   <div class="say">本件についての予算特別委員長の報告は原案可決です。</div>
   <div class="say">お諮りします。委員長報告どおり、原案のとおり可決することにご異議ありませんか。</div>
@@ -2365,7 +2239,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t263">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say">ご異議なしと認め、本件は原案可決と決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3295s" data-timestamp="3295"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:55</a>ご異議なしと認め、本件は原案可決と決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
@@ -2378,13 +2252,13 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t265">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3301s" data-timestamp="3301"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:01</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3336s" data-timestamp="3336"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:36</a>本件に対する討論を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t266">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3313s" data-timestamp="3313"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:13</a>ご異議なしと認め、討論を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3336s" data-timestamp="3336"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:36</a>ご異議なしと認め、討論を終了します。</div>
   <div class="say">直ちに採決します。</div>
   <div class="say">本件についての予算特別委員長の報告は原案可決です。</div>
   <div class="say">お諮りします。委員長報告どおり、原案のとおり可決することにご異議ありませんか。</div>
@@ -2393,26 +2267,26 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t267">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3326s" data-timestamp="3326"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:26</a>ご異議なしと認め、本件は原案可決と決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3354s" data-timestamp="3354"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:54</a>ご異議なしと認め、本件は原案可決と決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
 <div class="turn chair reveal" id="t268">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3326s" data-timestamp="3326"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:26</a>議案第７号、令和７年度小金井市下水道事業会計補正予算（第２回）。</div>
+  <div class="say">議案第７号、令和７年度小金井市下水道事業会計補正予算（第２回）。</div>
   <div class="say">これから討論を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t269">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3336s" data-timestamp="3336"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:36</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3354s" data-timestamp="3354"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:54</a>本件に対する討論を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t270">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3336s" data-timestamp="3336"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:36</a>ご異議なしと認め、討論を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3354s" data-timestamp="3354"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:54</a>ご異議なしと認め、討論を終了します。</div>
   <div class="say">直ちに採決します。</div>
   <div class="say">本件についての予算特別委員長の報告は原案可決です。</div>
   <div class="say">お諮りします。委員長報告どおり、原案のとおり可決することにご異議ありませんか。</div>
@@ -2434,7 +2308,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t273">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3374s" data-timestamp="3374"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:14</a>議案第８号、令和８年度小金井市一般会計予算。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3377s" data-timestamp="3377"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:17</a>議案第８号、令和８年度小金井市一般会計予算。</div>
   <div class="say">会議規則第18条の規定により、議長が表決の順序を決めることになっておりますので、初めに、16番水上洋志議員外２人から提出された議案第８号、令和８年度小金井市一般会計予算に対する組替え動議についてお諮りします。</div>
   <div class="say">討論を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
@@ -2464,7 +2338,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t277">
   <div class="meta"><span class="name">５番（水谷たかこ議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3469s" data-timestamp="3469"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:49</a>組替え動議に反対の立場から、小金井をおもしろくする会として討論をいたします。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3459s" data-timestamp="3459"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:39</a>組替え動議に反対の立場から、小金井をおもしろくする会として討論をいたします。</div>
   <div class="say">都市計画道路３・４・11号線に係る調査研究支援委託については、昨年９月の市長報告で白井市長が述べた、都市計画道路３・４・11号線については、その必要性を否めないという総合的判断、そして、事業化を前提としながらも、可能な限り環境を守るためにできることを行う、つまり、野川及び武蔵野公園における豊かな自然環境を可能な限り守るために必要不可欠なものと考えます。</div>
   <div class="say">先ほどの質疑においては、どのような調査を行うのかよく分からない、事業の構築が甘い、実効性が期待できないという批判も聞かれました。しかしながら、今回の調査は、東京都が現在行っている概略設計の結果が５月末頃出た後、その内容を見てから、どのような調査が必要か、専門家の支援を受けながら構築していくものです。東京都に対して意見を届けるのであれば、報告書を見てから事業構築し、補正予算を組んで対応したのでは、意見を言うタイミングを逸してしまうおそれがあります。</div>
   <div class="say">また、１年間の当該年度で必要となる予算については、できる限り年度当初予算で計上すべきだという予算単一の原則という考え方もある中で、今回のような政策的な予算は当初予算に計上するべきだという考え方もあり、私はこのタイミングで予算計上したことは適切であったと考えています。また、現時点において事業の内容が固まっていないことはやむを得ないとも考えます。</div>
@@ -2483,7 +2357,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t279">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3735s" data-timestamp="3735"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:15</a>起立多数。したがって、河野麻美議員外３人から提出された組替え動議は可決と決定いたしました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=UQYReTiunSk&t=3745s" data-timestamp="3745"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:25</a>起立多数。したがって、河野麻美議員外３人から提出された組替え動議は可決と決定いたしました。</div>
   <div class="say">休憩いたします。</div>
   <div class="say">午後４時29分休憩</div>
   <div class="say">────────────</div>
@@ -2492,13 +2366,13 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t280">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=174s" data-timestamp="174"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:54</a>再開いたします。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=34s" data-timestamp="34"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>00:34</a>再開いたします。</div>
   <div class="say">先ほど可決されました10番河野麻議員外３人から提出された議案第８号、令和８年度小金井市一般会計予算に対する組替え動議について市長に対応を要請したところ、回答いただきましたので、市長の発言を許可します。</div>
 </div>
 
 <div class="turn reveal" id="t281">
   <div class="meta"><span class="name">市長（白井　亨）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=174s" data-timestamp="174"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:54</a>お時間をいただきまして、ありがとうございました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=34s" data-timestamp="34"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>00:34</a>お時間をいただきまして、ありがとうございました。</div>
   <div class="say">議案第８号、令和８年度小金井市一般会計予算の組替え動議が先ほど可決されたところです。私といたしましては、議会の意思を受け止め、組替え動議の内容に即した補正予算を令和８年第２回小金井市議会定例会に提出することをお約束申し上げます。</div>
   <div class="say">議員各位におかれましては、以上申し上げたことを前提といたしまして、議案第８号につきましてご議決賜りたくお願い申し上げます。</div>
 </div>
@@ -2521,7 +2395,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t284">
   <div class="meta"><span class="name">１１番（沖浦あつし議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=201s" data-timestamp="201"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:21</a>議案第８号、令和８年度小金井市一般会計予算案に対して、会派、みらいのこがねいを代表して、賛成の立場から討論いたします。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=187s" data-timestamp="187"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:07</a>議案第８号、令和８年度小金井市一般会計予算案に対して、会派、みらいのこがねいを代表して、賛成の立場から討論いたします。</div>
   <div class="say">まず、上水公園運動施設の改修工事、コンテナ型喫煙所設置委託料、中学校でのチャレンジクラスの実施等、地域の課題解決へ長年要望してきた内容、また、ＲＳウイルスワクチンの個別接種委託料、母子アプリ導入支援委託料、介護職員等の介護資格取得費補助制度の支援拡充など、新たな視点による要望内容が予算化されております。これら一連にとどまらず、事業内容の改善見直し、要件緩和、そして事業の予算化に至るまで、要望項目の検討を重ねていただいた各担当課のご尽力に感謝を申し上げ、本予算を評価したいと思います。</div>
   <div class="say">なお、新たに予算化された事業におかれては、その後の維持管理、運営をしっかりやっていただきたい旨を要望している事業もございますので、その点をよろしくお願いいたします。</div>
   <div class="say">一方で、毎年度のように、複数の会派から何度も指摘されてきた事業構築の熟度の低さ、提案姿勢の軽さ、議会への情報共有の課題が一向に改善されず、繰り返される点は甚だ遺憾であります。</div>
@@ -2540,7 +2414,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t285">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=650s" data-timestamp="650"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:50</a>次に、本件に反対の者の発言を許可します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=648s" data-timestamp="648"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:48</a>次に、本件に反対の者の発言を許可します。</div>
   <div class="say">（１６番水上洋志議員登壇）</div>
 </div>
 
@@ -2574,7 +2448,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t287">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=1335s" data-timestamp="1335"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:15</a>次に、本件に賛成の者の発言を許可します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=1342s" data-timestamp="1342"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:22</a>次に、本件に賛成の者の発言を許可します。</div>
   <div class="say">（１０番河野麻美議員登壇）</div>
 </div>
 
@@ -2628,7 +2502,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t292">
   <div class="meta"><span class="name">９番（小林正樹議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=2013s" data-timestamp="2013"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:33</a>先ほど賛成多数で可決されました組替え動議で示された都市計画道路に係る調査研究支援委託料435万6,000円を除いた、議案第８号、令和８年度小金井市一般会計予算に対して、小金井市議会公明党を代表して、賛成の立場から討論をいたします。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=2004s" data-timestamp="2004"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:24</a>先ほど賛成多数で可決されました組替え動議で示された都市計画道路に係る調査研究支援委託料435万6,000円を除いた、議案第８号、令和８年度小金井市一般会計予算に対して、小金井市議会公明党を代表して、賛成の立場から討論をいたします。</div>
   <div class="say">本予算は、市議会公明党があらゆる場面で市民の方のご意見を代弁してきた内容も多く含まれており、高く評価をするものであり、何点か代表的なものを申し上げる。</div>
   <div class="say">介護予防を推進するシニア運動教室の充実。実施拠点の拡大に加え、令和７年度に試行実施を行った、心身機能の維持・向上に資するｅスポーツクラスの新設により、定員が240名に倍増されます。エビデンスをとり、今後更なる充実となることを要望する。</div>
   <div class="say">ＩＣＴを使ったひとり暮らし高齢者の見守り事業。ひとり暮らしの高齢者が安心して暮らせるよう、条件を満たした方の居宅に無線通信機器付き電球、ハローライトを設置し、一度も点灯・消灯がない場合は緊急連絡先に通知され、必要に応じて事業者が利用者宅を訪問する24時間の見守り支援サービスの試行実施です。実りある試行にしていただき、本格実施の利用者負担の軽減に向けても併せて検討を要望する。</div>
@@ -2653,7 +2527,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t294">
   <div class="meta"><span class="name">１３番（村上ようすけ議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=2405s" data-timestamp="2405"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:05</a>議案第８号、令和８年度小金井市一般会計予算について、れいわ新選組小金井として、反対の立場で討論いたします。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=2403s" data-timestamp="2403"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:03</a>議案第８号、令和８年度小金井市一般会計予算について、れいわ新選組小金井として、反対の立場で討論いたします。</div>
   <div class="say">反対理由は、一貫して要望してきました、学校に行かない児童・生徒の多くが要望しているフリースクール等学校以外の学びの場、居場所、コミュニケーション機会の確保のための民間支援、いわゆる多様な学び拡充のための予算が不十分な点にあります。</div>
   <div class="say">本案で、多様な学びの支援として、市内公立小・中学校全校で校内教育支援センターを実施するとともに、新たに東中学校において、東京都教育委員会が推進する不登校対策の一環である、通常学級とは別に学級を編制し、不登校生徒の状況に合わせた手厚い教員配置による個別指導とゆとりある生活時程を実現するチャレンジクラスを設置する予算が計上されている点は大いに評価すべきであると認識しています。</div>
   <div class="say">また、従来からの教育支援センター、もくせい教室進化の取組につきましては、小金井市が誇る先進事例として評価するところであります。しかしながら、令和６年度の市内の不登校児童・生徒数は324名となっていますが、一連の支援策に参加する人数は２割か、多くても３割程度と推計され、ＮＰＯの全国アンケートでは、75％がほぼ自宅で過ごしているというデータがあります。</div>
@@ -2666,13 +2540,13 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t295">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=2608s" data-timestamp="2608"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:28</a>次に、本件に賛成の者の発言を許可します。</div>
+  <div class="say">次に、本件に賛成の者の発言を許可します。</div>
   <div class="say">（５番水谷たかこ議員登壇）</div>
 </div>
 
 <div class="turn reveal" id="t296">
   <div class="meta"><span class="name">５番（水谷たかこ議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=2641s" data-timestamp="2641"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:01</a>議案第８号、令和８年度小金井市一般会計予算に、小金井をおもしろくする会として、賛成の立場から討論いたします。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=2638s" data-timestamp="2638"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:58</a>議案第８号、令和８年度小金井市一般会計予算に、小金井をおもしろくする会として、賛成の立場から討論いたします。</div>
   <div class="say">賛成の主な理由は、この予算は令和８年の施政方針を具現化する施策であること、そして、小金井をおもしろくする会が重点政策としている施策の予算が含まれていることです。</div>
   <div class="say">以下、大きな理由を４点述べます。</div>
   <div class="say">１点目、最も大きいのは、子ども・若者政策や子育て支援、教育環境の充実です。多様な学びの支援として、学校内での環境整備に大きな前進があります。昨年まで実施していた別室指導教室の成果が評価され、公立小・中学校14校全校で校内教育支援センターが設置されることになりました。</div>
@@ -2741,7 +2615,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn reveal" id="t300">
   <div class="meta"><span class="name">７番（安田けいこ議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=3662s" data-timestamp="3662"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:02</a>議案第８号、令和８年度小金井市一般会計予算に対し、生活者ネットワークとして、賛成の立場で討論します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=3642s" data-timestamp="3642"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:42</a>議案第８号、令和８年度小金井市一般会計予算に対し、生活者ネットワークとして、賛成の立場で討論します。</div>
   <div class="say">最初に申し上げておきたいことは、第３回小金井市議会定例会市長報告、優先整備路線の検証及び総合的判断において、市民との約束である公約を破り、整備容認に転じた白井市長は、市長として信頼することができないという認識であることです。その上で、市民生活に必要な事業を滞りなく執行するため、本予算案には賛成しますが、重要な懸念点について意見と要望を述べます。</div>
   <div class="say">最初に、市民の命と健康を守る取組についてです。ＰＦＡＳ汚染について、当市で初めて井戸のモニタリング調査を実施するための予算が計上されたことを評価します。多摩地域において広く地下水のＰＦＡＳ汚染が確認されているにもかかわらず、国や都において汚染源の調査が進まない中で、地域における対応は非常に重要です。ＰＦＡＳ汚染は市民の健康問題と捉えています。一部、風評被害という懸念の声がありますが、風評ではなく、実際の被害、とりわけ妊婦や乳幼児への健康被害につながることは明らかであります。各自治体の汚染の実態を国や都に示し、抜本的な対策につなげるよう、近隣自治体とも連携し、問題解決に取り組むことを要望します。</div>
   <div class="say">次に、予防接種事業について述べます。ワクチンは健康な人に接種するものであり、その安全性は限りなくリスクの低いものでなければならないと考えます。妊婦が対象のＲＳウイルスは、早産のリスクが高まるとの指摘があります。また、小児インフルエンザ予防接種の経鼻生ワクチンは、周囲に伝播する懸念が指摘されています。</div>
@@ -2757,7 +2631,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t301">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=3984s" data-timestamp="3984"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:24</a>次に、本件に反対の者の発言を許可します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=3977s" data-timestamp="3977"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:17</a>次に、本件に反対の者の発言を許可します。</div>
   <div class="say">（８番坂井えつ子議員登壇）</div>
 </div>
 
@@ -2794,7 +2668,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t303">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=4614s" data-timestamp="4614"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:54</a>次に、本件に賛成の者の発言を許可します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=4609s" data-timestamp="4609"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:49</a>次に、本件に賛成の者の発言を許可します。</div>
   <div class="say">（４番清水　学議員登壇）</div>
 </div>
 
@@ -2826,26 +2700,26 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t306">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5112s" data-timestamp="5112"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:12</a>起立多数。したがって、本件は原案可決と決定いたしました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5063s" data-timestamp="5063"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:23</a>起立多数。したがって、本件は原案可決と決定いたしました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
 <div class="turn chair reveal" id="t307">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5143s" data-timestamp="5143"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:43</a>議案第９号、令和８年度小金井市国民健康保険特別会計予算。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5063s" data-timestamp="5063"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:23</a>議案第９号、令和８年度小金井市国民健康保険特別会計予算。</div>
   <div class="say">これから討論を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t308">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5143s" data-timestamp="5143"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:43</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5074s" data-timestamp="5074"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:34</a>本件に対する討論を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t309">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5143s" data-timestamp="5143"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:43</a>ご異議なしと認め、討論を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5083s" data-timestamp="5083"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:43</a>ご異議なしと認め、討論を終了します。</div>
   <div class="say">直ちに採決します。</div>
   <div class="say">本件は起立採決をします。</div>
   <div class="say">本件についての予算特別委員長の報告は原案可決です。</div>
@@ -2855,26 +2729,26 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t310">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5143s" data-timestamp="5143"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:43</a>起立多数。よって、本件は原案可決と決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5112s" data-timestamp="5112"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:12</a>起立多数。よって、本件は原案可決と決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
 <div class="turn chair reveal" id="t311">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5143s" data-timestamp="5143"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:43</a>議案第10号、令和８年度小金井市介護保険特別会計予算。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5118s" data-timestamp="5118"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:18</a>議案第10号、令和８年度小金井市介護保険特別会計予算。</div>
   <div class="say">これから討論を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t312">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5143s" data-timestamp="5143"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:43</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5123s" data-timestamp="5123"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:23</a>本件に対する討論を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t313">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5143s" data-timestamp="5143"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:43</a>ご異議なしと認め、討論を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5123s" data-timestamp="5123"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:23</a>ご異議なしと認め、討論を終了します。</div>
   <div class="say">直ちに採決します。</div>
   <div class="say">本件についての予算特別委員長の報告は原案可決です。</div>
   <div class="say">お諮りします。委員長報告どおり、原案のとおり可決することにご異議ありませんか。</div>
@@ -2896,13 +2770,13 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t316">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5188s" data-timestamp="5188"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:28</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5155s" data-timestamp="5155"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:55</a>本件に対する討論を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t317">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5188s" data-timestamp="5188"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:28</a>ご異議なしと認め、討論を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5155s" data-timestamp="5155"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:55</a>ご異議なしと認め、討論を終了します。</div>
   <div class="say">直ちに採決します。</div>
   <div class="say">本件は起立採決をします。</div>
   <div class="say">本件についての予算特別委員長の報告は原案可決です。</div>
@@ -2912,26 +2786,26 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t318">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5210s" data-timestamp="5210"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:50</a>起立多数。よって、本件は原案可決と決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5180s" data-timestamp="5180"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:20</a>起立多数。よって、本件は原案可決と決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
 <div class="turn chair reveal" id="t319">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5218s" data-timestamp="5218"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:58</a>議案第12号、令和８年度小金井市下水道事業会計予算。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5180s" data-timestamp="5180"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:20</a>議案第12号、令和８年度小金井市下水道事業会計予算。</div>
   <div class="say">これから討論を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t320">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5218s" data-timestamp="5218"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:58</a>本件に対する討論を終了することにご異議ありませんか。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5188s" data-timestamp="5188"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:28</a>本件に対する討論を終了することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
 </div>
 
 <div class="turn chair reveal" id="t321">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5218s" data-timestamp="5218"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:58</a>ご異議なしと認め、討論を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5205s" data-timestamp="5205"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:45</a>ご異議なしと認め、討論を終了します。</div>
   <div class="say">直ちに採決します。</div>
   <div class="say">本件について予算特別委員長の報告は原案可決です。</div>
   <div class="say">お諮りします。委員長報告どおり、原案のとおり可決することにご異議ありませんか。</div>
@@ -2940,7 +2814,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t322">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5218s" data-timestamp="5218"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:58</a>ご異議なしと認め、本件は原案可決と決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=8imGJsQOuig&t=5210s" data-timestamp="5210"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:50</a>ご異議なしと認め、本件は原案可決と決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
@@ -3002,7 +2876,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t331">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Y0c0oTgTdFA&t=139s" data-timestamp="139"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:19</a>再開します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Y0c0oTgTdFA&t=138s" data-timestamp="138"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:18</a>再開します。</div>
   <div class="say">ここで、先ほど保留しました追加日程第１から追加日程第８までの８件の保留を解き、順次議題とし、討論、採決を行います。</div>
   <div class="say">議員案第１号、衆議院解散権の行使に関する法的明確化と民主的正当性の確保を求める意見書。</div>
   <div class="say">これから討論を行います。</div>
@@ -3058,7 +2932,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t338">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Y0c0oTgTdFA&t=451s" data-timestamp="451"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:31</a>以上で討論を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Y0c0oTgTdFA&t=447s" data-timestamp="447"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:27</a>以上で討論を終了します。</div>
   <div class="say">本件は起立採決をします。</div>
   <div class="say">お諮りします。本件は原案のとおり可決することに賛成の皆さんの起立を求めます。</div>
   <div class="say">（賛成者起立）</div>
@@ -3085,7 +2959,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t342">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Y0c0oTgTdFA&t=519s" data-timestamp="519"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:39</a>ご異議なしと認め、討論を終了します。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Y0c0oTgTdFA&t=503s" data-timestamp="503"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:23</a>ご異議なしと認め、討論を終了します。</div>
   <div class="say">直ちに採決します。</div>
   <div class="say">お諮りします。本件について、原案のとおり可決することにご異議ありませんか。</div>
   <div class="say">（「異議なし」と呼ぶ者あり）</div>
@@ -3094,7 +2968,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t343">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Y0c0oTgTdFA&t=519s" data-timestamp="519"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:39</a>ご異議がありますので、本件は起立採決をいたします。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Y0c0oTgTdFA&t=503s" data-timestamp="503"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:23</a>ご異議がありますので、本件は起立採決をいたします。</div>
   <div class="say">お諮りします。本件は原案のとおり可決することに賛成の皆さんの起立を求めます。</div>
   <div class="say">（賛成者起立）</div>
 </div>
@@ -3134,7 +3008,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t349">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Y0c0oTgTdFA&t=542s" data-timestamp="542"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:02</a>議員案第５号、アメリカ、イスラエル及びイランにおける平和の即時実現を求める決議。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Y0c0oTgTdFA&t=547s" data-timestamp="547"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:07</a>議員案第５号、アメリカ、イスラエル及びイランにおける平和の即時実現を求める決議。</div>
   <div class="say">これから討論を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
@@ -3161,7 +3035,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t353">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Y0c0oTgTdFA&t=567s" data-timestamp="567"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:27</a>議員案第６号、障害者交通手当支給対象者への配慮を求める決議。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Y0c0oTgTdFA&t=572s" data-timestamp="572"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:32</a>議員案第６号、障害者交通手当支給対象者への配慮を求める決議。</div>
   <div class="say">これから討論を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
@@ -3188,7 +3062,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t357">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Y0c0oTgTdFA&t=592s" data-timestamp="592"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:52</a>議員案第７号、建設工事費が約４０億円も膨れ上がった新庁舎等建設について市民への説明を求める決議。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Y0c0oTgTdFA&t=598s" data-timestamp="598"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:58</a>議員案第７号、建設工事費が約４０億円も膨れ上がった新庁舎等建設について市民への説明を求める決議。</div>
   <div class="say">これから討論を行います。</div>
   <div class="say">（「なし」と呼ぶ者あり）</div>
 </div>
@@ -3223,7 +3097,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t362">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Y0c0oTgTdFA&t=638s" data-timestamp="638"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:38</a>議員案第８号、市民交流センター指定管理委託料その２に関する決議。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Y0c0oTgTdFA&t=644s" data-timestamp="644"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:44</a>議員案第８号、市民交流センター指定管理委託料その２に関する決議。</div>
   <div class="say">本件は討論を行います。</div>
   <div class="say">初めに、本件に反対の者の発言を許可します。</div>
   <div class="say">（２４番森戸よう子議員登壇）</div>
@@ -3276,7 +3150,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t367">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Y0c0oTgTdFA&t=1373s" data-timestamp="1373"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:53</a>ご異議なしと認め、追加日程第１から追加日程第３までの３件を日程に追加し、順次議題とすることと決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Y0c0oTgTdFA&t=1375s" data-timestamp="1375"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:55</a>ご異議なしと認め、追加日程第１から追加日程第３までの３件を日程に追加し、順次議題とすることと決定しました。</div>
   <div class="say">追加日程第１、請願・陳情の委員会付託を行います。</div>
   <div class="say">今定例会の３月18日までに受理した請願・陳情は、８陳情第９号から８陳情第13号までの５件です。以上５件は、お手元にご配布しました請願・陳情委員会追加付託予定表のとおり、所管の常任委員会に付託します。</div>
   <div class="say">お諮りします。ただいま付託しました陳情５件は、閉会中の継続審査とすることにご異議ありませんか。</div>
@@ -3299,7 +3173,7 @@ mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
 
 <div class="turn chair reveal" id="t370">
   <div class="meta"><span class="name">議長（斎藤康夫議員）</span></div>
-  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Y0c0oTgTdFA&t=1451s" data-timestamp="1451"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:11</a>ご異議なしと認め、閉会中継続審査案件一覧表のとおり継続審査することと決定しました。</div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=Y0c0oTgTdFA&t=1455s" data-timestamp="1455"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:15</a>ご異議なしと認め、閉会中継続審査案件一覧表のとおり継続審査することと決定しました。</div>
   <div class="say">─────── ◇ ───────</div>
 </div>
 
