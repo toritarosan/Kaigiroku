@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和8年8月3日 建設環境委員会</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#157a4b; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* サイト共通ヘッダー（トップと同系の緑＋クリーム）。iframe埋め込み時は html.embedded で非表示 */
+  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
+  html.embedded .sitenav{display:none;}
+  .sitenav-in{max-width:1100px;margin:0 auto;padding:0 18px;min-height:52px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .sitenav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#157a4b;font-weight:700;font-size:1rem;white-space:nowrap;}
+  .sitenav-brand img{display:block;border-radius:2px;}
+  .sitenav-links{margin-left:auto;display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+  .sitenav-links a{color:#2a2620;font-size:.84rem;font-weight:600;text-decoration:none;padding:8px 11px;border-radius:2px;white-space:nowrap;}
+  .sitenav-links a:hover{color:#157a4b;background:#e7f4ec;}
+  .sitenav-links .ext{color:#8a8073;font-size:.8em;margin-left:1px;}
+  @media(max-width:640px){.sitenav-in{min-height:0;padding:8px 14px;}.sitenav-links a{padding:6px 9px;font-size:.8rem;}}
+
+  /* パンくず */
+  .crumb{background:#fbf9f4;border-bottom:1px solid #eee7db;position:sticky;top:52px;z-index:59;}
+  html.embedded .crumb{display:none;}
+  .crumb-in{max-width:1100px;margin:0 auto;padding:8px 18px;font-size:.76rem;color:#8a8073;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.5;}
+  .crumb a{color:#157a4b;text-decoration:none;font-weight:600;}
+  .crumb a:hover{text-decoration:underline;}
+  .crumb .sep{color:#c9c0b2;}
+  .crumb .cur{color:#4a443b;font-weight:600;}
+  @media(max-width:640px){.crumb{position:static;} .sitenav-in{flex-wrap:nowrap;} .sitenav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  /* 未定稿（公式だが校正中）＝確定版と一目で区別できるようコーラル地にする */
+  .hero .srcbadge.draft{background:var(--coral-dark, #b83a25);}
+  .hero .srcbadge.draft .dot{background:#ffd9cf;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
+
+  /* ページトップへ戻る */
+  .to-top{position:fixed;bottom:20px;right:20px;z-index:900;width:44px;height:44px;border:none;border-radius:50%;background:#157a4b;color:#fff;font-size:20px;line-height:1;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,background .15s;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+  .to-top.show{opacity:.92;visibility:visible;transform:none;}
+  .to-top:hover{opacity:1;background:#12633d;}
+
+  /* 発言パーマリンク＆要約→本文アンカー */
+  .turn-link{margin-left:8px;font-size:12px;text-decoration:none;opacity:0;transition:opacity .15s;color:#8a8073;}
+  .turn:hover .turn-link,.turn-link:focus{opacity:.7;}
+  .turn-link:hover{opacity:1;}
+  .turn:target,.turn.turn-hl{background:#fff8e1;transition:background .3s;}
+  a.sum-jump{color:#157a4b;font-weight:700;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;cursor:pointer;}
+  a.sum-jump:hover{color:#12633d;}
+  .copy-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(8px);background:#157a4b;color:#fff;font-size:13px;padding:9px 16px;border-radius:4px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;z-index:1100;box-shadow:0 2px 10px rgba(0,0,0,.25);}
+  .copy-toast.show{opacity:1;visibility:visible;transform:translateX(-50%);}
+</style>
+</head>
+<body>
+<script>try{if(window.self!==window.top)document.documentElement.classList.add('embedded');}catch(e){document.documentElement.classList.add('embedded');}</script>
+<nav class="sitenav" aria-label="サイト共通ナビ">
+  <div class="sitenav-in">
+    <a class="sitenav-brand" href="index.html"><img src="icon.svg" alt="" width="30" height="30"><span>非公式会議録</span></a>
+    <div class="sitenav-links">
+      <a href="index.html">ホーム</a>
+      <a href="search.html">全文検索</a>
+      <a href="list.html">会議一覧</a>
+      <a href="https://www.city.koganei.tokyo.dbsr.jp/" target="_blank" rel="noopener">公式会議録<span class="ext">↗</span></a>
+      <a href="https://www.youtube.com/koganei_shigikai" target="_blank" rel="noopener">原典動画<span class="ext">↗</span></a>
+    </div>
+  </div>
+</nav>
+<nav class="crumb" aria-label="パンくずリスト"><div class="crumb-in"><a href="index.html">ホーム</a><span class="sep">›</span><a href="list.html">全会議一覧</a><span class="sep">›</span><span class="cur">令和8年8月3日 建設環境委員会</span></div></nav>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和8年8月3日</p>
+    <h1>建設環境委員会</h1>
+    <span class="src">YouTube字幕＋AI校正による記録（非公式）</span><div class="hero-note" style="font-family:var(--sans);font-size:13px;line-height:1.7;color:var(--muted);margin-top:10px;">本会議・委員会等の中継動画をもとに、文字起こし・校正・要約を行った非公式アーカイブです。<br><span style="color:#c0392b;font-weight:700;">致命的な話者の誤りや語句の誤りを含んでいます。転載などには適しません。最終的には必ず原典に当たってください。</span></div><span class="genmeta">本文・要約はAIによる自動生成で、小金井市議会の公式見解ではありません。発言者名や語句に誤りを含む場合があります。公式会議録が公開され次第、公式版に差し替えます。<br>最終生成日 2026-08-03</span>
+    <span class="src official" style="display:block; margin-top:10px;"><a href="shiryo/R8.8.3_建設環境委員会.html" style="color:#157a4b; font-weight:700;">📄 この会議の配布資料（全8ページ・PDF原本と全ページ画像）</a></span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <h3>議事の概要</h3>
+<p>小金井市議会建設環境委員会は令和8年8月3日、閉会中の委員会を開き、付託されている陳情2件と所管事務調査2件の計4件を審査し、あわせて行政報告7件を受けた。開会前の協議会では、審査予定表の順序で進めること、行政報告4と5を一括議題とすることが確認され、8陳情第17号については7月31日時点で30人の追加署名があり総署名が195人になったことが報告された。冒頭で確認した所管事項は「武蔵小金井駅北口再開発事業の工事の地下水への影響について」の1件だった。</p>
+<p>審査の結果、ハト・カラスへの餌やりに対し過料を伴う条例の制定を求める8陳情第17号は、趣旨採択や継続審議を求める意見と本日採決すべきとする意見に分かれ、意見が一致しなかったため採決に進み、起立採決の結果、<strong>起立少数で不採択と決定</strong>した。市内3駅周辺の街路樹の本数増を求める8陳情第20号は、会派に持ち帰りたいとの提案を受けて<strong>保留</strong>とされ、次の定例会中の委員会で採決することとなった。所管事務調査2件（循環型社会の形成及び温室効果ガス削減／都市計画道路）はいずれも継続調査と決定した。</p>
+<p>行政報告では、市立公園における手持ち花火イベントの試行実施、井戸水のPFAS水質調査（民間井戸17地点と市管理3地点の計20地点）、PIAZZA株式会社との連携協定、無電柱化推進計画と橋りょう長寿命化計画の改定、交通ネットワーク再編事業の進捗、東小金井駅北口まちづくり協議会の検討状況が報告された。委員会閉会後の協議会では所管事項として武蔵小金井駅北口再開発の地下水への影響が取り上げられ、次の閉会中委員会は10月19日午前に開く前提で予定を空け、実際に開催するかは定例会中に確定することとなった。</p>
+<h3>審査した事件の一覧</h3>
+<ul>
+<li>8陳情第17号 ハト・カラスへのエサやり（給餌）による被害防止（行政罰を伴う）条例の制定を求める陳情書（<strong>不採択</strong>・起立少数）</li>
+<li>8陳情第20号 市内3駅周辺の街路樹の本数増を求める陳情書（保留・次の定例会中の委員会で採決）</li>
+<li>所管事務調査（循環型社会の形成及び温室効果ガス削減に関する調査）（継続調査）</li>
+<li>所管事務調査（都市計画道路に関する調査）（継続調査）</li>
+<li>行政報告1 市立公園における花火イベントの試行実施について（環境政策課）</li>
+<li>行政報告2 井戸水のPFAS（有機フッ素化合物）に関する水質調査について（環境政策課）</li>
+<li>行政報告3 PIAZZA株式会社との連携に関する協定の締結について（まちづくり推進課）</li>
+<li>行政報告4 小金井市無電柱化推進計画の改定について（道路管理課）※行政報告5と一括議題</li>
+<li>行政報告5 小金井市橋りょう長寿命化計画の改定について（道路管理課）※行政報告4と一括議題</li>
+<li>行政報告6 交通ネットワーク再編事業の進捗について（交通対策課）</li>
+<li>行政報告7 東小金井駅北口まちづくり協議会の検討状況について（区画整理課）</li>
+</ul>
+<h3>事件ごとの要約</h3>
+<h4>委員会協議会（開会前）</h4>
+<ul>
+<li>委員長が進行予定を説明。審査案件は陳情2件と所管事務調査2件の計4件、行政報告は7件で、行政報告4と5を一括議題とする。</li>
+<li>所管事務調査は循環型社会の形成及び温室効果ガス削減に関する調査と、都市計画道路に関する調査。</li>
+<li>8陳情第17号は追加署名が30人で、総署名195人と報告。</li>
+<li>所管事項は「武蔵小金井駅北口再開発事業の工事の地下水への影響」1件とすることを確認。</li>
+</ul>
+<h4>8陳情第17号 ハト・カラスへのエサやり（給餌）による被害防止（行政罰を伴う）条例の制定を求める陳情書（不採択）</h4>
+<ul>
+<li>環境政策課が前回の資料要求に応じ餌やり対応の資料を提出（陳情は7月31日時点で30人追加、計195人）。</li>
+<li>渡辺大三が前回以降の状況と他の給餌者、予防的な条例制定を質問。課長は、行為者とは連絡が取れ本人も餌やりをしていないと述べ見回りでも被害は未確認、学大グラウンド・野川公園・農工大の情報は関係機関に確認したが事実は確認できず、条例制定自治体では抑止効果ありとなしの両方があり現時点で制定は考えていないと答弁。</li>
+<li>水上洋志は他機関・庁内の連携を質問。課長は動物愛護管理法25条に基づく東京都動物愛護管理センターや警察との相互連携、必要時は福祉部署と連携と答弁。水上は罰則条例は現時点で必要ないとの意見。</li>
+<li>
+<p>安田けいこは啓発強化を求め条例には否定的。岸田正義は悪影響は確実とし、大阪市・静岡市の告訴・書類送検例を挙げ、困難な局面での判断が必要と述べた。</p>
+</li>
+<li>
+<p>岸田正義委員が趣旨採択を提案。「条例は必要だが、行政の努力で当事者と良好な関係が保たれ餌やりが控えられており、現状を見守りたい」と説明。</p>
+</li>
+<li>渡辺大三委員は継続審議を提案。餌やりが安定的に止まるかの見定めと、他の人が撒いているとの情報が未確認であることを理由に挙げ、趣旨採択では条例化の可否が曖昧で行政も対応に困ると述べた。</li>
+<li>水上洋志委員は「趣旨採択なら持ち帰らざるを得ない」「何が合意なのかはっきりしない」としたが、最終的に採決を求めた。</li>
+<li>安田けいこ委員、太田宏徳委員、河野麻美委員は会派として本日の採決を希望。太田委員は条例には基本的に反対と表明した。</li>
+<li>
+<p>委員長は継続なら10月・11月の閉会中審査も想定すると説明。意見が一致せず、本日採決を行うこととなった。</p>
+</li>
+<li>
+<p>委員長が委員長報告に載せる意見・要望を求めたが発言はなく、質疑を終了。</p>
+</li>
+<li>討論も発言がないまま終了。</li>
+<li>本件を採択の上、市長に送付することに異議があり、起立採決。起立少数で本件は不採択と決定。</li>
+</ul>
+<h4>8陳情第20号 市内3駅周辺の街路樹の本数増を求める陳情書（保留）</h4>
+<ul>
+<li>渡辺大三委員の要求で、道路管理課が武蔵小金井駅北口、区画整理課が東小金井駅北口の地下埋設物位置図を提出。</li>
+<li>渡辺委員は、埋設物のない歩道の膨らみ等、武蔵小金井駅北口4か所と、東小金井駅北口の駅前交番北側・ロータリー南西角への植栽の可能性を質問。</li>
+<li>道路管理課長は、商業施設出入口前はバス待ち列等が交錯し安全確保上困難、横断歩道付近2か所は都の基準（手前5m・先2m）で視距確保が必要で小金井警察署も望ましくないとの見解、銅像は移設に所管部署・警察との協議が要り今後の検討課題と答弁。</li>
+<li>区画整理課長は、交番裏は埋設物の支障はなく植栽自体は可能だがトイレ・喫煙所等の要望や点字ブロックの課題で即答は難しい、南西角は検討可能、地蔵通りは街路築造・電線共同溝工事後で5、6年後と答弁。</li>
+<li>
+<p>水上洋志委員は武蔵小金井駅北口の駅前広場のコンセプトを質問。道路管理課長は「聞いたことがない」、都市整備部長は安全性・歩行者動線が前提としつつ検討課題、市長は考え方を持ち合わせていないのが現状と答弁。</p>
+</li>
+<li>
+<p>岸田正義委員が、本日の議論を会派に持ち帰りたいとして、継続ではなく保留とし、次の定例会中の委員会で採決するよう提案。</p>
+</li>
+<li>異議なしと認められ、本件は現時点での質疑を終了し保留と決定。</li>
+</ul>
+<h4>所管事務調査（循環型社会の形成及び温室効果ガス削減に関する調査）（継続調査）</h4>
+<ul>
+<li>環境政策課長が若者気候市民会議を報告。申込・推薦は計37人（無作為抽出15、官学連携19、官民連携3）。8月30日と10月4日の2回開催、開始は午後1時に変更。意見は12月の環境フォーラムで発表予定。</li>
+<li>水上洋志委員がリユース事業を質問。ごみ対策課長は、ごみゼロ化推進会議総会で計画が承認され、9月26日に野川クリーンセンターで無料の譲渡会（出品15枠）を行うと答弁。</li>
+<li>水上委員は災害廃棄物も質問。清掃係長は重機・人材の手配が課題で民間事業者との協定を進めるとし、一時仮置場候補地は梶野公園など4か所と説明。トイレカーのし尿処理はごみ対策課長が協議中と答弁。</li>
+<li>継続調査と決定。</li>
+</ul>
+<h4>所管事務調査（都市計画道路に関する調査）（継続調査）</h4>
+<ul>
+<li>水上洋志が東京都の3・4・11号線の予算と概略設計の進捗を質問。都市計画課長は令和8年度に約7,900万円（測量費等含む）を計上し、うち令和7年契約の概略設計の債務負担2,244万円が含まれると答弁。検討状況は情報を得ておらず、都から適切な時期に情報提供すると言われていると説明。使途の詳細を問う再質問には「把握しているのは答弁のとおり」と回答。</li>
+<li>本件は継続調査と決定。</li>
+</ul>
+<h4>行政報告1 市立公園における花火イベントの試行実施について</h4>
+<ul>
+<li>環境政策課が報告。市立公園の花火は一律禁止だったが市民要望を受け、梶野公園・栗山公園・環境楽習館で日時等を限定し、指定管理者の自主事業として手持ち花火を試行。8月2日に梶野公園で実施、8日環境楽習館、30日栗山公園も予定。アンケート結果は市HPで公表。</li>
+<li>河野麻美委員が所感・3園の選定理由・体制を質問。環境政策課長は、200人弱が来場したが火が手に当たった子もおり、梶野公園は来年度以降の実施に検討が必要と答弁。選定は煙・騒音を考慮し住宅から距離・舗装・囲いのある公園、体制は市職員4名、指定管理者2名、こがねい遊ぱーく5名。</li>
+<li>河野委員は火種への移動時の危険、実施日数増を要望。質疑終了。</li>
+</ul>
+<h4>行政報告2 井戸水のPFAS（有機フッ素化合物）に関する水質調査について</h4>
+<ul>
+<li>環境政策課長が報告。都条例の届出対象で未調査の民間井戸31地点に意向確認し17地点が調査を希望。これに地下水保全会議の意見と地域バランスから選んだ市管理の栗山公園・下弁天子供広場・第二小学校の3地点を加えた計20地点でPFASを測定（うち4地点は東京都の地下水概況調査、16地点は市独自）。採水は水位が安定する9〜10月、公表は令和9年1月頃。民間井戸は個人情報保護と風評被害防止の観点から調査地点数のみ（検出時も地点数と数値まで）、市管理井戸は地点・物質・測定値を公表する。</li>
+<li>安田けいこが3地点の選定理由と震災時の使途を質問。課長は北東エリアに市管理井戸が少ないため南東＝栗山公園、北西＝第二小学校、南西＝下弁天と地域バランスで選んだ、第二小は震災対策井戸で災害時に生活用水として使う扱いと承知していると答弁。</li>
+<li>水上洋志が井戸の総数、全体を網羅する調査とするか、調査物質を問う。課長は市管理10・民有35・水源18・震災対策35地点（市管理と民有の重複9地点）と示し、今回の目的は市内地下水のPFAS分布把握と健康リスクの未然防止で、全体調査の可否と対象物質（今回はPFOS・PFOA・PFHxSの3物質）は内部調整中と答弁。地域単位の公表可否には、過剰な不安の拡散を避け慎重に取り扱うとし、他市との協議会は現在実施も予定もないとした。</li>
+<li>坂井えつ子が民間の希望が16から17に増えたのかと都の調査の経緯・時期を確認。課長は1箇所追加で17箇所、都からの申し出で民有井戸4地点を都が実施、時期や公表時期は未把握と答弁。</li>
+<li>質疑終了に異議なしと認め、本件の質疑を終了した。</li>
+</ul>
+<h4>行政報告3 PIAZZA株式会社との連携に関する協定の締結について</h4>
+<ul>
+<li>まちづくり推進課長が、地域コミュニティアプリ「ピアッザ」のPIAZZA株式会社と令和8年7月2日に連携協定を締結と報告。市HP・市報8月1日号に掲載。</li>
+<li>渡辺大三委員が対象範囲と具体的取組を質問。課長は市内全域の包括協定で北口に限定されず、まず北口商店街に紹介し徐々に市内全体へ広げたいと答弁。具体的取組を定めず、アプリで小金井エリアを使えるスタート協定と説明。広場・道路のイベント協力は依頼済みとした。</li>
+<li>太田宏徳委員は各自治会へ広げ情報を閲覧できる仕組みを要望。</li>
+<li>質疑終了（異議なし）</li>
+</ul>
+<h4>行政報告4・5 小金井市無電柱化推進計画／小金井市橋りょう長寿命化計画の改定について（一括議題）</h4>
+<ul>
+<li>工事係長が両計画の改定を報告。無電柱化は武蔵湖通りが令和9年度完了見込みで、北大通りの小金井街道〜緑中央通り約550mを次期整備路線に位置づけ。橋りょうは令和4〜6年度の75橋の点検結果を反映し令和8年6月に改定。</li>
+<li>水上委員が耐震性・市負担・中期財政計画を質問。道路管理課長は、地中化で電柱倒壊がなく震災に強い、北大通りは国・都の補助が100%に近い、工事時期は調査段階で未定、橋りょうは財政計画に計上済と答弁。</li>
+<li>岸田委員が事業期間を質問。工事係長は令和9年度末までに都の事業認定を受ければチャレンジ支援の対象で、今年度基礎調査・来年度予備設計で認定に合わせると答弁。</li>
+<li>質疑を終了。</li>
+</ul>
+<h4>行政報告6 交通ネットワーク再編事業の進捗について</h4>
+<ul>
+<li>交通対策課長：北部再編案とCoCoバス運賃改定案のパブコメ（6/3〜7/3）に19人28件。検討結果は7/29の活性化協議会・運賃部会で承認し市HPで公表。6/23地域懇談会、6/27東小金井駅オープンハウス約150人。令和9年4月の再編へ準備。</li>
+<li>水上洋志が京王バス定期券のCoCoバス利用とシルバーパス活用を質問。交通対策係長は関野橋循環は朝夕の路線バスを残せたとし、運賃体系が違い費用がかかるため未検討と答弁。交通対策課長は財政負担増を避ける考えから現状シルバーパス運用は考えず試算もない、高齢者割引は基本運賃の半額とする方針と説明。水上は都の補助要件確認を要望。</li>
+<li>質疑終了。</li>
+</ul>
+<h4>行政報告7 東小金井駅北口まちづくり協議会の検討状況について</h4>
+<ul>
+<li>区画整理課長は、平成14年度発足の東小金井駅北口まちづくり協議会について報告。第4次は令和元年8月に開始し、交通広場・都市計画道路・駅前公園の樹種や整備方針を、コロナ禍による中断を挟みつつ検討してきたと説明。</li>
+<li>7月30日の協議会で取りまとめ案の最終承認を得ており、本年秋に取りまとめとして公表する予定。</li>
+<li>委員からの質疑はなく、質疑終了。</li>
+</ul>
+<h4>委員会協議会・所管事項（武蔵小金井駅北口再開発事業の工事に伴う地下水への影響）</h4>
+<ul>
+<li>安田けいこ委員が武蔵小金井駅北口再開発の地下水影響を質問。7月10日の地下水保全会議で直径2.2m・長さ約45mの杭を多数打つ計画が示され、有識者が南東の湧水ポイントへの影響を懸念、観測井戸は検討段階との回答だったとし、観測井戸の設置を求めた。</li>
+<li>まちづくり推進課長は、準備組合段階から地下水保全会議に情報共有してきたとし、杭の配置を有識者に共有し、助言を参考に施工するよう再開発組合を指導すると答弁。</li>
+<li>安田委員は観測用井戸の設置を働きかけるよう要望し意見で終了。所管事項は終了。</li>
+</ul>
+<h4>委員会協議会・閉会中の委員会開催日</h4>
+<ul>
+<li>委員長が、次の閉会中は陳情審査がないとし、正副案として10月19日午前・26日午前を提示。</li>
+<li>委員から「日を押さえると開催確定になる」との指摘が出て、仮押さえの扱いを確認。</li>
+<li>10月19日午前に開く前提で予定を空け、開催の可否は定例会中に確定することで了承。</li>
+</ul>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/CW6_WnIPeik" allowfullscreen loading="lazy"></iframe></div>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/IL8vLK9wZVE" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・2本）</p>
+  </section>
+
+<div class="turn chair reveal" id="t0">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=105s" data-timestamp="105"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:45</a>　取ってます。</div>
+</div>
+
+<div class="turn chair reveal" id="t1">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。では、時間前ですけれども、協議会の方から始めてまいります。お手元の進行協議事項の紙をご覧ください。今日の進行予定です。本日の審査予定表の順序で審査を行うことについてということで、審査案件が陳情2件、所管事務調査が2件の計4件で、行政報告が今日7件ございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=136s" data-timestamp="136"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:16</a>　また、所管事務については、循環型社会の形成及び温室効果ガス削減に関する調査と、都市計画道路に関する調査です。一括議題とすることについては、行政報告の4と5を一括議題といたします。追加署名の提出についてです。</div><div class="say">8陳情第17号は、追加署名数が30人ということですので、総署名が195人となっております。その他ですけれども、何かご発言ございますでしょうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=168s" data-timestamp="168"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:48</a>　なければ、委員会の方を始めてまいりますので、よろ……あ、失礼しました。すみません。所管事項、今日ございますでしょうか。所管事項の……はい、〇〇さん。</div>
+</div>
+
+<div class="turn reveal" id="t2">
+  <div class="meta"><span class="name">不明</span></div>
+  <div class="say">武蔵小金井駅北口再開発工事に伴い、地下水……あ、すみません。武蔵小金井駅北口再開発事業の工事の、地下水への影響について。</div>
+</div>
+
+<div class="turn chair reveal" id="t3">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。武蔵小金井駅北口再開発工事に伴う地下水の影響について。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=204s" data-timestamp="204"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:24</a>　はい。地下水の影響について、はい。他にございますでしょうか。なければ、進めてまいりますので、所管事項は1件ということでよろしくお願いいたします。それでは始めます。おはようございます。</div>
+</div>
+
+<div class="turn voice reveal" id="t4">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">おはようございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t5">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">ただいまから建設環境委員会の会議を開きます。直ちに本日の議事に入ります。当委員会に付託されております案件は、陳情2件、所管事務調査2件です。以上4件につきましては、建設環境委員会審査予定表の順序で行うことといたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=235s" data-timestamp="235"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:55</a>　初めに、8陳情第17号、ハト・カラスへのエサやり（給餌）による被害防止（行政罰を伴う）条例の制定を求める陳情書を議題といたします。これにご異議ありませんか。ご異議なしと認め、そのように決定いたします。</div><div class="say">なお、本件は、7月31日の時点で30人の追加署名があり、合計で195</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=265s" data-timestamp="265"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:25</a>　人となっております。本日、部局から資料が出されておりますので、初めに資料の説明を求めます。はい、環境政策課長。</div>
+</div>
+
+<div class="turn reveal" id="t6">
+  <div class="meta"><span class="name">環境政策課長</span></div>
+  <div class="say">本日、環境政策課から提出した資料は、前回の建設環境委員会で資料要求がありました、鳩・カラス等への餌やりに係る対応についてまとめたものです。詳細は資料をご確認ください。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t7">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。説明がございました。これから質疑を行います。はい、渡辺さん。</div>
+</div>
+
+<div class="turn reveal" id="t8">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=300s" data-timestamp="300"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:00</a>　資料のご提出、ありがとうございました。多摩地域においては調布市のみということですが、23区の方では少し制定の状況もあるという風に、資料を見て確認ができたというところでありますけれども、それで、前回以降の経過と言いますかについてですね、一応、この間のご説明によると、給餌をされていた方が、こういった様々な動きを踏まえてですね、それを控えるというようなことで、お話も少しあったという風にも聞いておりまして、その後、そういったお言葉の通りに履行されているという風に理解しているか、ちょっとその後の状況についてですね、ご答弁いただきたいということと、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=332s" data-timestamp="332"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:32</a>　あとは、ちょっと陳情者などとも色々情報交換したところ、その給餌行為をされている方というのは、1人にとまらず、その程度の差こそあれですね、他の方もそういったことをされている例もあるということも、あるやにも聞いているんですけれども、その辺りは、担当としては、状況について、頻度とかですね、エリアとか、その辺りについては何か掴んでいるのかどうかということですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=362s" data-timestamp="362"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:02</a>　で、そこら辺教えていただきたいのと、あと結局、こういった条例というのは、本来条例というのは特定個人を対象に作るようなものではないので、そう考えると、今後またですね、別の方が、動機は様々だと思いますけれども、何らかの形でこういう給餌のようなことを始める可能性というのは、十分にあるだろうという風に思っておりまして、そういう観点から言うと、予防的な見地から言うと、こういった条例というのを、何かが起きてから条例制定を考えるというよりもですね、やっぱり予防的な見地から、条例をきちんと制定しておく必要もあるのかなと思っています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=425s" data-timestamp="425"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:05</a>　つまり、条例ですから、あまり属人的に、この人がいるからこういう条例っていうんじゃなくてですね、今後も別の、全然別の方も同じことを行い得るという、状況、可能性を考えるとですね、あらかじめきちんとルール化しておくと、そのことに伴う予防効果ということも期待できるかなとも思うんですけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=455s" data-timestamp="455"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:35</a>　今日、こうして23区、26市の資料を出していただいておりますけれども、その辺、23区の事例などについてもですね、もう少し実態などについて、もし調査がされているようであれば、この条例制定などによってですね、どういう効果とか、あるいは行政対応がしやすくなったとかですね、そういうことなどがあれば、少し教えておいていただきたいという風に思います。以上、質問いたします。</div>
+</div>
+
+<div class="turn chair reveal" id="t9">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。それではご答弁をお願いいたします。はい、環境政策課長。</div>
+</div>
+
+<div class="turn reveal" id="t10">
+  <div class="meta"><span class="name">環境政策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=486s" data-timestamp="486"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:06</a>　それでは、大きく3点ご質問いただいたと思います。まず、前回以降の状況ではございますが、特定の方とは、行為者とはですね、その後もコミュニケーションを取っておりまして、状況としては今、餌やりっていうのは、していないということを、ご本人にもおっしゃっていますし、職員の方も見回りをした中では、餌やりの被害っていうのは、確認できていない状況です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=516s" data-timestamp="516"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:36</a>　で、あと他の方の、〇〇と言いますか、そういった方もいらっしゃるということで、陳情者の方からもですね、情報提供いただいている中で、学大グラウンドの近くで撒いている情報があったりとかですね、野川公園で撒いていると、あと農工大の方でも撒いているんじゃないかっていうことを情報提供いただいているんですが、各、管理している部署の、関係機関の方に確認しますと、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=548s" data-timestamp="548"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:08</a>　そういった事実っていうのは、確認できていないということを聞いている状況です。で、あとは、予防的観点からの条例制定ということでのご質問で、23区市、条例制定しているところにも、電話等で確認させていただいているところではありまして、一定の抑止効果があったっていう自治体もあればですね、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=578s" data-timestamp="578"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:38</a>　やっぱり、条例が制定された後もですね、餌やりっていうのはやめていただけずに、抑止力がなかったっていうようなこともありまして、なかなか、条例ができたから餌やりが全てなくなるかって言ったら、そうでもないっていう状況は、今、条例制定している自治体に聞いたところでは、確認しているところでございまして、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=609s" data-timestamp="609"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:09</a>　本市としましても、条例を制定したところで、それの効果があるのかっていうところは、ちょっと各自治体に聞いたところでは、あまり効果がないんじゃないかっていうところを考えておりまして、条例制定っていうのは、ちょっと今のところ、現時点では考えていないという状況でございます。以上となります。</div>
+</div>
+
+<div class="turn chair reveal" id="t11">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。渡辺さん。</div>
+</div>
+
+<div class="turn reveal" id="t12">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say">はい。ほとんどご答弁いただいたところであります。で、その後の状況ということでは、コミュニケーションは取れていて、餌やりはしていないということが、確認できているということ。</div>
+</div>
+
+<div class="turn chair reveal" id="t13">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=644s" data-timestamp="644"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:44</a>　マイクが入っていない。</div>
+</div>
+
+<div class="turn reveal" id="t14">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say">ごめんなさい、気づかなくて。コミュニケーションはその方と取れていて、餌やりはしていないという状況も、見回りをして確認ができているということでありました。で、他の方の、餌やりに関しては、学大グラウンド、公園、農工大のあたりということでした。</div><div class="say">そういう情報あるけれども、その被害の状況っていうか、あれが確認できないということなんでしょうか。そうですね。あと、色々見てると、高架下なんかでも結構色々あって、ただ、それが餌やりによってそこがたくさんあるのか、単に鳩がそこに止まるのが好きなのか、ちょっとよく分からないんですけど、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=675s" data-timestamp="675"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:15</a>　東小金井駅の高架の駐車場のところでも、かなり、いわゆる糞ですよね、があってですね、かなり美観上もあまりよろしくないような状況などもあって、ただ、それがその給餌によるものかどうか、ちょっとよく分からないところはあるんですけれども、今の状況については、今ご報告いただいたようなところでありますが、条例というのは、ある意味で言うと、言ってみると過料なども含めてですね、厳しい規定ということになりますので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=706s" data-timestamp="706"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:46</a>　やっぱりこう、必要性も含めて、当然、様々な角度から分析してみるべきかと思いますけども、少しもうちょっとロングスパンで経過観察してみた方がいいかなという風に思っているのと、あともう1つは、その他のその事例について、情報提供は私もちょっと陳情者から色々情報提供いただいてるんですけれども、ちょっとそこら辺、他の方のその給餌の実態に関しても、もうちょっと、なんて言うんですかね、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=737s" data-timestamp="737"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:17</a>　時間をちょっと取って、少し観察しておく必要はあるのかなという風に思っておりまして、その辺り少しちょっと、お忙しい中とは思うんですけれども、少しアンテナ高くしていただいてですね、そういった実態が、その別の方によって行われているような事例がないかどうかっていうことに関しては、少し注意して見ておいていただくとありがたいかなと思います。あと、予防的な観点ということから言いますと、今、抑止効果があるという事例もあれば、ないという事例もあるということで、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=768s" data-timestamp="768"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:48</a>　なかなか判断難しいところではあるんですけれども、ただ、やっぱりこう、いろんな方がいらっしゃって、割方素直に行政から言えば聞いてくれる方もいらっしゃると思うんですが、聞いていただけない方もいらっしゃると思っていて、それは、色々あるのかなという風に思ってるんですけれど、少なくとも行政が何かそれを市民の方に求めるということになれば、やっぱり、何らかの根拠がきちんとあった方がいいという風に思ってはおりますので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=799s" data-timestamp="799"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:19</a>　ちょっとその後の状況なども、少しもうちょっと慎重に経過を見てみたいと思ってるんですが、最終的に、私は予防的な観点から言えば、あらかじめ条例などもきちんと作っておいて、運用を見てみると。今日の資料でも明らかな通り、じゃあ過料の規定を設けても、実際には徴収している事例はないということなので、その点で言うと、これ、あれに似てますよね。街を綺麗にする条例ね。</div><div class="say">あれ、元々議員発議でできた条例なんですけれども、もうだいぶ前の話なんですけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=830s" data-timestamp="830"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:50</a>　ただ、これも、じゃあ予防効果っていうのはあったかなかったか、やっぱりあったんじゃないかなという風に思っていて、ポイ捨てもかなり減ったかなという風に思っているのと、あと、くわえタバコで歩いてる人もですね、だいぶ減ったなと。昔よく、そういう光景は見ていたので、それから見るとかなり減ってきてはいるのかなという風に思ってはいるんですけれども、そういうことで、直ちに、すぐにこう効果があるなんてのは、ちょっと測定しにくいところもあるんですけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=861s" data-timestamp="861"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:21</a>　行政がこの、そういった行為についてですね、注意を促していく意味においてもですね、あらかじめそういった規範性のあるものを用意しておいて、お伝えすると。で、今回も、おやめいただいた1つの理由としては、こういった条例云々というような議論があって、もう、その議論になったこと自体が抑止になったわけですよね、要するにね。ということもあってですね。</div><div class="say">ただ、逆に言うと、そういうの、じゃあ条例作っちゃったらどうなるのかみたいなことになると、またちょっとね、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=892s" data-timestamp="892"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:52</a>　そのコミュニケーションの中でどういうコミュニケーションになってるか、ちょっと個人情報もあるから、あまり言えないと思うんですけれども、あるんですが、その辺りも含めてですね、ただ、私としては、考え方としては、1つのルールという意味で言えばですね、あってもいいんじゃないかと思っております。歩きタバコのね、禁止はね、あれね、JCでですね、中学生議会って昔やったんですね。最初、小学校、小学生だったんですね。</div><div class="say">で、第1回の実行委員長だったんですね。で、その中学生議会に移行した後、その中で、歩きタバコがやっぱりこう良くないっていうことで、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=924s" data-timestamp="924"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:24</a>　中学生の意見を元に、ルールが〇〇、歩きタバコ禁止の方へ進んだということがあってですね。歩行喫煙禁止ですね。というようなこともあって、その後、完璧ではないにしても一定の効果はあったんじゃないかなという風に思っているんで、そういう点から言えばですね、この件に関しても、そういうルールというものは、あってもいいと。</div><div class="say">運用面でも、いきなり過料を科すとか、そういう運用にはならないと思うんですけれども、少なくとも、そういう過料も含めた規定があって、行政が注意喚起できるような状況は整えておいてもいいんじゃないかなという風に思っておりますが、ただ、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=955s" data-timestamp="955"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:55</a>　さっきも言った通り、もうちょっと様子は見てみてもいいかなと思ってるんで、なお、もう少し、また餌やりが再開されたりしないかどうかとか、他の人がやってないかどうかっていうのを、もうちょっと少しきちんと見定めた上で答えを出すということはありかなと思ってるんですけれども、一応、そういう見解だけ今日は述べておきたいと思いますが、状況については分かりました。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t15">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、次の方、いいですよね。次の方いらっしゃいますか。よろしいですか。はい、水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t16">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1008s" data-timestamp="1008"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:48</a>　鳩、カラスなどへの餌やりの問題なんですが、この問題に関してはですね、環境面や衛生面から考えれば、やっぱり意図的にこの餌やりをするっていうことについてはですね、なくしていくという点ではですね、陳情者の方々とは同じ気持ちでいるところです。</div><div class="say">で、市民の方もですね、朝早くからゴミ拾いをしたり、街を綺麗にするっていうことで活動されていて、この間も小金井市も、パトロールであるとか、いろんな形で取り組まれたっていうことについては、敬意を表したいという風に思うんですが、罰則規定を設けた条例を制定するっていうことが適切なのかどうか、この事案に関して、実際のその、どれだけの効果があるのかっていうところはよく考えといた方がいいんじゃないかなっていう風なことはちょっと考えてるところです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1040s" data-timestamp="1040"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:20</a>　で、それで1つ伺いたいところはですね、他機関との連携っていうところがあって、この間も連携をしていると。で、この間で、報告で、答弁であった通り、学大グラウンドや野川、農工大、こういうところを情報提供いただいてるところを確認して、現状はそういう状況はなかったっていうことだったんですが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1071s" data-timestamp="1071"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:51</a>　やっぱり今回のこういう問題についてはですね、ことがちょっと大きくなってから対応するっていうよりも、何かあった時からこう、なんていうか、こう発見して対応していくっていうことが必要なんではないかなっていう風に思ってるので、そういう観点から言うとですね、こうしたこの連携体制というのは、お互い情報共有っていうのがすぐできるような状況になっているのかどうか、この点ちょっと確認したいと思うのと、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1103s" data-timestamp="1103"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:23</a>　あとは、特定の方がですね、こういう餌やりをやっているっていうことだと思うんですね。で、そうなった時に、確かに環境の問題で、その側面からの接近っていうのもあるかもしれませんが、福祉的な観点からのですね、接近っていうのも考えられる場合もあるんではないかなと、人によっては。だからそういうことも含めて、市としてのこう関係機関、部署の連携みたいな、市役所内部でのね、いうことについては、ちょっとどういう風に今、現状考えてるのかどうか、これについてちょっと確認しておきたいと思うんですが、いかがでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t17">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">そうだね。はい、ご答弁よろしくお願いします。はい、環境政策課長。</div>
+</div>
+
+<div class="turn reveal" id="t18">
+  <div class="meta"><span class="name">環境政策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1166s" data-timestamp="1166"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:26</a>　まず、他機関との連携ですが、資料にあります、動物の愛護及び管理に関する法律第25条に基づきまして、東京都動物愛護管理センターの〇〇の方とも、何度か対面でもお電話でも、お話させていただいておりまして、相互に情報提供はさせていただいております。</div><div class="say">あと、警察ともですね、見つけていただい、餌やりの行為を見つけた際にはですね、警察の方からも声かけをいただいていますし、パトロールの強化っていうところもですね、市の方からお願いさせていただいておりまして、そこも相互に連携が取れている状況でございますので、今後もその連携については密にさせていただきながら、餌やりがなくなるような街にしていきたいなという風に考えているところです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1229s" data-timestamp="1229"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:29</a>　あとは、市内部の福祉的観点からの連携につきましては、特定の、どこの部署というわけではないんですが、何かこうそういった福祉的な支援がですね、必要な場合という風に感じられた場合にはですね、福祉の部署とも連携を図りながら情報提供をこれまでもしてきたところでございますので、そこも引き続き、福祉的な観点での支援というところも頭に入れながら対応してまいりたいなと考えてるところです。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t19">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t20">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1278s" data-timestamp="1278"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:18</a>　連携については、密に連携をしているということなので、是非、なんて言うか、初期段階ってなかなか発見しづらいのかもしれませんが、そういう段階からですね、やっぱり発見し、指導や対応ができるようにですね、是非努力していただきたいと、これはちょっとお願いしたいと思います。</div><div class="say">あと、福祉的な連携については、ケースバイケースであるとは思うんですね。その餌やりをやってる方の状況であるとか、そういうことによるとは思いますが、その点についてもですね、地域包括支援センターなどに相談するっていう場合もあるかもしれませんので、そういう庁内での連携についても、是非努力していただきたいという風に思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1310s" data-timestamp="1310"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:50</a>　この間で言うと、ある程度コミュニケーションが取れて、今餌やりはやっていないということになっているということですので、今後ともこの状況は見守っていきたいという風に考えています。</div><div class="say">で、この鳩・カラスへの餌やりの問題は、地域全体にですね、なんかこう問題があるっていうのではなく、ある程度特定された方がですね、やってるっていう事案だと思うんですね。だからここにその条例でこう網をかけていくっていうのは、ちょっとなかなかこうふさわしくないんじゃないかなっていう風に私は考えておりまして、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1341s" data-timestamp="1341"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:21</a>　条例を、罰則規定を設けるということが、抑止力があったっていうところもあれば、ないというところもあるということなんですが、実際上はですね、規定を設けたからと言って、これがなくなるっていうわけにはなかなかいかないんじゃないかなと思うんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1371s" data-timestamp="1371"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:51</a>　で、条例をこう制定してるところでも、要するに、市の関係機関とのパトロールであるとか指導を強化すると、いうことを条例に基づいてやっているっていうことがですね、結構その条例制定後の取り組みとして強化されているっていうことを、ある程度調べたところではそういう状況かなと思ってるので、小金井市としては、市民からの情報提供などに基づいて、個別の対応をですね、粘り強くやられてると、パトロールを行ってるってことなので、そういうことでやっぱり未然に防いでいけると、対応できているっていうことなので、改めてその条例やですね、罰則をちょっと設けるっていうところまで、現時点で必要ということではないんではないかという風に思いますし、これがその果たしてその効果がどれだけあるのかっていうところは、ちょっと不明な部分があるということだと思いますので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1435s" data-timestamp="1435"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:55</a>　鳩の餌やりはやっぱり問題で、なくしていくべきなんですけど、それを条例でこうやっていくっていうところはですね、難しいんではないかなっていう風に思います。</div><div class="say">で、本格的にその、もしやろうとすれば、渋谷区がやってるように、要するに罰則の対象が何なのかっていうことを限定しなければいけませんし、で、その限定の上にある程度の体制や予算も組んで、対応していくということをしていかないと、なかなかその、実際の効力を発揮するってことにはなっていかないと思うんですね。ただ今回は、その地域全体の問題っていうよりも、ある程度特定の方の問題であるとか、罰則規定に基づいて、本格的なそういう指導をやっていくっていうことまで、今の現状でですね、やっていくっていう必要性はないんではないかと。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1498s" data-timestamp="1498"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:58</a>　お互いにやっぱり市民の中に、鳩・カラスなどへの餌やりについてのですね、問題点などを周知するということも含めてですね、周知啓発をより一層強めて、他機関と連携しながら、未然に、何かあったら対応していくっていうことで、対応していくっていうのが非常に現実的な対応ではないかなっていう風に考えておりますので、その点だけちょっと意見だけ述べておきたいと思います。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t21">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、ありがとうございます。次に、質問のある方いらっしゃいますか。安田さん。</div>
+</div>
+
+<div class="turn reveal" id="t22">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1528s" data-timestamp="1528"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:28</a>　はい。質問じゃなく意見で終わります。ハト・カラスの餌やりに係る資料などもありがとうございます。前回の建設環境委員会の前の日に、その行為者の方からお電話をいただいて、控えるといったことを申し述べられましたと。</div><div class="say">で、その後の経過で、その方の行為っていうのは認められていないということで、すごく粘り強い対応の結果かなと思いまして、大変、部局の方は本当に粘り強い対応をありがとうございますと、申し上げておきます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1559s" data-timestamp="1559"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:59</a>　それで、その条例によって、この抑止力になるという面もあるかとは思いますけれども、この効果はやはり私もなかなか難しいのかなという風に感じております。で、その野生動物への餌やりというものが、野生動物のためにならないということをですね、是非、宣伝というか、啓発していただきたいなという風に思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1590s" data-timestamp="1590"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:30</a>　街中のこともありますけれども、私は野川周辺でよくパンくずなどをまいている方を見かけたことがありまして、1度か2度ぐらい、ちょっと口頭で注意というか、お伝えさせていただいたこともあります。先日もちょっと野川でパンくずみたいなものを、多分カモに餌やりしてたのかなと思うんですけども、そういった場面、ちょっとその行為の方の姿はちょっと確認できなかったんですけれども、そういったことも発見したこともあります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1622s" data-timestamp="1622"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:02</a>　そうですね、そういったことが良くないことだっていうことを、是非、啓発っていうことをもっと力を入れていただければという風に思います。条例に関しては、今の段階では、必要ないというか、効果が、メリットよりデメリットの方があるのかなという風に感じておりますので、そういう観点から、この陳情には態度を示したいと思います。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t23">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1654s" data-timestamp="1654"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:34</a>　はい。ご意見でした。他の方いらっしゃいますか。はい、岸田さん。</div>
+</div>
+
+<div class="turn reveal" id="t24">
+  <div class="meta"><span class="name">岸田正義</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1684s" data-timestamp="1684"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:04</a>　はい。前回も申し上げましたけれども、前回の4陳情第42号には賛成をしている立場でございます。という中で、先ほど議論はありますけれども、効果がないから、じゃあやらなくていいのかということではないという風に私は考えておりまして、じゃあ例えば、駅周辺を通行されてる方々、あるいは公園を利用されてる方々、健康被害を訴えて出ておられないということは資料で出ておりますけども、じゃあそれでいいのかということでもないと。</div><div class="say">悪影響は確実にあるという風に思っております。実際私もそのようなお声を何度もいただいておりますので、そういったことを不快に思われてる方がいるというのは確実だという風に思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1718s" data-timestamp="1718"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:38</a>　で、他の自治体も同様にご苦労されているんだろうなという風に思っておりますし、実際、行政の粘り強い、そのような交渉というかですね、説得というか、そういう関係性を保ちつつ、今行政がやっていただいてるようなことを各地でもやっていただいてる。で、それでもやはりやめていただくことが難しいという現状もあるという中でいくと、大阪市では4月30日、静岡市では5月19日に行政が告訴してる、書類送検をしてるんですね。その人物が、餌やりを続けてる方がね、そういったことも実際には起きてるんですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1750s" data-timestamp="1750"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:10</a>　だからもちろん、今行政がやられてるように関係性を築いて、それを見ていくということも大事であるという風に思っておりますが、それでもなおかつ難しい局面が出てきた時には、じゃあどうするのかということも踏まえた判断が必要になるんではないかという風に考えております。</div>
+</div>
+
+<div class="turn chair reveal" id="t25">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1780s" data-timestamp="1780"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:40</a>　はい。ご意見ということでかしこまりました。その他ございますでしょうか。なければ、ちょっと待って。なければ扱いになりますので、一回じゃあ休憩をいたします。</div><div class="say">扱いについてはどういたしましょうか。</div><div class="say">はい。岸田さん。</div>
+</div>
+
+<div class="turn reveal" id="t26">
+  <div class="meta"><span class="name">岸田正義</span></div>
+  <div class="say">先ほど申し上げたように、一定私は必要だと考えておりますが、今行政がご努力をいただいて関係性を、良好な関係を保っていただいているということも踏まえていきますと、現状を見守りたいという思いもあり、趣旨採択でお願いをしたいと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t27">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1811s" data-timestamp="1811"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:11</a>　はい。今、岸田さんの方からは趣旨採択というご提案がございましたので、まずはこの委員会の中で、まずは一致できるかどうか確認をしてまいりますけれども、ご意見ございましたらお願いいたします。水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t28">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">趣旨採択っていうことはちょっと考えてなかったので、一応採決っていうことで考えてはいたんですが。</div>
+</div>
+
+<div class="turn chair reveal" id="t29">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。</div>
+</div>
+
+<div class="turn reveal" id="t30">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">という状況なので。</div>
+</div>
+
+<div class="turn chair reveal" id="t31">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。</div>
+</div>
+
+<div class="turn reveal" id="t32">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">ちょっと皆さんの方で趣旨採択ってことであれば、ちょっと持ち帰らざるを得ないかなとは思いますけど。</div>
+</div>
+
+<div class="turn chair reveal" id="t33">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1849s" data-timestamp="1849"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:49</a>　〇〇。ちょっとここで、その他にもご意見があれば、もう、なんて言うんでしょう、もう決めてきたんだ、というと。じゃあもう1回、じゃあまず水上さんから。</div>
+</div>
+
+<div class="turn reveal" id="t34">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">で、趣旨採択ってことになると、どういう中身で、その何がその合意なのかみたいなところがちょっとはっきりしないと良くないかなっていう風に思うので。</div>
+</div>
+
+<div class="turn chair reveal" id="t35">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">じゃあ、確認してみましょうか。岸田さんの方でその趣旨の、その意というか。</div>
+</div>
+
+<div class="turn reveal" id="t36">
+  <div class="meta"><span class="name">岸田正義</span></div>
+  <div class="say">先ほど申し上げた通りでございまして、本来私もこれ必要だと思っていると考えています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1883s" data-timestamp="1883"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:23</a>　しかしながら、現状、行政の方でご努力をいただいて、ご当人との関係性を持たれている中で、控えていただいている状況があるということですね。だけれども、先ほど渡辺さんからもあったように、それがどこまでいつまで続くのかも、不透明な状況であると。さらには、それがじゃあ叶わなかった時にね、どうするんですかという時に、これがもうすでに、もう4年5年前から起きてる事案なんですよね。</div><div class="say">今出てきたわけじゃないんですよ、これ。</div>
+</div>
+
+<div class="turn reveal" id="t37">
+  <div class="meta"><span class="name">岸田正義</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1914s" data-timestamp="1914"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:54</a>　もう4年5年の経過があって、もう1回出てきてるっていうことの重みっていうのは踏まえないといけないんだろうなと私は思っていて、その中で、すぐどうこうと皆さんがおっしゃりになる、そういう行政罰を下すことの意味とか、その効果、あるいは今やっている行政の対応なども含めて、妥当かなと私としては考えると。</div>
+</div>
+
+<div class="turn chair reveal" id="t38">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。〇〇さん、よろしいですか、今のご説明は。じゃあ、まず。</div>
+</div>
+
+<div class="turn reveal" id="t39">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1944s" data-timestamp="1944"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:24</a>　で、いろんな考え方があるんですけれども、私は条例で持ってた方がいいっていう考え方は持ってるんですけど、ただ、先ほど出てる通り、部局の方にも色々ご努力いただいて、とりあえずコミュニケーションは取れていて、とりあえず餌やりの行為は今のところその方に限っては止まっていると。ただ、ちょっと他の方が撒いてるとか、いろんな情報もあってですね。さっきちょっと質疑の中では申し上げたんですが、今、とりあえず止めていただいてる方が安定的に今後止めていただけるかの見定めと、あと、ちょっと他の方が撒いてるという情報に関しては、まだちょっときちんと確認できてないので、ちょっとその辺りはもうちょっと慎重に見てもいいかなというので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=1976s" data-timestamp="1976"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:56</a>　だから、ここでちょっと、趣旨採択というのは何を意味するかちょっと微妙なところあるんですが、もうちょっと継続審議なりして、もうちょっと様子を見てみてもいいかなという思いはあります。で、あと、趣旨採択という場合には、やっぱり条例作ってくださいっていう陳情の趣旨採択になれば、どういう内容であるか別にしても、やっぱり条例化はするっていう趣旨を採択することになるんだろうという風には思うので、その辺りに関してはちょっと。あと、もう1つ</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2007s" data-timestamp="2007"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:27</a>　あるのは、趣旨採択にしちゃうと行政も非常にどうすりゃいいのってことがあると思うんですよ。だ、作るの、作らないのっていうことになるんで、作るんなら作ると議会意思決めた方がいいと思ってますし、作らなくていいんだという議会意思、それはそれで、反対多数ならもうそうなるんですけど、ちょっとなんか趣旨採択っていう、その曖昧なことっていうのが、さっき岸田さんからもあったように、もう前々からこれずっと問題になってることなんですよね。ここで問題になったわけじゃないんですよ。</div><div class="say">いうこともやっぱりあったし、さっきと私言った通り、あまり条例って属人的にね、この人がいる</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2037s" data-timestamp="2037"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:57</a>　からどうこうって決め方はおかしいという風に思っているので、あまねく全員に適用されるのが条例ですから、そう考えると、そこら辺に関してはもうちょっと状況を少し見、継続審議なりしていただいて、もうちょっとだけ状況を見てみる必要はあるかなという風に思っています。で、それで実は、今、我々の任期って、常任委員会2年間の任期がありますよね。で、まだ少し任期も残っているんで、我々のこの今のこのメンバーの中では答え出していった方が</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2068s" data-timestamp="2068"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:28</a>　いいかなと思ってるんですが、だとすると、まだ何回かの定例会はございますので、その間、そういうまた状況がまた起きるのか起きないのかとかですね、他の人がやるのかやらないとか、もうちょっと見定める期間はあるかなという風に思ってるんで、次の任期に送れとか言ってるんじゃないので、我々のこのメンバーの中では答え出していっていいと思ってるんですが、まだ少し若干、時間的いとまはあるかなと思っているので、継続審議あたりしていただくとありがたいかなと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t40">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2104s" data-timestamp="2104"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:04</a>　はい。今、渡辺さんからは新たなご提案として継続という話も出てまいりました。継続という形にすると、基本的には閉中になりますので、次の10月もしくは11月の閉会中の審査も想定をしておかないといけないということで、それが今、継続というご提案になると、そういう閉中も行うという風なことになるかと思いますので、そこも含めてご判断かなと思っております。</div><div class="say">うん。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2136s" data-timestamp="2136"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:36</a>　まだちょっと発言がない方もいらっしゃれば、例えばもう今日は決めてきたんだということもあるかもしれないし、趣旨のご提案もありますので、会派ごとに。安田さんは先ほどのご意見でいいということですか。はい、安田さん。</div>
+</div>
+
+<div class="turn reveal" id="t41">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say">はい。継続か趣旨というご提案があったんですけれども、我が会派としては今日採決に臨むつもりで来ております。で、経過を見守るっていうことも大事なのかと思うんですけども、それで何かが変わるのかなという感じもいたしますので、できれば採決が希望ということは申し上げておきます。</div>
+</div>
+
+<div class="turn chair reveal" id="t42">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2180s" data-timestamp="2180"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:20</a>　はい。じゃ、安田さんからは採決というご意見がございましたので、基本的には一致しないのかなという風に受け止めてますけども、一応全会派は確認しておきたいと思いますので。はい。はい。ごめんなさい。公明さん、太田さん。</div>
+</div>
+
+<div class="turn reveal" id="t43">
+  <div class="meta"><span class="name">太田宏徳</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2211s" data-timestamp="2211"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:51</a>　はい。我が会派としても、今回のこの条例の問題に関しては、行政側の努力もあり、一定の効果が出てるということと、その条例に対してのその効果がまたちょっとはっきりしないということで、基本的には条例については反対であるということで、採決についてはもう判断しているところであります。またその趣旨採択に関しては、やはりその条例の〇〇をはっきりさせるというところでちょっと不明確なんですけれども、その条例をするという方向であれば、反対というような状況であります。</div><div class="say">以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t44">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2242s" data-timestamp="2242"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:22</a>　はい。ということは、趣旨ということではなくて、態度は決まってるという、採決ということ。</div>
+</div>
+
+<div class="turn reveal" id="t45">
+  <div class="meta"><span class="name">太田宏徳</span></div>
+  <div class="say">はい。</div>
+</div>
+
+<div class="turn chair reveal" id="t46">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。自民党さん、河野さん。</div>
+</div>
+
+<div class="turn reveal" id="t47">
+  <div class="meta"><span class="name">河野麻美</span></div>
+  <div class="say">はい。もうここで不一致なので採決になるのかなと思ってはいるところではございますが、我が会派としましても今回採決をするつもりで臨んでおりますので、採決でいっていただきたいなと。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2275s" data-timestamp="2275"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:55</a>　で、継続等とご提案がございますが、〇〇もあって次の閉会中があるかっていうところも分からない中ではございますので、速やかに採決で問題ないかなと。で、行政側のご努力によって一定の成果も見られてるところではございますし、やはり条例制定の効果っていったところも測れるかっていうのはなかなか難しい状況があるなっていうのは感じておりますので、それを踏まえて、我が会派としては採決で臨みたいと思っております。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t48">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2307s" data-timestamp="2307"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:27</a>　はい。じゃあ、今んところ採決という明確なところが3人いらっしゃいまして。はい、水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t49">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">はい。うちも一応採決ってことで。じゃ、皆さんのご意見を一応聞いてもらった上でっていうことだったんですが、採決でお願いします。</div>
+</div>
+
+<div class="turn chair reveal" id="t50">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">わかりました。はい。ということですので、趣旨というご提案はありましたけれども、不一致という形になりましたので、本日採決を行ってまいりたいと思いますけれども、よろしいでしょうか。よろしくお願いいたします。では、再開をいたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2340s" data-timestamp="2340"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:00</a>　はい、再開いたします。本件につきましては、委員長報告に載せる意見、要望がございましたら発言をお願いいたします。</div><div class="say">はい。以上で本件に対する質疑を終了することにご異議ありませんか。</div><div class="say">ご異議なしと認めます。従って質疑を終了いたします。これから討論を行います。</div><div class="say">はい。本件に対する討論を終了することにご異議ありませんか。</div><div class="say">ご異議なしと認めます。従って討論を終了いたします。それでは直ちに採決いたします。お諮りいたします。本件は、採択の上、市長に送付することにご異議ありませんか。</div><div class="say">◯（呼ぶ声）<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2377s" data-timestamp="2377"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:37</a>　はい。</div>
+</div>
+
+<div class="turn chair reveal" id="t51">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">ご異議がありますので、本件は起立採決をいたします。本件は採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div><div class="say">はい。起立少数。従って本件は不採択と決定いたしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2409s" data-timestamp="2409"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:09</a>　次に、8陳情第20号、市内3駅周辺の街路樹の本数増を求める陳情書。本日、部局から資料が提出されておりますので、準備ができ次第、資料の説明を求めます。準備でき次第でいいです。</div>
+</div>
+
+<div class="turn reveal" id="t52">
+  <div class="meta"><span class="name">道路管理課長</span></div>
+  <div class="say">道路管理課です。</div>
+</div>
+
+<div class="turn chair reveal" id="t53">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、道路管理課長。</div>
+</div>
+
+<div class="turn reveal" id="t54">
+  <div class="meta"><span class="name">道路管理課長</span></div>
+  <div class="say">道路管理課からご提出した資料についてご説明させていただきます。武蔵小金井駅北口における地下埋設物の位置が分かる資料でございます。埋設物やケーブルを種別ごとに表示してございます。この資料は、渡辺大三委員からご要求のあったものでございます。</div><div class="say">詳細につきましては資料をご覧いただきたいと思います。以上です。</div>
+</div>
+
+<div class="turn reveal" id="t55">
+  <div class="meta"><span class="name">区画整理課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2448s" data-timestamp="2448"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:48</a>　はい、区画整理課長です。</div>
+</div>
+
+<div class="turn chair reveal" id="t56">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、区画整理課長。</div>
+</div>
+
+<div class="turn reveal" id="t57">
+  <div class="meta"><span class="name">区画整理課長</span></div>
+  <div class="say">区画整理課から、東小金井駅北口における地下埋設物位置図という資料を提出いたしました。こちらにつきましては、武蔵小金井駅と、そう、ごめんなさい。失礼しました。こちらにつきましては、東小金井駅、先ほど道路管理課からご説明させていただいた資料と同様のものでございます。</div><div class="say">詳しくは資料をご覧ください。</div>
+</div>
+
+<div class="turn chair reveal" id="t58">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2480s" data-timestamp="2480"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:20</a>　はい。それでは、資料の説明がありましたので、これから質疑を行います。はい、渡辺さん。</div>
+</div>
+
+<div class="turn reveal" id="t59">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say">はい。資料の方、忙しいところ作っていただきましてありがとうございました。ちょっと、この手の話って、図面見ながら議論しないとちょっと分かりにくいので、作っていただいた次第であります。で、これを少し資料を見ながら少し色々伺ってみたいという風に思うんですが、まず、道路管理課の方に作成していただいた武蔵小金井駅北口における地下埋設物位置図ということで資料を</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2511s" data-timestamp="2511"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:51</a>　出していただいたわけでありますけれども、これで、今この資料出していただいた趣旨はですね、この特に北口に関しては、武蔵小金井駅の北口のところに、アオギリが1本あるんですけれども、それ以外はですね、まだちょっと育っていない桜が少しロータリーにありますけれども、あとほとんど、もう街路樹らしきものはないという状況になっていて、非常に今、殺風景な状況になっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2542s" data-timestamp="2542"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:22</a>　で、先般も申し述べましたけれども、かつて市民に、やはりどういう駅前がいいかというアンケートを取ったことが、小金井が取ったことがありまして、その際にはやっぱり四季の〇〇が感じられる駅前であってほしいというのが確か第1位だったという風に記憶をしておりまして、それから見ると、かなり、あまり季節感が感じられるような駅前にはなっていないということかという風に思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2572s" data-timestamp="2572"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:52</a>　で、そこで、この出していただいた資料をもとにですね、少し街路樹を植えられるところの可能性を少し模索してみたいという風に思うんですけれども、1つがですね、まず競技場通りがあるんですけれども、競技場通りと〇〇通りが交差する交差点があって、これの南側の方には先ほど申し上げた通りアオギリが1本上がっていて、結構大きく育っておりますよね。で、その影が、〇〇が落ちているんですけれども、その北側の方ですね、ドン・キホーテさんの前、入り口の前のところなんですけど、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2603s" data-timestamp="2603"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:23</a>　ここのところは、少し、この地図でも分かる通り、大きく広がっております。で、ここのところを見ると、今日出していただいた資料は、その膨らんでいるところには地下埋設物の記号はないということなので、ここのところはですね、街路樹の植栽が可能なのではないかと、いうことで1つあります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2635s" data-timestamp="2635"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:55</a>　それからもう1つはですね、それから少し東の方に参りますと、今もう壊してしまいましたけど、あのパチンコ屋さんの前のところですね、ダイヤモンドさんまだありますけれども、そこの前の横断歩道のところがあるんですが、この横断歩道のところもですね、実は結構大きく膨らんでいるんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2666s" data-timestamp="2666"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:26</a>　で、それで、これで見ていただくと分かる通り、この横断歩道のですね、まず北側のところに関しても、大きく膨らんでいて地下埋設物はないということと、あと南側の方も横断歩道渡ってきたところは、若干、埋設物かかってるところはありますが、膨らんでるところの東側も西側も、埋設のないところもありまして、ここに関しても、この辺り特に1番殺風景になってるんですが、ここは可能性があるんじゃないかということですね。</div><div class="say">で、それからさらにこれを東に来ますと、ちょうど、ゴンベさんっていう、おむすび屋さんありますよね。で、それの、あまり固有名詞言わない方がよかったでしょうかね。で、そこの、北側のところがもう大きく膨らんでおりまして、そこはこの資料で見ての通り、地下埋設物はないということになっていて、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2697s" data-timestamp="2697"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:57</a>　で、ここですね、朝の混む時間帯も実は、膨らんでるところ、人の動線ないんですね。なので、ここも街路樹を植栽することは可能かなという風に思っておりまして、</div><div class="say">で、先般ちょっと〇〇の視察でですね、神戸にちょっと行ってまいりましたけれども、その際も、実はこういうようなところですね、この横断歩道を渡って、こう膨らんでるところで、こういうところにこう街路樹を植栽したり、ベンチを、道制度のような形で、そう、神戸もすごく道制度みたいに進んでて綺麗に整備されておりましたが、こういったところも街路樹などを植栽する可能性はあるんじゃないかということです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2730s" data-timestamp="2730"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:30</a>　で、それからもう1つがですね、世界連邦の銅像が立ってますよね。で、世界連邦の銅像は立っているんですが、その世界連邦の銅像がちょうどこの、島のところの真ん中に立ってるんですけど、この地図でも分かるんですが、この像はですね、枝を張るわけではございませんので、右か左か北か南か、どちらかにちょっとこの像は寄っていただいてですね。で、そうするとそこには街路樹は植えることは</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2760s" data-timestamp="2760"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:00</a>　できるんじゃないのかなという風に思っているんですけれども。で、それで、銅像が別にいいとか悪いとかいうのはないんですが、要するにその銅像っていうのは、別に枝葉が茂るわけでもないわけでございまして、まさに像があるだけになってるんですが、なのでちょっと右か左に寄っていただくとすれば、ここもそれなりの街路樹が植栽可能なんじゃないかという風に思っておりまして、例えば三鷹駅とか、あと阿佐ヶ谷駅とかもそうですかね。</div>
+</div>
+
+<div class="turn reveal" id="t60">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2791s" data-timestamp="2791"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:31</a>　そういう、やっぱり駅に降り立った瞬間に緑が多いなというところ、やっぱりこのロータリーの中の、この島のところに相当大きな木が植わっておりまして、メタセコイアとかね。それでかなり大きな〇〇を作っておりますので、武蔵小金井駅の北口に関しては他にも色々あるかもしれませんけど、今申し述べたようなところに関しては、街路樹をかなり、街路樹を植えられるんじゃないかというふうに分析をするわけなんですけれども、その辺りについて、ちょっと担当のご見解を伺いたいと。今申し上げたところに植えていくだけでも、かなり緑豊かな駅前に生まれ変わるというふうに思うんですが、どうかということですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2821s" data-timestamp="2821"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:01</a>　それから次に、東小金井駅北口における地下埋設物の位置図に関しては、区画整理課の方で作っていただきまして、ありがとうございました。今回出していただいた資料で、実はこの東小金井駅の北口に関しては、今もうタワマンを建ててますけども、タワーマンションの前のところは、実はあそこは緊急時には車道になって、緊急車両はそこを抜けられるようになってるんで、そこを塞ぐような街路樹を植えることはできないと。ということは、これ、ガランと開いてて植えたくなるんですけど、あそこに植えられ……そういう理由で植えられないということは承知しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2852s" data-timestamp="2852"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:32</a>　じゃあ、どこに植えられるのかという可能性を模索していくと、やっぱり一番目につくオープンスペースは、駅前交番があるんですが、この駅前交番の北側のところですね。ここ、大きく開いておりまして、地下埋設物に関してもないところがかなり開けているというふうに思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2883s" data-timestamp="2883"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:03</a>　なので、ここにですね、しかもここはあまり人の流れがあるようなところでもないんで、単に街路樹を植えるだけじゃなくて、東小金井駅の南口って街路樹の下にベンチを置いたりするじゃないですか。だから、大きめの街路樹を植えて、その下にまた南口のようなベンチを置けば、ここで少し人が休めるようになるんじゃないのかなと思って。で、実は武蔵小金井駅の南口ってベンチあるじゃないですか、あちらこちらに。</div><div class="say">ところが、東小金井駅の北口って座るところがほとんどないんじゃないかなと思うんですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2914s" data-timestamp="2914"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:34</a>　なので、かと言って、あちこちにむやみやたらにベンチを置けないのは分かってるんです。ただ、屋根があるじゃないですか。バス停のところにずっと屋根がかかってますよね、白い。</div><div class="say">あの下の辺りの、そのワンスパン、ワンスパンの間にはベンチを置けるんじゃないかなとは見てるんですが。そこに街路樹を植えてほしいと思ったら、それは日が当たらないから街路樹が育たないということで、この間伺ったので、だとしたらベンチぐらい置けるんじゃないかなと思ったりもするわけですけども。この交番の北側のところのエリアに関しては、街路樹の植栽が、少し、しかもかなり大きめのものでも可能ではないかと思ってるんですが、どうかということと、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2946s" data-timestamp="2946"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:06</a>　それから、あと、この地図ではちょっと出てこないんですけれども、ロータリーの、南西角のところって言うんですかね。通称スタ……スタミナの〇〇さんの前の辺りですね。この辺りも、ガランと空いておりましてね。</div><div class="say">で、この辺りは緊急自動車を通す前提は、確かあそこはないですよね。なので、この一角に関しても、街路樹の植栽は可能なのではないかと。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=2977s" data-timestamp="2977"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:37</a>　反対側のタワマンの前は無理ですけれども、こちら、スタミナの前の辺りは可能なんじゃないかというふうにも思うんですけれども、東小金井駅の北口に関しては、そういったところに関しての可能性があると思うんですけど、どうかということと、あと、地蔵通りの南側のところ、ここはいずれは植えるということで、この間の話でよろしかったですよね。で、ちょっと、どういう条件が整った段階で、ここの地蔵通りの南側、東西にこう街路樹を、今日別で配られてるこの資料でもね、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3009s" data-timestamp="3009"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:09</a>　想定図になってますよね。これいつ頃、どういう条件が整った段階で植栽が始まるのかっていうことに関して、少しお知らせもいただきたいと思いますが、東小金井駅の北口に関しては、ちょっと今申し上げたような可能性はあると思うんですけれども、どうかということですね。それで、3つ目の新小金井駅は資料ないんですけれども、この新小金井に関しては、ここで桜を4本、大きなものを伐採、ちょっと腐食してしまった関係で伐採ということになっていきますけれども、先般申し上げたとおりですね、やっぱり</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3041s" data-timestamp="3041"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:41</a>　なんて言うんですかね、伐採はもう傷んでるからやむを得ないということでございますけれども、やっぱり適切な補植をきちんとお願いしたいということで。で、既にきちんと整備されてる新小金井駅の駅前広場があるんですけれども、ここは連担しているゾーンということになりますので、是非その一体的な整備ということに関しても是非ご検討いただきたいと。適切な街路樹の補植は、新小金井駅に関しては引き続きお願いしたいということですが、今日は武蔵小金井駅の北口と東小金井駅の北口に関して、この地図をもとに今申し上げたようなところは、可能性的には十分あるんじゃないかと思うんですけれども、部局のお考えを伺いたいと思います。</div><div class="say">以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t61">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。答弁をお願いします。</div>
+</div>
+
+<div class="turn reveal" id="t62">
+  <div class="meta"><span class="name">道路管理課長</span></div>
+  <div class="say">道路管理課長です。</div>
+</div>
+
+<div class="turn chair reveal" id="t63">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">道路管理課長。</div>
+</div>
+
+<div class="turn reveal" id="t64">
+  <div class="meta"><span class="name">道路管理課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3072s" data-timestamp="3072"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:12</a>　それでは、渡辺委員からのご質問に答弁させていただきます。武蔵小金井駅北口、4箇所ご要望いただきました。まず1点目、〇〇前でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3107s" data-timestamp="3107"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:47</a>　委員ご要望の箇所は、図面によると歩道幅員が約6.5mでございますが、目の前に商業施設のですね、出入り口があり、あと、バス利用のピーク時には長蛇の列ができる箇所でございます。で、バスの列や、nonowaへの出入り、それから一般の通行者が混在するため、植栽はちょっと望ましいものではないかなと考えてございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3138s" data-timestamp="3138"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:18</a>　国土交通省の資料で、歩行者空間の望ましい幅員の考え方というものがあるのですが、それによりますと、歩行者空間は、一般交通に〇〇を生じさせずに地域活動を実施できる幅員を確保する必要があるとされております。バスを待つ方、商業施設を利用される方、駅へ向かう一般の通行者が交錯する現状において、歩行者と樹木等との接触リスクを完全に排除することはちょっと難しく、安全確保の観点から、やはり植栽は困難であるかなと考えているところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3171s" data-timestamp="3171"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:51</a>　次、2点目、元パチンコ屋の前の横断歩道近く。それから3点目、小金井街道の近くというところで、これ合わせてご答弁させていただきます。ご要望のありました箇所につきましては、横断歩道から非常に近接した位置となってございます。</div><div class="say">東京都の道路工事設計基準によりますと、交差点及び横断歩道部付近に植栽帯を設置するにあたっては、視距、見通しのことなんですけども、その視距を確保しなければならないと規定されてございます。具体的には、横断歩道から手前側5mの範囲や、横断歩道から先2mの範囲においては、歩行者や車両の視距の確保が必要な部分として、街路樹の植栽は行わないこととされてございます。当該箇所は、まさにこの制限範囲に該当、あるいは極めて近接しておりまして、植栽を行うと歩行者やドライバーの安全な視界を遮る恐れがございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3234s" data-timestamp="3234"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:54</a>　先日、交通管理者である小金井警察署と協議させていただきましたが、視距確保の観点から望ましくないとの見解が示されてございまして、道路管理者としても、当該箇所への植栽は難しいと判断せざるを得ないと考えているところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3268s" data-timestamp="3268"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:28</a>　次、4点目。世界連邦の銅像のところについてなんですけども、委員ご案内のとおりですね、銅像の移設が必要です。で、銅像を移設するとなるとですね、銅像を所管している部署との協議が必要となります。</div><div class="say">で、また、これ、バスがこう転回するところの交差点の至近になりますので、交通管理者である警察との協議が必要になってくるところでございます。ちょっと今後の検討課題とさせていただければと思ってます。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t65">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。</div>
+</div>
+
+<div class="turn reveal" id="t66">
+  <div class="meta"><span class="name">区画整理課長</span></div>
+  <div class="say">区画整理課長です。</div>
+</div>
+
+<div class="turn chair reveal" id="t67">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、区画整理課長。</div>
+</div>
+
+<div class="turn reveal" id="t68">
+  <div class="meta"><span class="name">区画整理課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3300s" data-timestamp="3300"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:00</a>　はい。東小金井駅北口におきまして、植栽可能なところ2箇所、ご意見いただきましたので、ご回答いたします。交番裏なんですけれども、こちら資料にあるとおりですね、地下埋設物は、植栽につきましては絶対的な支障となるものはなく、植栽自体は可能かと考えておりますが、この場所、駅前でそれ</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3331s" data-timestamp="3331"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:31</a>　なりの面積を確保できる場所ということもございまして、地域からもトイレや喫煙所等、様々なアイデアをいただいておりまして、また、点字ブロックの配置など検討しなければならない課題もありますので、この場での即答は難しいですが、植えるということも含めて、活用を検討してまいりたいと考えております。また、このロータリーの南西角でございます。ちょっと手元に資料がございませんので、地下埋設物があるかどうかというところは確認できないのですが、確かに、広さ的に</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3363s" data-timestamp="3363"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:03</a>　はそれなりにある場所ではございます。日当たりとか、そういった点もありますので、今後考えなければいけないことはあるかとは思いますけれども、検討は可能かとは考えてございます。また、ですね、地蔵通りの植栽、街路樹の植栽、これがいつ頃になるのかなというところなんですけれども、今後はですね、地蔵通りにつきましては、街路築造及び電線共同溝の工事を数年かけて行います。</div><div class="say">その後、インターロッキングを行う工事と合わせて植えるのが適切と考えておりますので、5、6年後ぐらいかなということで考えてございます。以上です。</div>
+</div>
+
+<div class="turn reveal" id="t69">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3396s" data-timestamp="3396"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:36</a>　6年後か。</div>
+</div>
+
+<div class="turn chair reveal" id="t70">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、渡辺さん。</div>
+</div>
+
+<div class="turn reveal" id="t71">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say">はい。ご答弁ありがとうございました。まず、武蔵小金井駅の北口の方なんですけれども、なかなか、今もおっしゃったようないろんな部分があるんですけれども、なかなか他に、じゃあ……最初はずっと議論してきたのはあれだったんですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3427s" data-timestamp="3427"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:07</a>　ちょうど、ドン・キホーテさんの南側のところの、東西のところの歩道のところですよね。ここに何か植えられないかということで、途中の段階では枝を横に張らない桜、つまり、ほうきのようにこう上に伸びるやつですね。そういうものなら可能じゃないかみたいな議論も若干したりして。</div><div class="say">で、ただ、なかなか、中大関係とか学生さんがずらっと並びますから、その限られた時間帯ですけれどもね。そういうことで、なかなかここのところはなかなか厳しいということで、今のところまで動いてないかなということは</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3457s" data-timestamp="3457"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:37</a>　あるんですけれども、ただ、やっぱり北口全体を見渡してみると、あと、もう植栽が可能なところは、もうさっき言ったとおりのようなところで、その横断歩道のところの膨らんでるところですね。こういうところをやっぱり何らか活用していかないと、なかなか厳しいかなということがありまして。で、そういう点から考えると、今申し上げた、さっき申し上げたようなところですね。</div><div class="say">この競技場通りのところと、それからパチンコ屋さんのところから渡ってくる横断歩道のところ</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3488s" data-timestamp="3488"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:08</a>　と、あとは小金井街道のところですね。やっぱり、ここの膨らんでるところに、どういう樹種を植えるかということにもあると思います。あんまり横に当然張るものは植えられないんですけれども、やっぱりこういうところぐらいしか、もう可能性がないんですよね。</div><div class="say">だから、やっぱりその可能性の追求ということから言えば、こういったところの活用を何とか図れないものだろうかということに関しては、是非、引き続きですね、ご検討いただきたいのと、あとは、その例の世界連邦の像のところですね。で、ここは結構、世界連邦の像がちょうどど真ん中にありますよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3519s" data-timestamp="3519"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:39</a>　この地図からも明らかなんですが、なので、この像をどちらかに寄っていただければですね、そこに、どの程度の樹木かっていうのはちょっと検討材料ですけれども、一定のものは植えることはできるんじゃないのかなということは、見て取れるかなと思います。ということでですね、是非ここのところに関しては、なんて言ったらいいんでしょうかね、北口の本当に数少ない、街路樹を植栽できる可能性のあるところということでありますので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3551s" data-timestamp="3551"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:11</a>　是非、この点に関しても、今後ですね、検討を進めていただきたいということでありますので、よろしくお願いしたいというふうに思って……。あと、像の管理は誰がやってるんですか。</div>
+</div>
+
+<div class="turn reveal" id="t72">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say">世界、世界連邦の像は誰が管理して……誰か、誰が管理してるんだったかね。企画……。</div>
+</div>
+
+<div class="turn reveal" id="t73">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say">誰だっけ。世界連邦、管理してるのね。企画、企画、分からない。企画財政かな。</div>
+</div>
+
+<div class="turn reveal" id="t74">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say">秘書の方でやって……。</div>
+</div>
+
+<div class="turn reveal" id="t75">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say">秘書なんだ。秘書なんだ。秘書さんですね。分かりました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3583s" data-timestamp="3583"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:43</a>　ちょっと、要するに何を言いたいかって言うと、本当に数少ない可能ゾーン、街路樹の植栽可能ゾーンなんで、ちょっと像の方にはですね、ちょっと右か左に、ちょっとずれていただくということに関しては、あってしかるべきだということは、申し述べて、今後是非、検討を進めていただきたいということを、今日は要望しておきたいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3613s" data-timestamp="3613"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:13</a>　それから、東小金井駅の方なんですけれども、ということで、ガランと空いてるんで、当然どういう活用かということもあるかなというふうに思うんですけども、でも、何か一点じゃなくてもいいと思うんですよね。何かと何か、例えば街路樹とこれとか、いろんな組み合わせがあるというふうに思っておりますので、その点から。あと、多分あれですよね、喫煙所の関係で言うと、比較的こう飲食店とかがこう密集したゾーンの方に置いた方が、一般的にはそのニーズはあると思うんですよね。</div>
+</div>
+
+<div class="turn reveal" id="t76">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3643s" data-timestamp="3643"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:43</a>　と考えると、東小金井駅周辺で飲食店が一番密集しているところとして大体分かりますので、そちらの方の商店会からも色々ご要望が出ているとも聞いているんですが、総合的に判断していただく必要があるかなというふうに思っておりますけれども、是非この駅前交番の北側のところのオープンスペースに関しては、埋設物も外した形も可能なように図面上見受けられますので、是非、街路樹の植栽のご検討をいただきたいということと、あとは、その北口ロータリーの南西角のところですね、ちょっと地下埋設物、ちょっとすいません、今回そこまで要求範囲に含めてないんですけれども、ちょっとご確認もいただいて、何らかの形が取れる</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3676s" data-timestamp="3676"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:16</a>　か取れないか、ご検討いただきたいというふうに思っております。いずれにいたしましても、武蔵小金井駅の北口と東小金井駅の北口ということで、やはりかなり植栽が少ない状態になっておりまして、JR中央線の沿線、各駅いろんな状況ありますけれども、やはり是非、小金井市民の、先ほど申し上げた要望も、緑の潤いが感じられる駅前ということが非常に要望が高かった経過もございますので、それに対応できるような</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3706s" data-timestamp="3706"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:46</a>　街路の植栽ということを、さらにあらゆる可能性を追求してですね、是非ご検討いただきたいということを、要望だけして終わりたいと思います。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t77">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、ご意見ということでありがとうございます。その他、ご質問ありますでしょうか。はい、水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t78">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">今、質問があったとおり、できるところについては是非、街路樹等ですね、植栽していただきたいなということは私からもお願いしておきたいんですが、一つ伺いたいのはですね、武蔵小金井駅南口の駅前広場については、これは野川と武蔵野公園の自然も要するに再現するという形になっていて、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3747s" data-timestamp="3747"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:27</a>　東小金井駅北口は小金井公園の入口として小金井桜などが植栽されていると。小金井公園の自然を再現するという形になっていると思うんですが、ただ、武蔵小金井北口はですね、多分その駅前広場としてのコンセプトがないと思うんですね。さっき渡辺大三さんからは、緑の潤いがね、感じられるというのが市民からの声が出ていたということなんですが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3779s" data-timestamp="3779"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:59</a>　確かに、その北口は駅前広場と言っても、非常にその交通広場についてもすごく狭いというか、幅もないという状況の中で、なかなかね、いろんな植栽をするというのは限定的なのかなと思うんですが、ただ、駅の成り立ちを考えると、武蔵小金井駅というのは、やはり桜の名所に行くための、要するに一つの駅として開設されたということを考えると、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3811s" data-timestamp="3811"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:31</a>　北口の、どういう駅前にしていくのかというのは、これはやはり一つの課題ではないかなと思っているんですが、これはなかなか道路管理課とか答えられないかもしれませんけど、北口のコンセプトって多分ないと思うんですけど、それでいいのかどうかということと、何らかやはりそういうことは今後考えていかないと、何もないじゃないですか。植栽と言っても、多分ね、その交通広場のところ、真ん中にあるところは木は難しいと思いますけど、〇〇みたいな形で整備することは十分可能だと思うんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3854s" data-timestamp="3854"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:14</a>　そういうことも含めた何らかの考え方を持っていく必要があるというふうに考えているんですが、その点ちょっとどうかということと、あと、このタクシープールなどがある交通広場、見ていても、多分その相当、何ていうか、植栽ができるところというのは限られるところになると思うんですけど、いろんなその、例えば種の選定の仕方によってですね、無理にしても、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3886s" data-timestamp="3886"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:46</a>　何らかの植栽も含めて検討していただけないかなと思うんですけど、この辺についてはちょっとどういうふうに考えているのか伺いたいと思うんですが、ご答弁お願いいたします。</div>
+</div>
+
+<div class="turn chair reveal" id="t79">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">道路管理課長。</div>
+</div>
+
+<div class="turn reveal" id="t80">
+  <div class="meta"><span class="name">道路管理課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3923s" data-timestamp="3923"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:23</a>　水上委員からご質問いただきました。武蔵小金井駅北口のコンセプトについてなんですけども、この武蔵小金井駅北口はですね、皆様ご存知のとおり、駅前交通の結節点という機能と、あとは駅前に用事がない方も通過するような通過道路、二つの性格を持った道路でございます。従いまして、やはり交通広場ということで考えると、かなり手狭な交通広場と言わざるを得ないという状況でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3953s" data-timestamp="3953"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:53</a>　コンセプトについてはですね、私もこの道路管理課長、長いですけども、コンセプトはちょっとすいません、聞いたことがないので、おそらくないのかなとは推察されます。あと、そのなるべく植栽をしていただきたいというご要望についてなんですけども、この件についてもですね、以前からご要望をいただいているところでございますので、北口の交通島についてはですね、まず、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=3984s" data-timestamp="3984"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:24</a>　春には綺麗に咲くツツジですね、低木のツツジを植えてございます。それから、市民団体の方から桜を寄贈していただいて、今、春、染井吉野よりは早い春にですね、咲くような形で春の訪れを感じさせてくれているという状況でございますので、今の段階では、やれることはやらせていただいているのかなというところでございます。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t81">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4021s" data-timestamp="4021"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:01</a>　はい、水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t82">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">状況は分かったんですけれども、ただ、やはり何て言うのか、武蔵小金井駅南口と、あと東小金井駅北口は、それぞれ再開発と区画整理という形で大規模な開発に伴って整備されてきたということがあるので、多分そういう一定のコンセプトのもとに地区計画などが作られてですね、整備されてきたということだと思うんですが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4051s" data-timestamp="4051"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:31</a>　北口はそういう状況ではないので、やはり僕は何らかの考えを持っておいた方が、これからだって再開発ができるわけでしょ。だからやはりそれはね、是非考えていただきたいなということは、これは誰に要望して、市長になるのか、是非考えていく必要があるんじゃないかと思うんですけど、その点、ちょっとどんなふうに考えているんでしょうか。なかなかこの交通の結節点になっているというのはよく分かるんですよ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4083s" data-timestamp="4083"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:03</a>　バスのね、たくさん走っています、いろんなところから来られる方もいらっしゃるので、交通の結節点や、移動の、そういう点になっているというのは分かるんですけど、やはり駅の成り立ちとか、その小金井公園に行く、その桜の名所に行く駅として開設されたということを考えると、北口こそ、やはり何らかの魅力あるその駅前にしていく必要があるんじゃないかな</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4116s" data-timestamp="4116"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:36</a>　というふうに私は考えているんですけど、何らかやはり、そういうコンセプトみたいなものはちょっと考えていただけないかなというふうに考えているんですが、ちょっとその点、ちょっとどなたが答えるのか分かりませんが、ちょっとお答えいただけないでしょうか。あと、そのツツジとか、そういうものは植えられているというのは分かるんですけれども、今後その是非、検討も含めてですね、関係団体さんもいろんなね、市民の方もご協力いただいて</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4146s" data-timestamp="4146"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:06</a>　いると思うんですが、その辺は是非ね、引き続き検討していただきたいというふうに思います。コンセプトの件に関してだけ、ちょっとお答えいただけないでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t83">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。答弁できる方、お願いいたします。都市整備部長。</div>
+</div>
+
+<div class="turn reveal" id="t84">
+  <div class="meta"><span class="name">都市整備部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4177s" data-timestamp="4177"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:37</a>　武蔵小金井駅北口、駅前広場のコンセプトについて考えるべきというご質問を頂戴いたしました。この北口につきましては、先ほど担当からもご答弁させていただいているとおり、使用上の制限もございまして、まず駅前広場としての安全性だとか、歩行者動線の確保が前提になってまいります。その上で、植栽も含めた考え方というのは一定整理されているとは思いますけれども、今日ご意見も頂戴しておりますので、どんなことができるのかというのは、検討課題、研究課題とさせていただきたいと思います。</div><div class="say">以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t85">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4212s" data-timestamp="4212"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:12</a>　はい。市長。</div>
+</div>
+
+<div class="turn reveal" id="t86">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">実務的には、今、部長の方で答弁させていただいたとおりです。水上さんも、あのね、ご指摘というか、ご意見をいただいています。武蔵小金井駅北口は、小金井桜があって、それがあったからこそ、仮の駅が100年前に武蔵小金井駅になって町が発展したという経過がある。</div><div class="say">そういった意味では、元々武蔵小金井駅の北口の方がね、玄関口であったという、歴史的経過があるわけでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4244s" data-timestamp="4244"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:44</a>　そのコンセプトということでご意見をいただいておりますが、ちょっと連立高架をやった時に、どういう議論があったかというのは、私はすいません、しっかり把握できておりませんが、今、明確にお答えできない状況であるというのは確かであります。今、北口の再開発、あのね、水上さんにも応援いただいて着手しておりますが、ここで再開発することによって、滞留する空間や緑の空間を創出いただくということを、やはり公共的な空間のね、整備として、行政からもお願いしているところでありましてですね、そこがちょっと民間任せになっているというご指摘があるかもしれませんが、一定のそういう空間というのは今後生まれてくるかなと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4291s" data-timestamp="4291"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:31</a>　ただ、ちょっと北口をどういう形にしていくかということの考え方については、持ち合わせていないのが現状でございますので、この間、100周年に向けてね、様々な取り組みをやってきたことで、これは市民の皆さんにね、改めて知っていただく機会にもなりましたので、改めてですね、市としても何ができるかというのは考えられればと思います。ということで、今、明確にはありませんが、今後何か考える機会がございましたらですね、それは考えていきたいということでございます。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t87">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4324s" data-timestamp="4324"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:04</a>　はい。水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t88">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">北口再開発については、応援してはいないと思いますので。タワーマンションについては、ああいう街、今の街づくりから考えるとですね、ああいう高さのタワーマンションについては、ちょっと建設について大きな疑問を持っていますので。ただ、今こういう進捗になってきていますのでね、それを踏まえて私たちも意見も述べてきたところです。</div><div class="say">それでやはり、多分再開発の中での</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4354s" data-timestamp="4354"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:34</a>　街づくりの、何ていうか、コンセプトみたいなものは考えられていると思うんですね。やはりね、それと当然、その駅前広場というのは連動していくものだと思いますので、やはり北口をどうするのかということはね、是非今後考えてもらいたいなと。いろんな、あそこにこういう樹木が植えられるんじゃないかという指摘もあって、私も植えられる範囲は植えてほしいなと思うんですけど、今の答弁を聞く限りはなかなか難しい</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4384s" data-timestamp="4384"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:04</a>　ところだったと思うんですが、ただ、やはり、どういう駅前にしていくのかということの発想の中でですね、検討もできるものもあるんじゃないかなと思いますので、是非その点は、引き続き、研究ではなく検討していただきたいということはお願いしておきたいと思います。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t89">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、ご意見ということで、その他にございますでしょうか。はい、では、なければ、一回休憩をいたします。取り扱いについていかがいたしますか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4422s" data-timestamp="4422"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:42</a>　はい、岸田さん。</div>
+</div>
+
+<div class="turn reveal" id="t90">
+  <div class="meta"><span class="name">岸田正義</span></div>
+  <div class="say">ちょっと本日の議論をもって、ちょっと会派に持ち帰りたいので、保留とさせていただいて、9月で採決させていただければと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t91">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。今、ご提案としては継続ではなくて保留ということで、次の定例会中の委員会で採決をというご意見がございましたけれども、いかがでしょうか。</div>
+</div>
+
+<div class="turn voice reveal" id="t92">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">異議なし。</div>
+</div>
+
+<div class="turn chair reveal" id="t93">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">よろしいですか。はい。それでは、次の定例会中の採決ということで、保留と図ってまいりますので、再開をいたします。はい、再開いたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4460s" data-timestamp="4460"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:20</a>　お諮りいたします。本件は現時点での質疑を終了し、保留といたしたいと思います。これにご異議ありませんか。ご異議なしと認めます。従って本件は保留と決定いたしました。</div><div class="say">次に、所管事務調査、循環型社会の形成及び温室効果ガス削減に関する調査を議題といたします。本日、部局から資料が提出されておりますので、初めに資料の説明を求めます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4490s" data-timestamp="4490"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:50</a>　はい、環境政策課長。</div>
+</div>
+
+<div class="turn reveal" id="t94">
+  <div class="meta"><span class="name">環境政策課長</span></div>
+  <div class="say">それでは、環境政策課から、資料として提出させていただいております若者気候市民会議について報告させていただきます。まず、若者気候市民会議は、気候変動問題の影響を最も長く受けると言われている若者世代が、自分たちで気候変動について考え、将来の問題ではなく今の問題として、2050年までのゼロカーボンシティの実現に向けて機運醸成を図ることを目的に</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4521s" data-timestamp="4521"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:21</a>　実施させていただきます。参加人数につきましては、資料にあるとおりですが、現在の申し込み状況としましては、合計で37名の応募申し込みと推薦をいただいているところです。内訳としましては、無作為抽出が15人、官学連携枠が19人、官民連携枠が3名、合計37人の申し込み、推薦をいただいたところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4552s" data-timestamp="4552"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:52</a>　次に、会議概要ですが、8月30日と10月4日の2回を開催しており、テーマについては資料の記載のとおりです。会議の詳細につきましては、現在委託事業者とも調整をしているところですが、会議開始時間については1時30分からではなく午後1時からで調整しておりまして、資料作成時と変更になっております。最後に、会議で出た意見等につきましては、12月に開催予定の環境フォーラムにおいて参加者から発表をいただくことを予定しております。</div><div class="say">報告は以上となります。</div>
+</div>
+
+<div class="turn chair reveal" id="t95">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4584s" data-timestamp="4584"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:24</a>　はい。これから質疑を行います。所管事務調査も含めておりますので。特にないですか。はい、水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t96">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">すいません。ごみ対策、廃棄物処理の関係で、ちょっと伺いたいと思うんですね。</div>
+</div>
+
+<div class="turn reveal" id="t97">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4615s" data-timestamp="4615"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:55</a>　それで、前回のこの委員会で、ごみゼロ化推進会議の方でリユース事業についての検討がされて、総会で具体化されるという話を伺ってはいたんですが、その結果ですね、どういうふうになったのか、ちょっと把握していたら、リユース事業の進展についてちょっと伺いたいというのが、1点です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4646s" data-timestamp="4646"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:26</a>　あとは、災害廃棄物の処理の関係なんですが、熊本でね、震度7の大きな地震が発生しまして、犠牲になられた方もいらっしゃって、今も、今日は熊本は40度という状況で、停電、断水も続いているという状況なので、ちょっと支援を抜本的に強めなければいけないというふうに思っているんですが、災害時のこの廃棄物処理の関係で、小金井市として、まだ具体化がこれからで、検討しなければいけないということになっているものというのは何かあるのか、ちょっと考えていることがあったら、ちょっとご説明いただきたいということなんですが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4677s" data-timestamp="4677"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:57</a>　私の方でちょっと思いつくことで言うと、6月議会の災害用のトイレカー、これが導入されることになった時の質疑の中で、トイレカーの、要するに、し尿処理については廃棄物処理計画の中には明記されていないという話だったんですが、その後、要するに、このトイレの運用、運用というか、つまり、廃棄物処理との関係でどう対応するのかというのは、何か方向性は決まっているのかどうか、この点、ちょっと1つ課題ではないかなというふうに思っているんですが、その点どうかということと、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4708s" data-timestamp="4708"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:28</a>　もう1つはですね、要するに、災害時に出る、そのいろんな粗大ごみ含めたごみを一時保管所に集積するという計画になっていると思うんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4740s" data-timestamp="4740"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:00</a>　で、一時保管所については、候補地については今後検討という形になっていたと思うんですが、いつ災害が起こるか分からないということを考えると、ある程度の候補地というのは決めておく必要があるんではないかなというふうに考えているんですが、ただ、発災して被害状況にもよるので、事前にね、ここをこうだというふうに細かく決められるのかどうかという問題はあると思うんですが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4771s" data-timestamp="4771"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:31</a>　ただ、計画上は多分今後検討という形になっていたと思うので、その辺はちょっと検討状況についてどういうふうになっているのか、ちょっと確認したいと思うんですが、以上、いかがでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t98">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、ごみ対策課長。</div>
+</div>
+
+<div class="turn reveal" id="t99">
+  <div class="meta"><span class="name">ごみ対策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4803s" data-timestamp="4803"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:03</a>　まず1点目のリユース品の譲渡会についてでございますが、前回、協議を進めているということでご報告させていただいておりましたが、ごみゼロ化推進会議の総会が6月の下旬にございまして、リユース品の譲渡会を含めた今年度の事業計画について承認されたところでございます。で、その後ですね、7月にごみゼロ化推進会議の啓発部会という部会を経まして、今、9月のですね、予定としましては26日土曜日の午前10時から行うような予定で準備を進めているところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4836s" data-timestamp="4836"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:36</a>　場所はですね、野川クリーンセンター内のバスケットボールコート、対象品は衣服、食器、雑貨類などとなってございます。で、出品者につきましては市内在住者で、15枠を予定しておりまして、この後ですね、8月15日の市報で広報を行いまして、ホームページ等でも掲載し、申し込みをしていただくというような運びとなってございます。リユース会については以上でございます。</div><div class="say">譲渡会だから、ごめんなさい。</div>
+</div>
+
+<div class="turn chair reveal" id="t100">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">清掃係長。</div>
+</div>
+
+<div class="turn reveal" id="t101">
+  <div class="meta"><span class="name">清掃係長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4868s" data-timestamp="4868"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:08</a>　災害廃棄物処理の今後の課題と言いますか、まだ決まっていないことと、あと、一時仮置き場候補地につきまして、私の方からお答えをさせていただきたいと思います。令和8年3月に小金井市災害廃棄物処理計画の方を改定いたしまして、こちらでですね、災害廃棄物処理につきましては、処理の工程などを決定させていただいたところではありますけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4898s" data-timestamp="4898"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:38</a>　災害時に発生する膨大な災害廃棄物を処理するためには、庁内で充足できない災害廃棄物処理に要する重機ですとか、人材の手配というところが非常に重要であると思っておりまして、こちらの検討というところが課題と認識しております。で、こちらの災害廃棄物の適正処理のためにですね、平時から様々な状況を想定して準備が必要であると考えておりますので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4929s" data-timestamp="4929"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:09</a>　こちらの工程、重機、あと人材の調達というところにつきまして、引き続き検討を進めてまいりたいと思っております。続きまして、一時仮置き場の候補地の検討状況というところです。で、こちらの令和8年3月の災害廃棄物処理計画の改定にあたりまして、一時仮置き場候補地、あとは集積所の候補地の検討につきましては、内部としては一定整理をさせていただいているところですけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4960s" data-timestamp="4960"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:40</a>　こちらの集積所の開設であるとか、一時仮置場の開設にあたりましては、災害の発災状況等に応じてですね、市の方で指定して市民の皆様に周知をするという流れになっております。で、具体的にはですね、8時間から24時間までに災害時に発生する廃棄物の処理方針を決定しまして、市民の皆さんに周知広報を行う。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=4993s" data-timestamp="4993"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:13</a>　で、24時間から72時間、3日以内にですね、片付けごみの収集体制の構築と集積所の開設運営をするという計画の流れになっておりますので、この業務の流れに沿って市民の皆さんに周知できるように、市としては行ってまいりたいと思っております。</div>
+</div>
+
+<div class="turn chair reveal" id="t102">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、ごみ対策課長。</div>
+</div>
+
+<div class="turn reveal" id="t103">
+  <div class="meta"><span class="name">ごみ対策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5026s" data-timestamp="5026"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:46</a>　トイレの関係でございますが、先日、6月の議会で、ちょっと所管は違うんですが、トイレカーの購入ということでお話がございまして、今、その話を受けましてですね、様々協議している段階でございます。</div><div class="say">先日の予算特別委員会でも環境部長の方がご答弁させていただきましたが、こちらのトイレカー、どういったシーンでどういったフローで行っていくかによって、我々のその災害廃棄物の計画というところに落とし込むというような流れが、整理ができるかなと思いますので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5057s" data-timestamp="5057"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:17</a>　今後ですね、また担当とは調整しながら進めていきたいと考えております。以上でございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t104">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t105">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">リユース事業は、譲渡会を9月26日に実施するということで、譲渡会ということになると、要するに、なんていうか、販売ということではなく、無料で提供するというようなことなのか、この辺ちょっと確認しておきたいと思いますが、いかがでしょうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5099s" data-timestamp="5099"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:59</a>　あと、サステナブルパークなどでですね、場所的にはそちらの方が市民としては集まりやすいとは思うんですが、クリーンセンターというところになった、以前その〇〇と一緒にやって非常に盛況だったという話もあるので、ね、多分このクリーンセンターでも大丈夫なんだろうと思うんですけど、そのサステナブルパークの活用などについての検討はちょっとどういうことだったのか、伺いたいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5129s" data-timestamp="5129"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:29</a>　トイレについては、協議しているということなので、ぜひ、せっかく導入されるということなので、活用方法については今後検討していただきたいと、これを要望しておきます。で、一時仮置き場なんですけれども、一定整理はついているということなので、ある程度場所、場所と言っても、比較的大きな公園ということになっているので、小金井市内である程度限られていると思いますので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5161s" data-timestamp="5161"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:01</a>　例えば、現状、例えば小金井市で大きな地震があった場合には、一時仮置き場についてある程度の場所が選定されていて、その開設について、要するに、その対応は大丈夫だという理解で、いいのかどうか、この辺ちょっと確認しておきたいと思います。あと、重機や人材の手配が課題だという話だったんですが、人材の手配ということになってくると、これは市の職員というような理解でいいのかどうか、なかなか職員もやっぱり限られた人数なので、なかなか手配と言って難しいと思うんですが、その辺もう少し具体的に教えていただけないでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t106">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5191s" data-timestamp="5191"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:31</a>　はい、ごみ対策課長。</div>
+</div>
+
+<div class="turn reveal" id="t107">
+  <div class="meta"><span class="name">ごみ対策課長</span></div>
+  <div class="say">リユース品の関係でございます。すみません、説明が足らずですね。こちら無料でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5222s" data-timestamp="5222"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:02</a>　それから、場所についてですね、今回、野川クリーンセンターを予定しておるんですが、水上委員おっしゃったとおり、調布市とやったリユース譲渡会がですね、かなり好評だったということで、今回、ごみゼロ化推進会議の皆さんで初めて行うということで、場所としては同じ野川クリーンセンターでやってみようということで、今回予定してございます。今後ちょっとね、サステナブルパークとか、その辺もどうするかというのは今回やってみてですね、また報告等を通じて検討する内容になるのかなということでお答えさせていただきます。私から以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t108">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5255s" data-timestamp="5255"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:35</a>　はい、清掃係長。</div>
+</div>
+
+<div class="turn reveal" id="t109">
+  <div class="meta"><span class="name">清掃係長</span></div>
+  <div class="say">一時仮置場の候補地についてです。一時仮置場の候補地としましては、地域防災計画にもあるとおり、梶野公園ですとか上水公園運動施設グラウンド、あとは都立武蔵野公園野球場と小金井公園第一駐車場というところで、候補地の一覧を現在定めているところです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5286s" data-timestamp="5286"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:06</a>　また、人材の手配につきましては、市の職員では、おっしゃるとおりなかなか充足できないと考えておりますので、民間事業者との協定も活用して、災害廃棄物の処理、あと物資の提供に関する協定締結を進めるなどですね、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5318s" data-timestamp="5318"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:38</a>　平常時から関係機関との連携体制の構築強化に努めることも重要と考えておりますので、そちらの協定の方を進められるように取り組んでいきたいと考えております。</div>
+</div>
+
+<div class="turn chair reveal" id="t110">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t111">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">状況分かりました。リユース事業については、ぜひ、そういう形で実施されるということなので、周知などですね、バックアップしていただきたいと、いうふうに思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5350s" data-timestamp="5350"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:29:10</a>　あと、災害時の対策なんですが、やっぱりいつ起こるか分からないということだと思いますので、他にも課題となっていることがあるとすればですね、ぜひ対応を検討いただきたいと、いうことはお願いしておきたいと思います。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t112">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">リユース品の譲渡会、9月26日でいいんですよね。</div>
+</div>
+
+<div class="turn reveal" id="t113">
+  <div class="meta"><span class="name">ごみ対策課長</span></div>
+  <div class="say">26日です。</div>
+</div>
+
+<div class="turn chair reveal" id="t114">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、ありがとうございます。他にございますでしょうか。なければよろしいですね。じゃあ閉めますよ。以上で本件に対する現時点での質疑を終了することにご異議ありませんか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5387s" data-timestamp="5387"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:29:47</a>　ご異議なしと認めます。従いまして、本件に対する現時点での質疑を終了いたします。お諮りいたします。本件は引き続き調査する必要があると認め、継続調査といたしたいと思います。これにご異議ありませんか。ご異議なしと認めます。本件は継続調査と決定いたしました。</div><div class="say">次に、所管事務調査、都市計画道路に関する調査を議題といたします。部局から発言がありましたら、これを求めます。</div>
+</div>
+
+<div class="turn reveal" id="t115">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">特にございません。</div>
+</div>
+
+<div class="turn chair reveal" id="t116">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5417s" data-timestamp="5417"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:30:17</a>　はい、特にございません。それではこれから質疑を行います。水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t117">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">前回聞いたことと同じなんですけど、東京都の新年度予算で、3・4・11号線の関係の予算が組まれているんではないかということについて、確か予算は組まれていないというようなことだったかなと思うんですけど、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5447s" data-timestamp="5447"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:30:47</a>　その後、要するに、この東京都のですね、3・4・11号線に関する予算付けやですね、今、概略設計の進捗、これについて何か新しい情報があったらお示しいただきたいんですが、その点いかがでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t118">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、都市計画課長。</div>
+</div>
+
+<div class="turn reveal" id="t119">
+  <div class="meta"><span class="name">都市計画課長</span></div>
+  <div class="say">8年度の東京都の3・4・11号線に関する予算でございますが、約7,900万円計上しているということです。こちらについては測量費なども含めて計上しているということです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5478s" data-timestamp="5478"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:18</a>　それから、こちらについては令和7年に契約した3・4・11号線の概略設計の予算も、債務負担ということで、そちらの一部2,244万円も含まれているというところでございます。それから、概略設計の検討状況でございますが、まだ特に何も情報等は得ておりません。適切な時期に情報提供をさせていただくので待ってほしいということは言われております。</div><div class="say">以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t120">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5513s" data-timestamp="5513"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:53</a>　はい、水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t121">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">状況分かりましたが、この7,900万のうち2,240万が概略設計の、債務負担行為と、いう形になっているということなので、測量費などということだったんですが、具体的に何か詳しく、こういうものに使っていくというようなことが、それはちょっと分かるのか分からないのか、もう少しちょっと分かっていれば、ご説明いただけないでしょうか。ただ、情報がここまでしか東京都が教えてくれなかったということなのかどうか、その辺ちょっと確認しておきたいと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t122">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5552s" data-timestamp="5552"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:32</a>　はい、都市計画課長。</div>
+</div>
+
+<div class="turn reveal" id="t123">
+  <div class="meta"><span class="name">都市計画課長</span></div>
+  <div class="say">把握しているのは現在答弁したとおりでございます。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t124">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">では、他に質問ございますでしょうか。よろしいですか。では、以上で本件に対する質疑を終了することにご異議ありませんか。ご異議なしと認め、本件に対する現時点での質疑を終了いたします。お諮りいたします。</div><div class="say">本件は引き続き調査する必要があると認め、継続調査といたしたいと思います。これにご異議ありませんか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5590s" data-timestamp="5590"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:10</a>　ご異議なしと認めます。本件は継続調査と決定いたしました。次に、行政報告を行います。初めに、行政報告1、市立公園における花火イベントの試行実施について行います。部局の説明を求めます。準備でき次第で大丈夫です。</div>
+</div>
+
+<div class="turn reveal" id="t125">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">メールで来てた。メール。</div>
+</div>
+
+<div class="turn reveal" id="t126">
+  <div class="meta"><span class="name">緑と公園係長</span></div>
+  <div class="say">緑と公園係長でございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t127">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5621s" data-timestamp="5621"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:41</a>　緑と公園係長。</div>
+</div>
+
+<div class="turn reveal" id="t128">
+  <div class="meta"><span class="name">緑と公園係長</span></div>
+  <div class="say">それでは、環境政策課から市立公園における花火イベントの試行実施について報告します。</div>
+</div>
+
+<div class="turn reveal" id="t129">
+  <div class="meta"><span class="name">緑と公園係長</span></div>
+  <div class="say">市立公園における花火の使用については一律禁止としてきましたが、市民の方からのご要望を受け、梶野公園、栗山公園及び環境楽習館において日時、条件等を限定し、近隣にお住まいの方に事前にご理解いただいた上で、試行的に公園における花火使用の課題を把握するとともに、公園の魅力向上、子供たち及び地域の交流を目的に、指定管理者の自主事業として手持ち花火イベントを実施することにしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5651s" data-timestamp="5651"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:11</a>　梶野公園において、昨日8月2日の午後6時30分から午後8時まで実施し、非常に多くの方にお越しいただきました。</div><div class="say">今後の予定としましては、環境楽習館において8月8日土曜日の午後7時から午後7時30分まで実施するほか、栗山公園において8月30日の午後6時30分から午後8時まで実施する予定です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5684s" data-timestamp="5684"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:44</a>　試行実施に伴い、市立公園における花火使用の課題及び効果を把握するために、近隣にお住まいの方、花火の使用者及び市ホームページの利用者を対象にアンケート調査を実施しています。アンケート調査結果は市ホームページで公表するとともに、今後の市立公園における花火使用の検討に活用することを予定しています。</div><div class="say">報告は以上でございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t130">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5716s" data-timestamp="5716"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:16</a>　はい。これから質疑を行います。はい、河野さん。</div>
+</div>
+
+<div class="turn reveal" id="t131">
+  <div class="meta"><span class="name">河野麻美</span></div>
+  <div class="say">はい。なかなかこう提案をするっていうのは、なんかどういうことなんだと難しいなと思ってるところではございますが、まず、前部長がですね、残してくれたお土産を、ここまでいいものに形作っていただいたことに、まず感謝を申し上げたいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5747s" data-timestamp="5747"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:47</a>　花火終了後のごみの回収をその市の方で行うことであったりとか、あとは年齢制限、他市は設けていたのに、今回、特に設けずに実施されていたことっていうのは、本当に他の市と比べても小金井市としては非常にご努力いただいた、頑張っていただいた点かなと思っておりまして、そこに関しては感謝申し上げます。</div><div class="say">実施後のアンケートについても、それをね、元に次につなげていくっていったところでやっていただけたことには感謝しておりますし、ここについては、その近隣の方にも是非アンケートを終わった後に実施してほしいという思いが、前回、一般質問でもお伝えしておりましたので、ここも是非ご検討いただきたいなと思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5780s" data-timestamp="5780"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:20</a>　昨日は私も伺っておりまして、ちょうど自宅を出た時には雨が降っていたんですが、梶野公園に着いた時には雨も止んでおりまして、その影響もあってか、人があまり来ないかなっていう思いもあったんですけれども、本当に多くの方にお越しいただいていて、大盛況のイベントだったかなと感じております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5811s" data-timestamp="5811"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:51</a>　実際に市長や担当課長も現地にいらっしゃっておりましたので、率直に、この昨日の回の試行実施を終えたことを受けての所感というか、感想みたいなところがあれば、まずお伺いしたいなと思います。</div><div class="say">今回の試行実施というのは、梶野公園、栗山公園、あと環境楽習館の3園で実施するということになっております。まず、そもそもですね、今回この3園を選んだ理由という、選定理由というのは何だったのか伺いたいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5843s" data-timestamp="5843"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:23</a>　一般質問の中で、この花火を継続して実施していく上では、その安全管理であったり火の始末など、そういったところを担っていくスタッフ、人員体制といったところが課題の1つだと認識しているといったご答弁があったかと思います。ですので、地域連携みたいなところも深めていけたらみたいなお話をしていたかと思いますが、昨日の試行実施においてはどのような体制で運営されていたのか、そのスタッフ配置であったり、役割分担みたいなところについて伺いたいと思います。まずは以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t132">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5875s" data-timestamp="5875"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:55</a>　はい。環境政策課長。</div>
+</div>
+
+<div class="turn reveal" id="t133">
+  <div class="meta"><span class="name">環境政策課長</span></div>
+  <div class="say">まず、昨日の所感という部分で1問目、答弁させていただきます。</div><div class="say">まずは、1年以上前からご提案いただいておりまして、第1回目の試行実施、一部ちょっと火が手に当たってしまったお子さんがいらっしゃったようなんですが、多くの子供たちの笑顔を見ることができまして、アンケートでも夏の思い出になったというお声をいただいておりますので、良かったなという風に感じております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5907s" data-timestamp="5907"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:27</a>　ただ、梶野公園自体がですね、草も多く、住宅街の中の公園ですので、花火を実施できるエリアがですね、限られております。昨日も200人弱の多くの方に来ていただきまして、子供同士の花火の火が接触しないように気をつけて見ていたところなんですが、ちょっと危ないなって場面も見られたので、来年度以降、行うのはちょっと検討が必要だなという風に考えているところです。</div><div class="say">◯（呼ぶ声）<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5938s" data-timestamp="5938"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:58</a>　梶野公園についてですよ。梶野公園について。</div>
+</div>
+
+<div class="turn chair reveal" id="t134">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。静かにお願いします。</div>
+</div>
+
+<div class="turn reveal" id="t135">
+  <div class="meta"><span class="name">環境政策課長</span></div>
+  <div class="say">今週もですね、指定管理者と梶野公園の試行実施の振り返りの打ち合わせを予定しておりますので、課題と感じています火種の場所、あとは数など含めてですね、あと2回の試行実施の中で改善できるものは、対策を講じていきたいなという風に考えているところです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=5971s" data-timestamp="5971"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:39:31</a>　あと、公園の選定理由につきましては、当初、公園で花火を使用することの課題としてですね、想定していました煙や匂い、あと騒音、この問題を心配した中でですね、ある程度、近隣の住宅から距離を確保することができて、あとアスファルト舗装などがある場所、また周りを囲われている公園として、梶野公園、栗山公園と環境楽習館を選定しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6003s" data-timestamp="6003"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:03</a>　体制につきましては、昨日は市の職員4名、あとは指定管理者2名、さらにこがねい遊ぱーくの方5名のご協力をいただきながら、職員の方は自転車の誘導、こがねい遊ぱーくと指定管理者の方は花火と人の接触が起きないように見守り体制を取らせていただいたところです。はい、以上となります。</div>
+</div>
+
+<div class="turn chair reveal" id="t136">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、河野さん。</div>
+</div>
+
+<div class="turn reveal" id="t137">
+  <div class="meta"><span class="name">河野麻美</span></div>
+  <div class="say">はい、すみません。近隣住民の方へのアンケートについても、後ほどご答弁ありましたっけ。ご答弁いただけたらと思います。で、検討が必要っていうのは梶野公園っていう理解で大丈夫ですよね。はい。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6048s" data-timestamp="6048"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:48</a>　やっていた場所が、そのヨークフーズ側のその本当にアスファルトのところだけだったので、なんて言うんですかね、アスファルト部分も周りが草がある状態だったので、その防炎シートですかを敷きながらやってる状況ではあったんですけど、やはりそこが狭かったので、結構、火種の方も市側で用意してくださって、そこにこう皆さん火をつけに行って、また自分たちのエリアに戻ってっていうところで、やっぱりちょっと移動してる時に、やっぱり子供なので、花火の管理っていうのが難しい部分があったのかなっていうのは、私も感じました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6079s" data-timestamp="6079"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:41:19</a>　ですので、自宅、一家族、自分の家族で火種を持ってきても、そこで、その場で安心してできるんじゃないかなと、その親の管理の下でもできるのではないかなっていうのは、移動が減るので、そういったところは再度、その今後の8月30日までに向けて検討いただきたいなと思います。</div><div class="say">やはり武蔵野市に視察に行った時もおっしゃってたんですが、こうイベント的にやってしまうと、その1日にやっぱり皆さんが集中して、目がけてやってきてしまうので、そのキャパを超えての人数になってしまうっていったところがあるかなっていうのは、課題として挙げておられたので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6110s" data-timestamp="6110"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:41:50</a>　小金井も同じ状況であったのかなと思います。ですので、ここについてはちょっと日数を、やはり増やしていくような対応っていうのが求められるのかなというのは、行って感じました。</div><div class="say">また、知らずに通ってる方で、「あ、ここ花火できるんだ」とおっしゃってた方がおりましたので、今後また、逆に知らずに花火をしてしまう方っていうのもいらっしゃるのかなと、そういった別の面での対応というのも必要になってくるかなっていうのは、私も昨日参加していて感じたところです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6141s" data-timestamp="6141"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:21</a>　一点、選定について気になったのは、今回の試行実施っていうのは、この単に花火を実施するっていうことだけではなくって、その公園で花火ができる場所を広げていくための試行みたいな形で、私としては捉えていたんですね。ですので、環境楽習館っていうのは昨年も花火のイベントを実施していたので、これを試行実施に含めるのはちょっと違うんじゃないかなっていう感覚を持ってたんです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6173s" data-timestamp="6173"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:53</a>　もうすでにやれているし、それを試行実施にするんではなくて、そうじゃない別の公園を持ってきて3園にすべきだったんじゃないかなっていう思いは、正直持っております。小金井公園は元々実施できる中で、栗山、梶野で、やっぱり東小金井側に集中している、坂上側に集中しているので、やっぱり坂下の子は行きにくい。武蔵小金井エリアの人もなかなか行きづらい。</div><div class="say">で、やっぱり夜なので、花火は。ちっちゃい子たちを連れて自転車で行くってなった時には、私も</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6205s" data-timestamp="6205"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:43:25</a>　貫井南町の方々にお勧めはしましたが、ちょっと距離があって無理だよねっていう答えが返ってきてしまった。で、その環境楽習館もあるよっていう話はしたんですが、30分の時間で、100名しか花火の販売をしていないってなると、ちょっと厳しそうだよねっていうので敬遠してしまう声が出てしまったので、そこをちょっと来年度に向けては少し改善していっていただきたいなと。</div><div class="say">一般質問の中では市長から、本庁舎の駐車場についてはグーというような合図を頂いていたので、いけるかなと思っていたので、ここはちょっと残念だなという思いは持っております。</div><div class="say">ただ、まだ2回の試行実施っていうのが残っておりますので、課題や改善策、それで来年度以降の取り組みについてっていうのは、また終わってから、その別の機会で伺っていきたいと思いますので、引き続きよろしくお願いいたします。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t138">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6236s" data-timestamp="6236"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:43:56</a>　はい、環境政策課長。</div>
+</div>
+
+<div class="turn reveal" id="t139">
+  <div class="meta"><span class="name">環境政策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6266s" data-timestamp="6266"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:26</a>　すみません。答弁が漏れておりまして、近隣の方へのアンケート調査につきましては、事前にですね、花火を実施する旨のご理解とご協力のお願いの際に、アンケートのフォームも一緒にお渡しさせていただいておりまして、さらにご迷惑をおかけした部分もあったかと思うので、お礼を、この後、近隣の方に回らせていただいた中でも、アンケート調査のご協力をお願いしたいと考えてるところです。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t140">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、他にありますでしょうか。よろしいですね。はい、以上で本件に対する質疑を終了することにご異議ありませんか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6303s" data-timestamp="6303"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:03</a>　ご異議なしと認めます。従って、本件に対する質疑を終了いたします。</div><div class="say">次に、行政報告2、井戸水のPFAS（有機フッ素化合物）に関する水質調査について行います。部局の説明を求めます。はい、環境政策課長。</div>
+</div>
+
+<div class="turn reveal" id="t141">
+  <div class="meta"><span class="name">環境政策課長</span></div>
+  <div class="say">それでは、環境政策課から井戸水のPFAS（有機フッ素化合物）に関する水質調査について報告いたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6334s" data-timestamp="6334"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:34</a>　都民の健康と安全を確保する環境に関する条例において届出対象になっている動力で汲み上げる井戸のうち、過去にPFASの調査を実施したことがない31地点の民間の井戸所有者及び管理者の方に対しまして、調査意向の確認の文書を送付したところ、17地点の所有者及び管理者の方から調査を希望する旨の回答がありました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6367s" data-timestamp="6367"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:46:07</a>　回答のあった17地点に加え、市の管理井戸のうち、地下水保全会議でのご意見及び地域バランスを考慮し選定した栗山公園、下弁天子供広場及び第二小学校の3地点を加えた20地点についてPFASの測定を実施いたします。うち4地点を東京都環境局が毎年実施する地下水概況調査の対象とし、残りの16地点を市独自調査として実施いたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6398s" data-timestamp="6398"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:46:38</a>　市独自調査の井戸水の採水は、井戸水の水位が安定する9月から10月に実施し、水質の分析を行った上で、令和9年1月頃に公表をしていきたいと考えているところです。</div><div class="say">なお、調査結果の公表は、民間所有の井戸については、個人情報保護及び風評被害防止の観点から調査地点数のみとし、検出があった場合においても、地点数及びその数値にとどめる考えです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6428s" data-timestamp="6428"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:47:08</a>　また、市管理井戸につきましては、調査地点、調査物質及び測定値をお示しする予定です。市管理井戸は飲用として使用している井戸はございませんが、調査した結果、指針値を超過した場合には、各所管と協議し、使用等を踏まえ慎重に対応していきたいと考えているところです。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t142">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。これより質疑を行います。よろしいですか。はい。安田さん。</div>
+</div>
+
+<div class="turn reveal" id="t143">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say">はい。ご報告ありがとうございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6461s" data-timestamp="6461"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:47:41</a>　公共の井戸43箇所ということなんですけれども、その栗山公園、二小、下弁天というこの3箇所なんですけれども、その地下水保全会議の方で先生方と協議して決めたということだと思うんですけども、この、他にも色々あるのかなと思うんですけど、このエリアでこの3つの地点を選んだという理由というものを聞かせていただければと思います。はい、以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t144">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6496s" data-timestamp="6496"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:16</a>　はい。環境政策課長。</div>
+</div>
+
+<div class="turn reveal" id="t145">
+  <div class="meta"><span class="name">環境政策課長</span></div>
+  <div class="say">ちょっと、報告の中でもございましたが、市の管理井戸の選定理由としましては、地域のバランスを考慮しまして選定しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6532s" data-timestamp="6532"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:52</a>　北東エリアがですね、なかなか市の管理井戸で調査できるところがございませんので、栗山公園は南東エリアで、北西エリアとしては第二小学校で、南西エリアとして下弁天子供広場という形で選定をしているところでございます。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t146">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。安田さん。</div>
+</div>
+
+<div class="turn reveal" id="t147">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say">はい。栗山公園、そうです。北東があまりないということなんですけど、栗山公園は、今、あれですよね。池が、親水できるように、スロープを設けたりとかしていて、その影響っていうかも考えて選んだのかなという、市民が直接触れるような水ということなのかなという風に思います。</div><div class="say">二小の方は、芝生の散水などで使われている水ということだと思います。下弁天の方でも、その子供たちが、今、夏の間、水遊び用に使っている井戸水なのかなという風に思いまして、適正なのかなという風には思いますけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6594s" data-timestamp="6594"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:54</a>　そうですね、実際、その飲み水などに使うような公共の井戸、震災対策用の井戸、小学校とかの井戸、二小の方では、今、芝生に使っていますけれども、その災害時には、生活用水としても使うようなことが想定されているのかっていうことは、ちょっと確認させてください。</div>
+</div>
+
+<div class="turn reveal" id="t148">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say">はい、以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t149">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6628s" data-timestamp="6628"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:28</a>　はい、環境政策課長。</div>
+</div>
+
+<div class="turn reveal" id="t150">
+  <div class="meta"><span class="name">環境政策課長</span></div>
+  <div class="say">二小の井水の使用についてのご質問ということで、ご答弁させていただきます。震災対策用井戸としましては、二小の方、震災対策井戸として指定しておりまして、災害時につきましては生活用水として使用するという形で活用が決められているということは、承知しているところでございます。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t151">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、安田さん。</div>
+</div>
+
+<div class="turn reveal" id="t152">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say">はい。そうですね、今、熊本でも大変な地震が起こって、水も止まっているということで、こういった時に、この震災対策用の井戸の安全性っていうのは、もう事前に、本当に確認する、特にPFASに関しては、飲料ではないにしても、どれぐらいが含まれているかということは確認が必要かなという風に思っておりますので、引き続きちょっと注視していきたいと思います。はい、確認だけで、以上で終わります。</div>
+</div>
+
+<div class="turn chair reveal" id="t153">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t154">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">PFAS等の検査が、こういう形で、行われることになったというのは良かったと思うんですが、これ、どこかで答弁があったらちょっと申し訳ないんですが、全体として、その民間井戸、あと今、公共井戸、あと、その市管理って、震災時の井戸のことかなと思うんですけれども、それぞれ全体としてはいくつなのかっていうのが、およその数でいいんですけど、分かったら教えていただきたいのと、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6728s" data-timestamp="6728"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:52:08</a>　今回、その過去に調査した31地点の意向を聞いて17地点と、これ民間井戸については希望があったっていうことなんですが、今後の方策としては、全体としてやっぱり網羅するっていう形で調査・検査をしていくっていうような考え方になるのか、その辺の考え方について伺いたいと思うんですが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6759s" data-timestamp="6759"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:52:39</a>　あと、他ではですね、これ、安田さんなんかも質問されていて、PFAS、〇〇以外の、他のものもですね、検出するっていう形になってたと思うんですけれども、そういうことについては、今回は多分それがないと思うんですけど、そういう形になってくるのかどうか、その辺をちょっと伺いたいと思うんですが、いかがでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t155">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6792s" data-timestamp="6792"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:53:12</a>　はい、環境政策課長。</div>
+</div>
+
+<div class="turn reveal" id="t156">
+  <div class="meta"><span class="name">環境政策課長</span></div>
+  <div class="say">まず、井戸の数につきましては、市の管理井戸が10地点ございます。あと、民有の井戸につきましては35地点、あとは水源井戸につきましては18地点ございます。で、あとは震災対策用井戸として35地点ございます。</div><div class="say">ただ、市管理井戸と民有井戸が重複する箇所が9地点ありますので、そこを差し引くと26地点になるかと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6822s" data-timestamp="6822"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:53:42</a>　今後の調査の考え方ですが、今回、調査の目的としましては、まずは市内の地下水におけるPFASの存在状況、分布状況の把握と、健康リスクの未然防止を目的として、調査、観測をさせていただく予定でして、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6852s" data-timestamp="6852"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:54:12</a>　今後、全体を調査するかどうかというのは、まだ内部でも調整しているところでございますので、現時点では、そのような形で答弁させていただければと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6886s" data-timestamp="6886"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:54:46</a>　あと、検査項目、調査項目の物質につきましては、PFOS、PFOA、PFHxSの3物質を調査させていただくことを予定していますが、今後につきましても、どのような物質を調査するかについては、まだ内部で調整をしているところでございます。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t157">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t158">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">状況分かりましたが、ぜひ、今後の検査についてはですね、全体の状況を見ながら、ぜひね、検査については進めていっていただきたいという風に思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6917s" data-timestamp="6917"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:17</a>　公表は地点数のみという形になっているということなんですが、例えば、ある程度の、例えば地域で、北東地域とか南西地域とか、そういう地域の、要するに状況については示さないっていうような理解でいいのかどうか、ある程度の、なんていうか、状況について、市民に健康の状況なんかを、伝えていくってことであれば、ある程度の、そういうような地域などについては検討する必要があるんではないかなと思うんですが、その点どうかっていうことと、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6947s" data-timestamp="6947"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:47</a>　あと、以前ですね、小平市から申し入れがあったと思うんですが、関係市で集まって、汚染物質の、なんていうか、協議会みたいなものを開いた経過があったんじゃないかと思うんですけれども、それって引き続きなんか行われているものなんでしょうか。1回集まって、国への要望などについて協議したっていうことが過去あったかなと思うんですけど、それ、なんか分かったら教えていただけないかなと思うんですが、いかがでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t159">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=6989s" data-timestamp="6989"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:56:29</a>　はい、環境政策課長。</div>
+</div>
+
+<div class="turn reveal" id="t160">
+  <div class="meta"><span class="name">環境政策課長</span></div>
+  <div class="say">はい。まず1点目、公表内容につきましては、民有井戸につきましては調査地点数のみという形になりますが、市管理井戸につきましては、井戸の場所、あとは調査物質ごとの測定値をお示しする予定で考えております。で、公表するにあたって一番注意しなければいけないのが、過剰な不安の拡散にならないような形で適切な情報提供に努めていく必要があると思いますので、そこも含めて、公表内容については慎重に取り扱っていきたいなという風に考えているところです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=7021s" data-timestamp="7021"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:57:01</a>　あとは、各市との協議会のようなものということですが、〇〇に入ってからは、ちょっと、実施しているものはありませんで、今後も予定しているものは現時点ではございません。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t161">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。そのほかございますでしょうか。なければ、はい、坂井さん。</div>
+</div>
+
+<div class="turn reveal" id="t162">
+  <div class="meta"><span class="name">坂井えつ子</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=7053s" data-timestamp="7053"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:57:33</a>　はい。ご説明いただきましてありがとうございました。陳情を採択したこともあって、私も市独自でやってほしいと申し上げた立場ですので、評価をしているということを改めて申し上げた上で、前回ご説明いただいた時は、民間からの要望が16箇所だったという風に私、記憶しているんですが、違うのかな。</div><div class="say">1箇所増えたということでしょうか。</div><div class="say">前回のご説明では16箇所要望があって、4箇所は都に依頼すると。で、残りの、数を、ああ、4箇所、16箇所あったけれども4箇所お願いするので12箇所、合ってる数字、12箇所をやると。で、民間じゃなくて公共井戸が4っていうような話だったと記憶しているんですけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=7083s" data-timestamp="7083"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:58:03</a>　会議も見たので間違いないと思うんですが、1箇所ご希望が増えたということで、今回、市が所有するのが3箇所になったのかということの確認をさせていただきたいのが1点と、あと東京都に、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=7116s" data-timestamp="7116"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:58:36</a>　4箇所は都が調査するということだったんですが、これは市が要望した結果、都で調査していただけることになったのか。で、これは、もし把握されていればで結構なんですが、都が検査する時期や公表の時期について把握されていたら、ご説明をいただきたいと思います。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t163">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、環境政策課長。</div>
+</div>
+
+<div class="turn reveal" id="t164">
+  <div class="meta"><span class="name">環境政策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=7147s" data-timestamp="7147"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:59:07</a>　まず、民間井戸の所有者、管理者からの調査の回答、希望につきましては、1箇所追加となりまして17箇所になっております。で、あとは、東京都の調査につきましては、都の方から4地点、実施したいという申し出がありまして、その地点を民有井戸に関して実施をお願いするものとなっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=7178s" data-timestamp="7178"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:59:38</a>　ただ、調査の時期、公表の時期につきましては、現時点では把握しておりませんので、ご了承ください。失礼いたします。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t165">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">よろしいですか。はい。それでは、以上で本件に対する質疑を終了することにご異議ありませんか。ご異議なしと認めます。従って、本件に対する質疑を終了いたします。ちょっと休憩させてください。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=7210s" data-timestamp="7210"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:00:10</a>　残り行政報告が5件ほどあるんですけれども、所管事項もございますけれども、部局の皆さん、委員の皆さんのご都合が良ければ、15分ぐらい延長はさせていただければなとは思うんですけども、いかがですか。行政の皆さんもご予定があれば忌憚なくおっしゃってください。〇〇。</div><div class="say">かしこまりました。休憩する。休憩する。じゃあ、休憩ということでよろしいですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=CW6_WnIPeik&t=7242s" data-timestamp="7242"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:00:42</a>　はい。じゃあ、休憩します。はい。じゃあ、はい。じゃあ、再開しないといけないのか。はい。再開して休憩します。はい。では再開いたします。休憩をここで取ります。昼のため、概ね1時間休憩といたします。じゃあ、13時ちょうどによろしくお願いします。</div>
+</div>
+
+<div class="turn chair reveal" id="t166">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=76s" data-timestamp="76"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:16</a>　それでは再開いたします。行政報告3、PIAZZA株式会社との連携に関する協定の締結についてを行います。部局の説明を求めます。まちづくり推進課長。</div>
+</div>
+
+<div class="turn reveal" id="t167">
+  <div class="meta"><span class="name">まちづくり推進課長</span></div>
+  <div class="say">それでは、PIAZZA株式会社との連携に関する協定の締結につきまして、まちづくり推進課から報告します。現在、本市では武蔵小金井駅北口の再開発事業をきっかけとした、にぎわいのある魅力的なまちづくりを目指して取組を進めており、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=107s" data-timestamp="107"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:47</a>　この度、地域コミュニティアプリ、ピアッザを運用するPIAZZA株式会社と、住民同士のつながりの形成を促進するとともに、地域コミュニティの活性化を図り、にぎわいの創出及び地域の社会的課題を解決することを目的に、連携に関する協定を令和8年7月2日に締結しました。本協定が、アプリを活用した新たな出会いや多くの方と交流をするきっかけとなり、再開発事業において新たに整備される広場・道路空間を活用したイベントなど、地域のにぎわいや活力の創出に資することを期待しています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=147s" data-timestamp="147"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:27</a>　なお、協定の締結につきましては、市ホームページのほか、8月1日号の市報にも写真ニュースとして掲載しています。市としましては、引き続き再開発組合及び商店街の方々と連携し、武蔵小金井駅北口のまちづくりを推進していけるよう調整していきたいと考えています。報告は以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t168">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">これから質疑を行います。渡辺さん。</div>
+</div>
+
+<div class="turn reveal" id="t169">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say">少し何点か伺いたいと思いますけど、ピアッザって読むんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=181s" data-timestamp="181"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:01</a>　私は大学生の時に生まれて初めて買った車がピアッツァっていう、ピアッザじゃなくてピアッツァの、いすゞのね、いすゞ自動車の乗用車だったんですけども。これはピアッザということで間違いないようにしたいと思います。それでちょっと伺いたいのは、いろいろこのPIAZZA株式会社のサイトなどを見させていただくと、多摩地域でも府中、西東京、町田など、また東京23区でも幅広く連携協定がされているようでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=211s" data-timestamp="211"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:31</a>　という中で、ちょっと今の説明の説き起こしでね、ただ北口再開発から説き起こされましたよね。ただ、このPIAZZA株式会社さんのやってる実際のサービスを見てみると、その武蔵小金井駅の北口に何か限定されるものでもなく、当然南口もそうでしょうし、小金井市内全域、東小金井も含めた、そういうようなことなのかなとは、特にアプリの部分の掲示板なんかの機能なんかを見ておりますとね。ということで、ちょっと今、説き起こしが北口で、北口の広場とか道路空間のイベントなどに資するっていうことなんですが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=247s" data-timestamp="247"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:07</a>　例えば南口の商店街とか、東小金井の商店街は対象外っていうことなのか、そういうものも含めた話なのか、ちょっとそこら辺でね、北口再開発が説き起こされちゃうと、どこまでが対象なのかっていうことでちょっと疑義を招くので、ちょっとそのあたり、多分違うと思っているんで、詳しく説明していただきたいと思います。また、このPIAZZA株式会社さんのいろんな取り組みを見ている中で、例えば親子参加型の壁面アートイベントみたいなものもされていましたよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=277s" data-timestamp="277"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:37</a>　私は前々から北口再開発の施工中のフェンスの問題で、殺風景にならないように、ぜひね、例えば地元の子どもたちなんかにも描いてもらうとか、いろんなことをやってもらいたいなという要望はしてたと思うんですが、となると、このPIAZZA株式会社さんがやられている親子参加型壁面アートイベントなんていうのは、もし小金井でもやれれば、非常に工事期間中の負担感が減るというのかな、都市景観上のね。そういうことなどもあって、お子さんたちにとっても楽しい思い出で、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=307s" data-timestamp="307"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:07</a>　自分たちの街ができるときに工事のフェンスにいろいろ描けたりということもあるんで、ちょうどそういうこと多角的にいろんなことでご協力いただける面もあるのかなと思って、そのサイトのほうを拝見していたんですが、ちょっとそのあたりのことも含めて、具体的にはどういうような取り組みとか、どういうような市民の皆様への還元がこの協定によって行われることが射程距離に入っているのか、このあたり、ちょっともう一段丁寧にご説明いただけると、理解が進んでありがたいということであります。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t170">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=337s" data-timestamp="337"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:37</a>　はい、まちづくり推進課長。</div>
+</div>
+
+<div class="turn reveal" id="t171">
+  <div class="meta"><span class="name">まちづくり推進課長</span></div>
+  <div class="say">2点ご質問いただいたと思います。まず最初にですね、対象は、議員おっしゃるとおり、市内全域になります。今回の協定の締結にあたって、たまたまPIAZZA株式会社さんのご担当の方と、まちづくり推進課の職員が出席した講演会で、実はお知り合いになりまして、その縁があってこの協定に進んだところなんですが、そういったところから、まず私たちが所管している北口のまちづくり、北口のにぎわい創出に協力いただけないかな、なんて話をしていた流れで、この協定を結んだところです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=400s" data-timestamp="400"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:40</a>　ただ、協定の内容としましては、市内全域の活性化に関する包括的な協定になっていますので、北口に限定されるようなものではありません。まず、北口の商店街の方々に紹介する機会みたいなものを最初に作って、北口から入っていって、その後徐々に市内全体に広まっていければいいな、というふうなことを考えていますので、引き続き市内全体のにぎわいの創出に向けて、取り組みを進めていきたいなと思っています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=430s" data-timestamp="430"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:10</a>　それから、取り組みの内容、具体的なところなんですが、実はこの包括協定は、あくまでにぎわいの支援をしていただくような協定になっていまして、何をしてほしいとか、そういうような具体的な取り組みを含めた協定ではないです。今回の協定は、PIAZZA株式会社さんという会社が持っている地域コミュニティアプリ、ピアッザに小金井地域のエリアを活用できますよ、というようなスタートの協定になっています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=467s" data-timestamp="467"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:47</a>　なので、こういうイベントをやるための協定ですとか、そういったことではないです。ただ、北口のまちづくりの中で、冒頭説明した通り、再開発事業でせっかく広場や道路が整備されるというところもありますので、そういったところのイベントの実施に向けて、ぜひご協力をいただきたいということは具体的にお願いをしていて、そういった取り組みには賛同いただいているというふうに認識はしていますので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=498s" data-timestamp="498"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:18</a>　今後、イベントの実施に向けて協力いただけるかなと思っています。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t172">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">ほかにございますでしょうか。はい、太田さん。</div>
+</div>
+
+<div class="turn reveal" id="t173">
+  <div class="meta"><span class="name">太田宏徳</span></div>
+  <div class="say">ありがとうございます。私、たまたま前回の一般質問の中で、地域コミュニティの活性化についてということで取り上げさせていただいて、その直後にこういったお話があったので、非常に興味があるんですけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=533s" data-timestamp="533"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:53</a>　まず、富士山市の例を一般質問で取り上げさせていただきまして、各自治会がホームページを作成して、そのホームページを市がポータルサイトで発信をする。またデジタル回覧板なんかも発信する。市民の方がいつでも全ての地域の情報を閲覧することができるというような仕組みに取り組まれていまして、そういう意味では、このピアッツァさんのやっていることは、非常にそういう方向性に一致しているんではないかなというふうに思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=570s" data-timestamp="570"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:30</a>　ただ今、取っ掛かりが北口再開発事業ということでしたけれども、ぜひともですね、これを各自治会にどんどんつなげていただいて、市民の皆さんが自治会の情報、全ての自治会の情報を確認できるような、閲覧できるような仕組みに持っていって、広げていただきたいなと。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=600s" data-timestamp="600"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:00</a>　そういう意味では、ピアッツァさんの方から各自治会にアプローチしていただいてですね、こういう取り組みができますよというようなことを積極的に推進していただけると非常にありがたいなというふうに思っていますし、今後そういう意味では、ますます市民の皆さんが有効に活用できる、そういう方向に向けて取り組んでいただきたいなというふうに思いますので、よろしくお願いします。</div>
+</div>
+
+<div class="turn chair reveal" id="t174">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=638s" data-timestamp="638"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:38</a>　他にありますでしょうか。よろしいですか。締めますね。以上で本件に対する質疑を終了することにご異議ありませんか。ご異議なしと認めます。したがって本件に対する質疑を終了いたします。</div><div class="say">次に、行政報告4、小金井市無電柱化推進計画の改定について、及び行政報告5、小金井市橋りょう長寿命化計画の改定につきまして、一括して議題といたしたいと思います。これにご異議ありませんか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=669s" data-timestamp="669"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:09</a>　ご異議なしと認めます。そのように決定いたします。部局の説明を求めます。工事係長。</div>
+</div>
+
+<div class="turn reveal" id="t175">
+  <div class="meta"><span class="name">工事係長</span></div>
+  <div class="say">それでは、道路管理課から、小金井市無電柱化推進計画の改定について報告します。本市においては、平成31年4月に策定した小金井市無電柱化推進計画に基づき、優先的に無電柱化を進める路線として、市道第136号線武蔵湖通り、及び市道第12号線緑中央通りの2路線を選定し、整備を進めてきました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=707s" data-timestamp="707"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:47</a>　このうち、市道第136号線武蔵湖通りにつきましては、令和9年度に事業完了の見込みとなったことから、次に整備すべき路線及び区間について改めて検討を行いました。その結果、市道第1号線北大通りのうち、都道15号線小金井街道から市道第12号線緑中央通りまでの約550メートルの区間を、次期整備路線として位置づけ、本計画を改定しました。</div><div class="say">なお、計画の詳細については、市ホームページをご覧ください。また、市民の皆様への周知については、市報7月1日号への掲載のほか、6月25日に道路管理課の公式X及び公式LINEを通じて発信を行っています。報告は以上です。</div><div class="say">続きまして、小金井市橋りょう長寿命化計画の改定について報告します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=771s" data-timestamp="771"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:51</a>　橋りょう等道路構造物については、平成26年の道路法改正に伴い、5年に1度の定期点検が義務付けられています。本市においても継続的に点検を実施し、その結果に基づき、補修計画を策定することで橋りょうの長寿命化を図ってきました。今般、令和4年度から令和6年度にかけて実施した市内75橋の点検結果を反映し、令和8年6月に本計画を改定しました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=804s" data-timestamp="804"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:24</a>　なお、計画の詳細については、市ホームページをご覧ください。市民への周知については、市報7月1日号への掲載のほか、6月25日に道路管理課の公式X及び公式LINEを通じて発信を行っています。報告は以上です。</div>
+</div>
+
+<div class="turn reveal" id="t176">
+  <div class="meta"><span class="name">工事係長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=838s" data-timestamp="838"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:58</a>　以前、北大通りと小金井街道の交差点の件を取り上げたことがありまして、その際に電柱との位置関係の入り繰りもあったんですけれども、要するに、あの交差点の東側に向かうところの横断歩道を少し下げてもらえないかと。そうすると、1台分、右折のための待機ぐらいの場所はできるんじゃないかと。そうすると渋滞解消に資するんじゃないかということで質問をしていて、今般、今報告があったのは、北大通りから緑中央通りまでの区間の電柱が次の射程距離に入ったということでいいんですよね。</div><div class="say">なので、意見だけですが、その時にもその電柱との位置関係でいろいろ議論しているんですけれども、ちょっと合わせて、北大通りの渋滞解消にもひょっとしたら資することもできるかもしれないので、合わせて検討願いたいということで、意見だけ述べておきます。</div>
+</div>
+
+<div class="turn chair reveal" id="t177">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=870s" data-timestamp="870"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:30</a>　はい、水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t178">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">無電柱化の優先整備の部分が示されておりますけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=903s" data-timestamp="903"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:03</a>　まず、無電柱化にあたっての、震災との関係での耐震化っていうのは大丈夫なのかどうか、この点ちょっと確認しておきたいのと、北大通り、小金井街道から緑中央通りの間が、今後10年間で整備する区間ということになりましたが、費用としては、共同溝整備にかかる費用で、これは5.3億円キロメートルという形になっていて、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=938s" data-timestamp="938"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:38</a>　道路管理者負担額が3.5億円、電線管理者負担額が1.8億円ということになってるんですけれども、市の負担っていうのはどれぐらいなのか、この部分に関してはというような概算とかが出てるのかどうか、ちょっと確認しておきたいのと、あとはこれはちょっと財政計画、橋りょうの計画も含めてなんですけど、中期財政計画が一応示されて、これは5年間なので、多分反映されてないのかなと思うんですけど、中期財政計画にはこれは反映されてるのかどうか、ちょっと確認しておきたいと思うんですが、いかがでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t179">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=968s" data-timestamp="968"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:08</a>　道路管理課長。</div>
+</div>
+
+<div class="turn reveal" id="t180">
+  <div class="meta"><span class="name">道路管理課長</span></div>
+  <div class="say">水上委員からのご質問にご答弁させていただきます。まず1点目、耐震化についてでございます。無電柱化をしますと、もちろん電柱がなくなりまして、電線類、ケーブルが地中に埋設されるという状況でございます。</div><div class="say">もちろん地震に耐える構造で築造してまいりますので、耐震化は一定あると。それから、電柱がないですから電柱の倒壊もないということで、かなり震災には強い街になっていくのかなと思っているところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1041s" data-timestamp="1041"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:21</a>　それから、北大通りの補助額につきましては、ほぼチャレンジ支援事業の中で行っていくということになりますので、東京都と国とほぼ補助はもらえるという状況ではございます。ただ、補助に馴染まない部分も一定ございますので、厳密に言うと100%ではないですけど、100%に近い額を補助でいただけるということになってございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1074s" data-timestamp="1074"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:54</a>　それから、中期財政計画についてでございますけれども、まだこの1号線、北大通りについては、まだこれから調査とか入っていくという段階でございますので、まだ工事についてはいつ入れるかというのは未定でございます。まだ計画調査段階というところでございます。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t181">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t182">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1104s" data-timestamp="1104"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:24</a>　状況わかりました。耐震については、震災に強いまちづくりには、安心するということだと思います。概算費用というのはまだわからないということでよろしいですよね。</div><div class="say">ただ、国・東京都の補助で100%近い額が出てくるということなので、市の負担はそんなにないということだったと思います。</div><div class="say">あと、橋りょうの整備の関係も、これは財政計画にはまだ乗っかっていないという理解で、これからということなので、そういうことでいいのかどうか、そこだけちょっと答弁が漏れていたので確認したいと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t183">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1137s" data-timestamp="1137"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:57</a>　道路管理課長。</div>
+</div>
+
+<div class="turn reveal" id="t184">
+  <div class="meta"><span class="name">道路管理課長</span></div>
+  <div class="say">答弁漏れ、申し訳ございませんでした。橋りょうについては財政計画の方には乗ってございます。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t185">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">他にございますでしょうか。岸田さん。</div>
+</div>
+
+<div class="turn reveal" id="t186">
+  <div class="meta"><span class="name">岸田正義</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1169s" data-timestamp="1169"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:29</a>　今の点でちょっと再度確認したいんですけど、チャレンジ支援路線で確か令和9年末とかだったような記憶があるんですけれども、それは延長になるという前提の話なのか、それでも計画さえ出しておけば、そこに乗っかるという話なのか、今のちょっと負担との関係も含めてですね、ご丁寧にもう一度教えていただきたいなということと、今後10年ということなので、あくまでもすぐじゃないよという話でしたけれども、あそこの北大通りの重要な〇〇っていうのが確かにあるので、そこを無電柱化する意義っていうのは大きいだろうなとは思っているがゆえに、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1200s" data-timestamp="1200"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:00</a>　逆に、あそこが工事で止められてしまうと、いろんなところの移動に支障をきたしてくるという場面もあると思うんですよね。なので、大体どれぐらいが見えてきた段階で丁寧な対応が必要になっていくんだろうなというふうに予想をしているんですね。なので、どれぐらいの、10年間と言いつつも、じゃあ1年ですぐできるわけじゃないですよね。</div><div class="say">おそらく2年、3年かかるわけですよね。という中でいくと、大体これぐらいでっていう話の中のスキームと、先ほど申し上げた東京都のチャレンジ路線の関係っていうところかな、事業期間の関係っていうのかな。このちょっともう少しご答弁をいただければと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t187">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1239s" data-timestamp="1239"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:39</a>　はい、工事係長。</div>
+</div>
+
+<div class="turn reveal" id="t188">
+  <div class="meta"><span class="name">工事係長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1272s" data-timestamp="1272"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:12</a>　今、岸田委員から無電柱化チャレンジ支援事業の今後のスケジュールの関係のご質問をいただきました。無電柱化チャレンジ事業におきましては、令和9年度末までに東京都の事業認定を受ければ、財政的・技術的な支援を受けられる制度となっております。</div><div class="say">一応、今年度ですね、北大通りにつきまして、どういう形で無電柱化ができるかっていう基礎調査の方を今やっております。その結果をもとに、来年度予備設計をして、東京都の事業認定の時期までに合わせるような形を今目指しているところでございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t189">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">大丈夫ですか。岸田さん。</div>
+</div>
+
+<div class="turn reveal" id="t190">
+  <div class="meta"><span class="name">岸田正義</span></div>
+  <div class="say">はい、ご答弁ありがとうございます。ということは、大体来年度ぐらいには大まかなスケジュール感というか、どういう工事にしてどれぐらいがかかってというのが見えてくるというような予定ということですよね。はい、わかりました。以上で大丈夫です。</div>
+</div>
+
+<div class="turn chair reveal" id="t191">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1308s" data-timestamp="1308"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:48</a>　他にございますでしょうか。では、閉めます。以上で本2件に対する質疑を終了することにご異議ありませんか。ご異議なしと認めます。したがって本2件に対する質疑を終了いたします。</div><div class="say">次に、行政報告6、交通ネットワーク再編事業の進捗についてを行います。部局の説明を求めます。交通対策課長。</div>
+</div>
+
+<div class="turn reveal" id="t192">
+  <div class="meta"><span class="name">交通対策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1339s" data-timestamp="1339"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:19</a>　交通対策課から、小金井市地域公共交通活性化協議会等における交通ネットワーク再編事業の進捗状況について報告します。令和8年6月3日から7月3日までの期間で、市北部の再編案及びCoCoバス運賃改定案についてパブリックコメントを実施し、19人の方から28件のご意見をいただきました。いただいたご意見に対する検討結果については、令和8年7月29日に開催しました地域公共交通活性化協議会及び運賃部会で承認をいただき、現在、市ホームページに公表しています。</div><div class="say">また、広く市民の皆様からご意見をいただくため、パブリックコメント期間中の6月23日に、緑センター及び東センターにおいて地域懇談会を行い、それぞれ7人の方にご参加いただきました。さらに6月27日には、東小金井駅の改札前のフリースペースにおいてオープンハウスを開催しました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1406s" data-timestamp="1406"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:26</a>　台風の影響により開催時間を1時間遅らせ、午前11時から午後5時までの開催となりましたが、約150人の方にパネル展示をご覧いただきました。地域懇談会及びオープンハウスでは、利用者の方と直接お話をし、意見交換を行うなど、バス業界の現状、再編案及びCoCoバス運賃改定案について、一定のご理解をいただいたと考えております。</div><div class="say">続きまして、今後の予定についてです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1438s" data-timestamp="1438"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:58</a>　7月29日の地域公共交通活性化協議会及び運賃部会において、路線及び運賃の協議が整ったため、今後、運行事業者において東京運輸支局に所定の手続きを行うとともに、バス停盤面の交換作業、公共交通マップ等の作成、高齢者割引専用パスの発行準備等、令和9年4月からの再編に向けて、所要の準備を進めていきます。報告は以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t193">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1473s" data-timestamp="1473"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:33</a>　これから質疑を行います。</div>
+</div>
+
+<div class="turn reveal" id="t194">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">パブリックコメントの結果などを見てなんですが、一つは、京王バスの定期券を使えないかというようなご意見がいくつか出されていて、これはなかなかすぐに対応が難しいということなのかなというふうには思っているんですけど、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1504s" data-timestamp="1504"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:04</a>　北東部循環でいうと、関野橋循環からCoCoバスに振り替えられることになって、今まで定期券を使っていた方が使えなくなるということもあると思うので、京王バスの定期券をCoCoバスでも使えるようにするように、その点では、できるのかできないのか、今後検討の余地があるのではないかと思うんですけど、いくつかの意見として出されているので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1537s" data-timestamp="1537"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:37</a>　この点を確認したいと思いますが、どうかということと、パブリックコメントの意見には出ていないんですが、シルバーパスのCoCoバスでの活用問題なんですが、以前からシルバーパスも活用できるようにという要望は、私たちもしてきたところなんですが、東京都のシルバーパスの例規などを確認すると、間違っていたら申し訳ないんですけど、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1568s" data-timestamp="1568"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:08</a>　コミュニティバスが民間事業者と同等の運賃を、バス事業者と関係団体との関係の協議が整えば、東京都のシルバーパスの補助の対象になるということになっているのではないかと思うんですが、今回、民間バス事業者と同等の運賃になると、小金井市もシルバーパスを活用できる、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1602s" data-timestamp="1602"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:42</a>　CoCoバスでシルバーパスが活用できるようになるのではないかと。多分、東京都からの補助がなくても、小金井市がお金を出せばシルバーパスを使えるようにできるんだろうとは思うんですが、東京都からのある程度の補助が入ってくるような状況になるのではないかと考えているのですが、その点をどう見ているのかということと、もし東京都からの補助がシルバーパスで出てくるということになると、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1633s" data-timestamp="1633"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:13</a>　現状の状況の中では、例えば東京都の補助金と市の新たな負担がどうなるのか、試算されていたら、その点をご説明いただきたいと思いますが、いかがでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t195">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">交通対策係長。</div>
+</div>
+
+<div class="turn reveal" id="t196">
+  <div class="meta"><span class="name">交通対策係長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1668s" data-timestamp="1668"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:48</a>　まず、定期券に関するご意見の部分について、私の方からご説明いたします。私どもも、関野橋循環が、朝がとにかく台数が多くて、利用者も多くて、日中がすごく少なくて、夜、帰りの方は結構分散して、まばらというような状況下の中で、京王バスの方から、実は朝だけしか路線バスが残らないというような案も、途中経過では出てまいりました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1698s" data-timestamp="1698"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:18</a>　ただ、定期券を使っている方は、当然帰りも使うわけなので、その部分については、京王バスと市の方で協議をした結果、夕方も残していただけるというようなことになりました。なので、パブリックコメントでいただいたご意見については、今、勤務形態が多様化しているので、できればもっと柔軟に日中も対応してほしいというようなご意見でしたが、私どもとしては、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1729s" data-timestamp="1729"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:49</a>　全ては叶いませんでしたけれども、朝という主に定期を使う時間帯については、一定、路線バスを残していただけたというような考えでおります。</div>
+</div>
+
+<div class="turn reveal" id="t197">
+  <div class="meta"><span class="name">交通対策係長</span></div>
+  <div class="say">先ほど水上委員にご紹介いただいたとおり、CoCoバスと路線バスの定期をミックスするような形態について、すみません、手元に資料がないんですけれども、確かですね、都内で、他の市ではなくて区だったと思うんですけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1759s" data-timestamp="1759"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:19</a>　路線バスと運賃が全く同じだったりする場合に、そういったミックスするような事例は拝見したことがありますけれども、運賃体系が全く違うものを合わせるとなると、そこに構築するシステムなり、それなりのものがかかってしまうということで、現時点では検討していないというような状況でございます。以上です。</div>
+</div>
+
+<div class="turn reveal" id="t198">
+  <div class="meta"><span class="name">交通対策課長</span></div>
+  <div class="say">交通対策課長です。シルバーパスの活用という点でご質問いただいております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1794s" data-timestamp="1794"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:54</a>　シルバーパスにつきまして、場所によっては、コミュニティバスでもシルバーパスを使用できる自治体があるということは、我々の方も発表しておりまして、もともとがある地域よりも前なのか、そこら辺、さらに前ですけれども、前からコミュニティバスを、シルバーパスを〇〇程度の運賃で行っていた自治体については、確かに東京都からの一部でという状況でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1824s" data-timestamp="1824"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:24</a>　我々、CoCoバスにつきましては、もともとが100円ですが、〇〇と言いましたので、現時点で東京都の補助の対象が、というのが今の現状ですね。今回ご提案いただきました、シルバーパスを使えるようにできないかというところなんですけれども、今回の運賃改定につきましても、市の財政負担を大幅に増加することを避けるために、皆さんに運賃改定で負担をお願いするというものになっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1858s" data-timestamp="1858"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:58</a>　我々が残しました持続可能な公共交通を維持するということがやはり重要であると考えておりますので、現状、シルバーパスの運用については考えておりません。今の段階で市の財政負担がシルバーパス運用でどうなるのか、〇〇試算はしておりません。</div>
+</div>
+
+<div class="turn chair reveal" id="t199">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t200">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">定期券については、関野橋循環については朝夕、京王バスが運行すると。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1888s" data-timestamp="1888"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:28</a>　だから、定期券は朝夕の時間帯であれば、京王バスが走っているので使えるということになっているということですが、昼間の時間について、CoCoバスが運行するときは、定期券を使えないというような形になっているということなので、今後もぜひ研究課題としてご検討いただきたいということは、お願いしておきたいと思います。シルバーパスについては、過去から同じ運賃でやっているところだけしか対象にならないという理解でいいのでしょうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1923s" data-timestamp="1923"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:03</a>　小金井市みたいに100円でやっていたものが、180円、200円という形でだいたい同等にという形になったところは、対象にはならないというようなことなのかどうか、ちょっと確認しておきたいのと、あとは、多分、市の負担も増えてくるというのは当然あると思うんですが、民間バス事業者と運賃を同等にしていくというような検討になっていると思うのですが、普通の民間バスでいうとシルバーパスを使えるわけですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1958s" data-timestamp="1958"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:38</a>　CoCoバスでも使える、同等の形で、その辺は費用負担は多分一定増えると思いますが、検討はしないということだったのですが、活性化協議会などで、本来やっぱりちょっとできないのかどうか、検討すべきではないかなというふうに思っているのですが、その点、ちょっとどんなふうに考えているでしょうか。</div>
+</div>
+
+<div class="turn reveal" id="t201">
+  <div class="meta"><span class="name">交通対策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=1990s" data-timestamp="1990"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:10</a>　補助対象の方につきましては、私も活性化協議会の会長の方から少しお話を伺ったときに、そのようなことをおっしゃっていたので、確認の必要はあろうかと思いますけれども、現在、我々の方で把握している情報としては、水上委員の方からご紹介いただいた内容かなと思っております。シルバーパスにつきましては、活性化協議会の中でも、やはり今回、運賃改定については、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=2021s" data-timestamp="2021"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:41</a>　持続可能な地域公共交通を目指す、維持する、そのためには皆さんに一定の負担をいただくというような考えのもとで行っております。いわゆる高齢者の方、交通弱者である高齢者の方につきましては、市独自の割引である高齢者割引を導入しておりますので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=2052s" data-timestamp="2052"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:12</a>　また、今回、運賃に関する方針としまして、高齢者割引は基本運賃の半額といったような方針として位置づけたいと考えておりますので、そのようにご理解いただければと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t202">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t203">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">シルバーパスについては、東京都の補助の要件がどうなっているかというのは、ちょっと正確に把握しておいていただけないかなというふうに思いますので、この点はぜひよろしくお願いします。あと、持続可能なということになって、市の費用負担の問題も課題かと思うんですが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=2087s" data-timestamp="2087"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:47</a>　やっぱりシルバーパスの利用については、民間バスは使えるけれども、CoCoバスは使えないということになっているので、同等の運賃ということであれば、ぜひシルバーパスの利用についても、今後検討してもらいたいなということは要望しておきますので、この間もシルバーパスの利用については、求めてきたところでありますので、東京都に要件を確認してもらって、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=2117s" data-timestamp="2117"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:17</a>　以前から同等じゃなければ駄目だということであれば、小金井市はちょっともらえないということなのかもしれませんが、その点はぜひ正確にしていただいた上で、ぜひ今後の利用については考えていただきたいなということは、要望として申し上げておきたいと思います。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t204">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">その他にございますでしょうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=2150s" data-timestamp="2150"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:50</a>　それでは、以上で本件に対する質疑を終了することにご異議ありませんか。ご異議なしと認めます。したがって、本件に対する質疑を終了いたします。次に、行政報告7、東小金井駅北口まちづくり協議会の検討状況についてを行います。部局の説明を求めます。区画整理課長。</div>
+</div>
+
+<div class="turn reveal" id="t205">
+  <div class="meta"><span class="name">区画整理課長</span></div>
+  <div class="say">区画整理課より、東小金井駅北口まちづくり協議会の検討状況について報告いたします。東小金井駅北口まちづくり協議会は、平成14年度に発足し、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=2184s" data-timestamp="2184"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:24</a>　区画整理区域内である東小金井駅北口をどのようなまちにしていくかについて、各地域の経験者や地権者の皆様により、まちづくりのありようや地区計画など、事業の進捗状況に合わせて、段階的に検討していただいている組織です。今回の第4次まちづくり協議会は、令和元年8月からスタートし、交通広場、都市計画道路、駅前公園の樹種や整備の方針について、コロナ禍の影響で中断期間もありながら、現在まで検討していただいたところです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=2217s" data-timestamp="2217"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:57</a>　この第4次まちづくり協議会の検討結果については、先週7月30日に開催されたまちづくり協議会において、取りまとめ案の最終的な承認をいただいたところで、本年秋には取りまとめとして公表する予定です。整備〇〇については資料をご覧ください。報告は以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t206">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">それでは、質疑を行います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=2250s" data-timestamp="2250"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:30</a>　以上で本件に対する質疑を終了することにご異議ありませんか。ご異議なしと認めます。したがって、本件に対する質疑を終了いたします。以上で行政報告を終了いたします。</div><div class="say">以上で本日の日程は全部終了いたしました。本日は以上で建設環境委員会を閉会いたします。それでは、建設環境委員会の協議会を開会いたします。所管事項について行います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=2280s" data-timestamp="2280"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:00</a>　まず、武蔵小金井駅北口再開発事業の工事に伴う地下水への影響について、安田委員の発言を許可します。</div>
+</div>
+
+<div class="turn reveal" id="t207">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say">武蔵小金井駅北口再開発事業につきまして、先日7月10日の地下水保全会議を傍聴しまして、そこでお話が出ていましたので、内容を確認したいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=2313s" data-timestamp="2313"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:33</a>　旧西友ビルは7月から地下を解体しておりまして、2027年5月末にそれが完了して、2027年6月、〇〇工事が着手するというふうな説明がありました。それで、その時の地下水の影響についてのお話がありましたので、お聞きしたいと思います。まずですね、杭がたくさん打たれるということでちょっとびっくりしたんですけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=2347s" data-timestamp="2347"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:07</a>　直径2.2メートル、杭の長さが約45メートルという非常に巨大な杭が、何十本も地中に打たれるということで、その影響について話題が上がりました。有識者の方から、この工事の箇所よりも南東の地域に湧水ポイントがあるのかというような質問がありまして、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=2377s" data-timestamp="2377"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:37</a>　そこの方からは、黄金の水の井戸や美術の森があるといった答弁がありまして、そこでですね、地下水への影響というものがちょっと懸念されると、今のままでは情報がとても少なくて判断できないといったような、会長のご発言もありました。地下水への影響について、地下水モニタリングをする予定はあるかということで質問がありました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=2412s" data-timestamp="2412"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:12</a>　観測井戸はその時には検討段階といった回答でありました。地下水湧水保全条例がありますし、地下水への影響があるのではないかと非常に懸念されますが、そのようなモニタリングの観測井戸を設置するべきではないかと強く感じたのですが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=2444s" data-timestamp="2444"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:44</a>　どういったご見解か、お伺いさせてください。</div>
+</div>
+
+<div class="turn reveal" id="t208">
+  <div class="meta"><span class="name">まちづくり推進課長</span></div>
+  <div class="say">明確な答弁ができるか不安ですが、まちづくり推進課の方では、北口の再開発事業が計画されている段階から、構造が分かれば情報共有しながら、庁内でも議会でも発信してきています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=2478s" data-timestamp="2478"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:18</a>　地下水保全会議への情報共有ですが、準備組合の段階、事業認可をいただく前から情報共有をし始めています。令和6年度末に1回、令和7年度も2回、今年度も議員が傍聴された1回と、継続して情報を共有しています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=2508s" data-timestamp="2508"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:48</a>　現時点では解体工事が進んでいて、新しい施設の詳細設計が進んでいます。それに合わせて基礎の構造が決まってきました。先ほど議員からご紹介があったように、杭が多く打たれるような計画が検討されています。杭の配置などを地下水保全会議の有識者さんに共有して、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=2541s" data-timestamp="2541"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:21</a>　それに対するご助言をいただいて、それを参考に施工してもらうことを考えています。私の方から、再開発組合にどうしろということを言えるような、なかなか難しいところもありますが、地下水保全会議の中で挙がったご助言については、丁寧に参考にするように私たちも指導してまいりますので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=2574s" data-timestamp="2574"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:54</a>　これまでもしてきたつもりでございますし、今後もしていきたいと思っています。今回、地下水保全会議の中でいただいた宿題、継続的な検討については、今、持ち帰って再開発組合の方では検討していますので、そういったものを次回の会議の中でも説明してもらいながら、有識者様からいただいたご助言を参考に、今後も丁寧に進めていけるように指導していきたいと思っているところです。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t209">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">安田さん。</div>
+</div>
+
+<div class="turn reveal" id="t210">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say">ご答弁ありがとうございます。私の方から、再開発組合の方に、そこまで〇〇するということではないというようなご答弁がありましたけれども、これは私としてもしっかりと、観測用の井戸を設置するということは必ず必要かと思いますので、丁寧に、次の10月の会議もありますけれども、この時にも具体的な地下のデータも出てくるのかなと思いますので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=2639s" data-timestamp="2639"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:59</a>　丁寧にご対応いただいて、この観測用井戸についてはぜひ設置するように、働きかけていただきたいということを要望しておきます。これはご意見で終わります。</div>
+</div>
+
+<div class="turn chair reveal" id="t211">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">以上で所管事項を終了いたします。以上で建設環境委員会の協議会を終了いたします。お疲れ様でした。</div>
+</div>
+
+<div class="turn reveal" id="t212">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say">最後なんですけれども、</div>
+</div>
+
+<div class="turn chair reveal" id="t213">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=2687s" data-timestamp="2687"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:47</a>　もしやるんであればどうぞ。</div>
+</div>
+
+<div class="turn reveal" id="t214">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say">それも含めて、</div>
+</div>
+
+<div class="turn chair reveal" id="t215">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=2717s" data-timestamp="2717"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:17</a>　それでは、閉会中なんですけれども、今日、一応、陳情が一件終わりまして、一つは保留ということで、保留ということで次の定例会中になっておりますので、次の閉会中としては、今のところ陳情審査はないところでございます。いろいろなイベントというか行事もあるので、いかがでしょうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=2751s" data-timestamp="2751"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:51</a>　その際は正副でお話をして、ご相談を渡したいなとも思ってますので。一応、正副としては10月19日の午前、もしくは10月26日の午前、この2つがどこともかぶっていないので、今のところご用意はできるんです。</div>
+</div>
+
+<div class="turn reveal" id="t216">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say">19と26ですね。午前中だけ。</div>
+</div>
+
+<div class="turn reveal" id="t217">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say">ここでもし日にちを押さえちゃうとなると、もうやるってことになっちゃう。</div>
+</div>
+
+<div class="turn reveal" id="t218">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say">やるってことになる。</div>
+</div>
+
+<div class="turn reveal" id="t219">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say">仮押さえ。</div>
+</div>
+
+<div class="turn reveal" id="t220">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say">仮押さえ。やらなければ安全だけど、開かないから。</div>
+</div>
+
+<div class="turn reveal" id="t221">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=2814s" data-timestamp="2814"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:54</a>　それ以外は定例会で決める。</div>
+</div>
+
+<div class="turn reveal" id="t222">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say">そうか、そうか。OK、わかりました。</div>
+</div>
+
+<div class="turn chair reveal" id="t223">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">じゃあ、19日午前でよろしいですか。仮に。</div>
+</div>
+
+<div class="turn reveal" id="t224">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say">うん。仮にというか、調査の場所があるので開ける。</div>
+</div>
+
+<div class="turn reveal" id="t225">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say">そうなんです、そうなんです。開くかどうかを決めるのが定例会中。</div>
+</div>
+
+<div class="turn chair reveal" id="t226">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=IL8vLK9wZVE&t=2844s" data-timestamp="2844"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:24</a>　一応、10月19日の午前中に建設環境委員会を開く前提でご予定を空けていただいて、定例会中にやるかどうかの確定をするということでよろしいでしょうか。</div>
+</div>
+
+<div class="turn voice reveal" id="t227">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">はい。</div>
+</div>
+
+<div class="turn chair reveal" id="t228">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">ありがとうございました。以上ですかね。</div>
+</div>
+
+<div class="turn reveal" id="t229">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say">以上ですね。</div>
+</div>
+
+<div class="turn chair reveal" id="t230">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、じゃあ以上です。ありがとうございました。お疲れ様でした。</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
+<button class="to-top" type="button" aria-label="ページ上部へ戻る" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>(function(){var b=document.querySelector('.to-top');if(!b)return;function u(){b.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>300);}window.addEventListener('scroll',u,{passive:true});u();})();</script>
+<script id="anchor-js">
+(function(){
+  try{
+    var turns=[].slice.call(document.querySelectorAll('.turn[id]'));
+    if(!turns.length) return;
+    var firstBy={};
+    turns.forEach(function(t){
+      var nm=t.querySelector('.name'); if(!nm) return;
+      var key=(nm.textContent||'').trim(); if(!key||key==='—') return;
+      if(!firstBy[key]) firstBy[key]=t.id;
+    });
+    var toast;
+    function showToast(){
+      if(!toast){ toast=document.createElement('div'); toast.className='copy-toast'; toast.textContent='この発言へのリンクをコピーしました'; document.body.appendChild(toast); }
+      toast.classList.add('show'); clearTimeout(toast._t); toast._t=setTimeout(function(){toast.classList.remove('show');},1800);
+    }
+    function hl(el){ turns.forEach(function(x){x.classList.remove('turn-hl');}); if(el) el.classList.add('turn-hl'); }
+    // ② 発言パーマリンク
+    turns.forEach(function(t){
+      var meta=t.querySelector('.meta'); if(!meta) return;
+      var a=document.createElement('a');
+      a.className='turn-link'; a.href='#'+t.id; a.title='この発言へのリンクをコピー'; a.setAttribute('aria-label','この発言へのリンクをコピー');
+      a.textContent='🔗';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault();
+        var url=location.origin+location.pathname+'#'+t.id;
+        try{ history.replaceState(null,'','#'+t.id); }catch(e){}
+        if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(showToast).catch(function(){ location.hash=t.id; }); }
+        else { location.hash=t.id; showToast(); }
+        hl(t);
+      });
+      meta.appendChild(a);
+    });
+    // ① 要約中の発言者名(太字)→本文へ
+    [].slice.call(document.querySelectorAll('.sum strong')).forEach(function(st){
+      var txt=(st.textContent||'').trim(); if(!txt||txt.length<2) return;
+      var id=null;
+      for(var k in firstBy){ if(k.indexOf(txt)>=0 || txt.indexOf(k)>=0){ id=firstBy[k]; break; } }
+      if(!id) return;
+      var a=document.createElement('a');
+      a.className='sum-jump'; a.href='#'+id; a.textContent=st.textContent; a.title='本文の発言へ';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault(); var el=document.getElementById(id);
+        if(el){ hl(el); el.scrollIntoView({block:'center',behavior:'smooth'}); try{history.replaceState(null,'','#'+id);}catch(e){} }
+      });
+      st.parentNode.replaceChild(a, st);
+    });
+    // 直リンクで #tN が指定されていたらハイライト
+    if(location.hash){ var el0=document.getElementById(location.hash.slice(1)); if(el0&&el0.classList&&el0.classList.contains('turn')) el0.classList.add('turn-hl'); }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
