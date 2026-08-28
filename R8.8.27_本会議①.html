@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和8年8月27日 本会議①</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#157a4b; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* サイト共通ヘッダー（トップと同系の緑＋クリーム）。iframe埋め込み時は html.embedded で非表示 */
+  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
+  html.embedded .sitenav{display:none;}
+  .sitenav-in{max-width:1100px;margin:0 auto;padding:0 18px;min-height:52px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .sitenav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#157a4b;font-weight:700;font-size:1rem;white-space:nowrap;}
+  .sitenav-brand img{display:block;border-radius:2px;}
+  .sitenav-links{margin-left:auto;display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+  .sitenav-links a{color:#2a2620;font-size:.84rem;font-weight:600;text-decoration:none;padding:8px 11px;border-radius:2px;white-space:nowrap;}
+  .sitenav-links a:hover{color:#157a4b;background:#e7f4ec;}
+  .sitenav-links .ext{color:#8a8073;font-size:.8em;margin-left:1px;}
+  @media(max-width:640px){.sitenav-in{min-height:0;padding:8px 14px;}.sitenav-links a{padding:6px 9px;font-size:.8rem;}}
+
+  /* パンくず */
+  .crumb{background:#fbf9f4;border-bottom:1px solid #eee7db;position:sticky;top:52px;z-index:59;}
+  html.embedded .crumb{display:none;}
+  .crumb-in{max-width:1100px;margin:0 auto;padding:8px 18px;font-size:.76rem;color:#8a8073;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.5;}
+  .crumb a{color:#157a4b;text-decoration:none;font-weight:600;}
+  .crumb a:hover{text-decoration:underline;}
+  .crumb .sep{color:#c9c0b2;}
+  .crumb .cur{color:#4a443b;font-weight:600;}
+  @media(max-width:640px){.crumb{position:static;} .sitenav-in{flex-wrap:nowrap;} .sitenav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  /* 未定稿（公式だが校正中）＝確定版と一目で区別できるようコーラル地にする */
+  .hero .srcbadge.draft{background:var(--coral-dark, #b83a25);}
+  .hero .srcbadge.draft .dot{background:#ffd9cf;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
+
+  /* ページトップへ戻る */
+  .to-top{position:fixed;bottom:20px;right:20px;z-index:900;width:44px;height:44px;border:none;border-radius:50%;background:#157a4b;color:#fff;font-size:20px;line-height:1;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,background .15s;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+  .to-top.show{opacity:.92;visibility:visible;transform:none;}
+  .to-top:hover{opacity:1;background:#12633d;}
+
+  /* 発言パーマリンク＆要約→本文アンカー */
+  .turn-link{margin-left:8px;font-size:12px;text-decoration:none;opacity:0;transition:opacity .15s;color:#8a8073;}
+  .turn:hover .turn-link,.turn-link:focus{opacity:.7;}
+  .turn-link:hover{opacity:1;}
+  .turn:target,.turn.turn-hl{background:#fff8e1;transition:background .3s;}
+  a.sum-jump{color:#157a4b;font-weight:700;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;cursor:pointer;}
+  a.sum-jump:hover{color:#12633d;}
+  .copy-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(8px);background:#157a4b;color:#fff;font-size:13px;padding:9px 16px;border-radius:4px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;z-index:1100;box-shadow:0 2px 10px rgba(0,0,0,.25);}
+  .copy-toast.show{opacity:1;visibility:visible;transform:translateX(-50%);}
+</style>
+</head>
+<body>
+<script>try{if(window.self!==window.top)document.documentElement.classList.add('embedded');}catch(e){document.documentElement.classList.add('embedded');}</script>
+<nav class="sitenav" aria-label="サイト共通ナビ">
+  <div class="sitenav-in">
+    <a class="sitenav-brand" href="index.html"><img src="icon.svg" alt="" width="30" height="30"><span>非公式会議録</span></a>
+    <div class="sitenav-links">
+      <a href="index.html">ホーム</a>
+      <a href="search.html">全文検索</a>
+      <a href="list.html">会議一覧</a>
+      <a href="https://www.city.koganei.tokyo.dbsr.jp/" target="_blank" rel="noopener">公式会議録<span class="ext">↗</span></a>
+      <a href="https://www.youtube.com/koganei_shigikai" target="_blank" rel="noopener">原典動画<span class="ext">↗</span></a>
+    </div>
+  </div>
+</nav>
+<nav class="crumb" aria-label="パンくずリスト"><div class="crumb-in"><a href="index.html">ホーム</a><span class="sep">›</span><a href="list.html">全会議一覧</a><span class="sep">›</span><span class="cur">令和8年8月27日 本会議①</span></div></nav>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和8年8月27日</p>
+    <h1>本会議①</h1>
+    <span class="src">YouTube字幕＋AI校正による記録（非公式）</span><div class="hero-note" style="font-family:var(--sans);font-size:13px;line-height:1.7;color:var(--muted);margin-top:10px;">本会議・委員会等の中継動画をもとに、文字起こし・校正・要約を行った非公式アーカイブです。<br><span style="color:#c0392b;font-weight:700;">致命的な話者の誤りや語句の誤りを含んでいます。転載などには適しません。最終的には必ず原典に当たってください。</span></div><span class="genmeta">本文・要約はAIによる自動生成で、小金井市議会の公式見解ではありません。発言者名や語句に誤りを含む場合があります。公式会議録が公開され次第、公式版に差し替えます。<br>最終生成日 2026-08-28</span>
+    <span class="src official" style="display:block; margin-top:10px;"><a href="shiryo/R8.8.27_本会議①.html" style="color:#157a4b; font-weight:700;">📄 この会議の配布資料（全6ページ・PDF原本と全ページ画像）</a></span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <h3>議事の概要</h3>
+<p>令和8年第3回小金井市議会定例会が8月27日に開会した。会期は<strong>本日8月27日から10月5日までの40日間</strong>と決定した。市長提出案件は19件、議員提出案件は意見書13件・決議13件の予定で、一般質問は23人が通告している。令和8年度補正予算4件を審査する<strong>予算特別委員会（委員14人）</strong>と、令和7年度決算認定5件を審査する<strong>決算特別委員会（議長を除く委員23人）</strong>を、いずれも議長発議により設置することが議会運営委員長報告のとおり決定した。</p>
+<p>続いて閉会中継続審査となっていた<strong>陳情7件について、総務企画・建設環境・厚生文教の各委員長が審査結果を報告</strong>した。討論・採決は一時保留とされ、午後の本会議で行われた。</p>
+<p>このあと議案3件が上程された。<strong>議案第59号（一般会計補正予算第4回）</strong>は、物価高騰及び中東情勢悪化に伴う事業者支援として、<strong>中小企業者等に1事業所あたり一律5万円を給付する「事業者物価高騰等対応支援金」（対象2,600事業所見込み）</strong>と、<strong>中東情勢等対策緊急資金融資に係る信用保証協会保証料等及び利子の全額補助</strong>を柱とするもので、歳入歳出それぞれ1億3,079万7,000円を追加する。</p>
+<p>質疑では<strong>岸田委員</strong>が、物価高騰対応重点支援地方創生臨時交付金を活用した多摩26市の実施状況を示すよう求めたが、企画財政部長は「現時点での26市の状況につきましては、把握ができていない」と答弁。一方で<strong>白井市長は「経済課担当の方で多摩26市、いろいろ電話などをして聞き取りなんかもさせていただいて…確認はさせていただいております。ただ、確定的に表に出ている情報ではないので、我々として今お答えできる状況ではございません」</strong>と述べた。岸田委員は「先ほど部長は把握してないっておっしゃった。市長は把握してるけれども言えないっておっしゃった。全然違うじゃないですか」と両者の食い違いを指摘し、即決を求めるだけの判断材料が示されていないとして「<strong>誠意がないと言わせていただきます</strong>」と述べた（事業自体には反対しないと明言）。</p>
+<p><strong>森戸委員</strong>は事業を評価しつつ、令和7年度決算で繰越金が26億円あることを挙げて「10万円も出せないという状況ではないのかな」と増額を求めた。市長は、国分寺市が建設業に10万円・流通と製造に5万円としている例や業種・事業規模を絞る案も検討したが、「どの事業者もやっぱりこの物価高騰で困っているのも間違いないよね」として一律5万円としたと説明した。<strong>渡辺委員</strong>は、対象2,600事業所が経済センサスの2,866事業所の90%であることを確認したうえで、市報こがねいでの一面掲載と1月の再掲載を求め、建設業だけ上乗せした場合の追加額（約200事業所×5万円＝約1,000万円）を試算させた。申請期限が1月15日である点についても「年末年始で松が取れたらすぐが締め切り」として延長を要望した。</p>
+<p><strong>議案第69号（災害用トイレカーの買入れ）</strong>は、契約金額<strong>2,930万9,170円</strong>（落札金額2,664万4,700円＋消費税等266万4,470円）、契約の相手方は<strong>一般社団法人助けあいジャパン</strong>、契約の方法は<strong>一者随意契約</strong>である。7月8日に仮契約を締結しており、市議会の議決に付すべき契約及び財産の取得又は処分に関する条例第3条の<strong>予定価格2,000万円以上の動産の買入れ</strong>に当たるため議案として提出された。なお、議案の別紙に「トレイカー」との誤記があり、当日差し替えが行われた。</p>
+<p>質疑は随意契約の妥当性に集中した。<strong>森戸委員</strong>は「2社からちゃんと見積もりを取って随意契約をしてるんですかっていうことですよ。契約規則上そういうことになってますよね」とただし、<strong>水上委員</strong>は「地方自治法で例外的に随意契約が認められる9つの事由のうち何号に該当するのか」と問うた。総務部長は当初<strong>第3号（特定の施設等からの物品の買入れ等）</strong>を挙げたが、水上委員から「説明がきついんじゃないか」と指摘され、その後<strong>第2号（契約の性質又は目的が競争入札に適しない）</strong>にも該当すると補足した。</p>
+<p>市側は、<strong>他にもトイレトラック・トイレカーを製造する事業者・団体は存在する</strong>と認めたうえで、加入する「災害派遣トイレネットワークプロジェクト（みんな元気になるトイレ）」が全国最大規模であること、車両の規格・仕様が定められ<strong>意匠登録</strong>もされており同一タイプでなければ相互運用ができないこと、<strong>ネットワークと完全にリンクした形での車両納入ができるのはこの団体のみ</strong>であることを理由として説明した。白井市長は、同ネットワークの<strong>加盟自治体が約60、2018年（倉敷の豪雨災害）から10の災害に出動し、約40万人・延べ157万回の利用実績</strong>があること、<strong>近隣では三鷹市が同様の車両のクラウドファンディングを実施中で、一市を除く六市が加入済みまたは加入予定</strong>であることを補足した。</p>
+<p>クラウドファンディング500万円の予算計上の在り方も論点となった。森戸委員は「本来なら、寄付は<strong>科目存置</strong>として付けて、一般財源で3,000万円を組み、寄付が集まったら減額すればいい」として財政規律上の疑義を呈した。<strong>財政課長</strong>は、小金井市予算事務規則第24条が特定財源となる歳入の重大な変更を速やかに企画財政部長へ報告するよう定めていることを挙げ、「<strong>今回これをテストケースにして、小金井市としてはどういうクラウドファンディングを作り上げていくか、制度化をしていくのかっていうのが決まってくる</strong>」と述べ、統制を効かせるため500万円を全額計上したと説明した。防災安全担当部長は、東京都の補助（<strong>車両取得に対する上限2,400万円の3分の2＝1,600万円程度</strong>）の協議上、歳入見込額の報告が必要だったことも理由に挙げた。</p>
+<p>このほか、トイレカーの<strong>保管場所は市の庁舎のどちらかを想定（未確定）</strong>、<strong>車体の左右両面にデザインを掲載</strong>し被災地派遣を踏まえ「あまり華美なデザインにならないように」配慮すること、寄付者名は<strong>車両の後部に掲載</strong>（市民も掲載可）、デザイン案は防災フェスタでの投票も検討していることが答弁された。</p>
+<h3>審査した事件の一覧</h3>
+<ul>
+<li>議会運営委員長報告（会期40日間・特別委員会2件の設置／報告のとおり決定）</li>
+<li>日程第1　会議録署名議員の指名（18番遠藤百合子議員・19番岸田正義議員）</li>
+<li>日程第2　会期の決定（<strong>8月27日〜10月5日／40日間</strong>）</li>
+<li>日程第3　議長報告（質疑なし）</li>
+<li>日程第4　一部事務組合議会等活動状況報告（昭和病院企業団・東京都後期高齢者医療広域連合・浅川清流環境組合の3件／質問通告なし）</li>
+<li>日程第5〜第11　陳情7件の各委員長報告（<strong>討論・採決は一時保留</strong>）</li>
+<li>8陳情第21号／8陳情第22号（総務企画委員長報告・いずれも採択すべきもの）</li>
+<li>8陳情第17号（建設環境委員長報告・起立少数で不採択すべきもの）</li>
+<li>7陳情第79号／7陳情第116号／8陳情第13号／8陳情第15号（厚生文教委員長報告）</li>
+<li>日程第12　議案第59号　令和8年度小金井市一般会計補正予算（第4回）（説明・質疑／<strong>討論・採決は一時保留</strong>）</li>
+<li>日程第13　議案第64号　固定資産評価審査委員会委員の選任に関し同意を求めることについて（<strong>益田あゆみ</strong>・53歳・税理士／質疑なし／<strong>一時保留</strong>）</li>
+<li>日程第14　議案第69号　災害用トイレカーの買入れについて（説明・質疑／<strong>一時保留</strong>）</li>
+</ul>
+<h3>事件ごとの要約</h3>
+<h4>議会運営委員長報告</h4>
+<p>水上洋志委員長が、8月24日の議会運営委員会の結果を報告した。市長提出案件は当初送付として決算認定5件・報告1件・補正予算5件・人事案件1件・条例の制定1件・条例の一部改正1件・市道路線の廃止1件・市道路線の認定1件・財産の取得1件、後日送付1件、追加送付1件の計19件。議員提出案件は意見書13件・決議13件の予定。一般質問の通告者は23人。</p>
+<p>会期は8月27日から10月5日までの40日間とし、補正予算4件の審査のため委員14人の予算特別委員会を、決算認定5件の審査のため議長を除く委員23人の決算特別委員会を、いずれも議長発議により設置することと決定した。請願・陳情の受付期限は8月28日午後5時。質疑はなく、報告のとおり決定した。</p>
+<h4>日程第1〜第4</h4>
+<p>会議録署名議員に18番遠藤百合子議員・19番岸田正義議員を指名。会期を40日間と決定。議長報告及び一部事務組合議会等活動状況報告はいずれも文書配布で、質疑・質問通告はなかった。</p>
+<h4>日程第5〜第11　陳情7件の委員長報告</h4>
+<p><strong>鈴木成夫総務企画委員長</strong>は、7月29日の委員会で8陳情第1号・第14号・第11号を保留、所管事務調査「自治体DXの取組について」を継続調査としたことを報告。8陳情第21号は採決の結果、採択の上市長に送付すべきものと、8陳情第22号は採択の上関係機関に意見書を送付すべきものと決定したと報告した。いずれも6月15日の委員会で陳情者から発言があった。</p>
+<p><strong>清水学建設環境委員長</strong>は、8月3日の委員会で8陳情第20号（市内3駅周辺の街路樹の本数増）を保留、所管事務調査2件を継続調査としたことを報告。8陳情第17号（ハト・カラスへのエサやり）は<strong>起立採決の結果、起立少数により不採択すべきもの</strong>と決定したと報告した。</p>
+<p><strong>沖浦あつし厚生文教委員長</strong>は、8月7日の委員会で陳情9件・所管事務調査2件を審査したと報告。8陳情第9号を保留、7陳情第81号・8陳情第8号・8陳情第10号・8陳情第12号の4件を継続審査、所管事務調査2件を継続調査とした。7陳情第79号（第一小学校の建て替えに伴う校庭使用制限期間）は<strong>起立多数により採択の上、市長及び教育委員会に送付すべきもの</strong>と決定。7陳情第116号（指定管理者選定における重大事故報告漏れ）は、「指定管理者の選定については当委員会の所管外であるため、明確な判断ができない項目が一部あった」「陳情項目の4番目については当委員会としても今後の改善を行うことが重要であり、指定管理者選考においては安全管理面を含め、指定管理者応募者の情報が明らかにされるよう、明確な基準や定義に基づく確認体制の強化を市に求めるものである」との<strong>意見を付して採択</strong>と決定。8陳情第13号・8陳情第15号はいずれも<strong>起立少数により不採択すべきもの</strong>と決定した。</p>
+<p>以上7件は、討論・採決を一時保留することと決定した。</p>
+<h4>日程第12　議案第59号　令和8年度小金井市一般会計補正予算（第4回）</h4>
+<p>歳入歳出それぞれ1億3,079万7,000円を追加し、総額を550億3,694万6,000円とするもの。歳入は物価高騰対応重点支援地方創生臨時交付金3,079万7,000円と財政調整基金繰入金1億円。歳出は商工振興に要する経費1億6,149万4,000円（1事業所あたり一律5万円の給付、対象2,600事業所見込み、申請期間は10月中旬〜1月15日）と、小口事業資金融資に要する経費131万4,000円（中東情勢等対策緊急資金融資の保証料・利子を全額補助、100件の利用見込み）。</p>
+<p><strong>岸田委員</strong>は、多摩26市の交付金活用状況の資料が示されないまま即決を求めることの是非を問い、一律5万円で目的を達成できる根拠、事業がこの時期になった理由をただした。企画財政部長は26市の現状は把握できていないと答弁。経済課長は、直近で実施している他市の情報を参考にしたとしつつ「この金額をもってこの目標を達成できるかというところに関しましては、なかなか答弁が難しいところもございます」と述べ、応援的な要素を含めた支援だと説明した。市長は臨時交付金が約3,000万円しかない中での判断だったと述べ、早期に支援を行いたいとして即決を求めた。岸田委員は再質問で部長答弁と市長答弁の食い違いを指摘し、判断材料が不足しているとして厳しく批判した。</p>
+<p><strong>森戸委員</strong>は、周知方法（市報・ホームページ・X・市民掲示板・関係団体経由のチラシ）、申請方法（ウェブ申請を整備予定、委託先窓口へ原則郵送）、5万円とした理由、国の交付金額の少なさ、小口事業資金融資の利子2%の設定根拠と審議会への報告状況を質疑した。経済課長は、市の一般的な貸付の利子補給が事業者0.8%・市2.075%であるところ、緊急性を踏まえ市負担分に近い2%としたこと、他市も2%前後であること、金融機関へ意見照会済みであること、審議会は開催できなかったが委員へ事前に意見照会し特段議論はなかったことを答弁した。</p>
+<p><strong>渡辺委員</strong>は、市報こがねいでの掲載方法（一面掲載・1月の再掲載）、建設業のみ上乗せした場合の追加額、申請期限1月15日の延長可能性を質疑した。経済課長は市報にエントリー済みで一面掲載は調整中、建設業は約180事業所（登録されていない事業者もあり得るため200事業所とすれば5万円で1,000万円の追加）と試算を示した。渡辺委員は、年内の申請状況を見ながら弾力的な運用を配慮するよう要望した。</p>
+<p>質疑終了後、委員会付託を省略し、討論・採決を一時保留することと決定した。</p>
+<h4>日程第13　議案第64号　固定資産評価審査委員会委員の選任に関し同意を求めることについて</h4>
+<p>固定資産評価審査委員会委員の益田あゆみ（住所：小金井市、53歳、税理士）が令和8年9月12日で任期満了となるため再任するもの。任期は令和8年9月13日から令和11年9月12日まで。質疑はなく、委員会付託を省略し討論・採決を一時保留することと決定した。</p>
+<h4>日程第14　議案第69号　災害用トイレカーの買入れについて</h4>
+<p>総務部長が、7月8日に仮契約を締結したこと、契約の目的は災害時の公衆衛生環境の確保や被災者の健康維持を目的とした災害用トイレカーの買入れであること、契約の方法は一者随意契約であること、契約金額は2,930万9,170円、契約の相手方は一般社団法人助けあいジャパン、契約期間は契約確定日から令和9年6月30日までであることを説明した。あわせて議案別紙の「トレイカー」の誤記について差し替えを陳謝した。</p>
+<p><strong>森戸委員</strong>は、①この一社しかなかったのか、②納入場所（駐車場所）はどこか、③クラウドファンディング500万円が集まらなかった場合の歳入欠陥への対応と支払時期、④500万円を歳入計上したことの財政規律上の是非、⑤2社見積りを取ったのかを質疑した。</p>
+<p><strong>小林委員</strong>は、オールイン方式であること（500万円に満たなくても事業は実施し、不足は一般財源）、寄附が増えれば都補助が減る関係、クラウドファンディングの公開時期を確認し、11月開始なら9月中旬〜10月頭の頭出しが必要だと意見を述べた。</p>
+<p><strong>地域安全課長</strong>は、他にもトイレトラック・トイレカーを作っている事業者・団体はあるとしたうえで、加入するネットワークが全国最大規模であり受援の可能性が広がることを随意契約の理由として説明。保管場所は市の庁舎のどちらかを想定し関係課と調整中で、導入は来年度のため配備場所はそれまでに決めると答弁した。再質問に対しては、ネットワーク加入の要件として車両や設備の規格・仕様が定められ意匠登録もされていることを追加説明した。</p>
+<p><strong>防災安全担当部長</strong>は、車両は債務負担行為で予算措置しており、東京都の補助が車両取得に対する上限2,400万円の3分の2で1,600万円程度見込まれること、支出も歳入も来年度になること、一般財源の支出を最大限なくす資金スキームとするため500万円と設定したことを説明。クラウドファンディングはふるさと納税事業者のポータルサイトを活用し、11月〜12月の繁忙期に間に合うよう案内したいと述べた。</p>
+<p><strong>財政課長</strong>は、近隣他市を調べたところ予算計上の方法は自治体により様々であるとしたうえで、予算事務規則第24条の報告義務を踏まえ、大幅な不足が最終補正で判明する事態を避けるため500万円を全額計上したと説明。今回をテストケースとして小金井市としてのクラウドファンディングの在り方を制度化していく考えを示した。</p>
+<p><strong>水上委員</strong>は、地方自治法施行令上の随意契約が認められる事由の何号に該当するかを問い、総務部長の第3号との答弁に対し「説明がきついんじゃないか」「他にも同様に扱っている業者もあるわけだから、本来で言えば競争入札や指名競争入札など原則に則って対応すべきではなかったか」と指摘した。総務部長は第2号にも該当すると補足し、防災安全担当部長は、助けあいジャパンがあっせん・納入する車両以外のタイプもあるが、被災地での運用の円滑性のため同一タイプとされていること、ネットワークと完全にリンクした形で車両を納入できるのはこの団体のみであること、内閣府の登録制ネットワークは被災自治体が個別に依頼・調整する必要があるのに対し、この団体は事務局が調整するため迅速に受援できることを補足説明した。</p>
+<p>水上委員は「トイレネットワークのそのものの説明は提案の時にはなかったと思うので、もう少し正確な提案説明を今後はきちんと行っていただきたい」と述べた。</p>
+<p>質疑終了後、委員会付託を省略し、討論・採決を一時保留することと決定し、昼休憩に入った。</p>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/sqvpILdrXRU" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
+  </section>
+
+<div class="turn chair reveal" id="t0">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=260s" data-timestamp="260"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:20</a>ではお願いします。おはようございます。ただいまから令和8年第3回小金井市議会定例会を開会します。</div><div class="say">本日の会議を開きます。</div><div class="say">8月24日に本定例会に関し議会運営委員会を開催しておりますので、議会運営委員長の報告を求めます。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=290s" data-timestamp="290"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:50</a>　16番、水上洋志委員長。</div>
+</div>
+
+<div class="turn reveal" id="t1">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">議会運営委員会の報告をいたします。</div><div class="say">議会運営委員会は、令和8年第3回定例会に関し、8月24日に開催し協議いたしましたので、その結果についてご報告申し上げます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=323s" data-timestamp="323"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:23</a>　本定例会に付議されます市長提出案件は、当初送付案件として、令和7年度決算認定5件、報告1件、令和8年度補正予算5件、人事案件1件、条例の制定1件、条例の一部改正1件、市道路線の廃止1件、市道路線の認定1件、財産の取得1件、後日送付案件として、条例の一部改正1件、追加送付案件として、条例の一部改正1件の、以上19件となっております。</div><div class="say">また、議員提出案件として、意見書13件、決議13件の提出が予定されております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=356s" data-timestamp="356"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:56</a>次に、8月20日から8月24日正午までの一般質問通告者は23人でありました。</div><div class="say">以上のことから、本定例会の会期及び会議日割、案件の付託委員会などについて協議いたしました。その結果、本定例会の会期については、本日8月27日から10月5日までの40日間とすることと決定し、その間の会議日割及び案件の付託委員会については、それぞれお手元にご配布しております一覧表のとおり決定いたしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=393s" data-timestamp="393"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:33</a>また、本定例会に提出されております令和8年度補正予算4件の審査のため、委員14人で構成する予算特別委員会を、また、令和7年度決算認定5件の審査のため、議長を除く委員23人で構成する決算特別委員会を、いずれも議長発議により設置することと決定いたしました。</div><div class="say">なお、本定例会中に審査を予定しております請願・陳情の受付期限は8月28日の午後5時までですので、念のため申し添えておきます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=429s" data-timestamp="429"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:09</a>以上で議会運営委員会の報告を終了いたします。</div>
+</div>
+
+<div class="turn chair reveal" id="t2">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">議会運営委員長の報告に対する質疑はありませんか。</div><div class="say">質疑を終了することにご異議ありませんか。</div>
+</div>
+
+<div class="turn voice reveal" id="t3">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">異議なし。</div>
+</div>
+
+<div class="turn chair reveal" id="t4">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ご異議なしと認め、質疑を終了し、議会運営委員長の報告を終了します。</div><div class="say">お諮りします。議会運営委員長の報告のとおり決定することにご異議ありませんか。</div>
+</div>
+
+<div class="turn voice reveal" id="t5">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">異議なし。</div>
+</div>
+
+<div class="turn chair reveal" id="t6">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ご異議なしと認め、議会運営委員長の報告のとおり決定しました。</div><div class="say">日程第1、会議録署名議員の指名を行います。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=461s" data-timestamp="461"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:41</a>　会議録署名議員は、会議規則第118条の規定により、議長において18番遠藤百合子議員、19番岸田正義議員を指名いたします。</div><div class="say">日程第2、会期の決定を議題とします。お諮りします。今定例会の会期は、本日8月27日から10月5日までの40日間とすることにご異議ありませんか。</div>
+</div>
+
+<div class="turn voice reveal" id="t7">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">異議なし。</div>
+</div>
+
+<div class="turn chair reveal" id="t8">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ご異議なしと認め、会期は本日8月27日から10月5日までの40日間と決定しました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=495s" data-timestamp="495"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:15</a>日程第3、議長報告を行います。議長報告はあらかじめ文書で配布しております。ただいまから質疑を行います。</div><div class="say">以上で質疑を終了することにご異議ありませんか。</div>
+</div>
+
+<div class="turn voice reveal" id="t9">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">異議なし。</div>
+</div>
+
+<div class="turn chair reveal" id="t10">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ご異議なしと認め、質疑を終了します。以上で議長報告を終了します。</div><div class="say">日程第4、一部事務組合議会等活動状況報告を行います。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=530s" data-timestamp="530"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:50</a>　一部事務組合議会等活動状況報告は、前回令和8年第2回定例会報告後から本年8月6日までに開催された一部事務組合議会等の報告を行うもので、あらかじめ文書で配布しております。</div><div class="say">本報告に対する質問通告は8月26日の正午までとなっておりますが、通告はありませんでした。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=563s" data-timestamp="563"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:23</a>　従って、昭和病院企業団議会活動状況報告、東京都後期高齢者医療広域連合議会活動状況報告、浅川清流環境組合議会活動状況報告、以上3件の一部事務組合議会等活動状況報告を終了します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=593s" data-timestamp="593"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:53</a>　日程第5、8陳情第21号、建設資材不足と価格高騰にあえぐ中小事業者、個人事業者に対する支援として、小金井市独自の補助金制度の創設を求める陳情書から、日程第11、8陳情第15号、小金井市立図書館における学級文庫（団体貸出し）制度の改善に関する陳情書までの7件を一括して議題とします。</div><div class="say">以上7件について、各委員長の報告を求めます。</div><div class="say">総務企画委員長の報告を求めます。20番、鈴木成夫委員長。</div>
+</div>
+
+<div class="turn reveal" id="t11">
+  <div class="meta"><span class="name">鈴木成夫</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=625s" data-timestamp="625"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:25</a>総務企画委員会委員長報告を行います。</div><div class="say">総務企画委員会は、令和8年7月29日に開催し、陳情5件、所管事務調査1件の計6件を審査いたしましたので、その審査の概要と結果につきましてご報告申し上げます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=656s" data-timestamp="656"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:56</a>　なお、8陳情第1号、新宿区において顕在化した事例を受けて、政党機関紙の庁舎内勧誘行為に対する早期の実態把握と再発防止を求める陳情書、8陳情第14号、地方消費者行政の維持・強化のための対策を求める意見書を国会等に提出することを求める陳情書、及び8陳情第11号、「司法修習生採用選考審査基準」に国籍条項を求めることを求める意見書提出に関する陳情書につきましては、保留と決定しております。</div><div class="say">また、所管事務調査、自治体DXの取組についてにつきましては、引き続き調査する必要があると認め、継続調査と決定しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=690s" data-timestamp="690"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:30</a>8陳情第21号、建設資材不足と価格高騰にあえぐ中小事業者、個人事業者に対する支援として、小金井市独自の補助金制度の創設を求める陳情書。</div><div class="say">本件につきましては、令和8年6月9日の本会議において当委員会に付託され、6月15日及び7月29日の計2回にわたり審査を行いました。なお、6月15日の委員会では、陳情者から発言の申出がありましたので、審査に先立ち委員会協議会を開催し、発言していただきました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=725s" data-timestamp="725"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:05</a>7月29日の委員会では質疑を終了し、採決の結果、採択の上、市長に送付すべきものと決定いたしました。</div><div class="say">8陳情第22号、国に対し、原材料・建設資材の供給安定化と価格高騰対策を速やかに講じるための意見書提出を求める陳情書。</div><div class="say">本件につきましては、令和8年6月9日の本会議において当委員会に付託され、6月15日及び7月29日の計2回にわたり審査を行いました。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=759s" data-timestamp="759"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:39</a>　なお、6月15日の委員会では、陳情者から発言の申出がありましたので、審査に先立ち委員会協議会を開催し、発言していただきました。</div><div class="say">7月29日の委員会では質疑を終了し、採決の結果、採択の上、関係機関に意見書を送付すべきものと決定いたしました。</div><div class="say">以上で総務企画委員会の報告を終了いたします。</div>
+</div>
+
+<div class="turn chair reveal" id="t12">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">総務企画委員長の報告に対する質疑を行います。質疑を終了することにご異議ありませんか。</div>
+</div>
+
+<div class="turn voice reveal" id="t13">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">異議なし。</div>
+</div>
+
+<div class="turn chair reveal" id="t14">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=789s" data-timestamp="789"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:09</a>ご異議なしと認め、質疑を終了し、総務企画委員長の報告を終了します。</div><div class="say">建設環境委員長の報告を求めます。4番、清水学委員長。</div>
+</div>
+
+<div class="turn reveal" id="t15">
+  <div class="meta"><span class="name">清水学</span></div>
+  <div class="say">建設環境委員会委員長報告を行います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=824s" data-timestamp="824"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:44</a>　建設環境委員会は、令和8年8月3日に開催し、陳情2件、所管事務調査2件の計4件を審査いたしましたので、その審査の概要と結果につきましてご報告申し上げます。</div><div class="say">なお、8陳情第20号、市内3駅周辺の街路樹の本数増を求める陳情書につきましては、保留と決定しております。</div><div class="say">また、所管事務調査、循環型社会の形成及び温室効果ガス削減に関する調査、及び所管事務調査、都市計画道路に関する調査の以上2件につきましては、引き続き調査する必要があると認め、継続調査と決定しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=859s" data-timestamp="859"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:19</a>8陳情第17号、ハト・カラスへのエサやり（給餌）による被害防止（行政罰を伴う）条例の制定を求める陳情書。</div><div class="say">本件につきましては、令和8年6月9日の本会議において当委員会に付託され、6月12日及び8月3日の計2回にわたり審査を行いました。なお、6月12日の委員会では、陳情者から発言の申出がありましたので、審査に先立ち委員会協議会を開催し、発言していただきました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=893s" data-timestamp="893"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:53</a>8月3日の委員会では質疑を終了し、起立採決の結果、起立少数により不採択すべきものと決定いたしました。</div><div class="say">以上で建設環境委員会の報告を終了いたします。</div>
+</div>
+
+<div class="turn chair reveal" id="t16">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">建設環境委員長の報告に対する質疑を行います。質疑を終了することにご異議ありませんか。</div>
+</div>
+
+<div class="turn voice reveal" id="t17">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">異議なし。</div>
+</div>
+
+<div class="turn chair reveal" id="t18">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ご異議なしと認め、質疑を終了し、建設環境委員長の報告を終了します。</div><div class="say">厚生文教委員長の報告を求めます。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=925s" data-timestamp="925"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:25</a>　11番、沖浦あつし委員長。</div>
+</div>
+
+<div class="turn reveal" id="t19">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">厚生文教委員会委員長報告を行います。</div><div class="say">厚生文教委員会は、令和8年8月7日に開催し、陳情9件、所管事務調査2件の計11件を審査いたしましたので、その審査の概要と結果につきましてご報告申し上げます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=961s" data-timestamp="961"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:01</a>　なお、8陳情第9号、定額減税補足給付金の申請締切について、入院という特殊事情への配慮等を求める陳情書につきましては、保留と決定しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=991s" data-timestamp="991"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:31</a>　また、7陳情第81号、民設民営学保における児童溺死事件について市の責任の検証を求める陳情書、8陳情第8号、現メガロス東小金井学童クラブ運営事業者への補助金交付の停止等及び同事業者における事業の停止命令等を求める陳情書、8陳情第10号、保育園入所保留児童の解消に向けた既存施設の緊急有効活用に関する陳情書、及び8陳情第12号、障害者交通手当の引上げを求める陳情書の以上4件につきましては、引き続き審査する必要があると認め、継続審査と決定しております。</div><div class="say">また、所管事務調査、地域福祉計画の進捗について、及び所管事務調査、子ども施策についての以上2件につきましては、引き続き調査する必要があると認め、継続調査と決定しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1023s" data-timestamp="1023"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:03</a>　7陳情第79号、第一小学校の建て替えに伴う校庭使用制限期間について対策を求める陳情書。</div><div class="say">本件につきましては、令和7年9月9日の本会議において当委員会に付託され、9月23日、11月6日、令和8年2月3日、4月28日及び8月7日の計5回にわたり審査を行いました。</div><div class="say">8月7日の委員会では質疑を終了し、起立採決の結果、起立多数により採択の上、市長及び教育委員会に送付すべきものと決定いたしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1055s" data-timestamp="1055"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:35</a>7陳情第116号、指定管理者選定における重大事故報告漏れと評価の公平性に関する事実確認および再考の陳情書。</div><div class="say">本件につきましては、令和7年12月4日の本会議において当委員会に付託され、12月9日、17日、令和8年2月3日、4月28日、6月11日、19日及び8月7日の計7回にわたり審査を行いました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1086s" data-timestamp="1086"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:06</a>　8月7日の委員会では、特段の質疑もなく、採決の結果、本陳情書は重大事故に関わる問題であり、当委員会は慎重に審査をしてきた。陳情者からの問題提起は、指定管理者の選定について貴重な指摘である。しかしながら、指定管理者の選定については当委員会の所管外であるため、明確な判断ができない項目が一部あった。</div><div class="say">一部の委員から総務企画委員会との合同審査の提案がなされたが不一致となった。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1119s" data-timestamp="1119"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:39</a>　制限がある中での審査となったが、陳情項目の4番目については当委員会としても今後の改善を行うことが重要であり、指定管理者選考においては安全管理面を含め、指定管理者応募者の情報が明らかにされるよう、明確な基準や定義に基づく確認体制の強化を市に求めるものである、との意見をつけて、採択の上、市長及び教育委員会に送付すべきものと決定いたしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1154s" data-timestamp="1154"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:14</a>　8陳情第13号、市立小中学校の教育が特定市議会議員の宣伝に使われていないか調査を求める陳情書。</div><div class="say">本件につきましては、令和8年3月23日の本会議において当委員会に付託され、4月28日及び8月7日の計2回にわたり審査を行いました。</div><div class="say">8月7日の委員会では質疑を終了し、起立採決の結果、起立少数により不採択すべきものと決定いたしました。</div><div class="say">8陳情第15号、小金井市立図書館における学級文庫（団体貸出し）制度の改善に関する陳情書。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1187s" data-timestamp="1187"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:47</a>　本件につきましては、令和8年6月9日の本会議において当委員会に付託され、6月11日及び8月7日の計2回にわたり審査を行いました。</div><div class="say">8月7日の委員会では質疑を終了し、起立採決の結果、起立少数により不採択すべきものと決定いたしました。</div><div class="say">以上で厚生文教委員会の報告を終了いたします。</div>
+</div>
+
+<div class="turn chair reveal" id="t20">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">厚生文教委員長の報告に対する質疑を行います。質疑を終了することにご異議ありませんか。</div>
+</div>
+
+<div class="turn voice reveal" id="t21">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">異議なし。</div>
+</div>
+
+<div class="turn chair reveal" id="t22">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ご異議なしと認め、質疑を終了し、厚生文教委員長の報告を終了します。</div><div class="say">お諮りします。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1222s" data-timestamp="1222"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:22</a>　ご報告いただきました日程第5から日程第11までの7件は、討論・採決を一時保留することにご異議ありませんか。</div>
+</div>
+
+<div class="turn voice reveal" id="t23">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">異議なし。</div>
+</div>
+
+<div class="turn chair reveal" id="t24">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ご異議なしと認め、日程第5から日程第11までの7件は、討論・採決を一時保留することと決定しました。</div><div class="say">日程第12、議案第59号、令和8年度小金井市一般会計補正予算（第4回）を議題とします。提案理由の説明を求めます。市長。</div>
+</div>
+
+<div class="turn reveal" id="t25">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">おはようございます。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1256s" data-timestamp="1256"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:56</a>　議案第59号、令和8年度小金井市一般会計補正予算（第4回）をご提案申し上げます。</div><div class="say">本案は、歳入歳出予算の総額に歳入歳出それぞれ1億3,079万7,000円を追加し、歳入歳出予算の総額を歳入歳出それぞれ550億3,694万6,000円とするものであります。</div><div class="say">この歳入歳出予算の補正の款項の区分及び当該区分ごとの金額等は、第1表歳入歳出予算補正のとおりであります。</div><div class="say">以上のとおり補正するため、本案を提出するものであります。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1288s" data-timestamp="1288"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:28</a>　細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t26">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">企画財政部長。</div>
+</div>
+
+<div class="turn reveal" id="t27">
+  <div class="meta"><span class="name">企画財政部長</span></div>
+  <div class="say">それでは、細部についてご説明をいたします。</div><div class="say">予算書本文の1ページをお開きください。第4回補正予算を編成する項目につきましては、第1条の歳入歳出予算の補正の1項目でございます。</div><div class="say">はじめに、歳入予算でございますが、事項別明細書の8、9ページをお開きください。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1318s" data-timestamp="1318"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:58</a>　款15、国庫支出金、右側説明欄1、物価高騰対応重点支援地方創生臨時交付金3,079万7,000円につきましては、歳出の商工振興に要する経費及び小口事業資金融資に要する経費を対象とする交付金でございます。</div><div class="say">続きまして、款19、繰入金、右側説明欄1、財政調整基金繰入金につきましては、繰入金1億円につきましては財源補填するもので、繰入額の合計は16億1,000万円となり、年度末の現在高は約62億5,700万円となるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1359s" data-timestamp="1359"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:39</a>なお、令和8年度中における基金の状況につきましては、16ページの資料、令和8年度基金現在高調べをご覧いただきたいと思います。</div><div class="say">10、11ページをお開きください。続きまして、歳出予算でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1396s" data-timestamp="1396"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:16</a>　款7、商工費、右側説明欄1、商工振興に要する経費1億6,149万4,000円につきましては、物価高騰及び中東情勢悪化等に伴い、事業活動に影響を受けている市内の中小企業者等に対し、一事業者につき5万円を給付するもので、節1、事業者物価高騰等対応支援金業務会計年度任用職員報酬及び節3、職員手当等につきましては、時間額制の会計年度任用職員を1人、6か月雇用するもの。</div><div class="say">節10、消耗品につきましては、チューブファイル、再生PPC用紙等の事務用品を購入するもの。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1430s" data-timestamp="1430"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:50</a>　節12、事業者物価高騰等対応支援金給付事務委託料につきましては、チラシ・ポスターの作成、ウェブ・郵送による申請受付、コールセンター、決定通知の作成・郵送等を委託するもの。</div><div class="say">節18、事業者物価高騰等対応支援金につきましては、中小企業者等一事業所につき5万円を給付するもので、物価高騰対応重点支援地方創生臨時交付金対象事業でございます。</div><div class="say">概要につきましては、17、18ページ、資料3、小金井市事業者物価高騰対応支援金概要を後ほどご覧ください。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1462s" data-timestamp="1462"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:22</a>右側説明欄2、小口事業資金融資に要する経費131万4,000円に</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1495s" data-timestamp="1495"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:55</a>　つきましては、物価高騰及び中東情勢悪化等に伴い事業活動に影響を受け、売上げまたは利益が減少している市内の中小企業者等に対し、中東情勢等対策緊急資金融資に係る信用保証協会保証料等及び利子の全額補助を行うもので、節11、郵便料につきましては、合意書、契約書、パンフレット等の郵送。</div><div class="say">節18、小口事業資金融資制度保証料及び小口事業資金融資制度利子補給金につきましては、100件の利用を見込むもので、物価高騰対応重点支援地方創生臨時交付金対象事業でございます。</div><div class="say">概要につきましては、19ページ、資料4、中東情勢等対策緊急資金融資あっせん制度概要を後ほどご覧ください。</div><div class="say">14ページをお開きください。給与費明細書でございます。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1529s" data-timestamp="1529"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:29</a>　一般職の比較欄をご覧ください。職員数の1人増、報酬118万円の増、及び職員手当27万5,000円の増につきましては、事業者物価高騰等対応支援金業務会計年度任用職員の増分でございます。</div><div class="say">以下の表は職員手当の内訳、給料及び職員手当の増減額の明細となってございますので、後ほどご覧いただきたいと思います。</div><div class="say">12、13ページにお戻りください。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1563s" data-timestamp="1563"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:03</a>　款13、予備費につきましては、財源調整に1,411万2,000円を予備費充当していますことから、9,769万3,000円となるものでございます。</div><div class="say">恐れ入りますが、2ページにお戻りください。第1表、歳入歳出予算補正でございます。ただいまご説明いたしました歳入歳出予算を款項に区分の上、1億3,079万7,000円を追加し、予算の総額をそれぞれ550億3,694万6,000円とするものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1597s" data-timestamp="1597"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:37</a>以上で説明とさせていただき、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t28">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">歳入・歳出一括で質疑を行います。</div><div class="say">岸田正義さん。</div>
+</div>
+
+<div class="turn reveal" id="t29">
+  <div class="meta"><span class="name">岸田正義</span></div>
+  <div class="say">はい。おはようございます。本予算案については否定をするものではありませんが、適切かどうかについてはちょっと疑問があるので、質問をさせていただきます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1628s" data-timestamp="1628"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:08</a>この物価高騰対応重点支援地方創生臨時交付金を活用した多摩26市、それぞれどのような内容で行っているのか。本来であれば、即決でお願いするなら、そういう資料も踏まえた上で、本市はこれを選択した理由とかですね、を説明すべきところであるというふうに思っています。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1658s" data-timestamp="1658"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:38</a>　その点は説明に来られた時にも申し上げたので、多摩26市それぞれ、いつこの交付金を活用して、どのような内容で、どのような予算額でやられているのか、その中でどれだけの一財を投入されているのかということについて、企画財政部長からご答弁をいただきたいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1689s" data-timestamp="1689"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:09</a>　また、この内容の目的ですね、市内における経済活動の維持及び事業継続の支援を目的に支援金を給付するという目的を達成するのに、一律5万円という額が適切なのかどうか、これでこの目的を達成できるという根拠についてお答えいただきたい。</div><div class="say">で、また、総務企画委員会の議論ももちろん承知はしておりますが、なぜこの時期になってしまったのか、なぜこんなに遅れてしまったのかということについてご答弁ください。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t30">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1732s" data-timestamp="1732"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:52</a>企画財政部長。</div>
+</div>
+
+<div class="turn reveal" id="t31">
+  <div class="meta"><span class="name">企画財政部長</span></div>
+  <div class="say">26市の状況ということにつきまして、総務企画委員会の、今ですね、第2回定例会時点での状況ということで資料を出させていただいていたところでございますが、現時点での26市の状況につきましては、把握ができていないということでございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t32">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">次の質問は。2問目。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1770s" data-timestamp="1770"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:30</a>　経済課長。</div>
+</div>
+
+<div class="turn reveal" id="t33">
+  <div class="meta"><span class="name">経済課長</span></div>
+  <div class="say">それでは、2問目ですね。事業所当たり一律5万円ということで、この事業の目的にある市内の経済活動の維持及び事業継続の支援ができる、達成できるのかというご質問に関してでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1812s" data-timestamp="1812"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:12</a>　まず、この制度設計におきましてはですね、事業者支援金をですね、直近で過去に実施している他市の情報、状況をですね、参考にさせていただいたところです。</div><div class="say">確かにですね、金額的に一律5万円というふうになりますと、この金額をもってですね、この目標を達成できるかというところに関しましては、なかなか答弁が難しいところもございますけれども、応援的な要素も含めた中でですね、行政として支援をすると、その一律5万円を使って支援を行いたいというところで、この内容を制度として設定させていただいたところでございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t34">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1847s" data-timestamp="1847"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:47</a>続けて、市長。</div>
+</div>
+
+<div class="turn reveal" id="t35">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">私の方から答弁させていただきます。</div><div class="say">先ほど岸田さんの方から1問目、2問目も含めて質問いただいて、部長、課長の方で答弁しておりますが、多摩26市の状況については、今お答えできる状況にないということは部長の方でお答えをさせていただきました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1879s" data-timestamp="1879"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:19</a>　ただね、まず、隣の国分寺市の方で、もう既に6月の段階で、建設事業者に10万円、また、流通と製造だったかな、ちょっと限られた事業者に対してでございますが、5万円という形で事業者支援という取組を既に行っております。それは一つの我々としても参考にさせていただいたということでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1911s" data-timestamp="1911"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:51</a>　で、また、今、お答えは明確にはできませんが、とはいってもですね、経済課担当の方で多摩26市、いろいろ電話などをしてですね、聞き取りなんかもさせていただいて、それぞれの自治体の方でどういうふうに動いているかということは確認はさせていただいております。ただ、確定的に表に出ている情報ではないので、我々として今お答えできる状況ではございません。</div><div class="say">今、この中東情勢を含めて、各市もですね、どういうふうな対応をしたらいいかっていうことを正直悩んでるっていうことは、どの自治体もお答えとしてあったということでございます。</div><div class="say">その中で陳情書もいただいたっていうこと、隣の国分寺市さんでそういった事業者支援もやってるっていうこと。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1947s" data-timestamp="1947"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:27</a>　市としても一律、市民1人当たり5,000円という給付事業をこの春にかけて行いました。事業者向けっていうことをこの間、具体的な事業として行っておりませんでしたので、今の中東情勢の経済状況、そして経営環境を考えますと、我々としてもこの事業者支援ということを何らかやっぱり行わなければならないっていうことは、この間、総務企画委員会を中心にお答えしてきたところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=1977s" data-timestamp="1977"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:57</a>　他の自治体がどういう動きをしてるかっていうことは、つぶさには申し上げられませんが、そういう状況も把握しながらですね、あくまで小金井市としてそういう支援が必要だと判断して今回のこの事業を構築したということは申し上げておきます。</div><div class="say">最後の、なぜこの時期になったのかということ。これは総務企画委員会でも委員会ごとに厳しいご指摘と叱咤をいただいてきたところでございます。その際にもお答えをいたしましたが、その段階で他市の状況、もしくはその国や東京都の状況も見ながら、我々として何ができるかということを判断したいということ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2011s" data-timestamp="2011"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:31</a>　また、先ほど5万円で目的を達成するかということもございましたが、それに絡みますけども、臨時交付金自体が約3千万円しかないという中で、市としてどこまで拠出するのかということも当然考えなければならないと。そういう様々な状況の中で、我々としても事業者支援を行いたいという帰結として、今この事業を提案させていただいているということでございます。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t36">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">岸田さん。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2043s" data-timestamp="2043"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:03</a></div>
+</div>
+
+<div class="turn reveal" id="t37">
+  <div class="meta"><span class="name">岸田正義</span></div>
+  <div class="say">今、市長からるるご答弁いただきましたが、それが適切かどうかを判断するためにも、他市がどのような状況にあるのか、その中で本市がこのメニューを選んだことの適切性がどうなのか、予算額がどうなのかっていうのを審議するんですよ。</div><div class="say">先ほど部長は把握してないっておっしゃったんですよ。市長は把握してるけれども言えないっておっしゃったんですよ。全然違うじゃないですか、言ってること。</div><div class="say">部長、説明に来られた時、私、これ聞きますからねって言いましたよね。なんでこの間、何のやりとりもないんですか。何で今日答えられないんですか。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2073s" data-timestamp="2073"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:33</a>　それで即決なんですか。提案制度がおかしいんじゃないですか。</div><div class="say">もちろん市民の皆様が待っていらっしゃる事業だから否定はしませんよ、冒頭申し上げたように。ただ、適切かどうかは判断しかねる。それだけの材料を用意していただいてないというふうに私は捉えています。</div><div class="say">説得できる材料を持ってきてくださいよ。他の市はこれぐらいの規模でこういうふうにやってるけども、総合的に勘案して我が市だとこうなんだっていうこと、ちゃんと言ってくださいよ、市長。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2107s" data-timestamp="2107"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:07</a>　それが全く説明できてないじゃないですか。</div><div class="say">もちろん財源に限りがあって、ないよりはあったほうがいいし、その5万円で助かる方々もたくさんいらっしゃると思います。でも逆に、じゃあ5万円だったらいいや、手続きが面倒だからいいやって考える方もいらっしゃると思うんですよ。そうすると不用額が出るわけですよね。</div><div class="say">本来行き渡るべきお金が使われないっていう可能性があるわけですよね。</div><div class="say">2,600事業者は、どれぐらいの利用率を見込んでるんですか。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2137s" data-timestamp="2137"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:37</a>　じゃあ、その余った分をより必要なところに投入する。例えば国分寺市のように絞って10万円っていうことだってあり得るじゃないですか、考え方として。</div><div class="say">でも、なんでこうなんだっていう理論構築ができてないじゃないですか。説明できてないじゃないですかって思うんですよ。</div><div class="say">否定しないですよ。否定をされている方々がいらっしゃるのは事実だし、熱心に議場にもお越しになって、毎回傍聴にも来られている。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2171s" data-timestamp="2171"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:11</a>　その方々にいち早く支援をさせてあげたいということは同じです。</div><div class="say">でも、果たしてこれが本当にいいのか、もっとできたこともあるんじゃないのかなって思ったりもするわけですよ。</div><div class="say">その辺どのように捉えていらっしゃるのか。また、申請に何が必要なのか、その辺についての手続きの簡素化、どうやって使ってもらえるのかというビジョンについてお示しください。</div>
+</div>
+
+<div class="turn chair reveal" id="t38">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">市長。</div>
+</div>
+
+<div class="turn reveal" id="t39">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">手続きについては課長から答弁させていただきます。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2201s" data-timestamp="2201"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:41</a>　今、岸田さんの方からるる、事業の構築にあたっての考え方、それが説明も不十分じゃないかというご指摘もいただいております。</div><div class="say">今、具体的にお示しできないということは本当に申し訳ございませんが、26市の状況を我々としても確認をするように、それは夏の段階からそういうことをずっとヒアリングをさせていただいてやってきました。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2236s" data-timestamp="2236"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:16</a>　結果的にどうしてるかっていうのはまだ公表されてないので分かりませんが、他市でも同じような事業者支援というのを検討しているという、検討段階ですけどね、そういう声も聞こえてきたという背景もございました。</div><div class="say">この事業を構築する過程にあたって、岸田さんおっしゃったように、業種を絞って、例えば10万円、国分寺市さんのような考え方とか含めてですけどね、そういったことも我々としては検討してきたところでございます。</div><div class="say">ただし、私もそうですし、課長もそうですし、経済課もそうですし、いろんな事業者の方々とこの間、お話を伺ってきたところです。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2267s" data-timestamp="2267"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:47</a>　いろんな業種の事業者の方々だけではなくて、特に中小企業で一番信用性が高いのは信用金庫さんなので、事業者の状況をよく分かっておられます。そういう方々ともいろんな話をしてきました。</div><div class="say">とどのつまりですね、中東情勢の悪化って言ってしまうと難しいんですけども、結局、物価高騰でもどの事業者も少なからず、なんかやっぱり困っているっていう話はいただいておるところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2299s" data-timestamp="2299"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:19</a>　ですので、最初、私自身は業種を絞るっていうことは一つの選択肢として念頭に入れておりましたが、最終的には、どの事業者もやっぱりこの物価高騰で困っているのも間違いないよねということ、総事業費を考えたときに、我々として今拠出できるのはこれぐらいだというところから含めてですね、結果的にはこういう事業に構築をさせていただいたところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2329s" data-timestamp="2329"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:49</a>　この即決の案件としてお願いするにあたり、岸田さんからご指摘いただいていることはね、我々もすみません、重く受け止めなければなりませんが、この時期になったということも踏まえて、早くこの事業者支援を行いたいという観点から即決でお願いをさせていただいているところでございます。ご理解いただければと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t40">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">経済課長。</div>
+</div>
+
+<div class="turn reveal" id="t41">
+  <div class="meta"><span class="name">経済課長</span></div>
+  <div class="say">はい。それでは、手続きについてでございます。</div><div class="say">手続きについては、10月の中旬からスタートする申し込みに向けて準備を進めるところでございますが、まずは申請書の方を提出いただくことになります。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2362s" data-timestamp="2362"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:22</a>　その添付資料としましては、法人さん、個人さん、こちらの方については、確定申告を付けていただいたり、まだ確定申告が未到来の場合については、開業届とか、そういった届出でですね、そういったものを添付していただく。</div><div class="say">あと、振込先の確認が必要になりますので、そういったもののですね、添付資料が必要になる。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2394s" data-timestamp="2394"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:54</a>　それからですね、事業所ごとに支援金を振り込むことになりますので、事業所の所在地が証明できる書類などもですね、付けていただきながら審査を進め、支援していきたいというふうになっております。</div><div class="say">まだちょっと詳細につきましては、今、準備中でございます。今、このような概要になりますが、答弁とさせていただきます。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t42">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">岸田さん。</div>
+</div>
+
+<div class="turn reveal" id="t43">
+  <div class="meta"><span class="name">岸田正義</span></div>
+  <div class="say">はい。ご答弁いただきました。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2424s" data-timestamp="2424"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:24</a>　冒頭申し上げたように否定はいたしませんので、ぜひ、この補助金がですね、多くの皆さまに活用していただけるように、手続きの簡素化、さらなる簡素化も含めてですね、周知・啓発も含めてですね、ご努力をいただきたいというふうなことは申し上げておきます。</div><div class="say">しかしながら、先ほど申し上げたように、即決でこれを判断するに至る材料をいただいていないということは厳しく申し上げさせていただいて、誠意がないと言わせていただきます。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t44">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">他にございますか。森戸よう子さん。</div>
+</div>
+
+<div class="turn reveal" id="t45">
+  <div class="meta"><span class="name">森戸よう子</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2460s" data-timestamp="2460"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:00</a>はい。今回、補正予算として事業者物価高騰対応支援金の給付事業を進めていただいたことは感謝を申し上げたいと思います。</div><div class="say">6月の定例会でも陳情も出され議論し、私も一般質問で何らかの補助を出すべきだということを申し上げてきました。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2493s" data-timestamp="2493"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:33</a>　中東情勢はですね、未だに不安定な状況になっていて、今あまりマスコミでは取り上げませんけれども、やっぱり実態はですね、建設業をはじめ非常に厳しい状況に置かれているということであります。</div><div class="say">総務企画委員会でも、これ、かなり他市の状況も議論されたかなと思っておりまして、現状ではお隣の国分寺市と小平市は物価高騰支援っていうことですかね、ということで支給をされていると。今のところこの2市なんじゃないんでしょうか。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2530s" data-timestamp="2530"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:10</a>　これからさらに出てくる可能性はあると思いますが。</div><div class="say">そういう点ではですね、私は材料があるかないかっていうよりも、しっかりとやっぱり建設業者をはじめ中小の商業者の声も聞いていらっしゃるということで、それをもとにですね、今回提案をされたというふうに受け止めております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2564s" data-timestamp="2564"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:44</a>　それでですね、そのことを述べながら伺いたいんですが、一つは、この中で周知のためにポスター・チラシを作るということになっておりますが、これらをですね、どういうふうに配布をしていくのか。また市報、インターネット、LINEなども含めてですね、Xも含めて知らせる必要があると思いますが、このあたりはどういうふうに進められるのか伺いたいというのが1点であります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2602s" data-timestamp="2602"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:22</a>　2点目に、先ほど質疑があって、給付金の支給の手続きはどうなるかということでありましたが、ちょっとよくわからなかったのは、これは申請をするという形になるんでしょうか。</div><div class="say">市報とか、それを見て市の経済課に問い合わせをして申請用紙をもらう、それとも市のホームページからダウンロードできるとかね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2636s" data-timestamp="2636"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:56</a>　できればダウンロードしてですね、わざわざ経済課にお越しいただかなくても補助金申請ができるようにすべきではないかと思いますが、その点はどうでしょうか。</div><div class="say">それから3点目にですね、先ほどもちょっと岸田議員からもありましたけれども、金額をどうするかっていうのはですね、どこに妥当性があるかっていうのは、私などもですね、ちょっと考える必要はあるかなと思います。</div><div class="say">で、5万円にした理由は何でしょうか。お隣の国分寺は10万円を支給しているわけですよね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2669s" data-timestamp="2669"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:29</a>　建設業者をはじめ、いろんな方とお話をすると、気持ちが大事なんだと。市が本当に自分たちのことを思ってくれている、その気持ちとして支給してくれるということがありがたいんだということをおっしゃってましたから、5万円でいろいろご不満はあると思うんだけど、5万円の価値というかな、小金井市が心を寄せてくれたということはですね、非常に受け止めてもらえるんじゃないかなと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2710s" data-timestamp="2710"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:10</a>私も昨日、商店に回ってみて、5万円出るんですよねっていう話をして、国分寺は10万円なんだけど、5万円で申し訳ないですねっていう話をしたら、5万円でもありがたいですよって、商店の方は言ってもらいました。だから、出ないより出た方がいいということだと思うんですが、ちょっと5万円にした理由は何なのかなと。</div><div class="say">私ね、率直に言って、令和7年度のその決算でね、26億なんですよ、繰越金がね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2747s" data-timestamp="2747"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:47</a>　でこれは、継続して出すものではなくて1回限りですよね。で、財調に13億だったかな、積むわけですよね、今回の補正予算の第5回で。</div><div class="say">その中のあと1億3千万円を出せば、10万円の支給はできたんじゃないかなと思っていて、市長が5万円と判断された理由はどこにあるのかなと。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2782s" data-timestamp="2782"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:22</a>　もちろん限られた財源ですから、そのあたりについてはいろいろな検討をされたんだろうと思うんですが、ちょっと5万円にされた理由についてですね、伺いたいというのが3点目であります。</div><div class="say">で、4点目はですね、歳入で、国庫補助金で物価高騰対応重点支援地方創生臨時交付金ということで、今回3,079万7,000円。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2812s" data-timestamp="2812"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:52</a>　でね、これ少なすぎるんじゃないですか、国は。でちょっとここで国の話して申し訳ないんだけど、3,000万で何できるんですかって話ですよ、地方自治体が。</div><div class="say">首相は、物価高騰対策やってんだ、やってんだっていうわけですよ。でも私たちのところに降りてくるお金は3,000万なんですよ。事務委託料で消えちゃって、業者や市民には渡らない。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2845s" data-timestamp="2845"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:25</a>今年、去年でしたっけ、去年やったもので5,000円くらい配りましたよね。各家庭に1人当たり5,000円配った。あの時は何億円かだったと思うんですよ。だから、国の物価高騰支援って何兆円って組んでるはずなのに、私たちに来ると3,000万かみたいな話でね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2876s" data-timestamp="2876"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:56</a>　やっぱりね、これはね、市長会を含めて私たちも国会で頑張りますけれども、ぜひですね、この物価高騰支援、政府に対してしっかりと市長会でも引き続きものを言っていただきたいなというふうに思うんですが、その点ぜひ市長のですね、決意表明を伺いたいと思いますが、いかがでしょうかということです。</div><div class="say">それから、すいません、ページを言ってなかったですね。11ページの商工振興に要する経費ですね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2907s" data-timestamp="2907"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:27</a>　もう一つ、小口事業資金融資に要する経費。これも本当にありがとうございましたということであります。</div><div class="say">ただ、ちょっとよくわかってなくて申し訳ないんですが、まあ保証料もこれ払わなくていいと、上限600万円の場合ね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2941s" data-timestamp="2941"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:01</a>　で、あと利子なんですが、まあ2%にしてるわけですけれども、これ市内のみずほ銀行をはじめとした指定金融機関との調整の中で、利子は2%とこれ固定をして、この分については小金井市が持つと。これは今後変動することありますよね、利子について。</div><div class="say">無しで、もう2%でお願いしますと頼んで、市内の銀行や信用金庫の皆さんはこれで受けるということを言っていただいたということでよろしいでしょうか。そこの確認をさせていただきたいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=2973s" data-timestamp="2973"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:33</a>市内の信用金庫で言えば、もうちょっと利息を上げても3%とかね、というところも中にはあると思うんですが、それではない特別の取扱いをしていただいたということで、私たちも銀行に行くときは、ありがとうございましたって言わなきゃいけないかなとか思ってはいるんですが、そのあたりの2%というところに落ち着いた理由です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3006s" data-timestamp="3006"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:06</a>　現状のこの中東情勢ではない、小金井市の運転資金の、運転資金上限600万円5年間の融資の場合は、事業所が0.8%で、市の負担率が2.075%ということになっていて、合わせると2.875%だったんですよね。だから、それを2%に抑えていただいたということでいいのかどうか、確認をさせてください。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3044s" data-timestamp="3044"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:44</a>この小口事業については、審議会に本来は諮る必要があるのかなと思ったんですが、そのあたりは、審議会の方々には事前に報告をされているのかどうか、その点確認をさせてください。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t46">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">経済課長。</div>
+</div>
+
+<div class="turn reveal" id="t47">
+  <div class="meta"><span class="name">経済課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3076s" data-timestamp="3076"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:16</a>森戸議員からのご質問についてご答弁させていただきます。</div><div class="say">まず1点目でございます。周知のためのポスター、チラシですね、このようなものをどういうふうに活用されるのかというところでございます。本事業に関しましてはですね、皆さまにご利用いただきたいというふうに思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3110s" data-timestamp="3110"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:50</a>　広く周知させていただきたいと思いますので、市報、それからホームページ、X、そのような通常使うようなものはもちろんのことですね、例えば市民掲示板だとか、それから関係団体さんにもご協力いただきましてチラシを配布していただくなど、そういったものを考えているところでございます。</div><div class="say">続きまして2件目、手続きについてでございます。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3141s" data-timestamp="3141"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:21</a>　先ほどご答弁させていただいたところもございますが、確かに森戸議員が言われるとおり、ホームページ上でダウンロードしていただき、その申請書を使っていただき、添付資料を揃えていただいて提出いただくという流れになりますが、今回、ウェブの方でも申請ができるように整えるような予定になっております。</div><div class="say">また、例えば窓口において申請書が欲しい、そういった声があればですね、柔軟に対応させていただきたいと思っております。</div>
+</div>
+
+<div class="turn chair reveal" id="t48">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">市長。</div>
+</div>
+
+<div class="turn reveal" id="t49">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">はい。5万円にした理由についてでございます。</div><div class="say">先ほど岸田さんへの答弁で一定程度答弁したところはございますが、先ほどもお答えしましたように、10万円という選択肢も当然考えたわけでございます。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3174s" data-timestamp="3174"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:54</a>　これは国分寺市、もしくは先に行われている小平市さんとか、そういうことも含めて参考にもさせていただきながら、5万円だったらどうなのか、10万円だったらどうなのか。</div><div class="say">あと、業種も絞るということもやっぱり考えてたんですね、念頭にはありました。また、例えば事業規模を絞るっていう点もあるんじゃないかと。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3206s" data-timestamp="3206"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:26</a>　そういうことも含めて、さまざまな検討をした結果、先ほどお答えしましたようにですね、やはりどの事業所、どの業態であっても、少なからずやっぱりこの物価高騰を含めて困っているっていう声を我々としては把握いたしましたので、なかなかやっぱり線を引くのはもう難しいという判断の中、総支出として、歳出額としてね、総額どれくらいだったらこの事業として今できるのかということを考えた結果ですね、一律で5万円という形をさせていただいたということでございます。</div><div class="say">決してこれで十分とは思ってませんし、仮に10万円であっても十分ではないと思うんですよね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3239s" data-timestamp="3239"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:59</a>　ただ、今のこういった情勢を踏まえて、事業者の皆さんが事業を継続しようという意思をね、持っていただくということも含めて、しっかりと今行うべきだと考え、5万円となりましたが、行うことといたしました。</div><div class="say">次の質問で、国の交付金が少ないという話がございましたが、これはもうずっと、物価高騰が話題になってからですね、市長会を通して、全国市長会の方でもそういった要望を国の方に挙げているところでございます。</div><div class="say">よろしければ、森戸さんの方が国会の方で頑張っていただければいいかなと思いますので、そうなれば、そのことについては応援します。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t50">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3276s" data-timestamp="3276"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:36</a>経済課長。</div>
+</div>
+
+<div class="turn reveal" id="t51">
+  <div class="meta"><span class="name">経済課長</span></div>
+  <div class="say">5点目の小口事業資金の関係のご質問でございます。利子2%との設定の調整ですね。</div><div class="say">こちらの方につきましてはですね、金融機関さんと、こういった事業者支援を行うときにつきましてはヒアリングをさせていただいたりしております。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3312s" data-timestamp="3312"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:12</a>　で、今、現状ですね、森戸議員からもご紹介ございましたけれども、市の一般的な貸付の利子補給に関しましては、事業者の方が0.8%の負担、それから市が2.075という形で負担をしております。</div><div class="say">で、この辺りで、緊急性ということで、市が負担するのみの2.075に近い利率ということで、2%を設定するとともにですね、他市の状況などもですね、少し見て参っております。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3345s" data-timestamp="3345"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:45</a>　2%前後でですね、やはりこういった緊急性のものは組まれている状況もございましたので、こういった内容を踏まえて金融機関さんに意見照会をさせていただきまして、現時点で準備を2%で進めているところでございます。</div><div class="say">確かにこの後ですね、取扱金融機関につきましては最終的な同意をいただくような流れになると思うんですけれども、そのような内容を踏まえて事業を進めておりますので、取扱金融機関の方もですね、ご理解いただいているというような私たちの認識はございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3377s" data-timestamp="3377"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:17</a>　また、最後に審議会の方に事前に報告しているのかということでございますが、もちろんこの事業を進めるにあたっては、こういうような内容を検討して、こういった準備を進めているということで、こちらの方につきましてもですね、会は開けなかったのですが、事前に委員の皆さまには意見照会をさせていただき、特段議論はないというような状況でございました。以上でございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t52">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">森戸さん。</div>
+</div>
+
+<div class="turn reveal" id="t53">
+  <div class="meta"><span class="name">森戸よう子</span></div>
+  <div class="say">今、答弁をいただきました。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3407s" data-timestamp="3407"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:47</a>　周知の方法については、ぜひ知らなかったということがないようにですね、周知をしていただきたいということは要望しておきます。</div><div class="say">あと、給付金の支給の手続きについては、ホームページ上で申請ができるようにしたいということでありまして、これは本当に各事業所も助かることだと思いますので、ぜひこれは進めていただきたいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3439s" data-timestamp="3439"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:19</a>　またダウンロードもできるようになって、直接申し込み、申し込みは経済課ということなんですよね。これはね、金融機関になるんじゃないよね。ちょっと申し込みは経済課でよかったかと思いますが、ちょっと確認をさせてください。</div><div class="say">それから、なぜ5万円なのかということで、国分寺市の場合は業種がちょっと限られているということで、今回は小金井の場合は業種を広げた。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3469s" data-timestamp="3469"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:49</a>　確かにおっしゃるように、やっぱり商店に行くとですね、例えばパン屋さんも包む物が結構高くなって大変なんだとかいう話も伺いますし、どの業種も今本当に厳しい状況になっているのはそのとおりだと思います。</div><div class="say">ただ、財政的な面からすれば、10万円も出せないという状況ではないのかなと思います。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3505s" data-timestamp="3505"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:25</a>　その点では、今後追加も含めて、私はぜひご検討いただきたいなと思います。そういうこともぜひ今後つなげていただきたいと思いますが、市長、見解があれば伺いますが、いかがでしょうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3538s" data-timestamp="3538"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:58</a>　市長も十分とは思っていないとおっしゃっているので、どこまで出せばいいのかというのは確かにあると思うんですが、本当に心を寄せていく、この補助金であるということを私は受け止めておきたいなと思うので、諸手を挙げて良かったとは言えないんですが、半分諸手を挙げて良かったなっていうくらいかな、片手で一歩前進という、さらなる拡充をお願いしたいと思いますが、いかがでしょうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3572s" data-timestamp="3572"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:32</a>　それから、国に対しては本当におっしゃるとおりで、私たちもしっかりと国会でこの問題は取り上げていきたいと思いますので、答弁は結構です。</div><div class="say">それから、小口事業資金融資に関する問題については分かりました。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3603s" data-timestamp="3603"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:03</a>　ぜひですね、もうこれ以上お金を借りられないという方々が結構いらっしゃいまして、そういう方にとってはなかなか厳しいのかもしれませんが、ぜひこうしたことがあるよっていうことで事業が継続できる、そういう一つの手段にしていただければというふうに思いますので、ぜひ大いにPRし、相談窓口もつくってですね、相談対応をお願いしたいということを申し上げておきたいと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t54">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3646s" data-timestamp="3646"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:46</a>経済課長。</div>
+</div>
+
+<div class="turn reveal" id="t55">
+  <div class="meta"><span class="name">経済課長</span></div>
+  <div class="say">はい。1点目、手続きの申請書の申し込みですが、経済課窓口というよりはですね、これから委託を組みますので、そちらの窓口の方に原則郵送、もしくはウェブ申請というような形になります。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t56">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">市長。</div>
+</div>
+
+<div class="turn reveal" id="t57">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">はい。追加でやってもらえないかというご意見をいただきました。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3680s" data-timestamp="3680"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:20</a>　それは一つのご意見として承りますが、今後の情勢も含めて、それこそ国の方でもう少し出していただくとかっていう、その状況も含めてですね、我々としてはその状況に応じて必要な策というのを考えていきたいと思っております。</div><div class="say">市民もそうですし、事業者の暮らしをしっかり守っていくということは、私としてもできることをしっかり引き続き考えていきたいということでございます。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t58">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">渡辺大三さん。</div>
+</div>
+
+<div class="turn reveal" id="t59">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say">質問させていただきます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3711s" data-timestamp="3711"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:51</a>　まず一つが、対象者数のところで2,600事業所ということでございますけど、これは事前に説明を聞いたところでは、令和3年の経済センサスの業者数が2,866事業所あって、その90%の申請があるという見込みで約2,600事業所ということになっているということでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3748s" data-timestamp="3748"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:28</a>　伺いたいのは、90%で見込んでいらっしゃるということなんですが、先ほどもありますけれども、せっかくの制度ですので、全ての業者にぜひご活用いただきたいという観点から言いますと、間違いなく、小金井の場合、全てのポストに間違いなく届くのは市報ということになるかなというふうに思いますので、それから見ると、市報こがねいも1ページ目から何ページ目というのもありましてね、やっぱりかなりの、ほぼ全ての事業者が対象になりますので、となると、市報こがねいでも一面に、それなりに目立つように掲載していただくと。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3778s" data-timestamp="3778"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:58</a>　しかも、1回まず掲載した後、この後も質問しますが、1月15日までが申請期限になっておりますので、例えば新年号みたいなものでも、最後のダメ押しでですね、もう1回、1回目のあれを見落としてる人もいるかもしれないので、1月に入ってからの市報などでも、もう1回、最後のPRをすると。</div><div class="say">ちょっとそこら辺、なるべくきちんと対応していただきたいんだけど、市報での扱いはどうなのかということですね。</div><div class="say">あと、私も商店会の役員やってるんで、会員には全てお知らせなどができれば、お届けして周知しようかなとは思っているんですが、やっぱりこの市報の活用ということで、どのような扱いになるのか、記事としてはどのような扱いになるのかということについて伺いたいということです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3811s" data-timestamp="3811"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:31</a>　それから、1事業所につき一律5万円ということで、その金額についても先ほど来、岸田さん、森戸さんからも質疑がありましたけれども、それで、国分寺市と小金井の違いは、だから国分寺市の場合は業種を絞って、建設業に関しては10万円で、製造・運輸が5万円ですということですよね。</div><div class="say">ということなんですね。今回ちょっと、だからさっき岸田さんの質問がもっともな質問になると思って聞いたんですけど、じゃあなんで建設業に手厚くした例が隣の市であるんだけれども、そこは例えば今回、全部の業者を対象にしながら建設業だけ手厚くっていうこともできないことはないわけですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3843s" data-timestamp="3843"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:03</a>そこの辺、どういう思考経路を経て一律5万円ということになったのかというのは、ちょっと答弁の中からはよく読み取れないで。だから、全ての業者がいずれ困ってるからっていうのはわかるんですね。</div><div class="say">ただ、一連の報道を見ても分かるとおり、建設業は相当影響が出ているので、そのあたり一律にこうした思想というか、その判断の基準がどこにあったのか。なぜ例えば建設業だけ取り出して手厚く、例えば10万円にするとか、他は一律5万円にするとか、なぜこういうところはできなかったのかっていうところですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3876s" data-timestamp="3876"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:36</a>もし仮にで伺いたいんですけど、建設業だけ仮に10万円で、5万円仮に上乗せしたとすると、いくらお金がさらに必要になったんでしょうか。建設業者の数かける90%かける5万円ということですよね、予算的に言うと。いくらぐらいそれが必要だったのか、もし建設業だけ提案すると。</div><div class="say">そのあたりのことは数字でお知らせをいただけないでしょうかということであります。</div><div class="say">最後に、申請期間の件なんですけれども、申請期間が1月15日までとなっていて、だいたい約3か月ぐらい。国分寺もだいたい約3か月なんですよね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3911s" data-timestamp="3911"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:11</a>　だいたい同じなんですが、1月15日っていうのはですね、年末年始で松が取れたらすぐが締め切りみたいになっててね、ちょっと業者の方々は年末年始、慌ただしくされているんで、業態によっては年末商戦とか年始の商戦やってるんで、1月、例えば末ぐらいまでは締め切りを、15日程度、半月程度、1月も末ぐらいまで、落ち着いたあたりでもちゃんと申請できるぐらいにできないのか。</div><div class="say">1月15日っていうのは、そういう点で言うと、業態によってはかなり繁忙期ですよね、年末年始とかね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3945s" data-timestamp="3945"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:45</a>　ということもあるんで、ちょっと半月ぐらい延ばして、ちょっと事務委託料、その絡みもあるんで、半月延ばしてその分、事務委託料が増えたりするっていうのもあるかもしれないんですけれども、ちょっとそのあたり、1月15日っていうのはちょっと締め切りの設定としてね。</div><div class="say">いつも僕言うんですけど、パブリックコメントも年末年始やめてくださいねっていつも言ってるじゃないですか。それと同じ理由でね、1月15日というのはどうなのか。もうちょっと延ばせないのか、半月程度と。このあたりはちょっとお考えがあれば伺っておきたいというふうに思います。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t60">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">経済課長。</div>
+</div>
+
+<div class="turn reveal" id="t61">
+  <div class="meta"><span class="name">経済課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=3979s" data-timestamp="3979"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:19</a>渡辺議員からのご質問でございます。</div><div class="say">まず1点目でございます。2,600事業所、経済センサスから見ますと90%の申請率の対象件数としているということでございます。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4009s" data-timestamp="4009"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:49</a>　市報こがねいに関しまして、そういった目立つように周知できる、それとあと締め切り間際もPRできるようにするというところに関しましては、現在、市報こがねいに関しましてはエントリーさせていただいております。</div><div class="say">一面にできるかどうか、ちょっと調整させていただき、また終わりの頃の周知についてもどのようにできるか検討させていただきたいと思っております。</div><div class="say">2点目でございます。国分寺市のような事業支援にならなかった理由というところ、建設業にプラスしなかった理由というところでございます。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4039s" data-timestamp="4039"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:19</a>　これまでの答弁の中でもありましたとおり、事業者の方であるとか、関係団体の方であるとか、金融機関さんの方にヒアリングをさせていただいてきました。</div><div class="say">その中で、この中東情勢における影響に関しましては、様々な業種の方に及んでいるというところで、市としては認識したところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4076s" data-timestamp="4076"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:56</a>　渡辺議員からもですね、先にお付き合いいただいたとおり、様々な業種に影響が及んでいることは分かるということでございましたが、市としてはこのような状況を踏まえまして、一律というような方にさせていただいたところでございます。</div><div class="say">あと、仮にですね、10万円をですねという、建設業のみに行っているところに関しましては、ちょっと今現在ちょっと試算、今ちょっと調べますとですね、おおむね180事業所ぐらいですね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4109s" data-timestamp="4109"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:29</a>　はい、そうしますと。ただですね、センサス上、登録されてないような方もいらっしゃるかもしれません。</div><div class="say">例えば200事業所あったとしますと、5万円で1,000万円の追加と、そのような形にはなります。ちょっと今調べた状況でございますので、誤りがあったら申し訳ございません。</div><div class="say">それから最後の申請期間についてでございます。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4141s" data-timestamp="4141"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:01</a>　渡辺議員もですね、ご理解いただいているとおり、委託料の計算等に反映してくるところでございます。まず我々としてはですね、この1月15日までという申請期限をしっかりとですね、周知できるよう、また間際になってもそういった丁寧なご案内ができるようにさせていただきたいと。</div><div class="say">まずはそういったところを考えながら、皆さんにしっかりとご利用いただけるような環境を作っていきたいというふうに考えております。以上でございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t62">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">渡辺さん。</div>
+</div>
+
+<div class="turn reveal" id="t63">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say">PRの件ですが、市報の方、ぜひ先ほどご提案申し上げたような感じで。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4178s" data-timestamp="4178"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:38</a>　一番確実に、小金井は丁寧に市報を配っておりまして、他の自治体は新聞折り込みだけとか、駅に置いてあったりとかいうのもあるんですが、小金井は一軒残らず全てのポストに入れるというのを原則にやっておりますので、二世帯住宅には希望があれば2つ入れてるんですね、それぞれのポストね、というぐらい徹底的に一軒残らず、私のポスティング並みに徹底的にちゃんとやってらっしゃるんで、ぜひ市報こがねいの扱いはですね、今、市報こがねい発行の部長もいらっしゃるけど、ちょっとそこについてはちゃんと留意していただきたいと。せっかくのこの取り組みなので、周知を万全に期していただきたいとお願いしておきたいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4210s" data-timestamp="4210"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:10</a>それから、金額の件なんですよね。だから、もし仮にですよ。私も、市長がさっきおっしゃったように、あらゆる業者に影響が出てるんですよね。ラーメン屋さんも大変ですよ。</div><div class="say">小麦も上がるし、油も上がるしね。いつもおしぼり出してくれてたのが、やっぱりおしぼりが出なくなって、やっぱりそれをやって、値上げしないで切り詰めて消費者に影響が出ないようにね、それぞれ工夫しながら飲食店もいろいろ頑張っていらっしゃるんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4243s" data-timestamp="4243"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:43</a>　そういう点で考えても、いろんな業種を応援するという観点から、全ての業者が対象なのはいいんですが、ただ、やっぱり建設業の特殊性というか、そういうところもありまして、莫大な金額が追加でかかるようだとちょっとあれなんですが、今おっしゃったように、200事業所程度で5万円として1,000万円程度ですよね、もしくは建設業だけちょっと少し手厚くしたとしてね。</div><div class="say">そういう点から見れば、少し工夫の余地はあったかなということで。たぶんまだまだ中東戦争も落ち着かないと思うので、今回限りということではなくてね、今後もやっぱりそういった状況を見ながら、またやることにもなるかなと思うので。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4276s" data-timestamp="4276"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:16</a>　そういう時にはちょっと、そういう一律型という考え方もあるでしょうけど、影響が特に大きい業種には少し手厚くやるということもですね、限られた予算の範囲内ではありますけれども、工夫してみることは次回に向けてはお願いしておきたいというふうに思います。</div><div class="say">それから、締め切りの期間も、申請期間（予定）って書いてありますよね、議案資料にね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4309s" data-timestamp="4309"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:49</a>　なのでちょっと、申請状況が年内にだーっと申請があってですね、かなり行き届いたっていうならいいんですけど、ちょっと年内の申請状況など見ながら、少しちょっと延長した方がいいかなというような状況もあればですね、もうさっき言った1月にも、1月入ってからも市報を載せてくれてって、さっきお願いしたわけですけれども、ちょっと1月15日で完全に閉めるということではなくて、少し全体的な状況を見ながら弾力的に運用できるものであれば配慮はお願いしておきたいということで、これは要望だけしておいて、いずれも要望ということでお願いいたします。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t64">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">他にございますか。</div><div class="say">質疑を終了することにご異議ありませんか。</div>
+</div>
+
+<div class="turn voice reveal" id="t65">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">異議なし。</div>
+</div>
+
+<div class="turn chair reveal" id="t66">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ご異議なしと認め、質疑を終了します。</div><div class="say">お諮りします。本件は委員会付託を省略し、討論・採決を一時保留することにご異議ありませんか。</div>
+</div>
+
+<div class="turn voice reveal" id="t67">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">異議なし。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4342s" data-timestamp="4342"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:22</a></div>
+</div>
+
+<div class="turn chair reveal" id="t68">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ご異議なしと認め、本件は委員会付託を省略し、討論・採決を一時保留することと決定しました。</div><div class="say">日程第13、議案第64号、固定資産評価審査委員会委員の選任に関し同意を求めることについてを議題とします。提案理由の説明を求めます。市長。</div>
+</div>
+
+<div class="turn reveal" id="t69">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">議案第64号、固定資産評価審査委員会委員の選任に関し同意を求めることについてをご提案申し上げます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4373s" data-timestamp="4373"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:53</a>固定資産評価審査委員会委員、益田あゆみが令和8年9月12日をもって任期満了となるので、同氏を再任するため、本案を提出するものであります。</div><div class="say">なお、任期は令和8年9月13日から令和11年9月12日までとなります。</div><div class="say">住所、小金井市。氏名、益田あゆみ。年齢53歳。職業、税理士。</div><div class="say">よろしくご審議の上、ご同意賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t70">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">質疑を行います。質疑を終了することにご異議ありませんか。</div>
+</div>
+
+<div class="turn voice reveal" id="t71">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">異議なし。</div>
+</div>
+
+<div class="turn chair reveal" id="t72">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4406s" data-timestamp="4406"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:26</a>ご異議なしと認め、質疑を終了します。</div><div class="say">お諮りします。本件は委員会付託を省略し、討論・採決を一時保留することにご異議ありませんか。</div>
+</div>
+
+<div class="turn voice reveal" id="t73">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">異議なし。</div>
+</div>
+
+<div class="turn chair reveal" id="t74">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ご異議なしと認め、本件は委員会付託を省略し、討論・採決を一時保留することと決定しました。</div><div class="say">日程第14、議案第69号、災害用トイレカーの買入れについてを議題とします。提案理由の説明を求めます。市長。</div>
+</div>
+
+<div class="turn reveal" id="t75">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4437s" data-timestamp="4437"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:57</a>議案第69号、災害用トイレカーの買入れについてをご提案申し上げます。</div><div class="say">災害用トイレカーを買い入れるため、本案を提出するものであります。細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t76">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">総務部長。</div>
+</div>
+
+<div class="turn reveal" id="t77">
+  <div class="meta"><span class="name">総務部長</span></div>
+  <div class="say">では、細部説明の前ですが、議案の一部差し替えについてお願い申し上げます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4471s" data-timestamp="4471"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:31</a>　修正箇所はですね、議案第69号2ページ目の項番3、下から4行目になります。「トレイカー」となっておりますが、正しくは「トイレカー」ということで、差し替えをお願いいたします。大変申し訳ありません。よろしくお願いいたします。</div><div class="say">はい。では、細部についてご説明いたします。</div><div class="say">災害用トイレカーの買入れについて、7月8日に仮契約を締結いたしました。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4505s" data-timestamp="4505"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:05</a>　本契約に際し、小金井市議会の議決に付すべき契約及び財産の取得又は処分に関する条例第3条の、予定価格2,000万円以上の不動産もしくは動産の買入れに当たりますことから、議案を提出するものでございます。</div><div class="say">議案1ページ目をご覧ください。はじめに、項番の1、契約の目的です。災害時の公衆衛生環境の確保や被災者の健康維持を目的とした災害用トイレカーの買入れでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4537s" data-timestamp="4537"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:37</a>車両の概要など詳細は、議案2ページ目の項番1、車両の概要に記載のとおりとなっております。</div><div class="say">次に、3、契約の方法及び5、契約の相手方です。契約の方法は一者随意契約でございます。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4570s" data-timestamp="4570"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:10</a>　災害時の支援体制を強化し、公衆衛生環境の安定確保を図るため、災害派遣トイレネットワークプロジェクトにより、自治体間のトイレカーによる相互支援、効率的な給水、汚水の汲み取り及び点検修繕体制を構築している一般社団法人助けあいジャパンを契約の相手方といたします。</div><div class="say">詳細は議案資料、契約の相手方の会社概要について、及び議案2ページ目の3、災害用トイレカー購入業者の選定の経過に記載のとおりとなっております。</div><div class="say">恐れ入りますが、議案1ページ目にお戻りください。4、契約金額でございます。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4605s" data-timestamp="4605"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:45</a>　落札金額2,664万4,700円に消費税及び地方消費税266万4,470円を加えました2,930万9,170円でございます。</div><div class="say">最後に、6、契約期間は、契約の確定日から令和9年6月30日まででございます。</div><div class="say">説明につきましては以上となります。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t78">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">質疑を行います。森戸よう子さん。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4639s" data-timestamp="4639"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:19</a></div>
+</div>
+
+<div class="turn reveal" id="t79">
+  <div class="meta"><span class="name">森戸よう子</span></div>
+  <div class="say">今回、契約の案件でありまして、一者随意契約というふうになっています。このトイレカーを設置できる会社は、この一社しかなかったということなのかどうかですね。その点、確認をさせてください。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4669s" data-timestamp="4669"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:49</a>　それとですね、2点目は、この2ページ目の中で、納入場所は市指定の場所というふうになっていますが、どこにこれは駐車場を設けるのかというのは、あれでしたっけ、予算で議論してましたっけね。どこにこれ、ちょっとやるのかというのを確認させていただきたいと思いますが、いかがでしょうか。</div><div class="say">それで、この災害用トイレカーの買入れについては、6月定例会で予算を組んでおりまして、クラウドファンディングで500万円、で、一般財源で2,500万円ということになっていたと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4708s" data-timestamp="4708"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:28</a>それで、クラウドファンディングで500万円集まれば、集まってほしいと思うんですが、もし集まらなかった場合に、歳入欠陥になると思うんですよ。その時の対応はどういうふうにされるのか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4740s" data-timestamp="4740"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:00</a>　この支払いとの関係で、歳入欠陥になった場合に、これ、支払いはいつになるんですかね。現金で前払いという形になるのか、そのあたりはですね、どういうふうになっているのかですね、伺います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4775s" data-timestamp="4775"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:35</a>　ちょっと6月の定例会で私も言おうかと思って言わなかったんですが、ちょっと500万円のですね、クラウドファンディングのその予算を計上するっていうのはね、集まるかどうかわからないものをその500万円として計上するというのは、まあちょっと振り返ってみるとですね、どうなのかなと。</div><div class="say">本来なら、寄付は科目存置として付けて、一般財源で3,000万円を組み、で、寄付が集まったら一般財源の3,000万円を減額すればいいわけですよね。減額して補正をすればいい。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4807s" data-timestamp="4807"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:07</a>　しかし、500万円の寄付を組んでいて、これが集まらなかった場合には、歳入欠陥になるわけですから、一定の手続きを取り、補正を組まなきゃいけなくなるんじゃないかと思うわけですね。</div><div class="say">そのあたりですね、歳入欠陥にならないことを私は願ってはいますけれども、そうなった場合の対応も含めてどういうふうになるのか、説明をしていただきたいと思います。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t80">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4839s" data-timestamp="4839"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:39</a>関連あるんですか。小林正樹さん。</div>
+</div>
+
+<div class="turn reveal" id="t81">
+  <div class="meta"><span class="name">小林正樹</span></div>
+  <div class="say">クラウドファンディングのところで関連で伺いたいと思いますけども、6月の定例会で水上委員が延々とした質問がまた出てきたので、丁寧にご答弁いただきたいと思いますけども。</div><div class="say">これはあれですよね、オールイン方式なので、足りなくても、そもそも一財で、一財でやるんですよね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4874s" data-timestamp="4874"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:14</a>　そこにクラウドファンディングでご寄付いただいた分を補填してというか、その分、一財が減っていくという、そういう予算だったと思うんですよね。</div><div class="say">なので、オール・オア・ナッシングというか、500万いかなければクラウドファンディングがなかったことにするっていう方式ではないというですね、その大きな2つの方式のうち、そちらの方式でやっているということと、1台でやっているというところだと思うんですけども、そういうことでいいかということを私も改めて伺いたいと。</div><div class="say">あとは、クラウドファンディングの準備状況について伺いたいと思っております。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4907s" data-timestamp="4907"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:47</a>　市長もいろんなところに行かれると必ずこの話をしてですね、またその話かと言われる方と、ぜひ協力したいと言われている方も大勢いらっしゃる状況だと思っておりますが、正式に公開されるタイミングだとか、指標</div><div class="say">などでオープンにされる方法とか時期、そういったものについても教えていただければと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t82">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">地域安全課長。</div>
+</div>
+
+<div class="turn reveal" id="t83">
+  <div class="meta"><span class="name">地域安全課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4939s" data-timestamp="4939"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:19</a>はい。それではまず、随意契約する理由ということでございます。</div><div class="say">こちら、今ご質問でございました、トイレトラックを他で作っているところがないのかということに関しましては、まず結論から申し上げますと、ほかでもトイレトラック並びにトイレカーというものを作っている事業者というか団体というのはございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=4974s" data-timestamp="4974"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:54</a>　今回、私どもがこの随意契約でこのトイレトラックを導入する理由でございますけども、今回参加するトイレネットワーク、みんな元気になるトイレでございますけども、こちらが現在、全国でトイレトラックのネットワークとしては最大規模の団体であるということが大きな理由でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5008s" data-timestamp="5008"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:28</a>　当市が被災した際に、このネットワークに入っていれば、より多くの団体から受援を受けられる可能性があるということで、こちらのトイレネットワークに加入するために、この随意契約でこちらのトイレトラックを導入するという判断をしたものでございます。</div><div class="say">続きまして2点目、トイレトラックを導入した際の納入場所についてでございます。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5042s" data-timestamp="5042"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:02</a>　こちらでございますけれども、現時点では市の庁舎のどちらかに配置したいと考えておりますが、引き続き関係課と調整しながら、本庁舎のどちらかに置けるように、引き続き関係課と調整しながら、適切な場所を今後検討してまいりたいと思います。</div><div class="say">導入は来年度になりますので、そこまでには検討して、しっかりと配備場所を決めたいというふうに考えています。</div>
+</div>
+
+<div class="turn chair reveal" id="t84">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5080s" data-timestamp="5080"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:40</a>防災安全担当部長。</div>
+</div>
+
+<div class="turn reveal" id="t85">
+  <div class="meta"><span class="name">防災安全担当部長</span></div>
+  <div class="say">はい。クラファン500万円の考え方のところでございます。</div><div class="say">6月にも申し上げた部分はあるんですけれども、こちらにつきましては、まず債務負担での購入で予算の措置をお願いしているところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5112s" data-timestamp="5112"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:12</a>　その上でですね、東京都の補助が今年度から上限2,400万円まで、車両取得に対する2,400万円までの3分の2ということで、1,600万円程度見込まれるというところがまずございます。こちらは支出が来年度になりますので、歳入につきましても来年度ということになってまいります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5147s" data-timestamp="5147"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:47</a>　それらを勘案いたしましたときに、他市の状況ですとか、あと取得価格が2,900万円超になるところの中で、都の方が上限2,400万円程度まで基準額が定められているというところで、最大限一財の支出をなくせるような協議を執り行いたいというところの意図も含めまして、今回は500万円と設定をさせていただいております。</div><div class="say">で、こちらの方、クラウドファンディングについては、500万円に不足したからといって取得を行わないということではございません。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5178s" data-timestamp="5178"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:18</a>　もちろん500万円を目指し、超えるというところは希望はしておりますが、仮に500万円に満たない場合、申し上げましたとおり、一財の投入部分が増えるというところはございますけれども、足りないということを目指すのではなく、足りて、かつ多くなっていくということをまずは目指して、周知ですとかご案内の方をさせていただきたいと思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5211s" data-timestamp="5211"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:51</a>　準備状況でございますけれども、今回のクラファンにつきましては、既に市の方で契約をしているふるさと納税事業者のポータルサイトの活用ができますので、そちらの方の事業者との協議を進めていくという段階でございます。</div><div class="say">正式にご案内できる時期ですけれども、11月、また12月のふるさと納税時期が最も繁忙になるところを目指しておりますので、そちらに間に合うようなご案内ができればというところを考えております。正式な認定については、お整え次第、またご案内できればと考えております。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t86">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">森戸さん。</div>
+</div>
+
+<div class="turn reveal" id="t87">
+  <div class="meta"><span class="name">森戸よう子</span></div>
+  <div class="say">6月の予算委員会の中では、500万円を超えた場合には一般財源を削っていくという話はあったと思うんですね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5252s" data-timestamp="5252"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:32</a>　でも、500万円集まらなかった時に、財政措置としてどうなるのかという議論は、多分してなかったんじゃないかと私は記憶しています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5284s" data-timestamp="5284"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:04</a>　本来なら、寄付であれば、科目存置として補正予算では1,000円とかね、組んだ上で、その寄付が増えれば、増えればというか、500万円をとにかく目指すわけですが、500万円を目指せば、その一般財源なりは減っていくわけですけれど、減らないんだ、2,500万円出すわけだからね、減らないんですよ。</div><div class="say">ただ、500万円集まらないからやめるべきだとか、そういうことではなくて、500万円集まらなかったときに、財政措置上は、それは補正で歳入欠陥として見込んで、一般財源の補正で上乗せをしなきゃいけないんじゃないんですか。そういう手続きが必要になるんじゃないですかということを聞いてるんです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5316s" data-timestamp="5316"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:36</a>なのでちょっと、そのあたり財政的な観点でご報告をいただきたいと思いますので、すいませんがよろしくお願いしたいと思います。</div><div class="say">なんか寄付と一般財源と一緒にして予算を組んだわけですよね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5351s" data-timestamp="5351"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:29:11</a>　私は、集まるだろうみたいなね、この予測のもとに予算を組むっていうのは、財政規律の問題からして、ちょっとやっぱりおかしいんじゃないかなと思うわけですよ。</div><div class="say">本来なら、その3,000万円かかるんだったら、一般財源として3,000万円組む。で、寄付が入るわけだから、そうなれば財源不用額として500万円を引けばいいわけですよね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5383s" data-timestamp="5383"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:29:43</a>　で、今回はそうじゃなくて別々に組んだわけだから、予算としては寄付の500万と、それから一般財源の2,500万っていうね、組み方をしているので、それはちょっと財政規律上どうなのかということを言っていますので、答弁をいただければと思います。</div><div class="say">ということですね。</div><div class="say">であと、随意契約については、トイレネットワークという最大規模の団体があって、ここがあって随意契約になったと。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5418s" data-timestamp="5418"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:30:18</a>　そうすると、トイレネットワークという団体に加入しているこの企業と事業所というのは、この一社しかないということでよろしいでしょうか。そこをちょっと確認をさせてください。</div><div class="say">他にもあると思うんですよ。でも、なぜこの事業所にしたのかっていうことなわけですよ。随意契約するにあたっては、2社からちゃんと見積もりを取って、で、随意契約をしてるんですかっていうことですよ。契約規則上そういうことになってますよね、2社見積もりを取るということで。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5449s" data-timestamp="5449"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:30:49</a>で、このトイレネットワークについては、他にもトイレカーを運営する団体があるとしたら、この2社から取ってやっているのかどうかということも含めて確認をしておりますので、よろしくお願いしたいと思います。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t88">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">小林さん。</div>
+</div>
+
+<div class="turn reveal" id="t89">
+  <div class="meta"><span class="name">小林正樹</span></div>
+  <div class="say">はい。こういう答弁ありがとうございます。ちょっと今の質問に関してもあれですけども、基本的に債務負担行為で金額を確保しているので、その範囲では出費できるというか、歳出を組めるんだと思っておりますが、どうかということ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5524s" data-timestamp="5524"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:04</a>　<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5490s" data-timestamp="5490"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:30</a>あとは、寄附額が近隣他市だと上限額の倍とか寄附いただいているところもあって、それは変わってくることになりますので、まずは500万円ご協力いただけるようにというところがありますが、もしこれ増えた場合は、増えると一財の負担分が減るので、都の2,700万マックスの3分の2のお考え方の3分の2の部分が減っていくので、そこからプラス100万増えても100万得したことになるかというと、行ってこいでそうはならない。ただ、プラスはプラスとしてなるんだと思いますが、そのままの額がならないんだと思うんですが、それももし合わせて伺えればと思います。</div><div class="say">また、クラウドファンディングのふるさと納税ポータルサイトでの公開時期というのは、まだ具体的には示せないということでありますが、11月に先立ってということになると、そろそろですよね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5556s" data-timestamp="5556"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:36</a>　これは8月ですから、9月15日とか10月の頭とか、ある程度早いところで頭出しが必要かなと思っておりますが、そのあたりは意見として申し上げておきたいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5586s" data-timestamp="5586"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:06</a>　いずれにしても、わざわざその時期を見据えて準備をしておりますので、発表時期が微妙に遅れて、あまり効を奏さないということにはならないように、準備を当然進めていただいていると思いますが、お願いをしておきたいと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t90">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">財政課長。</div>
+</div>
+
+<div class="turn reveal" id="t91">
+  <div class="meta"><span class="name">財政課長</span></div>
+  <div class="say">それでは、森戸委員からのご質問にお答えします。予算の統制上の問題の観点からというようなお話だったかなというふうに思っております。</div><div class="say">一応ですね、今回のクラウドファンディングの予算化に際しまして、私どもの方でも予算の要求があった段階で、かなり近隣他市を含めて調べさせていただきました。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5619s" data-timestamp="5619"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:39</a>　クラウドファンディングのやり方によって、オールイン方式、オール・オア・ナッシング方式といろんな方式があって、ここらへんは自治体さんの考え方によっていろいろ方法を取っていて、さらにその方法・手法によっても、おそらく予算化のやり方なんか違いがあるのかなというふうには思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5650s" data-timestamp="5650"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:10</a>　確かに、森戸議員の方からご質問の中で例示をいただきましたように、予算で組んでいない自治体もあれば、予算で最少に組んだ上で、後々に補正予算で、クラウドファンディングの期間が終わった段階で、補正予算で増額補正をするというような自治体もあれば、今回、小金井市が取らせていただいたように、最初から目標額を全額組ませていただいて、後で実際に入ってきた金額に基づいて補正をさせていただく、それは増額であったり減額であったり、いろいろさまざまあると思うんですけど、やらせていただいたりということで、いろいろなやり方があるのかなというふうに思っています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5683s" data-timestamp="5683"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:43</a>　その上で、じゃあ、なんで今回わざわざ500万組んだのかっていう話なんですけれども、小金井市の予算事務規則の24条の中には、その他特定財源となる歳入の金額または時期について、重大な変更が生じ、あるいは生じることが明らかになった時には、速やかに企画財政部長に報告しなければいけないというふうになっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5714s" data-timestamp="5714"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:14</a>　増額で上振れするならいいんですけれども、大きく下回るような場合に、最終補正でいきなりお金が足りませんでしたということで、いきなり予算の要求があった場合、やはり森戸議員が懸念されているとおり、当初見込んでいた歳入が大幅に不足をいたしますので、どこかで穴埋めをしなければいけない、おそらく財調を取り崩すとかっていうような話になってくると思うんですけれども、やはりそこが予算統制上どうなんだろうなっていうのがまずありました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5744s" data-timestamp="5744"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:44</a>　先ほど申し上げたとおり、まずいろいろ自治体によって、オールイン方式、オール・オア・ナッシング方式、考え方があるというふうに申し上げたと思うんですけども、小金井市としては、現状ではどちらのやり方を取るのかっていうのが決まっていなくて、今回これをテストケースにして、小金井市としてはどういうクラウドファンディングを作り上げていくか、制度化をしていくのかっていうのが決まってくるかなというふうに思っておりますので、あくまで今回テストケースでやっている中で、予算上、統制を効かせるために、逆に統制を効かせるために500万円丸々組んだ上で、もし500万円に大幅に満たなかった場合には、もしくは満たないと分かった場合には、その段階で早めに報告をしていただいて、歳出事業についてじゃあどう対策を取っていくのか、早めに考えられるようにということで、今回500万円丸々組ませていただいたというふうに、財政課としては判断をしております。</div><div class="say">ただ、今後、先ほど申し上げたとおり、小金井市のクラウドファンディングのあり方が決まってくるかと思いますので、それに基づいて他市の状況を見ながら、適切に予算は組んでいきたいというふうには思っています。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5778s" data-timestamp="5778"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:18</a>　以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t92">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">防災安全担当部長。</div>
+</div>
+
+<div class="turn reveal" id="t93">
+  <div class="meta"><span class="name">防災安全担当部長</span></div>
+  <div class="say">先ほどの答弁にご説明が不足しておりまして、大変申し訳ございません。</div><div class="say">今回、こちらの6月に予算などを措置させていただくに当たりまして、来年度に支出をする債務負担ではございますが、今年度中に都の補助金に対する協議の方が既に開始をしております。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5808s" data-timestamp="5808"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:48</a>　その中で、都の指導で、クラウドファンディングなどにより歳入を見込む場合には、その金額も含めて適切に、仮ではあっても予算の計画というものを報告するようにという指導がなされております。といった側面もあり、クラウドファンディングの目標額ではございますが、歳入見込み額の方も報告をしていく必要があったという点がございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5841s" data-timestamp="5841"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:21</a>　その上でですが、今回クラウドファンディングを活用するに当たりまして、一定の事務費の歳出の方も必要になっておりまして、こちらも6月議会の方でご理解をいただいておりますが、そちらの基礎となるものも見込み、積算を行うために、まず500万円という金額の方も計上しているというところがございます。</div><div class="say">こちらについては、先ほどもありましたとおり、クラウドファンディングなどの形式で歳入が確定しましたのち、充当は次年度の中で充当されていくというものになります。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5875s" data-timestamp="5875"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:55</a>　以上でございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t94">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">地域安全課長。</div>
+</div>
+
+<div class="turn reveal" id="t95">
+  <div class="meta"><span class="name">地域安全課長</span></div>
+  <div class="say">はい。それでは、随意契約の部分についてご答弁させていただきます。すみません、ちょっと繰り返しとなってしまう部分もございますが、ご容赦ください。先ほどちょっと説明が足りなかったものもございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5908s" data-timestamp="5908"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:28</a>　こちら、随意契約させていただく理由でございますけども、今回、随意契約させていただく団体が運営しているトイレネットワークに加入するものでございまして、こちらが全国で、自治体にトイレトラックを被災地へ派遣するネットワークを用意している最大規模の団体ということでございます。</div><div class="say">他にも少数の自治体で用意している団体があるというのは聞いてはおりますが、今回、随意契約を結ぶ団体は最大規模の団体であるものと認識をしてございます。</div><div class="say">このネットワークに加入することで、本市が被災した場合には、団体を通じて参加自治体の派遣を要請して、良質なトイレの受援が可能となり、災害時のトイレ問題を大きく解消できるものと考えたことから、この団体との契約ということを考えたものでございます。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5957s" data-timestamp="5957"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:39:17</a>　以上でございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t96">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">市長。</div>
+</div>
+
+<div class="turn reveal" id="t97">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">今の件で補足させていただきます。</div><div class="say">今、課長が説明したとおりでございますが、この一般社団法人助けあいジャパン、ここが主体となっている、その災害のトイレネットワークですね。今現在ですね、ホームページを見る限りにおいて、加盟自治体が約60ほどございます。</div><div class="say">経験が非常に豊富なんですね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=5990s" data-timestamp="5990"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:39:50</a>　倉敷の、これ多分豪雨災害だと思いますけども、そこが初動の派遣ということで、2018年、約8年前からこういったネットワークの活動を始められて、出動の災害としては10の災害に対して、約40万人を超える利用者に利用いただいて、延べ利用回数としては157万回ということで。</div><div class="say">こういう経験もあって最大のネットワークがあるということ。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6020s" data-timestamp="6020"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:20</a>　特に我々、受援体制をどう取るかということが非常に重要ですので、そういった観点から、ここのネットワークに加入することが重要であると考えております。</div><div class="say">ちなみに申し上げますと、近隣の自治体で申し上げると、確か今、三鷹市が同様の車両のクラファンを行っているところでして、一市を除く、三鷹を含める六市がですね、既にここに加入する、もしくは加入している、こういう状況でございます。</div><div class="say">こういったことも踏まえて、この最大の団体とのネットワークに入るということが小金井市としても適切だと考えた次第でございます。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6052s" data-timestamp="6052"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:52</a>　以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t98">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">森戸さん。</div>
+</div>
+
+<div class="turn reveal" id="t99">
+  <div class="meta"><span class="name">森戸よう子</span></div>
+  <div class="say">今、説明をしていただきまして、財政規律との関係では説明</div><div class="say">は受け止めておきたいと思います。</div><div class="say">随意契約なんですが、小金井市の契約規則で言えば、随意契約の上限額って決まっているわけですよね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6082s" data-timestamp="6082"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:41:22</a>　今回はそれを大きく上回るということで、議会の議決を経るということになると思うんですが、契約規則に基づいてやられているかどうかというのは非常に重要なことで、今日の答弁の中では2者以上から見積りを貰わなきゃいけないというようなね、こういう規則上の問題については、ちょっとしっかりとした答弁はなかったわけですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6118s" data-timestamp="6118"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:41:58</a>最大規模の団体であるということからそういうふうに判断したということでありまして、他にもあるとしたら、本来なら他の団体とも比較をし、そのことについてきちっと議会でも説明をする必要があったのではないかというふうに思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6155s" data-timestamp="6155"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:35</a>　これは私たちもトイレカーは要求をしてきましたけれども、契約のところでは透明性をしっかり確保する必要があると考えましたので、今日質問をさせていただきましたが、2社の見積りだとか手続き上でやっぱり不十分さがあるのではないかと思うんですが、そのあたりはどうなんでしょうかね。最後、伺っておきたいと思います。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t100">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">地域安全課長。</div>
+</div>
+
+<div class="turn reveal" id="t101">
+  <div class="meta"><span class="name">地域安全課長</span></div>
+  <div class="say">それでは、森戸議員の随意契約の再質問についてお答えさせていただきます。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6191s" data-timestamp="6191"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:43:11</a>　何度も足りないところがあって申し訳ございません。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6224s" data-timestamp="6224"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:43:44</a>　今回の災害派遣トイレネットワークプロジェクトに加入するにあたっての要件でございますが、全国各地での相互応援を想定していることから、車両や設備の規格・仕様が定められておりまして、意匠登録がされておりまして、規格や仕様等を統一することで、それらの対応を迅速かつ容易に行うためということで、車両等の規格があらかじめ定められておった、このネットワークに加入する要件として、ということで。</div><div class="say">今、市長からもご説明がありましたが、大変経験豊富な団体で、現時点におきましては最大のネットワークということで、こちらの団体に加入することを前提として、このような手続きを取らせていただいたということでございます。以上でございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t102">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">渡辺大三さん。</div>
+</div>
+
+<div class="turn reveal" id="t103">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6256s" data-timestamp="6256"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:16</a>何点か伺いますが、まず一つがクラウドファンディングの件で、今の森戸さんのされたのとは違う角度からお伺いするんですけれども。</div><div class="say">他の自治体で先行して入れてるトイレカーをいろいろ比較してみているんですけれども、そうすると、こういうことが分かって。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6289s" data-timestamp="6289"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:49</a>　クラウドファンディングでやって協力していただいた企業とか団体とか個人ですね、これの名称に関して、車に全て載せてるっていうんでしょうかね、車のボディに全部掲載してるっていうか、そういう形で。逆に言うと、それがずっとそこで名前が載るわけですよね。</div><div class="say">ということで、500万円という目標設定されてますけれども、こういうものっていうのは、目標設定したら必ずそれは達成すると、あるいはそれを上回るくらい集めるっていうぐらいのことをやってもらいたいんで。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6320s" data-timestamp="6320"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:20</a>　さっき言った、いろんな自治体でいろんな車のデザインあるんですけど、その点に関しては、そういうクラウドファンディングで寄付にご協力いただいた方々には、そういうメリットみたいなものについては、小金井の場合はやっていくということになるのかどうかということですね。</div><div class="say">あと、額に応じて、寄付された金額に応じて、何ていうのかな、その大きさ、文字の大きさが変わって、例えば50万円寄付してくださったらかなり大きめに、例えば1万円とかだったら小さめにとかいうことでですね、額によって。阿波踊りのとあると同じですよね、ありますよね。あそこの寄付された方の、武蔵小金井でも掲示されてるように、金額が大きい人ほど大きい文字で載ってたりしてですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6351s" data-timestamp="6351"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:51</a>まあいう感じで、クラファンの場合は金額に応じて、そういう文字の大きさでも配慮していただくようなことも検討しているのか。ちょっとそのあたりは今現在どういうことが決まっているのかということですね。そこまでちょっとお知らせをいただきたいということと。</div><div class="say">あと、結局、先行して入れてるトイレカーをダーッと画像で見ていくと、かなりデザイン性の良いものと、デザイン性のものが悪いものがあってですね。一言で言うとセンスのいいものと悪いものがあってですね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6382s" data-timestamp="6382"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:46:22</a>　せっかく入れるトイレカーということになりますので、ぜひボディーデザインなどに関しては、ちょっとかなり気を使ってですね、よく練っていただきたいし、場合によったら、行政だけで決めないで、少しいくつか案が決まったら、少し議会の方にもですね、示していただくとかですね。</div><div class="say">ちょっとそういうことで、ぜひ外観に関してはかなり気を使っていただきたい。こきんちゃんとか入れるのかな、大きくね、多分ね。ただ、その入れ方もいろいろあるみたいなんですよね、気になっていて。それぐらいちょっと後で見てください、他の自治体のトイレカー。</div><div class="say">本当にひどい。言わないです、どこの自治体とは。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6412s" data-timestamp="6412"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:46:52</a>　どこの自治体と言わずに、ひどいデザインを見かけるのは結構あって、やめてもらいたいと思っているんですけど。</div><div class="say">ちょっとそういうことで、デザインなんかに関しても、ちゃんとそこは気を使っていただきたいと思っているんですけど、その点どうかということですね。</div><div class="say">それからあとですね、今のところまでは多分あまり細かく決まっていないのは、平時の利用、つまり災害時の利用ではなく平時の利用なんですね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6444s" data-timestamp="6444"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:47:24</a>　その平時の利用に関しては、ちょっとこれも調べていきますと、いろんなルールを決めていたり、あと使用料ですよね、つまりお金がかかりますから、というようなことも含めてですね、いろいろルールを細かく決めていくと。</div><div class="say">こういう団体には貸しますけど、こういうものには貸さないとかですね、こういう場合には貸すけど、こういう場合には貸さないとか、貸すときはいくらとかですね、こういろいろあるので。そこら辺に関しては、これから検討するということになるのか、あらあら、もう内部で検討済みということになるのか。もし検討済みだっていうことだったら、今どの程度まで到達しているのかについてお知らせをいただきたいと。</div><div class="say">真っ先に思いつくのは、桜まつりが小金井市では一番最大のイベントで、いつも女性トイレが長蛇の列になってですね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6480s" data-timestamp="6480"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:00</a>　以前やっぱり公園のトイレとたてもの園のトイレだけだったんで、やっぱりこれだとトイレが足りないよね、ということでいろいろ言わせて、だいぶ前ですけど言わせていただいて、今はもう仮設トイレとかで作るようになったんですけども。</div><div class="say">今回入れるトイレカーに関しては、おそらく桜まつりとか小金井市内のいろんなお祭りにも出すことになるのかなと思っていて。その点に関しては、そうすると、どういうふうな基準で貸すのかとか、あとドライバーどうするのかとかですよね。誰でも運転できるわけじゃないですよね、大きい車なんで。</div><div class="say">そこら辺に関しては、今どんな検討が進んでいるのか。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6512s" data-timestamp="6512"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:32</a>　また、もし細かなことが決まったら、いつごろ議会の方にはそれらのものは示されるのかについて伺っておきたいと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t104">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">地域安全課長。</div>
+</div>
+
+<div class="turn reveal" id="t105">
+  <div class="meta"><span class="name">地域安全課長</span></div>
+  <div class="say">それでは、まず寄付者の特定についてでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6544s" data-timestamp="6544"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:04</a>　こちらは議員ご紹介のとおり、一定額以上の寄付をいただいた方のうち、希望される方に関しましては、お名前や企業名等を車両の後部に掲載させていただく計画でございます。</div><div class="say">ただ、詳細、金額いくら以上がこれぐらいの大きさという詳細は、これから今検討していまして、決めていきたいと。他市の事例も参考に、金額によってということになります。</div><div class="say">なお、市民の方の掲載でございますけれども、こちらは返礼品ではございませんので、小金井市民の方も掲載が可能というふうに考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6578s" data-timestamp="6578"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:38</a>はい、続きまして、車両のデザインについてでございます。</div><div class="say">今、担当で検討しております段階でございまして、車両の左右両面にデザインを掲載する予定でございます。デザインでございますけれども、被災地にやはり派遣することを踏まえてですね、あまり華美なデザインにならないようにということを、まずは配慮して検討したいと思ってございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6614s" data-timestamp="6614"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:14</a>その上で、被災地で使われることを考えると、片面はそういうなごむようなデザイン、もう片面は、今、議員からもご紹介があったとおり、平時で展示とかの活用の可能性もあると考えておりまして、小金井市民の方に、シビックプライドじゃないですけども、そういうものを醸成するようなデザインにしていきたいというふうに担当では考えています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6646s" data-timestamp="6646"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:46</a>具体的にデザインの決定方法につきましては今検討しておりまして、防災フェスタで例えば案を示してご投票いただくとかというようなことも検討しております。</div><div class="say">平時の活用方法についてでございます。詳細につきましてはまだ決定はしておりませんが、防災フェスタとか市のイベント等で活用して、市民の皆様の防災意識の啓発につながるような展示の方法を、今、検討することを考えてございます。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6690s" data-timestamp="6690"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:51:30</a>　一旦、担当からは以上でございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t106">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">渡辺さん。</div>
+</div>
+
+<div class="turn reveal" id="t107">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say">クラウドファンディングにご協力いただいた方々に関しての表示に関しては、ぜひ額に応じてですね、適切に。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6721s" data-timestamp="6721"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:52:01</a>　あと、いわゆる広告になるので、小金井市内以外の業者さんとかもですね、場合によったらご寄付にご協力いただける可能性はあるかなというふうに思っているので、ぜひ、さっきも申し上げたとおり500万円というふうに設定されて、目標設定されているので、クリアできるように、あらゆる工夫をお願いしたいと思います。</div><div class="say">デザインに関しては、私も東日本大震災で実家が被災しているので、かなり大変な状況にあるので、子どもたちなんかも暗くなっているから、やっぱり少し気持ちが明るくなるようなデザインで。例えば小金井だと、やっぱり桜とかもあるじゃないですか。あと、こきんちゃんとかもありますよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6754s" data-timestamp="6754"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:52:34</a>成人の日の20歳の集いの時も、こきんちゃんが出てくると、20歳の皆さんの表情がなごむっていうか、すごく明るくなるんですよね。</div><div class="say">別に市長が出たから暗くなっているわけじゃないですけど、こきんちゃんが出てきた瞬間に皆さんの表情が明るくなるのが、来賓席から見ててもよくわかるので。そういう、被災地の皆さんの気持ちも明るくなるようなデザインをぜひ考えていただきたいということで。華美なものは別に期待しておりませんけれども、その気持ちが明るくなるデザインを考えていただきたいということであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6784s" data-timestamp="6784"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:53:04</a>あと、細かなルールに関してはまだ詳細は決まってないようでありますけれども、多分おそらくはですよね、外部の団体から、例えばお祭りとか、そこに出すときは当然実費かかっているから、そういうものも多分いくらって決めていただくことになると。無料で出すってことじゃないと思うので、他の自治体のを見てても料金はいただいてるようですから。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6816s" data-timestamp="6816"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:53:36</a>　そこらへんも、どういう価格設定になるのかとかも含めてですね、ちょっと概要が決まったら案の段階で、ぜひ所管の常任委員会などにも示していただいて、一定のちゃんと議会の側も議論ができるような状況で、進めていただきたいということは要望しておきたいと思います。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t108">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">他にございますか。水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t109">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">随意契約についてちょっと確認しておきたいんですけど、地方自治法で例外的に随意契約が認められる場合の9つの理由ということが示されていると思うんですが、今は当然、聞いている限りではこの9つのどこに該当するのかなっていうのがよくわからなかったので。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6847s" data-timestamp="6847"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:54:07</a>　随意契約が認められる9つの事由、理由があると思うんですが、それの何号に該当するのか。もし該当しないということであれば、どういう理由で随意契約にしているのか。</div><div class="say">この点ちょっとご説明いただきたいんですが、いかがでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t110">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6900s" data-timestamp="6900"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:00</a>総務部長。</div>
+</div>
+
+<div class="turn reveal" id="t111">
+  <div class="meta"><span class="name">総務部長</span></div>
+  <div class="say">地方自治法施行令の随意契約が認められる理由というところかと思います。これの中で言いますと、第3号というのがございまして、特定の施設等ということで、特定の施設等から物品の買い入れまたは役務の提供を受けるとき。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6932s" data-timestamp="6932"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:32</a>　例としましては、特定の場所でしか提供できないサービスというようなものがございまして、これに該当するものというような判断をしております。</div>
+</div>
+
+<div class="turn chair reveal" id="t112">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t113">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">ちょっと説明がきついんじゃないかなというふうに思いますね。そこでしか提供されないものというようなことは、今の答弁ではちょっと聞き取れなかった部分があって。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=6966s" data-timestamp="6966"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:56:06</a>　他にも同様に扱っている業者もあるわけだから、本来で言えば競争入札や指名競争入札など、原則に則って対応すべきではなかったかと。</div><div class="say">2社からせめて見積もりをとって判断するとかいうことに、やっぱりするのが本来のあり方かなというふうには考えているところなんですが。</div><div class="say">トイレカーについては私たちも別に反対するものではないので、ちょっとこういう本来の規則に基づいて則って、ぜひ対応してもらいたいということは強く述べておきたいと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t114">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=7000s" data-timestamp="7000"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:56:40</a>よろしいですか。総務部長。</div>
+</div>
+
+<div class="turn reveal" id="t115">
+  <div class="meta"><span class="name">総務部長</span></div>
+  <div class="say">すいません。ちょっと先ほど申し上げました特定施設というところの他にですね、第2号でですね、性質・目的というのがございまして、契約の性質または目的が競争入札に適しない時というのがございますので、こちらにも該当するということかと考えております。</div>
+</div>
+
+<div class="turn chair reveal" id="t116">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">防災安全担当部長。</div>
+</div>
+
+<div class="turn reveal" id="t117">
+  <div class="meta"><span class="name">防災安全担当部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=7031s" data-timestamp="7031"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:57:11</a>はい、恐れ入ります。じゃあ、少しだけ補足させていただければと考えております。</div><div class="say">トイレトラック、トイレカー自体につきましては、先ほど申し上げましたとおり、この助けあいジャパンがあっせんというか納入している車両のタイプ以外のものもいくつもあります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=7064s" data-timestamp="7064"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:57:44</a>　ですが、先ほども課長の方からご説明を若干申し上げておりますが、助けあいジャパンの方では、被災地での運用の円滑性のために、車両について同一タイプというところで、同一の仕様の、同一タイプのものを加入する団体の方が使用することにより、貸し出された車両が、受援団体の方でも使い方が分からないということではなく、適切な運用ができるようにということを図るために、まず同一のタイプのものということになっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=7107s" data-timestamp="7107"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:58:27</a>　加えまして、現在、担当の方で把握する限り、ネットワークと完全にリンクした形での車両の納入ができるのは、この団体のみということで、他の団体と言いますか、他では、車両の方は車両としてメーカーさんであるとか事業者なりから購入をする、その上で小規模なネットワークと言いますか、連携団体の中で受援体制を組むというようなものがあるというふうには把握をしております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=7137s" data-timestamp="7137"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:58:57</a>　また、内閣府の方でも登録制のネットワークはございますが、こちらについては、被災をした場合に、そのネットワークの方に、当該被災した団体の方から、貸出などの依頼を、持っている個別の自治体に直接依頼をして、自治体間で調整をした上で初めて受援をいただけるという状況が整うというような仕組みになっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=7175s" data-timestamp="7175"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:59:35</a>　こちらの助けあいジャパンの方では、そういった負荷を被災地の自治体の方が可能な限り低減するために、事務局の方で調整などを行った上で派遣の方をしてもらえるというところが大きなメリットとして、万が一被災した場合に、混乱の中でもできる限り迅速に受援ができるというところに重きを置いた際に、こちらに加入することが適切であるというような判断をし、選択したところでございます。以上です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=7209s" data-timestamp="7209"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:00:09</a></div>
+</div>
+
+<div class="turn reveal" id="t118">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">その競争入札に適さないとか、いろいろ言われるとよく分からなくなるんですが、とにかくトイレネットワークに加入するということが大前提で、その上でその車両を選択するときに、この車両じゃなければトイレネットワークに加入できないという仕組みになっているということの理解でいいのかどうかということなんですが。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=7240s" data-timestamp="7240"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:00:40</a>　そういうことになってくると、トイレネットワークのそのものの、要するに説明っていうのは、提案の時にはなかったと思うので、やっぱり随意契約については例外的に認められるという形になってますので、もう少し正確な提案説明なり、そういうものを今後はきちんと行っていただきたいということはお願いしておきたいと思います。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t119">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ほかにございますか。</div><div class="say">質疑を終了することにご異議ありませんか。</div>
+</div>
+
+<div class="turn voice reveal" id="t120">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">異議なし。</div>
+</div>
+
+<div class="turn chair reveal" id="t121">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ご異議なしと認め、質疑を終了します。</div><div class="say">お諮りします。本件は委員会付託を省略し、討論・採決を一時保留することにご異議ありませんか。</div>
+</div>
+
+<div class="turn voice reveal" id="t122">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">異議なし。</div>
+</div>
+
+<div class="turn chair reveal" id="t123">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ご異議なしと認め、本件は委員会付託を省略し、討論・採決を一時保留することと決定しました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=sqvpILdrXRU&t=7273s" data-timestamp="7273"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:01:13</a>ここで、昼休憩のため、おおむね1時間休憩いたします。休憩後、議会運営委員会を開催いたします。</div><div class="say">そこで、休憩中ではありますが、副市長から発言を求められておりますので、すみません、ちょっとお聞きください。副市長。</div>
+</div>
+
+<div class="turn reveal" id="t124">
+  <div class="meta"><span class="name">副市長</span></div>
+  <div class="say">すみません、休憩前に失礼いたします。所管の委員会では既にご紹介をさせていただいておりますが、</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
+<button class="to-top" type="button" aria-label="ページ上部へ戻る" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>(function(){var b=document.querySelector('.to-top');if(!b)return;function u(){b.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>300);}window.addEventListener('scroll',u,{passive:true});u();})();</script>
+<script id="anchor-js">
+(function(){
+  try{
+    var turns=[].slice.call(document.querySelectorAll('.turn[id]'));
+    if(!turns.length) return;
+    var firstBy={};
+    turns.forEach(function(t){
+      var nm=t.querySelector('.name'); if(!nm) return;
+      var key=(nm.textContent||'').trim(); if(!key||key==='—') return;
+      if(!firstBy[key]) firstBy[key]=t.id;
+    });
+    var toast;
+    function showToast(){
+      if(!toast){ toast=document.createElement('div'); toast.className='copy-toast'; toast.textContent='この発言へのリンクをコピーしました'; document.body.appendChild(toast); }
+      toast.classList.add('show'); clearTimeout(toast._t); toast._t=setTimeout(function(){toast.classList.remove('show');},1800);
+    }
+    function hl(el){ turns.forEach(function(x){x.classList.remove('turn-hl');}); if(el) el.classList.add('turn-hl'); }
+    // ② 発言パーマリンク
+    turns.forEach(function(t){
+      var meta=t.querySelector('.meta'); if(!meta) return;
+      var a=document.createElement('a');
+      a.className='turn-link'; a.href='#'+t.id; a.title='この発言へのリンクをコピー'; a.setAttribute('aria-label','この発言へのリンクをコピー');
+      a.textContent='🔗';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault();
+        var url=location.origin+location.pathname+'#'+t.id;
+        try{ history.replaceState(null,'','#'+t.id); }catch(e){}
+        if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(showToast).catch(function(){ location.hash=t.id; }); }
+        else { location.hash=t.id; showToast(); }
+        hl(t);
+      });
+      meta.appendChild(a);
+    });
+    // ① 要約中の発言者名(太字)→本文へ
+    [].slice.call(document.querySelectorAll('.sum strong')).forEach(function(st){
+      var txt=(st.textContent||'').trim(); if(!txt||txt.length<2) return;
+      var id=null;
+      for(var k in firstBy){ if(k.indexOf(txt)>=0 || txt.indexOf(k)>=0){ id=firstBy[k]; break; } }
+      if(!id) return;
+      var a=document.createElement('a');
+      a.className='sum-jump'; a.href='#'+id; a.textContent=st.textContent; a.title='本文の発言へ';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault(); var el=document.getElementById(id);
+        if(el){ hl(el); el.scrollIntoView({block:'center',behavior:'smooth'}); try{history.replaceState(null,'','#'+id);}catch(e){} }
+      });
+      st.parentNode.replaceChild(a, st);
+    });
+    // 直リンクで #tN が指定されていたらハイライト
+    if(location.hash){ var el0=document.getElementById(location.hash.slice(1)); if(el0&&el0.classList&&el0.classList.contains('turn')) el0.classList.add('turn-hl'); }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
