@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和8年8月31日 本会議</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#157a4b; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* サイト共通ヘッダー（トップと同系の緑＋クリーム）。iframe埋め込み時は html.embedded で非表示 */
+  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
+  html.embedded .sitenav{display:none;}
+  .sitenav-in{max-width:1100px;margin:0 auto;padding:0 18px;min-height:52px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .sitenav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#157a4b;font-weight:700;font-size:1rem;white-space:nowrap;}
+  .sitenav-brand img{display:block;border-radius:2px;}
+  .sitenav-links{margin-left:auto;display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+  .sitenav-links a{color:#2a2620;font-size:.84rem;font-weight:600;text-decoration:none;padding:8px 11px;border-radius:2px;white-space:nowrap;}
+  .sitenav-links a:hover{color:#157a4b;background:#e7f4ec;}
+  .sitenav-links .ext{color:#8a8073;font-size:.8em;margin-left:1px;}
+  @media(max-width:640px){.sitenav-in{min-height:0;padding:8px 14px;}.sitenav-links a{padding:6px 9px;font-size:.8rem;}}
+
+  /* パンくず */
+  .crumb{background:#fbf9f4;border-bottom:1px solid #eee7db;position:sticky;top:52px;z-index:59;}
+  html.embedded .crumb{display:none;}
+  .crumb-in{max-width:1100px;margin:0 auto;padding:8px 18px;font-size:.76rem;color:#8a8073;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.5;}
+  .crumb a{color:#157a4b;text-decoration:none;font-weight:600;}
+  .crumb a:hover{text-decoration:underline;}
+  .crumb .sep{color:#c9c0b2;}
+  .crumb .cur{color:#4a443b;font-weight:600;}
+  @media(max-width:640px){.crumb{position:static;} .sitenav-in{flex-wrap:nowrap;} .sitenav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  /* 未定稿（公式だが校正中）＝確定版と一目で区別できるようコーラル地にする */
+  .hero .srcbadge.draft{background:var(--coral-dark, #b83a25);}
+  .hero .srcbadge.draft .dot{background:#ffd9cf;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
+
+  /* ページトップへ戻る */
+  .to-top{position:fixed;bottom:20px;right:20px;z-index:900;width:44px;height:44px;border:none;border-radius:50%;background:#157a4b;color:#fff;font-size:20px;line-height:1;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,background .15s;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+  .to-top.show{opacity:.92;visibility:visible;transform:none;}
+  .to-top:hover{opacity:1;background:#12633d;}
+
+  /* 発言パーマリンク＆要約→本文アンカー */
+  .turn-link{margin-left:8px;font-size:12px;text-decoration:none;opacity:0;transition:opacity .15s;color:#8a8073;}
+  .turn:hover .turn-link,.turn-link:focus{opacity:.7;}
+  .turn-link:hover{opacity:1;}
+  .turn:target,.turn.turn-hl{background:#fff8e1;transition:background .3s;}
+  a.sum-jump{color:#157a4b;font-weight:700;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;cursor:pointer;}
+  a.sum-jump:hover{color:#12633d;}
+  .copy-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(8px);background:#157a4b;color:#fff;font-size:13px;padding:9px 16px;border-radius:4px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;z-index:1100;box-shadow:0 2px 10px rgba(0,0,0,.25);}
+  .copy-toast.show{opacity:1;visibility:visible;transform:translateX(-50%);}
+</style>
+</head>
+<body>
+<script>try{if(window.self!==window.top)document.documentElement.classList.add('embedded');}catch(e){document.documentElement.classList.add('embedded');}</script>
+<nav class="sitenav" aria-label="サイト共通ナビ">
+  <div class="sitenav-in">
+    <a class="sitenav-brand" href="index.html"><img src="icon.svg" alt="" width="30" height="30"><span>非公式会議録</span></a>
+    <div class="sitenav-links">
+      <a href="index.html">ホーム</a>
+      <a href="search.html">全文検索</a>
+      <a href="list.html">会議一覧</a>
+      <a href="https://www.city.koganei.tokyo.dbsr.jp/" target="_blank" rel="noopener">公式会議録<span class="ext">↗</span></a>
+      <a href="https://www.youtube.com/koganei_shigikai" target="_blank" rel="noopener">原典動画<span class="ext">↗</span></a>
+    </div>
+  </div>
+</nav>
+<nav class="crumb" aria-label="パンくずリスト"><div class="crumb-in"><a href="index.html">ホーム</a><span class="sep">›</span><a href="list.html">全会議一覧</a><span class="sep">›</span><span class="cur">令和8年8月31日 本会議</span></div></nav>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和8年8月31日</p>
+    <h1>本会議</h1>
+    <span class="src">YouTube字幕＋AI校正による記録（非公式）</span><div class="hero-note" style="font-family:var(--sans);font-size:13px;line-height:1.7;color:var(--muted);margin-top:10px;">本会議・委員会等の中継動画をもとに、文字起こし・校正・要約を行った非公式アーカイブです。<br><span style="color:#c0392b;font-weight:700;">致命的な話者の誤りや語句の誤りを含んでいます。転載などには適しません。最終的には必ず原典に当たってください。</span></div><span class="genmeta">本文・要約はAIによる自動生成で、小金井市議会の公式見解ではありません。発言者名や語句に誤りを含む場合があります。公式会議録が公開され次第、公式版に差し替えます。<br>最終生成日 2026-09-01</span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <h1>令和8年第3回定例会 本会議（2026年8月31日）要約</h1>
+<p>冒頭、市長の求めにより防災安全担当から8月29日に市内で発生した火災の報告があり、続いて8月27日に行われた決算特別委員会の正副委員長互選の結果が議長から報告された。日程は認第2号から議案第68号までの13件で、令和7年度の4会計の決算認定、令和7年度健全化判断比率等の報告、令和8年度の4会計の補正予算、条例2件、市道路線の廃止・認定各1件が扱われた。決算4件は決算特別委員会に、補正予算4件は新たに設置された予算特別委員会に、条例・市道関係は各常任委員会に、それぞれ付託された。議案第60号の審査のため14人の委員で構成する予算特別委員会が設置され、休憩中の互選結果が再開後に報告された。本会議で質疑があったのは議案第68号（市道路線の認定）のみで、他の議案は「質疑を終了することにご異議ありませんか」に異議なしで質疑を終了している。</p>
+<hr />
+<h2>冒頭の市長報告（8月29日の火災）</h2>
+<p>市長から「土曜日ですね、火災がございましたので、その件について担当から報告をさせていただきます」との発言があり、防災安全担当から報告が行われた。</p>
+<ul>
+<li>8月29日（土）午後3時7分、小金井消防署から発信された〇〇を通じて、小金井市梶野町4丁目3番の共同住宅で火災が発生したことを把握した。</li>
+<li>この火災により、当該共同住宅の建物1階及び2階部分が激しく焼損し、<strong>居住者1名が死亡</strong>した。また、消火活動にあたっていた<strong>消防隊員2名が負傷</strong>した。</li>
+<li>その他の居住者については、出火当時在宅していた方を含め全員の無事が確認されており、大きな怪我等は報告されていない。</li>
+<li>一方、出火元の共同住宅及び隣接する住宅において、火災や消火活動による被害の発生により、居住者は避難を余儀なくされた。市では<strong>地域安全課職員が現地へ赴き、避難された方への対応</strong>を行った。</li>
+<li>報告は「亡くなられた方に謹んでお悔やみを申し上げますとともに、負傷された消防隊員の1日も早い回復をお祈り申し上げます」と結ばれた。</li>
+</ul>
+<p>※消防署からの発信内容の名称は、本文が伏字（〇〇）のため確定できない。</p>
+<hr />
+<h2>決算特別委員会 正副委員長の報告</h2>
+<p>議長から、8月27日に決算特別委員会の正副委員長の互選が行われた結果として、次のとおり報告された。</p>
+<ul>
+<li>決算特別委員長：<strong>5番 水谷たかこ議員</strong></li>
+<li>決算副委員長：<strong>14番 藤川賢治議員</strong></li>
+</ul>
+<hr />
+<h2>予算特別委員会の設置・委員選任と正副委員長の報告</h2>
+<p>議案第60号の審査に関連して、議長のお諮りにより<strong>14人の委員で構成する予算特別委員会を設置</strong>し、これに付託の上審査することが異議なしで決定した。続いて委員会条例第5条第2項の規定により、次の14人が委員に指名され、異議なしで選任が決定した。</p>
+<p>2番 中井れい子議員／4番 清水学議員／6番 ながとり太郎議員／8番 坂井えつ子議員／9番 小林正樹議員／10番 河野麻美議員／11番 沖浦あつし議員／12番 吉良のりこ議員／13番 村上ようすけ議員／16番 水上洋志議員／17番 吹春やすたか議員／19番 岸田正義議員／22番 渡辺大三議員／24番 森戸よう子議員</p>
+<p>正副委員長の互選のため休憩に入り、再開後、議長から結果が報告された。</p>
+<ul>
+<li>予算特別委員長：<strong>8番 坂井えつ子議員</strong></li>
+<li>予算副委員長：<strong>2番 中井れい子議員</strong></li>
+</ul>
+<p>なお再開にあたり議長から「今日予定している日程をこなすと、12時をそこそこオーバーするかと。終わらせる方向でよろしいでしょうか」との確認があり、了承された。</p>
+<hr />
+<h2>日程第1　認第2号　令和7年度小金井市国民健康保険特別会計歳入歳出決算の認定について</h2>
+<p>市長が地方自治法第233条第3項の規定により議会の認定に付するものとして提案し、会計管理者が細部を説明した。</p>
+<p><strong>決算の概要</strong><br />
+- 歳入決算額：109億7328万3907円（前年度対比0.5%の増）<br />
+- 歳出決算額：107億7454万858円（前年度対比0.1%の減）<br />
+- 歳入歳出差引残額：1億9874万3049円。翌年度へ繰り越すべき財源はなく、そのまま<strong>実質収支1億9874万3000円の黒字</strong><br />
+- 予算現額113億8128万7000円に対し、支出済額107億7454万858円、不用額6億674万6142円</p>
+<p><strong>被保険者の状況</strong><br />
+- 年間平均被保険者数：合計2万241人（予算比75人の減）<br />
+- 年間平均加入世帯数：1万4822世帯（予算比8世帯の増）<br />
+- 年間平均保険第2号被保険者：7159人（予算比21人の増）</p>
+<p><strong>歳入の主な説明</strong><br />
+- 款1国民健康保険税：収入率94.3%（前年度94.4%で0.1%下回る）。不納欠損額671万6811円・850件（前年度比157件増、91万5989円増）。収入未済額1億5886万9632円・1万1203件（現年課税分4850件8778万2863円、滞納繰越分6353件7108万6769円）<br />
+- 款4都支出金：予算現額との比較で4億94万158円の減。普通交付金4億995万8158円の減、国民健康保険事業費補助金1690万5000円の減、特別交付金1742万3000円の増による<br />
+- 款6繰入金：7963万1432円の減。職員給与費等繰入金1686万2070円、出産育児一時金繰入金1069万8000円、その他一般会計繰入金5000万円の減が主なもの<br />
+- 款8諸収入：収入率58.7%。不納欠損額29万1424円（返納金14件）、収入未済額1306万6853円</p>
+<p><strong>歳出の主な説明</strong><br />
+- 療養給付費：予算現額61億112万9000円、決算額56億3832万5369円、不用額4億7180万3631円。一般被保険者1人当たり給付費27万8560円（当初予算より2万432円の減）<br />
+- 高額療養費：決算額8億3580万664円。一般被保険者1人当たり4万1293円（当初予算より2380円の増）<br />
+- 出産育児一時金：決算額2362万4820円、支給件数48件（当初予算より32件の減）<br />
+- 款3国民健康保険事業費納付金：令和7年度の本市納付金額36億8637万4274円（医療給付費分24億6947万9956円、後期高齢者支援金等分9億817万3407円、介護納付金分3億872万911円）<br />
+- 特定健康診査等：決算額7757万3198円、不用額2746万8802円。特定健康診査や特定保健指導の実施者が見込みより少なかったことが要因<br />
+- 国民健康保険事業運営基金積立金：決算額1322万3236円。当該年度中の利子の積立てに加え、令和6年度決算で実質収支が黒字になったことからの積立て<br />
+- 交付金等の返還金：決算額1億3105万5698円</p>
+<p><strong>処理：決算特別委員会に付託</strong>（歳入歳出一括で質疑を行い、異議なしで質疑を終了。付託についても異議なしで決定）</p>
+<hr />
+<h2>日程第2　認第3号　令和7年度小金井市介護保険特別会計歳入歳出決算の認定について</h2>
+<p>市長が地方自治法第233条第3項の規定により提案し、会計管理者が細部を説明した。令和7年度は第9期介護保険事業計画の2年度目にあたる。</p>
+<p><strong>決算の概要</strong><br />
+- 歳入決算額：98億555万5390円（前年度対比2.6%の増）<br />
+- 歳出決算額：97億525万6703円（前年度対比3.7%の増）<br />
+- 収支額：1億29万8687円。翌年度へ繰り越すべき財源はなく、<strong>実質収支1億29万9000円</strong><br />
+- 執行率：99.3%</p>
+<p><strong>被保険者の状況</strong><br />
+- 第1号被保険者数：2万7957人（令和6年度末より409人増）<br />
+- 要介護要支援認定者数：6104人（令和6年度末より232人増）</p>
+<p><strong>歳入の主な説明</strong><br />
+- 款1保険料：収入率99.6%（還付を差し引いた純収入に対する収入率は99.3%）。内訳は特別徴収100%、普通徴収97.9%、滞納繰越分48.7%。不納欠損額329万7500円（滞納繰越分585件。即時に債権が消滅したもの100万8600円・145件、時効によるもの228万8900円・440件）<br />
+- 款3国庫支出金：4343万5892円の増（介護給付費国庫負担金4119万7886円の増、調整交付金552万円の増）<br />
+- 款5都支出金：2039万7194円の減（介護給付費都負担金1836万7000円の減、地域支援事業交付金203万194円の減）<br />
+- 款8繰入金：1229万2417円の減（介護給付費繰入金393万8217円の減、その他一般会計繰入金1257万9154円の減）</p>
+<p><strong>歳出の主な説明</strong>（不用額の要因）<br />
+- 款2保険給付費：介護サービス等諸費、介護予防サービス等諸費とも、サービス利用者が見込みを下回ったことによる<br />
+- 款1総務費：項1総務管理費は職員人件費等における不用額、項3介護認定審査会費は審査会の回数が見込みを下回ったことによる<br />
+- 款4地域支援事業費：介護予防サービス負担金が見込みを下回ったこと、高齢者成年後見制度利用支援事業の報酬助成の申請件数が見込みを下回ったことによる</p>
+<p>※歳出決算額・不用額については本文中に複数の異なる読み上げがあるため、内部で整合する組（歳入98億555万5390円−歳出97億525万6703円＝差引1億29万8687円）のみを記載した。</p>
+<p><strong>処理：決算特別委員会に付託</strong></p>
+<hr />
+<h2>日程第3　認第4号　令和7年度小金井市後期高齢者医療特別会計歳入歳出決算の認定について</h2>
+<p>市長が地方自治法第233条第3項の規定により提案し、会計管理者が細部を説明した。</p>
+<p><strong>決算の概要</strong><br />
+- 令和7年度末の被保険者数：1万5252人（昨年度より291人の増）<br />
+- 歳入：予算現額35億855万3000円に対し収入済額34億9829万3281円（1025万9719円の減）<br />
+- 歳出：支出済額34億4177万6210円、執行率98.1%<br />
+- 実質収支：歳入総額34億9829万3000円、歳出総額34億4177万6000円、<strong>歳入歳出差引額5651万7000円の黒字</strong></p>
+<p><strong>主な内訳</strong><br />
+- 款1後期高齢者医療保険料：収入率99.9%（還付を差し引いた純収入額に対する収入率99.5%、前年度比0.3%の増）。不納欠損額277万9110円（全て滞納繰越分・311件）。予算現額との比較で2656万8290円の増で、主な要因は収入率が当初の見込みより伸びたこと<br />
+- 款3繰入金（一般会計）：3464万4645円の減<br />
+- 葬祭費：予算現額4585万円、決算額4015万円、件数803件<br />
+- 広域連合納付金：予算現額32億8703万7000円、決算額32億5446万1963円。不用額の主な要因は保険基盤安定負担金が見込みを下回ったこと<br />
+- 人間ドック利用補助：決算額422万5072円。受診者数が見込みを下回ったこと等による<br />
+- 償還金及び還付加算金：決算額2356万7900円。保険料の還付に要した額が見込みを下回ったことによる</p>
+<p><strong>処理：決算特別委員会に付託</strong></p>
+<hr />
+<h2>日程第4　認第5号　令和7年度小金井市下水道事業会計決算の認定について</h2>
+<p>市長が地方公営企業法第30条第4項の規定により提案し、下水道課長が細部を説明した。</p>
+<p><strong>決算報告書（予算との比較のため税込み表示）</strong><br />
+- 収益的収入：第1款下水道事業収益 予算現額20億2132万4000円、決算額19億8535万3592円、収入率98.2%（3597万408円の減）<br />
+- 収益的支出：第1款下水道事業費用 予算現額19億7152万2000円、決算額17億9708万7811円、不用額1億7443万4189円、執行率91.2%。収入支出差引額1億8826万5781円<br />
+- 資本的収入：予算現額65万9000円、決算額65万9000円、収入率100%（内容は他会計負担金）<br />
+- 資本的支出：予算現額3億5926万7000円、決算額3億3151万6836円、不用額2775万164円、執行率92.3%。収入不足額3億385万7836円は損益勘定留保資金等で補填</p>
+<p><strong>損益計算書</strong><br />
+- 総収益18億8764万8733円（うち営業収益14億8812万5302円＝総収益の78.8%。主なものは下水道使用料9億7729万4302円で営業収益の65.7%／営業外収益3億9952万3431円＝総収益の21.2%）<br />
+- 総費用17億1935万6850円（うち営業費用16億7268万877円＝総費用の97.3%。主なものは流域下水道維持管理負担金、減価償却費／営業外費用466万8073円、主なものは企業債の支払利息）<br />
+- 営業損失1億8456万3475円、経常利益1億6829万1833円。特別損失の計上がないため<strong>純利益も1億6829万1833円（昨年度対比9409万3756円の増）</strong><br />
+- 令和7年度は利益剰余金の処分を行わないものとしている</p>
+<p><strong>貸借対照表・キャッシュフロー</strong><br />
+- 資産合計108億1501万545円、負債合計70億718万9862円、資本合計37億4482万5183円<br />
+- 業務活動によるキャッシュフロー＋5億941万2554円、投資活動▲2億447万77円、財務活動▲7619万280円。年度中の資金増加額1億875万2197円に期首残高9億498万389円を加え、<strong>資金期末残高10億9373万2586円</strong></p>
+<p><strong>処理：決算特別委員会に付託</strong></p>
+<hr />
+<h2>日程第5　報告第6号　令和7年度健全化判断比率及び資金不足比率について</h2>
+<p>市長が地方公共団体の財政の健全化に関する法律第3条第1項及び第22条第1項の規定により報告し、企画財政部長が細部を説明した。監査委員の意見は別冊「令和7年度小金井市財政健全化審査意見書」のとおり。</p>
+<ul>
+<li><strong>実質赤字比率</strong>：一般会計等に赤字がないためバー表示</li>
+<li><strong>連結実質赤字比率</strong>：全会計において赤字がないためバー表示</li>
+<li><strong>実質公債費比率</strong>：令和7年度は前年度対比0.3ポイント増の<strong>2.22%</strong>で健全値。主な変動要因は、分母・分子から控除する災害復旧等に係る基準財政需要額が減となったこと</li>
+<li><strong>将来負担比率</strong>：<strong>マイナス32.1%</strong>となり、マイナスのためバー表示。変動の主な要因は、分子を構成する一般会計等の地方債残高が約12億9000万円の減、分子の控除対象である充当可能特定歳入見込額Bが約26億3000万円の増となったこと等（前年度対比のポイント差は本文で「14.84、失礼しました、18.4ポイント」と言い直しがある）</li>
+<li><strong>資金不足比率</strong>：公営企業の下水道事業会計を対象としたもので、令和7年度決算では資金不足が生じていないためバー表示</li>
+</ul>
+<p>いずれも基準数値以下であった。26市の状況は資料2「令和6年度決算に基づく26市健全化比率等」に掲載。</p>
+<p><strong>処理：質疑を行い、異議なしで質疑を終了。報告第6号を終了</strong>（報告事項のため委員会付託・採決はなし）</p>
+<hr />
+<h2>日程第6　議案第60号　令和8年度小金井市一般会計補正予算（第5回）</h2>
+<p>市長が提案し、企画財政部長が細部を説明した。</p>
+<p><strong>規模</strong><br />
+- 歳入歳出それぞれ<strong>23億9792万7000円を追加</strong>し、予算総額を歳入歳出それぞれ<strong>574億3487万3000円</strong>とするもの<br />
+- 第2表債務負担行為補正（全部で8件、うち追加7件）、第3表地方債補正（1件の追加）を含む</p>
+<p><strong>歳入の主なもの</strong><br />
+- 前年度繰越金21億3932万7000円（令和7年度の実質収支額26億3932万7371円から、当初予算において計上した5億円を控除した額）<br />
+- 国庫支出金：児童措置費負担金312万4000円、公立学校施設整備費負担金177万円、地域生活支援事業費等補助金40万2000円、介護保険事業費補助金112万7000円、地域診療情報連携推進費補助金227万7000円、母子保健衛生費補助金33万8000円、国民年金事務委託金42万9000円<br />
+- 都支出金：保育所等物価高騰緊急対策事業補助金3719万7000円（10分の10）、障害者・障害児の熱中症予防支援事業補助金1105万8000円（4分の3）、母子及び父子福祉資金・女性福祉資金システム改修等交付金222万2000円、児童措置費負担金156万2000円、地域における見守り活動支援事業補助金78万6000円、東京ママパパ応援事業補助金10万7000円、笑顔と学びの体験活動プロジェクト子供企画型補助金56万8000円<br />
+- 市債：緑小学校校舎増築等事業債1億720万円（新たに計上）<br />
+- 繰入金：後期高齢者医療特別会計繰入金868万1000円、介護保険特別会計繰入金137万2000円（いずれも令和7年度決算に伴うもの）</p>
+<p><strong>歳出の主なもの</strong><br />
+- 基金積立：財政調整基金 積立元金13億2000万円（本年度の現在高見込額は約76億円）・積立利子781万8000円／建設基金 積立元金4億円・積立利子452万5000円／公共施設マネジメント基金 積立元金2億円・積立利子67万5000円／環境基金 積立元金1億116万円（令和7年度分の寄付金32件・合計116万円と合わせて積み立てるもの）・積立利子100万8000円／地域福祉基金 積立元金105万4000円（令和7年度中の寄附金39件分）・積立利子56万4000円／みどりと公園基金 積立元金80万2000円（令和7年度の寄付金35件）・積立利子48万円／教育施設整備基金 積立元金163万円（令和7年度の寄付金60件）・積立利子9万7000円／職員退職手当基金・市営住宅整備基金・都市再開発整備基金は積立利子のみ<br />
+- 公衆喫煙所関係（令和9年3月共用開始）：施設警備委託料4万4000円（機械警備の導入）、光熱水費3万4000円、空気清浄機等保守点検委託料4万3000円、清掃委託料24万2000円。また武蔵小金井駅南口公衆トイレ防火設備修繕426万5000円（隣接して公衆喫煙所が設置されることに伴い、建築基準法に基づく延焼ラインへの対応が新たに生じたため）<br />
+- 防犯設備整備事業補助金100万4000円（防犯カメラの価格上昇等により不足が見込まれるため増額）<br />
+- 基幹系システムに要する経費1162万7000円（国民年金第1号被保険者の育児期間における保険料免除措置の創設、源泉徴収票の提出方法の見直し、母子父子・女性福祉資金のコンビニ収納、健康管理システムのPMH連携、介護情報基盤との連携、医療費助成のオンライン資格確認対応、基幹系システムのPMH接続）<br />
+- 障害者・障害児の熱中症予防支援事業1375万1000円（うち補助金1374万4000円。障害福祉サービス事業所等が利用者の熱中症予防のために整備する日よけや冷風機等の機器・設備に係る費用を、1事業所当たり100万円を上限として29事業所に補助。補助率は都4分の3）／児童発達支援センターの建物西側部分への日よけ取付け<br />
+- 物価高騰対策：保育施設運営事業者事業継続支援金3719万7000円（支給対象期間が令和9年3月まで延長されることによる増額。都10分の10）<br />
+- 母子生活支援施設措置費624万7000円（入所1世帯2人増及び措置費の保護単価増）／母子及び父子福祉資金のコンビニ等収納代行委託料11万8000円（償還者の利便性及び収納率向上のためコンビニ収納を開始）<br />
+- 乳幼児及び産婦の健康診査67万6000円（令和8年10月から都内共通受診票を使用した助成が開始されることに伴い、受診票が使用できない都外受診分の償還払いに対応。里帰り産婦健康診査43人分、里帰り1か月児健康診査41人分を見込む）<br />
+- 予防接種：肺炎球菌ワクチン330万3000円（令和8年4月から使用するワクチンの変更による単価増及び人数増等）、RSウイルスワクチン748万4000円（人数増）、里帰り等予防接種費助成120万4000円（RSウイルスワクチン接種の定期接種化による件数増）。また令和10年度からの予防接種デジタル化に向け、これまでの予診票結果をデータ化するため時間額の会計年度任用職員1人を10月から雇用（報酬87万6000円、職員手当等18万3000円）<br />
+- ごみ収集委託料：中東情勢悪化による原油価格の高騰及び原材料の供給制限等の影響により契約単価が増となるため増額（金額は本文が伏字）<br />
+- 公共交通施策516万8000円（令和9年4月からの再編運行・運賃改定に係る準備及び周知。コミュニティバス高齢者割引専用パスの発行のため会計年度任用職員2人を15日間雇用、周知用ポスター及びチラシの作成、バス停標識の書き換え・新設、路面表示改修等）<br />
+- 街路樹管理委託料317万9000円（契約単価の上昇により不足が見込まれるため増額）<br />
+- 学校：本町小学校教室整備検討委託料594万円（学区内の宅地開発により将来的な児童数の増加が見込まれることから、複数の整備手法を比較検討し今後の整備方針を整理。令和9年度は債務負担行為で限度額1386万円）／緑小学校校舎増築等工事第2期（管理委託料571万9000円、設計意図伝達委託料216万4000円、工事請負費。令和8年7月から実施している校舎増築等工事の継続工事として給食室・多目的教室等を増築。歳入は国2分の1及び市債を充当）／笑顔と学びの体験活動プロジェクト56万8000円（南小学校でピザ釜の製作・焼き上げ、武蔵野うどんの再現、和菓子・飲料の開発を児童が自ら企画・製作し、南小フェスティバルで地域の方々に提供）／特別支援教育の訪問看護委託料108万1000円（訪問看護師の派遣回数が150回増）／中学校で使用する楽器（フルート、チューバ、バスドラム等）の購入123万7000円<br />
+- 公民館東センター屋上防水工事負担金519万4000円（併設の都営住宅と合わせて東京都住宅供給公社が実施。物価高騰、中東情勢悪化等の影響による工事費上昇）<br />
+- 総合体育館中央監視システム借上料114万9000円の減額（令和9年1月から入替えを予定していたが契約不調により令和9年9月へ延伸。令和8年度から令和14年度につき債務負担行為として限度額3018万円）<br />
+- 公債費：繰替運用金利子511万4000円（財政調整基金及び庁舎建設基金からの繰替に係る運用利子）<br />
+- 予備費：財源調整のため2928万2000円の増額、補正後1億4108万7000円（既に1411万2000円を予備費充用しているため純粋予備費は1億2697万5000円）<br />
+- 給与費明細書：職員数3人増、報酬111万8000円増、職員手当等18万3000円増（保健衛生業務会計年度任用職員等の増分）</p>
+<p><strong>債務負担行為の追加7件</strong><br />
+1. 財務会計システム設計構築委託料（令和8年度から令和9年度、限度額3716万6000円）※令和9年8月に現システムの更改時期を迎えることによるリプレース作業<br />
+2. 学校給食調理委託料（令和8年度から令和9年度、限度額5319万6000円）※小金井第三小学校の令和9年度以降の事業者選定のため今年度から契約準備<br />
+3. 学校給食備品（令和8年度から令和9年度、限度額4400万円）※緑小学校の給食室増築工事に伴う整備。納品までに時間を要するため<br />
+4. 本町小学校教室整備検討委託料（令和9年度、限度額1386万円）<br />
+5〜7. 緑小学校増築等工事第2期の管理委託料・設計意図伝達委託料・工事</p>
+<p><strong>地方債の追加</strong>：緑小学校校舎増築等事業 1億720万円を限度額として追加</p>
+<p><strong>議事上の取扱い</strong>：議長から「本会議では大綱的な質疑を行うなど、議事の進行に格段のご協力を」との要請があり、資料要求書は9月1日（火）10時までに提出するよう案内があった。</p>
+<p><strong>処理：14人の委員で構成する予算特別委員会を設置し、これに付託の上審査することを異議なしで決定</strong></p>
+<hr />
+<h2>日程第7　議案第61号　令和8年度小金井市国民健康保険特別会計補正予算（第1回）</h2>
+<p>市長が提案し、市民部長が細部を説明した。令和7年度国民健康保険特別会計の繰越金の確定に伴う予算計上。</p>
+<ul>
+<li>歳入歳出それぞれ<strong>1億9876万円を追加</strong>し、総額を<strong>113億6514万8000円</strong>とするもの</li>
+<li>歳入：国民健康保険事業運営基金利子の利率の変更により1万8000円を増額計上。繰越金は、令和7年度決算の剰余金1億9874万3049円から、既に計上済みの科目存置1,000円を差し引いた1億9874万2000円を増額計上</li>
+<li>歳出：基金積立金5001万8000円（積立金5000万円＋積立利子1万8000円）。国民健康保険事業運営基金条例第2条が「毎年度の剰余金から当該剰余金の10分の1以上に相当する額を積み立てるものとする」と定めており、前年度決算の歳入歳出差引額が黒字となったことによる。市民部長は「現在、基金が枯渇していることも考慮し」と説明した</li>
+<li>予備費：歳入総額と歳出総額の差額を財源調整するため1億4874万2000円を増額計上</li>
+</ul>
+<p><strong>処理：予算特別委員会に付託</strong></p>
+<hr />
+<h2>日程第8　議案第62号　令和8年度小金井市介護保険特別会計補正予算（第1回）</h2>
+<p>市長が提案し、福祉保健部長が細部を説明した。令和7年度の収支が確定したことから、返還金等の必要な整理を行うもの。</p>
+<ul>
+<li>歳入歳出それぞれ<strong>1億1607万7000円を追加</strong>し、総額を<strong>97億7684万円</strong>とするもの</li>
+<li>歳入：款3国庫支出金、款4支払基金交付金、款5都支出金について、前年度に交付されるべき地域支援事業交付金の不足額が今年度に交付されるため、それぞれ増額補正。介護給付費準備基金利子21万2000円（前年度末に基金積立てを行ったこと及び定期預金の運用利率が変更となったことによる）。前年度繰越金1億29万8000円</li>
+<li>歳出：積立金4784万2000円（介護保険料4762万9000円＋積立利子21万3000円）。第1号被保険者保険料還付金61万7000円（過年度分の還付金が確定したことによる）。償還金として、概算交付である国庫負担金・支払基金交付金の精算分2件合計5638万5000円。繰出金として低所得者保険料軽減措置負担金の精算分（国と一般会計への返還金）合計137万2000円。予備費986万1000円</li>
+</ul>
+<p><strong>処理：予算特別委員会に付託</strong></p>
+<hr />
+<h2>日程第9　議案第63号　令和8年度小金井市後期高齢者医療特別会計補正予算（第1回）</h2>
+<p>市長が提案し、市民部長が細部を説明した。広域連合納付金の精算に係る不足見込額の計上と、令和7年度後期高齢者医療特別会計の繰越金の精算に係るもの。</p>
+<ul>
+<li>歳入歳出それぞれ<strong>6175万3000円を追加</strong>し、総額を<strong>37億279万8000円</strong>とするもの</li>
+<li>歳入：一般会計繰入金（保険料軽減措置繰入金）は、広域連合へ支払う負担金に対する一般会計の負担分を増額計上。繰越金を増額計上。保険料還付金は広域連合からの返還金が減となったため減額。葬祭費負担金償還金は、令和7年度の葬祭費負担金が確定し広域連合から567万8000円が返還されるもの</li>
+<li>歳出：広域連合納付金 合計3367万4000円の増額（前年度の保険料等収入額が広域連合への保険料等納付額より多かったことによる保険料等負担金の過年度分の追加納付と、前年度の保険料の軽減措置に関する負担金に不足が生じる見込みであることによる過年度分の追加納付。いずれも広域連合からの請求による）。償還金及び還付加算金として、令和7年度決算における還付未済額1369万8000円。令和7年度葬祭費受託事業収入返還金（葬祭費は広域連合からの受託収入を財源に市の保険給付費から支出している関係から、前年度の精算額を広域連合に返還するもの）。一般会計繰出金868万1000円</li>
+</ul>
+<p>※繰越金の増額計上額は、本文の読み上げ（剰余金5651万771円／差引561万6000円）が前後の数値と整合しないため記載していない。</p>
+<p><strong>処理：予算特別委員会に付託</strong></p>
+<hr />
+<h2>日程第10　議案第65号　小金井市職員の勤務時間、休日、休暇等に関する条例の一部を改正する条例</h2>
+<p>市長が「勤怠管理システムの導入にあたり、所要の改正を行うため」提案し、総務部長が細部を説明した。</p>
+<ul>
+<li>令和8年11月からの勤怠管理システムの運用開始に向けて現在導入作業を行っており、導入にあたり現状の運用について一定の整理を予定していることから、システム導入後の運用に必要な規定の整備を行うもの</li>
+<li>第4条（週休日の振替等）：現行は勤務日の勤務時間のうち4時間を当該勤務日に割り振ることをやめて週休日に当該半日の勤務時間を割り振ることができるという規定で、勤務日の半日を4時間とみなして運用してきた。しかし実態としては、午前の半日勤務が8時30分から12時までの3時間30分、午後の半日勤務が13時から17時15分までの4時間15分となっていることから、<strong>半日の定義を「3時間30分から4時間15分まで」と別途規定に定め、「4時間」を「半日」に改める</strong>もの</li>
+<li>第15条（休日の代休日）：第4条と同様の理由により規定を整備</li>
+<li>附則：令和8年11月1日から施行</li>
+</ul>
+<p><strong>処理：総務企画委員会に付託</strong></p>
+<hr />
+<h2>日程第11　議案第66号　学校設置者等及び民間教育保育等事業者による児童対象性暴力等の防止等のための措置に関する法律の施行に伴う関係条例の整理に関する条例</h2>
+<p>市長が提案し、子ども家庭部長が細部を説明した。</p>
+<ul>
+<li>同法が成立し<strong>本年12月25日から施行</strong>されることに伴い、家庭的保育事業等の設備及び運営に関する基準、さらに乳児等通園支援事業の設備及び運営に関する基準が改正され、児童対象性暴力等を防止し、児童対象性暴力等が行われた場合に園児を適切に保護するため、児童等対象業務に係る事業者に対し<strong>犯罪事実確認等の措置の実施を義務づける規定</strong>が追加された</li>
+<li>本市の保育事業における基準を定める条例においても国基準を参酌し改正するもの</li>
+<li>第1条関係：小金井市家庭的保育事業等の設備及び運営に関する基準を定める条例に、児童対象性暴力等の防止に関する規定を追加</li>
+<li>第2条関係：小金井市乳児等通園支援事業の設備及び運営に関する基準を定める条例に、児童対象性暴力等の防止に関する規定を追加</li>
+<li>附則：第1条関係・第2条関係ともに令和8年12月25日から施行</li>
+</ul>
+<p><strong>処理：厚生文教委員会に付託</strong></p>
+<hr />
+<h2>日程第12　議案第67号　市道路線の廃止について</h2>
+<p>市長が提案。当該道路は隣接地権者への払い下げに伴い当該路線を廃止するもので、道路法第10条第3項の規定により準用する第8条第2項の規定により議会の議決を要することから提出された。</p>
+<p>「説明省略」の声があり、異議なしで細部説明を省略した。質疑では森戸よう子議員が発言を求めたが、「今これ廃止ですね。廃止だけだったんだよね。いいです」と述べ、質疑には至らなかった。</p>
+<p><strong>処理：建設環境委員会に付託</strong></p>
+<hr />
+<h2>日程第13　議案第68号　市道路線の認定について</h2>
+<p>市長が提案。当該道路のうち整理番号123は都市計画法第29条第1項に規定する開発行為の許可を受けた道路で市がすでに管理している道路、整理番号852から整理番号856までは同項に規定する開発行為の許可を受けた道路であり、道路法第8条第2項の規定により議会の議決を要することから提出された。「細部説明省略」の声があり、異議なしで細部説明を省略した。</p>
+<p>本会議で唯一の実質的な質疑が行われた議案である。</p>
+<h3>森戸よう子議員の質疑（3点）</h3>
+<ol>
+<li><strong>幅員の基準との関係</strong>　市道路線の認定廃止の取扱要綱では道路幅員が4m以上であることが規定されているが、整理番号123・市道第123号線（緑町）には1.82mしかない部分がある。なぜこのようになってこれを認定するのか、確認したい。</li>
+<li><strong>行き止まり道路の認定</strong>　取扱要綱の定義第3・路線の認定条件（2）では「起点及び終点が公道及び公共〇〇の所有する通路または公共施設に連絡していること」とされている。したがって、どん詰まりの道路を市道に認定することにはこの認定条件からはならないのではないかと解釈できる。一方で、開発行為で築造された道路を住民の利益に供するものとして市道に認定し、補修工事などをしっかり行っていくことも必要とも考えられる。この辺りの整理と、市道認定にする理由は何か。</li>
+<li><strong>古い道路の認定</strong>　東の市道は相当前に開発行為をして作られた道路で、10年ぐらい経っているのではないかと思う。10年前の道路を認定していくのは、どういう状況になっているのか。</li>
+</ol>
+<h3>道路管理課長の答弁</h3>
+<ol>
+<li>一旦廃止する123号線は<strong>昭和57年に一括認定</strong>したものである。このたび払い下げのため一旦廃止するが、廃止したままで認定しないと沿線住民の生活に影響が出てしまうため、認定をせざるを得ないという判断で認定の議案に挙げている。</li>
+<li><strong>都市計画法第40条第2項</strong>の規定により、開発許可を受けた開発行為または開発行為に関する工事により設置された公共施設の用に供する土地は、当該公共施設を管理すべき者に帰属すると規定されている。市が管理する道路という扱いになるが、管理する上での根拠法がないため、公物管理法である<strong>道路法に基づいて管理すべき</strong>と考えている。そのため、開発行為において築造された行き止まり道路についても、市が帰属を受けたものは道路法に基づく認定を経て道路法の道路に位置づけ、道路法で適切な維持管理をしていくことが必要になると考えている。ただし都市計画法上は「帰属を受けることができる」という規定であり、<strong>現在は市道のネットワークに接続しない行き止まり道路については帰属を受けていない</strong>状況である。</li>
+<li>かつては行き止まり道路も含めてたくさんの道路の帰属を受けてきた。ただし帰属を受けて認定するためには<strong>道路台帳を整備する必要があり、そのために測量し直さなければならず費用がかかる</strong>ため、なかなか予算が追いついていかない状況だった。何年か前にその予算を増やしてもらっており、さらに行き止まり道路の帰属を今は受けていないので、そのうち追いつくのかなと思っている。今は追いついていない状況で、鋭意頑張って取り組んでいる。</li>
+</ol>
+<h3>森戸議員の再質疑と答弁</h3>
+<p>森戸議員は「基本、市道は4mという基準があって、この道路では1.82mという狭いところもあり、大半が1.82なものですから、なぜかということは本会議場で明らかにしておいた方がいいと思ったので質問させていただいた」と述べた。また市道認定のあり方について、「現状では、これまでは帰属を受けてきたけれど今後は受けない、それがいいのかどうかは住民にとってみると色々あるが、道路法上ではこういう規定になっているわけで、公道を抜けるというのが基本的には市道の基準になっているということからすれば、今後は開発行為でどん詰まりになっているようなところは市道にしないということですね」と確認した。</p>
+<p>その上で、これまで帰属を受けてきた道路がどのくらい残っているかを質し、分からなければ資料要求する旨を述べた。道路管理課長は「あとどれぐらい残っているかというところにつきましては、実を申しますと、建設環境委員会で答えられるようにちょっと準備しようと思っていたところで、ここでちょっと質問されるとは思ってなかったので、今ちょっと持っていない」と答弁した。</p>
+<p><strong>処理：建設環境委員会に付託</strong></p>
+<hr />
+<h2>議事日程の変更</h2>
+<p>以上で本日の日程は全て終了し、議長のお諮りにより、<strong>9月1日の会議は議事の都合により午後1時に繰り下げて開く</strong>ことが異議なしで決定した。</p>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/5OkAtJW0grs" allowfullscreen loading="lazy"></iframe></div>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/kxc5WbYaiCA" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・2本）</p>
+  </section>
+
+<div class="turn chair reveal" id="t0">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=271s" data-timestamp="271"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:31</a>　おはようございます。開会前ですが、市長から発言を求められておりますので、お願いします。市長。</div>
+</div>
+
+<div class="turn reveal" id="t1">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">おはようございます。土曜日ですね、火災がございましたので、その件について担当から報告をさせていただきます。</div>
+</div>
+
+<div class="turn reveal" id="t2">
+  <div class="meta"><span class="name">不明</span></div>
+  <div class="say">防災安全担当より、市内で発生した火災事案についてご報告いたします。担当では、8月29日土曜日午後3時7分、小金井消防署から発信された〇〇を通じて、小金井市梶野町4丁目3番の共同住宅において火災が発生したことを把握しました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=302s" data-timestamp="302"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:02</a>　この火災により、当該共同住宅の建物1階及び2階部分が激しく焼損し、居住者1名がお亡くなりになりました。また、消火活動にあたっていた消防隊員2名が負傷されております。その他の居住者につきましては、出火当時在宅していた方を含め全員の無事が確認されており、大きな怪我等は報告されておりません。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=333s" data-timestamp="333"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:33</a>　一方で、出火元の共同住宅及び隣接する住宅において、火災や消火活動による被害の発生により、居住者は避難を余儀なくされました。市では地域安全課職員が現地へ赴き、避難された方への対応を行いました。</div><div class="say">亡くなられた方に謹んでお悔やみを申し上げますとともに、負傷された消防隊員の1日も早い回復をお祈り申し上げます。報告は以上でございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t3">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=364s" data-timestamp="364"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:04</a>　ということです。よろしいでしょうか。では始めます。</div><div class="say">おはようございます。ただ今から本日の会議を開きます。</div><div class="say">8月27日に決算特別委員会の正副委員長の互選が行われておりますので、その結果をご報告します。決算特別委員長に5番　水谷たかこ議員、同副委員長に14番　藤川賢治議員、以上の2人を決定しましたのでお知らせいたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=397s" data-timestamp="397"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:37</a>　日程第1、認第2号　令和7年度小金井市国民健康保険特別会計歳入歳出決算の認定についてを議題といたします。提案理由の説明を求めます。市長。</div>
+</div>
+
+<div class="turn reveal" id="t4">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">認第2号　令和7年度小金井市国民健康保険特別会計歳入歳出決算の認定についてをご提案申し上げます。本案は地方自治法第233条第3項の規定により、本市議会の認定に付するものであります。細部につきましては会計管理者から説明させていただきますので、よろしくご審議の上、ご認定賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t5">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=437s" data-timestamp="437"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:17</a>　会計管理者。</div>
+</div>
+
+<div class="turn reveal" id="t6">
+  <div class="meta"><span class="name">会計管理者</span></div>
+  <div class="say">それでは、〇〇についてご説明をさせていただきます。失礼して、着座にてご説明をさせていただきます。</div><div class="say">決算の概要ですが、歳入決算額は109億7328万3907円で前年度対比0.5%の増、歳出決算額は107億7454万858円で前年度対比0.1%の減となりました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=468s" data-timestamp="468"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:48</a>　その結果、歳入歳出差引残額は1億9874万3049円となりました。</div><div class="say">年間平均被保険者数ですが、合計2万241人で、予算と比較すると75人の減となっております。年間平均加入世帯数は1万4822世帯で、予算と比較すると8世帯の増となっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=502s" data-timestamp="502"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:22</a>　また、年間平均保険第2号被保険者は7159人で、予算と比較して21人の増となっております。</div><div class="say">なお、決算の詳細につきましては、主要な施策の成果に関する説明書の87ページから100ページに記載してございますので、ご参照していただきたいと存じます。</div><div class="say">それでは、歳入歳出決算書の598ページ、599ページをご覧ください。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=535s" data-timestamp="535"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:55</a>　初めに歳入でございます。国民健康保険税から諸収入までの収入済額につきましては省略をさせていただきまして、ここでは収入済額の予算現額に対する比率、収入率、不納欠損額、収入未済額、予算現額と収入済額との比較の増減の主なものについてご説明をさせていただきます。</div><div class="say">初めに、款1国民健康保険税でございます。審査意見書の30ページから36ページもご参照ください。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=567s" data-timestamp="567"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:27</a>　収入済額の予算現額に対する比率は104%、収入率は94.3%です。前年度と比較しますと、前年度は94.4%でしたので、収入率は0.1%下回っております。〇〇の不納欠損額671万6811円は850件です。</div><div class="say">内訳につきましては審査意見書の32ページをご覧ください。前年度との比較では157件の増、金額では91万5989円の増となっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=600s" data-timestamp="600"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:00</a>　次の収入未済額は1億5886万9632円で1万1203件です。内訳は、現年課税分が4850件で8778万2863円、滞納繰越分が6353件で7108万6769円でございます。予算現額と収入済額との比較では9929万9440円の増となっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=632s" data-timestamp="632"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:32</a>　次に、款4都支出金でございます。収入済額の予算現額に対する比率は94.4%、収入率は100%です。予算現額と収入済額との比較では4億94万158円の減となっております。</div><div class="say">要因は、国民健康保険事業費補助金が1690万5000円の減、普通交付金が4億995万8158円の減となり、特別交付金が1742万3000円の増となったことによります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=664s" data-timestamp="664"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:04</a>　次に、款6繰入金でございます。収入済額の予算現額に対する比率は94.4%、収入率は100%です。予算現額と収入済額との比較では7963万1432円の減となっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=695s" data-timestamp="695"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:35</a>　主なものは、項1他会計繰入金のうち、職員給与費等繰入金が1686万2070円、出産育児一時金繰入金が1069万8000円、その他一般会計繰入金が5000万円の減となっております。</div><div class="say">次に、款8諸収入でございます。収入済額の予算現額に対する比率は51.0%、収入率は58.7%です。不納欠損額29万1424円ですが、返納金が14件でした。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=727s" data-timestamp="727"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:07</a>　次の収入未済額1306万6853円ですが、返納金の未済が160件、弁償金の未済が5件でした。予算現額と収入済額との比較では1828万4108円の減ですが、主なものは、延滞金が867万8972円、第三者納付金が559万5546円、返納金が308万1962円の減となっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=759s" data-timestamp="759"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:39</a>　次に、事項別明細書、615ページをご覧ください。款1国民健康保険税ですが、詳細は先ほどご説明いたしましたので省略をさせていただきます。各節に還付額がありますが、合計で700件です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=792s" data-timestamp="792"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:12</a>　内訳は、現年課税分が691件で1026万8502円、滞納繰越分が9件で11万3000円となっております。</div><div class="say">次に、618ページ、619ページをご覧ください。款8諸収入でございます。項1延滞金、加算金及び過料、目1延滞金の収入済額1132万1028円は2317件です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=822s" data-timestamp="822"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:42</a>　備考欄の一般被保険者に係る延滞金の1132万1028円は2317件で、還付未済額3000円は4件でございます。以上、予算現額113億8128万7000円に対して収入済額は109億7328万3907円で、予算現額に対する増減は4億800万3093円の減となっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=854s" data-timestamp="854"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:14</a>　歳入につきましては以上でございます。</div><div class="say">次に歳出です。624ページ、625ページをご覧ください。款1総務費、項1総務管理費、目1管理費の備考欄、事業2国民健康保険事業運営に要する経費でございます。予算現額3955万9000円、決算額2916万945円、不用額1038万995円です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=887s" data-timestamp="887"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:47</a>　主な要因は、損害賠償請求事務委託料、レセプト点検委託料、国民健康保険資格確認書一斉更新事務委託料等で契約差金が生じたためです。</div><div class="say">628ページをご覧ください。項2徴税費、目1〇〇の備考欄の事業1、国民健康保険税賦課に要する経費でございます。予算現額477万9000円、決算額319万7804円、不用額158万1196円です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=919s" data-timestamp="919"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:19</a>　主な要因は、印刷製本費が当初の見込みより少なかったことなどによるものです。</div><div class="say">次に、事業2、国民健康保険税徴収に要する経費でございます。予算現額3350万5000円、決算額3243万3989円、不用額107万1円です。この主なものは、郵便料及び公金収納手数料などで想定よりも少なかったことによるものです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=953s" data-timestamp="953"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:53</a>　630ページ、631ページをご覧ください。次に、保険給付費、項1療養諸費、目1療養給付費の備考欄、事業1療養給付費に要する経費です。予算現額61億112万9000円、決算額56億3832万5369円、不用額4億7180万3631円です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=984s" data-timestamp="984"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:24</a>　一般被保険者1人当たりの給付費が27万8560円で、当初予算より2万432円の減となっております。</div><div class="say">632ページ、633ページをご覧ください。次に、項2高額療養費、目1高額療養費の備考欄、事業1高額療養費に要する経費です。予算現額8億3589万1000円、決算額8億3580万664円、不用額8万4396円です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1017s" data-timestamp="1017"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:57</a>　一般被保険者1人当たりの給付金が4万1293円で、当初予算より2380円の増となっております。</div><div class="say">次に、項4出産育児諸費、目1出産育児一時金の備考欄、事業1出産育児一時金に要する経費です。予算現額4000万円、決算額2362万4820円で、不用額は1637万5180円です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1049s" data-timestamp="1049"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:29</a>　支給件数は48件で、当初予算より32件の減となっております。</div><div class="say">634ページをご覧ください。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1079s" data-timestamp="1079"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:59</a>　款3国民健康保険事業費納付金です。平成30年からの国民健康保険の制度改革により新設した科目であり、東京都が都内の区市町村に対して保険給付に必要な費用を全額支払うこととなったため、その保険給付に必要な費用を賄う財源として、東京都が市町村の医療費水準や所得水準により当該年度の各市町村の納付額を定めており、本市の令和7年度の納付金額は36億8637万4274円が〇〇となっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1112s" data-timestamp="1112"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:32</a>　内訳は、項1医療給付費分24億6947万9956円、項2後期高齢者支援金等分9億817万3407円、項3介護納付金分3億872万911円です。</div><div class="say">次に、款4保健事業費、項1特定健康診査等事業費、目1特定健康診査等事業費の備考欄、事業1特定健康診査等に要する経費です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1144s" data-timestamp="1144"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:04</a>　予算現額1億54万2000円、決算額7757万3198円、不用額2746万8802円です。特定健康診査や特定保健指導の実施者が見込みより少なかったことが要因でございます。</div><div class="say">636ページ、637ページをご覧ください。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1174s" data-timestamp="1174"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:34</a>　次に、保健事業費、目1保健衛生普及費の備考欄、事業2データヘルス事業に要する経費です。予算現額4959万6000円、決算額3919万3815円、不用額140万2185円です。データヘルス事業委託料の契約差金が生じたことが主な要因です。</div><div class="say">款基金積立金、項1基金積立金、目1基金積立金の備考欄、事業1国民健康保険事業運営基金積立金です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1207s" data-timestamp="1207"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:07</a>　予算現額1322万4000円、決算額1322万3236円です。当該年度中の利子の積立てに加え、令和6年度決算で実質収支が黒字になったことからの積立てを行ったものでございます。</div><div class="say">638ページ、639ページをご覧ください。款7諸支出金、項1〇〇、目3償還金の備考欄、事業1交付金等の返還金です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1240s" data-timestamp="1240"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:40</a>　決算額1億3105万5698円ですが、こちらの主な内訳は、令和6年度東京都国民健康保険給付費等交付金の返還金の普通交付金1億2381万9698円、特別交付金の保険者努力支援交付金171万2000円、保険者努力支援制度交付金〇〇事業費520万2000円等です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1272s" data-timestamp="1272"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:12</a>　以上、予算現額113億8128万7000円に対しまして支出済額は107億7454万858円で、不用額は6億674万6142円となっております。</div><div class="say">640ページをご覧ください。実質収支に関する調書です。歳入総額109億7328万4000円、歳出総額107億7454万1000円、歳入歳出差引額1億9874万3000円となります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1303s" data-timestamp="1303"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:43</a>　翌年度へ繰り越すべき財源はございませんので、歳入歳出差引がそのまま実質収支となりまして、1億9874万3000円の黒字でございます。</div><div class="say">以上で説明を終了させていただきます。よろしくご審議の上、ご認定賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t7">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1333s" data-timestamp="1333"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:13</a>　歳入歳出一括で質疑を行います。</div><div class="say">質疑を終了することにご異議ありませんか。ご異議なしと認め、質疑を終了します。</div><div class="say">お諮りします。本件は決算特別委員会に付託することにご異議ありませんか。ご異議なしと認め、本件は決算特別委員会に付託することと決定しました。</div><div class="say">日程第2、認第3号　令和7年度小金井市介護保険特別会計歳入歳出決算の認定についてを議題とします。提案理由の説明を求めます。市長。</div>
+</div>
+
+<div class="turn reveal" id="t8">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1364s" data-timestamp="1364"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:44</a>　認第3号　令和7年度介護保険特別会計歳入歳出決算の認定についてをご提案申し上げます。本案は地方自治法第233条第3項の規定により、本市議会の認定に付するものであります。細部につきましては会計管理者から説明させていただきますので、よろしくご審議の上、ご認定賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t9">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">会計管理者。</div>
+</div>
+
+<div class="turn reveal" id="t10">
+  <div class="meta"><span class="name">会計管理者</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1394s" data-timestamp="1394"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:14</a>　それでは、〇〇についてご説明いたします。失礼いたしまして、着座にてご説明をさせていただきます。</div><div class="say">初めに、令和7年度は第9期介護保険事業計画の2年度目でありましたので、令和7年度介護保険特別会計当初予算につきましては、令和6年度に執行しました保険給付費や介護予防費などの地域支援事業の動向を見据えながら編成いたしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1427s" data-timestamp="1427"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:47</a>　決算の概要でございますが、歳入決算額98億555万5390円、前年度対比2.6%の増、歳出決算額97億525万6703円、前年度対比3.7%の増、収支額は1億29万8687円でございます。</div><div class="say">令和7年度の第1号被保険者数は2万7957人、要介護要支援認定者数は6104人でございます。令和6年度末より第1号被保険者数は409人、要介護要支援認定者は232人増加してございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1457s" data-timestamp="1457"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:17</a>　なお、決算の詳細につきましては、主要な施策の成果に関する説明書の101ページから135ページにございますので、後ほどご参照ください。</div><div class="say">それでは、歳入歳出決算書でご説明いたします。644ページ、645ページをご覧ください。歳入でございます。保険料から諸収入までの決算額につきましては省略をさせていただきまして、ここでは収入済額の予算現額に対する比率、収入率、不納欠損額、収入未済額、予算現額と収入済額との比較の増減の主なものについてご説明をさせていただきます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1489s" data-timestamp="1489"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:49</a>　款1保険料でございます。予算現額に対する比率は〇〇、収入率は99.6%でございます。なお、この収入率は還付を含んだ収入率でございまして、還付を差し引いた純収入に対する収入率は99.3%でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1521s" data-timestamp="1521"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:21</a>　この内訳は、特別徴収が100%、普通徴収が97.9%、滞納繰越分が48.7%でございます。</div><div class="say">次の表頭の不納欠損額でございますが、329万7500円で、滞納繰越分585件で、即時に債権が消滅したものは100万8600円で145件、時効によるものは228万8900円で440件でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1554s" data-timestamp="1554"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:54</a>　次の収入未済額1271万5004円でございますが、内訳は、普通徴収保険料が871万…あ、失礼いたしました、871件、滞納繰越が750件、564万4104円となってございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1586s" data-timestamp="1586"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:26</a>　次に款3国庫支出金でございます。予算現額に対する比率は102.2%、収入率は100%でございます。予算現額と収入済額との比較では4343万5892円の増でございます。</div><div class="say">増となった主な要因は、介護給付費国庫負担金が4119万7886円の増、調整交付金が552万円の増となったことによるものでございます。</div><div class="say">款4支払基金交付金でございます。予算現額に対する比率は100%、収入率は100%でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1618s" data-timestamp="1618"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:58</a>　款5都支出金でございます。予算現額に対する比率は98.5%、収入率は100%でございます。予算現額と収入済額の比較では2039万7194円の減でございます。減となった主な要因は、介護給付費都負担金が1836万7000円の減、地域支援事業交付金が203万194円の減となったことによるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1649s" data-timestamp="1649"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:29</a>　款8繰入金でございます。予算現額に対する比率は99.2%、収入率は100%でございます。予算現額と収入済額との比較では1229万2417円の減となっております。</div><div class="say">主な要因は、介護給付費繰入金が393万8217円の減、その他一般会計繰入金が1257万9154円の減となったことによるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1680s" data-timestamp="1680"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:00</a>　次に660ページ、661ページをご覧ください。歳入の事項別明細書でございます。款1保険料でございますが、詳細は先ほどご説明いたしましたので省略をいたしますが、備考欄に記載のとおり還付がございます。</div><div class="say">合計件数687件、586万8600円でございます。以下につきましては説明を省略させていただきまして、668ページ、669ページをご覧ください。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1712s" data-timestamp="1712"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:32</a>　款10諸収入でございます。予算現額と収入済額の比較では178万52円の増となってございます。増となった主な要因は、第1号被保険者延滞金や〇〇が発生したことによるものでございます。</div><div class="say">歳入合計です。予算現額98億2541万円に対しまして、収入済額98億555万5390円で、予算現額に対する増減は3014万5390円の増となるものでございます。歳入につきましては以上でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1743s" data-timestamp="1743"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:03</a>　次に歳出でございます。項における決算額につきましては省略をさせていただきまして、ここでは各款における不要額となった主な要因についてご説明をさせていただきます。</div><div class="say">652ページ、653ページをご覧ください。不要額総額715万3297円のうち、主なものといたしましては、3145万5985円が款2保険給付費、1085万9834円が款4地域支援事業費、995万3062円が款1総務費となってございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1774s" data-timestamp="1774"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:34</a>　674ページ、675ページをご覧ください。歳出の事項別明細書でございます。款1総務費でございます。不要額995万302円のうち、項1総務管理費が394万2888円、項3介護認定審査会費が449万7411円でございます。</div><div class="say">項1総務管理費につきましては職員人件費等における不要額が生じており、項3介護認定審査会費については審査会の回数が見込みを下回ったことによるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1807s" data-timestamp="1807"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:07</a>　682ページ、683ページをご覧ください。款2保険給付費でございます。不要額3145万5985円のうち、項1介護サービス等諸費が2676万5808円、項2介護予防サービス等諸費が379万7213円、項6特定入所者介護サービス等費が54万2697円でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1838s" data-timestamp="1838"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:38</a>　項1介護サービス等諸費の不要額の主な内容といたしましては、目1居宅介護サービス給付費が461万1258円、目3地域密着型介護サービス給付費が796万8965円、目5施設サービス給付費が759万475円、目7居宅介護福祉用具購入費が179万9770円、目8居宅介護住宅改修費が213万690円、目9居宅介護サービス計画給付費が182万9650円となってございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1904s" data-timestamp="1904"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:44</a>　項2介護予防サービス等諸費の不要額の主な内容といたしましては、目1介護予防サービス給付費が211万8924円となってございます。いずれもサービス利用者が見込みを下回ったことにより不要額が生じてございます。</div><div class="say">690ページ、691ページをご覧ください。款4地域支援事業費でございます。不要額1085万9834円のうち、項1介護予防・生活支援サービス事業費が677万1546円、項3包括的支援事業・任意事業費が404万2406円でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=1935s" data-timestamp="1935"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:15</a>　項1介護予防・生活支援サービス事業費の不要額の主な要因は、目1の事業1介護予防サービス事業に要する経費の節18負担金、補助及び交付金の介護予防サービス負担金が見込みを下回ったこと、項3包括的支援事業・任意事業費の不要額の主な要因は、目2の事業4高齢者成年後見制度利用支援事業に要する経費の節19扶助費で、報酬助成の申請件数が見込みを下回ったことにより、不要額が生じてございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2001s" data-timestamp="2001"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:21</a>　702ページをご覧ください。歳出計です。予算現額98億2541万円に対しまして、支出済額97億5525万6703円で、不要額は715万3297円となってございます。執行率は99.3%でございます。歳出につきましては以上でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2034s" data-timestamp="2034"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:54</a>　次に704ページをご覧ください。実質収支に関する調書でございます。歳入額98億5555万5000円で、歳出総額は97億5525万6000円でございます。歳入歳出差引は〇〇9000円となります。</div><div class="say">翌年度へ繰り越すべき財源はございませんので、歳入歳出差引がそのまま実質収支額となり、1億29万9000円でございます。</div><div class="say">以上で説明を終了させていただきます。よろしくご審議の上、ご認定賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t11">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2066s" data-timestamp="2066"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:26</a>　歳入歳出一括で質疑を行います。質疑を終了することにご異議ありませんか。</div><div class="say">ご異議なしと認め、質疑を終了します。お諮りします。本件は決算特別委員会に付託することにご異議ありませんか。</div><div class="say">ご異議なしと認め、本件は決算特別委員会に付託することと決定しました。</div><div class="say">日程第3、認第4号、令和7年度小金井市後期高齢者医療特別会計歳入歳出決算の認定についてを議題とします。提案理由の説明を求めます。市長。</div>
+</div>
+
+<div class="turn reveal" id="t12">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2100s" data-timestamp="2100"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:00</a>　認第4号、令和7年度小金井市後期高齢者医療特別会計歳入歳出決算の認定についてをご提案申し上げます。本案は地方自治法第233条第3項の規定により、本市議会の認定に付するものであります。細部につきましては会計管理者から説明させていただきますので、よろしくご審議の上、ご認定賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t13">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">会計管理者。</div>
+</div>
+
+<div class="turn reveal" id="t14">
+  <div class="meta"><span class="name">会計管理者</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2132s" data-timestamp="2132"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:32</a>　はい。それでは、後期高齢者医療特別会計の部についてご説明させていただきます。失礼して着座にてご説明させていただきます。</div><div class="say">令和7年度末の本市における被保険者数は1万5252人で、昨年度より291人の増となりました。なお、決算の詳細につきましては、主要な施策の成果に関する説明書の137ページから149ページに記載してございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2163s" data-timestamp="2163"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:03</a>　それでは歳入歳出決算書でご説明いたします。708ページをご覧ください。歳入でございます。後期高齢者医療保険料から諸収入までの収入済額につきましては省略をさせていただきまして、ここでは収入済額の予算現額に対する比率、収入率、不納欠損額、収入未済額、予算現額と収入済額との比較の増減の主なものについてご説明をさせていただきます。</div><div class="say">款1後期高齢者医療保険料です。収入済額の予算現額に対する比率は101.4%、収入率は99.9%です。なお、この収入率は還付を含んだ収入率でございます。還付を差し引いた純収入額に対する収入率は99.5%で、前年度比0.3%の増となっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2196s" data-timestamp="2196"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:36</a>　表頭の不納欠損額277万9110円は、全て滞納繰越分で311件となっております。次の収入未済額620万993円ですが、内訳は、普通徴収現年分316件338万1900円、過年度分2件4200円、滞納繰越分296件2282万3893円となっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2226s" data-timestamp="2226"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:06</a>　予算現額と収入済額との比較では2656万8290円の増です。主な要因といたしましては、収入率が当初の見込みより伸びたことによるものでございます。款3繰入金です。</div><div class="say">一般会計からの繰入金です。予算現額に対する比率は97.4%、収入率は100%で、予算現額と収入済額との比較では3464万4645円の減となっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2259s" data-timestamp="2259"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:39</a>　款5諸収入です。予算現額に対する比率は98.4%、収入率は100%で、予算現額と収入済額の比較では218万3639円の減となっております。以上、予算現額35億855万3000円に対しまして、収入済額34億9829万3281円で、予算現額に対する増減は1025万9719円の減となっております。</div><div class="say">歳入につきましては以上でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2290s" data-timestamp="2290"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:10</a>　次に歳出です。728ページ、729ページをご覧ください。款1総務費、項1総務管理費、目1一般管理費の備考欄、事業1後期高齢者医療事業運営に要する経費です。予算現額1037万4000円、決算額843万462円、不要額193万9378円です。</div><div class="say">不要額の主な要因は、郵便料が想定よりも少なかったことによるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2321s" data-timestamp="2321"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:41</a>　次の項2徴収費、目1徴収費の備考欄の事業1後期高齢者医療賦課に要する経費です。予算現額290万8000円、決算額244万3126円、不要額46万4874円です。不要額の主な要因は、郵便料が想定よりも少なかったことによるものです。</div><div class="say">事業2後期高齢者医療徴収に関する経費です。予算現額415万2000円、決算額335万8675円、不要額79万3325円です。不要額の主な要因は、郵便料が想定よりも少なかったことによるものです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2353s" data-timestamp="2353"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:13</a>　730ページ、731ページをご覧ください。款2保険給付費、項1葬祭費、目1葬祭費の備考欄、事業1葬祭費に要する経費です。予算現額4585万円、決算額4015万円、件数は803件でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2385s" data-timestamp="2385"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:45</a>　款3広域連合納付金、項1広域連合納付金、目1広域連合納付金の備考欄、事業1広域連合納付金に要する経費です。予算現額32億8703万7000円、決算額32億5446万1963円、不要額3257万537円です。不要額の主な要因は、保険基盤安定負担金が見込みを下回ったことによるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2419s" data-timestamp="2419"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:19</a>　款4保健事業費、項1保健事業費、目1健康診査費の備考欄、事業1健康診査に要する経費です。予算現額8531万8000円、決算額18万4789円、不要額1313万3211円です。不要額の主な要因は、健康診査費委託料で受診者数が見込みを下回ったことによるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2451s" data-timestamp="2451"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:51</a>　732ページ、733ページをご覧ください。同項、目2保健衛生普及費の備考欄、事業1人間ドック利用補助に要する経費です。予算現額433万8000円…失礼いたしました、453万8000円、決算額422万5072円、不要額31万2928円です。</div><div class="say">不要額の主な要因は、受診者数が見込みを下回ったことなどによるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2484s" data-timestamp="2484"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:24</a>　款5諸支出金、項1償還金及び還付加算金、目1償還金及び還付加算金の備考欄、事業1償還金及び還付加算金です。予算現額3123万5000円、決算額2356万7900円、不要額766万7100円です。不要額の主な要因は、保険料の還付に要した額が見込みを下回ったことによるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2515s" data-timestamp="2515"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:55</a>　項2繰出金、目1繰出金、備考欄、事業1一般会計繰出金です。予算現額2054万円、決算額1903万6537円、不要額150万3463円です。不要額の主な要因は、補助金等に係る一般会計の繰越額が見込みを下回ったことによるものでございます。</div><div class="say">以上、予算現額35億855万3000円に対しまして、支出済額は34億4177万6210円で、不要額は667万6790円となっております。執行率は98.1%です。歳出につきましては以上でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2545s" data-timestamp="2545"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:25</a>　次に734ページをご覧ください。実質収支に関する調書です。歳出総額は34億9829万3000円…あ、失礼いたしました、歳入総額は34億9829万3000円、歳出総額は34億4177万6000円です。</div><div class="say">歳入歳出差引額は5651万7000円となります。翌年度へ繰り越すべき財源はありませんので、歳入歳出差引となりまして5651万7000円の黒字です。</div><div class="say">以上で説明を終了させていただきます。よろしくご審議の上、ご認定賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t15">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2577s" data-timestamp="2577"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:57</a>　歳入歳出一括で質疑を行います。質疑を終了することにご異議ありませんか。</div><div class="say">ご異議なしと認め、質疑を終了します。お諮りします。本件は決算特別委員会に付託することにご異議ありませんか。</div><div class="say">ご異議なしと認め、本件は決算特別委員会に付託することと決定しました。</div><div class="say">日程第4、認第5号、令和7年度小金井市下水道事業会計決算の認定についてを議題とします。提案理由の説明を求めます。市長。</div>
+</div>
+
+<div class="turn reveal" id="t16">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2610s" data-timestamp="2610"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:30</a>　認第5号、令和7年度小金井市下水道事業会計決算の認定についてご提案申し上げます。本案は地方公営企業法第30条第4項の規定により、本市議会の認定に付するものであります。細部につきましては担当課長から説明させていただきますので、よろしくご審議の上、ご認定賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t17">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">はい、下水道課長。</div>
+</div>
+
+<div class="turn reveal" id="t18">
+  <div class="meta"><span class="name">下水道課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2641s" data-timestamp="2641"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:01</a>　はい。それでは、令和7年度下水道事業会計決算の部について、決算書でご説明いたします。着座にて失礼いたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2672s" data-timestamp="2672"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:32</a>　決算書に記載しております決算報告書、損益計算書、貸借対照表などの決算書類及び決算附属書類につきましては、地方公営企業法及び関係法令の規定により作成されたものであり、その様式も関係法令の規定により定められたものでございます。決算書の756ページ及び75ページをお願いいたします。</div><div class="say">令和7年度小金井市下水道事業決算報告書でございます。この決算報告書は款項の区分ごとに、収益的収支及び資本的収支予算の執行状況をお示しするものでございます。なお、公営企業の経理は税抜き処理によるものとされていますが、この決算報告書は予算との比較を表すことから税込みでお示ししております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2705s" data-timestamp="2705"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:05</a>　まず756ページの1、収益的収入及び支出でございます。上段、収入の第1款下水道事業収益は、予算現額20億2132万4000円に対して決算額は19億8535万3592円で、収入率は98.2%。</div><div class="say">予算現額に対する増減は3597万408円の減となっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2736s" data-timestamp="2736"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:36</a>　次に、下段支出の第1款下水道事業費用は、予算現額19億7152万2000円に対して決算額は17億9708万7811円で、不用額は1億7443万4189円となっており、執行率は91.2%となっております。収入支出差引額は1億8826万5781円となっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2769s" data-timestamp="2769"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:09</a>　75ページをお願いいたします。次に、（2）資本的収入及び支出でございます。上段収入の第1款資本的収入につきましては、予算現額65万9000円に対して決算額は65万9000円で、収入率は100%となっております。</div><div class="say">次に、下段の支出、第1款資本的支出は、予算現額3億5926万7000円に対して決算額は3億3151万6836円で、不用額は2775万164円となっており、執行率は92.3%となっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2799s" data-timestamp="2799"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:39</a>　収入支出差引額3億385万7836円の収入不足額につきましては、損益勘定留保資金等で補填しております。なお、損益勘定留保資金とは、収益的収支の予算で現金支出を必要としない減価償却費などを計上することにより留保される資金のことを言います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2830s" data-timestamp="2830"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:10</a>　758ページをお願いいたします。こちらは損益計算書でございます。損益計算書は、公営企業の経営成績を明らかにするために、令和7年度に得た全ての収益と、その収益のために要した全ての費用を記載し、利益や損失を表したものでございます。</div><div class="say">まず、収益でございます。当年度の総収益18億8764万8733円のうち、項目1の営業収益は14億8812万5302円となっており、総収益の78.8%を占めております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2863s" data-timestamp="2863"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:43</a>　営業収益の主なものは下水道使用料9億7729万4302円で、営業収益の65.7%を占めております。また、項目〇の営業外収益でございますが、他会計補助金や収益的支出にかかる国からの補助金といった営業収益以外の収益でございまして、その合計額は3億9952万3431円で、総収益の21.2%を占めております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2894s" data-timestamp="2894"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:14</a>　次に、費用でございます。当年度の総費用17億1935万6850円のうち、項目2の営業費用は16億7268万877円で、総費用の97.3%を占めております。主なものは、流域下水道維持管理負担金、減価償却費となっております。</div><div class="say">また、項目4の営業外費用は466万8073円で、主なものは企業債の支払利息でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2925s" data-timestamp="2925"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:45</a>　右側の欄です。営業収益から営業費用を差し引いた1億8456万3475円を営業損失として計上しております。またその下には、営業外収益から営業外費用を差し引いた3億5285万5358円を計上し、さらにその下には、先ほどの営業損失との差引額1億6829万1833円を経常利益として計上しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2958s" data-timestamp="2958"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:18</a>　また、令和7年度は特別損失を計上しておりませんので、令和7年度の純利益も経常利益と同額の1億6829万1833円となります。令和7年度の純利益は、昨年度対比で9409万3756円の増となっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=2989s" data-timestamp="2989"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:49</a>　759ページをお願いいたします。上段が剰余金計算書、下段が剰余金処分計算書でございます。まず、上段の剰余金計算書でございますが、これは資本剰余金及び利益剰余金が当年度中にどのような増減変動をしたかを表す報告書でございます。</div><div class="say">次に、下段の剰余金処分計算書でございますが、こちらは未処分利益剰余金の処分に関する計算書でございます。なお、令和7年度におきましては、利益剰余金の処分を行わないものとしております。</div><div class="say">760ページ及び761ページをお願いいたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3019s" data-timestamp="3019"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:19</a>　こちらは貸借対照表でございます。貸借対照表は、財政状態を明らかにするために、年度末の時点において下水道事業が保有する全ての資産、負債、資本を総括的に表した報告書となっております。</div><div class="say">760ページが資産の部でございます。下水道事業が市民サービスを提供するために所有している資産の状況を、項目1の固定資産と項目2の流動資産に区分して表しております。これら固定資産と流動資産を合わせた資産合計は108億1501万545円となっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3053s" data-timestamp="3053"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:53</a>　761ページをご覧ください。上段の負債の部でございますが、資産がどのような財源で賄われているかを、項目3の固定負債、項目4の流動負債、項目5の繰延収益に区分して表しております。これら負債合計は70億718万9862円となっております。</div><div class="say">次に、下段の資本の部でございますが、項目6の資本金と項目7の剰余金で構成されており、それらを合わせた資本合計は37億4482万5183円となっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3085s" data-timestamp="3085"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:25</a>　またこの資本合計と、先ほどご説明いたしました負債合計を合わせた負債と資本の合計額は〇〇円となり、760ページの一番下、資産合計額と同額となるものでございます。</div><div class="say">762ページをお願いいたします。こちらは注記でございます。注記は、財務諸表を作成するにあたり採用しました会計処理の基準及び手続きを記載しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3116s" data-timestamp="3116"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:56</a>　続きまして、決算付属書類をご説明いたします。765ページをお願いいたします。765ページから770ページまでは事業報告書でございます。事業報告書は経営に関する報告書となっており、令和7年度の下水道事業の経営実績の概要についてお示しするものでございます。</div><div class="say">その概要につきましては、事業報告書のとおりでございますので、ご確認をよろしくお願いいたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3146s" data-timestamp="3146"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:26</a>　771ページをお願いいたします。こちらはキャッシュフロー計算書でございます。キャッシュフロー計算書は、資金収支の状況を業務活動、投資活動、財務活動の3つに分けて表示した報告書でございます。</div><div class="say">先ほどご説明いたしました損益計算書は発生主義に基づいて作成することから、現金の収入支出がなくても、債権債務が発生した時点で収益や費用として計上されるものです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3178s" data-timestamp="3178"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:58</a>　そのため、収益や費用を認識する時期と、現金の収入支出が発生する時期にずれが生じることになりますが、このキャッシュフロー計算書を作成することで、現金の収入支出に関する情報を得ることが可能となります。</div><div class="say">項目1の業務活動によるキャッシュフローは、日常的な下水道事業サービスの実施による資金の増減の他、先ほどご説明いたしました投資活動及び財務活動に当てはまらない現金の流れを記載しており、その額はプラス5億941万2554円となりました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3209s" data-timestamp="3209"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:29</a>　項目2の投資活動によるキャッシュフローは、固定資産の取得や売却といった現金の流れを表しており、その額はマイナス2億447万77円となりました。項目3の財務活動によるキャッシュフローは、企業債の借入れや返済の他、一般会計からの出資による資金調達や返済といった資金の流れを表しており、マイナス7619万280円となりました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3241s" data-timestamp="3241"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:01</a>　これら3つの活動区分によるキャッシュフローの合計は、下から3段目の令和7年度中の資金増加額1億875万2197円となりまして、これに令和7年度の当初の資金期首残高9億498万389円を加えますと、令和7年度末の資金期末残高は10億9373万2586円となるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3272s" data-timestamp="3272"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:32</a>　この資金期末残高につきましては、先ほどご説明いたしました760ページ、貸借対照表、資産の部の項目2の流動資産の現金預金の額と一致するものでございます。772ページをお願いいたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3303s" data-timestamp="3303"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:03</a>　772ページ及び773ページは、収益費用明細書でございます。収益費用明細書は、損益計算書の内容を説明するためのものでございまして、損益計算書は勘定科目の目の金額までしか表示されないため、節の収益、費用の内訳を明示しているものでございます。772ページの収益的収入の第1款下水道事業収益の決算額は18億8764万8733円となっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3334s" data-timestamp="3334"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:34</a>　項1の営業収益につきましては〇〇円となっております。主なものといたしましては、目1の下水道使用料であり、令和7年度の額となっております。項2の営業外収益につきましては3億9952万3431円となっております。</div><div class="say">主なものといたしましては、目〇の長期前受金戻入となっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3366s" data-timestamp="3366"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:06</a>　長期前受金戻入は、下水道施設などを取得する際の補助金などの財源を、減価償却と同様に毎年度に割り振り、当該年度分を収益としたもので、現金収入を伴わない経理上の収益となっております。</div><div class="say">同じく772ページの下の部分、次に、収益的支出でございます。第1款下水道事業費用の決算額は17億1935万6850円となっております。項1の営業費用につきましては16億7268万877円となっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3397s" data-timestamp="3397"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:37</a>　目1の管渠費の主な業務でございますが、市が管理する公共下水道の経常的な維持管理業務の他、委託料につきましては、老朽化した施設の適切な改築更新を計画的に進めていくため、施設の調査等を実施したものでございます。</div><div class="say">773ページをお願いいたします。目〇の流域下水道管理費は、東京都が管理する処理場などの流域下水道施設の管理負担金で、流入水量に基づき負担額を算出するものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3428s" data-timestamp="3428"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:08</a>　774ページをお願いいたします。こちらは資本的収支明細書でございます。資本的収支明細書は、収益費用明細書と同様に、資本的収入と支出の節の内訳を表示しているものでございます。</div><div class="say">上段、資本的収入の第1款資本的収入は65万9000円となっております。内容は他会計負担金で、企業債償還金の元金のうち一般会計が負担すべき額でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3462s" data-timestamp="3462"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:42</a>　下段、資本的支出の第1款資本的支出は〇〇円でございます。項1の建設改良費は、下水道施設の資本的整備にかかる費用でございます。目1の管渠建設改良費は、市が管理する公共下水道の資本的整備にかかる費用であり、ストックマネジメント計画に基づく管渠布設替え等工事や、雨水浸透設置工事などを実施したものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3492s" data-timestamp="3492"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:12</a>　目〇の流域下水道建設費は、東京都が管理する処理場など流域下水道の資本的整備にかかる負担費用でございます。</div><div class="say">775ページをお願いいたします。こちらは固定資産明細書でございます。固定資産明細書につきましては、先ほどご説明いたしました760ページの貸借対照表の資産の部に記載しております固定資産に関しまして、各々の土地、建物、下水道施設等の構築物などの有形固定資産と無形固定資産に分けて、資産の現在高や減価償却の増減額などを表したものとなっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3522s" data-timestamp="3522"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:42</a>　776ページをお願いいたします。776ページから778ページまでは企業債明細書でございます。企業債明細書につきましては、固定資産明細書と同様に、761ページの貸借対照表の負債の部に記載しております企業債に関する明細となっております。</div><div class="say">以上で説明を終了させていただきます。よろしくご審議の上、ご認定賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t19">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3554s" data-timestamp="3554"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:14</a>　〇〇、一括質疑を行います。質疑を終了することにご異議ありませんか。ご異議なしと認め、質疑を終了します。</div><div class="say">お諮りします。本件は決算特別委員会に付託することにご異議ありませんか。ご異議なしと認め、本件は決算特別委員会に付託することと決定しました。</div><div class="say">日程第5、報告第6号、令和7年度健全化判断比率及び資金不足比率についてを行います。直ちに報告を求めます。</div>
+</div>
+
+<div class="turn reveal" id="t20">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3591s" data-timestamp="3591"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:51</a>　報告第6号 令和7年度健全化判断比率及び資金不足比率についてをご報告申し上げます。本件は、地方公共団体の財政の健全化に関する法律第3条第1項及び第22条第1項の規定により報告するものであります。細部につきましては担当部長から説明させていただきます。</div><div class="say">よろしくお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t21">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">企画財政部長。</div>
+</div>
+
+<div class="turn reveal" id="t22">
+  <div class="meta"><span class="name">企画財政部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3622s" data-timestamp="3622"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:22</a>　それでは、細部につきましてご報告申し上げます。地方公共団体の財政の健全化に関する法律により、健全化比率及び資金不足比率について監査委員の審査に付し、議会に報告後、公表を義務づけるとともに、それらの財政指標が一定の基準を超えた場合には、外部監査の他、財政健全化計画等の策定を行うことが定められているところであります。なお、監査委員の意見につきましては、別冊の令和7年度小金井市財政健全化審査意見書のとおりとなってございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3653s" data-timestamp="3653"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:53</a>　それでは、1ページおめくりいただき、上段の4つの健全化比率のうち、実質赤字比率でございます。これは一般会計等の赤字の程度を指標化したもので、資料1の2ページ上段の一般会計等にかかる実質収支額のとおり、赤字ではないことから、実質赤字比率はバー表示としてございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3683s" data-timestamp="3683"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:23</a>　次に、連結実質赤字比率でございますが、全ての会計を合算し、地方公共団体全体の赤字の程度を指標化したもので、資料1の2ページ目のとおり、全会計において赤字はございませんので、バー表示としてございます。</div><div class="say">次に、実質公債費比率でございますが、借入金の返済額及びこれに準じる額の大きさを指標化の上、資金繰りの危険度を示したものでございまして、具体的には資料1の3ページの（3）実質公債費比率をご覧ください。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3714s" data-timestamp="3714"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:54</a>　まず、実質公債費比率の上段、分子の欄に記載のとおり、公債費充当一般財源等額Aをはじめとして、その下のB、C、D、Eの合算額を分子に、下段の標準財政規模を分母といたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3746s" data-timestamp="3746"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:26</a>　次に、4ページ上段に記載のとおり、分子、分母から控除するものとして、地方交付税の算定において基準財政需要額に算入された5項目を、分子、分母からそれぞれ控除し、その結果、4ページの中段のとおり、指標の過去3年間の平均値が実質公債費比率となります。令和7年度は前年度対比0.3ポイント増の2.22%で、健全値となります。</div><div class="say">主な変動要因でありますが、分母、分子から控除するものである災害復旧等に係る基準財政需要額が減となったことによるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3778s" data-timestamp="3778"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:58</a>　次に、将来負担比率でございますが、地方公共団体の一般会計等の借入金や、将来支払っていく可能性のある負担等の現時点での残高の程度を指標化の上、将来財政を圧迫する可能性が高いかどうかを示したものであります。具体的には、資料1の4ページ、4将来負担比率の分子の欄に記載のとおり、一般会計等の地方債残高A以下、B・C・D・Eの合算額を、5ページの標準財政規模の分母で除して得た比率で、前年度対比14.84、失礼しました、18.4ポイントの、マイナス32.1％となり、マイナスとなりますのでバー表示としてございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3811s" data-timestamp="3811"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:31</a>　この変動の主な要因につきましては、分子を構成する一般会計等の地方債残高が約12億9000万円の減となり、分子の控除対象である充当可能特定歳入見込額Bが約26億3000万円の増となったこと等によるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3842s" data-timestamp="3842"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:02</a>　議案本表にお戻りいただきまして、各健全化比率の下段には、参考といたしまして、財政健全化計画を策定しなければならない目安でございます早期健全化基準値を括弧内に記載してございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3875s" data-timestamp="3875"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:35</a>　続きまして、同ページの下段に記載の資金不足比率につきましてご報告をさせていただきます。本比率につきましては、公営企業の資金不足額を、公営企業の事業規模である料金収入の規模と比較して指標化の上、経営状況の深刻度を示したものでございます。具体的には、資料1の5ページ下段の2資金不足比率の算定式のとおり、公営企業の下水道事業会計を対象とした資金不足額を分子に、事業の規模を分母とした比率でございまして、2ページ中段の公営企業に係る特別会計の資金不足額等のとおり、令和7年度決算では資金不足は生じておりませんので、本表の比率はバー表示としてございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3908s" data-timestamp="3908"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:08</a>　ただいまご報告をさせていただきましたとおり、本市の令和7年度決算における健全化判断比率及び資金不足比率につきましては、いずれも基準数値以下でございました。最後に、現時点で公表されております26市の状況につきましては、資料2、令和6年度決算に基づく26市健全化比率等をご覧いただきたいと思います。以上で、地方公共団体の財政健全化に関する法律第3条及び第22条に基づき、健全化判断比率及び資金不足比率を、監査委員の意見を付して議会への報告とさせていただきます。</div>
+</div>
+
+<div class="turn chair reveal" id="t23">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3940s" data-timestamp="3940"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:40</a>　これより質疑を行います。質疑を終了することにご異議ありませんか。ご異議なしと認め、質疑を終了します。以上で報告第6号を終了します。</div><div class="say">日程第6、議案第60号、令和8年度小金井市一般会計補正予算（第5回）を議題とします。提案理由の説明を求めます。</div>
+</div>
+
+<div class="turn reveal" id="t24">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=3970s" data-timestamp="3970"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:10</a>　議案第60号、令和8年度小金井市一般会計補正予算（第5回）をご提案申し上げます。本案は、歳入歳出予算の総額に歳入歳出それぞれ23億9792万7000円を追加し、歳入歳出予算の総額を歳入歳出それぞれ574億3487万3000円とするものであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4000s" data-timestamp="4000"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:40</a>　この歳入歳出予算の補正の款項の区分及び当該区分ごとの金額等は、第1表歳入歳出予算補正のとおりであります。次に、債務負担行為の追加及び変更は、第2表債務負担行為補正のとおりであります。次に、地方債の追加は、第3表地方債のとおりであります。</div><div class="say">以上のとおり補正するため、本案を提出するものであります。細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご決定いただきますようお願い申し上げます。</div>
+</div>
+
+<div class="turn reveal" id="t25">
+  <div class="meta"><span class="name">企画財政部長</span></div>
+  <div class="say">企画財政部長です。</div>
+</div>
+
+<div class="turn chair reveal" id="t26">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">企画財政部長。</div>
+</div>
+
+<div class="turn reveal" id="t27">
+  <div class="meta"><span class="name">企画財政部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4031s" data-timestamp="4031"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:11</a>　それでは、細部につきましてご説明いたします。予算書本文の1ページをお開きください。第5回補正予算を編成する項目につきましては、第1条の歳入歳出予算の補正、第2条の債務負担行為の補正及び第3条の地方債の補正の3項目でございます。</div><div class="say">初めに、歳入予算でございますが、事項別明細書の12・13ページをお開きください。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4064s" data-timestamp="4064"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:44</a>　款15国庫支出金、右側説明欄1、児童措置費負担金312万4000円につきましては、歳出の母子生活支援施設入所措置に要する経費を対象とする2分の1の負担金でございます。右側説明欄1、公立学校施設整備費負担金177万円につきましては、歳出の学校施設整備に要する経費を対象とする2分の1の負担金でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4095s" data-timestamp="4095"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:15</a>　右側説明欄1、地域生活支援事業費等補助金40万2000円につきましては、歳出の地域生活支援事業に要する経費を対象とする2分の1の補助金でございます。右側説明欄7、介護保険事業費補助金112万7000円につきましては、歳出の基幹系システムに要する経費を対象とする2分の1の補助金でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4127s" data-timestamp="4127"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:47</a>　右側説明欄8、地域診療情報連携推進費補助金227万7000円につきましては、歳出の基幹系システムに要する経費を対象とする2分の1の補助金でございます。右側説明欄2、母子保健衛生費補助金33万8000円につきましては、歳出の乳幼児及び産婦の健康診査に要する経費を対象とする2分の1の補助金でございます。右側説明欄1、国民年金事務委託金42万9000円につきましては、歳出の基幹系システムに要する経費を対象とする委託金でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4159s" data-timestamp="4159"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:19</a>　14・15ページをお開きください。続きまして、款16都支出金。右側説明欄1、児童措置費負担金156万2000円につきましては、歳出の母子生活支援施設入所措置に要する経費を対象とする4分の1の負担金でございます。</div><div class="say">右側説明欄1、地域における見守り活動支援事業補助金78万6000円につきましては、歳出の安全安心まちづくり対策に要する経費を対象とする〇〇の補助金でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4191s" data-timestamp="4191"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:51</a>　右側説明欄〇〇、地域生活支援事業費等補助金20万1000円につきましては、歳出の地域生活支援事業に要する経費を対象とする4分の1の補助金でございます。右側説明欄28、障害者・障害児の熱中症予防支援事業補助金1105万8000円につきましては、歳出の障害者・障害児の熱中症予防支援事業に要する経費及び児童発達支援センター運営に要する経費を対象とする4分の3の補助金でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4224s" data-timestamp="4224"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:24</a>　右側説明欄35、保育所等物価高騰緊急対策事業補助金3719万7000円につきましては、歳出の物価高騰対策に要する経費を対象とする10分の10の補助金でございます。右側説明欄4、東京ママパパ応援事業補助金10万7000円につきましては、歳出の乳幼児及び産婦の健康診査に要する経費を対象とする4分の1の補助金でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4255s" data-timestamp="4255"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:55</a>　右側説明欄13、笑顔と学びの体験活動プロジェクト子供企画型補助金56万8000円につきましては、歳出のその他教育指導等に要する経費を対象とする10分の10の補助金でございます。16・17ページをお開きください。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4285s" data-timestamp="4285"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:25</a>　右側説明欄3、母子及び父子福祉資金・女性福祉資金システム改修等交付金222万2000円につきましては、歳出の基幹系システムに要する経費及び母子及び父子福祉資金貸付けに要する経費を対象とする交付金でございます。続きまして、款17財産収入。右側説明欄1、財政調整基金利子をはじめとする10件の利子及びその下の2件の基金運用収入につきましては、利率の変動等によるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4318s" data-timestamp="4318"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:58</a>　続きまして、款19繰入金。右側説明欄1、後期高齢者医療特別会計繰入金868万1000円及び18・19ページ右側説明欄1、介護保険特別会計繰入金137万2000円につきましては、令和7年度決算に伴う繰入金でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4349s" data-timestamp="4349"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:29</a>　続きまして、款20繰越金。右側説明欄1、前年度繰越金21億3932万7000円につきましては、令和7年度の実質収支額26億3932万7371円から、当初予算において計上した5億円を控除した残りの21億3932万7000円を補正するものでございます。</div><div class="say">続きまして、款22市債。右側説明欄3、緑小学校校舎増築等事業債1億720万円につきましては、緑小学校校舎増築等工事第2期に係る地方債を新たに計上するものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4382s" data-timestamp="4382"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:02</a>　21ページをお開きください。続きまして、歳出予算でございます。款2総務費、説明欄9、庁舎等維持管理に要する経費の節12施設警備委託料その〇〇4万4000円につきましては、令和9年3月共用開始の公衆喫煙所において機械警備を導入するものでございます。</div><div class="say">概要につきましては、60ページ資料4公衆喫煙所管理運営事業概要を、以降も含め後ほどご覧ください。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4413s" data-timestamp="4413"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:33</a>　右側説明欄13、安全安心まちづくり対策に要する経費の節18防犯設備整備事業補助金100万4000円につきましては、防犯カメラの価格上昇等により不足が見込まれることから増額補正するもので、補助率は〇〇でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4444s" data-timestamp="4444"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:04</a>　右側説明欄6、基幹系システムに要する経費1162万7000円につきましては、制度改正等に対応するため基幹系システムを修正するもので、節12国民年金システム制度改正対応分につきましては、国民年金第1号被保険者の育児期間における保険料免除措置の創設に対応するため修正するもので、国委託事業でございます。住民税システム制度改正対応分その2につきましては、源泉徴収票の提出方法が見直されたことにより修正するもの。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4476s" data-timestamp="4476"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:36</a>　母子父子・女性福祉資金システムコンビニ収納分につきましては、償還金の納付書にコンビニ収納用バーコードを印刷するもので、東京都委託事業でございます。健康管理システム基本データリスト〇〇分につきましては、PMHとのデータ連携に必要なデータ項目、出力形式等を最新のデータ要件に準拠させるため改修するもの。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4506s" data-timestamp="4506"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:06</a>　介護システム制度改正対応分その2につきましては、国が整備する介護情報基盤と連携するため介護システムを改修するもので、補助率は国2分の1でございます。医療費助成対応分につきましては、療養介護医療、不自由児通所医療等のオンライン資格確認が制度化されたことにより、PMH連携用のデータ作成、連携機能等を構築するもので、補助率は国2分の1でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4538s" data-timestamp="4538"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:38</a>　基幹系システムPMH接続委託料につきましては、PMHと基幹系システムの連携を行うため、通信経路構築、ネットワーク設定変更を行うもので、補助率は国2分の1でございます。右側説明欄1、財政調整基金積立金の節24積立元金13億2000万円につきましては、今後の財政需要に備えるため積み立てるもので、本年度の現在高見込額は約76億円となるものでございます。積立利子781万8000円につきましては、利子を積み立てるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4569s" data-timestamp="4569"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:09</a>　なお、令和8年度中における基金の状況につきましては、以降も含め58ページの資料〇〇、令和8年度基金現在高調べをご覧いただきたいと思います。右側説明欄1、職員退職手当基金積立金につきましては、節24積立利子6000円を積み立てるものでございます。右側説明欄1、建設基金積立金につきましては、節24積立元金4億円を積み立てるもの。</div><div class="say">積立利子452万5000円につきましては、利子を積み立てるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4602s" data-timestamp="4602"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:42</a>　22・23ページをお開きください。右側説明欄1、公共施設マネジメント基金積立金につきましては、節24積立元金2億円を積み立てるもの。積立利子67万5000円につきましては、利子を積み立てるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4633s" data-timestamp="4633"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:13</a>　24・25ページをお開きください。続きまして、款3民生費、説明欄15、地域生活支援事業に要する経費の節12タブレット通訳システム運用委託料72万6000円につきましては、契約価格の上昇により〇〇に不足が生じるため増額補正するもので、補助率は国2分の1と都4分の1でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4665s" data-timestamp="4665"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:45</a>　右側説明欄32、障害者・障害児の熱中症予防支援事業に要する経費1375万1000円につきましては、障害福祉サービス事業所等が利用者の熱中症予防のために整備する日よけや冷風機等の機器及び設備に係る費用を補助するもので、節郵便料につきましては案内文書、決定通知書の送付、節18障害者・障害児熱中症予防支援事業補助金1374万4000円につきましては、1事業所当たり100万円を上限として29事業所を支援するもので、補助率は補助金に対して都4分の3でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4696s" data-timestamp="4696"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:16</a>　概要につきましては、61ページ資料5障害者・障害児の熱中症予防支援事業概要を、以降も含め後ほどご覧ください。右側説明欄51、返還金・還付金102万9000円につきましては、精算に伴う返還金でございます。右側説明欄1、地域福祉基金積立金の節24積立元金105万4000円につきましては、令和7年度中の寄附金39件分を積み立てるもの。</div><div class="say">積立利子56万4000円につきましては、利子を積み立てるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4726s" data-timestamp="4726"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:46</a>　右側説明欄1、後期高齢者医療特別会計繰出金1万1000円につきましては、後期高齢者医療特別会計補正予算に合わせるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4760s" data-timestamp="4760"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:20</a>　26・27ページをお開きください。右側説明欄38、物価高騰対策に要する経費の節18保育施設運営事業者事業継続支援金3719万7000円につきましては、令和9年3月まで支給対象期間が延長されることから増額補正するもので、補助率は都10分の10でございます。右側説明欄4、母子生活支援施設入所措置に要する経費の節19母子生活支援施設措置費624万7000円につきましては、入所1世帯2人増及び措置費の保護単価増により増額補正するもので、補助率は国2分の1と都4分の1でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4791s" data-timestamp="4791"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:51</a>　右側説明欄2、母子及び父子福祉資金貸付けに要する経費の節〇〇コンビニ等収納代行委託料11万8000円につきましては、償還者の利便性及び償還金の収納率向上を図るためコンビニ収納を開始するもので、補助率はシステム改修費等に対して都10分の10でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4822s" data-timestamp="4822"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:22</a>　右側説明欄1、児童発達支援センター運営に要する経費の節12児童発達支援センター指定管理委託料その2万円につきましては、利用者の熱中症予防のため建物西側部分に日よけを取り付けるもので、補助率は都4分の3でございます。28・29ページをお開きください。続きまして、款4衛生費、説明欄7、乳幼児及び産婦の健康診査に要する経費67万6000円につきましては、令和8年10月より都内共通受診票を使用した助成が開始されることに伴い、受診票が使用できない都外受診分の償還払いに対応するもので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4854s" data-timestamp="4854"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:54</a>　節19里帰り産婦健康診査受診費につきましては43人分の助成を見込むもの、里帰り1か月児健康診査受診費につきましては41人分の助成を見込むもので、補助率は国2分の1、里帰り産婦健康診査受診費助成に対して都4分の1でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4887s" data-timestamp="4887"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:27</a>　右側説明欄25、その他保健衛生事業の管理運営に要する経費の節1保健衛生業務会計年度任用職員報酬87万6000円及び節3職員手当等18万3000円につきましては、令和10年度からの予防接種デジタル化に向け、これまでの予診票結果をデータ化するため、時間額の会計年度任用職員を1人、10月から雇用するものでございます。</div><div class="say">節10 光熱水費3万4000円につきましては、公衆喫煙所に係る電気料金でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4920s" data-timestamp="4920"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:00</a>　節12 公衆喫煙所空気清浄機等保守点検委託料4万3000円につきましては、公衆喫煙所内に設置する空気清浄機の機器点検、フィルター交換等を行うものでございます。</div><div class="say">右側説明欄〇〇 その他予防接種事務に要する経費の節19 里帰り等予防接種費助成120万4000円につきましては、RSウイルスワクチン接種の定期接種化による件数の増により増額補正するものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4950s" data-timestamp="4950"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:30</a>　右側説明欄7 肺炎球菌ワクチン接種に要する経費330万3000円につきましては、令和8年4月から使用するワクチンの変更による単価の増及び人数の増等から増額補正するものでございます。</div><div class="say">右側説明欄20 RSウイルスワクチン接種に要する経費748万4000円につきましては、人数の増により増額補正するものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=4981s" data-timestamp="4981"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:01</a>　30、31ページをお開きください。右側説明欄4 〇〇活動に要する経費の節12 公衆喫煙所清掃委託料24万2000円につきましては、公衆喫煙所の供用開始にあたり、灰皿、床面、外構部等の日常清掃及び壁面、窓の定期清掃を行うものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5011s" data-timestamp="5011"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:31</a>　右側説明欄1 〇〇収集に要する経費、可燃・不燃ごみ収集に要する経費の節12 委託料〇〇円につきましては、中東情勢悪化による原油価格の高騰及び原材料の供給制限等の影響により、契約単価が増となることから増額補正するものでございます。</div><div class="say">右側説明欄1 環境基金積立金の節24 積立元金1億116万円につきましては、令和7年度分の寄付金32件、合計116万円と合わせて積み立てるもの、積立利子100万8000円につきましては利子を積み立てるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5043s" data-timestamp="5043"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:03</a>　32、33ページをお開きください。続きまして、款8 土木費、説明欄1 土木一般管理に要する経費、道路管理関係経費の節 修繕料426万5000円につきましては、武蔵小金井駅南口公衆トイレ防火設備修繕を行うもので、隣接して公衆喫煙所が設置されることに伴い、建築基準法に基づく延焼ラインへの対応が新たに生じたことから、同法に適合させるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5075s" data-timestamp="5075"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:35</a>　右側説明欄3 公共交通施策に要する経費516万8000円につきましては、令和9年4月からの再編運行、運賃改定に係る準備及び周知のため増額補正するもので、節1 コミュニティバス高齢者割引専用パス発行業務会計年度任用職員報酬につきましては、介護保険の〇〇への〇〇の見直し、マイナンバーカードへの紐付けが検討されていることから、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5106s" data-timestamp="5106"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:06</a>　高齢者割引専用パスを発行するため、〇〇の会計年度任用職員を2人15日間雇用するもの、節10 印刷製本費につきましては周知用ポスター及びチラシの作成、節18 コミュニティバス運行補助金につきましては、バス停標識書き換え、新設、路面表示改修等に係る経費を増額補正するものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5139s" data-timestamp="5139"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:39</a>　34、35ページをお開きください。右側説明欄1 道路維持補修に要する経費の節12 街路樹管理委託料317万9000円につきましては、契約単価の上昇により不足が見込まれることから増額補正するものでございます。</div><div class="say">36、37ページをお開きください。右側説明欄1 都市再開発整備基金積立金の節24 積立利子〇〇円につきましては、利子を積み立てるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5171s" data-timestamp="5171"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:11</a>　右側説明欄1 みどりと公園基金積立金の節24 積立元金80万2000円につきましては、令和7年度の寄付金35件を積み立てるもの、積立利子48万円につきましては利子を積み立てるものでございます。</div><div class="say">38、39ページをお開きください。右側説明欄1 市営住宅整備基金積立金の節24 積立利子4000円につきましては、利子を積み立てるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5205s" data-timestamp="5205"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:45</a>　40、41ページをお開きください。続きまして、款10 教育費、右側説明欄17 その他教育指導等に要する経費56万8000円につきましては、南小学校においてピザ釜の製作・焼き上げ、武蔵野うどんの再現、和菓子、飲料の開発と、児童が自分たちで企画・製作し、南小フェスティバルで地域の方々に提供するもので、節7 笑顔と学びの体験活動プロジェクト講師謝礼につきましては、それぞれのテーマに関係する地域のゲストティーチャーを招聘するもの、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5236s" data-timestamp="5236"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:16</a>　節〇〇につきましては調理器具、食器、食材等の購入、節17 備品購入費につきましては座卓を購入するもので、補助率は都〇〇でございます。</div><div class="say">右側説明欄20 特別支援教育に要する経費の節12 訪問看護委託料108万1000円につきましては、訪問看護師の派遣回数が150回増となることから増額補正するものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5268s" data-timestamp="5268"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:48</a>　右側説明欄1 教育施設整備基金積立金の節24 積立元金163万円につきましては、令和7年度の寄付金60件を積み立てるもの、積立利子9万7000円につきましては利子を積み立てるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5299s" data-timestamp="5299"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:19</a>　42、43ページをお開きください。右側説明欄1 学校整備に要する経費の節12 本町小学校教室整備検討委託料594万円につきましては、学区内の宅地開発により将来的な児童数の増加が見込まれることから、対応策を検討する上で複数の整備手法を比較検討し、今後の整備方針を整理するものでございます。</div><div class="say">なお、令和9年度につきましては債務負担行為として予算措置するもので、限度額は1386万円となるものでございます。概要につきましては、62、63ページ 資料6 学校施設整備事業概要を、以降も含め後ほどご覧ください。また、59ページ 資料3 工事を、以降も含め後ほどご覧ください。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5332s" data-timestamp="5332"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:52</a>　緑小学校校舎増築等工事第2期管理委託料571万9000円、緑小学校校舎増築等工事第2期設計意図伝達委託料216万4000円、及び節14 緑小学校校舎増築等工事第2期につきましては、令和8年7月から実施している校舎増築等工事の継続工事として、給食室、多目的教室等の増築工事を行うもので、歳入は国2分の1及び市債を充当するものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5365s" data-timestamp="5365"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:29:25</a>　なお、委託料及び工事請負費のいずれも、令和9年度につきましては債務負担行為として予算措置するものでございます。</div><div class="say">失礼しました。44、45ページをお開きください。右側説明欄1 教育振興に要する経費の節17 備品購入費123万7000円につきましては、令和7年度に〇〇した包括連携事業寄付金を活用し、中学校で使用するフルート、チューバ、バスドラム等の楽器を購入するものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5396s" data-timestamp="5396"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:29:56</a>　46、47ページをお開きください。右側説明欄1 公民館維持管理に要する経費の節18 東センター屋上防水工事負担金519万4000円につきましては、併設の都営住宅と合わせて東京都住宅供給公社にて屋上防水工事を実施するもので、物価高騰、中東情勢悪化等の影響により工事費が上昇したことから増額補正するものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5427s" data-timestamp="5427"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:30:27</a>　48、49ページをお開きください。右側説明欄1 総合体育館維持管理に要する経費の節13 中央監視システム借上料114万9000円の減につきましては、令和9年1月から入れ替えを予定していたものの、契約不調により令和9年9月に延伸することから減額補正するものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5457s" data-timestamp="5457"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:30:57</a>　なお、令和8年度から令和14年度につきまして、債務負担行為として予算措置するもので、限度額は3018万円となるものでございます。</div><div class="say">50、51ページをお開きください。続きまして、款11 公債費、説明欄1 一時借入金利子等の節22 繰替運用金利子511万4000円につきましては、財政調整基金及び庁舎建設基金からの繰替に係る運用利子でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5489s" data-timestamp="5489"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:29</a>　少し飛びまして、54、55ページをお開きください。給与費明細書でございます。一般職の比較欄をご覧ください。職員数の3人増、報酬111万8000円の増及び職員手当等18万3000円の増につきましては、保健衛生業務会計年度任用職員等の増分でございます。</div><div class="say">以下の表は職員手当の内訳、〇〇に給料及び職員手当の増減額の明細となってございますので、後ほどご覧いただきたいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5520s" data-timestamp="5520"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:00</a>　52、53ページにお戻りください。続きまして、款13 予備費。予備費につきましては、財源調整のため2928万2000円の増額とし、補正後は1億4108万7000円となるものでございます。</div><div class="say">なお、純粋予備費は、すでに1411万2000円を予備費充用していますことから、1億2697万5000円となるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5551s" data-timestamp="5551"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:31</a>　恐れ入りますが、2、3ページにお戻りください。第1表歳入歳出予算補正でございます。ただ今ご説明いたしました歳出予算を款項に区分の上、23億9792万7000円を追加し、予算の総額をそれぞれ574億3487万3000円とするものでございます。</div><div class="say">4ページをお開きください。第2表債務負担行為補正で、全部で8件、うち4ページ上段の追加につきましては7件でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5582s" data-timestamp="5582"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:02</a>　1件目、財務会計システム設計構築委託料につきましては、令和9年8月に現システムの更改時期を迎えることから、システム環境を構築、データ移行、バージョンアップ等リプレース作業を行うもので、期間を令和8年度から令和9年度、限度額を3716万6000円とするものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5613s" data-timestamp="5613"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:33</a>　2件目、学校給食調理委託料につきましては、小金井第三小学校での学校給食調理委託に係る令和9年度以降の事業者を選定するため、今年度から契約の準備を始めるもので、期間を令和8年度から令和9年度、限度額を5319万6000円とするものでございます。</div><div class="say">3件目、学校給食備品につきましては、緑小学校の給食室の増築工事に伴い整備するもので、納品までに時間を要するため今年度から契約準備を始めるもので、期間を令和8年度から令和9年度、限度額を4400万円とするものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5644s" data-timestamp="5644"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:04</a>　4件目、本町小学校教室整備検討委託料につきましては、学区内の宅地開発等により、将来的な児童数の増加が見込まれることから、最適な整備方針を検討するもので、期間を令和9年度、限度額を1386万円とするものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5677s" data-timestamp="5677"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:37</a>　5件目、緑小学校増築等工事第2期管理委託料、6件目、緑小学校増築等工事第2期設計意図伝達委託料、及び7件目、緑小学校増築等工事第2期につきましては、令和8年7月から実施している校舎増築等工事の継続工事として、給食室、多目的室等の増築工事等を行うものでございます。なお、56ページの債務負担行為に関する補正を後ほどご覧ください。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5708s" data-timestamp="5708"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:08</a>　続きまして、5ページをお開きください。第3表地方債補正で1件を追加するものでございます。緑小学校校舎増築等事業1億720万円を限度額として追加するものでございます。</div><div class="say">なお、地方債追加の詳細につきましては、57ページの地方債に関する調書を後ほどご覧いただきたいと思います。</div><div class="say">以上で説明とさせていただきます。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t28">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5745s" data-timestamp="5745"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:45</a>　これから歳入歳出一括で質疑を行うこととしますが、本件は予算特別委員会に付託する予定です。本会議では大綱的な質疑を行うなど、議事の進行に格段のご協力をお願いします。</div><div class="say">また、資料要求については、各議員から資料要求書を提出していただくこととなっておりますので、資料要求される方は、9月1日火曜日の10時までによろしくお願いします。</div><div class="say">歳入歳出一括で質疑を行います。質疑を終了することにご異議ありませんか。</div><div class="say">ご異議なしと認め、質疑を終了します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5776s" data-timestamp="5776"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:16</a>　お諮りします。本件は14人の委員で構成する予算特別委員会を設置し、これに付託の上審査することにご異議ありませんか。</div><div class="say">ご異議なしと認め、本件は14人の委員で構成する予算特別委員会を設置し、これに付託の上審査することと決定しました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5810s" data-timestamp="5810"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:50</a>　お諮りします。ただ今設置されました予算特別委員会の委員の選任については、委員会条例第5条第2項の規定により、2番 中井れい子議員、4番 清水学議員、6番 ながとり太郎議員、8番 坂井えつ子議員、9番 小林正樹議員、10番 河野麻美議員、11番 沖浦あつし議員、12番 吉良のりこ議員、13番 村上ようすけ議員、16番 水上洋志議員、17番 吹春やすたか議員、19番 岸田正義議員、22番 渡辺大三議員、24番 森戸よう子議員、以上14人を指名することにご異議ありませんか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5843s" data-timestamp="5843"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:23</a>　ご異議なしと認め、ただ今指名しました14人の皆さんを予算特別委員に選任することと決定しました。</div><div class="say">ここで、ただ今設置されました予算特別委員会の正副委員長の互選のため、しばらく休憩します。</div>
+</div>
+
+<div class="turn reveal" id="t29">
+  <div class="meta"><span class="name">不明</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=5OkAtJW0grs&t=5874s" data-timestamp="5874"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:54</a>　……ことやるんだからさ……ってないといけな……</div>
+</div>
+
+<div class="turn chair reveal" id="t30">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=138s" data-timestamp="138"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:18</a>　これから再開するんですが、今日予定している日程をこなすと、12時をそこそこオーバーするかと。終わらせる方向でよろしいでしょうか。</div>
+</div>
+
+<div class="turn voice reveal" id="t31">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">はい、お願いします。</div>
+</div>
+
+<div class="turn chair reveal" id="t32">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">再開します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=176s" data-timestamp="176"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:56</a>　休憩中に予算特別委員会の正副委員長選が行われておりますので、その結果をご報告します。予算特別委員長に8番 坂井えつ子議員、同副委員長に2番 中井れい子議員。以上のとおり決定しましたのでお知らせいたします。</div><div class="say">日程第7 議案第61号 令和8年度小金井市国民健康保険特別会計補正予算（第1回）を議題とします。提案理由の説明を求めます。市長。</div>
+</div>
+
+<div class="turn reveal" id="t33">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=209s" data-timestamp="209"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:29</a>　議案第61号 令和8年度小金井市国民健康保険特別会計補正予算（第1回）をご提案申し上げます。本案は、歳入歳出予算の総額に歳入歳出それぞれ1億9876万円を追加し、歳入歳出予算の総額を歳入歳出それぞれ113億6514万8000円とするものであります。この歳入歳出予算の補正の款項の区分及び当該区分ごとの金額等は、第1表歳入歳出予算補正のとおりであります。</div><div class="say">以上のとおり補正するため、本案を提出するものであります。細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t34">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">市民部長。</div>
+</div>
+
+<div class="turn reveal" id="t35">
+  <div class="meta"><span class="name">市民部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=241s" data-timestamp="241"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:01</a>　はい。それでは、細部についてご説明申し上げます。今回の補正は、令和7年度小金井市国民健康保険特別会計の繰越金の確定に伴い、予算計上を行うものでございます。</div><div class="say">恐れ入りますが、別冊の5、6、7ページをご覧ください。1 総括です。歳入歳出それぞれ款の区分ごとに、それぞれ1億9876万円を追加して、歳入歳出予算の総額を113億6514万8000円とするものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=273s" data-timestamp="273"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:33</a>　続きまして、各予算の項目ごとにご説明申し上げます。8、9ページをご覧ください。2 歳入でございます。款〇〇 項1 目1 利子及び配当金です。国民健康保険事業運営基金利子の利率の変更によりまして、1万8000円を増額計上するものでございます。</div><div class="say">次に、款7 項1 目1 繰越金です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=303s" data-timestamp="303"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:03</a>　令和7年度の決算における剰余金は1億9874万3049円ですが、すでに科目存置の1,000円が計上されておりますことから、差し引き1億9874万2000円を増額計上するものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=336s" data-timestamp="336"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:36</a>　10・11ページをご覧ください。3 歳出でございます。款5 項1 目1 基金積立金です。国民健康保険事業運営基金条例第2条では、毎年度の剰余金から当該剰余金の10分の1以上に相当する額を積み立てるものとするとしており、前年度決算の歳入歳出差引額が黒字となったことから、この規定のとおり積立てを行うものです。</div><div class="say">現在、基金が枯渇していることも考慮し、積立金としまして令和7年度決算の歳入歳出差引額の10分の1以上となる5000万円を、また積立利子として1万8000円を、計5001万8000円を増額計上するものです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=369s" data-timestamp="369"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:09</a>　12・13ページをお開きください。款〇 予備費です。歳入総額と歳出総額の差額を財源調整するものでして、1億4874万2000円を増額計上するものです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=402s" data-timestamp="402"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:42</a>　それでは大変恐縮でございますが、議案第61号 令和8年度小金井市国民健康保険特別会計補正予算の本文にお戻りいただきまして、2ページをご覧ください。第1表 歳入歳出予算補正です。ただ今、事項別明細書で説明申し上げました補正予算の内容を款に区分の上、歳入歳出予算の総額にそれぞれ1億9876万円を追加して、歳入歳出予算の総額を113億6514万8000円とするものでございます。</div><div class="say">以上で説明とさせていただきます。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t36">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=436s" data-timestamp="436"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:16</a>　歳入歳出一括で質疑を行います。</div><div class="say">質疑を終了することにご異議ありませんか。</div><div class="say">ご異議なしと認め、質疑を終了します。</div><div class="say">お諮りします。本件は予算特別委員会に付託することにご異議ありませんか。</div><div class="say">ご異議なしと認め、本件は予算特別委員会に付託することと決定しました。</div><div class="say">日程第8、議案第62号 令和8年度小金井市介護保険特別会計補正予算（第1回）を議題とします。提案理由の説明を求めます。市長。</div>
+</div>
+
+<div class="turn reveal" id="t37">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=467s" data-timestamp="467"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:47</a>　議案第62号 令和8年度小金井市介護保険特別会計補正予算（第1回）をご提案申し上げます。</div><div class="say">本案は、歳入歳出予算の総額に歳入歳出それぞれ1億1607万7000円を追加し、歳入歳出予算の総額を歳入歳出それぞれ97億7684万円とするものであります。この歳入歳出予算の補正の款項の区分及び当該区分ごとの金額等は、第1表 歳入歳出予算補正のとおりであります。以上のとおり補正するため、本案を提出するものであります。</div><div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t38">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">福祉保健部長。</div>
+</div>
+
+<div class="turn reveal" id="t39">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=498s" data-timestamp="498"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:18</a>　それでは、細部につきましてご説明申し上げます。今回の補正予算につきましては、令和7年度の収支が確定しましたことから、返還金等の必要な整理を行うため補正するものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=533s" data-timestamp="533"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:53</a>　それでは項目ごとにご説明申し上げます。まずは歳入でございます。事項別明細書の8・9ページをお開きください。款3 国庫支出金、款4 支払基金交付金、款5 都支出金につきまして、それぞれ前年度に交付されるべき地域支援事業交付金の不足額が今年度に交付されるため、32万…、それぞれ増額補正するものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=566s" data-timestamp="566"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:26</a>　10ページ、11ページをお開きください。款6 項1 目1 節1 利子及び配当金の介護給付費準備基金利子でございます。基金運用で積み立てております介護給付費準備基金につきまして、前年度末に基金積立てを行ったこと及び定期預金の運用利率が変更となったことから、利子としまして21万2000円を増額補正するものでございます。</div><div class="say">款9 項1 目1 節1の前年度繰越金でございます。令和7年度の収支が確定しましたことに伴いまして、令和7年度歳入歳出差引残額を前年度繰越金といたしまして1億29万8000円を増額補正するものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=598s" data-timestamp="598"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:58</a>　続きまして歳出でございます。12・13ページをお開きください。款〇 項1 目1 節24 積立金でございます。令和7年度の決算確定に伴い、介護保険料4762万9000円を積立金として、基金現在高の変更及び定期預金の運用利率の変更により増額となる21万3000円を積立利子として、合計4784万2000円を増額補正するものでございます。</div><div class="say">14・15ページをお開きください。款〇 項〇 目1 節22 償還金利子及び割引料でございます。過年度分の還付金が確定したことに伴いまして、第1号被保険者保険料還付金としまして61万7000円を増額補正するものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=661s" data-timestamp="661"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:01</a>　次に、同じく目3 償還金でございます。概算交付でございます国庫負担金、支払基金交付金の精算分といたしまして、2件の返還金合計5638万5000円を増額補正するものでございます。</div><div class="say">16・17ページをお開きください。款〇 項〇 目1 節27 繰出金でございます。低所得者保険料軽減措置負担金の精算分といたしまして、国と一般会計への返還金合計137万2000円を増額補正するものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=693s" data-timestamp="693"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:33</a>　款8 項1 目1 予備費でございます。歳入歳出の調整で986万1000円を計上するものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=726s" data-timestamp="726"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:06</a>　次に、大変恐縮ではございますが、2ページにお戻りいただき、第1表 歳入歳出予算補正でございます。ただ今ご説明申し上げました内容を、歳入歳出それぞれ款項に区分いたしまして、補正額を歳入歳出それぞれ1億1607万7000円を追加し、歳入歳出予算の総額をそれぞれ97億〇〇万円とするものでございます。以上のとおり補正するものでございます。</div><div class="say">よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t40">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">歳入歳出一括で質疑を行います。</div><div class="say">質疑を終了することにご異議ありませんか。</div><div class="say">ご異議なしと認め、質疑を終了します。</div><div class="say">お諮りします。本件は予算特別委員会に付託することにご異議ありませんか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=758s" data-timestamp="758"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:38</a>　ご異議なしと認め、本件は予算特別委員会に付託することと決定しました。</div><div class="say">日程第9、議案第63号 令和8年度小金井市後期高齢者医療特別会計補正予算（第1回）を議題とします。提案理由の説明を求めます。市長。</div>
+</div>
+
+<div class="turn reveal" id="t41">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=791s" data-timestamp="791"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:11</a>　議案第63号 令和8年度小金井市後期高齢者医療特別会計補正予算（第1回）をご提案申し上げます。</div><div class="say">本案は、歳入歳出予算の総額に歳入歳出それぞれ6175万3000円を追加し、歳入歳出予算の総額を歳入歳出それぞれ37億279万8000円とするものであります。この歳入歳出予算の補正の款項の区分及び当該区分ごとの金額等は、第1表 歳入歳出予算補正のとおりであります。以上のとおり補正するため、本案を提出するものであります。</div><div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t42">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">市民部長。</div>
+</div>
+
+<div class="turn reveal" id="t43">
+  <div class="meta"><span class="name">市民部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=822s" data-timestamp="822"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:42</a>　それでは、細部についてご説明申し上げます。今回の補正は、広域連合納付金の精算に係る不足見込額の計上と、令和7年度後期高齢者医療特別会計の繰越金の精算に係る〇〇を行うものでございまして、〇〇な内容となってございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=855s" data-timestamp="855"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:15</a>　恐れ入りますが、事項別明細書の5から7ページをご覧ください。まず1 総括でございます。歳入歳出それぞれの款項の区分ごとに6175万3000円を追加して、歳入歳出予算の総額を37億279万8000円とするものでございます。</div><div class="say">続きまして、各予算の項目ごとにご説明申し上げます。8・9ページをご覧ください。2 歳入です。款3 目1 一般会計繰入金です。保険料軽減措置繰入金は、広域連合へ支払う負担金に対する一般会計の負担分を増額計上するものでございます。</div><div class="say">款4 項1 目1 繰越金です。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=886s" data-timestamp="886"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:46</a>　令和7年度の決算における剰余金は5651万771円でしたが、すでに科目存置の1,000円が計上されておりますことから、差し引き561万6000円を増額計上するものでございます。</div><div class="say">款5 項2 目1 償還金及び還付加算金の節1 保険料還付金です。広域連合からの返還金が減となったため、減額するものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=918s" data-timestamp="918"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:18</a>　同じく節〇 葬祭費負担金償還金です。令和7年度の葬祭費負担金が確定し、広域連合から567万8000円が返還されるものです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=948s" data-timestamp="948"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:48</a>　10・11ページをお開きください。3 歳出でございます。款3 目1 広域連合納付金です。保険料等負担金の過年度分につきましては、前年度の保険料等収入額が広域連合への保険料等納付額より多かったことから、過年度分として追加納付するため、また保険料軽減措置負担金分につきましては、前年度の保険料の軽減措置に関する負担金に不足が生じる見込みであることから、過年度分として追加納付するため増額するもので、いずれも広域連合からの請求によるものです。</div><div class="say">合計3367万4000円を増額計上するものです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=981s" data-timestamp="981"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:21</a>　12・13ページをお開きください。款5 項1 目1 償還金及び還付加算金です。償還金及び還付加算金は、令和7年度決算における歳入歳出の還付未済額として1369万8000円を増額計上するものであり、また令和7年度葬祭費受託事業収入返還金は、葬祭費が、広域連合から受託収入を財源に市の保険給付費から支出している関係から、前年度の精算額を受託事業収入返還金として広域連合に返還するため増額計上するものです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1014s" data-timestamp="1014"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:54</a>　14・15ページをお開きください。款5 項1 目1 繰出金です。一般会計繰出金は、広域連合からの返還金等を一般会計に繰り出すもので、868万1000円を計上するものです。</div><div class="say">それでは大変恐縮でございますが、本文にお戻りいただきまして2ページをお開きください。第1表 歳入歳出予算補正です。ただ今、事項別明細書でご説明申し上げました補正予算の内容を款項に区分の上、歳入歳出予算の総額にそれぞれ6175万3000円を追加して、歳入歳出予算の総額を37億279万8000円とするものでございます。</div><div class="say">以上で説明とさせていただきます。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t44">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">歳入歳出一括で質疑を行います。</div><div class="say">質疑を終了することにご異議ありませんか。</div><div class="say">ご異議なしと認め、質疑を終了します。</div><div class="say">お諮りします。本件は予算特別委員会に付託することにご異議ありませんか。</div><div class="say">ご異議なしと認め、本件は予算特別委員会に付託することと決定しました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1078s" data-timestamp="1078"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:58</a>　日程第10、議案第65号 小金井市職員の勤務時間、休日、休暇等に関する条例の一部を改正する条例を議題とします。提案理由の説明を求めます。市長。</div>
+</div>
+
+<div class="turn reveal" id="t45">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">議案第65号 小金井市職員の勤務時間、休日、休暇等に関する条例の一部を改正する条例をご提案申し上げます。勤怠管理システムの導入にあたり、所要の改正を行うため本案を提出するものであります。細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t46">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">総務部長。</div>
+</div>
+
+<div class="turn reveal" id="t47">
+  <div class="meta"><span class="name">総務部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1109s" data-timestamp="1109"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:29</a>　では、細部についてご説明いたします。令和8年11月からの勤怠管理システムの運用開始に向け、現在導入作業を行っておりますが、導入にあたりましては、現状の〇〇管理の運用について一定の整理を予定しており、これに伴い、勤怠管理システム導入後の運用に必要な規定の整備を行うため、条例の一部を改正するものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1139s" data-timestamp="1139"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:59</a>　議案資料、条例新旧対照表をご覧ください。第4条 週休日の振替等についてでございます。週休日の半日を勤務日の半日に振り替える規定について、現行、勤務日の勤務時間のうち4時間を当該勤務日に割り振ることをやめて、週休日に当該半日の勤務時間を割り振ることができるという規定となっており、勤務日の半日を4時間とみなし、週休日の4時間勤務を勤務日の半日に振り替える制度として運用しておりますが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1170s" data-timestamp="1170"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:30</a>　実態としましては、午前の半日勤務は8時30分から12時までの3時間30分、午後の半日勤務が13時から17時15分までの4時間15分となっておりますことから、半日の定義を3時間30分から4時間15分までと別途規定に定め、4時間を半日に改め、実態に合わせ、より明確に規定を整備するものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1202s" data-timestamp="1202"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:02</a>　次に、第15条 休日の代休日につきましても、第4条と同様の理由により規定を整備するものでございます。</div><div class="say">続いて附則でございます。この条例は、令和8年11月1日から施行するものでございます。説明は以上となります。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t48">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">これより質疑を行います。</div><div class="say">質疑を終了することにご異議ありませんか。</div><div class="say">ご異議なしと認め、質疑を終了します。</div><div class="say">本件は総務企画委員会に付託します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1233s" data-timestamp="1233"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:33</a>　日程第11、議案第66号 学校設置者等及び民間教育保育等事業者による児童対象性暴力等の防止等のための措置に関する法律の施行に伴う関係条例の整理に関する条例を議題とします。提案理由の説明を求めます。市長。</div>
+</div>
+
+<div class="turn reveal" id="t49">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1265s" data-timestamp="1265"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:05</a>　議案第66号 学校設置者等及び民間教育保育等事業者による児童対象性暴力等の防止等のための措置に関する法律の施行に伴う関係条例の整理に関する条例をご提案申し上げます。</div><div class="say">学校設置者等及び民間教育保育等事業者による児童対象性暴力等の防止等のための措置に関する法律の施行に伴う、家庭的保育事業等の設備及び運営に関する基準及び乳児等通園支援事業の設備及び運営に関する基準の改正により、規定を整備する必要があるため、本案を提出するものであります。</div><div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t50">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">子ども家庭部長。</div>
+</div>
+
+<div class="turn reveal" id="t51">
+  <div class="meta"><span class="name">子ども家庭部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1331s" data-timestamp="1331"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:11</a>　それでは、細部についてご説明申し上げます。</div><div class="say">学校設置者等及び民間教育保育等事業者による児童対象性暴力等の防止等のための措置に関する法律が成立し、本年12月25日から施行されることに伴い、家庭的保育事業等の設備及び運営に関する基準、さらに乳児等通園支援事業の設備及び運営に関する基準が改正され、児童対象性暴力等を防止し、児童対象性暴力等が行われた場合に園児を適切に保護するため、児童等対象業務に係る事業者に対し、犯罪事実確認等の措置の実施を義務づける規定が追加されました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1363s" data-timestamp="1363"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:43</a>　本市の保育事業における基準を定める条例においても、国基準を参酌し改正を行うため、本案を提出するものでございます。</div><div class="say">それでは、議案資料の新旧対照表をご覧ください。第1条関係として、小金井市家庭的保育事業等の設備及び運営に関する基準を定める条例に、児童対象性暴力等の防止に関する規定を追加しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1396s" data-timestamp="1396"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:16</a>　第2条関係として、小金井市乳児等通園支援事業の設備及び運営に関する基準を定める条例に、児童対象性暴力等の防止に関する規定を追加しております。</div><div class="say">附則といたしまして、第1条関係、第2条関係ともに、令和8年12月25日から施行するものでございます。ご説明は以上となります。よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t52">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">これより質疑を行います。</div><div class="say">質疑を終了することにご異議ありませんか。</div><div class="say">ご異議なしと認め、質疑を終了します。</div>
+</div>
+
+<div class="turn chair reveal" id="t53">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1435s" data-timestamp="1435"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:55</a>　本件は厚生文教委員会に付託します。</div><div class="say">日程第12、議案第67号市道路線の廃止についてを議題とします。提案の説明を求めます。市長。</div>
+</div>
+
+<div class="turn reveal" id="t54">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">議案第67号市道路線の廃止についてをご提案申し上げます。</div><div class="say">当該道路は隣接地権者への払い下げに伴い、当該路線を廃止するため、道路法第10条第3項の規定により準用する第8条第2項の規定により議会の議決を要することから、本案を提出するものであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1465s" data-timestamp="1465"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:25</a>　細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn voice reveal" id="t55">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">説明省略。</div>
+</div>
+
+<div class="turn chair reveal" id="t56">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">細部説明省略等の声がありますが、省略することにご異議ありませんか。</div><div class="say">ご異議なしと認め、細部説明を省略します。これより質疑を行います。森戸よう子さん。</div>
+</div>
+
+<div class="turn reveal" id="t57">
+  <div class="meta"><span class="name">森戸よう子</span></div>
+  <div class="say">そっか。今これ廃止ですね。廃止だけだったんだよね。いいです。</div>
+</div>
+
+<div class="turn chair reveal" id="t58">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">よろしいですか。</div>
+</div>
+
+<div class="turn reveal" id="t59">
+  <div class="meta"><span class="name">森戸よう子</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1496s" data-timestamp="1496"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:56</a>　はい、大丈夫です。すいません。</div>
+</div>
+
+<div class="turn chair reveal" id="t60">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">質疑を終了することにご異議ありませんか。</div><div class="say">ご異議なしと認め、質疑を終了します。本件は建設環境委員会に付託します。</div><div class="say">日程第13、議案第68号市道路線の認定についてを議題とします。提案理由の説明を求めます。市長。</div>
+</div>
+
+<div class="turn reveal" id="t61">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1528s" data-timestamp="1528"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:28</a>　議案第68号市道路線の認定についてをご提案申し上げます。</div><div class="say">当該道路のうち整理番号123は、都市計画法第29条第1項に規定する開発行為の許可を受け〇〇された道路で、〇〇から〇〇まで市がすでに管理している道路。整理番号852から整理番号856までは、都市計画法第29条第1項に規定する開発行為の許可を受け〇〇された道路であり、道路法第8条第2項の規定により議会の議決を要することから、本案を提出するものであります。</div><div class="say">細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn voice reveal" id="t62">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">細部説明省略。</div>
+</div>
+
+<div class="turn chair reveal" id="t63">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1561s" data-timestamp="1561"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:01</a>　細部説明省略等の声がありますが、省略することにご異議ありませんか。</div><div class="say">ご異議なしと認め、細部説明を省略いたします。質疑を行います。森戸よう子さん。</div>
+</div>
+
+<div class="turn reveal" id="t64">
+  <div class="meta"><span class="name">森戸よう子</span></div>
+  <div class="say">1点はですね、整理番号123、市道第123号線、緑町のこの市道の認定であります。で、払い下げに基づいて、払い下げがあって、で、開発行為などの許可を受けた、道路なんですかね、ということなんですが。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1592s" data-timestamp="1592"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:32</a>　道路のですね、認定の基準がありますよね。で、この道路の、市道路線の認定廃止の取扱要綱ではですね、道路の幅について、道路幅員が、4m以上であることということが規定をされているわけですが、これは1.82しかない部分がですね、あるわけです。それで、ちょっとなぜこういう風になってこれを認定するのかということの確認を改めてさせていただきたいというのが1点であります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1622s" data-timestamp="1622"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:02</a>　それから2点目はですね、開発行為によって、この間ずっとですね、市道認定をしてきているわけですけれども、この、取扱要綱によればですね、第、これは定義の第3で、路線の認定条件の中で、括弧2として、起点及び終点が公道及び公共〇〇の所有する通路または公共施設に連絡していることということになっているわけですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1655s" data-timestamp="1655"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:35</a>　で、従って、そのどん詰まりの道路を、市道に認定するということには、この条件から、認定条件からは、ならないのかなという風に、解釈はできるわけです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1691s" data-timestamp="1691"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:11</a>　一方でその、開発行為された道路で、住民の利益に供するということで、その市道として認定して、補修工事だとか、しっかりと行っていく</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1724s" data-timestamp="1724"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:44</a>　ということも、必要なのかなというところもあるわけですけれども、ちょっとこの辺りの、整理というか、私たちもこれまでずっと、この開発行為に基づく市道認定について、承認をしてきたということがありますが、ちょっと改めてですね、市道の認定にする理由は何か伺います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1759s" data-timestamp="1759"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:19</a>　それから3点目に、この市道認定の道路なんですが、例えば、東の市道についてはですね、もう相当前に、開発行為をして作られている道路なんですね。多分10年ぐらい経っているのではないかと思います。で、ちょっとその10年前の道路をこう認定していく、また他もそうではないかと思うんですが、ちょっとどういう風な状況になっているのか、教えていただければと思います。</div><div class="say">以上です。</div>
+</div>
+
+<div class="turn reveal" id="t65">
+  <div class="meta"><span class="name">道路管理課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1790s" data-timestamp="1790"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:50</a>　道路管理課長です。</div>
+</div>
+
+<div class="turn chair reveal" id="t66">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">道路管理課長。</div>
+</div>
+
+<div class="turn reveal" id="t67">
+  <div class="meta"><span class="name">道路管理課長</span></div>
+  <div class="say">それでは森戸議員の、ご質問にご答弁させていただきます。</div><div class="say">まず1点目の、123号線を、幅員が足りないのになぜ、認定するのかというご質問でございます。この一旦廃止する123号線は、昭和57年に一括認定で、認定した</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1822s" data-timestamp="1822"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:22</a>　ものでございます。で、この度ですね、路線をこう、〇〇を、買いたいということで、あとは、払い下げしたいということで一旦廃止するものでございます。で、そのまま、廃止したままで認定しないとなると、その沿線住民の、生活に影響が出てしまいますので、ここは認定をせざるを得ないという判断で、今回、認定の</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1854s" data-timestamp="1854"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:54</a>　議案に挙げさせていただいているものでございます。</div><div class="say">次、2点目の行き止まりの、件でございます。都市計画法第40条第2項の規定によりまして、開発許可を受けた開発行為、または開発行為に関する工事により設置された公共施設の用に供する土地は、開発許可を受けた者が自ら管理するもの、当該公共施設を管理すべき者に帰属すると想定、規定されております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1888s" data-timestamp="1888"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:28</a>　そこで、一旦市が管理する管理道路という扱いになるのですが、管理する上での根拠法がございませんので、そこはやはり道路の公共、管理、公物管理法である道路法に基づいて管理すべきと考えているところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1918s" data-timestamp="1918"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:58</a>　そのような理由から、開発行為において築造された行き止まり道路につきましても、市が帰属を受けたものについては、道路法に基づく認定を経て、道路法の道、道路法の道路に位置づけて、道路法で適切な維持管理をしていくというのが必要になってくるのかなと考えているところでございます。ただし、これ、都市計画法に基づきますと、帰属を受けることが、できるという、できる規定にはなってございますので、今の状況ですと、市道のネットワークに〇〇しない道路という形になってますので、現在は、こういった行き止まり道路については帰属を受けていないという状況でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1950s" data-timestamp="1950"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:30</a>　で、3点目でございます。なぜ古い道路が未だに出てくるのかというところでございますけども、かつてですね、このように、行き止まり道路も含めてたくさんの道路を帰属を受けてまいりました。た、ただし、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=1983s" data-timestamp="1983"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:03</a>　帰属を受けて、認定するためには、道路台帳というのを整備しないといけません。で、そのためにはですね、公共〇〇っていう、ものでですね、測量し直さないといけないというところでございますので、認定するためには、お金がかかるものでございまして、なかなかその予算が追いついていかないという状況でございました。で、何年か前にその予算をですね、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=2014s" data-timestamp="2014"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:34</a>　増やしていただいております。で、さらには、行き止まり道路の帰属を、今受けておりませんので、そのうちですね、追いつくのかなと思っているところでございます。今は、ちょっと追いついていないという状況でございますので、なかなか難しいところではございますが、今、鋭意頑張って取り組んでいるところでございます。</div><div class="say">以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t68">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">森戸さん。</div>
+</div>
+
+<div class="turn reveal" id="t69">
+  <div class="meta"><span class="name">森戸よう子</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=2044s" data-timestamp="2044"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:04</a>　分かりました。基本、道路は4m、市道はね、4mという基準があって、この道路では、1.82mというね、狭いところもあってですね、大半が1.82なものですから、なぜかということはですね、本会議場で明らかにしといた方がいいかなと思ったので質問させていただきました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=2075s" data-timestamp="2075"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:35</a>　それとですね、あと、市道認定のあり方の問題で、今、説明をいただきました。それで、現状では帰属、これまでは帰属を受けてきたけど、帰属を受けないと、今後はね、ということでありまして、それがいいのかどうかっていうのは住民にとってみると、色々ありますが、しかし、道路法上では、こういう規定になってるわけですから、公道を抜けるというのが、基本的には、市道の基準になっているということからすれば、今後は開発行為でどん詰まりになってるようなところは市道にしないということなんですね。分かりました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=2107s" data-timestamp="2107"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:07</a>　それで、合わせてですね、今の道路を、帰属を受けてきたっていうことで、どのぐらい、残ってるんですかということについて、もし分かるようでしたら教えていただきたいです。で、分からなかったら資料要求します。はい。</div>
+</div>
+
+<div class="turn reveal" id="t70">
+  <div class="meta"><span class="name">道路管理課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=2137s" data-timestamp="2137"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:37</a>　道路管理課長です。</div>
+</div>
+
+<div class="turn chair reveal" id="t71">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">はい。道路管理課長。</div>
+</div>
+
+<div class="turn reveal" id="t72">
+  <div class="meta"><span class="name">道路管理課長</span></div>
+  <div class="say">申し訳ございません。あとどれぐらい残ってるかというところにつきましては、実を申しますと、建設環境委員会で答えられるようにちょっと準備しようと思っていたところでございまして、ここでちょっと質問されるとは思ってなかったので、ちょっとすいません。今ちょっと持ってないです。</div><div class="say">申し訳ございません。</div>
+</div>
+
+<div class="turn chair reveal" id="t73">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">はい。質疑を終了することにご異議ありませんか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=2171s" data-timestamp="2171"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:11</a>　ご異議なしと認め、質疑を終了します。本件は建設環境委員会に付託します。</div><div class="say">以上で本日の日程は全て終了しました。お諮りします。9月1日の会議は議事の都合により、特に、午後1時に繰り下げて開くことにしたいと思います。これにご異議ありませんか。</div><div class="say">ご異議なしと認めます。従って、9月1日の会議は午後1時に繰り下げて開くことと決定しました。本日はこれをもって散会します。</div><div class="say">◯（呼ぶ声）<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=kxc5WbYaiCA&t=2206s" data-timestamp="2206"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:46</a>　お疲れ様です。</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
+<button class="to-top" type="button" aria-label="ページ上部へ戻る" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>(function(){var b=document.querySelector('.to-top');if(!b)return;function u(){b.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>300);}window.addEventListener('scroll',u,{passive:true});u();})();</script>
+<script id="anchor-js">
+(function(){
+  try{
+    var turns=[].slice.call(document.querySelectorAll('.turn[id]'));
+    if(!turns.length) return;
+    var firstBy={};
+    turns.forEach(function(t){
+      var nm=t.querySelector('.name'); if(!nm) return;
+      var key=(nm.textContent||'').trim(); if(!key||key==='—') return;
+      if(!firstBy[key]) firstBy[key]=t.id;
+    });
+    var toast;
+    function showToast(){
+      if(!toast){ toast=document.createElement('div'); toast.className='copy-toast'; toast.textContent='この発言へのリンクをコピーしました'; document.body.appendChild(toast); }
+      toast.classList.add('show'); clearTimeout(toast._t); toast._t=setTimeout(function(){toast.classList.remove('show');},1800);
+    }
+    function hl(el){ turns.forEach(function(x){x.classList.remove('turn-hl');}); if(el) el.classList.add('turn-hl'); }
+    // ② 発言パーマリンク
+    turns.forEach(function(t){
+      var meta=t.querySelector('.meta'); if(!meta) return;
+      var a=document.createElement('a');
+      a.className='turn-link'; a.href='#'+t.id; a.title='この発言へのリンクをコピー'; a.setAttribute('aria-label','この発言へのリンクをコピー');
+      a.textContent='🔗';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault();
+        var url=location.origin+location.pathname+'#'+t.id;
+        try{ history.replaceState(null,'','#'+t.id); }catch(e){}
+        if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(showToast).catch(function(){ location.hash=t.id; }); }
+        else { location.hash=t.id; showToast(); }
+        hl(t);
+      });
+      meta.appendChild(a);
+    });
+    // ① 要約中の発言者名(太字)→本文へ
+    [].slice.call(document.querySelectorAll('.sum strong')).forEach(function(st){
+      var txt=(st.textContent||'').trim(); if(!txt||txt.length<2) return;
+      var id=null;
+      for(var k in firstBy){ if(k.indexOf(txt)>=0 || txt.indexOf(k)>=0){ id=firstBy[k]; break; } }
+      if(!id) return;
+      var a=document.createElement('a');
+      a.className='sum-jump'; a.href='#'+id; a.textContent=st.textContent; a.title='本文の発言へ';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault(); var el=document.getElementById(id);
+        if(el){ hl(el); el.scrollIntoView({block:'center',behavior:'smooth'}); try{history.replaceState(null,'','#'+id);}catch(e){} }
+      });
+      st.parentNode.replaceChild(a, st);
+    });
+    // 直リンクで #tN が指定されていたらハイライト
+    if(location.hash){ var el0=document.getElementById(location.hash.slice(1)); if(el0&&el0.classList&&el0.classList.contains('turn')) el0.classList.add('turn-hl'); }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
