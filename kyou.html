@@ -110,6 +110,22 @@ section{margin-top:44px}
 .cell.休会{background:var(--k-kyu);color:var(--k-kyu-ink)}
 .cell.today{outline:3px solid var(--ink);outline-offset:1px}
 .cell.today::after{content:"きょう";position:absolute;left:50%;transform:translateX(-50%);top:-22px;font-family:var(--fh);font-size:11px;font-weight:900;color:var(--ink);white-space:nowrap}
+[hidden]{display:none!important}
+.cell.has{cursor:pointer;border:0;font:inherit;letter-spacing:inherit}
+.cell.has::before{content:"";position:absolute;left:5px;right:5px;bottom:3px;height:2px;background:currentColor;opacity:.8;border-radius:1px}
+.cell.has:hover{filter:brightness(1.12)}
+a.cell{display:block;text-decoration:none;color:var(--k-ink)}
+button.cell{color:var(--k-ink)}
+a.cell.休会,button.cell.休会{color:var(--k-kyu-ink)}
+.calpick{margin-top:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.calpick .cph{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.calpick .cpd{font-family:var(--fh);font-weight:900;font-size:17px}
+.calpick .cpw{font-size:12.5px;color:var(--muted)}
+.calpick .cpx{margin-left:auto;font:inherit;font-size:12.5px;background:none;border:0;color:var(--k-hon);cursor:pointer;text-decoration:underline;padding:0}
+.calpick .cpl{display:flex;gap:8px;flex-wrap:wrap}
+.calpick .cpl a{display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border:1px solid var(--line);border-radius:9px;background:var(--bg);text-decoration:none;font-family:var(--fh);font-weight:700;font-size:13.5px;color:var(--ink)}
+.calpick .cpl a:hover{border-color:var(--k-hon);color:var(--k-hon)}
+.calpick .cpn{margin:10px 0 0;font-size:12px;color:var(--muted)}
 .months{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(30px,1fr);gap:3px;min-width:760px;margin-bottom:26px;font-family:var(--fd);font-weight:600;font-size:13px;color:var(--muted)}
 .months div{border-left:2px solid var(--line);padding-left:6px;white-space:nowrap}
 .legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;font-size:12.5px;color:var(--muted)}
@@ -231,11 +247,13 @@ footer{margin:40px 0 30px;font-size:12.5px;color:var(--muted);border-top:1px sol
       <div class="months" id="months"></div>
       <div class="tl" id="tl"></div>
     </div>
+    <div class="calpick" id="calpick" hidden></div>
     <div class="legend">
       <span><i style="background:var(--k-hon)"></i>本会議(本)</span>
       <span><i style="background:var(--k-q)"></i>一般質問の本会議(質)</span>
       <span><i style="background:var(--k-iin)"></i>委員会・協議会(委)</span>
       <span><i style="background:var(--k-kyu)"></i>休会</span>
+      <span style="width:100%;margin-top:2px">下線のある日は会議録が公開されています。日付をおすと開きます(その日に複数の会議があるときは選べます)</span>
     </div>
     <div class="upnext" id="upnext"></div>
   </section>
@@ -314,16 +332,22 @@ const DATA = {
   /* 非公式会議録(YouTubeの字幕をAIで校正した記録。市の公式会議録ではない)。
      公開先 toritarosan.github.io/Kaigiroku。2026-09-07に公開ページから機械抽出し、
      18人分すべてアンカー先が本人の発言開始位置であることを確認した(発言順とも一致)。
+     byDate は会期中の各日に公開されている会議録ページ(list.htmlのチップから機械抽出・2026-09-07)。
+     1日に複数の会議があるので配列。一般質問の該当箇所は、その日の「本会議」を指す。
      公式会議録の公開後に本文が差し替えられると tNN は変わるので、その時点で再抽出する。 */
   rec: {
     site: "https://toritarosan.github.io/Kaigiroku/",
     name: "非公式会議録",
     desc: "YouTubeの字幕をAIで整えた記録です。市の公式な会議録ではありません",
     fetched: "2026-09-07",
-    days: {
-      "2026-09-02": { file: "R8.9.2_本会議.html", label: "9月2日の本会議" },
-      "2026-09-03": { file: "R8.9.3_本会議.html", label: "9月3日の本会議" },
-      "2026-09-04": { file: "R8.9.4_本会議.html", label: "9月4日の本会議" }
+    byDate: {
+      "2026-08-27": [{ f: "R8.8.27_本会議①.html", t: "本会議①" }, { f: "R8.8.27_本会議②.html", t: "本会議②" }, { f: "R8.8.27_議会運営委員会.html", t: "議会運営委員会" }, { f: "R8.8.27_決算特別委員会.html", t: "決算特別委員会" }],
+      "2026-08-28": [{ f: "R8.8.28_広報・広聴協議会.html", t: "広報・広聴協議会" }],
+      "2026-08-31": [{ f: "R8.8.31_本会議.html", t: "本会議" }, { f: "R8.8.31_予算特別委員会.html", t: "予算特別委員会" }],
+      "2026-09-01": [{ f: "R8.9.1_本会議.html", t: "本会議" }, { f: "R8.9.1_議会運営委員会.html", t: "議会運営委員会" }],
+      "2026-09-02": [{ f: "R8.9.2_本会議.html", t: "本会議（一般質問）" }],
+      "2026-09-03": [{ f: "R8.9.3_本会議.html", t: "本会議（一般質問）" }],
+      "2026-09-04": [{ f: "R8.9.4_本会議.html", t: "本会議（一般質問）" }, { f: "R8.9.4_議会運営委員会.html", t: "議会運営委員会" }]
     }
   },
   /* 会議日割表(案)(令和8年8月24日登録)+ポスターの補足(括弧内) */
@@ -626,12 +650,24 @@ function roughTime(m, D) {
   return hhmm(t);
 }
 
+/* その日に公開されている非公式会議録のページ(1日に複数の会議がある) */
+function meetingsOn(d, D) {
+  return (D.rec && D.rec.byDate[d]) || [];
+}
+/* ページ本体のURL */
+function recFile(file, D) {
+  return D.rec.site + encodeURIComponent(file);
+}
+/* 一般質問は本会議で行われるので、その日の「本会議」を選ぶ */
+function recHonkaigi(d, D) {
+  return meetingsOn(d, D).find(x => x.t.indexOf("本会議") >= 0) || null;
+}
 /* 非公式会議録の該当箇所URL。?q=で本文をハイライトし、#tNN(発言開始のかたまり)へ飛ばす。
    アンカーが無い/その日の会議録が未公開なら null を返す(リンクを出さない) */
 function recUrl(m, D) {
-  const R = D.rec, day = R && R.days[m.day];
-  if (!day || !m.rec) return null;
-  return R.site + encodeURIComponent(day.file) + "?q=" + encodeURIComponent(m.name) + "#" + m.rec;
+  const h = recHonkaigi(m.day, D);
+  if (!h || !m.rec) return null;
+  return recFile(h.f, D) + "?q=" + encodeURIComponent(m.name) + "#" + m.rec;
 }
 
 /* テーマ分類(表題+小項目の語で機械的に判定) */
@@ -723,11 +759,11 @@ function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp
   function renderRead(){
     const R = DATA.rec;
     document.getElementById("rdays").innerHTML = S.qDays.map((d, i) => {
-      const sp = speakersOf(d), day = R.days[d], [, m, dd] = d.split("-").map(Number);
+      const sp = speakersOf(d), day = recHonkaigi(d, DATA), [, m, dd] = d.split("-").map(Number);
       const later = d > today ? "これから" : "準備中";
       const head = `<div class="rhead"><span class="rd">${m}/${dd}<small>${weekday(d)}</small></span>
         <span class="rw">${fmtWareki(d)} · 一般質問${i + 1}日目 · ${sp.length}人</span>
-        ${day ? `<a class="rall" href="${R.site}${encodeURIComponent(day.file)}" target="_blank" rel="noopener">${escapeHtml(day.label)}を通して読む →</a>`
+        ${day ? `<a class="rall" href="${recFile(day.f, DATA)}" target="_blank" rel="noopener">${m}月${dd}日の本会議を通して読む →</a>`
               : `<span class="rw">${d > today ? "まだ行われていません" : "会議録はまだ公開されていません"}</span>`}</div>`;
       const list = sp.map(x => {
         const u = recUrl(x, DATA);
@@ -739,14 +775,39 @@ function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp
     }).join("");
   }
 
+  function renderPick(d){
+    const ms = meetingsOn(d, DATA), ce = calendarEntry(d, CAL), el = document.getElementById("calpick");
+    if (!ms.length) { el.hidden = true; return; }
+    el.innerHTML = `<div class="cph"><span class="cpd">${fmtMDJ(d)}</span>
+        <span class="cpw">${fmtLong(d)}／${fmtWareki(d)}${ce ? " · " + escapeHtml(ce.kind) + (ce.note ? "／" + escapeHtml(ce.note) : "") : ""}</span>
+        <button type="button" class="cpx" id="cpx">閉じる</button></div>
+      <div class="cpl">${ms.map(x => `<a href="${recFile(x.f, DATA)}" target="_blank" rel="noopener">${escapeHtml(x.t)}を読む →</a>`).join("")}</div>
+      <p class="cpn">この日は${ms.length}つの会議の記録が公開されています。開くのは非公式会議録(YouTubeの字幕をAIで整えたもの)で、市の公式な会議録ではありません。</p>`;
+    el.hidden = false;
+    document.getElementById("cpx").addEventListener("click", () => { el.hidden = true; });
+  }
+
   function renderCalendar(){
     const tl = document.getElementById("tl"), mo = document.getElementById("months");
+    document.getElementById("calpick").hidden = true;
     tl.innerHTML = CAL.map(c => {
       const [,m,d] = c.d.split("-").map(Number);
       const k = c.kind==="本会議"?"本":c.kind==="一般質問"?"質":c.kind==="休会"?"":"委";
-      const tip = `${fmtLong(c.d)}／${fmtWareki(c.d)}: ${c.kind}${c.note?" "+c.note:""}`;
-      return `<div class="cell ${c.kind} ${c.d===today?"today":""}" title="${escapeHtml(tip)}" aria-label="${escapeHtml(tip)}">${d}<span class="k">${k||"休"}</span></div>`;
+      const ms = meetingsOn(c.d, DATA);
+      const base = `${fmtLong(c.d)}／${fmtWareki(c.d)}: ${c.kind}${c.note?" "+c.note:""}`;
+      const cls = `cell ${c.kind} ${c.d===today?"today":""}${ms.length?" has":""}`;
+      const body = `${d}<span class="k">${k||"休"}</span>`;
+      if (ms.length === 1) {
+        const tip = `${base} ／ 会議録「${ms[0].t}」を開く`;
+        return `<a class="${cls}" href="${recFile(ms[0].f, DATA)}" target="_blank" rel="noopener" title="${escapeHtml(tip)}" aria-label="${escapeHtml(tip)}">${body}</a>`;
+      }
+      if (ms.length > 1) {
+        const tip = `${base} ／ 会議録${ms.length}件(${ms.map(x=>x.t).join("・")})から選ぶ`;
+        return `<button type="button" class="${cls}" data-d="${c.d}" title="${escapeHtml(tip)}" aria-label="${escapeHtml(tip)}">${body}</button>`;
+      }
+      return `<div class="${cls}" title="${escapeHtml(base)}" aria-label="${escapeHtml(base)}">${body}</div>`;
     }).join("");
+    tl.querySelectorAll("button.cell").forEach(b => b.addEventListener("click", () => renderPick(b.dataset.d)));
     mo.innerHTML = CAL.map((c,i) => { const [y,m,d] = c.d.split("-").map(Number); return (i===0||d===1) ? `<div>${m}月<span style="font-size:11px;margin-left:4px">${y}年／${warekiStr(y)}</span></div>` : `<div style="border-left-color:transparent"></div>`; }).join("");
     const ups = CAL.filter(c => c.d >= today && c.kind !== "休会").slice(0,3);
     document.getElementById("upnext").innerHTML = ups.length ? ups.map(c => { const [,m,d]=c.d.split("-").map(Number); return `<div class="up"><div class="d">${m}/${d}<small>${weekday(c.d)}</small></div><div class="w">${fmtWareki(c.d)}${c.d===today?" · きょう":""}</div><div class="k">${escapeHtml(c.kind)}</div><div class="t">${escapeHtml(c.note||"")}</div></div>`; }).join("") : `<div class="up"><div class="k">会期は終了しました</div><div class="t">次の定例会は12月(令和8年第4回)の予定です。日程は市議会サイトで</div></div>`;
@@ -763,7 +824,7 @@ function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp
       ["市議会の傍聴について(更新日 2024年12月9日)", S.bochoUrl],
       ["インターネット中継・録画配信 → YouTube「小金井市議会」", S.youtube],
       ["会議録の検索と閲覧(更新日 2026年8月31日)", S.kaigirokuUrl],
-      ["【市の公式サイトではありません】非公式会議録(YouTube字幕＋AI校正)。「終わった質問を読む」のリンク先。2026年9月7日に各ページから発言開始位置を機械抽出", DATA.rec.site]
+      ["【市の公式サイトではありません】非公式会議録(YouTube字幕＋AI校正)。「終わった質問を読む」と全日程カレンダーのリンク先。2026年9月7日に、各ページから発言開始位置を、会議一覧から日付ごとの公開ページを機械抽出", DATA.rec.site]
     ];
     document.getElementById("src-list").innerHTML = L.map(([t,u]) => `<li>${escapeHtml(t)}<br><a href="${u}" target="_blank" rel="noopener">${u}</a></li>`).join("");
   }
