@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>小金井よさんラボ — 546億円。あなたのまちの、1年分。</title>
-<meta name="description" content="小金井市の令和8年度予算546億円を、さわって探検できるサイト。あなたの税金がどこへ行くのか、1日あたり何円なのか、一目でわかります。">
+<meta name="description" content="小金井市の令和8年度当初予算546億円を、さわって探検できるサイト。あなたの税金がどこへ行くのか、1日あたり何円なのか、一目でわかります。">
 <meta name="robots" content="index, follow">
 <meta name="googlebot" content="noindex, nofollow">
 <meta name="theme-color" content="#0B4A3E">
@@ -222,10 +222,11 @@ footer a{color:var(--green-deep)}
 <!-- ═══ Hero ═══ -->
 <div class="hero">
   <div class="wrap">
-    <div class="label">小金井市 令和8年度 一般会計予算</div>
+    <div class="label">小金井市 令和8年度 一般会計当初予算</div>
     <div class="big"><span id="counter">0</span><small>億円</small></div>
     <div class="tag">あなたのまちの、1年分。</div>
     <div class="note">前年度より +22億円（+4.2%）。この546億円がどこへ行くのか、さわって確かめられます。</div>
+    <div class="note">このページは当初予算を紹介しています。年度途中の補正予算は含みません。</div>
     <div class="credit">作成・運営：小金井市議会議員　ながとり太郎</div>
   </div>
   <div class="scroll-cue">▼ スクロールして探検</div>
@@ -254,7 +255,7 @@ footer a{color:var(--green-deep)}
   <!-- ═══ 歳入（税金はどこから来る） ═══ -->
   <section id="revenue-sec">
     <h2>546億円は、<span class="accent">どこから来る</span>？</h2>
-    <p class="lede">まちのお金の入り口。帯の幅が金額の大きさです。<b style="color:var(--green-deep)">緑＝市が自前で集めるお金（自主財源）</b>、グレー＝国や都から入るお金（依存財源）。</p>
+    <p class="lede">まちのお金の入り口。帯の幅が金額の大きさです。<b style="color:var(--green-deep)">緑＝市が自前で集めるお金（自主財源）</b>、グレー＝国や都の補助金・交付金、市の借入金など（依存財源）。</p>
     <div class="kanbar" id="revbar"></div>
     <div class="kanlegend" id="revlegend"></div>
     <div class="depbar" id="depbar"></div>
@@ -272,7 +273,7 @@ footer a{color:var(--green-deep)}
   <!-- ═══ Treemap ═══ -->
   <section id="explore">
     <h2>お金の使いみちを、<span class="accent">さわって探検</span>。</h2>
-    <p class="lede">四角の大きさ＝金額。クリック（タップ）でどんどん深く潜れます。「たこあげ大会の公園使用料 13.7万円」まで辿り着けたらあなたは予算マスター。</p>
+    <p class="lede">四角の大きさ＝金額。クリック（タップ）でどんどん深く潜れます。「たこあげ大会の公園使用料 13.7万円（画面では約14万円）」まで辿り着けたらあなたは予算マスター。</p>
     <div id="treemap"></div>
     <div class="tm-hint">左上のパンくずで戻れます ／ 金額の単位はすべて円換算表示</div>
   </section>
@@ -332,7 +333,7 @@ footer a{color:var(--green-deep)}
   <!-- ═══ ガチャ ═══ -->
   <section id="gacha-sec">
     <h2>今日の<span class="accent">予算ガチャ</span>。</h2>
-    <p class="lede">4,500件の使いみちから1つ、ランダムにご紹介。意外な発見をどうぞ。</p>
+    <p class="lede">約4,500件の使いみちから1つ、ランダムにご紹介。意外な発見をどうぞ。</p>
     <div class="gacha">
       <h3>🎰 まわしてみる</h3>
       <p>知らなかった「まちの仕事」に出会えます</p>
@@ -341,27 +342,27 @@ footer a{color:var(--green-deep)}
     </div>
   </section>
 
-  <!-- ═══ 新規事業ハイライト (M7) ═══ -->
+  <!-- ═══ 注目事業ハイライト (M7) ═══ -->
   <section id="new-sec">
-    <h2>令和8年度、<span class="accent">はじまります</span>。</h2>
-    <p class="lede">今年から新しく始まる<b id="np-count">—</b>の事業。総額 <b id="np-total">—</b>。まちの「これから」がここに。</p>
+    <h2>令和8年度の<span class="accent">注目事業</span>。</h2>
+    <p class="lede">新規・継続・制度変更を含む<b id="np-count">—</b>の事業をご紹介。当初予算の合計 <b id="np-total">—</b>。</p>
     <div class="np-grid" id="np-grid"></div>
   </section>
 
   <!-- ═══ 推移 (M6) ═══ -->
   <section id="trend-sec">
     <h2>4年間で、<span class="accent">こう変わった</span>。</h2>
-    <p class="lede">令和5年度から8年度までの予算総額と、分野別の移り変わり。棒にカーソルを合わせると内訳が出ます。</p>
+    <p class="lede">令和5年度から8年度までの当初予算総額と、分野別の移り変わり。棒にカーソルを合わせると内訳が出ます。</p>
     <div id="trendchart"></div>
     <h3 class="rank-h">令和7 → 令和8年度で、増えた分野・減った分野</h3>
     <div class="ranks" id="ranks"></div>
   </section>
 
   <footer>
-    <p><b>小金井よさんラボ</b> — 小金井市 令和8年度予算を、さわって探検</p>
+    <p><b>小金井よさんラボ</b> — 小金井市 令和8年度当初予算を、さわって探検</p>
     <p style="margin-top:8px">作成・運営：小金井市議会議員　ながとり太郎</p>
     <p style="margin-top:12px;font-size:11.5px;opacity:.85">
-    本サイトのデータは、小金井市が公開している予算書（令和8年度事項別明細書）をもとに、作成者が独自にデータ化・可視化したものです。全階層を検算していますが、抽出・変換の過程で誤りが含まれる可能性があります。小金井市が作成・承認した<b>公式のものではありません</b>。<br>
+    本サイトのデータは、小金井市が公開している当初予算書（令和8年度事項別明細書）をもとに、作成者が独自にデータ化・可視化したものです。推移も各年度の当初予算を比較し、年度途中の補正予算は含みません。全階層を検算していますが、抽出・変換の過程で誤りが含まれる可能性があります。小金井市が作成・承認した<b>公式のものではありません</b>。<br>
     金額は千円単位の予算書値を円換算して表示しています。工事請負費の一部は原本で内訳金額が非表示（入札前）のため、節の合計のみ表示しています。「あなたの税金は、どこへ？」の税額は概算です。<br>
     正確・最新の情報は<a href="https://www.city.koganei.lg.jp/" target="_blank" rel="noopener">小金井市公式サイト</a>や予算書をご確認ください。本サイトの内容に基づく判断・行動について、作成者は一切の責任を負いません。<br>
     当サイトは、小金井市・市議会とは関係ありません。数値の誤りにお気づきの際はお知らせいただけると幸いです。</p>
@@ -687,11 +688,11 @@ function buildTrend(tr){
   window.addEventListener('resize', ()=>trendChart && trendChart.resize());
   renderRanks(tr);
 }
-// ── 新規事業ハイライト (M7) ──
+// ── 注目事業ハイライト (M7) ──
 function buildNewProjects(){
   fetch('data/new_projects.json', {cache:'reload'}).then(r=>r.json()).then(np=>{
-    document.getElementById('np-total').textContent = fmt(np.total);
-    document.getElementById('np-count').textContent = np.count;
+    document.getElementById('np-total').textContent = yen(np.items.reduce((sum,x)=>sum+x.v,0)*1000);
+    document.getElementById('np-count').textContent = np.items.length;
     const items = [...np.items].sort((a,b)=>b.v-a.v);
     document.getElementById('np-grid').innerHTML = items.map((x,i)=>{
       const col = KAN_COLORS[x.kan] || 'var(--green)';
