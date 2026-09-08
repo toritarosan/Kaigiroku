@@ -16,6 +16,10 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=BIZ+UDPGothic:wght@400;700&display=swap">
 <style>
 :root{
+  /* 明るい表示に固定する。非公式会議録サイトの他ページ(トップ・会議一覧・議員別発言・よさんラボ等)は
+     すべて明るい固定で、ここだけ端末の設定で反転すると行き来したときに浮くため(2026-09-08 本人判断)。
+     フォーム部品やスクロールバーも明るく描かせるので color-scheme も明示する。 */
+  color-scheme: light;
   --bg:#F4F6FA; --ink:#172033; --muted:#5E697C; --line:#D8DFEA; --card:#FFFFFF; --paper:#FFFDF8; --surface:#F8FAFD;
   --amber:#F5C75A; --amber-deep:#A96700; --amber-text:#805000; --amber-ink:#2A1E00;
   --k-hon:#245FC4; --k-q:#B86E00; --k-iin:#167D70; --k-kyu:#E1E6EF; --k-ink:#FFFFFF; --k-kyu-ink:#5E697C;
@@ -23,16 +27,6 @@
   --fd:"Barlow Condensed","Zen Kaku Gothic New",sans-serif;
   --fh:"Zen Kaku Gothic New","BIZ UDPGothic","Hiragino Sans","Yu Gothic",sans-serif;
   --fb:"BIZ UDPGothic","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#101522; --ink:#F0F3F8; --muted:#B0B9CA; --line:#2B354A; --card:#181F2D; --paper:#1C2433; --surface:#202939;
-    --k-kyu:#25304F; --k-kyu-ink:#A2ACC6; --amber-deep:#E0A030; --amber-text:#E8B455;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#101522; --ink:#F0F3F8; --muted:#B0B9CA; --line:#2B354A; --card:#181F2D; --paper:#1C2433; --surface:#202939;
-  --k-kyu:#25304F; --k-kyu-ink:#A2ACC6; --amber-deep:#E0A030; --amber-text:#E8B455;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased}
