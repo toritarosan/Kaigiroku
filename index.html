@@ -1117,7 +1117,30 @@ svg{display:block;}
 .brand-text h1{display:inline-block;vertical-align:baseline;}
 .brand-text .byline{display:inline-block;vertical-align:baseline;margin:0 0 0 12px;white-space:nowrap;}
 @media(max-width:560px){.brand-text h1{display:block;}.brand-text .byline{display:block;margin:2px 0 0;white-space:normal;}}
-</style></head>
+</style><style id="hubtiles-css">
+/* 関連ページのタイル。既存のクラスと当たらないよう hubtile- で始める名前だけを足す */
+.hubtiles{padding:38px 24px 10px}
+.hubtiles-head h2{margin:0 0 5px;font-size:1.14rem;font-weight:800;letter-spacing:.01em;color:var(--ink)}
+.hubtiles-head p{margin:0 0 18px;font-size:.84rem;color:var(--muted)}
+.hubtiles-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.hubtile{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;color:var(--ink);text-decoration:none;transition:transform .14s ease,box-shadow .14s ease,border-color .14s ease}
+.hubtile:hover{transform:translateY(-2px);border-color:var(--ht-line);box-shadow:0 12px 26px -18px rgba(23,50,43,.55)}
+.hubtile:focus-visible{outline:3px solid var(--ht-line);outline-offset:2px}
+.hubtile-cover{display:block;line-height:0;background:var(--ht-bg)}
+.hubtile-cover svg{display:block;width:100%;height:auto}
+.hubtile-body{display:flex;flex-direction:column;gap:6px;padding:15px 17px 17px}
+.hubtile-kicker{font-size:.7rem;font-weight:700;letter-spacing:.14em;color:var(--ht-ink)}
+.hubtile-title{font-size:1.04rem;font-weight:800;line-height:1.35;color:var(--ink)}
+.hubtile-desc{font-size:.82rem;line-height:1.75;color:var(--muted)}
+.hubtile-go{margin-top:4px;font-size:.8rem;font-weight:700;color:var(--ht-ink)}
+.hubtile-go span{display:inline-block;transition:transform .14s ease}
+.hubtile:hover .hubtile-go span{transform:translateX(4px)}
+.hubtile--q{--ht-bg:#eef6f1;--ht-ink:#0f5f38;--ht-line:#b8dec8}
+.hubtile--y{--ht-bg:#0B4A3E;--ht-ink:#0B4A3E;--ht-line:#00A388}
+@media (max-width:720px){.hubtiles{padding:28px 24px 6px}.hubtiles-grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.hubtile,.hubtile-go span{transition:none}}
+</style>
+</head>
 <body>
 <a class="skip-link" href="#main">本文へ移動</a>
 
@@ -1488,6 +1511,81 @@ svg{display:block;}
     </div>
   </div>
 </main>
+
+<!-- ═══ 関連ページのタイル（deploy_hub.py が index.html の footer 直前に差し込む） ═══ -->
+<section class="container hubtiles" aria-labelledby="hubtiles-h">
+  <div class="hubtiles-head">
+    <h2 id="hubtiles-h">この会議録と、あわせて使う</h2>
+    <p>同じ作成者が公開している、小金井市政を読むためのページです。</p>
+  </div>
+  <div class="hubtiles-grid">
+
+    <a class="hubtile hubtile--q" href="kyou.html">
+      <span class="hubtile-cover">
+        <svg viewBox="0 0 560 132" width="100%" role="img" aria-label="登壇順に並んだ議員の一覧のイメージ">
+          <rect x="0" y="0" width="560" height="132" fill="#eef6f1"/>
+          <rect x="0" y="0" width="560" height="4" fill="#1aa15c"/>
+          <g>
+            <rect x="34" y="22" width="28" height="26" rx="2" fill="#0f5f38"/>
+            <text x="48" y="40" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="system-ui,sans-serif">1</text>
+            <rect x="72" y="24" width="196" height="9" rx="4" fill="#1aa15c"/>
+            <rect x="72" y="39" width="300" height="6" rx="3" fill="#0f5f38" opacity="0.22"/>
+            <rect x="452" y="24" width="74" height="22" rx="11" fill="#ffffff" stroke="#b8dec8" stroke-width="1"/>
+            <text x="489" y="40" font-size="12" font-weight="700" fill="#0f5f38" text-anchor="middle" font-family="system-ui,sans-serif">10:00</text>
+          </g>
+          <g opacity="0.72">
+            <rect x="34" y="60" width="28" height="26" rx="2" fill="#0f5f38"/>
+            <text x="48" y="78" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="system-ui,sans-serif">2</text>
+            <rect x="72" y="62" width="150" height="9" rx="4" fill="#1aa15c"/>
+            <rect x="72" y="77" width="258" height="6" rx="3" fill="#0f5f38" opacity="0.22"/>
+            <rect x="452" y="62" width="74" height="22" rx="11" fill="#ffffff" stroke="#b8dec8" stroke-width="1"/>
+            <text x="489" y="78" font-size="12" font-weight="700" fill="#0f5f38" text-anchor="middle" font-family="system-ui,sans-serif">11:00</text>
+          </g>
+          <g opacity="0.44">
+            <rect x="34" y="98" width="28" height="26" rx="2" fill="#0f5f38"/>
+            <text x="48" y="116" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="system-ui,sans-serif">3</text>
+            <rect x="72" y="100" width="226" height="9" rx="4" fill="#1aa15c"/>
+            <rect x="72" y="115" width="208" height="6" rx="3" fill="#0f5f38" opacity="0.22"/>
+            <rect x="452" y="100" width="74" height="22" rx="11" fill="#ffffff" stroke="#b8dec8" stroke-width="1"/>
+            <text x="489" y="116" font-size="12" font-weight="700" fill="#0f5f38" text-anchor="middle" font-family="system-ui,sans-serif">13:00</text>
+          </g>
+        </svg>
+      </span>
+      <span class="hubtile-body">
+        <span class="hubtile-kicker">議会・一般質問</span>
+        <span class="hubtile-title">小金井市議会 今日の一般質問</span>
+        <span class="hubtile-desc">きょう誰が何番目に登壇するか。通告した質問の中身と、終わった質問の記録へのリンク。日付は西暦と元号を併記しています。</span>
+        <span class="hubtile-go">見にいく <span aria-hidden="true">&rarr;</span></span>
+      </span>
+    </a>
+
+    <a class="hubtile hubtile--y" href="yosan/">
+      <span class="hubtile-cover">
+        <svg viewBox="0 0 560 132" width="100%" role="img" aria-label="予算の内訳を表す棒グラフのイメージ">
+          <rect x="0" y="0" width="560" height="132" fill="#0B4A3E"/>
+          <g stroke="#ffffff" stroke-width="1" opacity="0.10">
+            <line x1="0" y1="44" x2="560" y2="44"/><line x1="0" y1="70" x2="560" y2="70"/><line x1="0" y1="96" x2="560" y2="96"/>
+          </g>
+          <rect x="52" y="74" width="38" height="38" rx="2" fill="#00A388" opacity="1"/>
+          <rect x="114" y="54" width="38" height="58" rx="2" fill="#4DC1E6" opacity="1"/>
+          <rect x="176" y="30" width="38" height="82" rx="2" fill="#F5A623" opacity="1"/>
+          <rect x="238" y="62" width="38" height="50" rx="2" fill="#00A388" opacity="0.62"/>
+          <rect x="300" y="84" width="38" height="28" rx="2" fill="#4DC1E6" opacity="0.52"/>
+          <rect x="362" y="92" width="38" height="20" rx="2" fill="#F5A623" opacity="0.48"/>
+          <rect x="52" y="112" width="418" height="2" rx="1" fill="#ffffff" opacity="0.28"/>
+          <text x="52" y="30" font-size="13" font-weight="700" fill="#ffffff" opacity="0.85" font-family="system-ui,sans-serif">令和8年度 一般会計</text>
+        </svg>
+      </span>
+      <span class="hubtile-body">
+        <span class="hubtile-kicker">予算</span>
+        <span class="hubtile-title">小金井よさんラボ</span>
+        <span class="hubtile-desc">令和8年度の予算546億円が、どこから来て、どこへ行くのか。13の分野から一つひとつの事業まで、さわって降りていけます。</span>
+        <span class="hubtile-go">探検する <span aria-hidden="true">&rarr;</span></span>
+      </span>
+    </a>
+
+  </div>
+</section>
 
 <footer class="site-footer">
   <div class="container inner">
