@@ -68,6 +68,30 @@ header.h a.back:hover{text-decoration:underline;}
 .footer a{color:var(--navy);font-weight:700;}
 @media(max-width:560px){header.h h1{font-size:1.25rem;} .card .ttl{font-size:.9rem;}}
 
+/* AI質問(2026-09-17: search.htmlとqa.htmlを統合。全文検索はこれまで通りサーバー非依存・無料のまま、
+   疑問文を入力したときだけ任意でAIの回答(HF Space API)も呼べるようにする) */
+.ai-examples{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:10px 0 0;}
+.ai-examples .lbl{font-size:.74rem;color:var(--muted);margin-right:2px;}
+.ai-ex{background:transparent;border:1px solid var(--border);color:var(--text);font-family:inherit;font-size:.76rem;
+  padding:5px 11px;border-radius:999px;cursor:pointer;}
+.ai-ex:hover{background:var(--navy-soft);border-color:var(--navy);color:var(--navy);}
+.ai-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:14px 0 0;}
+.ai-row.hidden{display:none;}
+.ai-btn{background:var(--navy);color:#fff;border:none;font-family:inherit;font-weight:700;font-size:.84rem;
+  padding:9px 18px;border-radius:var(--radius);cursor:pointer;}
+.ai-btn:hover{opacity:.9;}
+.ai-btn:disabled{background:#aaa;cursor:default;}
+.ai-quota{font-size:.74rem;color:var(--muted);}
+.ai-answer{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;margin-top:10px;
+  font-size:.92rem;line-height:1.9;white-space:pre-wrap;word-break:break-word;}
+.ai-answer .ai-cite{color:var(--navy);font-weight:700;text-decoration:none;}
+.ai-answer .ai-cite:hover{text-decoration:underline;}
+.ai-sources{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);}
+.ai-sources h2{font-size:.8rem;color:var(--muted);margin:0 0 8px;font-weight:700;}
+.ai-sources ol{margin:0;padding-left:1.4em;font-size:.8rem;}
+.ai-sources a{color:var(--navy);}
+.ai-notice{background:var(--navy-soft);border-radius:var(--radius);padding:10px 14px;margin-top:10px;font-size:.8rem;}
+
   /* サイト共通ヘッダー（トップと同系の緑＋クリーム） */
   .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
   html.embedded .sitenav{display:none;}
@@ -119,15 +143,22 @@ header.h a.back:hover{text-decoration:underline;}
   <header class="h">
     <p class="kicker">小金井市議会</p>
     <h1>会議録 全文検索</h1>
-    <p class="tag">発言内容・発言者名・議案番号で、本会議・委員会を横断検索できます（非公式アーカイブ）。</p>
+    <p class="tag">発言内容・発言者名・議案番号で、本会議・委員会を横断検索できます。質問文で入力すると、AIがまとめて回答することもできます（非公式アーカイブ）。</p>
   </header>
 
   <div class="searchbox">
     <div class="ip">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input type="text" id="q" placeholder="例: 学童保育　給食費　議案第40号　ながとり" autocomplete="off" autofocus>
+      <input type="text" id="q" placeholder="例: 学童保育　給食費　議案第40号／庁舎問題についてどんな議論がある？" autocomplete="off" autofocus>
     </div>
-    <p class="hint">スペース区切りで複数語のAND検索。発言者名・議案番号・キーワードに対応。検索結果をクリックすると会議録の<strong>その発言箇所へ直接ジャンプ</strong>し、語を黄色く強調します。</p>
+    <p class="hint">スペース区切りで複数語のAND検索。発言者名・議案番号・キーワードに対応。検索結果をクリックすると会議録の<strong>その発言箇所へ直接ジャンプ</strong>し、語を黄色く強調します。疑問文で入力すると、下にAIへ質問するボタンが出ます（1日30件まで・無料の検索は無制限）。</p>
+    <div class="ai-examples" id="aiExamples">
+      <span class="lbl">こんな質問もできます：</span>
+      <button class="ai-ex" type="button">庁舎問題についてはどういう議論がある？</button>
+      <button class="ai-ex" type="button">学校給食の無償化は議論されている？</button>
+      <button class="ai-ex" type="button">物価高騰対策についてどんな議論がある？</button>
+      <button class="ai-ex" type="button">第一小学校の建て替えはどうなっている？</button>
+    </div>
     <div class="facets" id="catFacets"></div>
     <div class="facets" id="srcFacets">
       <button class="facet is-active" data-src="all">すべて</button>
@@ -135,6 +166,12 @@ header.h a.back:hover{text-decoration:underline;}
       <button class="facet" data-src="sokuho">速報版のみ</button>
     </div>
   </div>
+
+  <div class="ai-row hidden" id="aiRow">
+    <button class="ai-btn" id="aiGo" type="button">この質問をAIに聞く</button>
+    <span class="ai-quota" id="aiQuota"></span>
+  </div>
+  <div id="aiOut"></div>
 
   <p class="status" id="status">インデックスを読み込み中…</p>
   <div class="results" id="results"></div>
@@ -299,10 +336,84 @@ header.h a.back:hover{text-decoration:underline;}
     try{ var b=new Blob([payload],{type:'text/plain;charset=utf-8'}); if(navigator.sendBeacon && navigator.sendBeacon(SEARCH_LOG_ENDPOINT,b)) return; }catch(e){}
     try{ fetch(SEARCH_LOG_ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:payload,keepalive:true,mode:'no-cors'}); }catch(e){}
   }
-  q.addEventListener('input',function(){ clearTimeout(q._t); q._t=setTimeout(render,120); clearTimeout(q._lt); q._lt=setTimeout(logSearch,1500); });
+  // === AI質問(2026-09-17: search.htmlとqa.htmlを統合) ================
+  // 全文検索(上記render等)はサーバー非依存・無料のまま完全に維持。疑問文らしい入力の
+  // ときだけ「AIに聞く」ボタンを出し、押されたときだけHF Space APIを呼ぶ(無言の自動発火はしない)。
+  var AI_API = "https://nagatori-gijiroku-qa.hf.space/ask";
+  var AI_HEALTH = AI_API.replace(/\/ask$/, '/health');
+  var AI_MAX_CHARS = 200;
+  // qa_engine.py の _QUESTION_MARKERS / is_keyword_query と同じ判定をJS側に複製(2026-09-17)。
+  // 変更する場合は両方を揃えること。
+  var AI_MARKERS = ["？","?","教えて","ですか","ますか","なぜ","どう","いつ","だれ","誰",
+                    "何を","何が","とは","傾向","比較","長い","短い","多い","少ない","まとめ"];
+  function isKeywordQuery(t){
+    t=(t||"").trim();
+    if(t.length>20) return false;
+    return !AI_MARKERS.some(function(m){ return t.indexOf(m)>=0; });
+  }
+  var aiRow=document.getElementById('aiRow'), aiGo=document.getElementById('aiGo'),
+      aiQuota=document.getElementById('aiQuota'), aiOut=document.getElementById('aiOut');
+
+  function renderAiQuota(remaining, limit){
+    if(remaining==null||limit==null) return;
+    aiQuota.textContent = '（本日のAI残り '+remaining+'/'+limit+'件）';
+  }
+  fetch(AI_HEALTH).then(function(r){return r.json();})
+    .then(function(d){ renderAiQuota(d.daily_remaining, d.daily_limit); }).catch(function(){});
+
+  function updateAiRow(){
+    var v=q.value.trim();
+    var show = v.length>0 && v.length<=AI_MAX_CHARS && !isKeywordQuery(v);
+    aiRow.classList.toggle('hidden', !show);
+  }
+
+  function aiEsc(s){ var d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
+
+  function renderAiAnswer(d){
+    var urls={}; (d.sources||[]).forEach(function(s){ urls[s.n]=s.url; });
+    var html=aiEsc(d.answer).replace(/\[(\d+)\]/g, function(m,n){
+      return urls[n] ? '<a class="ai-cite" href="'+urls[n]+'" target="_blank" rel="noopener">['+n+']</a>' : m;
+    });
+    var src='';
+    if((d.sources||[]).length){
+      src='<div class="ai-sources"><h2>出典（公式会議録）</h2><ol>'+
+        d.sources.map(function(s){ return '<li><a href="'+s.url+'" target="_blank" rel="noopener">'+aiEsc(s.meeting)+'</a></li>'; }).join('')
+        +'</ol></div>';
+    }
+    aiOut.innerHTML = '<div class="ai-answer">'+html+src+'</div>'+
+      '<div class="ai-notice">この回答はAIが会議録の抜粋・集計から生成した非公式の要約です。正確な内容は出典リンク先の公式会議録でご確認ください。</div>';
+  }
+
+  function askAi(text){
+    text=(text||q.value).trim();
+    if(!text) return;
+    aiGo.disabled=true;
+    aiOut.innerHTML='';
+    var prevStatus=status.textContent;
+    status.textContent='AIが考えています…（サーバー起動直後は1分ほどかかることがあります）';
+    fetch(AI_API,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({question:text})})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        status.textContent=prevStatus;
+        renderAiQuota(d.daily_remaining, d.daily_limit);
+        if(d.type==='answer'){ renderAiAnswer(d); }
+        else { aiOut.innerHTML='<div class="ai-answer">'+aiEsc(d.message||'回答できませんでした。')+'</div>'; }
+      })
+      .catch(function(e){
+        status.textContent=prevStatus;
+        aiOut.innerHTML='<div class="ai-answer">接続できませんでした。時間をおいて再度お試しください。（'+aiEsc(String(e))+'）</div>';
+      })
+      .finally(function(){ aiGo.disabled=false; });
+  }
+  aiGo.addEventListener('click', function(){ askAi(); });
+  [].forEach.call(document.querySelectorAll('.ai-ex'), function(b){
+    b.addEventListener('click', function(){ q.value=b.textContent; render(); updateAiRow(); askAi(b.textContent); });
+  });
+
+  q.addEventListener('input',function(){ clearTimeout(q._t); q._t=setTimeout(render,120); clearTimeout(q._lt); q._lt=setTimeout(logSearch,1500); updateAiRow(); });
 
   fetch('search_index.json').then(function(r){return r.json();}).then(function(d){
-    DATA=d; loading.style.display='none'; var _q=''; try{_q=new URLSearchParams(location.search).get('q')||''; if(_q){q.value=_q;}}catch(e){} buildCatFacets(); render(); if(_q){setTimeout(logSearch,1200);}
+    DATA=d; loading.style.display='none'; var _q=''; try{_q=new URLSearchParams(location.search).get('q')||''; if(_q){q.value=_q;}}catch(e){} buildCatFacets(); render(); updateAiRow(); if(_q){setTimeout(logSearch,1200);}
   }).catch(function(e){
     loading.style.display='none';
     status.textContent='インデックスの読み込みに失敗しました: '+e;
