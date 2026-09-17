@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和8年9月16日 議会運営委員会</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#157a4b; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* サイト共通ヘッダー（トップと同系の緑＋クリーム）。iframe埋め込み時は html.embedded で非表示 */
+  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
+  html.embedded .sitenav{display:none;}
+  .sitenav-in{max-width:1100px;margin:0 auto;padding:0 18px;min-height:52px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .sitenav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#157a4b;font-weight:700;font-size:1rem;white-space:nowrap;}
+  .sitenav-brand img{display:block;border-radius:2px;}
+  .sitenav-links{margin-left:auto;display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+  .sitenav-links a{color:#2a2620;font-size:.84rem;font-weight:600;text-decoration:none;padding:8px 11px;border-radius:2px;white-space:nowrap;}
+  .sitenav-links a:hover{color:#157a4b;background:#e7f4ec;}
+  .sitenav-links .ext{color:#8a8073;font-size:.8em;margin-left:1px;}
+  @media(max-width:640px){.sitenav-in{min-height:0;padding:8px 14px;}.sitenav-links a{padding:6px 9px;font-size:.8rem;}}
+
+  /* パンくず */
+  .crumb{background:#fbf9f4;border-bottom:1px solid #eee7db;position:sticky;top:52px;z-index:59;}
+  html.embedded .crumb{display:none;}
+  .crumb-in{max-width:1100px;margin:0 auto;padding:8px 18px;font-size:.76rem;color:#8a8073;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.5;}
+  .crumb a{color:#157a4b;text-decoration:none;font-weight:600;}
+  .crumb a:hover{text-decoration:underline;}
+  .crumb .sep{color:#c9c0b2;}
+  .crumb .cur{color:#4a443b;font-weight:600;}
+  @media(max-width:640px){.crumb{position:static;} .sitenav-in{flex-wrap:nowrap;} .sitenav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  /* 未定稿（公式だが校正中）＝確定版と一目で区別できるようコーラル地にする */
+  .hero .srcbadge.draft{background:var(--coral-dark, #b83a25);}
+  .hero .srcbadge.draft .dot{background:#ffd9cf;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
+
+  /* ページトップへ戻る */
+  .to-top{position:fixed;bottom:20px;right:20px;z-index:900;width:44px;height:44px;border:none;border-radius:50%;background:#157a4b;color:#fff;font-size:20px;line-height:1;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,background .15s;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+  .to-top.show{opacity:.92;visibility:visible;transform:none;}
+  .to-top:hover{opacity:1;background:#12633d;}
+
+  /* 発言パーマリンク＆要約→本文アンカー */
+  .turn-link{margin-left:8px;font-size:12px;text-decoration:none;opacity:0;transition:opacity .15s;color:#8a8073;}
+  .turn:hover .turn-link,.turn-link:focus{opacity:.7;}
+  .turn-link:hover{opacity:1;}
+  .turn:target,.turn.turn-hl{background:#fff8e1;transition:background .3s;}
+  a.sum-jump{color:#157a4b;font-weight:700;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;cursor:pointer;}
+  a.sum-jump:hover{color:#12633d;}
+  .copy-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(8px);background:#157a4b;color:#fff;font-size:13px;padding:9px 16px;border-radius:4px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;z-index:1100;box-shadow:0 2px 10px rgba(0,0,0,.25);}
+  .copy-toast.show{opacity:1;visibility:visible;transform:translateX(-50%);}
+</style>
+</head>
+<body>
+<script>try{if(window.self!==window.top)document.documentElement.classList.add('embedded');}catch(e){document.documentElement.classList.add('embedded');}</script>
+<nav class="sitenav" aria-label="サイト共通ナビ">
+  <div class="sitenav-in">
+    <a class="sitenav-brand" href="index.html"><img src="icon.svg" alt="" width="30" height="30"><span>非公式会議録</span></a>
+    <div class="sitenav-links">
+      <a href="index.html">ホーム</a>
+      <a href="search.html">全文検索</a>
+      <a href="list.html">会議一覧</a>
+      <a href="https://www.city.koganei.tokyo.dbsr.jp/" target="_blank" rel="noopener">公式会議録<span class="ext">↗</span></a>
+      <a href="https://www.youtube.com/koganei_shigikai" target="_blank" rel="noopener">原典動画<span class="ext">↗</span></a>
+    </div>
+  </div>
+</nav>
+<nav class="crumb" aria-label="パンくずリスト"><div class="crumb-in"><a href="index.html">ホーム</a><span class="sep">›</span><a href="list.html">全会議一覧</a><span class="sep">›</span><span class="cur">令和8年9月16日 議会運営委員会</span></div></nav>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和8年9月16日</p>
+    <h1>議会運営委員会</h1>
+    <span class="src">YouTube字幕＋AI校正による記録（非公式）</span><div class="hero-note" style="font-family:var(--sans);font-size:13px;line-height:1.7;color:var(--muted);margin-top:10px;">本会議・委員会等の中継動画をもとに、文字起こし・校正・要約を行った非公式アーカイブです。<br><span style="color:#c0392b;font-weight:700;">致命的な話者の誤りや語句の誤りを含んでいます。転載などには適しません。最終的には必ず原典に当たってください。</span></div><span class="genmeta">本文・要約はAIによる自動生成で、小金井市議会の公式見解ではありません。発言者名や語句に誤りを含む場合があります。公式会議録が公開され次第、公式版に差し替えます。<br>最終生成日 2026-09-17</span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <h3>提出議案の一覧</h3>
+<ul>
+<li>議案第71号 消防ポンプ自動車の買い入れについて</li>
+<li>議案第72号 小金井市会計年度任用職員の報酬等に関する条例の一部を改正する条例</li>
+</ul>
+<h3>議案の審議ごとの要約</h3>
+<ul>
+<li><strong>議案第71号 消防ポンプ自動車の買い入れについて</strong><br />
+    9月11日付で追加送付された本議案は、9月18日の本会議に上程し、説明および質疑後、委員会付託を省略して速決とする方針が議会運営委員会で決定された。</li>
+<li><strong>議案第72号 小金井市会計年度任用職員の報酬等に関する条例の一部を改正する条例</strong><br />
+    9月15日付で後日送付された本議案も、議案第71号と同様に9月18日の本会議に上程し、説明および質疑後、委員会付託を省略して速決とする方針が議会運営委員会で決定された。</li>
+</ul>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/SSonCqaw1cc" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
+  </section>
+
+<div class="turn reveal" id="t0">
+  <div class="meta"><span class="name">—</span></div>
+  <div class="say">本日はご覧いただきありがとうございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t1">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSonCqaw1cc&t=150s" data-timestamp="150"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:30</a>おはようございます。議会運営委員会協議会を始めたいと思います。<br />
+お手元の協議事項を見ていただいて、委員会の進行予定は議長の諮問事項1件、調査1件の計2件であります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSonCqaw1cc&t=184s" data-timestamp="184"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:04</a>議会運営に関する議長の諮問事項については、市長送付案件の取扱いということで、追加送付案件議案第71号と後日送付案件議案第72号が提出されておりますので、その取扱いについて協議したいということであります。<br />
+議会改革に関する諸問題の調査は、議会改革については、市議会オンライン会議については予算要求を持ち帰っていただいていますので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSonCqaw1cc&t=216s" data-timestamp="216"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:36</a>それを確認させていただきたいということと、議会基本条例についてのBCPについては、副議長からハンドブック案、素晴らしいものが出されておりますので、この説明を受けて、案どちらかでいくかというのを決めたいのですが、今日は決められないので、どこかの議運で、今日は説明を受けるだけというふうにしておきたいと思います。<br />
+その他ということですが、皆さんから何かありますでしょうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSonCqaw1cc&t=250s" data-timestamp="250"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:10</a>委員会に入ります。<br />
+局長、保留案件、保留事項と本日の進行予定だけ確認させていただきます。<br />
+進行予定表案をご覧いただきたいと思います。<br />
+1番が今の議運になります。これが終わりましたら、2番の総務企画委員会に行っていただいて、陳情1件が保留になっておりますので、その関係の審査。<br />
+3番で庁舎等建設の委員会の方は、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSonCqaw1cc&t=282s" data-timestamp="282"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:42</a>陳情が10件保留になっておりますので、その関係の審査。<br />
+その後、会派代表者会議で条例意見書決議の関係をやっていただき、5番の議運に戻っていただいて、本日の進行状況の確認と議会整理日について確認していただき、その後6番で広報広聴協議会をやっていただくというのが、本日の進行予定になってございます。<br />
+ということなんですが、よろしいでしょうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSonCqaw1cc&t=322s" data-timestamp="322"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:22</a>ただいまから議会運営委員会の会議を開きます。<br />
+直ちに議事に入ります。<br />
+当委員会に負託されております案件は、議長の諮問事項1件、調査1件の計2件であります。<br />
+議長からお手元に議会運営委員会協議事項が提示されておりますので、その順序に従って順次協議をしてまいりたいと思います。<br />
+議会運営に関する議長の諮問事項についてを議題といたします。<br />
+はじめに協議事項1、市長送付案件の取扱いについて行います。<br />
+部局から発言があればお願いします。</div>
+</div>
+
+<div class="turn reveal" id="t2">
+  <div class="meta"><span class="name">総務部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSonCqaw1cc&t=354s" data-timestamp="354"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:54</a>おはようございます。<br />
+追加送付及び後日送付案件についてご報告いたします。<br />
+追加送付案件として、9月11日付、議案第71号、消防ポンプ自動車の買い入れについて、後日送付案件として、9月15日付、議案第72号、小金井市会計年度任用職員の報酬等に関する条例の一部を改正する条例を送付させていただきましたので、取扱いをよろしくお願いいたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSonCqaw1cc&t=386s" data-timestamp="386"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:26</a>なお、本2件につきましては、本会議での速決をお願いいたします。</div>
+</div>
+
+<div class="turn chair reveal" id="t3">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">取扱いについて、議長の諮問案が提示されておりますので、説明をお願いします。議長。</div>
+</div>
+
+<div class="turn reveal" id="t4">
+  <div class="meta"><span class="name">議会事務局長</span></div>
+  <div class="say">事務局から説明いたします。</div><div class="say">議案第71号及び議案第72号につきましては、9月18日の本会議に上呈し、説明、質疑後、委員会不得を省略し、速決することとしたいというのが議長の諮問案でございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t5">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">議長及び事務局の説明は終わりました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSonCqaw1cc&t=416s" data-timestamp="416"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:56</a>ご意見、ご審議はございますか。<br />
+お諮りいたします。本件については議長の諮問のとおり決定することにご異議ありませんか。</div>
+</div>
+
+<div class="turn voice reveal" id="t6">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">ご異議なしと認めます。</div>
+</div>
+
+<div class="turn chair reveal" id="t7">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">したがって本件は議長の諮問のとおり決定いたしました。<br />
+協議事項2その他でございますが、何かご発言ございますか。</div><div class="say">以上で議会運営に関する議長の諮問事項についてを終わります。</div><div class="say">次に議会改革に関する諸問題の調査を議題といたします。<br />
+1議会改革について行います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSonCqaw1cc&t=448s" data-timestamp="448"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:28</a>直ちに7-4市議会オンライン会議についてを議題といたします。<br />
+8月24日に事務局からガルーンで送付したオンライン会議機器見積金額のうち、パソコン広角カメラ及び広角カメラの三脚を除いた金額で予算要求を行うかを持ち帰っていただいておりますので、皆さんからそれぞれご発言いただきたいと思いますが、予算要求でよろしいですか。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSonCqaw1cc&t=480s" data-timestamp="480"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:00</a>　ということを決定いたしました。</div><div class="say">それでは本件については引き続き協議するということでよろしいでしょうか。<br />
+本件については引き続き協議することといたしました。</div><div class="say">次に2議会基本条例について行います。<br />
+直ちに議会BCPについてを議題といたします。<br />
+皆さんのところに小林副議長が作成したハンドブック案が</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSonCqaw1cc&t=515s" data-timestamp="515"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:35</a>すでに送付されていると思いますが、小林副議長が作成したハンドブック案についてご説明いただきたいと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t8">
+  <div class="meta"><span class="name">副議長</span></div>
+  <div class="say">おはようございます。<br />
+前回委員長の方で作っていただいたハンドブックがありますが、あれは武蔵野のガイドブックをもとに作っていただいたもので、あれも非常に使い勝手がいいかなと思ったのですが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSonCqaw1cc&t=547s" data-timestamp="547"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:07</a>もう少し書道記の方に絞って、今皆さん胸ポケットに入っていると思いますが、持ち歩けるような形でやったらいいのではないかという話の中で、案を作ってみるということで今回お配りさせていただきました。<br />
+ガルーンの方に元データも載っていますが、こんな形でA4一枚で出てきますので、この切り取りのところを切り取ってもらって、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSonCqaw1cc&t=577s" data-timestamp="577"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:37</a>下のところがあるので、切り取ってもらって三つ折りにして、この片方をのりしろにすると、今お手元にあるような形でなるようになっております。<br />
+やはりA4サイズ、名刺サイズまでやると、文字が入りきらないところもあったので、このような少し一回り大きく、財布に入る形かなと思っておりますが、ご検討いただければと思います。<br />
+基本的には今のBCPの計画の中身を</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSonCqaw1cc&t=610s" data-timestamp="610"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:10</a>落とし込んだ形になっていますが、今の計画の中にガルーンに登録するという文言がありませんので、そこは独自で文字に起こしているところもありますので、併せてその辺りもご確認をいただければと思います。<br />
+最後補足で7ページ、7と書いてあるところの緊急時チェックリストという下のところに赤い四角が2つあるのは、これは独自のチェック項目などを</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSonCqaw1cc&t=643s" data-timestamp="643"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:43</a>書いていただけたらよりカスタマイズできるかなと思ったので、そんな形にしておりますので、ご検討ください。</div><div class="say">以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t9">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">現時点で皆さんから何か質問とご意見などありますか。<br />
+よろしいですか。<br />
+今日のところは説明を受けて、両案2つの案が出ておりますので、どちらの案でいくかということについては、決めた上で、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSonCqaw1cc&t=673s" data-timestamp="673"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:13</a>皆さんからご意見をもらっていくという形にしたいと思いますので、どちらかにするかということについては、今日は持ち帰っていただいて、最終日の議運でまた確認したいと思いますので、よろしくお願いします。<br />
+最終日だからあさって18日でもいいですし、10月の最終本会議のときでも構いませんので、まず議運でどちらでいくかということを決めた上で、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSonCqaw1cc&t=704s" data-timestamp="704"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:44</a>皆さんに意見をもらったほうがいいかなと。<br />
+今日はこの場では決定という形になりませんので、ということで皆さんいいですか。<br />
+特に何か。<br />
+お諮りいたします。議会基本条例については現時点での質疑を終了することにご異議ありませんか。</div>
+</div>
+
+<div class="turn voice reveal" id="t10">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">ご異議なしと認めます。</div>
+</div>
+
+<div class="turn chair reveal" id="t11">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">したがって議会基本条例についての現時点での質疑を終了いたします。</div><div class="say">次にその他について何かございますか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSonCqaw1cc&t=737s" data-timestamp="737"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:17</a>お諮りいたします。議会改革に関する諸問題の調査につきましては、現時点での質疑を終了し、継続調査といたしたいと思います。これにご異議ありませんか。</div>
+</div>
+
+<div class="turn voice reveal" id="t12">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">ご異議なしと認めます。</div>
+</div>
+
+<div class="turn chair reveal" id="t13">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">したがって本件調査は継続調査と決定いたしました。</div><div class="say">以上で当委員会に負託されております案件の審査は全て終了いたしました。<br />
+これで議会運営委員会の会議を閉じ、散会いたします。<br />
+お疲れ様でした。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSonCqaw1cc&t=792s" data-timestamp="792"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:12</a>ご視聴ありがとうございました。</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
+<button class="to-top" type="button" aria-label="ページ上部へ戻る" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>(function(){var b=document.querySelector('.to-top');if(!b)return;function u(){b.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>300);}window.addEventListener('scroll',u,{passive:true});u();})();</script>
+<script id="anchor-js">
+(function(){
+  try{
+    var turns=[].slice.call(document.querySelectorAll('.turn[id]'));
+    if(!turns.length) return;
+    var firstBy={};
+    turns.forEach(function(t){
+      var nm=t.querySelector('.name'); if(!nm) return;
+      var key=(nm.textContent||'').trim(); if(!key||key==='—') return;
+      if(!firstBy[key]) firstBy[key]=t.id;
+    });
+    var toast;
+    function showToast(){
+      if(!toast){ toast=document.createElement('div'); toast.className='copy-toast'; toast.textContent='この発言へのリンクをコピーしました'; document.body.appendChild(toast); }
+      toast.classList.add('show'); clearTimeout(toast._t); toast._t=setTimeout(function(){toast.classList.remove('show');},1800);
+    }
+    function hl(el){ turns.forEach(function(x){x.classList.remove('turn-hl');}); if(el) el.classList.add('turn-hl'); }
+    // ② 発言パーマリンク
+    turns.forEach(function(t){
+      var meta=t.querySelector('.meta'); if(!meta) return;
+      var a=document.createElement('a');
+      a.className='turn-link'; a.href='#'+t.id; a.title='この発言へのリンクをコピー'; a.setAttribute('aria-label','この発言へのリンクをコピー');
+      a.textContent='🔗';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault();
+        var url=location.origin+location.pathname+'#'+t.id;
+        try{ history.replaceState(null,'','#'+t.id); }catch(e){}
+        if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(showToast).catch(function(){ location.hash=t.id; }); }
+        else { location.hash=t.id; showToast(); }
+        hl(t);
+      });
+      meta.appendChild(a);
+    });
+    // ① 要約中の発言者名(太字)→本文へ
+    [].slice.call(document.querySelectorAll('.sum strong')).forEach(function(st){
+      var txt=(st.textContent||'').trim(); if(!txt||txt.length<2) return;
+      var id=null;
+      for(var k in firstBy){ if(k.indexOf(txt)>=0 || txt.indexOf(k)>=0){ id=firstBy[k]; break; } }
+      if(!id) return;
+      var a=document.createElement('a');
+      a.className='sum-jump'; a.href='#'+id; a.textContent=st.textContent; a.title='本文の発言へ';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault(); var el=document.getElementById(id);
+        if(el){ hl(el); el.scrollIntoView({block:'center',behavior:'smooth'}); try{history.replaceState(null,'','#'+id);}catch(e){} }
+      });
+      st.parentNode.replaceChild(a, st);
+    });
+    // 直リンクで #tN が指定されていたらハイライト
+    if(location.hash){ var el0=document.getElementById(location.hash.slice(1)); if(el0&&el0.classList&&el0.classList.contains('turn')) el0.classList.add('turn-hl'); }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
