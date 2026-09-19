@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和8年9月18日 本会議①</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#157a4b; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* サイト共通ヘッダー（トップと同系の緑＋クリーム）。iframe埋め込み時は html.embedded で非表示 */
+  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
+  html.embedded .sitenav{display:none;}
+  .sitenav-in{max-width:1100px;margin:0 auto;padding:0 18px;min-height:52px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .sitenav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#157a4b;font-weight:700;font-size:1rem;white-space:nowrap;}
+  .sitenav-brand img{display:block;border-radius:2px;}
+  .sitenav-links{margin-left:auto;display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+  .sitenav-links a{color:#2a2620;font-size:.84rem;font-weight:600;text-decoration:none;padding:8px 11px;border-radius:2px;white-space:nowrap;}
+  .sitenav-links a:hover{color:#157a4b;background:#e7f4ec;}
+  .sitenav-links .ext{color:#8a8073;font-size:.8em;margin-left:1px;}
+  @media(max-width:640px){.sitenav-in{min-height:0;padding:8px 14px;}.sitenav-links a{padding:6px 9px;font-size:.8rem;}}
+
+  /* パンくず */
+  .crumb{background:#fbf9f4;border-bottom:1px solid #eee7db;position:sticky;top:52px;z-index:59;}
+  html.embedded .crumb{display:none;}
+  .crumb-in{max-width:1100px;margin:0 auto;padding:8px 18px;font-size:.76rem;color:#8a8073;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.5;}
+  .crumb a{color:#157a4b;text-decoration:none;font-weight:600;}
+  .crumb a:hover{text-decoration:underline;}
+  .crumb .sep{color:#c9c0b2;}
+  .crumb .cur{color:#4a443b;font-weight:600;}
+  @media(max-width:640px){.crumb{position:static;} .sitenav-in{flex-wrap:nowrap;} .sitenav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  /* 未定稿（公式だが校正中）＝確定版と一目で区別できるようコーラル地にする */
+  .hero .srcbadge.draft{background:var(--coral-dark, #b83a25);}
+  .hero .srcbadge.draft .dot{background:#ffd9cf;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
+
+  /* ページトップへ戻る */
+  .to-top{position:fixed;bottom:20px;right:20px;z-index:900;width:44px;height:44px;border:none;border-radius:50%;background:#157a4b;color:#fff;font-size:20px;line-height:1;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,background .15s;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+  .to-top.show{opacity:.92;visibility:visible;transform:none;}
+  .to-top:hover{opacity:1;background:#12633d;}
+
+  /* 発言パーマリンク＆要約→本文アンカー */
+  .turn-link{margin-left:8px;font-size:12px;text-decoration:none;opacity:0;transition:opacity .15s;color:#8a8073;}
+  .turn:hover .turn-link,.turn-link:focus{opacity:.7;}
+  .turn-link:hover{opacity:1;}
+  .turn:target,.turn.turn-hl{background:#fff8e1;transition:background .3s;}
+  a.sum-jump{color:#157a4b;font-weight:700;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;cursor:pointer;}
+  a.sum-jump:hover{color:#12633d;}
+  .copy-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(8px);background:#157a4b;color:#fff;font-size:13px;padding:9px 16px;border-radius:4px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;z-index:1100;box-shadow:0 2px 10px rgba(0,0,0,.25);}
+  .copy-toast.show{opacity:1;visibility:visible;transform:translateX(-50%);}
+</style>
+</head>
+<body>
+<script>try{if(window.self!==window.top)document.documentElement.classList.add('embedded');}catch(e){document.documentElement.classList.add('embedded');}</script>
+<nav class="sitenav" aria-label="サイト共通ナビ">
+  <div class="sitenav-in">
+    <a class="sitenav-brand" href="index.html"><img src="icon.svg" alt="" width="30" height="30"><span>非公式会議録</span></a>
+    <div class="sitenav-links">
+      <a href="index.html">ホーム</a>
+      <a href="search.html">全文検索</a>
+      <a href="list.html">会議一覧</a>
+      <a href="https://www.city.koganei.tokyo.dbsr.jp/" target="_blank" rel="noopener">公式会議録<span class="ext">↗</span></a>
+      <a href="https://www.youtube.com/koganei_shigikai" target="_blank" rel="noopener">原典動画<span class="ext">↗</span></a>
+    </div>
+  </div>
+</nav>
+<nav class="crumb" aria-label="パンくずリスト"><div class="crumb-in"><a href="index.html">ホーム</a><span class="sep">›</span><a href="list.html">全会議一覧</a><span class="sep">›</span><span class="cur">令和8年9月18日 本会議①</span></div></nav>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和8年9月18日</p>
+    <h1>本会議①</h1>
+    <span class="src">YouTube字幕＋AI校正による記録（非公式）</span><div class="hero-note" style="font-family:var(--sans);font-size:13px;line-height:1.7;color:var(--muted);margin-top:10px;">本会議・委員会等の中継動画をもとに、文字起こし・校正・要約を行った非公式アーカイブです。<br><span style="color:#c0392b;font-weight:700;">致命的な話者の誤りや語句の誤りを含んでいます。転載などには適しません。最終的には必ず原典に当たってください。</span></div><span class="genmeta">本文・要約はAIによる自動生成で、小金井市議会の公式見解ではありません。発言者名や語句に誤りを含む場合があります。公式会議録が公開され次第、公式版に差し替えます。<br>最終生成日 2026-09-19</span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <p>令和8年9月18日本会議①(9:59-10:41)。冒頭、議会運営委員長(水上洋志)が9月16日の議運委報告を行い、市長送付の議案第71号(消防ポンプ自動車の買入れ)・第72号(会計年度任用職員報酬条例改正)を委員会付託省略・即決とすることを決定。続いて日程第1〜第17(所管事務調査・陳情計17件)を一括議題とし、議会運営・厚生文教(沖浦あつし)・建設環境(清水学)・総務企画(鈴木成夫)・予算特別(坂井えつ子)・庁舎等建設及び公共施設マネジメント推進調査特別(吹春やすたか)の各委員長が審査結果を報告。行政視察報告(議運=彦根市・西脇市、厚生文教=豊中市・三島市)も行われた。庁舎等建設特別委員会は陳情35号「庁舎等建設の再設計に関する陳情書」その6を含む陳情15件・調査1件を審査し、うち14件は継続審査・継続調査、陳情35号その6は起立多数で採択と報告。所管事務調査報告後、討論採決を一時保留とする決定を経て、議案第71号・第72号を上程。第71号は総務部長が説明し質疑なく委員会付託省略・討論採決一時保留。第72号(会計年度任用職員の報酬時間額改定、多摩26市平均との比較で一律50円等の増額)については、片山かおる議員が保育士・保育士補助・学童保育指導員等の欠員状況(保育士61人中36人など)と根本的対策の有無を質し、職員課長・子ども家庭部長が答弁。森戸よう子議員も多摩平均との格差是正を求めた。質疑終了後、本件も委員会付託省略・討論採決一時保留と決定し、議会運営委員会等開催のため休憩に入った。</p>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/ha2TYnAarqE" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
+  </section>
+
+<div class="turn chair reveal" id="t0">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=260s" data-timestamp="260"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:20</a>ただいまから本日の会議を開きます。9月16日に議会運営委員会を開催していますので、議会運営委員長の報告を求めます。16番、水上洋志委員長。水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t1">
+  <div class="meta"><span class="name">水上洋志議会運営委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=290s" data-timestamp="290"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:50</a>9月16日に議会運営委員会を開催いたしましたので、その結果についてご報告いたします。市長から令和8年9月11日付で議案第71号、消防ポンプ自動車の買入れについて、また、9月15日付で議案第72号、小金井市会計年度任用職員の報酬等に関する条例の一部を改正する条例が送付されましたので、その取扱いについて協議いたしました。その結果、議案第71号及び議案第72号については、本日の本会議に上程し、説明・質疑後、委員会付託を省略し、即決することと決定いたしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=329s" data-timestamp="329"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:29</a>以上で議会運営委員会の報告を終了いたします。</div>
+</div>
+
+<div class="turn chair reveal" id="t2">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">議会運営委員長の報告に対して質疑はありますか。質疑を終了することにご意見はありませんか。ご意見なしと認め、質疑を終了し、議会運営委員長の報告を終了します。お諮りします。議会運営委員長の報告どおり決定することにご異議ありませんか。</div><div class="say">ご異議なしと認め、議会運営委員長の報告どおり決定しました。日程第1、行政視察に係る所管事務調査から</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=360s" data-timestamp="360"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:00</a>日程第17、8陳情第35号、庁舎等建設の再設計に関する陳情書、その6までの17件を一括して議題とします。以上17件について各委員長の報告を求めます。議会運営委員長の報告を求めます。16番、水上洋志委員長。水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t3">
+  <div class="meta"><span class="name">水上洋志議会運営委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=392s" data-timestamp="392"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:32</a>議会運営委員会委員長報告を行います。議会運営委員会は令和8年9月8日に開催し、陳情1件、調査1件の計2件を審査いたしましたので、その審査の概要と結果につきましてご報告申し上げます。なお、8陳情第28号、長期欠席議員の報酬やボーナスの減額措置を求める陳情書につきましては、継続審査と決定しております。</div><div class="say">また、議会改革に関する諸問題の調査につきましては、引き続き調査する必要があると認め、継続調査と決定しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=425s" data-timestamp="425"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:05</a>行政視察に係る所管事務調査の報告を行います。議会運営委員会は6月30日に滋賀県彦根市、7月1日に兵庫県西脇市を視察いたしました。視察項目は、彦根市については大学との連携について、西脇市については、1、議会機能向上のための取り組みについて、2、市民参画制度についてであります。</div><div class="say">詳細につきましてはお手元にご配布いたしました報告書のとおりであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=457s" data-timestamp="457"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:37</a>以上で議会運営委員会の行政視察に係る所管事務調査を終了いたします。以上で議会運営委員会の報告を終了いたします。</div>
+</div>
+
+<div class="turn chair reveal" id="t4">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">議会運営委員長の報告に対する質疑を行います。質疑を終了することにご意見はありませんか。ご意見なしと認め質疑を終了し、議会運営委員長の報告を終了します。次に、厚生文教委員長の報告を求めます。11番、沖浦あつし委員長。</div>
+</div>
+
+<div class="turn reveal" id="t5">
+  <div class="meta"><span class="name">沖浦あつし厚生文教委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=494s" data-timestamp="494"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:14</a>厚生文教委員会委員長報告を行います。厚生文教委員会は令和8年9月9日に開催し、議案1件、陳情1件、所管事務調査2件の計4件を審査いたしましたので、その審査の概要と結果につきましてご報告申し上げます。なお、所管事務調査、地域福祉計画の進捗について及び所管事務調査、子ども政策についての以上2件につきましては、引き続き調査する必要があると認め、継続調査と決定しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=524s" data-timestamp="524"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:44</a>議案第66号、学校設置者等及び民間教育・保育等事業者による児童対象性暴力等の防止等のための措置に関する法律の施行に伴う関係条例の整理に関する条例。本件につきましては、令和8年8月31日の本会議において当委員会に付託され、9月9日に審査を行いました。同日の委員会では質疑を終了し、採決の結果、原案のとおり可決すべきものと決定いたしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=556s" data-timestamp="556"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:16</a>8陳情第9号、定額減税補足給付金の申請締切りについて、入院という特殊事情への配慮等を求める陳情書。本件につきましては、令和8年3月23日の本会議において当委員会に付託され、4月28日、8月7日及び9月9日の計3回にわたり審査を行いました。9月9日の委員会では質疑を終了し、起立採決の結果、起立少数により不採択すべきものと決定いたしました。</div><div class="say">次に、行政視察に係る</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=590s" data-timestamp="590"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:50</a>所管事務調査の報告を行います。厚生文教委員会は7月6日、7日に大阪府豊中市、静岡県三島市を視察いたしました。視察項目は、豊中市については引きこもり支援について、三島市についてはスポーツ健康都市宣言についてであります。</div><div class="say">詳細につきましてはお手元にご配布いたしました報告書のとおりであります。以上、厚生文教委員会の行政視察に係る所管事務調査を終了いたします。以上で厚生文教委員会の報告を終了いたします。</div>
+</div>
+
+<div class="turn chair reveal" id="t6">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=621s" data-timestamp="621"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:21</a>厚生文教委員長の報告に対する質疑を行います。質疑を終了することにご異議ありませんか。ご異議なしと認め、質疑を終了し、厚生文教委員長の報告を終了します。建設環境委員長の報告を求めます。4番、清水学委員長。</div>
+</div>
+
+<div class="turn reveal" id="t7">
+  <div class="meta"><span class="name">清水学建設環境委員長</span></div>
+  <div class="say">建設環境委員会委員長の報告を行います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=653s" data-timestamp="653"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:53</a>建設環境委員会は令和8年9月10日に開催し、議案2件、陳情1件、所管事務調査2件の計5件を審査いたしましたので、その審査の概要と結果につきましてご報告申し上げます。なお、所管事務調査、循環型社会の形成及び温室効果ガス削減に関する調査、及び所管事務調査、都市計画道路に関する調査の以上2件につきましては、引き続き調査する必要があると認め、継続調査と決定しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=684s" data-timestamp="684"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:24</a>議案第67号、市道路線の廃止について。本件につきましては、令和8年8月31日の本会議において当委員会に付託され、9月10日の委員会で審査を行いました。同日の委員会では質疑を終了し、採決の結果、可決すべきものと決定いたしました。</div><div class="say">議案第68号、市道路線の認定について。本件につきましては、令和8年8月31日の本会議において</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=714s" data-timestamp="714"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:54</a>当委員会に付託され、9月10日の委員会で審査を行いました。同日の委員会では質疑を終了し、採決の結果、可決すべきものと決定いたしました。8陳情第20号、市内3駅周辺の街路樹の本数増を求める陳情書。</div><div class="say">本件につきましては、令和8年6月9日の本会議において当委員会に付託され、6月12日、8月3日及び9月10日の計3回にわたり審査を行いました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=745s" data-timestamp="745"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:25</a>9月10日の委員会では特段の質疑もなく、起立採決の結果、起立多数により採択の上、市長に送付すべきものと決定いたしました。以上で建設環境委員会の報告を終わります。</div>
+</div>
+
+<div class="turn chair reveal" id="t8">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">建設環境委員長の報告に対する質疑を行います。質疑を終了することにご異議はありませんか。ご異議なしと認め質疑を終了し、建設環境委員長の報告を終了します。次に総務企画委員長の報告を求めます。20番、鈴木成夫委員長。</div>
+</div>
+
+<div class="turn reveal" id="t9">
+  <div class="meta"><span class="name">鈴木成夫総務企画委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=790s" data-timestamp="790"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:10</a>総務企画委員会委員長報告を行います。総務企画委員会は令和8年9月11日及び16日に開催し、議案1件、陳情5件、所管事務調査1件の計7件を審査いたしましたので、その審査の概要と結果につきましてご報告申し上げます。なお、8陳情第29号、ハラスメント防止条例の制定に向けた調査検討を求める陳情書につきましては、引き続き調査する必要があると認め、継続審査と決定しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=825s" data-timestamp="825"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:45</a>また、所管事務調査、自治体DXの取り組みについてにつきましては、引き続き調査する必要があると認め、継続調査と決定しております。議案第65号、小金井市職員の勤務時間、休日、休暇等に関する条例の一部を改正する条例。本件につきましては令和8年8月31日の本会議において当委員会に付託され、9月11日の委員会で審査を行いました。</div><div class="say">当日の委員会では特段の質疑もなく採決の結果、原案のとおり可決すべきものと決定いたしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=862s" data-timestamp="862"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:22</a>8陳情第1号、新宿区において顕在化した事例を受けて、政党機関紙の庁舎内勧誘行為に関する早期の実態把握と再発防止を求める陳情書。本件につきましては、令和8年3月2日の本会議において当委員会に付託され、3月6日、4月20日、7月29日、9月11日及び16日の計5回にわたり審査を行いました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=892s" data-timestamp="892"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:52</a>なお3月6日の委員会では陳情者から発言の申出がありましたので、審査に先立ち委員会協議会を開催し発言していただきました。9月16日の委員会では特段の質疑もなく、起立採決の結果、起立多数により採択の上、市長に送付すべきものと決定いたしました。8陳情第14号、地方消費者行政の維持強化のための対策を求める意見書を</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=923s" data-timestamp="923"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:23</a>国会等に提出することを求める陳情書。本件につきましては令和8年6月9日の本会議において当委員会に付託され、6月15日、7月29日及び9月11日の計3回にわたり審査を行いました。9月11日の委員会では質疑を終了し起立採決の結果、可否同数のため、委員長採決により不採択すべきものと決定いたしました。</div><div class="say">8陳情第18号、司法修習生採用選考、審査基準に国籍条項を設けることを求める意見書提出に関する陳情書。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=963s" data-timestamp="963"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:03</a>本件につきましては令和8年6月9日の本会議において当委員会に付託され、6月15日、7月29日及び9月11日の計3回にわたり審査を行いました。なお6月15日の委員会では陳情者から発言の申し出がありましたので、審査に先立ち委員会協議会を開催し発言していただきました。9月11日の委員会では質疑を終了し、起立採決の結果、起立なしにより不採択すべきものと決定いたしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=998s" data-timestamp="998"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:38</a>8陳情第27号、国に国民の主食である米の価格を統制することを求める意見書の提出に関する陳情書。本件につきましては、令和8年9月7日の本会議において当委員会に付託され、9月11日の委員会で審査を行いました。同日の委員会では質疑を終了し、起立採決の結果、起立なしにより不採択すべきものと決定いたしました。</div>
+</div>
+
+<div class="turn chair reveal" id="t10">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1028s" data-timestamp="1028"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:08</a>以上で総務企画委員会の報告を終了いたします。総務企画委員長の報告に対する質疑を行います。質疑を終了することにご意見はありませんか。ご意見なしと認め、質疑を終了し、総務企画委員長の報告を終了します。予算特別委員長の報告を求めます。8番、坂井えつ子委員長。</div>
+</div>
+
+<div class="turn reveal" id="t11">
+  <div class="meta"><span class="name">坂井えつ子予算特別委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1066s" data-timestamp="1066"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:46</a>予算特別委員会委員長報告を行います。予算特別委員会は令和8年9月14日に開催し、議案4件を審査いたしましたので、その審査の概要と結果につきましてご報告申し上げます。議案第60号、令和8年度小金井市一般会計補正予算第5回。</div><div class="say">本件につきましては令和8年8月31日の本会議において当委員会に付託され9月14日の委員会で審査を行いました。同日の委員会では歳入・歳出・総括の順で審査を行い、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1098s" data-timestamp="1098"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:18</a>質疑を終了し採決の結果、原案のとおり可決すべきものと決定いたしました。議案第61号、令和8年度小金井市国民健康保険特別会計補正予算。本件につきましては、令和8年8月31日の本会議において、当委員会に付託され、9月14日の委員会で審査を行いました。</div><div class="say">同日の委員会では、歳入・歳出一括・総括の順で審査を行い、特段の質疑もなく、採決の結果、原案のとおり可決すべきものと決定いたしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1130s" data-timestamp="1130"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:50</a>議案第62号、令和8年度小金井市介護保険特別会計補正予算第1回。本件につきましては、令和8年8月31日の本会議において当委員会に付託され、9月14日の委員会で審査を行いました。同日の委員会では、歳入・歳出一括・総括の順次審査を行い、特段の質疑もなく、採決の結果、原案のとおり可決すべきものと決定いたしました。</div><div class="say">議案第63号、令和8年度小金井市後期高齢者医療特別会計補正予算第1回。本件につきましては令和8年8月31日の</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1167s" data-timestamp="1167"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:27</a>本会議において当委員会に付託され、9月14日の委員会で審査を行いました。同日の委員会では歳入・歳出一括、総括の順で審査を行い特段の質疑もなく、採決の結果、原案のとおり可決すべきものと決定いたしました。以上で予算特別委員会の報告を終了いたします。</div>
+</div>
+
+<div class="turn chair reveal" id="t12">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">予算特別委員長の報告に対する質疑を行います。質疑を終了することにご意見はありませんか。ご意見なしと認め質疑を終了し予算特別委員長の報告を</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1198s" data-timestamp="1198"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:58</a>終了します。庁舎等建設及び公共施設マネジメント推進調査特別委員長の報告を求めます。17番、吹春やすたか委員長。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1229s" data-timestamp="1229"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:29</a></div>
+</div>
+
+<div class="turn reveal" id="t13">
+  <div class="meta"><span class="name">吹春やすたか庁舎等建設及び公共施設マネジメント推進調査特別委員長庁舎等建設及び公共施設マネジメント推進調査特別委員会委員長報告を行います。庁舎等建設及び公共施設マネジメント推進調査特別委員会は、令和8年9月15日及び16日の計2回にわたり開催し、陳情15件、調査1件の計16件を審査いたしましたので、その審査の概要と結果についてご報告申し上げます。8陳情第4号、その5、新庁舎・新福祉会館建設事業の合理的見直しを求める陳情書。</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1262s" data-timestamp="1262"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:02</a>8陳情第5号、その6、論点を整理し重要課題に絞り込んだ同一条件比較、現行案と見直し案の資料の整備と文書回答を求める陳情書。8陳情第6号、その7、豪雨リスクの不確実性を踏まえた浸水対策の前提条件、成立性・限界の同一条件比較を求める陳情書。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1297s" data-timestamp="1297"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:37</a>8陳情第7号、その8、公共建築の公平性確保のため、構造方式の選択理由の明確化と免震統一を含む同一条件比較資料の提出を求める陳情書。8陳情第19号、庁舎等建設と学校等の建て替えについて、財政規律ガイドラインを含めた市民説明会の開催を求める陳情書。8陳情第23号、その9、新庁舎建設におけるサウンディング調査と議会報告を通じて見直し促進を求める陳情書。</div><div class="say">8陳情第24号、その10、新庁舎建設における市民提案、広場確保と建設費削減の不採択理由に関する説明を求める陳情書。8陳情第25号、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1327s" data-timestamp="1327"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:07</a>その11、新庁舎・福祉会館の安全性に関する市民提案の不採択の理由の説明等、善管注意義務の履行を求める陳情書。8陳情第26号、その12、下田市新庁舎計画進行式典で感じたこと、現地視察を求める陳情書。8陳情第30号、庁舎等建設の再設計に関する陳情書、その1。</div><div class="say">8陳情第31号、庁舎等建設の再設計に関する陳情書、その2。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1362s" data-timestamp="1362"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:42</a>8陳情第32号、庁舎等建設の再設計に関する陳情書、その3。8陳情第33号、庁舎等建設の再設計に関する陳情書、その4及び8陳情第34号、庁舎等建設の再設計に関する陳情書、その5の以上14件につきましては、引き続き審査する必要があると認め、継続審査と決定しております。また庁舎等建設及び公共施設マネジメントの推進に係る諸問題の調査につきましては、引き続き調査する必要があると認め、継続調査と決定しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1396s" data-timestamp="1396"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:16</a>8陳情第35号、庁舎等建設の再設計に関する陳情書、その6につきましては、9月7日の本会議において当委員会に付託され、9月15日及び16日の計2回にわたり委員会で審査を行いました。16日の委員会では特段の質疑もなく、起立採決の結果、起立多数により採択すべきものと決定いたしました。以上で庁舎等建設及び公共施設マネジメント推進調査特別委員会の報告を終了いたします。</div><div class="say">庁舎等建設及び公共施設マネジメント推進調査特別委員長の報告に対する質疑を行います。</div>
+</div>
+
+<div class="turn chair reveal" id="t14">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1433s" data-timestamp="1433"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:53</a>質疑を終了することにご意見ありませんか。ご意見なしと認め質疑を終了し、庁舎等建設及び公共施設マネジメント推進調査特別委員長の報告を終了します。ただいまの委員長報告のうち、日程第1及び日程第4、行政視察に係る所管事務調査の報告を終了します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1468s" data-timestamp="1468"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:28</a>お諮りします。ご報告いただきました日程第2及び日程第3、日程第5から日程第17までの15件は、討論採決を一時保留することにご異議ありませんか。ご異議なしと認め、日程第2及び日程第3、日程第5から日程第17までの15件は、討論採決を一時保留することと決定しました。</div><div class="say">日程第18、議案第71号、消防ポンプ自動車の買入れについてを議題とします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1504s" data-timestamp="1504"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:04</a>提案理由の説明を求めます。市長。</div>
+</div>
+
+<div class="turn reveal" id="t15">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">議案第71号、消防ポンプ自動車の買入れについてをご提案申し上げます。消防ポンプ自動車を買い入れるため、議案を提出するのであります。細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決を賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn reveal" id="t16">
+  <div class="meta"><span class="name">総務部長</span></div>
+  <div class="say">細部についてご説明いたします。消防ポンプ自動車の買入れについて、9月4日に仮契約を締結いたしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1538s" data-timestamp="1538"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:38</a>本契約に際し、小金井市議会の議決に付すべき契約及び財産の取得又は処分に関する条例第3条の予定価格2,000万円以上の不動産もしくは動産の買入れに当たりますことから、議案を提出するものでございます。それでは議案1ページをご覧ください。議案1ページの号番1、契約の目的になります。</div><div class="say">地域防災の要である消防団の災害対応能力を維持し、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1569s" data-timestamp="1569"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:09</a>市民の生命及び財産を守るため、消防ポンプ自動車3台を更新するため、買い入れるものでございます。車両の仕様等の詳細は、議案2ページに記載をしております。議案1ページ目にお戻りください。</div><div class="say">号番の2、契約の方法でございますが、指名競争入札による契約でございます。次に議案資料1の参加業者一覧表をご覧ください。参加業者は12社であり、参加業者の施工実績、資本金等は記載のとおりとなっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1603s" data-timestamp="1603"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:43</a>続けて議案資料2の入札経過調書をご覧ください。入札金額が最も低かった日本機械工業株式会社が9,780万円で落札をしてございます。恐れ入りますが議案1ページ目にお戻りください。</div><div class="say">号番3の契約金額でございます。落札金額9,780万円に消費税及び地方消費税978万円を加えました、1億758万円になります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1638s" data-timestamp="1638"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:18</a>号番4、契約の相手方につきましては、東京都八王子市中野上町二丁目31番1号、日本機械工業株式会社、代表取締役、北橋明彦でございます。最後に号番の5、契約期間は、契約確定日から令和10年3月31日までとなります。説明につきましては以上でございます。</div><div class="say">よろしくご審議の上、ご議決を賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t17">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">質疑を行います。質疑を終了することにご意見はありませんか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1672s" data-timestamp="1672"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:52</a>ご意見なしと認め、質疑を終了します。お諮りします。本件は委員会付託を省略し、討論採決を一時保留することにご意見はありませんか。ご意見なしと認め、本件は委員会付託を省略し、討論採決を一時保留することと決定しました。</div><div class="say">日程第19、議案第72号、小金井市会計年度任用職員の報酬等に関する条例の一部を改正する条例を議題とします。提案理由の説明を求めます。市長。</div>
+</div>
+
+<div class="turn reveal" id="t18">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1708s" data-timestamp="1708"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:28</a>議案第72号、小金井市会計年度任用職員の報酬等に関する条例の一部を改正する条例を御提案申し上げます。東京都最低賃金の引上げ等に鑑み、会計年度任用職員の報酬時間額を改正するため、議案を提出するものであります。細部につきましては担当部長から説明させていただきますので、よろしくご審議の上、ご議決を賜りますようお願い申し上げます。</div>
+</div>
+
+<div class="turn reveal" id="t19">
+  <div class="meta"><span class="name">総務部長</span></div>
+  <div class="say">細部についてご説明いたします。令和8年9月1日に東京都最低賃金額を</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1743s" data-timestamp="1743"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:03</a>時間額1,226円から54円引き上げ、1,280円に改正する決定が講じられたこと等に鑑み、本市の会計年度任用職員の報酬時間額を改正するものでございます。議案第72号資料1、新旧対照表をご覧ください。会計年度任用職員の職種及び報酬時間額を定めております別表につきまして、各職種の1時間あたりの報酬時間額を改めるものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1777s" data-timestamp="1777"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:37</a>報酬時間額改正の方針としまして、一般事務、学童保育指導員補助及び軽作業業務等については、最低賃金額以上の金額とするため50円を増額し、その他の職種についても処遇改善の観点から一律50円の増額を行うことを基本としております。ただし他市との均衡を考慮し、多摩26市の平均を100円以上下回る職種については100円の増額、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1810s" data-timestamp="1810"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:10</a>逆に26市平均を100円以上上回る職種については据え置きとして検討いたしましたが、全職種100円未満の乖離でありましたことから、一律50円の増額としたものでございます。詳細は議案資料1をご覧ください。次に附則でございます。</div><div class="say">この条例は東京都最低賃金の決定の効力が生じる令和8年10月1日から施行するものでございます。1枚おめくりいただきまして議案資料2をご覧ください。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1844s" data-timestamp="1844"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:44</a>多摩26市の状況でございます。号番の1は改正前、令和8年4月1日現在の会計年度任用職員一般事務職の報酬時間額の状況、号番の2は最低賃金を下回る20市の現時点での報酬時間額、改正予定額でございます。裏面になります。</div><div class="say">議案資料3をご覧ください。現行及び改正後の職種ごとの1時間あたりの報酬時間額について26市平均と比較したものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1878s" data-timestamp="1878"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:18</a>なお本改正による影響額でございますが令和8年10月から令和9年3月までの6ヶ月間で約〇〇〇万円、年間では約2,100万円の増額と試算をしております。以上で説明を終わります。よろしくご審議の上、ご議決を賜りますようよろしくお願い申し上げます。</div>
+</div>
+
+<div class="turn chair reveal" id="t20">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">質疑を行います。片山さん。</div>
+</div>
+
+<div class="turn reveal" id="t21">
+  <div class="meta"><span class="name">片山かおる議員</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1910s" data-timestamp="1910"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:50</a>この会計年度任用職員の報酬の条例については、反対するわけではなくて、応援に賛成するところではあるんですが、確認をしたいものですから質疑をさせていただきます。この中で、この職種として、資料3にありますところの職種としてあるところで、まだ今かなり募集がかかっている、応募がないような職種があるとは思うんですが、特に保育士とか保育士補助、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1942s" data-timestamp="1942"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:22</a>また学童保育指導員、学童保育指導員補助については、どのぐらいこの応募がないような状態、欠員状態になっているかということを確認したいと思います。そしてその欠員の状況をどのようにして改善していくのか、このような形で報酬単価を上げたということで解決するような問題なのかどうかという認識についてお伺いしておきたいと思います。根本的に本来はこれらの職種については、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=1976s" data-timestamp="1976"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:56</a>これまでもかなり報酬がずっと〇〇で、もう応募がないという状況が続いているかと思います。それを解消するための策については検討されているのかどうかということについてを確認したいと思います。</div>
+</div>
+
+<div class="turn reveal" id="t22">
+  <div class="meta"><span class="name">職員課長</span></div>
+  <div class="say">それではまず保育士、保育士補助、学童保育指導員補助の欠員状況についてでございます。時給制ですので、時点時点で異なるものですが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=2009s" data-timestamp="2009"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:29</a>9月1日時点での欠員状況が、保育士が61人中36人、保育補助が72人中34人、学童保育指導員が31人中8人、学童指導員補助が5人中1人ということになっております。また欠員状況の改善ということについてです。時給制で任用している会計年度の雇用につきましても、必要な人員の確保に苦慮して欠員が生じてしまうような現状については、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=2042s" data-timestamp="2042"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:02</a>大変重く受け止めておりまして、特に保育ですとか児童学童の指導員の人材の不足と社会情勢も影響している面があるのかなとは考えておりますが、採用担当といたしましては、例えばホームページの掲載ですとか、あとは広告掲載、ポスターなど工夫して作成する等の対応を図って、雇用ができるよう努めているところでございます。また根本的な解決というところについてもお話いただきましたが、根本的にということになりますと、関係課との調整も必要になりますことから、そこについては、本日については今後の検討課題ということになろうかと思っております。以上です。</div>
+</div>
+
+<div class="turn reveal" id="t23">
+  <div class="meta"><span class="name">片山かおる議員</span></div>
+  <div class="say">このですね、欠員状態については、かなり保育士などについては、61人必要だというところが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=2109s" data-timestamp="2109"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:09</a>36人の欠員があるというような、大変これですね、大きな問題だと思います。時間制ですので、単純にとかそういうことじゃないかと思いますけれども、朝とか夕方とした時間ということもあるかと思いますけれども、そちらがもしいないとすれば、誰かが固定しなきゃいけないわけですね。現在、保育園の状況は一体どうなっているんでしょうか。</div><div class="say">保育園の園長さんは皆さんご在職でいらっしゃるんですか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=2140s" data-timestamp="2140"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:40</a>ちょっとそちらについて確認したいと思います。どなたかですね、お休みされてるというようなこともお聞きしてるわけですけれども、正規職員の状態はどのような状況なんでしょうか。で、この36人ですね、欠員がいないところをどのように補填してるかということは、これはですね、職員課の方では把握されてるんでしょうか。</div><div class="say">これはやっぱりですね、担当課だけに任せていくんじゃなくて、これが補充できてなかったということについては、これはどのような状況にあるか、担当課の方でどういった困っている状態にあるかを把握して、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=2177s" data-timestamp="2177"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:17</a>それをですね速やかに解決すべきだと思うわけですよ。ですので先ほど根本的な解決策については検討していないのかということをお聞きしているわけです。これは職員課だけがですね対応するものではないんですが、こうやって採用の募集をかけるだけではなくて、ここで募集をかけても応募がなかった場合、これはずっと続いてるじゃないですか。</div><div class="say">こういった状態についてを、そもそも何が問題なのか、他の自治体ではどういった状況なのかを把握して、解決方法をしっかりと提示していく。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=2210s" data-timestamp="2210"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:50</a>それを全体的に検討すべきだということと考えますが、どのようにお考えなのかお聞かせいただきたいと思います。他の自治体での状況を是非確認いただきたいですね。例えば正規職員がきちんとしっかりと配置されていて、会計年度の配置が少ないとか、いろんな状態があると思います。</div><div class="say">そういった状況を把握しながら、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=2242s" data-timestamp="2242"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:22</a>なぜここが〇〇でこうやって欠員が出てしまうのかということについて、これについてどういった分析をしていくのかを考えていただきたいと思っております。そしてですね、この、とりあえずその件についてお伺いしたいと思います。</div>
+</div>
+
+<div class="turn reveal" id="t24">
+  <div class="meta"><span class="name">職員課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=2275s" data-timestamp="2275"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:55</a>保育士の時給制の方の欠員について、保育園の状況どう補填しているか等の把握についてでございます。詳細はやはり現場での対応と考えておりますので、細かいところは把握できてないところですが、随時所属長とは先ほどお話のあった保育園の応援の体制等も共有し、できる対応を図っているところです。他市の状況につきましては、専門職の人材確保に苦慮しているような状況は職員課としては聞いているところでして、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=2307s" data-timestamp="2307"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:27</a>細かい体制については、やはり各所属の勤務時間でしたり、体制のところ、また時給については時点時点で状況が異なるものなので、把握は難しいのかなというふうには捉えております。以上です。</div>
+</div>
+
+<div class="turn reveal" id="t25">
+  <div class="meta"><span class="name">片山かおる議員</span></div>
+  <div class="say">ちょっと答えがなかった部分があると思うんですが、各保育園がですね、公立保育園がね、まだ5園あるわけですけれども、保育園の園長さんは今いらっしゃるような状態なんでしょうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=2342s" data-timestamp="2342"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:02</a>お休みされている方もいらっしゃるというようなことをお聞きしているわけですけれども、どういった状況なのかを確認したいと思っております。その上で正規職員が補填をされている状況なのかどうかということについては、これはきちんと把握はできていないということなんでしょうかね。ちょっと確認したいと思います。</div><div class="say">これは〇〇ということではあるんですけれども、やはり必要だから募集かけてるわけですよね。欠員について36人も欠員があるというところについて、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=2373s" data-timestamp="2373"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:33</a>保育士ですね、保育士補助は34人の欠員。このような状況がある中で、正規職員がどのようにここを補完しているのか、正規職員じゃないところでですね、〇〇の会計年度、〇〇職員などが何か補填しているかもしれませんけれども、そのような細かい状況の把握については、これはですね誰が責任を持って把握していくんでしょうか。所属長ということではあるんですけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=2403s" data-timestamp="2403"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:03</a>これをですねやっぱり募集をかける際に、今回この時給単価の増額という形だけしかこの条例では決めてないわけですけれども、こういった時給をただ上げるとかですね、それで募集をまたすればいいというような問題ではないというようなことに、今陥っているのではないかということから言ってもですね、やっぱり抜本的に何が問題でどのように解決していったらいいのかということを合わせながら、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=2435s" data-timestamp="2435"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:35</a>こういった条例の提案をすべきではないかと考えますがいかがでしょうか。</div>
+</div>
+
+<div class="turn reveal" id="t26">
+  <div class="meta"><span class="name">子ども家庭部長</span></div>
+  <div class="say">公立園の園長の配置についてご質問いただきました。5園につきましては5箇所、園長は適切に配置されているところでございます。で、議員の方からお休みお休みの指摘等ございましたけど、年間の中でお休みになるいろんな事由であることはございますけど、今この場でどこの園がお休みになっているというのはちょっと答弁を控えさせていただきます。</div>
+</div>
+
+<div class="turn reveal" id="t27">
+  <div class="meta"><span class="name">職員課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=2471s" data-timestamp="2471"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:11</a>現場の欠員の補填の状況等について採用担当としても状況の把握をというようなご質問ご意見をいただいているところです。先ほど申し上げたとおり、一義的には所属長での状況の対応ということになろうかと思いますが、採用担当といたしましてもその状況の把握、所属長との共有、あとどのような対応ができるか、引き続き共有しながら対応するつもりではございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=2506s" data-timestamp="2506"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:46</a>以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t28">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">他にございますか。森戸さん。</div>
+</div>
+
+<div class="turn reveal" id="t29">
+  <div class="meta"><span class="name">森戸よう子議員</span></div>
+  <div class="say">一つは今回、最低賃金のアップに基づいて上げるということには私たちとしても賛成ではありますが、各市との比較を見ると平均以下という職種がかなりあるわけですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=2540s" data-timestamp="2540"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:20</a>少なくともですね、多摩平均まで持っていかないと、なかなか人材を確保するということは難しいのではないかというふうに思っています。今回ですね、毎回最低賃金のアップに合わせての話ではあるんですが、この多摩地域との格差を是正するということは、今回の提案の中では考えなかったのか、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=2573s" data-timestamp="2573"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:53</a>また来年も多分ね、最低賃金が上がるとは思うんですが、やっぱり多摩平均までですね、全職種引き上げるべきではないかと思いますが、その点について確認をさせてください。</div>
+</div>
+
+<div class="turn reveal" id="t30">
+  <div class="meta"><span class="name">職員課長</span></div>
+  <div class="say">今回ご提案している多摩26市の平均との比較というところで、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=2610s" data-timestamp="2610"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:30</a>少なくとも平均までというようなご意見をいただいたところです。そのような引上げの考えももちろんそのような意見があるということは受け止めつつというところではございますが、市の方針としてやはり、会計年度任用職員、一般職の地方公務員であるということと、あと、情勢適応、均衡の原則等の考えを基本に、我々といたしましては、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=2641s" data-timestamp="2641"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:01</a>先ほど来ご説明させていただいている改定方針の考え方で一定、今回全職種50円の引上げということで、職員団体とも協議の上、というところでご理解いただければというふうに考えております。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t31">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">総務部長。</div>
+</div>
+
+<div class="turn reveal" id="t32">
+  <div class="meta"><span class="name">総務部長</span></div>
+  <div class="say">若干補足をさせていただきたいと思います。今、職員課長の方からも答弁申し上げたとおりなんですが、今ご指摘ありましたとおりですね、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=2671s" data-timestamp="2671"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:31</a>他市との均衡等も考えなければいけないところでありますし、あるいはまた人材確保ということから考えますと、近隣市の動向とも見ていく必要があるかと思っております。来年度以降について今の時点で問うということはないんですが、今いただいたご意見も踏まえまして、また検討してまいりたいと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t33">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">森戸さん。</div>
+</div>
+
+<div class="turn reveal" id="t34">
+  <div class="meta"><span class="name">森戸よう子議員</span></div>
+  <div class="say">ぜひご検討をお願いしたいと思います。聞くところによれば一般事務などはですね、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=2703s" data-timestamp="2703"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:03</a>お隣の近隣市と比べても、近隣市の方が相当高い状況になっていて、ということでありまして、そういう点ではですね、やっぱりそのあたりで開いてくるのかなと思います。今、会計年度任用職員の方々がいらっしゃらなければ、全体の仕事も回っていかない。とりわけ専門職の部分はですね、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=2734s" data-timestamp="2734"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:34</a>極めて重要な役割を果たされている部分でもあります。ずっと見ていますけれども、例えば精神保健福祉士がですね、4月から募集かけられていますが、もう集まったのかな、まだ来られたのかどうか分かりませんけれども、このあたりがですね、なかなか集まってきていないかなということでありまして、精神保健福祉士は多摩平均よりも上がっていますけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=2768s" data-timestamp="2768"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:08</a>やっぱり専門職の確保というのは重要な観点だと思いますので、ぜひ市長においても、来年度を含めてですね、途中でもいいと思うんですが、上げられるところがあれば上げていただきたいということは、申し上げておきたいと思います。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t35">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">他にございますか。質疑を終了することにご意見はありませんか。ご異議なしと認め、質疑を終了します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=ha2TYnAarqE&t=2800s" data-timestamp="2800"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:40</a>お諮りします。本件は委員会付託を省略し、討論採決を一時保留することにご異議ありませんか。ご異議なしと認め、本件は委員会付託を省略し、討論採決を一時保留することと決定しました。議会運営委員会等を開催するため、しばらく休憩します。</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
+<button class="to-top" type="button" aria-label="ページ上部へ戻る" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>(function(){var b=document.querySelector('.to-top');if(!b)return;function u(){b.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>300);}window.addEventListener('scroll',u,{passive:true});u();})();</script>
+<script id="anchor-js">
+(function(){
+  try{
+    var turns=[].slice.call(document.querySelectorAll('.turn[id]'));
+    if(!turns.length) return;
+    var firstBy={};
+    turns.forEach(function(t){
+      var nm=t.querySelector('.name'); if(!nm) return;
+      var key=(nm.textContent||'').trim(); if(!key||key==='—') return;
+      if(!firstBy[key]) firstBy[key]=t.id;
+    });
+    var toast;
+    function showToast(){
+      if(!toast){ toast=document.createElement('div'); toast.className='copy-toast'; toast.textContent='この発言へのリンクをコピーしました'; document.body.appendChild(toast); }
+      toast.classList.add('show'); clearTimeout(toast._t); toast._t=setTimeout(function(){toast.classList.remove('show');},1800);
+    }
+    function hl(el){ turns.forEach(function(x){x.classList.remove('turn-hl');}); if(el) el.classList.add('turn-hl'); }
+    // ② 発言パーマリンク
+    turns.forEach(function(t){
+      var meta=t.querySelector('.meta'); if(!meta) return;
+      var a=document.createElement('a');
+      a.className='turn-link'; a.href='#'+t.id; a.title='この発言へのリンクをコピー'; a.setAttribute('aria-label','この発言へのリンクをコピー');
+      a.textContent='🔗';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault();
+        var url=location.origin+location.pathname+'#'+t.id;
+        try{ history.replaceState(null,'','#'+t.id); }catch(e){}
+        if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(showToast).catch(function(){ location.hash=t.id; }); }
+        else { location.hash=t.id; showToast(); }
+        hl(t);
+      });
+      meta.appendChild(a);
+    });
+    // ① 要約中の発言者名(太字)→本文へ
+    [].slice.call(document.querySelectorAll('.sum strong')).forEach(function(st){
+      var txt=(st.textContent||'').trim(); if(!txt||txt.length<2) return;
+      var id=null;
+      for(var k in firstBy){ if(k.indexOf(txt)>=0 || txt.indexOf(k)>=0){ id=firstBy[k]; break; } }
+      if(!id) return;
+      var a=document.createElement('a');
+      a.className='sum-jump'; a.href='#'+id; a.textContent=st.textContent; a.title='本文の発言へ';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault(); var el=document.getElementById(id);
+        if(el){ hl(el); el.scrollIntoView({block:'center',behavior:'smooth'}); try{history.replaceState(null,'','#'+id);}catch(e){} }
+      });
+      st.parentNode.replaceChild(a, st);
+    });
+    // 直リンクで #tN が指定されていたらハイライト
+    if(location.hash){ var el0=document.getElementById(location.hash.slice(1)); if(el0&&el0.classList&&el0.classList.contains('turn')) el0.classList.add('turn-hl'); }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>

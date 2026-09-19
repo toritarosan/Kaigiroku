@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和8年9月18日 本会議③</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#157a4b; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* サイト共通ヘッダー（トップと同系の緑＋クリーム）。iframe埋め込み時は html.embedded で非表示 */
+  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
+  html.embedded .sitenav{display:none;}
+  .sitenav-in{max-width:1100px;margin:0 auto;padding:0 18px;min-height:52px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .sitenav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#157a4b;font-weight:700;font-size:1rem;white-space:nowrap;}
+  .sitenav-brand img{display:block;border-radius:2px;}
+  .sitenav-links{margin-left:auto;display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+  .sitenav-links a{color:#2a2620;font-size:.84rem;font-weight:600;text-decoration:none;padding:8px 11px;border-radius:2px;white-space:nowrap;}
+  .sitenav-links a:hover{color:#157a4b;background:#e7f4ec;}
+  .sitenav-links .ext{color:#8a8073;font-size:.8em;margin-left:1px;}
+  @media(max-width:640px){.sitenav-in{min-height:0;padding:8px 14px;}.sitenav-links a{padding:6px 9px;font-size:.8rem;}}
+
+  /* パンくず */
+  .crumb{background:#fbf9f4;border-bottom:1px solid #eee7db;position:sticky;top:52px;z-index:59;}
+  html.embedded .crumb{display:none;}
+  .crumb-in{max-width:1100px;margin:0 auto;padding:8px 18px;font-size:.76rem;color:#8a8073;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.5;}
+  .crumb a{color:#157a4b;text-decoration:none;font-weight:600;}
+  .crumb a:hover{text-decoration:underline;}
+  .crumb .sep{color:#c9c0b2;}
+  .crumb .cur{color:#4a443b;font-weight:600;}
+  @media(max-width:640px){.crumb{position:static;} .sitenav-in{flex-wrap:nowrap;} .sitenav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  /* 未定稿（公式だが校正中）＝確定版と一目で区別できるようコーラル地にする */
+  .hero .srcbadge.draft{background:var(--coral-dark, #b83a25);}
+  .hero .srcbadge.draft .dot{background:#ffd9cf;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
+
+  /* ページトップへ戻る */
+  .to-top{position:fixed;bottom:20px;right:20px;z-index:900;width:44px;height:44px;border:none;border-radius:50%;background:#157a4b;color:#fff;font-size:20px;line-height:1;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,background .15s;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+  .to-top.show{opacity:.92;visibility:visible;transform:none;}
+  .to-top:hover{opacity:1;background:#12633d;}
+
+  /* 発言パーマリンク＆要約→本文アンカー */
+  .turn-link{margin-left:8px;font-size:12px;text-decoration:none;opacity:0;transition:opacity .15s;color:#8a8073;}
+  .turn:hover .turn-link,.turn-link:focus{opacity:.7;}
+  .turn-link:hover{opacity:1;}
+  .turn:target,.turn.turn-hl{background:#fff8e1;transition:background .3s;}
+  a.sum-jump{color:#157a4b;font-weight:700;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;cursor:pointer;}
+  a.sum-jump:hover{color:#12633d;}
+  .copy-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(8px);background:#157a4b;color:#fff;font-size:13px;padding:9px 16px;border-radius:4px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;z-index:1100;box-shadow:0 2px 10px rgba(0,0,0,.25);}
+  .copy-toast.show{opacity:1;visibility:visible;transform:translateX(-50%);}
+</style>
+</head>
+<body>
+<script>try{if(window.self!==window.top)document.documentElement.classList.add('embedded');}catch(e){document.documentElement.classList.add('embedded');}</script>
+<nav class="sitenav" aria-label="サイト共通ナビ">
+  <div class="sitenav-in">
+    <a class="sitenav-brand" href="index.html"><img src="icon.svg" alt="" width="30" height="30"><span>非公式会議録</span></a>
+    <div class="sitenav-links">
+      <a href="index.html">ホーム</a>
+      <a href="search.html">全文検索</a>
+      <a href="list.html">会議一覧</a>
+      <a href="https://www.city.koganei.tokyo.dbsr.jp/" target="_blank" rel="noopener">公式会議録<span class="ext">↗</span></a>
+      <a href="https://www.youtube.com/koganei_shigikai" target="_blank" rel="noopener">原典動画<span class="ext">↗</span></a>
+    </div>
+  </div>
+</nav>
+<nav class="crumb" aria-label="パンくずリスト"><div class="crumb-in"><a href="index.html">ホーム</a><span class="sep">›</span><a href="list.html">全会議一覧</a><span class="sep">›</span><span class="cur">令和8年9月18日 本会議③</span></div></nav>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和8年9月18日</p>
+    <h1>本会議③</h1>
+    <span class="src">YouTube字幕＋AI校正による記録（非公式）</span><div class="hero-note" style="font-family:var(--sans);font-size:13px;line-height:1.7;color:var(--muted);margin-top:10px;">本会議・委員会等の中継動画をもとに、文字起こし・校正・要約を行った非公式アーカイブです。<br><span style="color:#c0392b;font-weight:700;">致命的な話者の誤りや語句の誤りを含んでいます。転載などには適しません。最終的には必ず原典に当たってください。</span></div><span class="genmeta">本文・要約はAIによる自動生成で、小金井市議会の公式見解ではありません。発言者名や語句に誤りを含む場合があります。公式会議録が公開され次第、公式版に差し替えます。<br>最終生成日 2026-09-19</span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <p>令和8年9月18日本会議③(11:40-11:55、休憩明け再開)。追加日程第1〜第10の議員案(意見書10件、第21号〜第30号)を順次議題とし討論・採決。議員案第21号「空襲被害者救済法案の早期実現を求める意見書」は森戸よう子議員が賛成討論(7月に野党8会派提出の一時金支給法案が廃案になったこと、小金井市デジタル平和資料館の戦争体験談、戦争被害受忍論への批判、旧軍人等への国家補償との不均衡等を主張)を行い、起立多数で原案可決。議員案第22号(ICC所長らへの制裁抗議)、第24号(永住許可ガイドライン厳格化への反対)、第25号(包括的性教育の公教育実践)、第26号(国旗損壊罪法廃止)、第30号(化学物質過敏症対策強化)は、いずれも討論はなかったが採決時に異議が出て起立採決となり、いずれも起立多数で原案可決。議員案第23号(困難女性支援法の充実)、第27号(避難所対策など被災者支援強化)、第28号(建設資材の供給安定化・価格高騰対策)、第29号(防災庁発足を見据えた連携強化)は異議なく原案可決。以上で意見書10件すべてが可決され、本日の日程が終了し散会となった。</p>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/9axG1q9Pmk8" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
+  </section>
+
+<div class="turn chair reveal" id="t0">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=212s" data-timestamp="212"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:32</a>再開します。ここで先ほど保留しました追加日程第1から追加日程第10までの10件の保留を解き、順次議題とし、討論採決を行います。議員案第21号、空襲被害者救済法案の早期実現を求める意見書。本件は討論を行います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=243s" data-timestamp="243"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:03</a>本件に賛成のものの発言を許可します。24番、森戸よう子議員。森戸さん。</div>
+</div>
+
+<div class="turn reveal" id="t1">
+  <div class="meta"><span class="name">森戸よう子議員</span></div>
+  <div class="say">議員案第21号、空襲被害者救済法案の早期実現を求める意見書に</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=274s" data-timestamp="274"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:34</a>賛成の立場から討論をいたします。お時間をとっていただきましてありがとうございます。7月8日、空襲被害者等の補償問題について立法措置による解決を考える議員連盟、野党8会派が、特定空襲等被害者に対する一時金の支給に関する法律案を参議院に提出しましたが、廃案になってしまいました。</div><div class="say">法案提出は38年ぶりだということで、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=305s" data-timestamp="305"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:05</a>東京大空襲の被害者などから期待の声が寄せられていましたが、残念な結果でした。皆さん、私たちは戦争を知らない世代です。日本人370万人、アジア2000万人が犠牲になった太平洋戦争、日中戦争を忘れてはなりません。</div><div class="say">これらの戦争は私たちが起こしたものではないからといって、放火無理するような歴史認識を持ってはいけないと考えます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=336s" data-timestamp="336"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:36</a>この間、小金井市は市民協働事業として、小金井市のデジタル平和資料館を策定し、戦争体験者の話を皆さんにも聞いてほしいということで、ホームページでもアップされています。東京大空襲で小学校1年生だった少年が、お母さんの手を握って、逃げ回った経験など語られています。この他にも全国的にも作品として有名であるアニメの火垂るの墓は、空襲により両親が亡くなり、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=376s" data-timestamp="376"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:16</a>戦災孤児になって食べるものも食べられず、妹の命が失われていくという悲惨な体験がアニメとして上映されています。今回提出された法案の内容は、戦争による身体的な被害だけでなく、精神的な傷害にも対象にし、沖縄での地上戦の民間人被害者も対象としています。一人当たり50万円の一時金を支給するというもので、予算は15億円です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=412s" data-timestamp="412"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:52</a>これ以外に、空襲被害者の実態調査、平和を記念する事業の実施を求めています。被爆者援護法と同じで国籍条項はありません。政府は空襲等の被害に対する保障は、国民が等しく受忍しなければならないやむを得ない犠牲だとされて、救済する取り組みはなされてきませんでした。</div><div class="say">当時の戦争は一体誰が起こしたのでしょうか。国民ではなく当時の絶対的な権力を持っていた天皇と、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=445s" data-timestamp="445"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:25</a>天皇と政府、軍部によって起こされました。そうした方々への国民には責任ありません。そうした国民に対して一時金の支給を行うことは当然ではないでしょうか。全国空襲被害者連絡協議会運営委員長の黒岩さんはこう主張されています。</div><div class="say">敗戦直後、政府は、戦争を起こした責任は、国民全体にあると、1億総懺悔を主張しました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=477s" data-timestamp="477"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:57</a>この変形が、戦争被害受忍論です。加害も被害も、国民全体で、というのは耳障りがよく聞こえますが、戦争をはじめ国民を動員した側、天皇や軍部政府の責任を曖昧にする隠れ蓑であることは見過ごせませんと語っておられます。ドイツやイタリアでは、戦争被害を受けた民間人への〇〇戦争による被害への国家賠償の仕組みがあるとのことです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=510s" data-timestamp="510"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:30</a>政府は旧軍人や軍属には、総額50兆円を超える国家補償や援護を行っています。満州などからの引き揚げや原爆被害者、シベリア抑留者への支援も行われています。〇〇死者は50万人を超えていますが、こうした方々への支援はありません。</div><div class="say">戦後81年経過した今でもなおPTSDなどにより精神的な苦痛、身体的な苦痛や後遺症などを受けている戦争被害者がいらっしゃいます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=547s" data-timestamp="547"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:07</a>戦争という国家が作り出した危険の中で、生命を犠牲に、身体を犠牲にした一般戦争被害者に対して我慢を押しつけることはあまりにも不均衡と言わざるを得ません。国に対し一時金支給での早期実現を求め、そして戦争被災者の心を少しでも慰められていくことができれば、私たちは責任が少しでも果たせるのではないでしょうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=581s" data-timestamp="581"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:41</a>以上を述べて賛成討論といたします。ぜひ多くの皆さんのご賛同をお願いいたします。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t2">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">以上で討論を終了します。本件は起立採決をします。お諮りします。本件は原案のとおり可決することに賛成の皆さんの起立を求めます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=612s" data-timestamp="612"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:12</a>いいですか。はい。起立多数。本件は原案可決と決定しました。議員案第22号、ICC所長らへのアメリカによる制裁発表に明確に抗議し、撤回を要請することを求める意見書。これから討論を行います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=646s" data-timestamp="646"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:46</a>本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め討論を終了します。直ちに採決します。お諮りします。本件について原案のとおり可決することにご異議ありませんか。</div><div class="say">ご異議がありますので本件は起立採決をいたします。お諮りします。本件は原案のとおり可決することに賛成の皆さんの起立を求めます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=683s" data-timestamp="683"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:23</a>起立多数。本件は原案可決と決定しました。議員案第23号、困難女性支援法の充実を求める意見書。これから討論を行います。本件に対する討論を終了することにご意見ありませんか。ご異議なしと認め討論を終了します。直ちに採決します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=715s" data-timestamp="715"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:55</a>お諮りします。本件について原案のとおり可決することにご異議ありませんか。ご異議なしと認め、本件は原案のとおり可決することと決定しました。議員案第24号、永住許可に関するガイドラインの厳格化に強く反対し撤回を求める意見書。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=745s" data-timestamp="745"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:25</a>これから討論を行います。本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め討論を終了します。直ちに採決します。お諮りします。本件について原案のとおり可決することにご異議ありませんか。</div><div class="say">ご異議がありますので本件は起立採決をいたします。お諮りします。本件は原案のとおり可決することに賛成の皆さんの起立を求めます。起立多数。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=782s" data-timestamp="782"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:02</a>本件は原案可決と決定しました。議員案第25号、包括的性教育を公教育で実践し、子供の学ぶ権利の保障を求める意見書。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め討論を終了します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=812s" data-timestamp="812"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:32</a>直ちに採決します。お諮りします。本件について原案のとおり可決することにご異議ありませんか。ご異議がありますので本件は起立採決をいたします。お諮りします。本件は原案のとおり可決することに賛成の皆さんの起立を求めます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=848s" data-timestamp="848"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:08</a>起立多数。本件は原案可決と決定しました。議員案第26号、国旗損壊罪法の廃止を求める意見書。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=880s" data-timestamp="880"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:40</a>ご異議なしと認め討論を終了します。直ちに採決します。お諮りします。本件について原案のとおり可決することにご異議ありませんか。ご異議がありますので本件は起立採決をいたします。お諮りします。本件は原案のとおり可決することに賛成の皆さんの起立を求めます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=912s" data-timestamp="912"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:12</a>起立多数。本件は原案可決と決定しました。議員案第27号、避難所対策をはじめとした被災者支援の強化を求める意見書。これから討論を行います。本件に対する討論を終了することにご意見はありませんか。</div><div class="say">ご異議なしと認め討論を終了します。直ちに採決します。お諮りします。本件について原案のとおり可決することにご異議ありませんか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=946s" data-timestamp="946"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:46</a>ご異議なしと認め、本件は原案のとおり可決することに決定しました。原案のとおり可決することにご異議ありませんか。ご異議なしと認め、本件は原案のとおり可決することと決定しました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=988s" data-timestamp="988"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:28</a>議員案第28号、原材料及び建設資材の供給安定化と価格高騰対策を速やかに講じることを求める意見書。これから討論を行います。本件に対する討論を終了することにご意見ありませんか。</div><div class="say">ご意見なしと認め討論を終了します。直ちに採決します。お諮りします。本件について原案のとおり可決することにご意見ありませんか。ご異議なしと認め、本件は原案のとおり可決することと決定しました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=1024s" data-timestamp="1024"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:04</a>議員案第29号、防災庁発足を見据えた地方自治体との連携強化及び防災体制の抜本的強化を求める意見書。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。</div><div class="say">ご異議なしと認め討論を終了します。直ちに採決します。お諮りします。本件について原案のとおり可決することにご異議ありませんか。ご異議なしと認め、本件は原案のとおり可決することと決定しました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=1058s" data-timestamp="1058"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:38</a>議員案第30号、化学物質過敏症に関する対策強化を求める意見書。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め討論を終了します。</div><div class="say">直ちに採決します。お諮りします。本件について原案のとおり可決することにご異議ありませんか。ご異議がありますので本件は起立採決をいたします。お諮りします。本件は原案のとおり可決することに賛成の皆さんの起立を求めます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=9axG1q9Pmk8&t=1107s" data-timestamp="1107"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:27</a>起立多数。本件は原案可決と決定しました。以上で本日の日程は全て終了しました。本日はこれをもちまして散会します。</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
+<button class="to-top" type="button" aria-label="ページ上部へ戻る" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>(function(){var b=document.querySelector('.to-top');if(!b)return;function u(){b.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>300);}window.addEventListener('scroll',u,{passive:true});u();})();</script>
+<script id="anchor-js">
+(function(){
+  try{
+    var turns=[].slice.call(document.querySelectorAll('.turn[id]'));
+    if(!turns.length) return;
+    var firstBy={};
+    turns.forEach(function(t){
+      var nm=t.querySelector('.name'); if(!nm) return;
+      var key=(nm.textContent||'').trim(); if(!key||key==='—') return;
+      if(!firstBy[key]) firstBy[key]=t.id;
+    });
+    var toast;
+    function showToast(){
+      if(!toast){ toast=document.createElement('div'); toast.className='copy-toast'; toast.textContent='この発言へのリンクをコピーしました'; document.body.appendChild(toast); }
+      toast.classList.add('show'); clearTimeout(toast._t); toast._t=setTimeout(function(){toast.classList.remove('show');},1800);
+    }
+    function hl(el){ turns.forEach(function(x){x.classList.remove('turn-hl');}); if(el) el.classList.add('turn-hl'); }
+    // ② 発言パーマリンク
+    turns.forEach(function(t){
+      var meta=t.querySelector('.meta'); if(!meta) return;
+      var a=document.createElement('a');
+      a.className='turn-link'; a.href='#'+t.id; a.title='この発言へのリンクをコピー'; a.setAttribute('aria-label','この発言へのリンクをコピー');
+      a.textContent='🔗';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault();
+        var url=location.origin+location.pathname+'#'+t.id;
+        try{ history.replaceState(null,'','#'+t.id); }catch(e){}
+        if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(showToast).catch(function(){ location.hash=t.id; }); }
+        else { location.hash=t.id; showToast(); }
+        hl(t);
+      });
+      meta.appendChild(a);
+    });
+    // ① 要約中の発言者名(太字)→本文へ
+    [].slice.call(document.querySelectorAll('.sum strong')).forEach(function(st){
+      var txt=(st.textContent||'').trim(); if(!txt||txt.length<2) return;
+      var id=null;
+      for(var k in firstBy){ if(k.indexOf(txt)>=0 || txt.indexOf(k)>=0){ id=firstBy[k]; break; } }
+      if(!id) return;
+      var a=document.createElement('a');
+      a.className='sum-jump'; a.href='#'+id; a.textContent=st.textContent; a.title='本文の発言へ';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault(); var el=document.getElementById(id);
+        if(el){ hl(el); el.scrollIntoView({block:'center',behavior:'smooth'}); try{history.replaceState(null,'','#'+id);}catch(e){} }
+      });
+      st.parentNode.replaceChild(a, st);
+    });
+    // 直リンクで #tN が指定されていたらハイライト
+    if(location.hash){ var el0=document.getElementById(location.hash.slice(1)); if(el0&&el0.classList&&el0.classList.contains('turn')) el0.classList.add('turn-hl'); }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>

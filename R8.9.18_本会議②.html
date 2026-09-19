@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和8年9月18日 本会議②</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#157a4b; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* サイト共通ヘッダー（トップと同系の緑＋クリーム）。iframe埋め込み時は html.embedded で非表示 */
+  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
+  html.embedded .sitenav{display:none;}
+  .sitenav-in{max-width:1100px;margin:0 auto;padding:0 18px;min-height:52px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .sitenav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#157a4b;font-weight:700;font-size:1rem;white-space:nowrap;}
+  .sitenav-brand img{display:block;border-radius:2px;}
+  .sitenav-links{margin-left:auto;display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+  .sitenav-links a{color:#2a2620;font-size:.84rem;font-weight:600;text-decoration:none;padding:8px 11px;border-radius:2px;white-space:nowrap;}
+  .sitenav-links a:hover{color:#157a4b;background:#e7f4ec;}
+  .sitenav-links .ext{color:#8a8073;font-size:.8em;margin-left:1px;}
+  @media(max-width:640px){.sitenav-in{min-height:0;padding:8px 14px;}.sitenav-links a{padding:6px 9px;font-size:.8rem;}}
+
+  /* パンくず */
+  .crumb{background:#fbf9f4;border-bottom:1px solid #eee7db;position:sticky;top:52px;z-index:59;}
+  html.embedded .crumb{display:none;}
+  .crumb-in{max-width:1100px;margin:0 auto;padding:8px 18px;font-size:.76rem;color:#8a8073;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.5;}
+  .crumb a{color:#157a4b;text-decoration:none;font-weight:600;}
+  .crumb a:hover{text-decoration:underline;}
+  .crumb .sep{color:#c9c0b2;}
+  .crumb .cur{color:#4a443b;font-weight:600;}
+  @media(max-width:640px){.crumb{position:static;} .sitenav-in{flex-wrap:nowrap;} .sitenav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  /* 未定稿（公式だが校正中）＝確定版と一目で区別できるようコーラル地にする */
+  .hero .srcbadge.draft{background:var(--coral-dark, #b83a25);}
+  .hero .srcbadge.draft .dot{background:#ffd9cf;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
+
+  /* ページトップへ戻る */
+  .to-top{position:fixed;bottom:20px;right:20px;z-index:900;width:44px;height:44px;border:none;border-radius:50%;background:#157a4b;color:#fff;font-size:20px;line-height:1;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,background .15s;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+  .to-top.show{opacity:.92;visibility:visible;transform:none;}
+  .to-top:hover{opacity:1;background:#12633d;}
+
+  /* 発言パーマリンク＆要約→本文アンカー */
+  .turn-link{margin-left:8px;font-size:12px;text-decoration:none;opacity:0;transition:opacity .15s;color:#8a8073;}
+  .turn:hover .turn-link,.turn-link:focus{opacity:.7;}
+  .turn-link:hover{opacity:1;}
+  .turn:target,.turn.turn-hl{background:#fff8e1;transition:background .3s;}
+  a.sum-jump{color:#157a4b;font-weight:700;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;cursor:pointer;}
+  a.sum-jump:hover{color:#12633d;}
+  .copy-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(8px);background:#157a4b;color:#fff;font-size:13px;padding:9px 16px;border-radius:4px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;z-index:1100;box-shadow:0 2px 10px rgba(0,0,0,.25);}
+  .copy-toast.show{opacity:1;visibility:visible;transform:translateX(-50%);}
+</style>
+</head>
+<body>
+<script>try{if(window.self!==window.top)document.documentElement.classList.add('embedded');}catch(e){document.documentElement.classList.add('embedded');}</script>
+<nav class="sitenav" aria-label="サイト共通ナビ">
+  <div class="sitenav-in">
+    <a class="sitenav-brand" href="index.html"><img src="icon.svg" alt="" width="30" height="30"><span>非公式会議録</span></a>
+    <div class="sitenav-links">
+      <a href="index.html">ホーム</a>
+      <a href="search.html">全文検索</a>
+      <a href="list.html">会議一覧</a>
+      <a href="https://www.city.koganei.tokyo.dbsr.jp/" target="_blank" rel="noopener">公式会議録<span class="ext">↗</span></a>
+      <a href="https://www.youtube.com/koganei_shigikai" target="_blank" rel="noopener">原典動画<span class="ext">↗</span></a>
+    </div>
+  </div>
+</nav>
+<nav class="crumb" aria-label="パンくずリスト"><div class="crumb-in"><a href="index.html">ホーム</a><span class="sep">›</span><a href="list.html">全会議一覧</a><span class="sep">›</span><span class="cur">令和8年9月18日 本会議②</span></div></nav>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和8年9月18日</p>
+    <h1>本会議②</h1>
+    <span class="src">YouTube字幕＋AI校正による記録（非公式）</span><div class="hero-note" style="font-family:var(--sans);font-size:13px;line-height:1.7;color:var(--muted);margin-top:10px;">本会議・委員会等の中継動画をもとに、文字起こし・校正・要約を行った非公式アーカイブです。<br><span style="color:#c0392b;font-weight:700;">致命的な話者の誤りや語句の誤りを含んでいます。転載などには適しません。最終的には必ず原典に当たってください。</span></div><span class="genmeta">本文・要約はAIによる自動生成で、小金井市議会の公式見解ではありません。発言者名や語句に誤りを含む場合があります。公式会議録が公開され次第、公式版に差し替えます。<br>最終生成日 2026-09-19</span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <p>令和8年9月18日本会議②(11:05-11:26、休憩明け再開)。冒頭、議会運営委員長(水上洋志)が休憩中の議運委報告を行い、議員案第21号〜第30号(意見書10件)を委員会付託省略・即決とすることを決定。その後、先に一時保留されていた議案・陳情計17件の討論・採決を順次実施。議案第66号(条例整理)、議案第67号・第68号(市道路線廃止・認定)、議案第60〜63号(補正予算4件)はいずれも討論なく委員長報告どおり可決。陳情第9号(定額減税補足給付金)・陳情第25号(市内3駅周辺の陳情)は起立少数で不採択。8陳情第1号(政党機関紙の公読調査を求める陳情)は、水上洋志議員が日本共産党市議団を代表して反対討論(裏金報道でのJCJ大賞受賞、川崎市政党機関紙公読調査訴訟の判決等を根拠に、公読は個人の自由意志であり調査は思想信条の自由に抵触すると主張)を行った上で起立採決され、起立少数で不採択(委員会は採択と決定していたが、本会議採決では覆った)。陳情第18号(司法関係の採用選考に国籍条項を求める意見書)は藤川賢治議員が反対討論(裁判官・検察官など公権力行使職以外への一律排除は不要、外国人研究者の活躍を評価)を行い、起立なしで不採択。陳情第14号は起立少数、第27号は起立なしで、いずれも不採択。陳情第35号「庁舎等建設の再設計に関する陳情書」その6は起立少数で不採択(委員会は起立多数で採択と決定していたが、本会議採決では覆った)。議案第71号(消防ポンプ自動車買入れ)・第72号(会計年度任用職員報酬条例)は討論なく可決。最後に追加日程として議員案第21号〜第30号(意見書10件)を一括議題とし、説明・委員会付託を省略して討論採決を一時保留とし、議会運営委員会開催のため休憩。</p>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/SSrf4muKLBU" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
+  </section>
+
+<div class="turn chair reveal" id="t0">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=214s" data-timestamp="214"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:34</a>再開します。休憩中に議会運営委員会を開催していますので、議会運営委員長の報告を求めます。16番、水上洋志委員長。水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t1">
+  <div class="meta"><span class="name">水上洋志議会運営委員長</span></div>
+  <div class="say">休憩中に議会運営委員会を開催いたしましたので、その結果についてご報告いたします。議員提出議案、意見書10件が提出されましたので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=247s" data-timestamp="247"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:07</a>その取扱いについて協議いたしました。その結果、議員案第21号から議員案第30号の計10件につきましては、本日の本会議に上程し、説明・質疑・委員会付託を省略し、即決することと決定いたしました。以上で議会運営委員会の報告を終了いたします。</div>
+</div>
+
+<div class="turn chair reveal" id="t2">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">議会運営委員長の報告に対して質疑はありませんか。質疑を終了することにご意見はありませんか。ご異議なしと認め、質疑を終了し、議会運営委員長の報告を終了します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=280s" data-timestamp="280"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:40</a>お諮りします。議会運営委員長の報告どおりに決定することにご異議ありませんか。ご異議なしと認め、議会運営委員長の報告どおり決定しました。ここで先ほど保留しました日程第2及び日程第3、日程第5から日程第19までの17件の一時保留を解き、順次議題とし、討論採決を行います。</div><div class="say">議案第66号、学校設置者等及び民間教育・保育等事業者による</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=314s" data-timestamp="314"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:14</a>児童対象性暴力等の防止等のための措置に関する法律の施行に伴う関係条例の整理に関する条例。これから討論を行います。本件に対する討論を終了することにご意見ありませんか。</div><div class="say">ご意見なしと認め討論を終了します。直ちに採決いたします。本件についての厚生文教委員長の報告は原案可決です。お諮りします。委員長報告どおり原案のとおり可決することにご意見ありませんか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=349s" data-timestamp="349"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:49</a>ご意見なしと認め本件は原案可決と決定しました。8陳情第9号、定額減税補足給付金の申請締切りについて、入院という特殊事情への配慮等を求める陳情書。これから討論を行います。</div><div class="say">本件に対する討論を終了することにご意見ありませんか。ご意見なしと認め討論を終了します。直ちに採決いたします。本件は起立採決をします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=381s" data-timestamp="381"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:21</a>本件についての厚生文教委員長の報告は不採択です。お諮りします。本件は採択の上、市長に送付することに賛成の皆さんの起立を求めます。起立少数、よって本件は不採択と決定しました。議案第67号、市道路線の廃止について。これから討論を行います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=414s" data-timestamp="414"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:54</a>本件に対する討論を終了することにご意見はありませんか。ご意見なしと認め討論を終了します。直ちに採決します。本件についての建設環境委員長の報告は可決です。お諮りします。</div><div class="say">委員長報告どおり可決することにご異議ありませんか。ご異議なしと認め本件は可決と決定しました。議案第68号、市道路線の認定について。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=446s" data-timestamp="446"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:26</a>ご異議なしと認め討論を終了します。直ちに採決します。本件についての建設環境委員長の報告は可決です。お諮りします。委員長報告どおり可決することにご異議ありませんか。</div><div class="say">ご異議なしと認め本件は可決と決定しました。8陳情第20号、市内3駅周辺の街路樹の本数増を求める陳情書。これから討論を行います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=478s" data-timestamp="478"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:58</a>本件に対する討論を終了することにご意見ありませんか。ご意見なしと認め討論を終了します。直ちに採決します。本件は起立採決をします。本件についての建設環境委員長の報告は採択です。お諮りします。本件は採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=510s" data-timestamp="510"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:30</a>起立少数、よって本件は不採択と決定しました。議案第65号、小金井市職員の勤務時間、休日、休暇等に関する条例の一部を改正する条例。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。</div><div class="say">ご異議なしと認め討論を終了します。直ちに採決します。本件についての総務企画委員長の報告は原案可決です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=540s" data-timestamp="540"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:00</a>お諮りします。委員長報告どおり、原案のとおり可決することにご異議ありませんか。ご異議なしと認め、本件は原案可決と決定しました。8陳情第1号、新宿区において顕在化した事例を受けて、政党機関紙の庁舎内勧誘行為に関する早期の実態把握と再発防止を求める陳情書。</div><div class="say">本件は討論を行います。本件に反対のものの発言を許可します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=572s" data-timestamp="572"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:32</a>16番、水上洋志議員。水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t3">
+  <div class="meta"><span class="name">水上洋志議員</span></div>
+  <div class="say">8陳情第1号、新宿区において顕在化した事例を受けて、政党機関紙の庁舎内勧誘行為に関する早期の実態把握と再発防止を求める陳情書に、日本共産党市議団を代表して反対の討論を行います。本陳情書はこの間の報道を見ても</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=603s" data-timestamp="603"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:03</a>主に日本共産党発行の新聞赤旗に関するものであると考えています。新聞赤旗は政党機関紙ですが、自民党の裏金問題で日本ジャーナリスト会議のJCJ大賞を受賞し、訪問介護事業所閉鎖の介護崩壊の現状を伝えた報道が貧困ジャーナリズム賞を受賞しています。また日本外国特派員協会から報道の自由賞を受賞しています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=634s" data-timestamp="634"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:34</a>自治体職員としても、各党の方針や政策、社会問題を知る上で参考にしていただければとの思いで公読を進めてきました。毎週の〇〇〇〇はじめ、市内団体の折込みなど市民運動を知る上でも重要と考えています。陳情では、あたかも強制的に公読を押し付けているかのように記述されています。</div><div class="say">政党機関紙の公読は個人の自由意志によるものです。また公読は憲法が定める個人の思想信条の自由、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=669s" data-timestamp="669"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:09</a>内心の自由に関わる問題であり、行政が侵害したり制限することは許されません。陳情では庁内において、職員が地方議員から政党機関紙の勧誘を受け、心理的圧力を感じたり、断り切れずに公読している実態がないかについて、可能な限り早期に職員に寄り添った形で調査確認するよう行政に求めてくださいとしています。行政による職員の政党機関紙公読調査に関し、横浜地裁川崎支部が2009年1月27日に下した判決があります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=707s" data-timestamp="707"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:47</a>これは2003年3月、川崎市が係長級以上の市職員3,687名に対して行った政党機関紙公読調査を憲法違反として、市職員6名が川崎市に賠償金と謝罪広告を求めた裁判です。判決は原告らの請求を棄却するものでしたが、判決文では、元より市職員が任意に政党機関紙を公読して各種の情報を入手し、それを職務に活かすことは最大限に尊重されるべきで、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=744s" data-timestamp="744"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:24</a>いかなるものもそれを制約することは許されないことは当然と述べられています。この指摘は大変重要であり、憲法に基づく思想信条、内心の自由を最大限尊重すべきです。万一職員が陳情にある心理的圧力を受けた職員が確認された場合など、ハラスメントに該当するかのような場合は、個々に対応すれば良いことであり、それを理由として、〇〇の侵害や制限を正当化することはできません。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=778s" data-timestamp="778"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:58</a>自らの意に反して購読しているという場合があれば、申し出ていただければ必要な手立てを取ることは当然であり、それをもって私たちの対応が変わることはありません。また、陳情では、庁舎管理規則に反するかのような指摘があります。総務企画委員会での質疑の答弁では、小金井市庁舎管理規則第5条の禁止事項17号、不特定のものに対し、寄付金を募集し、又は物品の販売、保険の勧誘、広告、宣伝その他これらに類する行為をすることに関係するが、職員個人に対して制限しているものではないとされ、庁舎管理規則に抵触するものでもありません。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=827s" data-timestamp="827"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:47</a>政党機関紙の公読の働きかけや〇〇〇〇を適切に行うことは、憲法に保障された政治活動の一環であり、最大限保障されるべきものです。憲法に保障された思想信条の自由、内心の自由、そして政治活動の自由を最大限尊重、保障することが必要です。陳情が求める調査確認は、憲法に抵触する調査であり反対するものです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=858s" data-timestamp="858"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:18</a>以上で討論を終了します。</div>
+</div>
+
+<div class="turn chair reveal" id="t4">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">本件は起立採決をします。本件についての総務企画委員長の報告は採択です。お諮りします。本件は採択の上、市長に送付することに賛成の皆さんの起立を求めます。起立少数、よって本件は不採択と決定しました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=906s" data-timestamp="906"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:06</a>8陳情第14号、地方消費者行政の維持強化のための対策を求める意見書を国会等に提出することを求める陳情書。これから討論を行います。本件に対する討論を終了することにご意見ありませんか。</div><div class="say">ご異議なしと認め討論を終了します。直ちに採決します。本件は起立採決をします。本件についての総務企画委員長の報告は不採択です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=937s" data-timestamp="937"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:37</a>お諮りします。本件は採択の上、関係機関に意見書を送付することに賛成の皆さんの起立を求めます。起立少数、よって本件は不採択と決定しました。8陳情第18号、司法修習生採用選考、審査基準に国籍条項を設けることを求める意見書提出に関する陳情書。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=976s" data-timestamp="976"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:16</a>本件は討論を行います。本件に反対のものの発言を許可します。14番、藤川賢治議員。</div>
+</div>
+
+<div class="turn reveal" id="t5">
+  <div class="meta"><span class="name">藤川賢治議員</span></div>
+  <div class="say">8陳情第18号に反対の立場から討論いたします。本陳情は、司法修習生採用・選考・審査基準に国籍条項を設けることを求めるものです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=1009s" data-timestamp="1009"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:49</a>しかし、裁判官や検察官のように公権力の行使に直接関わる職については、現行制度上も日本国籍が必要と扱われています。従って安全保障上の懸念があるとしても、それは公権力を行使する職につく段階で対応すべき問題であり、司法修習生の段階で外国籍の方を一律に排除する必要はないと考えます。私自身、研究者として、日本で活躍する多くの外国人研究者と接し、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=1039s" data-timestamp="1039"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:19</a>共に研究に従事し、存分執筆してまいりました。日本で学び、働き、教授を続けている外国人の方々には、これまで通り、またこれまで以上に、日本で存分に力を発揮していただきたいと考えております。以上をもちまして、反対討論といたします。</div>
+</div>
+
+<div class="turn chair reveal" id="t6">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">以上で討論を終了します。本件は起立採決をします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=1071s" data-timestamp="1071"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:51</a>本件についての総務企画委員長の報告は不採択です。お諮りします。本件は採択の上、関係機関に意見書を送付することに賛成の皆さんの起立を求めます。起立なし、よって本件は不採択と決定しました。</div><div class="say">8陳情第27号、国民の主食である米の価格を統制することを求める意見書の提出に関する陳情書。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=1103s" data-timestamp="1103"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:23</a>これから討論を行います。本件に対する討論を終了することにご意見ありませんか。ご意見なしと認め討論を終了します。直ちに採決します。本件は起立採決をします。本件についての総務企画委員長の報告は不採択です。</div><div class="say">お諮りします。本件は採択の上、関係機関に意見書を送付することに賛成の皆さんの起立を求めます。起立なし、よって本件は不採択と決定しました。議案第60号、令和8年度</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=1140s" data-timestamp="1140"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:00</a>小金井市一般会計補正予算第5回。これから討論を行います。本件に対する討論を終了することにご意見ありませんか。ご異議なしと認め討論を終了します。直ちに採決します。</div><div class="say">本件についての予算特別委員長の報告は原案可決です。お諮りします。委員長報告どおり、原案のとおり可決することにご異議ありませんか。ご異議なしと認め、本件は原案可決と決定しました。議案第61号、令和8年度小金井市国民健康保険特別会計補正予算第1回。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=1178s" data-timestamp="1178"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:38</a>これから討論を行います。本件に対する討論を終了することにご意見ありませんか。ご意見なしと認め討論を終了します。直ちに採決します。本件についての予算特別委員長の報告は原案可決です。</div><div class="say">お諮りします。委員長報告どおり、原案のとおり可決することにご意見ありませんか。ご意見なしと認め、本件は原案可決と決定しました。議案第62号、令和8年度小金井市介護保険特別会計補正予算第1回。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=1213s" data-timestamp="1213"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:13</a>これから討論を行います。本件に対する討論を終了することにご意見ありませんか。ご意見なしと認め討論を終了します。直ちに採決します。本件についての予算特別委員長の報告は原案可決です。</div><div class="say">お諮りします。委員長報告どおり、原案のとおり可決することにご意見ありませんか。ご異議なしと認め、本件は原案可決と決定しました。議案第63号、令和8年度小金井市後期高齢者医療特別会計補正予算第1回。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=1252s" data-timestamp="1252"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:52</a>これから討論を行います。本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め討論を終了します。直ちに採決します。本件についての予算特別委員長の報告は原案可決です。</div><div class="say">お諮りします。委員長報告どおり、原案のとおり可決することにご異議ありませんか。ご異議なしと認め、本件は原案可決と決定しました。8陳情第35号、庁舎等建設の再設計に関する陳情書、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=1286s" data-timestamp="1286"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:26</a>その6。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、討論を終了します。直ちに採決します。本件は起立採決をします。</div><div class="say">本件についての庁舎等建設及び公共施設マネジメント推進調査特別委員長の報告は不採択です。お諮りします。本件は採択の上、市長に送付することに賛成の皆さんの起立を求めます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=1325s" data-timestamp="1325"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:05</a>起立少数、よって本件は不採択と決定しました。議案第71号、消防ポンプ自動車の買入れについて。これから討論を行います。本件に対する討論を終了することにご異議ありませんか。</div><div class="say">ご異議なしと認め討論を終了します。直ちに採決します。お諮りします。本件について可決することにご異議ありませんか。ご異議なしと認め、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=1355s" data-timestamp="1355"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:35</a>本件は可決することと決定しました。議案第72号、小金井市会計年度任用職員の報酬等に関する条例の一部を改正する条例。これから討論を行います。本件に対する討論を終了することにご意見ありませんか。</div><div class="say">ご意見なしと認め討論を終了します。直ちに採決します。お諮りします。本件について原案のとおり可決することにご意見ありませんか。ご異議なしと認め、本件は原案のとおり可決することと決定しました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=1393s" data-timestamp="1393"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:13</a>お諮りします。お手元にご配布してありますとおり、追加日程第1から追加日程第10までの10件を日程に追加し、順次議題とします。これにご異議ありませんか。ご異議なしと認め、追加日程第1から追加日程第10までの10件を日程に追加し、順次議題とすることと決定しました。</div><div class="say">追加日程第1、議員案第21号、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=1424s" data-timestamp="1424"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:44</a>空襲被害者救済法案の早期実現を求める意見書から追加日程第10、議員案第30号、化学物質過敏症に関する対策強化を求める意見書までの以上10件を一括して議題とすることにご意見ありませんか。ご異議なしと認め、追加日程第1から追加日程第10までの以上10件を一括して議題とします。お諮りします。</div><div class="say">本10件は説明を省略し、委員会付託を省略し、討論・採決を一時保留することにご異議ありませんか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=SSrf4muKLBU&t=1461s" data-timestamp="1461"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:21</a>ご異議なしと認め、本10件は説明を省略し、委員会付託を省略し、討論・採決を一時保留することと決定しました。議会運営委員会等を開催するためにしばらく休憩します。</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
+<button class="to-top" type="button" aria-label="ページ上部へ戻る" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>(function(){var b=document.querySelector('.to-top');if(!b)return;function u(){b.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>300);}window.addEventListener('scroll',u,{passive:true});u();})();</script>
+<script id="anchor-js">
+(function(){
+  try{
+    var turns=[].slice.call(document.querySelectorAll('.turn[id]'));
+    if(!turns.length) return;
+    var firstBy={};
+    turns.forEach(function(t){
+      var nm=t.querySelector('.name'); if(!nm) return;
+      var key=(nm.textContent||'').trim(); if(!key||key==='—') return;
+      if(!firstBy[key]) firstBy[key]=t.id;
+    });
+    var toast;
+    function showToast(){
+      if(!toast){ toast=document.createElement('div'); toast.className='copy-toast'; toast.textContent='この発言へのリンクをコピーしました'; document.body.appendChild(toast); }
+      toast.classList.add('show'); clearTimeout(toast._t); toast._t=setTimeout(function(){toast.classList.remove('show');},1800);
+    }
+    function hl(el){ turns.forEach(function(x){x.classList.remove('turn-hl');}); if(el) el.classList.add('turn-hl'); }
+    // ② 発言パーマリンク
+    turns.forEach(function(t){
+      var meta=t.querySelector('.meta'); if(!meta) return;
+      var a=document.createElement('a');
+      a.className='turn-link'; a.href='#'+t.id; a.title='この発言へのリンクをコピー'; a.setAttribute('aria-label','この発言へのリンクをコピー');
+      a.textContent='🔗';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault();
+        var url=location.origin+location.pathname+'#'+t.id;
+        try{ history.replaceState(null,'','#'+t.id); }catch(e){}
+        if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(showToast).catch(function(){ location.hash=t.id; }); }
+        else { location.hash=t.id; showToast(); }
+        hl(t);
+      });
+      meta.appendChild(a);
+    });
+    // ① 要約中の発言者名(太字)→本文へ
+    [].slice.call(document.querySelectorAll('.sum strong')).forEach(function(st){
+      var txt=(st.textContent||'').trim(); if(!txt||txt.length<2) return;
+      var id=null;
+      for(var k in firstBy){ if(k.indexOf(txt)>=0 || txt.indexOf(k)>=0){ id=firstBy[k]; break; } }
+      if(!id) return;
+      var a=document.createElement('a');
+      a.className='sum-jump'; a.href='#'+id; a.textContent=st.textContent; a.title='本文の発言へ';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault(); var el=document.getElementById(id);
+        if(el){ hl(el); el.scrollIntoView({block:'center',behavior:'smooth'}); try{history.replaceState(null,'','#'+id);}catch(e){} }
+      });
+      st.parentNode.replaceChild(a, st);
+    });
+    // 直リンクで #tN が指定されていたらハイライト
+    if(location.hash){ var el0=document.getElementById(location.hash.slice(1)); if(el0&&el0.classList&&el0.classList.contains('turn')) el0.classList.add('turn-hl'); }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
