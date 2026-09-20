@@ -1,1639 +1,3278 @@
 <!DOCTYPE html>
+
 <html lang="ja">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="google-site-verification" content="HXWzqZsO3UlCmZBZGKr-jJVqZrA_D9t1LxML2m0rx4Q" />
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>小金井市議会 非公式会議録</title>
+
 <meta name="description" content="小金井市議会の本会議・委員会を横断検索できる、市民向けの非公式会議録ポータル（AI文字起こし・要約／公式会議録は原文掲載）。">
+
 <meta property="og:type" content="website">
+
 <meta property="og:site_name" content="小金井市議会 非公式会議録">
+
 <meta property="og:title" content="小金井市議会 非公式会議録">
+
 <meta property="og:description" content="小金井市議会の本会議・委員会を横断検索できる、市民向けの非公式会議録ポータル（AI文字起こし・要約／公式会議録は原文掲載）。">
+
 <meta property="og:url" content="https://toritarosan.github.io/Kaigiroku/index.html">
+
 <meta property="og:image" content="https://toritarosan.github.io/Kaigiroku/ogp.png">
+
   <meta property="og:image:width" content="1200">
+
   <meta property="og:image:height" content="630">
+
 <meta name="twitter:card" content="summary_large_image">
+
 <style>
+
 :root{
+
   --primary:#1aa15c;
+
   --primary-dark:#127443;
+
   --primary-ink:#0f5f38;
+
   --primary-soft:#e8f5ee;
+
   --primary-line:#b8dec8;
 
+
+
   --coral:#e8482a;
+
   --coral-dark:#b83a25;
+
   --coral-soft:#fff0eb;
+
   --coral-line:#f1b9ac;
 
+
+
   --amber:#edae2f;
+
   --amber-dark:#8b5b00;
+
   --amber-soft:#fff6dd;
+
   --amber-line:#efd18c;
 
+
+
   --ink:#2a261f;
+
   --text:#4c4539;
+
   --muted:#776f63;
+
   --muted-2:#958c7d;
 
+
+
   --bg:#fffdfa;
+
   --cream:#fdfdfb;
+
   --cream-2:#fbf4e8;
+
   --white:#ffffff;
+
   --line:#eee5d7;
+
   --border:#e1d7c7;
 
+
+
   --radius:2px;
+
   --container:1180px;
+
   --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+
 }
+
+
 
 *{box-sizing:border-box;}
+
 html{scroll-behavior:smooth;}
+
 body{
+
   margin:0;
+
   background:var(--cream);
+
   color:var(--text);
+
   font-family:var(--sans);
+
   font-size:15px;
+
   line-height:1.72;
+
   -webkit-font-smoothing:antialiased;
+
   text-rendering:optimizeLegibility;
+
 }
+
 a{color:inherit;text-decoration:none;}
+
 button,input{font:inherit;}
+
 button{appearance:none;}
+
 svg{display:block;}
+
 ::selection{background:var(--amber-soft);color:var(--ink);}
 
+
+
 .container{
+
   max-width:var(--container);
+
   margin:0 auto;
+
   padding:0 24px;
+
 }
+
+
 
 .visually-hidden{
+
   position:absolute!important;
+
   width:1px!important;
+
   height:1px!important;
+
   padding:0!important;
+
   margin:-1px!important;
+
   overflow:hidden!important;
+
   clip:rect(0,0,0,0)!important;
+
   white-space:nowrap!important;
+
   border:0!important;
+
 }
+
+
 
 .skip-link{
+
   position:absolute;
+
   left:14px;
+
   top:10px;
+
   z-index:100;
+
   padding:8px 12px;
+
   color:#fff;
+
   background:var(--primary-dark);
+
   border-radius:var(--radius);
+
   transform:translateY(-140%);
+
   transition:transform .14s ease;
+
 }
+
 .skip-link:focus-visible{transform:translateY(0);outline:2px solid var(--amber);outline-offset:2px;}
 
+
+
 :focus-visible{
+
   outline:2px solid var(--amber);
+
   outline-offset:2px;
+
 }
+
+
 
 /* 上部アクセント */
+
 .topline{
+
   height:4px;
+
   background:var(--primary);
+
   border-bottom:1px solid rgba(0,0,0,.04);
+
 }
+
+
 
 /* ヘッダー */
+
 .site-header{
+
   background:var(--bg);
+
   border-bottom:1px solid var(--border);
+
   position:sticky;
+
   top:0;
+
   z-index:60;
+
 }
+
 .site-header .inner{
+
   min-height:76px;
+
   display:flex;
+
   align-items:center;
+
   gap:22px;
+
 }
+
 .brand{
+
   display:flex;
+
   align-items:center;
+
   gap:13px;
+
   min-width:0;
+
   padding:12px 0;
+
 }
+
 .logo{
+
   width:42px;
+
   height:42px;
+
   flex:none;
+
 }
+
 .brand-text{
+
   min-width:0;
+
 }
+
 .brand-text .kicker{
+
   display:block;
+
   margin:0 0 2px;
+
   color:var(--primary-ink);
+
   font-size:.68rem;
+
   font-weight:600;
+
   letter-spacing:.16em;
+
 }
+
 .brand-text h1{
+
   margin:0;
+
   color:var(--ink);
+
   font-size:1.32rem;
+
   font-weight:700;
+
   line-height:1.3;
+
   letter-spacing:.01em;
+
   white-space:nowrap;
+
 }
+
 .brand-text .beta{
+
   margin-left:3px;
+
   color:var(--coral);
+
   font-size:.6em;
+
   font-weight:700;
+
   vertical-align:middle;
+
 }
+
 .brand-text p{
+
   margin:2px 0 0;
+
   color:var(--muted);
+
   font-size:.76rem;
+
   line-height:1.5;
+
   white-space:nowrap;
+
 }
+
+
 
 .nav{
+
   margin-left:auto;
+
   display:flex;
+
   align-items:stretch;
+
   min-height:76px;
+
 }
+
 .nav a{
+
   position:relative;
+
   display:flex;
+
   align-items:center;
+
   padding:0 14px;
+
   color:var(--ink);
+
   font-size:.86rem;
+
   font-weight:600;
+
   letter-spacing:.015em;
+
   white-space:nowrap;
+
   border-left:1px solid transparent;
+
   border-right:1px solid transparent;
+
   transition:color .12s ease,background-color .12s ease,border-color .12s ease;
+
 }
+
 .nav a::after{
+
   content:"";
+
   position:absolute;
+
   left:14px;
+
   right:14px;
+
   bottom:-1px;
+
   height:3px;
+
   background:transparent;
+
 }
+
 .nav a:hover{
+
   color:var(--primary-ink);
+
   background:var(--primary-soft);
+
 }
+
 .nav a.active{
+
   color:var(--primary-ink);
+
 }
+
 .nav a.active::after{
+
   background:var(--primary);
+
 }
+
 .nav a:focus-visible{
+
   z-index:1;
+
   outline-offset:-4px;
+
 }
+
+
 
 /* 検索ヒーロー */
+
 .searchband{
+
   background:var(--cream-2);
+
   border-bottom:1px solid var(--border);
+
 }
+
 .searchband .inner{
+
   padding:32px 24px 30px;
+
   display:grid;
+
   grid-template-columns:1fr;
+
   gap:28px;
+
 }
+
 .hero-copy{
+
   min-width:0;
+
 }
+
 .eyebrow{
+
   display:flex;
+
   align-items:center;
+
   gap:9px;
+
   margin:0 0 9px;
+
   color:var(--primary-ink);
+
   font-size:.78rem;
+
   font-weight:600;
+
   letter-spacing:.08em;
+
 }
+
 .eyebrow::before{
+
   content:"";
+
   width:4px;
+
   height:17px;
+
   background:var(--amber);
+
   border-radius:var(--radius);
+
 }
+
 .hero-title{
+
   margin:0;
+
   color:var(--ink);
+
   font-size:clamp(1.42rem,2.2vw,1.92rem);
+
   font-weight:700;
+
   line-height:1.35;
+
   letter-spacing:.01em;
+
 }
+
 .qa-cta{
+
   display:inline-flex;
+
   align-items:center;
+
   gap:9px;
+
   margin:0 0 16px;
+
   padding:12px 24px;
+
   color:#fff;
+
   background:var(--primary-dark);
+
   border-radius:var(--radius);
+
   font-weight:700;
+
   font-size:.95rem;
+
   letter-spacing:.04em;
+
   text-decoration:none;
+
   transition:background-color .12s ease;
+
 }
+
 .qa-cta:hover{background:var(--primary-ink);}
+
 .qa-cta:focus-visible{outline:2px solid rgba(237,174,47,.42);outline-offset:2px;}
+
 .hero-lead{
+
   margin:7px 0 18px;
+
   max-width:760px;
+
   color:var(--muted);
+
   font-size:.94rem;
+
   line-height:1.78;
+
 }
+
+
 
 .searchbar{
+
   display:flex;
+
   max-width:770px;
+
   background:var(--white);
+
   border:1px solid var(--primary-dark);
+
   border-radius:var(--radius);
+
 }
+
 .searchbar:focus-within{
+
   border-color:var(--primary-ink);
+
   outline:2px solid rgba(237,174,47,.42);
+
   outline-offset:2px;
+
 }
+
 .searchbar .field{
+
   position:relative;
+
   flex:1;
+
   min-width:0;
+
 }
+
 .searchbar .field svg{
+
   position:absolute;
+
   left:16px;
+
   top:50%;
+
   transform:translateY(-50%);
+
   color:var(--muted-2);
+
   pointer-events:none;
+
 }
+
 .searchbar input{
+
   width:100%;
+
   height:54px;
+
   padding:0 16px 0 46px;
+
   color:var(--ink);
+
   background:transparent;
+
   border:0;
+
   outline:0;
+
   font-size:1rem;
+
   font-weight:500;
+
 }
+
 .searchbar input::placeholder{
+
   color:#9b9387;
+
   font-weight:450;
+
 }
+
 .searchbar button{
+
   flex:none;
+
   min-width:118px;
+
   height:54px;
+
   padding:0 28px;
+
   color:#fff;
+
   background:var(--primary-dark);
+
   border:0;
+
   border-left:1px solid rgba(255,255,255,.22);
+
   cursor:pointer;
+
   font-weight:600;
+
   letter-spacing:.08em;
+
   transition:background-color .12s ease,color .12s ease;
+
 }
+
 .searchbar button:hover{
+
   background:var(--primary-ink);
+
 }
+
 .searchbar button:active{
+
   background:#0b4e2e;
+
 }
+
 .searchbar button:focus-visible{
+
   outline-offset:-5px;
+
   outline-color:#fff;
+
 }
+
+
 
 .popular{
+
   display:flex;
+
   align-items:center;
+
   gap:8px;
+
   flex-wrap:wrap;
+
   margin-top:14px;
+
 }
+
 .popular .label{
+
   color:var(--muted);
+
   font-size:.8rem;
+
   font-weight:600;
+
 }
+
 .chip,.topic{
+
   display:inline-flex;
+
   align-items:center;
+
   justify-content:center;
+
   gap:6px;
+
   min-height:32px;
+
   color:var(--primary-ink);
+
   background:var(--white);
+
   border:1px solid var(--border);
+
   border-radius:var(--radius);
+
   cursor:pointer;
+
   font-size:.82rem;
+
   font-weight:600;
+
   line-height:1;
+
   transition:background-color .12s ease,border-color .12s ease,color .12s ease;
+
 }
+
 .chip{padding:7px 12px;}
+
 .chip:hover,.topic:hover{
+
   color:var(--primary-ink);
+
   background:var(--primary-soft);
+
   border-color:var(--primary-line);
+
 }
+
 .chip:active,.topic:active{
+
   background:#dceee5;
+
 }
+
+
 
 .hero-note{
+
   background:var(--bg);
+
   border:1px solid var(--border);
+
   border-top:3px solid var(--primary);
+
   border-radius:var(--radius);
+
   padding:15px 16px 14px;
+
 }
+
 .hero-note .note-title{
+
   display:flex;
+
   align-items:center;
+
   gap:8px;
+
   margin:0 0 9px;
+
   color:var(--ink);
+
   font-size:.9rem;
+
   font-weight:700;
+
 }
+
 .hero-note .note-title svg{color:var(--primary-ink);}
+
 .note-list{
+
   display:grid;
+
   grid-template-columns:1fr 1fr;
+
   gap:8px;
+
   margin:0 0 10px;
+
 }
+
 .note-item{
+
   padding:8px 9px;
+
   background:var(--cream-2);
+
   border:1px solid var(--line);
+
 }
+
 .note-item b{
+
   display:block;
+
   color:var(--ink);
+
   font-size:1rem;
+
   line-height:1.2;
+
   font-variant-numeric:tabular-nums;
+
 }
+
 .note-item span{
+
   display:block;
+
   margin-top:2px;
+
   color:var(--muted);
+
   font-size:.72rem;
+
   font-weight:600;
+
 }
+
 .note-caption{
+
   margin:0;
+
   color:var(--muted);
+
   font-size:.76rem;
+
   line-height:1.65;
+
 }
+
+
 
 /* KPI */
+
 .kpi-wrap{
+
   margin-top:24px;
+
 }
+
 .kpi{
+
   display:grid;
+
   grid-template-columns:repeat(3,1fr);
+
   background:var(--bg);
+
   border:1px solid var(--border);
+
   border-radius:var(--radius);
+
 }
+
 .kpi .cell{
+
   position:relative;
+
   display:flex;
+
   align-items:center;
+
   gap:14px;
+
   min-height:52px;
+
   padding:9px 22px;
+
   border-left:1px solid var(--line);
+
 }
+
 .kpi .cell:first-child{border-left:0;}
+
 .kpi .cell>div{display:flex;align-items:baseline;gap:8px;min-width:0;}
+
 .kpi .label{white-space:nowrap;}
+
 .kpi .cell::before{
+
   content:"";
+
   position:absolute;
+
   top:0;
+
   left:0;
+
   right:0;
+
   height:3px;
+
   background:var(--primary);
+
 }
+
 .kpi .cell.accent::before{background:var(--amber);}
+
 .kpi .cell.pop::before{background:var(--coral);}
+
 .kpi .ic{
+
   width:34px;
+
   height:34px;
+
   display:grid;
+
   place-items:center;
+
   flex:none;
+
   color:var(--primary-ink);
+
   background:var(--primary-soft);
+
   border:1px solid var(--primary-line);
+
   border-radius:var(--radius);
+
 }
+
 .kpi .cell.accent .ic{
+
   color:var(--amber-dark);
+
   background:var(--amber-soft);
+
   border-color:var(--amber-line);
+
 }
+
 .kpi .cell.pop .ic{
+
   color:var(--coral-dark);
+
   background:var(--coral-soft);
+
   border-color:var(--coral-line);
+
 }
+
 .kpi .label{
+
   margin:0;
+
   color:var(--muted);
+
   font-size:.76rem;
+
   font-weight:500;
+
   letter-spacing:.04em;
+
 }
+
 .kpi .value{
+
   color:var(--primary-ink);
+
   font-size:1.86rem;
+
   font-weight:600;
+
   line-height:1;
+
   letter-spacing:-.02em;
+
   font-variant-numeric:tabular-nums;
+
 }
+
 .kpi .cell.accent .value{color:var(--amber-dark);}
+
 .kpi .cell.pop .value{color:var(--coral-dark);}
+
 .kpi .value small{
+
   margin-left:3px;
+
   color:var(--muted);
+
   font-size:.78rem;
+
   font-weight:500;
+
   letter-spacing:0;
+
 }
+
+
 
 /* メイン */
+
 .main{
+
   padding:26px 0 46px;
+
 }
+
 .main-grid{
+
   display:grid;
+
   grid-template-columns:minmax(0,1.64fr) minmax(310px,1fr);
+
   gap:24px;
+
   align-items:start;
+
 }
+
+
 
 .panel{
+
   background:var(--bg);
+
   border:1px solid var(--border);
+
   border-radius:var(--radius);
+
 }
+
 .panel-head{
+
   display:flex;
+
   align-items:center;
+
   justify-content:space-between;
+
   gap:14px;
+
   padding:15px 18px 14px;
+
   border-bottom:1px solid var(--border);
+
 }
+
 .panel-title{
+
   display:flex;
+
   align-items:center;
+
   gap:9px;
+
   margin:0;
+
   color:var(--ink);
+
   font-size:1.02rem;
+
   font-weight:600;
+
   line-height:1.35;
+
   letter-spacing:.02em;
+
 }
+
 .panel-title::before{
+
   content:"";
+
   width:4px;
+
   height:18px;
+
   background:var(--primary);
+
   border-radius:var(--radius);
+
 }
+
 .panel-count{
+
   display:inline-flex;
+
   align-items:center;
+
   min-height:24px;
+
   padding:4px 8px;
+
   color:var(--primary-ink);
+
   background:var(--primary-soft);
+
   border:1px solid var(--primary-line);
+
   border-radius:var(--radius);
+
   font-size:.72rem;
+
   font-weight:600;
+
   line-height:1;
+
   white-space:nowrap;
+
 }
+
+
 
 /* 最近の会議テーブル */
+
 .table-scroll{
+
   overflow-x:auto;
+
 }
+
 .meeting-table{
+
   width:100%;
+
   min-width:690px;
+
   border-collapse:collapse;
+
   table-layout:fixed;
+
 }
+
 .meeting-table th{
+
   padding:10px 18px;
+
   color:var(--muted);
+
   background:var(--cream);
+
   border-bottom:1px solid var(--border);
+
   font-size:.73rem;
+
   font-weight:550;
+
   letter-spacing:.04em;
+
   text-align:left;
+
   white-space:nowrap;
+
 }
+
 .meeting-table td{
+
   padding:13px 18px;
+
   border-bottom:1px solid var(--line);
+
   vertical-align:middle;
+
 }
+
 .meeting-table tbody tr{
+
   transition:background-color .1s ease;
+
 }
+
 .meeting-table tbody tr:hover{
+
   background:var(--primary-soft);
+
 }
+
 .meeting-table tbody tr:last-child td{
+
   border-bottom:0;
+
 }
+
 .col-date{width:122px;}
+
 .col-kind{width:100px;}
+
 .col-status{width:98px;}
+
 .col-action{width:42px;}
 
+
+
 .date{
+
   color:var(--ink);
+
   font-size:.86rem;
+
   font-weight:550;
+
   font-variant-numeric:tabular-nums;
+
   white-space:nowrap;
+
 }
+
 .kind{
+
   display:inline-flex;
+
   align-items:center;
+
   gap:6px;
+
   color:var(--text);
+
   font-size:.82rem;
+
   font-weight:500;
+
   white-space:nowrap;
+
 }
+
 .kind svg{
+
   color:var(--primary-ink);
+
 }
+
 .meeting-link{
+
   display:inline;
+
   color:var(--primary-ink);
+
   font-size:.92rem;
+
   font-weight:550;
+
   line-height:1.55;
+
   text-decoration:underline;
+
   text-decoration-color:transparent;
+
   text-decoration-thickness:1px;
+
   text-underline-offset:3px;
+
   transition:color .12s ease,text-decoration-color .12s ease;
+
 }
+
 .meeting-link:hover{
+
   color:var(--primary-dark);
+
   text-decoration-color:currentColor;
+
 }
+
 .badge{
+
   display:inline-flex;
+
   align-items:center;
+
   justify-content:center;
+
   min-height:23px;
+
   padding:3px 9px;
+
   border:1px solid;
+
   border-radius:var(--radius);
+
   font-size:.7rem;
+
   font-weight:700;
+
   line-height:1;
+
   white-space:nowrap;
+
 }
+
 .badge.official{
+
   color:var(--primary-ink);
+
   background:var(--primary-soft);
+
   border-color:var(--primary-line);
+
 }
+
 .badge.sokuho{
+
   color:var(--amber-dark);
+
   background:var(--amber-soft);
+
   border-color:var(--amber-line);
+
 }
+
 .action-link{
+
   display:inline-grid;
+
   place-items:center;
+
   width:26px;
+
   height:26px;
+
   color:var(--muted);
+
   border:1px solid transparent;
+
   border-radius:var(--radius);
+
   transition:color .12s ease,background-color .12s ease,border-color .12s ease;
+
 }
+
 .action-link:hover{
+
   color:var(--primary-ink);
+
   background:var(--white);
+
   border-color:var(--primary-line);
+
 }
+
 .panel-foot{
+
   padding:12px 18px;
+
   border-top:1px solid var(--line);
+
   text-align:right;
+
 }
+
 .more-link{
+
   display:inline-flex;
+
   align-items:center;
+
   gap:5px;
+
   color:var(--primary-ink);
+
   font-size:.84rem;
+
   font-weight:550;
+
 }
+
 .more-link:hover{
+
   text-decoration:underline;
+
   text-underline-offset:3px;
+
 }
+
+
 
 /* サイド */
+
 .side{
+
   display:flex;
+
   flex-direction:column;
+
   gap:22px;
+
 }
+
 .topics-body{
+
   display:flex;
+
   flex-wrap:wrap;
+
   gap:8px;
+
   padding:15px 18px 18px;
+
 }
+
 .topic{
+
   padding:8px 12px;
+
   color:var(--text);
+
 }
+
 .topic::before{
+
   content:"#";
+
   color:var(--primary);
+
   font-weight:700;
+
 }
+
+
 
 .about{
+
   scroll-margin-top:18px;
+
   background:var(--bg);
+
   border:1px solid var(--border);
+
   border-left:4px solid var(--coral);
+
   border-radius:var(--radius);
+
   padding:16px 18px 17px;
+
 }
+
 .about h3{
+
   display:flex;
+
   align-items:center;
+
   gap:8px;
+
   margin:0 0 8px;
+
   color:var(--ink);
+
   font-size:.94rem;
+
   font-weight:700;
+
   letter-spacing:.01em;
+
 }
+
 .about h3 svg{
+
   color:var(--coral-dark);
+
   flex:none;
+
 }
+
 .about p{
+
   margin:0 0 8px;
+
   color:var(--text);
+
   font-size:.81rem;
+
   line-height:1.88;
+
 }
+
 .about strong{
+
   color:var(--coral-dark);
+
   font-weight:700;
+
 }
+
 .about ul{margin:8px 0 10px;padding-left:1.15em;}
+
 .about li{margin:4px 0;color:var(--text);font-size:.8rem;line-height:1.8;}
+
 .about .src{margin-top:11px;padding-top:10px;border-top:1px dashed var(--border);color:var(--muted);font-size:.76rem;line-height:1.95;}
+
 .about a{color:var(--primary-ink);font-weight:550;}
+
 .about a:hover{text-decoration:underline;text-underline-offset:2px;}
 
+
+
 .quick-body{
+
   display:flex;
+
   flex-direction:column;
+
   gap:9px;
+
   padding:15px 18px 18px;
+
 }
+
 .qbtn{
+
   display:flex;
+
   align-items:center;
+
   gap:10px;
+
   min-height:46px;
+
   padding:11px 13px;
+
   color:var(--ink);
+
   background:var(--white);
+
   border:1px solid var(--border);
+
   border-radius:var(--radius);
+
   font-size:.88rem;
+
   font-weight:550;
+
   line-height:1.35;
+
   transition:background-color .12s ease,border-color .12s ease,color .12s ease;
+
 }
+
 .qbtn svg{
+
   flex:none;
+
   color:var(--primary-ink);
+
 }
+
 .qbtn .external{
+
   margin-left:auto;
+
   color:var(--muted-2);
+
 }
+
 .qbtn:hover{
+
   color:var(--primary-ink);
+
   background:var(--primary-soft);
+
   border-color:var(--primary-line);
+
 }
+
+
 
 /* フッター */
+
 .site-footer{
+
   background:var(--bg);
+
   border-top:1px solid var(--border);
+
 }
+
 .site-footer::before{
+
   content:"";
+
   display:block;
+
   height:3px;
+
   background:var(--primary);
+
 }
+
 .site-footer .inner{
+
   display:flex;
+
   align-items:center;
+
   justify-content:space-between;
+
   gap:20px;
+
   flex-wrap:wrap;
+
   padding:20px 24px 22px;
+
 }
+
 .footer-note{
+
   margin:0;
+
   max-width:700px;
+
   color:var(--muted);
+
   font-size:.76rem;
+
   line-height:1.75;
+
 }
+
 .footer-links{
+
   display:flex;
+
   align-items:center;
+
   gap:0;
+
   flex-wrap:wrap;
+
 }
+
 .footer-links a{
+
   position:relative;
+
   padding:2px 10px;
+
   color:var(--text);
+
   font-size:.79rem;
+
   font-weight:600;
+
 }
+
 .footer-links a + a::before{
+
   content:"";
+
   position:absolute;
+
   left:0;
+
   top:50%;
+
   width:1px;
+
   height:13px;
+
   background:var(--border);
+
   transform:translateY(-50%);
+
 }
+
 .footer-links a:hover{
+
   color:var(--primary-ink);
+
   text-decoration:underline;
+
   text-underline-offset:3px;
+
 }
+
+
 
 @media(max-width:900px){
+
   .site-header .inner{
+
     align-items:flex-start;
+
     flex-direction:column;
+
     gap:0;
+
     padding-top:0;
+
   }
+
   .brand{
+
     width:100%;
+
     padding-bottom:10px;
+
   }
+
   .nav{
+
     width:100%;
+
     min-height:44px;
+
     margin-left:0;
+
     overflow-x:auto;
+
     border-top:1px solid var(--line);
+
     scrollbar-width:thin;
+
   }
+
   .nav a{
+
     min-height:44px;
+
     padding:0 13px;
+
   }
+
   .nav a::after{
+
     left:13px;
+
     right:13px;
+
   }
+
   .searchband .inner{
+
     grid-template-columns:1fr;
+
     align-items:start;
+
     gap:18px;
+
   }
+
   .hero-note{
+
     max-width:770px;
+
   }
+
   .kpi{
+
     grid-template-columns:repeat(2,1fr);
+
   }
+
   .kpi .cell:nth-child(3){
+
     border-left:0;
+
   }
+
   .kpi .cell:nth-child(n+3){
+
     border-top:1px solid var(--line);
+
   }
+
   .main-grid{
+
     grid-template-columns:1fr;
+
   }
+
 }
+
+
 
 @media(max-width:560px){
+
   body{font-size:14px;}
+
   .container{padding:0 16px;}
+
   .site-header .inner{
+
     padding-left:16px;
+
     padding-right:16px;
+
   }
+
   .brand{
+
     gap:11px;
+
   }
+
   .logo{
+
     width:38px;
+
     height:38px;
+
   }
+
   .brand-text h1{
+
     font-size:1rem;
+
     white-space:normal;
+
   }
+
   .brand-text p{
+
     font-size:.72rem;
+
     white-space:normal;
+
   }
+
   .searchband .inner{
+
     padding:25px 16px 26px;
+
   }
+
   .hero-title{
+
     font-size:1.38rem;
+
   }
+
   .hero-lead{
+
     font-size:.88rem;
+
   }
+
   .searchbar{
+
     display:block;
+
     border:0;
+
     background:transparent;
+
   }
+
   .searchbar:focus-within{
+
     outline:0;
+
   }
+
   .searchbar .field{
+
     background:var(--white);
+
     border:1px solid var(--primary-dark);
+
     border-radius:var(--radius);
+
   }
+
   .searchbar .field:focus-within{
+
     outline:2px solid rgba(237,174,47,.45);
+
     outline-offset:2px;
+
   }
+
   .searchbar input{
+
     height:51px;
+
     font-size:.96rem;
+
   }
+
   .searchbar button{
+
     width:100%;
+
     height:49px;
+
     margin-top:8px;
+
     border-left:0;
+
     border-radius:var(--radius);
+
   }
+
   .popular{
+
     align-items:flex-start;
+
   }
+
   .popular .label{
+
     flex-basis:100%;
+
   }
+
   .note-list{
+
     grid-template-columns:1fr 1fr;
+
   }
+
   .kpi-wrap{
+
     margin-top:18px;
+
   }
+
   .kpi{
+
     grid-template-columns:1fr 1fr;
+
   }
+
   .kpi .cell{
+
     min-height:96px;
+
     align-items:flex-start;
+
     flex-direction:column;
+
     gap:9px;
+
     padding:15px 14px 14px;
+
   }
+
   .kpi .cell:nth-child(odd){
+
     border-left:0;
+
   }
+
   .kpi .cell:nth-child(even){
+
     border-left:1px solid var(--line);
+
   }
+
   .kpi .cell:nth-child(n+3){
+
     border-top:1px solid var(--line);
+
   }
+
   .kpi .ic{
+
     width:32px;
+
     height:32px;
+
   }
+
   .kpi .value{
+
     font-size:1.58rem;
+
   }
+
   .main{
+
     padding:20px 0 36px;
+
   }
+
   .panel-head{
+
     padding:13px 15px 12px;
+
   }
+
   .table-scroll{
+
     overflow:visible;
+
   }
+
   .meeting-table,
+
   .meeting-table tbody,
+
   .meeting-table tr,
+
   .meeting-table td{
+
     display:block;
+
     width:100%;
+
     min-width:0;
+
   }
+
   .meeting-table thead{
+
     display:none;
+
   }
+
   .meeting-table tr{
+
     display:grid;
+
     grid-template-columns:minmax(0,1fr) auto;
+
     grid-template-areas:
+
       "title status"
+
       "date kind";
+
     column-gap:12px;
+
     row-gap:6px;
+
     padding:13px 15px;
+
     border-bottom:1px solid var(--line);
+
   }
+
   .meeting-table tbody tr:last-child{
+
     border-bottom:0;
+
   }
+
   .meeting-table td{
+
     padding:0;
+
     border-bottom:0!important;
+
   }
+
   .td-date{grid-area:date;}
+
   .td-kind{grid-area:kind;justify-self:end;}
+
   .td-title{grid-area:title;min-width:0;}
+
   .td-status{grid-area:status;justify-self:end;}
+
   .td-action{display:none!important;}
+
   .meeting-link{
+
     font-size:.9rem;
+
   }
+
   .date,.kind{
+
     font-size:.78rem;
+
   }
+
   .panel-foot{
+
     text-align:left;
+
     padding:12px 15px;
+
   }
+
   .topics-body,.quick-body{
+
     padding:14px 15px 16px;
+
   }
+
   .about{
+
     padding:15px;
+
   }
+
   .site-footer .inner{
+
     padding:18px 16px 20px;
+
   }
+
   .footer-links a:first-child{
+
     padding-left:0;
+
   }
+
 }
+
+
 
 @media(prefers-reduced-motion:reduce){
+
   *,*::before,*::after{
+
     scroll-behavior:auto!important;
+
     transition-duration:.01ms!important;
+
     animation-duration:.01ms!important;
+
     animation-iteration-count:1!important;
+
   }
+
 }
 
+
+
   /* コメント（掲示板・承認制） */
+
   .col-left{display:flex;flex-direction:column;gap:24px;min-width:0;}
+
   .cmt-body{padding:16px 18px 18px;}
+
   .cmt-note{margin:0 0 12px;padding:8px 13px;background:var(--primary-soft);border:1px solid var(--primary-line);border-radius:var(--radius);color:var(--primary-ink);font-size:.78rem;line-height:1.5;}
+
   .cmt-note strong{color:var(--coral-dark);font-weight:600;}
+
   .cmt-form{margin:0 0 20px;}
+
   .cmt-label{display:block;font-size:.78rem;font-weight:600;color:var(--ink);margin:10px 0 5px;}
+
   .cmt-label:first-of-type{margin-top:0;}
+
   .cmt-opt{font-weight:500;color:var(--muted);font-size:.72rem;margin-left:6px;}
+
   .cmt-form input[type=text],.cmt-form textarea{width:100%;font-family:inherit;font-size:.92rem;color:var(--ink);background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px;outline:none;}
+
   .cmt-form input[type=text]:focus,.cmt-form textarea:focus{border-color:var(--primary-dark);box-shadow:0 0 0 3px var(--primary-soft);}
+
   .cmt-form textarea{min-height:110px;resize:vertical;line-height:1.7;}
+
   .cmt-counter{text-align:right;font-size:.72rem;color:var(--muted);margin:4px 2px 0;}
+
   .cmt-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+
   .cmt-actions{display:flex;align-items:center;gap:12px;margin-top:10px;}
+
   .cmt-form button{background:var(--coral);color:#fff;border:0;border-radius:var(--radius);font-family:inherit;font-size:.9rem;font-weight:600;padding:11px 24px;cursor:pointer;transition:.12s;}
+
   .cmt-form button:hover{background:var(--coral-dark);}
+
   .cmt-form button:disabled{opacity:.5;cursor:default;}
+
   .cmt-msg{font-size:.82rem;font-weight:600;}
+
   .cmt-msg.ok{color:var(--primary-ink);}
+
   .cmt-msg.err{color:var(--coral-dark);}
+
   .cmt-listhead{margin:6px 2px 10px;color:var(--ink);font-size:.9rem;font-weight:600;}
+
   .cmt-list{display:flex;flex-direction:column;gap:10px;}
+
   .cmt-item{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:12px 15px;}
+
   .cmt-item .m{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin:0 0 6px;}
+
   .cmt-item .nm{font-weight:600;color:var(--primary-ink);font-size:.84rem;}
+
   .cmt-item .nm.anon{color:var(--muted);font-weight:500;}
+
   .cmt-item .wh{font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums;}
+
   .cmt-item .bd{font-size:.9rem;color:var(--text);line-height:1.8;white-space:pre-wrap;word-break:break-word;}
+
   .cmt-state{text-align:center;padding:28px 16px;color:var(--muted);font-size:.85rem;}
+
+
 
   @media(max-width:640px){.site-header{position:static;}}
 
+
+
   /* ページトップへ戻る */
+
   .to-top{position:fixed;bottom:20px;right:20px;z-index:900;width:44px;height:44px;border:none;border-radius:50%;background:#157a4b;color:#fff;font-size:20px;line-height:1;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,background .15s;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+
   .to-top.show{opacity:.92;visibility:visible;transform:none;}
+
   .to-top:hover{opacity:1;background:#12633d;}
+
 </style>
+
   <link rel="icon" type="image/svg+xml" href="icon.svg">
+
 <style id="byline-layout">/* byline: デスクトップはβ版の横・スマホは改行 */
+
 .brand-text h1{display:inline-block;vertical-align:baseline;}
+
 .brand-text .byline{display:inline-block;vertical-align:baseline;margin:0 0 0 12px;white-space:nowrap;}
+
 @media(max-width:560px){.brand-text h1{display:block;}.brand-text .byline{display:block;margin:2px 0 0;white-space:normal;}}
+
 </style><style id="hubtiles-css">
+
 /* 関連ページのタイル。既存のクラスと当たらないよう hubtile- で始める名前だけを足す */
+
 .hubtiles{padding:38px 24px 10px}
+
 .hubtiles-head h2{margin:0 0 5px;font-size:1.14rem;font-weight:800;letter-spacing:.01em;color:var(--ink)}
+
 .hubtiles-head p{margin:0 0 18px;font-size:.84rem;color:var(--muted)}
+
 .hubtiles-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
 .hubtile{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;color:var(--ink);text-decoration:none;transition:transform .14s ease,box-shadow .14s ease,border-color .14s ease}
+
 .hubtile:hover{transform:translateY(-2px);border-color:var(--ht-line);box-shadow:0 12px 26px -18px rgba(23,50,43,.55)}
+
 .hubtile:focus-visible{outline:3px solid var(--ht-line);outline-offset:2px}
+
 .hubtile-cover{display:block;line-height:0;background:var(--ht-bg)}
+
 .hubtile-cover svg{display:block;width:100%;height:auto}
+
 .hubtile-body{display:flex;flex-direction:column;gap:6px;padding:15px 17px 17px}
+
 .hubtile-kicker{font-size:.7rem;font-weight:700;letter-spacing:.14em;color:var(--ht-ink)}
+
 .hubtile-title{font-size:1.04rem;font-weight:800;line-height:1.35;color:var(--ink)}
+
 .hubtile-desc{font-size:.82rem;line-height:1.75;color:var(--muted)}
+
 .hubtile-go{margin-top:4px;font-size:.8rem;font-weight:700;color:var(--ht-ink)}
+
 .hubtile-go span{display:inline-block;transition:transform .14s ease}
+
 .hubtile:hover .hubtile-go span{transform:translateX(4px)}
+
 .hubtile--q{--ht-bg:#eef6f1;--ht-ink:#0f5f38;--ht-line:#b8dec8}
+
 .hubtile--y{--ht-bg:#0B4A3E;--ht-ink:#0B4A3E;--ht-line:#00A388}
+
 @media (max-width:720px){.hubtiles{padding:28px 24px 6px}.hubtiles-grid{grid-template-columns:1fr}}
+
 @media (prefers-reduced-motion:reduce){.hubtile,.hubtile-go span{transition:none}}
+
 </style>
+
 </head>
+
 <body>
+
 <a class="skip-link" href="#main">本文へ移動</a>
+
+
 
 <div class="topline" aria-hidden="true"></div>
 
+
+
 <header class="site-header">
+
   <div class="container inner">
+
     <a class="brand" href="#" aria-label="小金井市議会 非公式会議録 β版 ホーム">
+
       <img class="logo" src="icon.svg" alt="" aria-hidden="true" width="42" height="42">
+
       <span class="brand-text">
+
         <span class="kicker">小金井市議会</span>
+
         <h1>非公式会議録 <span class="beta">β版</span></h1>
+
         <p class="byline">作成・運営：小金井市議会議員　ながとり太郎</p>
+
       </span>
+
     </a>
 
+
+
     <nav class="nav" aria-label="主要ナビゲーション">
+
       <a href="#" class="active" aria-current="page">ホーム</a>
+
       <a href="kyou.html">きょうの一般質問</a>
+
       <a href="search.html">全文検索</a>
+
       <a href="list.html">会議一覧</a>
+
       <a href="giin.html">議員別発言</a>
+
       <a href="accuracy.html">精度</a>
+
       <a href="https://www.city.koganei.tokyo.dbsr.jp/" target="_blank" rel="noopener">公式 会議録</a>
+
       <a href="https://www.youtube.com/koganei_shigikai" target="_blank" rel="noopener">原典動画</a>
+
     </nav>
+
   </div>
+
 </header>
 
+
+
 <div class="container" style="padding-top:16px">
+
   <a class="qbtn" href="kyou.html" style="min-height:52px;font-size:.95rem;font-weight:650;background:var(--primary-soft);border-color:var(--primary-line);color:var(--primary-ink)">
+
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="16" y1="2" x2="16" y2="6"></line></svg>
+
     きょうの一般質問 &mdash; 誰が何番目に登壇するか、通告した質問を読む
+
     <span class="external" aria-hidden="true">&rarr;</span>
+
   </a>
+
 </div>
+
+
 
 <section class="searchband" aria-label="会議録検索">
+
   <div class="container inner">
+
     <div class="hero-copy">
+
       <p class="hero-lead">キーワード、発言者名、議案番号から、小金井市議会の会議録とAI速報をまとめて探せます。質問文で入力すると、AIがまとめて回答することもできます（β）。</p>
 
+
+
       <form class="searchbar" action="search.html" method="get" onsubmit="return goSearch(event)" role="search" aria-label="会議録検索">
+
         <div class="field">
+
           <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+
             <circle cx="11" cy="11" r="7"></circle>
+
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+
           </svg>
+
           <label class="visually-hidden" for="q">検索キーワード</label>
+
           <input id="q" name="q" type="search" placeholder="例: 保育園・議案第40号／庁舎問題についてどんな議論がある？" autocomplete="off">
+
         </div>
+
         <button type="submit">検索</button>
+
       </form>
 
+
+
       <div class="popular" aria-label="よく検索されるキーワード">
+
         <span class="label">よく検索されるキーワード：</span>
+
         <button class="chip" type="button" onclick="go('庁舎建設')">庁舎建設</button>
+
         <button class="chip" type="button" onclick="go('保育園')">保育園</button>
+
         <button class="chip" type="button" onclick="go('高齢者')">高齢者</button>
+
         <button class="chip" type="button" onclick="go('防災')">防災</button>
+
         <button class="chip" type="button" onclick="go('介護')">介護</button>
+
       </div>
+
       <div class="popular" aria-label="こんな質問もできます">
+
         <span class="label">こんな質問もできます：</span>
+
         <button class="chip" type="button" onclick="go('新市庁舎の建設についてはどういう議論がある？')">新市庁舎の建設についてはどういう議論がある？</button>
+
         <button class="chip" type="button" onclick="go('学童保育についてはどんな議論がある？')">学童保育についてはどんな議論がある？</button>
+
       </div>
+
     </div>
+
+
 
   </div>
+
 </section>
 
+
+
 <div class="container kpi-wrap">
+
   <section class="kpi" aria-label="ポータルの収録指標">
+
     <div class="cell">
+
       <span class="ic" aria-hidden="true">
+
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+
           <rect x="3" y="4" width="18" height="17" rx="1"></rect>
+
           <line x1="3" y1="9" x2="21" y2="9"></line>
+
           <line x1="8" y1="2.5" x2="8" y2="6"></line>
+
           <line x1="16" y1="2.5" x2="16" y2="6"></line>
+
         </svg>
+
       </span>
+
       <div>
+
         <p class="label">対象会議</p>
+
         <div class="value">162<small>件</small></div>
+
       </div>
+
     </div>
+
     <div class="cell">
+
       <span class="ic" aria-hidden="true">
+
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+
           <path d="M14 2.5H6a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.5z"></path>
+
           <polyline points="14 2.5 14 8.5 20 8.5"></polyline>
+
           <polyline points="8.8 15 11 17.2 15.5 12.3"></polyline>
+
         </svg>
+
       </span>
+
       <div>
+
         <p class="label">公式反映</p>
+
         <div class="value">115<small>件</small></div>
+
       </div>
+
     </div>
+
     <div class="cell accent">
+
       <span class="ic" aria-hidden="true">
+
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+
           <rect x="4" y="8" width="16" height="12" rx="1"></rect>
+
           <path d="M12 8V4"></path>
+
           <path d="M9 4h6"></path>
+
           <path d="M9 14h.01"></path>
+
           <path d="M15 14h.01"></path>
+
           <path d="M2.5 13.5v3"></path>
+
           <path d="M21.5 13.5v3"></path>
+
         </svg>
+
       </span>
+
       <div>
+
         <p class="label">AI速報</p>
+
         <div class="value">47<small>件</small></div>
+
       </div>
+
     </div>
+
   </section>
+
 </div>
 
+
+
 <main class="main" id="main">
+
   <div class="container">
+
     <div class="main-grid">
+
       <div class="col-left">
+
       <section class="panel" aria-labelledby="recent-title">
+
         <div class="panel-head">
+
           <h2 class="panel-title" id="recent-title">最近の会議</h2>
+
           <span class="panel-count">直近5件</span>
+
         </div>
 
+
+
         <div class="table-scroll">
+
           <table class="meeting-table">
+
             <colgroup>
+
               <col class="col-date">
+
               <col class="col-kind">
+
               <col>
+
               <col class="col-status">
+
               <col class="col-action">
+
             </colgroup>
+
             <thead>
+
               <tr>
+
                 <th scope="col">開催日</th>
+
                 <th scope="col">会議種別</th>
+
                 <th scope="col">会議名</th>
+
                 <th scope="col">ステータス</th>
+
                 <th scope="col"><span class="visually-hidden">詳細</span></th>
+
               </tr>
+
             </thead>
+
             <tbody>
+
               <tr>
+
                 <td class="td-date"><span class="date">2026/09/18</span></td>
+
                 <td class="td-kind"><span class="kind"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9.5" cy="7" r="4"></circle></svg>本会議</span></td>
+
                 <td class="td-title"><a class="meeting-link" href="R8.9.18_本会議①.html">本会議①</a></td>
+
                 <td class="td-status"><span class="badge sokuho">AI速報</span></td>
+
                 <td class="td-action"><a class="action-link" href="R8.9.18_本会議①.html" aria-label="本会議①の詳細へ">›</a></td>
+
               </tr>
+
               <tr>
+
                 <td class="td-date"><span class="date">2026/09/18</span></td>
+
                 <td class="td-kind"><span class="kind"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9.5" cy="7" r="4"></circle></svg>本会議</span></td>
+
                 <td class="td-title"><a class="meeting-link" href="R8.9.18_本会議②.html">本会議②</a></td>
+
                 <td class="td-status"><span class="badge sokuho">AI速報</span></td>
+
                 <td class="td-action"><a class="action-link" href="R8.9.18_本会議②.html" aria-label="本会議②の詳細へ">›</a></td>
+
               </tr>
+
               <tr>
+
                 <td class="td-date"><span class="date">2026/09/18</span></td>
+
                 <td class="td-kind"><span class="kind"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9.5" cy="7" r="4"></circle></svg>本会議</span></td>
+
                 <td class="td-title"><a class="meeting-link" href="R8.9.18_本会議③.html">本会議③</a></td>
+
                 <td class="td-status"><span class="badge sokuho">AI速報</span></td>
+
                 <td class="td-action"><a class="action-link" href="R8.9.18_本会議③.html" aria-label="本会議③の詳細へ">›</a></td>
+
               </tr>
+
               <tr>
+
                 <td class="td-date"><span class="date">2026/09/18</span></td>
+
                 <td class="td-kind"><span class="kind"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9.5" cy="7" r="4"></circle></svg>委員会</span></td>
+
                 <td class="td-title"><a class="meeting-link" href="R8.9.18_議会運営委員会.html">議会運営委員会</a></td>
+
                 <td class="td-status"><span class="badge sokuho">AI速報</span></td>
+
                 <td class="td-action"><a class="action-link" href="R8.9.18_議会運営委員会.html" aria-label="議会運営委員会の詳細へ">›</a></td>
+
               </tr>
+
               <tr>
+
                 <td class="td-date"><span class="date">2026/09/18</span></td>
+
                 <td class="td-kind"><span class="kind"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9.5" cy="7" r="4"></circle></svg>委員会</span></td>
+
                 <td class="td-title"><a class="meeting-link" href="R8.9.18_議会運営委員会協議会.html">議会運営委員会協議会</a></td>
+
                 <td class="td-status"><span class="badge sokuho">AI速報</span></td>
+
                 <td class="td-action"><a class="action-link" href="R8.9.18_議会運営委員会協議会.html" aria-label="議会運営委員会協議会の詳細へ">›</a></td>
+
               </tr>
+
             </tbody>
+
           </table>
+
         </div>
+
+
 
         <div class="panel-foot">
+
           <a class="more-link" href="list.html">すべての会議を見る <span aria-hidden="true">→</span></a>
+
         </div>
+
       </section>
+
+
 
       <section class="panel" aria-labelledby="recent-official-title">
+
         <div class="panel-head">
+
           <h2 class="panel-title" id="recent-official-title">最近の公式反映</h2>
+
           <span class="panel-count">公式版・直近5件</span>
+
         </div>
+
+
 
         <div class="table-scroll">
+
           <table class="meeting-table">
+
             <colgroup>
+
               <col class="col-date">
+
               <col class="col-kind">
+
               <col>
+
               <col class="col-status">
+
               <col class="col-action">
+
             </colgroup>
+
             <thead>
+
               <tr>
+
                 <th scope="col">開催日</th>
+
                 <th scope="col">会議種別</th>
+
                 <th scope="col">会議名</th>
+
                 <th scope="col">ステータス</th>
+
                 <th scope="col"><span class="visually-hidden">詳細</span></th>
+
               </tr>
+
             </thead>
+
             <tbody>
+
               <tr>
-                <td class="td-date"><span class="date">2026/03/23</span></td>
+
+                <td class="td-date"><span class="date">2026/06/23</span></td>
+
                 <td class="td-kind"><span class="kind"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9.5" cy="7" r="4"></circle></svg>本会議</span></td>
-                <td class="td-title"><a class="meeting-link" href="R8.3.23_本会議.html">本会議</a></td>
+
+                <td class="td-title"><a class="meeting-link" href="R8.6.23_本会議.html">本会議</a></td>
+
                 <td class="td-status"><span class="badge official">公式</span></td>
-                <td class="td-action"><a class="action-link" href="R8.3.23_本会議.html" aria-label="本会議の詳細へ">›</a></td>
+
+                <td class="td-action"><a class="action-link" href="R8.6.23_本会議.html" aria-label="本会議の詳細へ">›</a></td>
+
               </tr>
+
               <tr>
-                <td class="td-date"><span class="date">2026/03/18</span></td>
+
+                <td class="td-date"><span class="date">2026/06/23</span></td>
+
                 <td class="td-kind"><span class="kind"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9.5" cy="7" r="4"></circle></svg>委員会</span></td>
-                <td class="td-title"><a class="meeting-link" href="R8.3.18_予算特別委員会.html">予算特別委員会</a></td>
+
+                <td class="td-title"><a class="meeting-link" href="R8.6.23_議会運営委員会.html">議会運営委員会</a></td>
+
                 <td class="td-status"><span class="badge official">公式</span></td>
-                <td class="td-action"><a class="action-link" href="R8.3.18_予算特別委員会.html" aria-label="予算特別委員会の詳細へ">›</a></td>
+
+                <td class="td-action"><a class="action-link" href="R8.6.23_議会運営委員会.html" aria-label="議会運営委員会の詳細へ">›</a></td>
+
               </tr>
+
               <tr>
-                <td class="td-date"><span class="date">2026/03/18</span></td>
+
+                <td class="td-date"><span class="date">2026/06/19</span></td>
+
                 <td class="td-kind"><span class="kind"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9.5" cy="7" r="4"></circle></svg>委員会</span></td>
-                <td class="td-title"><a class="meeting-link" href="R8.3.18_厚生文教委員会.html">厚生文教委員会</a></td>
+
+                <td class="td-title"><a class="meeting-link" href="R8.6.19_厚生文教委員会.html">厚生文教委員会</a></td>
+
                 <td class="td-status"><span class="badge official">公式</span></td>
-                <td class="td-action"><a class="action-link" href="R8.3.18_厚生文教委員会.html" aria-label="厚生文教委員会の詳細へ">›</a></td>
+
+                <td class="td-action"><a class="action-link" href="R8.6.19_厚生文教委員会.html" aria-label="厚生文教委員会の詳細へ">›</a></td>
+
               </tr>
+
               <tr>
-                <td class="td-date"><span class="date">2026/03/18</span></td>
+
+                <td class="td-date"><span class="date">2026/06/19</span></td>
+
                 <td class="td-kind"><span class="kind"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9.5" cy="7" r="4"></circle></svg>委員会</span></td>
-                <td class="td-title"><a class="meeting-link" href="R8.3.18_建設環境委員会.html">建設環境委員会</a></td>
+
+                <td class="td-title"><a class="meeting-link" href="R8.6.19_議会運営委員会.html">議会運営委員会</a></td>
+
                 <td class="td-status"><span class="badge official">公式</span></td>
-                <td class="td-action"><a class="action-link" href="R8.3.18_建設環境委員会.html" aria-label="建設環境委員会の詳細へ">›</a></td>
+
+                <td class="td-action"><a class="action-link" href="R8.6.19_議会運営委員会.html" aria-label="議会運営委員会の詳細へ">›</a></td>
+
               </tr>
+
               <tr>
-                <td class="td-date"><span class="date">2026/03/18</span></td>
+
+                <td class="td-date"><span class="date">2026/06/19</span></td>
+
                 <td class="td-kind"><span class="kind"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9.5" cy="7" r="4"></circle></svg>委員会</span></td>
-                <td class="td-title"><a class="meeting-link" href="R8.3.18_議会運営委員会.html">議会運営委員会</a></td>
+
+                <td class="td-title"><a class="meeting-link" href="R8.6.19_広報・広聴協議会.html">広報・広聴協議会</a></td>
+
                 <td class="td-status"><span class="badge official">公式</span></td>
-                <td class="td-action"><a class="action-link" href="R8.3.18_議会運営委員会.html" aria-label="議会運営委員会の詳細へ">›</a></td>
+
+                <td class="td-action"><a class="action-link" href="R8.6.19_広報・広聴協議会.html" aria-label="広報・広聴協議会の詳細へ">›</a></td>
+
               </tr>
+
             </tbody>
+
           </table>
+
         </div>
+
       </section>
 
+
+
       <section class="panel comments-panel" aria-labelledby="cmt-title">
+
         <div class="panel-head"><h2 class="panel-title" id="cmt-title">感想・ご意見・修正要望</h2></div>
+
         <div class="cmt-body">
+
           <p class="cmt-note">投稿は<strong>承認制</strong>です。送信後すぐには表示されず、管理者の確認後に掲載します。特定個人への誹謗中傷・個人情報・無関係な宣伝等は掲載されません。当サイトは、小金井市・市議会とは関係ありません。</p>
+
           <form class="cmt-form" id="cmtForm" autocomplete="off">
+
             <label class="cmt-label" for="cmtName">ニックネーム <span class="cmt-opt">任意・空欄なら「匿名」</span></label>
+
             <input type="text" id="cmtName" maxlength="30" placeholder="匿名">
+
             <label class="cmt-label" for="cmtBody">投稿内容 <span class="cmt-opt">必須</span></label>
+
             <textarea id="cmtBody" maxlength="1000" placeholder="例）この委員会の◯◯についての議論が分かりやすかったです。" required></textarea>
+
             <div class="cmt-counter"><span id="cmtCount">0</span> / 1000</div>
+
             <div class="cmt-hp" aria-hidden="true"><label>空欄のままにしてください<input type="text" id="cmtHp" name="website" tabindex="-1" autocomplete="off"></label></div>
+
             <div class="cmt-actions"><button type="submit" id="cmtSubmit">投稿する</button><span class="cmt-msg" id="cmtMsg"></span></div>
+
           </form>
+
           <p class="cmt-listhead">コメント <span id="cmtNum"></span></p>
+
           <div class="cmt-list" id="cmtList"></div>
+
           <div class="cmt-state" id="cmtState">読み込み中…</div>
+
         </div>
+
       </section>
+
       </div>
+
+
 
       <aside class="side" aria-label="補助メニュー">
 
+
+
         <section class="about" id="about" aria-labelledby="about-title">
+
           <h3 id="about-title">
+
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+
               <circle cx="12" cy="12" r="10"></circle>
+
               <line x1="12" y1="16.2" x2="12" y2="11.2"></line>
+
               <line x1="12" y1="7.8" x2="12.01" y2="7.8"></line>
+
             </svg>
+
             このサイトについて
+
           </h3>
+
           <p>本サイトの議事録は、小金井市議会がYouTubeで公開している本会議・委員会等の動画記録をもとに、AI（Google Gemini）による自動文字起こし・校正・要約を行ったものです。小金井市議会が作成・承認した<strong>公式の会議録ではありません</strong>。</p>
+
           <ul>
+
             <li>AIによる処理のため、発言者名の取り違え・語句の誤変換・内容の欠落等が含まれる可能性があります。</li>
+
             <li>正確な発言内容は、小金井市議会の公式会議録またはYouTube動画の原本をご確認ください。</li>
+
             <li>本サイトの内容に基づく判断・行動について、作成者は一切の責任を負いません。</li>
+
             <li>引用・転載の際は、AIによる自動生成である旨を併記してください。</li>
+
             <li>ただし、多数の目で確認してできるだけ修正を試みたいと思いますので、修正要望は下記のコメント欄よりお知らせください。</li>
+
           </ul>
+
           <p style="margin:.9rem 0 0;"><a href="accuracy.html" style="display:inline-block;background:#eaf1fb;color:#16447c;font-weight:700;font-size:13.5px;padding:.55rem .95rem;border-radius:8px;text-decoration:none;">📊 この速報は、どこまで正確か — 公式会議録と突合した正確性の実測 →</a></p>
+
           <div class="src">
+
             動画原本：<a href="https://www.youtube.com/koganei_shigikai" target="_blank" rel="noopener">小金井市議会 YouTubeチャンネル</a><br>
+
             公式会議録：<a href="https://www.city.koganei.tokyo.dbsr.jp/" target="_blank" rel="noopener">小金井市議会 会議録検索システム</a><br>
+
             使用技術：Google Gemini・YouTube字幕・話者音声照合
+
           </div>
+
         </section>
+
+
 
         <section class="panel" aria-labelledby="quick-title">
+
           <div class="panel-head">
+
             <h2 class="panel-title" id="quick-title">クイックリンク</h2>
+
           </div>
+
           <div class="quick-body">
+
             <a class="qbtn" href="search.html">
+
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+
                 <circle cx="11" cy="11" r="7"></circle>
+
                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+
               </svg>
+
               全文検索へ
+
             </a>
+
             <a class="qbtn" href="list.html">
+
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+
                 <line x1="8" y1="6" x2="21" y2="6"></line>
+
                 <line x1="8" y1="12" x2="21" y2="12"></line>
+
                 <line x1="8" y1="18" x2="21" y2="18"></line>
+
                 <line x1="3" y1="6" x2="3.01" y2="6"></line>
+
                 <line x1="3" y1="12" x2="3.01" y2="12"></line>
+
                 <line x1="3" y1="18" x2="3.01" y2="18"></line>
+
               </svg>
+
               会議一覧を見る
+
             </a>
+
             <a class="qbtn" href="shiryo/index.html">
+
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+
                 <polyline points="14 2 14 8 20 8"></polyline>
+
                 <line x1="16" y1="13" x2="8" y2="13"></line>
+
                 <line x1="16" y1="17" x2="8" y2="17"></line>
+
               </svg>
+
               配布資料を見る
+
             </a>
+
             <a class="qbtn" href="https://www.youtube.com/koganei_shigikai" target="_blank" rel="noopener">
+
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+
                 <rect x="2" y="4" width="20" height="16" rx="1"></rect>
+
                 <polygon points="10 8 16 12 10 16" fill="currentColor" stroke="none"></polygon>
+
               </svg>
+
               原典動画を見る
+
               <svg class="external" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+
                 <path d="M14 4h6v6"></path><path d="M20 4l-9 9"></path>
+
                 <path d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"></path>
+
               </svg>
+
             </a>
+
           </div>
+
         </section>
 
+
+
         <aside class="hero-note" aria-label="検索対象の概要">
+
           <p class="note-title">
+
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+
               <path d="M4 5h16"></path>
+
               <path d="M4 12h16"></path>
+
               <path d="M4 19h10"></path>
+
             </svg>
+
             収録状況
+
           </p>
+
           <div class="note-list" id="rec-sessions">
+
             <div class="note-item"><b>2件</b><span>令和7年 第4回定例会</span></div>
+
             <div class="note-item"><b>28件</b><span>第1回定例会</span></div>
+
             <div class="note-item"><b>23件</b><span>第2回定例会</span></div>
+
           </div>
+
           <p class="note-caption" id="rec-closed">その他、閉会中の委員会 14件</p>
+
         </aside>
+
       </aside>
+
     </div>
+
   </div>
+
 </main>
 
+
+
 <!-- ═══ 関連ページのタイル（deploy_hub.py が index.html の footer 直前に差し込む） ═══ -->
+
 <section class="container hubtiles" aria-labelledby="hubtiles-h">
+
   <div class="hubtiles-head">
+
     <h2 id="hubtiles-h">この会議録と、あわせて使う</h2>
+
     <p>同じ作成者が公開している、小金井市政を読むためのページです。</p>
+
   </div>
+
   <div class="hubtiles-grid">
 
+
+
     <a class="hubtile hubtile--q" href="kyou.html">
+
       <span class="hubtile-cover">
+
         <svg viewBox="0 0 560 132" width="100%" role="img" aria-label="登壇順に並んだ議員の一覧のイメージ">
+
           <rect x="0" y="0" width="560" height="132" fill="#eef6f1"/>
+
           <rect x="0" y="0" width="560" height="4" fill="#1aa15c"/>
+
           <g>
+
             <rect x="34" y="22" width="28" height="26" rx="2" fill="#0f5f38"/>
+
             <text x="48" y="40" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="system-ui,sans-serif">1</text>
+
             <rect x="72" y="24" width="196" height="9" rx="4" fill="#1aa15c"/>
+
             <rect x="72" y="39" width="300" height="6" rx="3" fill="#0f5f38" opacity="0.22"/>
+
             <rect x="452" y="24" width="74" height="22" rx="11" fill="#ffffff" stroke="#b8dec8" stroke-width="1"/>
+
             <text x="489" y="40" font-size="12" font-weight="700" fill="#0f5f38" text-anchor="middle" font-family="system-ui,sans-serif">10:00</text>
+
           </g>
+
           <g opacity="0.72">
+
             <rect x="34" y="60" width="28" height="26" rx="2" fill="#0f5f38"/>
+
             <text x="48" y="78" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="system-ui,sans-serif">2</text>
+
             <rect x="72" y="62" width="150" height="9" rx="4" fill="#1aa15c"/>
+
             <rect x="72" y="77" width="258" height="6" rx="3" fill="#0f5f38" opacity="0.22"/>
+
             <rect x="452" y="62" width="74" height="22" rx="11" fill="#ffffff" stroke="#b8dec8" stroke-width="1"/>
+
             <text x="489" y="78" font-size="12" font-weight="700" fill="#0f5f38" text-anchor="middle" font-family="system-ui,sans-serif">11:00</text>
+
           </g>
+
           <g opacity="0.44">
+
             <rect x="34" y="98" width="28" height="26" rx="2" fill="#0f5f38"/>
+
             <text x="48" y="116" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="system-ui,sans-serif">3</text>
+
             <rect x="72" y="100" width="226" height="9" rx="4" fill="#1aa15c"/>
+
             <rect x="72" y="115" width="208" height="6" rx="3" fill="#0f5f38" opacity="0.22"/>
+
             <rect x="452" y="100" width="74" height="22" rx="11" fill="#ffffff" stroke="#b8dec8" stroke-width="1"/>
+
             <text x="489" y="116" font-size="12" font-weight="700" fill="#0f5f38" text-anchor="middle" font-family="system-ui,sans-serif">13:00</text>
+
           </g>
+
         </svg>
+
       </span>
+
       <span class="hubtile-body">
+
         <span class="hubtile-kicker">議会・一般質問</span>
+
         <span class="hubtile-title">小金井市議会 今日の一般質問</span>
+
         <span class="hubtile-desc">きょう誰が何番目に登壇するか。通告した質問の中身と、終わった質問の記録へのリンク。日付は西暦と元号を併記しています。</span>
+
         <span class="hubtile-go">見にいく <span aria-hidden="true">&rarr;</span></span>
+
       </span>
+
     </a>
+
+
 
     <a class="hubtile hubtile--y" href="yosan/">
+
       <span class="hubtile-cover">
+
         <svg viewBox="0 0 560 132" width="100%" role="img" aria-label="予算の内訳を表す棒グラフのイメージ">
+
           <rect x="0" y="0" width="560" height="132" fill="#0B4A3E"/>
+
           <g stroke="#ffffff" stroke-width="1" opacity="0.10">
+
             <line x1="0" y1="44" x2="560" y2="44"/><line x1="0" y1="70" x2="560" y2="70"/><line x1="0" y1="96" x2="560" y2="96"/>
+
           </g>
+
           <rect x="52" y="74" width="38" height="38" rx="2" fill="#00A388" opacity="1"/>
+
           <rect x="114" y="54" width="38" height="58" rx="2" fill="#4DC1E6" opacity="1"/>
+
           <rect x="176" y="30" width="38" height="82" rx="2" fill="#F5A623" opacity="1"/>
+
           <rect x="238" y="62" width="38" height="50" rx="2" fill="#00A388" opacity="0.62"/>
+
           <rect x="300" y="84" width="38" height="28" rx="2" fill="#4DC1E6" opacity="0.52"/>
+
           <rect x="362" y="92" width="38" height="20" rx="2" fill="#F5A623" opacity="0.48"/>
+
           <rect x="52" y="112" width="418" height="2" rx="1" fill="#ffffff" opacity="0.28"/>
+
           <text x="52" y="30" font-size="13" font-weight="700" fill="#ffffff" opacity="0.85" font-family="system-ui,sans-serif">令和8年度 一般会計</text>
+
         </svg>
+
       </span>
+
       <span class="hubtile-body">
+
         <span class="hubtile-kicker">予算</span>
+
         <span class="hubtile-title">小金井よさんラボ</span>
+
         <span class="hubtile-desc">令和8年度の予算546億円が、どこから来て、どこへ行くのか。13の分野から一つひとつの事業まで、さわって降りていけます。</span>
+
         <span class="hubtile-go">探検する <span aria-hidden="true">&rarr;</span></span>
+
       </span>
+
     </a>
 
+
+
   </div>
+
 </section>
 
+
+
 <footer class="site-footer">
+
   <div class="container inner">
+
     <p class="footer-note">データの更新状況やAIの精度には限界があります。内容の正確性・最新性については公式情報をご確認ください。</p>
 
+
+
   </div>
+
 </footer>
 
+
+
 <script>
+
   function go(q){ location.href = 'search.html?q=' + encodeURIComponent(q); }
+
   function goSearch(e){ e.preventDefault(); var v=document.getElementById('q').value.trim(); location.href = v ? ('search.html?q=' + encodeURIComponent(v)) : 'search.html'; return false; }
+
 </script>
 
+
+
 <!-- Fuguによる主なデザイン改善: (1)デザイントークン体系化(primary/coral/amber x dark/soft/line) (2)アクセシビリティ(skip-link/aria/focus-visible/prefers-reduced-motion) (3)タイポ階層と字間の最適化 (4)ヒーローに「収録状況」カードを追加し情報密度を向上 (5)KPIを上辺カラーアクセント+アイコンチップで整理 (6)会議一覧をセマンティックなtable(colgroup/scope)化 (7)hover/focus/activeの状態設計 (8)クリーム基調の暖色パレットで親しみやすさと信頼感を両立 / 末尾(クイックリンク2件・フッター・スクリプト)はトークン上限で切れたためFuguのクラス設計に沿って補完 -->
+
 <script>
+
 (function(){
+
   var ENDPOINT="https://script.google.com/macros/s/AKfycby4Az4VwZI3U-vfLYFuwJCTtpNXqgDaCLxGQ9iHF04RfBUxSqwreJ-d6qwRafup-wLAdg/exec";
+
   var form=document.getElementById('cmtForm'); if(!form) return;
+
   var bodyEl=document.getElementById('cmtBody'),nameEl=document.getElementById('cmtName'),hpEl=document.getElementById('cmtHp'),
+
       submitBtn=document.getElementById('cmtSubmit'),msg=document.getElementById('cmtMsg'),countEl=document.getElementById('cmtCount'),
+
       listEl=document.getElementById('cmtList'),stateEl=document.getElementById('cmtState'),numEl=document.getElementById('cmtNum');
+
   bodyEl.addEventListener('input',function(){countEl.textContent=bodyEl.value.length;});
+
   function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+
   function fmtWhen(t){if(!t)return'';if(typeof t==='string'&&/^\d{4}\/\d{2}\/\d{2}/.test(t))return t;try{var d=new Date(t);if(!isNaN(d)){var p=function(n){return('0'+n).slice(-2);};return d.getFullYear()+'/'+p(d.getMonth()+1)+'/'+p(d.getDate())+' '+p(d.getHours())+':'+p(d.getMinutes());}}catch(e){}return String(t);}
+
   function render(list){if(!list||!list.length){stateEl.textContent='まだコメントはありません。最初の投稿をどうぞ。';stateEl.style.display='block';numEl.textContent='';return;}stateEl.style.display='none';numEl.textContent='（'+list.length+'件）';listEl.innerHTML=list.map(function(c){var nm=(c.name&&c.name.trim())?'<span class="nm">'+esc(c.name)+'</span>':'<span class="nm anon">匿名</span>';return '<div class="cmt-item"><div class="m">'+nm+'<span class="wh">'+esc(fmtWhen(c.t))+'</span></div><div class="bd">'+esc(c.body)+'</div></div>';}).join('');}
+
   function load(){fetch(ENDPOINT,{method:'GET'}).then(function(r){return r.json();}).then(function(j){render(j.comments||[]);}).catch(function(){stateEl.textContent='コメントの読み込みに失敗しました。時間をおいて再読み込みしてください。';});}
+
   form.addEventListener('submit',function(ev){ev.preventDefault();msg.textContent='';msg.className='cmt-msg';var body=bodyEl.value.trim();if(!body){msg.textContent='本文を入力してください。';msg.className='cmt-msg err';return;}if(hpEl.value){form.reset();return;}submitBtn.disabled=true;msg.textContent='送信中…';var payload=JSON.stringify({name:nameEl.value.trim(),body:body,website:hpEl.value});fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:payload}).then(function(r){return r.json();}).then(function(j){if(j&&j.ok){msg.textContent='投稿を受け付けました。承認後に表示されます。ありがとうございます。';msg.className='cmt-msg ok';form.reset();countEl.textContent='0';}else{msg.textContent=(j&&j.error)?j.error:'送信に失敗しました。';msg.className='cmt-msg err';}}).catch(function(){msg.textContent='送信に失敗しました。時間をおいて再度お試しください。';msg.className='cmt-msg err';}).then(function(){submitBtn.disabled=false;});});
+
   load();
+
 })();
+
 </script>
+
 <button class="to-top" type="button" aria-label="ページ上部へ戻る" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
 <script>(function(){var b=document.querySelector('.to-top');if(!b)return;function u(){b.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>300);}window.addEventListener('scroll',u,{passive:true});u();})();</script>
+
 <script>
+
 (function(){try{
+
   fetch('list.html',{cache:'no-cache'}).then(function(r){return r.text();}).then(function(t){
+
     var m=t.match(/<script id="portal-stats"[^>]*>([\s\S]*?)<\/script>/);if(!m)return;
+
     var s=JSON.parse(m[1]);
+
     if(s.sessions&&s.sessions.length){var all=s.sessions.slice().reverse();
+
       var latestYr=(String(s.sessions[0].name).match(/^令和(\d+)年/)||[])[1];
+
       var el=document.getElementById('rec-sessions');
+
       if(el)el.innerHTML=all.map(function(x){var mm=String(x.name).match(/^令和(\d+)年\s*(.*)$/);
+
         var yr=mm?mm[1]:'',rest=mm?mm[2]:String(x.name);
+
         var label=(yr&&yr!==latestYr)?('令和'+yr+'年 '+rest):rest;
+
         return '<div class="note-item"><b>'+x.count+'件</b><span>'+label+'</span></div>';}).join('');}
+
     if(typeof s.closed==='number'){var c=document.getElementById('rec-closed');
+
       if(c)c.textContent='その他、閉会中の委員会 '+s.closed+'件';}
+
   }).catch(function(){});}catch(e){}})();
+
 </script>
+
 </body>
+
 </html>
+
