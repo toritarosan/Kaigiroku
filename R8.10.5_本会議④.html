@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和8年10月5日 本会議④</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#157a4b; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* サイト共通ヘッダー（トップと同系の緑＋クリーム）。iframe埋め込み時は html.embedded で非表示 */
+  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
+  html.embedded .sitenav{display:none;}
+  .sitenav-in{max-width:1100px;margin:0 auto;padding:0 18px;min-height:52px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .sitenav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#157a4b;font-weight:700;font-size:1rem;white-space:nowrap;}
+  .sitenav-brand img{display:block;border-radius:2px;}
+  .sitenav-links{margin-left:auto;display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+  .sitenav-links a{color:#2a2620;font-size:.84rem;font-weight:600;text-decoration:none;padding:8px 11px;border-radius:2px;white-space:nowrap;}
+  .sitenav-links a:hover{color:#157a4b;background:#e7f4ec;}
+  .sitenav-links .ext{color:#8a8073;font-size:.8em;margin-left:1px;}
+  @media(max-width:640px){.sitenav-in{min-height:0;padding:8px 14px;}.sitenav-links a{padding:6px 9px;font-size:.8rem;}}
+
+  /* パンくず */
+  .crumb{background:#fbf9f4;border-bottom:1px solid #eee7db;position:sticky;top:52px;z-index:59;}
+  html.embedded .crumb{display:none;}
+  .crumb-in{max-width:1100px;margin:0 auto;padding:8px 18px;font-size:.76rem;color:#8a8073;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.5;}
+  .crumb a{color:#157a4b;text-decoration:none;font-weight:600;}
+  .crumb a:hover{text-decoration:underline;}
+  .crumb .sep{color:#c9c0b2;}
+  .crumb .cur{color:#4a443b;font-weight:600;}
+  @media(max-width:640px){.crumb{position:static;} .sitenav-in{flex-wrap:nowrap;} .sitenav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  /* 未定稿（公式だが校正中）＝確定版と一目で区別できるようコーラル地にする */
+  .hero .srcbadge.draft{background:var(--coral-dark, #b83a25);}
+  .hero .srcbadge.draft .dot{background:#ffd9cf;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
+
+  /* ページトップへ戻る */
+  .to-top{position:fixed;bottom:20px;right:20px;z-index:900;width:44px;height:44px;border:none;border-radius:50%;background:#157a4b;color:#fff;font-size:20px;line-height:1;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,background .15s;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+  .to-top.show{opacity:.92;visibility:visible;transform:none;}
+  .to-top:hover{opacity:1;background:#12633d;}
+
+  /* 発言パーマリンク＆要約→本文アンカー */
+  .turn-link{margin-left:8px;font-size:12px;text-decoration:none;opacity:0;transition:opacity .15s;color:#8a8073;}
+  .turn:hover .turn-link,.turn-link:focus{opacity:.7;}
+  .turn-link:hover{opacity:1;}
+  .turn:target,.turn.turn-hl{background:#fff8e1;transition:background .3s;}
+  a.sum-jump{color:#157a4b;font-weight:700;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;cursor:pointer;}
+  a.sum-jump:hover{color:#12633d;}
+  .copy-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(8px);background:#157a4b;color:#fff;font-size:13px;padding:9px 16px;border-radius:4px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;z-index:1100;box-shadow:0 2px 10px rgba(0,0,0,.25);}
+  .copy-toast.show{opacity:1;visibility:visible;transform:translateX(-50%);}
+</style>
+</head>
+<body>
+<script>try{if(window.self!==window.top)document.documentElement.classList.add('embedded');}catch(e){document.documentElement.classList.add('embedded');}</script>
+<nav class="sitenav" aria-label="サイト共通ナビ">
+  <div class="sitenav-in">
+    <a class="sitenav-brand" href="index.html"><img src="icon.svg" alt="" width="30" height="30"><span>非公式会議録</span></a>
+    <div class="sitenav-links">
+      <a href="index.html">ホーム</a>
+      <a href="search.html">全文検索</a>
+      <a href="list.html">会議一覧</a>
+      <a href="https://www.city.koganei.tokyo.dbsr.jp/" target="_blank" rel="noopener">公式会議録<span class="ext">↗</span></a>
+      <a href="https://www.youtube.com/koganei_shigikai" target="_blank" rel="noopener">原典動画<span class="ext">↗</span></a>
+    </div>
+  </div>
+</nav>
+<nav class="crumb" aria-label="パンくずリスト"><div class="crumb-in"><a href="index.html">ホーム</a><span class="sep">›</span><a href="list.html">全会議一覧</a><span class="sep">›</span><span class="cur">令和8年10月5日 本会議④</span></div></nav>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和8年10月5日</p>
+    <h1>本会議④</h1>
+    <span class="src">YouTube字幕＋AI校正による記録（非公式）</span><div class="hero-note" style="font-family:var(--sans);font-size:13px;line-height:1.7;color:var(--muted);margin-top:10px;">本会議・委員会等の中継動画をもとに、文字起こし・校正・要約を行った非公式アーカイブです。<br><span style="color:#c0392b;font-weight:700;">致命的な話者の誤りや語句の誤りを含んでいます。転載などには適しません。最終的には必ず原典に当たってください。</span></div><span class="genmeta">本文・要約はAIによる自動生成で、小金井市議会の公式見解ではありません。発言者名や語句に誤りを含む場合があります。公式会議録が公開され次第、公式版に差し替えます。<br>最終生成日 2026-10-05</span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <h1>R8.10.5 本会議④（2026年10月5日 16:20-16:59）要約</h1>
+<p>令和8年第3回定例会の最終場面。一時保留としていた決議3件（議員案第31号〜第33号）の保留を解いて討論・採決を行い、<strong>3件はいずれも起立多数で原案可決</strong>となった。続いて追加提出された陳情5件を委員会に付託して閉会中の継続審査とし、閉会中継続審査案件と議員の派遣を決定して、定例会を閉会した。</p>
+<h2>1. 議員案第31号（新たな市民まつりの検討体制を求める決議）</h2>
+<p><strong>結論：討論はなく、起立採決の結果、起立多数により原案可決と決定した。</strong></p>
+<p>件名は「新たな市民まつりについて庁内の横断的な検討体制を構築し、多角的に検討を求める決議」。討論を終了することに異議はなく討論は行われなかった。採決では、はじめに異議の有無を諮ったところ異議があったため起立採決に切り替わり、起立多数で可決された。</p>
+<h2>2. 議員案第32号（新庁舎建設の先送りに関し説明責任を求める決議）</h2>
+<p><strong>結論：反対討論3人（森戸よう子・渡辺大三・坂井えつ子）。起立採決の結果、起立多数により原案可決と決定した。</strong></p>
+<p>件名は「今後の方針を示さず一方的に新庁舎・（仮称）新福祉会館建設を先送りした白井市長に対し、説明責任を果たすことを求める決議」。</p>
+<table>
+<thead>
+<tr>
+<th>討論者</th>
+<th>立場</th>
+<th>主に述べた点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>森戸よう子</td>
+<td>反対</td>
+<td>決議が指摘する点には共感するところがあるとしたうえで5点を述べた。方針変更の提案の仕方が極めて乱暴であり、丁寧に進めることは最低限の市長の責任だと指摘した</td>
+</tr>
+<tr>
+<td>渡辺大三</td>
+<td>反対</td>
+<td>決議が1項目から5項目で明らかにするよう求めている内容自体に反対するものではなく、本文中の賛成できない表現が削除されれば賛成できたと述べた。義務的費用や竣工までの建設単価・人件費のシミュレーションを示すという項目については、示すこと自体が部局には不可能だと考えると指摘した</td>
+</tr>
+<tr>
+<td>坂井えつ子</td>
+<td>反対</td>
+<td>9月1日の市長報告で現設計での3回目の入札の断念と方針見直しが示されたことに触れ、会派はこれまで現設計での早期建設を求めてきたと述べた。新庁舎建設は積年の課題であり、二元代表制の議会の一議員として市政の監視や市長への批評に建設的に取り組みたいとした</td>
+</tr>
+</tbody>
+</table>
+<h2>3. 議員案第33号（市長としての資質と責任を問う決議）</h2>
+<p><strong>結論：反対討論2人（天野かな・水谷たかこ）、賛成討論1人（森戸よう子）。起立採決の結果、起立多数により原案可決と決定した。</strong></p>
+<p>件名は「公約及び施政方針と反する市政運営について、白井市長の市長としての資質と責任を問う決議」。</p>
+<table>
+<thead>
+<tr>
+<th>討論者</th>
+<th>立場</th>
+<th>主に述べた点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>天野かな</td>
+<td>反対</td>
+<td>市政運営に問題がなかったという立場ではなく、市長の責任を問うことは議会の重要な役割だとしたうえで、3点の理由から反対すると述べた。1点目は方針の転換そのものを資質の問題とすることについて。政局より政策を重んじ、政策の中身と説明責任を具体的に問い続けることが議会の第一義の責務だとした</td>
+</tr>
+<tr>
+<td>森戸よう子</td>
+<td>賛成</td>
+<td>市政は市民の信頼なくして成り立たないと述べ、この4年間で市民がどれだけ泣いてきたかを思うと看過できないとして、市長の資質と責任を問うて賛成討論とした</td>
+</tr>
+<tr>
+<td>水谷たかこ</td>
+<td>反対</td>
+<td>決議案が挙げる事実の多くは重く受け止めているとしたうえで、見解が異なる部分があり、個々の課題を指摘して改善を求めることと、4年間の市政運営をまとめて資質と責任の問題として議会の意思を確定させることとは分けて考えるべきだと述べた。市長には議会からの指摘を真摯に受け止め改善することを求めた</td>
+</tr>
+</tbody>
+</table>
+<p>採決後、議事の進行状況から時間を延長することが異議なく決定された。</p>
+<h2>4. 請願・陳情の委員会付託と閉会中の継続審査</h2>
+<p><strong>結論：8陳情第36号は総務企画委員会、8陳情第37号から第40号までは庁舎等建設及び公共施設マネジメント推進調査特別委員会に付託し、閉会中の継続審査とすることを決定した。</strong></p>
+<p>付託された陳情は次の5件（件名は本文で読み上げられた範囲）。</p>
+<table>
+<thead>
+<tr>
+<th>番号</th>
+<th>付託先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8陳情第36号</td>
+<td>総務企画委員会</td>
+</tr>
+<tr>
+<td>8陳情第37号（新庁舎建設頓挫に伴う議会の責任自覚等に関する陳情書）</td>
+<td>庁舎等建設及び公共施設マネジメント推進調査特別委員会</td>
+</tr>
+<tr>
+<td>8陳情第38号（その13 現設計案断念の要因に関する総括と新設計着手を求める陳情書）</td>
+<td>同</td>
+</tr>
+<tr>
+<td>8陳情第39号（その14 見直し案（市民案）の建物平米単価検証結果の共有を求める陳情書）</td>
+<td>同</td>
+</tr>
+<tr>
+<td>8陳情第40号（その15 新設計着手にかかる合意形成体制と設計条件整理を求める陳情書）</td>
+<td>同</td>
+</tr>
+</tbody>
+</table>
+<h2>5. 閉会中継続審査案件・議員の派遣・閉会</h2>
+<ul>
+<li>各常任委員会委員長、議会運営委員会委員長及び庁舎等建設及び公共施設マネジメント推進調査特別委員長から、会議規則第74条の規定により閉会中継続審査案件一覧表のとおり申し出があり、閉会中もなお審査することと決定した。</li>
+<li>地方自治法第100条第13項及び会議規則第120条の規定に基づき、配付された議員の派遣のとおり閉会中に議員派遣を行うこととし、諸般の事情により変更が生じた場合は議長に一任することを決定した。あわせて、閉会中に議員派遣を行う必要が生じた場合の日時・場所・目的・派遣議員名等も議長に一任することを決定した。</li>
+<li>以上で今定例会に付議された案件は全て終了し、令和8年第3回小金井市議会定例会は閉会した。</li>
+</ul>
+<h2>補足（この記録の限界と、音声で直したところ）</h2>
+<ul>
+<li>本文の土台は本人のライブ速報メモ（音声認識）。公開前に動画の音声を手元のWhisper（medium・全編）で文字起こしし、突き合わせて次を直した。</li>
+<li><strong>メモにしか無い4つの断片を本文から外した</strong>（「いただいた質問に答える」「やめてください」「有名な話」「提出された議案等につきましては…」「次の質問、4番、○○議員。」）。いずれも音声の文字起こしに1度も現れず、メモ側の混入と判断した。時刻リンクは失わないよう直後の段落へ移した。</li>
+<li><strong>森戸よう子議員の討論の末尾2文が、メモの補完処理で渡辺大三議員のターンの中に差し込まれていた</strong>ため、音声の順序（森戸の発言は540秒・549秒、渡辺の指名は609秒）に合わせて森戸議員の討論へ戻した。</li>
+<li>渡辺大三議員への指名は、メモに議席番号が残っていない（音声では「22番」と呼ばれている）。同じ文言が複数あり挿入箇所を一意に特定できなかったため、本文には補っていない。</li>
+<li>水谷たかこ議員の討論の「整備の必要性は〇〇と判断し」は、音声で「否めない」と確認できたため埋めた。</li>
+<li>採決の結果（3件とも起立多数で原案可決）は、メモと音声の両方で一致している。</li>
+<li>陳情の件名は読み上げられた範囲で記載しており、第36号の件名は読み上げが残っていない。<strong>陳情者の氏名・住所は記録していない</strong>。</li>
+<li>聞き取れない語は推測で埋めず「〇〇」のままにしている。</li>
+<li>引用・発信の前に、動画リンクまたは公式会議録で確認してください。</li>
+</ul>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/NMxDpIltM0A" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
+  </section>
+
+<div class="turn chair reveal" id="t0">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=127s" data-timestamp="127"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:07</a>再開します。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=159s" data-timestamp="159"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:39</a>　ここで先ほど保留しました追加日程第1から追加日程第3までの3件の保留を解き、順次議題とし討論採決を行います。議員案第31号　新たな市民まつりについて庁内の横断的な検討体制を構築し、多角的に検討を求める決議　これから討論を行います。</div><div class="say">本件に対する討論を終了することにご異議ありませんか。ご異議なしと認め、討論を終了します。直ちに採決します。お諮りします。本件について原案のとおり可決することにご異議ありませんか。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=199s" data-timestamp="199"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:19</a>　ご異議なしと認め、本件は、ご異議がありますので、本件は起立採決をいたします。</div><div class="say">お諮りします。本件は原案のとおり可決することに賛成の皆さんの起立を求めます。反対討論はありませんか。起立多数、本件は原案可決と決定しました。</div>
+</div>
+
+<div class="turn chair reveal" id="t1">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=232s" data-timestamp="232"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:52</a>議員案第32号　今後の方針を示さず一方的に新庁舎・（仮称）新福祉会館建設を先送りした白井市長に対し、説明責任を果たすことを求める決議　本件は討論を行います。初めに本件に反対の者の発言を許可します。24番　森戸よう子議員。</div>
+</div>
+
+<div class="turn reveal" id="t2">
+  <div class="meta"><span class="name">森戸よう子</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=267s" data-timestamp="267"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:27</a>今後の方針を示さず、一方的に新庁舎・（仮称）新福祉会館建設を先送りした白井市長に対し説明責任を果たすことを求める決議について、反対討論を行います。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=302s" data-timestamp="302"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:02</a>　決議の中でも指摘をされている点については、私たちも共感するところがあります。とりわけ、その点で5点述べたいと思います。</div><div class="say">1点は、方針変更の提案の仕方が極めて乱暴であり、丁寧に進めていくことは最低限の市長の責任ですが、いきなり突然方針変更というのは、市の方針に賛成してきた立場からしても、梯子を外された形となり、同意できないというのは当然です。厳しく批判されなければなりません。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=344s" data-timestamp="344"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:44</a>　2つ目は、決議案では、修繕や安全対策が示されていないことを挙げ、現方針を断念することは、市民や職員の安全を確保するという市長の責任を果たせていないと指摘をしています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=385s" data-timestamp="385"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:25</a>本庁舎の老朽化を始め、付随する様々な課題について整理されずに提案されていることは、市民にも不安を与えており、早急な検討をする必要があります。本庁舎の安全確保と老朽化対策について、早急に課題に位置づけて検討すべきと考えます。3つ目に資材価格の高騰など、経済環境、小金井市の学校建て替え事業という、市政全体の財政を見回した資産を行い、判断することがなされていなかったという指摘をされています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=421s" data-timestamp="421"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:01</a>これは市政運営を進める上で、致命的な欠陥と言わざるを得ず、この点では、私たちも一致するところであります。4つ目に、新庁舎棟建設の方針を早急に持つことは、今後の市全体の財政計画を立てる上でも重要です。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=512s" data-timestamp="512"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:32</a>　&gt;　<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=512s" data-timestamp="512"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:32</a>そのためには、どういう庁舎を建設するのかを明らかにし、建設工事に関わる経費を積算するとともに財政計画を十分に考慮し縮減するためにはどうしたらいいのか工事を分けるのかなど建設工事費を抑えながら学校施設も市民生活にも影響が出ないようにしていくことが求められています。</div><div class="say">そうした点での検討をしていくべきです。5つ目に、決議には市民への説明を求めることも記載されております。これは当然のことであります。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=648s" data-timestamp="648"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:48</a>　6月定例会で私たち日本共産党は市民説明会の開催を求める決議を共同提案しましたが、提案者は残念ながら反対されました。</div><div class="say">なぜその時に賛同していただけなかったのでしょうか。残念でなりません。しかし今回市民への説明が入ったことは良かったと思います。市におかれましては、今述べた五つの点については、私達も同、共感するところもあります。</div><div class="say">早急に改善と対策を検討することを求め求めます。今回反対する理由は次の部分で賛同できない部分があるからです。それは本文中に上から8行目、その理由は資材価格の高騰により想定事業費が240億円に達することを挙げているが、その判断の妥当性を示すための具体的な基準や数値は示されなかったという部分についてであります。</div><div class="say">この意味がよく理解できません。〇〇市からは240億円の建設工事費の倍の10年間の財政計画が示され、財政全体で赤字が20億円にのぼることが示されています。これだけでは不十分であるとは考えますが、示されなかったと断定するのは事実と異なるのではないかと考えます。</div><div class="say">という言葉が入っています。市長からは、先送りすることは決定されたと認識をしています。考えています。現状での建設単価や人件費を出せても、今後のシミュレーションは不可能ではないかと思います。また、今後のシミュレーションという内容が何を意味するのかが、この</div>
+</div>
+
+<div class="turn reveal" id="t3">
+  <div class="meta"><span class="name">森戸よう子</span></div>
+  <div class="say">先送りをした場合というふうに言われるところに、若干というよりもかなり違和感を感じます。</div>
+</div>
+
+<div class="turn reveal" id="t4">
+  <div class="meta"><span class="name">森戸よう子</span></div>
+  <div class="say">併せて、義務的費用、竣工までの建設単価や人件費のシミュレーションを示すことという項目がありますが、本当にこれが示せるのでしょうか。なかなか私は、これを示すこと自体、部局には不可能だと考えています。</div>
+</div>
+
+<div class="turn chair reveal" id="t5">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">次に、本件に反対の者の発言を許可します。</div>
+</div>
+
+<div class="turn reveal" id="t6">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say">今後の方針を示さず一方的に新庁舎・（仮称）新福祉会館建設を先送りした白井市長に対し説明責任を果たすことを求める決議に反対の立場から討論をさせていただきます。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=678s" data-timestamp="678"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:18</a>　少し残念だったのは、この、次に、ある1項目から5項目に関して、明らかにしていくということに関しては、特に反対するものではなく、本文中に色々、賛成できない表現が色々ところどころありましたので、削除されれば賛成できるかなと思ったんですけれども、ちょっと最終日のこの中での修正などがちょっと難しい状況だったというところから、やむを得ず反対に及ぶものということは冒頭申し上げておいた上で、少しじゃあどの点に関して賛成できないかということについて、やっぱり申し述べておきたいと思います。これは先ほど、森戸さんからもありましたが、文中ですね、想定事業費が240億円に達することを挙げているが、その判断の妥当性を示すための具体的な基準や数値は示されなかったというふうにあるんですけれども、不十分だとは思いましたけれども、240〇〇に達する根拠に関しては説明があったのかなと、いうふうに思っております。</div><div class="say">どういう考え方で試算されるのかということに</div>
+</div>
+
+<div class="turn reveal" id="t7">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say">については示されたなというふうに思っています。ただ不十分だと今申し上げましたのは我々としては10年スパンではなくて、15年スパンぐらいもう少し長いスパンで、例えば第二小学校第二中学校などの建替えまで含めた財政</div>
+</div>
+
+<div class="turn chair reveal" id="t8">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">次に、本件に反対の者の発言を許可します。</div>
+</div>
+
+<div class="turn reveal" id="t9">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=736s" data-timestamp="736"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:16</a>の見通し、こういったものを求めていたわけですが、そこまで踏み込んだものは明らかにされておりませんが、もっと言うとそこまで踏み込まなくてももう財政的にはこのまま進めれば赤字転落で破綻するということは示されたということや、今後の伸びも15%程度の事業費の伸びを読み込んでいるということで、一定の考え方は示されたのかなと思うので、決議の文中、この部分に関しては、少し正確性を欠いているのではないかと思っております。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=769s" data-timestamp="769"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:49</a>　それからですね、こういう表現もあって、修繕や安全対策の方針も示されていないこの状況、状態のまま現方針の断念を決定することは、市民や職員の安全を確保するという市長の職、責務を果たしているとは言い難いという風にありまして、まあ読み方にもよるんですけれども、この現方針の断念したことについては、我々は断念すべきだという風に考えておりましたので、このことに関しては、ちょっとこの読み方色々あるんですけれども、現方針の断念ということをネガティブには、我々は評価していない中、この決議の文章から見るとそのことに関してはやや否定的なニュアンスで書かれているので、やっぱりこういったことは削除していただかないと、原設計には反対の立場だった我々としてはなかなか賛成はできないということであります。あと少しですね苦言も呈しておきたいというふうに思うんですね、提案議員に。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=802s" data-timestamp="802"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:22</a>　資材価格等の高騰は市長就任時に当然認識していたはずであるが、任期中に多角的な試算や財政的な目標を設定してこなかったことが明らかとなり、経営努力が不十分であったと言わざるを得ないということなんですけれども、また、1項目目でし〇〇市財政における本事業の上限額について具体的に示すこととあるんですが、この間の庁舎の特別委員会の議事録を読めば明らかなんですけれども、じゃあ、提案会派の方々、こういうことについて求めてきましたでしょうか。求めていたのは、私の記憶しているところ〇〇議員と私、渡辺大三とか、藤川議員が求めていましたが、提案会派の方々がこういうことについて市長に求めてこなかったんじゃないかと思うんですよね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=832s" data-timestamp="832"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:52</a>　&gt;　<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=832s" data-timestamp="832"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:52</a>そうすると、自ら求めていないのに、こういう状況になったときになって、なんでこんなことをちゃんと調べてこなかったんだっていうことを市長に言い放つというのは、市長もひょっとしたら内心はらわた煮えくり返ってるかもしれないけれども、ちょっとですね、天に唾する行為なのかなと思っているのと、あと項目の5項目目、僕を含めて、市民へ真摯に説明を尽くすこととあるんですが、これも先ほど森戸さんからあったんですが、3月23日に小金井市議会はですね、建設工事費が約40億円も膨れ上がった新庁舎等建設について、市民への説明を求める決議について賛成7反対16で否決しましたということで、今ここに週刊渡辺大三ニュースがありますが、となるとですね、市民への説明ということをこの決議の5項目目で求めているんですが、財政的にかなり危ない状況になってきて、きちんと市民にこれは説明する必要があるんじゃないかという決議案を我々が提出した時には、この決議案、今現在のこの決議案の提案会派はすべからく反対されているんですね。</div><div class="say">ということで、古い話を持ち出して恐縮なんですが、古い話といっても今年、年度に入ってからの話ということも、ほら、今年に入ってからの話ということもありまして、だからやっぱり大事なことはいつも前自民党さんも言われてましたよね。庁舎建設は市民とやっぱりね、ちゃんと情報をちゃんとオープンにして進めるべきだということをおっしゃってたわけじゃないですか。にも関わらず、財政的にかなり危ないなと、もうシグナルが鳴り始めた時に、やっぱり説明会は開かないでいいですよっていう議決態度をとられたってことは、あの時すごく残念だった思いを持っておりますので、まあここで庁舎建設もですね、まあ白紙に返ったということでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=922s" data-timestamp="922"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:22</a>でありますので、今後はですね、この提案会派の皆さんとも色々前向きに、色々協議しながら、庁舎建設を現実のものにしていきたいと考えておりますので、ぜひ市民と共に進める庁舎建設とか、常に財政のことに関しては目配せをする庁舎建設という点に関しては、ぜひ提案会派の皆さんにもご留意をいただきたいということを申し上げまして、なぜ、まあ項目的には妥当だと考える項目があるんですが、なぜ賛成できないかの理由の一端だけ述べて終わりたいと思います。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t10">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=960s" data-timestamp="960"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:00</a>次に本件に反対の者の発言を許可します。8番　坂井えつ子議員。</div>
+</div>
+
+<div class="turn reveal" id="t11">
+  <div class="meta"><span class="name">坂井えつ子</span></div>
+  <div class="say">議員案第32号、今後の方針を示さず一方的に新庁舎・（仮称）新福祉会館建設を先送りにした白井市長に対し、説明責任を果たすことを求める決議に反対の立場から討論します。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1002s" data-timestamp="1002"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:42</a>　9月1日の市長報告で、市長は「原設計により3回目の入札を目指すことは断念せざるを得ず、方針を見直すことにした」と事実上現在の設計で進めることの断〇〇懸念を示しました。我が会派はこれまで現設計での早期建設を求めてきましたが、市長報告における市長の判断が適切なのかを判断する根拠はないと述べました。</div><div class="say">その他、質問に対する答弁を聞いてもなお、市長が経営的にどうかと述べる懸念が、健全化判断比率に触れるほどの事態なのか、違うプランにした場合にはそれに触れないための政策を、施策を講じることができるのかも不透明なままでした。説明不十分なまま現設計に終止符を打ったのが白井市長です。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1042s" data-timestamp="1042"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:22</a>　代替案が示されなく、よりコストがかかる懸念も拭い去れぬままの市長方針だったことからも、本決議が指摘する説明の不十分さには同意をしております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1072s" data-timestamp="1072"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:52</a>これまで述べたように、我が会派としては市長は方針の見直しを公言したと受け止めておりますが、本決議の本文においては、本事業を先送りにした場合にと、しており、あたかも現設計を維持しているように受け取れることがあります。現状認識が異なるために賛成し難いものがあります。新庁舎建設については白井市長にはもちろん市長としての責任もありますが、白井議員だった頃からの責任があるという認識を持っています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1107s" data-timestamp="1107"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:27</a>中長期的に見ると、時の市長のみならず、我が会派を含む小金井市議会にも責任があり、このような事態になっているという認識は持ち続けなければならないとも思っております。決議では、白井市長に市長任期中に特別委員会を初めあらゆる機会を捉えて対応するよう求めています。私が申し上げるまでもございませんが、全員協議会の開催は議員が要請することもできます。</div><div class="say">提案会派及び賛成会派におかれましては、市長がやらない場合、議員が主体的にこのような動きを作ることができるということは申し上げておきます。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1137s" data-timestamp="1137"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:57</a>　最後に新庁舎建設は積年の課題です。二元代表制の議会にいる一議員としては、課題の解決に向け、市政の監視や市長への批評においては、建設的に取り組んでいきたいことを申し上げ、討論を終わります。</div>
+</div>
+
+<div class="turn chair reveal" id="t12">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">以上で討論を終了します。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1174s" data-timestamp="1174"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:34</a>　本件は起立採決を行います。お諮りします。本件は原案のとおり可決することに賛成の皆さんの起立を求めます。</div>
+</div>
+
+<div class="turn chair reveal" id="t13">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">起立多数、本件は原案可決と決定しました。</div>
+</div>
+
+<div class="turn chair reveal" id="t14">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1209s" data-timestamp="1209"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:09</a>議員案第33号　公約及び施政方針と反する市政運営について、白井市長の市長としての資質と責任を問う決議　本件は討論を行います。初めに本件に反対の者の発言を許可します。3番　天野かな議員。</div>
+</div>
+
+<div class="turn reveal" id="t15">
+  <div class="meta"><span class="name">天野かな</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1241s" data-timestamp="1241"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:41</a>みらいの小金井を代表し、公約及び施政方針と反する市政運営について白井市長の市長としての資質と責任を問う決議に反対の立場で討論を行います。初めに申し上げます。私たちは、市長の市政運営に問題がなかったという立場ではございません。</div><div class="say">また、市長の責任を問うことは、市民の代表である議会の重要な役割であると考えております。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1279s" data-timestamp="1279"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:19</a>　その上で、本決議には3点の理由から反〇〇いたします。1点目は方針の転換そのものを資質の問題としてひとくくりにはできないという点です。</div><div class="say">公約は守ることが大前提です。しかし、情勢の変化を踏まえ、市民の利益を最大限に考えた結果、判断が変わることはあり得ます。</div>
+</div>
+
+<div class="turn reveal" id="t16">
+  <div class="meta"><span class="name">天野かな</span></div>
+  <div class="say">問われるべきは、変えたことではなく、公約実現のためにどれだけ努力をしたか、市民の利益を守るために軌道修正を図る選択をした場合は、その判断の妥当性と説明責任を果たしたかであると考えております。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1311s" data-timestamp="1311"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:51</a>　2点目は責任の問い方です。市長の資質そのものを問うのであれば、議会には地方自治法に定める不信任決議という手段があります。</div><div class="say">本決議があげる内容である説明や準備の不足、手続きの不備は質疑を通じて具体的に指摘し是正を求めていくべき事柄です。3点目は時期の問題です。今は任期満了を目前にした最後の定例会です。この段階で本決議を可決しても、残された任期の中で市政の改善につながる余地は限られています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1348s" data-timestamp="1348"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:28</a>市民にとって得るものが乏しい一方で、議会の時間と労力を費やして、互いの立場を示し合う政争と映りかねません。市民の代表として民意を背負う議会が今なすべきは、本質的な課題を問い質すことであると考えております。なお市政運営について2点付言いたします。</div><div class="say">1つ目は政策面の備えです。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1380s" data-timestamp="1380"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:00</a>　私たちはこれまでの質疑において、今後の財政見通しを立てるための複式簿記の活用や金利インフレを踏まえた費用面の検討を求めてまいりました。これを真摯に受け止めていただいていれば、財政試算の作成はより早い段階で進んでいたのではないかと考えております。</div><div class="say">また、建設技術者が不足する現状を見れば、小学校の建て替えや改修が計画から大きく遅れることは避けられないと考えております。それにもかかわらず事前の策を含めた準備がなされていないことは、市政として問題があると、考えます。もう一つは進め方です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1413s" data-timestamp="1413"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:33</a>重要な政策を前に進めるには議会で多数の賛同を得る必要があります。市長を支える会派の動きも含め、事前の説明やそのための資料の準備など、合意形成に向けてできることはもっとあったはずであると考えております。私たちは、政局より政策を重んじます。</div><div class="say">市民の代表である議会として、政策の中身と説明責任を具体的に問い続けること、それこそが市長に対する議会の第一義の責務であると考え、本決議に反対いたします。</div>
+</div>
+
+<div class="turn chair reveal" id="t17">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1444s" data-timestamp="1444"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:04</a>次に、本件に賛成の者の発言を許可します。24番　森戸よう子議員。</div>
+</div>
+
+<div class="turn reveal" id="t18">
+  <div class="meta"><span class="name">森戸よう子</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1488s" data-timestamp="1488"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:48</a>私は日本共産党を代表いたしまして、議員案第33号、公約及び施政方針と反する市政運営について、白井市長の市長としての資質と責任を問う決議に賛成の立場から討論をいたします。〇〇立場と市長の立場は違うということを表明されたことを記憶をしています。確かに立場は違います。</div><div class="say">市長は執行権を持っているという立場は全く議員時代と違うのは当然であります。しかし、議員時代に主張してきたことを、市長になってからは主張が変わっていいのでしょうか。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1523s" data-timestamp="1523"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:23</a>　この表明を聞いた時から、私はこの市長の態度変更が始まったと認識をいたしました。</div><div class="say">変わってはいけないとは申しませんが、変わるためには変わるだけの説明責任を果たさなければなりません。しかし、この4年間、その説明責任は、十分に果たされてこなかったというのが実感であります。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1560s" data-timestamp="1560"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:00</a>　しかしそれはことごとく崩れ去ってしまいました。</div><div class="say">また市長は、決算、ごめんなさい。令和5年本会議の施政方針の質疑の中で水上議員の質問に対して、議会意志に反するようなことを私が市長の立場でやってしまっていいのかということになると思うですよね、と答弁されています。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1590s" data-timestamp="1590"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:30</a>　しかし、議会が、市長が、議会の意思と反対の意思を持っていることは、何ら問題がないことではないでしょうか。</div><div class="say">市長が市長選で掲げた意志を主張し実現するために議会の意志と変わることは、変わるっていうか、そうですね、変わることはあるのだと思います。議会の、例えば、稲葉元市長の時には再開発推進について、議会は、議長採決で、再開発予算を何度も反対して否決をしてきました。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1625s" data-timestamp="1625"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:05</a>　しかし稲葉市長はそれでもこの再開発を推進するために自ら政治生命を絶って信を問うと言って選挙をやりそして再選をされるという経過がありました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1656s" data-timestamp="1656"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:36</a>また東小金井の区画整理についても私たちは反対でありましたが、稲葉市長は各戸を訪問し、元市長は各戸を訪問し、この過半数、賛成を過半数に持ってきたという努力がありました。私は稲葉元市長とは一線を画した議員ではありましたけれども、その努力というのは自らの政策を掲げるために汗を流すというこの姿勢は大変学ばせていただいたところであります。議会の意志と違うのであればどう実現のために頑張るのか、粘り強く議会を説得する。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1686s" data-timestamp="1686"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:06</a>説得できなければ市民とともに説得に当たる、世論に訴える、極端なことを言えば先ほど申し上げたように辞職して市民に信を問う、こういうことが本来の政治家としてのあり方ではないでしょうか。ありとあらゆる汗を流して頑張るのが選挙で選ばれた市長の責任です。そういう意味で、資質として、私は残念ながら、十分とは言えなかったんじゃないかと考えます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1717s" data-timestamp="1717"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:37</a>しかし市長にはこうした努力や姿勢が見られなかったということそして変更したり撤回したりするそんな実態にもその市民は市民も市議会多数もまあいや、手を指しているというのが実際です。自分が掲げた政策が結果として思うようにいかないことはあります。それは自分一人が王様ではありませんし、それに多くのこと、人たちを従わせることができないことはあるのは当然です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1753s" data-timestamp="1753"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:13</a>どれだけ公約を瞳のように大切にして、努力し続けることができるのか。市民はそこを期待したのではないでしょうか。そういう意味でここに資質ということを述べているのはそういうことなんです。</div><div class="say">公約は私たちにとっては本当に瞳のように大切にしなければならないことなんです。政治に関わるものの姿勢が今、市長には問われているし、覚悟ができていたのかという事から言えば甘さがあったのではないかと指摘せざるを得ません。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1792s" data-timestamp="1792"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:52</a>　その点で、決意に掲げた主要公約の3点、新庁舎等建設、公立保育園の廃園問題、都市計画道路3・4・11号線については、公約とも、施政、施政方針とも、あまりに反する市政運営だったことを強く指摘しておきたいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1823s" data-timestamp="1823"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:23</a>この決議の中で市長の言葉の軽さの露呈、市民の信頼を失わせ政治家が公約や方針を掲げること自体の重みを損なうものである。市政は市民からの信頼をなくして成り立つものではない。こう述べています。</div><div class="say">この市政の4年間で市民がどれだけ泣いてきたのか、それを思うと看過できません。市長の資質と責任を問うて賛成討論といたします。ありがとうございました。</div>
+</div>
+
+<div class="turn chair reveal" id="t19">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1859s" data-timestamp="1859"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:59</a>次に、本件に反対の者の発言を許可します。5番　水谷たかこ議員。</div>
+</div>
+
+<div class="turn reveal" id="t20">
+  <div class="meta"><span class="name">水谷たかこ</span></div>
+  <div class="say">議員案第33号、公約及び施政方針と反する市政運営について白井市長の市長としての資質と責任を問う決議に、小金井をおもしろくする会として反対の立場から討論します。初めに、本決議案があげる事実の多くは、私たちも重く受け止めていることを申し上げます。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1894s" data-timestamp="1894"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:34</a>　&gt;　<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1894s" data-timestamp="1894"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:34</a>その上で、見解が異なる部分があり、また個々の課題を指摘して改善を求めることと、4年間の市政運営をまとめて、市長としての資質と責任の問題として議会の意思を確定させることとは別のことと考えるため、以下、本決議案に同意できない理由を述べます。</div><div class="say">まず、新庁舎・（仮称）新福祉会館の建設については、9月1日の市長報告が議会に〇〇相談する時間を持てないままに行われたことについて、私たちの会派は遺憾に思っていると申し上げました。見直しの判断根拠と今後の方針の説明が現時点で十分ではないことも、本日の決算の討論で申し上げた通りです。決議案は庁舎について説明責任も果たされていないと断じています。</div><div class="say">しかし、責任を放棄しているのではなく、これから責任を果たしていくものと考えます。9月1日の市長報告では、施工〇〇社へのサウンディング調査の結果、工事費が約240億円程度まで上昇する見込みであること、学校施設の老朽化対策と合わせると大きな財政負担になることが見直しの理由として示されました。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=1970s" data-timestamp="1970"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:50</a>　当初、市長が想定していたよりも早い9月1日の本会議において市長報告することとなった経緯について詳細は述べませんが、その日の本会議と9月15日の特別委員会では、市長と部局が各会派の質疑〇〇年に3月の定例会で財政計画を示すという工程を明らかにしています。</div><div class="say">次に、都市計画道路について。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=2014s" data-timestamp="2014"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:34</a>　〇〇した。これは軽い問題ではなく、私たちも再発防止を求めてきました。その上で判断の中身についてです。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=2046s" data-timestamp="2046"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:06</a>　市長は東京都に中止見直しを要望するには根拠を明確に示す必要があるとして市独自の検証を行い、3・4・11号線については整備の必要性は否めないと判断し、私たちの会派は検証が示した防災や生活道路の安全の観点から、道路整備の必要性は否めないとした市長の判断を支持する一方、事業化を決める前に、市と東京都の協議、そして市民への説明を求めてきました。</div><div class="say">必要なプロセスを踏み、根拠に基づく判断だったと受け止めております。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=2076s" data-timestamp="2076"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:36</a>　保育園について、市長は就任直後の令和4年12月に、前市長の専決処分による条例を廃止する条例を提案しました。私たちの会派は、これを廃園の是非を問うものではなく、議会が不承認とした専決処分の状態を正すものと位置づけて賛成しましたが、本会議では起立少数でこれを否決しました。</div><div class="say">市長はその後、令和5年2月に市立保育園のあり方検討委員会の設置条例を提案し、委員会では可決とされたものの、3月の本会議で否決され、令和6年3月に改めて提案して可決されました。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=2115s" data-timestamp="2115"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:15</a>　そしてあり方検討委員会の答申を経て、令和7年9月には、市立保育園条例が本会議で可決されています。市長自身、廃園を一旦撤回するという公約は実現しなかったことを令和5年10月の決算特別委員会でも本年、今年ですね、9月1日の本会議でも認めております。</div><div class="say">決議案は廃止条例の否決を、結果責任を議会に押しつけ、と評価しますが、否決は合議体としての意思決定機関である議会が、起立採決で決めたことであり、市長がその経過を説明することは、責任の転嫁ではありません。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=2155s" data-timestamp="2155"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:55</a>　公約が実現しなかったことと、実現しなかった経緯を事実として説明することは分けて考えるべきです。最後に、市長へは、議会からの指摘を真摯に受け止め、改善することを求めます。</div><div class="say">以上の理由から、本決議案には小金井をおもしろくする会は反対をいたします。</div>
+</div>
+
+<div class="turn chair reveal" id="t21">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=2185s" data-timestamp="2185"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:25</a>以上で討論を終了します。本件は起立採決をします。お諮りします。本件は原案のとおり可決することに賛成の皆さんの起立を求めます。</div>
+</div>
+
+<div class="turn chair reveal" id="t22">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">起立多数、本件は原案可決と決定しました。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=2225s" data-timestamp="2225"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:05</a>　ここで、お諮りします。ただいままでの議事の進行状況から考え、しばらく時間延長したいと思います。これにご異議ありませんか。</div><div class="say">ご異議なしと認めます。したがって、しばらく時間延長をします。お諮りします。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=2273s" data-timestamp="2273"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:53</a>　手元にご配付いたしました〇〇委員会追加付託予定表のとおり、所管の常任委員会に付託します。</div><div class="say">請願陳情委員会付託委員会追加付託予定表の通り所管の常任委員会に付託します。お諮りします。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=2306s" data-timestamp="2306"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:26</a>　&gt;　<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=2306s" data-timestamp="2306"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:26</a>8陳情第37号　新庁舎建設頓挫に伴う議会への責任自覚と、自己責任及び最小〇〇検証及び最小公約数の機能による早期解決に関する陳情書、8陳情第38号　その13　現設計案断念の要因に関する十分な総括とそれに基づく新設計着手を求める陳情書、8陳情第39号、その14、見直し案（市民案）の建物平米単価検証結果の共有を求める陳情書、および、8陳情第40号、その15、新設計着手に係る合意形成体制と設計条件整理を求める陳情書、以上4件については庁舎等建設及び公共施設マネジメント推進調査特別委員会に付託したいと思います。</div><div class="say">これにご異議ありませんか。ご異議なしと認め、8陳情第37号から8陳情第40号は、庁舎等建設及び公共施設マネジメント推進調査特別委員会に付託することと決定しました。お諮りします。ただいま付託しました陳情5件は閉会中の継続審査とすることにご異議ありませんか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=2390s" data-timestamp="2390"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:50</a>3件と決定しました。追加日程第2、閉会中継続審査案件を議題とします。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=2449s" data-timestamp="2449"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:49</a>　各常任委員会委員長、議会運営委員会委員長及び庁舎等建設及び公共施設マネジメント推進調査特別委員長から、委員会において審査、調査中の事件につき、会議規則第74条の規定により閉会中継続審査案件一覧表のとおり申し出がありました。</div><div class="say">お諮りします。本件は閉会中もなお審査することにご異議ありませんか。継続審査案件一覧表のとおり、継続審査することと決定いたしました。追加日程第3、議員の派遣についてを議題とします。お諮りします。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=NMxDpIltM0A&t=2482s" data-timestamp="2482"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:22</a>　地方自治法第100条第13項および会議規則第120条の規定に基づき、お手元に配付しました議員の派遣についてのとおり閉会中に議員派遣を行うこととし、諸般の事情により変更が生じた場合は、議長にご一任いただくことにご異議ありませんか。</div><div class="say">ご異議なしと認め、ただいま申し上げたとおり行うことと決定いたしました。重ねてお諮りします。なお閉会中に議員派遣を行う必要が生じた場合、その日時、場所、目的、および派遣議員名等については、議長にご一任いただくことにご異議ありませんか。</div><div class="say">ご異議なしと認め、ただいま申し上げたとおり行うことと決定いたしました。以上で、今定例会に付議された案件は全て終了しました。これをもちまして、会議を閉じ、令和8年第3回小金井市議会定例会を閉会します。</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
+<button class="to-top" type="button" aria-label="ページ上部へ戻る" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>(function(){var b=document.querySelector('.to-top');if(!b)return;function u(){b.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>300);}window.addEventListener('scroll',u,{passive:true});u();})();</script>
+<script id="anchor-js">
+(function(){
+  try{
+    var turns=[].slice.call(document.querySelectorAll('.turn[id]'));
+    if(!turns.length) return;
+    var firstBy={};
+    turns.forEach(function(t){
+      var nm=t.querySelector('.name'); if(!nm) return;
+      var key=(nm.textContent||'').trim(); if(!key||key==='—') return;
+      if(!firstBy[key]) firstBy[key]=t.id;
+    });
+    var toast;
+    function showToast(){
+      if(!toast){ toast=document.createElement('div'); toast.className='copy-toast'; toast.textContent='この発言へのリンクをコピーしました'; document.body.appendChild(toast); }
+      toast.classList.add('show'); clearTimeout(toast._t); toast._t=setTimeout(function(){toast.classList.remove('show');},1800);
+    }
+    function hl(el){ turns.forEach(function(x){x.classList.remove('turn-hl');}); if(el) el.classList.add('turn-hl'); }
+    // ② 発言パーマリンク
+    turns.forEach(function(t){
+      var meta=t.querySelector('.meta'); if(!meta) return;
+      var a=document.createElement('a');
+      a.className='turn-link'; a.href='#'+t.id; a.title='この発言へのリンクをコピー'; a.setAttribute('aria-label','この発言へのリンクをコピー');
+      a.textContent='🔗';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault();
+        var url=location.origin+location.pathname+'#'+t.id;
+        try{ history.replaceState(null,'','#'+t.id); }catch(e){}
+        if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(showToast).catch(function(){ location.hash=t.id; }); }
+        else { location.hash=t.id; showToast(); }
+        hl(t);
+      });
+      meta.appendChild(a);
+    });
+    // ① 要約中の発言者名(太字)→本文へ
+    [].slice.call(document.querySelectorAll('.sum strong')).forEach(function(st){
+      var txt=(st.textContent||'').trim(); if(!txt||txt.length<2) return;
+      var id=null;
+      for(var k in firstBy){ if(k.indexOf(txt)>=0 || txt.indexOf(k)>=0){ id=firstBy[k]; break; } }
+      if(!id) return;
+      var a=document.createElement('a');
+      a.className='sum-jump'; a.href='#'+id; a.textContent=st.textContent; a.title='本文の発言へ';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault(); var el=document.getElementById(id);
+        if(el){ hl(el); el.scrollIntoView({block:'center',behavior:'smooth'}); try{history.replaceState(null,'','#'+id);}catch(e){} }
+      });
+      st.parentNode.replaceChild(a, st);
+    });
+    // 直リンクで #tN が指定されていたらハイライト
+    if(location.hash){ var el0=document.getElementById(location.hash.slice(1)); if(el0&&el0.classList&&el0.classList.contains('turn')) el0.classList.add('turn-hl'); }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
