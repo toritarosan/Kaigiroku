@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和8年10月19日 建設環境委員会</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#157a4b; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* サイト共通ヘッダー（トップと同系の緑＋クリーム）。iframe埋め込み時は html.embedded で非表示 */
+  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
+  html.embedded .sitenav{display:none;}
+  .sitenav-in{max-width:1100px;margin:0 auto;padding:0 18px;min-height:52px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .sitenav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#157a4b;font-weight:700;font-size:1rem;white-space:nowrap;}
+  .sitenav-brand img{display:block;border-radius:2px;}
+  .sitenav-links{margin-left:auto;display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+  .sitenav-links a{color:#2a2620;font-size:.84rem;font-weight:600;text-decoration:none;padding:8px 11px;border-radius:2px;white-space:nowrap;}
+  .sitenav-links a:hover{color:#157a4b;background:#e7f4ec;}
+  .sitenav-links .ext{color:#8a8073;font-size:.8em;margin-left:1px;}
+  @media(max-width:640px){.sitenav-in{min-height:0;padding:8px 14px;}.sitenav-links a{padding:6px 9px;font-size:.8rem;}}
+
+  /* パンくず */
+  .crumb{background:#fbf9f4;border-bottom:1px solid #eee7db;position:sticky;top:52px;z-index:59;}
+  html.embedded .crumb{display:none;}
+  .crumb-in{max-width:1100px;margin:0 auto;padding:8px 18px;font-size:.76rem;color:#8a8073;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.5;}
+  .crumb a{color:#157a4b;text-decoration:none;font-weight:600;}
+  .crumb a:hover{text-decoration:underline;}
+  .crumb .sep{color:#c9c0b2;}
+  .crumb .cur{color:#4a443b;font-weight:600;}
+  @media(max-width:640px){.crumb{position:static;} .sitenav-in{flex-wrap:nowrap;} .sitenav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  /* 未定稿（公式だが校正中）＝確定版と一目で区別できるようコーラル地にする */
+  .hero .srcbadge.draft{background:var(--coral-dark, #b83a25);}
+  .hero .srcbadge.draft .dot{background:#ffd9cf;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
+
+  /* ページトップへ戻る */
+  .to-top{position:fixed;bottom:20px;right:20px;z-index:900;width:44px;height:44px;border:none;border-radius:50%;background:#157a4b;color:#fff;font-size:20px;line-height:1;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,background .15s;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+  .to-top.show{opacity:.92;visibility:visible;transform:none;}
+  .to-top:hover{opacity:1;background:#12633d;}
+
+  /* 発言パーマリンク＆要約→本文アンカー */
+  .turn-link{margin-left:8px;font-size:12px;text-decoration:none;opacity:0;transition:opacity .15s;color:#8a8073;}
+  .turn:hover .turn-link,.turn-link:focus{opacity:.7;}
+  .turn-link:hover{opacity:1;}
+  .turn:target,.turn.turn-hl{background:#fff8e1;transition:background .3s;}
+  a.sum-jump{color:#157a4b;font-weight:700;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;cursor:pointer;}
+  a.sum-jump:hover{color:#12633d;}
+  .copy-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(8px);background:#157a4b;color:#fff;font-size:13px;padding:9px 16px;border-radius:4px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;z-index:1100;box-shadow:0 2px 10px rgba(0,0,0,.25);}
+  .copy-toast.show{opacity:1;visibility:visible;transform:translateX(-50%);}
+</style>
+</head>
+<body>
+<script>try{if(window.self!==window.top)document.documentElement.classList.add('embedded');}catch(e){document.documentElement.classList.add('embedded');}</script>
+<nav class="sitenav" aria-label="サイト共通ナビ">
+  <div class="sitenav-in">
+    <a class="sitenav-brand" href="index.html"><img src="icon.svg" alt="" width="30" height="30"><span>非公式会議録</span></a>
+    <div class="sitenav-links">
+      <a href="index.html">ホーム</a>
+      <a href="search.html">全文検索</a>
+      <a href="list.html">会議一覧</a>
+      <a href="https://www.city.koganei.tokyo.dbsr.jp/" target="_blank" rel="noopener">公式会議録<span class="ext">↗</span></a>
+      <a href="https://www.youtube.com/koganei_shigikai" target="_blank" rel="noopener">原典動画<span class="ext">↗</span></a>
+    </div>
+  </div>
+</nav>
+<nav class="crumb" aria-label="パンくずリスト"><div class="crumb-in"><a href="index.html">ホーム</a><span class="sep">›</span><a href="list.html">全会議一覧</a><span class="sep">›</span><span class="cur">令和8年10月19日 建設環境委員会</span></div></nav>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和8年10月19日</p>
+    <h1>建設環境委員会</h1>
+    <span class="src">YouTube字幕＋AI校正による記録（非公式）</span><div class="hero-note" style="font-family:var(--sans);font-size:13px;line-height:1.7;color:var(--muted);margin-top:10px;">本会議・委員会等の中継動画をもとに、文字起こし・校正・要約を行った非公式アーカイブです。<br><span style="color:#c0392b;font-weight:700;">致命的な話者の誤りや語句の誤りを含んでいます。転載などには適しません。最終的には必ず原典に当たってください。</span></div><span class="genmeta">本文・要約はAIによる自動生成で、小金井市議会の公式見解ではありません。発言者名や語句に誤りを含む場合があります。公式会議録が公開され次第、公式版に差し替えます。<br>最終生成日 2026-10-19</span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <h1>R8.10.19 建設環境委員会（2026年10月19日）要約</h1>
+<h2>1. 開会・所管事務調査（循環型社会・温室効果ガス削減）・都市計画道路に関する調査の質疑</h2>
+<p><strong>結論：循環型社会の形成及び温室効果ガス削減に関する調査は、現時点での質疑を終了し、異議なく継続調査と決定した。都市計画道路に関する調査は、本文の範囲では質疑終了や取扱いの宣告はない。</strong></p>
+<p>開会前の協議会では、所管事務調査2件と行政報告2件の進行予定を確認した。開会後、委員長は所管事務調査2件を審査予定表の順序で行うとした。循環型社会の形成及び温室効果ガス削減に関する調査は、部局の発言、委員の質疑ともになく、継続調査となった。続いて都市計画道路に関する調査を議題とし、都市計画課長がハケの道等に面する建物棟数の提出資料について、詳細は資料を参照するよう述べ、質疑に入った。</p>
+<h3>渡辺議員（一方通行の解消効果と既存トンネルの活用）</h3>
+<p>提出資料をもとに、3・4・11号線を橋脚方式で整備しても、ハケの道沿いなど100棟を超える建物で一方通行が解消されないと指摘した。一方、野川北側の既存トンネルを緊急車両の通行に活用すれば、約90棟で解消できるとの見方を示し、自然環境への影響や費用対効果も比較して再検証するよう求めた。東町1丁目の一方通行は同路線を整備しても解消しないとして、市長と担当の見解を尋ねた。都市計画課長は、トンネルには車止めがなければ車両が通行できる物理的空間があると認めた一方、公園管理上、車止めの設置が必要になると想定され、消防関係者へのヒアリングでも、可動式であっても車止めで閉鎖された道路は選ばないとの回答を得ていると答弁した。東町1丁目については、整備後も一方通行の課題が残るとした。</p>
+<p>渡辺議員は、提案は日常的な車両通行ではなく緊急時の活用であると説明し、車両で押し倒せるラバー製のポールへの変更や、階段のスロープ化、取付け道路の整備を挙げた。短い取付け道路と柵の改良による対応を、橋脚を用いる道路整備と比較すべきだと主張した。専門家の知見や客観的資料をもとに代替案を具体化し、東京都に事業の見直し・中止を求めること、市民への情報公開を進め、自然や文化を守る判断を行うことを要望した。市長の答弁は本文に記録されていない。</p>
+<h3>水上議員（地域防災計画との整合性と自然環境の調査研究）</h3>
+<p>一方通行の課題が地域防災計画のどこに位置付けられているかを問い、道路整備には時間がかかることから、都市整備部と総務部が連携し、整備前に可能な対策や道路建設以外の対応を検討するよう求めた。都市計画課長は、地域防災計画に一方通行という言葉はないが、防災ネットワークの形成の中で都市計画道路や幹線道路の整備の必要性が記述されていると説明した。また、都市整備部としては、都市計画道路の整備により一定の解決が図られると考えていると答弁した。水上議員は、道路整備でも解消しない部分があり、現状でも救急車や消防車が地域に入れると述べ、道路整備以前の対策を重ねて要望した。総務部との連携・協議について、本文に答弁は記録されていない。</p>
+<p>自然環境については、令和8年度予算から調査予算が削除された後の庁内調査の進捗、会議体の有無、当初の調査予定と今後の日程を質問した。都市計画課長は、東京都の概略設計が5月下旬に完成した後に庁内で検討する予定だったが、まだ示されておらず、具体的な調査研究は動いていないと説明した。一方、既存の環境調査結果の確認や文献調査は行っているとした。水上議員は、キンランなどの絶滅危惧種への影響を挙げ、概略設計を待たずに資料収集や調査研究を始め、東京都に求めた設計施工の見直しにも対応できるよう準備すべきだと主張した。都市計画課長は、早期着手の意見を受け、今後検討したいと答弁した。</p>
+<h2>2. 都市計画道路に関する調査の質疑</h2>
+<p><strong>結論：市長は、3・4・11号線の整備の必要性は否めないとの判断を維持し、自然環境への影響を認めながらも、市全体を考えた政治判断であると説明した。庁内での検討は東京都の概略設計が示された後に進め、意見を伝える時期を逸しないよう対応する意向が示された。</strong></p>
+<p>岸田議員が、市長の道路整備に対する言葉の位置付け、環境の専門家の知見の扱い、庁内検討体制と準備の進め方を質問した。続いて安田議員が、自然環境や工事期間中の影響を挙げ、市長の認識と判断を尋ねた。この部分には、調査の取扱いについて委員長の宣告は記録されていない。</p>
+<h3>岸田議員（市長の判断と自然環境を検討する体制）</h3>
+<p>岸田議員は、庁内の意思決定に関する記録と自然環境調査のプロセスの資料を要求したが、今回いずれも提出されなかった経緯を説明した。行政で確認された内容と東京都への発言との関係を問い、必要性は否めない、消極的な賛成、容認という表現の違いを尋ねた。市長は、一つ一つの言葉を庁議で確認しているわけではなく、消極的な賛成は市長報告や自身の考え方を説明したものと答弁した。必要性は否めないと消極的な賛成の意味合いは変わらない一方、容認にはそのままでよいと認める意味合いがあるため、前回の使用を訂正したと説明した。</p>
+<p>自然環境の専門的知見について、岸田議員は、市長報告の撤回後、その知見を欠いたまま判断したのではないかと問い、判断を補う科学的根拠を求めた。また、以前相談した専門家にも道路の賛否にかかわらず意見を聞くべきだと述べた。都市計画課長は、専門家の意見を聞く予算がかなわず、都の事業について市が専門家に意見を聞くことは難しいと答弁した。市長は、環境面から厳しい意見があっても整備の必要性は否めないと判断したと説明した。東京都の概略設計を前提に環境への影響を低減するための知見を活用したいとし、当該専門家に意見を聞くことは考えていないと述べた。岸田議員は、これらを含めて市長の政治的判断であるとの認識を示した。</p>
+<p>庁内検討について、岸田議員は、市長らの具体的な指示と年度内の対応を尋ね、概略設計を待たずに体制を整えるよう求めた。都市計画課長は、東京都の概略設計が出ておらず、現在何もできていないと説明した。予算がなくコンサルタントの客観的、科学的、技術的な知見を活用できないため、調査研究の深度化には難しい面があり、職員の知見の範囲で検討すると答弁した。副市長は、3月以降に担当部局と何度か協議したが、概略設計の納期延長で体制づくりが一旦止まっていると説明し、都市整備部、環境部、その他関係部による検討体制を考えていると述べた。（発言者不明）からも意見を伝える時期に関する見解を求める発言があり、副市長は、概略設計に示されると考えている粉じん対策などを確認し、速やかに検討して時期を逸しないよう市の考えを伝えると答弁した。市長も、外部の知見を得る予算が削除されたため庁内でできることには限界があるとしつつ、意見を出す準備を進めたいと述べ、どこまで対応できるかは明確に示せないとした。</p>
+<h3>安田議員（自然環境への思いと整備判断）</h3>
+<p>安田議員は、野川周辺の湧水や自然、人々が散歩などで過ごす様子を挙げた。道路整備には長い期間がかかり、工事車両の通行、樹木の伐採、用地買収や立入りの制限などで環境や風景が変わることを懸念し、市長自身が現地でどう感じ、整備を進める判断にどのような責任を感じているかを尋ねた。</p>
+<p>市長は、以前から走る場所であり、空気や木々の匂い、涼しさを感じる自然環境は重要で、小金井を気に入った要素の一つでもあると答弁した。その上で、自然環境への影響はあると認めながらも、様々な事情と小金井市全体を考え、道路整備の必要性は否定できないと判断したと説明した。</p>
+<h2>3. 都市計画道路に関する調査の質疑（安田議員・坂井議員ほか）</h2>
+<p><strong>結論：委員長が本件に対する現時点での質疑を終了することへの異議の有無を諮り、異議なしの声があった。</strong></p>
+<p>都市計画道路の整備に対する市長の姿勢、自然環境の保全、環境への影響を検討する庁内体制について質疑が行われた。庁内の連携や情報共有の状況と、調査研究に関する資料を提出できないとした説明との関係について、委員長からも確認があった。</p>
+<h3>安田議員（自然環境の保全と道路整備に対する市長の姿勢）</h3>
+<p>安田議員は、野川などの自然環境が日常的に市民の命を支えており、その恵みは数値化できないと述べた。防災などの課題を一つずつ解消すれば道路を造る必要はないとの考えを示した。また、市長のホームページにある公約が、4年前の整備中止の要望から、国分寺崖線や野川の自然環境への影響をできるだけ小さくするよう都に求める内容に変わったことを批判し、道路整備を推進する立場ではないと改めて表明するよう求めた。市長は、推進という気持ちにはならないと述べてきたとし、道路整備の必要性は防災等の観点から否めないと答弁した。</p>
+<p>安田議員は、道路整備によらない解決策を重視し、何十年か先の道路整備に頼らず、現在の課題を一つずつ検証して解消するよう要望した。自然環境の保全についても、受け身ではなく、市として具体的に取り組むよう求め、意見として発言を終えた。</p>
+<h3>坂井議員（環境への影響を検討する庁内体制と指示の状況）</h3>
+<p>坂井議員は、環境の専門家の意見を欠いた市長報告は認められないとの立場を述べた。環境への影響調査を行うための当初予算には賛成したが、議会が認めなかった経緯を踏まえ、市長が環境について協議している担当は誰かと質問した。市長は都市整備部と答えた。さらに坂井議員は、環境部や生涯学習部の知見を借りる横断的な体制を考えているのか、各部に伝えて実際に動かしているのかを確認した。市長は、他部門との連携を前提とし、他部署と連携して検討するよう指示していると答弁した。</p>
+<p>坂井議員は、環境部長が指示を受けているのか、指示を受けて動いているのかについて、具体的な説明を求めた。都市整備部長は、3月以前に他部と連携する庁内体制について協議し、指示を受けて検討を進めたこと、4月以降も他部との連携について具体的な協議や指示があったことを説明した。</p>
+<h3>委員長（資料要求への説明と庁内連携の確認）</h3>
+<p>委員長は、岸田議員の資料要求に関する調整で、具体的に動いておらず提出できる資料がないと正副委員長は聞いていたとして、今回の答弁との関係を確認した。（発言者不明）は、東京都が行った動植物の調査結果を確認しているが、概略設計がまだ示されていないため具体的な調査研究は進んでいないと述べ、庁内体制については先ほどの市長の説明のとおりだとした。</p>
+<p>委員長は、どのような指示があったかを求めた資料について、提出できないとした調整の経緯を再度確認した。都市計画課長は、市長、副市長、環境部長、環境政策課長を含めて情報共有したことは何度かあるものの、調査研究には至らず、要求された内容を満たす資料になっていないと説明した。概略設計や東京都の取組の現状について関係者で情報共有し、岸田議員にも説明しているが、調査研究や今後の見通しは現時点ではないと答弁した。</p>
+<h2>4. 都市計画道路の継続調査決定・行政報告・閉会・委員への連絡</h2>
+<p><strong>結論：都市計画道路に関する調査は、現時点での質疑を終了し、異議なく継続調査と決定した。行政報告の質疑をそれぞれ異議なく終了し、委員長は本日の日程終了と閉会を宣告した。</strong></p>
+<p>都市計画道路に関する調査の継続決定後、ぐみの木公園のトイレ整備概要とCoCoバス回数券販売の終了について行政報告が行われた。閉会後、委員長から1月の議会報告会の形式とテーマ選定について連絡があった。</p>
+<p>ぐみの木公園について、緑と公園係長は、平成12年度設置の既存トイレに経年劣化による不具合があり、設備交換を含む改修が必要と説明した。令和9年度に同じ場所へ、ユニバーサルベッド、災害対応、オストメイト対応のバリアフリートイレを新設する予定。契約手続き、納期、工事を合わせて9か月程度を見込む。近隣道路が狭く運搬車両が限定されるため、トイレの面積を増やしたり便器数を増やしたりすることはできない状況だとした。建築確認申請を進める予定で、工事費用は算定・調整中だが、中期財政計画では事業費約4,000万円を見込んでいる。</p>
+<p>CoCoバス回数券について、交通対策課長は、東小金井駅南口のひがこ日和から令和8年4月に販売終了の意向が示され、同年10月30日で販売を終了すると報告した。市は新たな販売店の開拓と販売期間の延長に取り組んだが、本業への負担や人員不足などから新たな販売先は見つからなかった。回数券販売全体は令和9年3月に終了する予定で、同月までの販売を希望したものの、店舗の負担と運行事業者との協議の結果、10月30日での終了となった。今後の購入先としてふじかわフォトサービス、つくば観光交通本社、京王バス府中営業所を案内し、市報10月15日号、ホームページ、公式X、公式LINE、車内ポスターで周知するとした。この報告に対する質問は本文に記録されていない。</p>
+<h3>水上議員（災害対応トイレの仕組み）</h3>
+<p>水上議員は、災害対応トイレの具体的な機能と、水洗として使えなくても使用できる仕組みを質問した。環境政策課長は、断水時に床下のスペースへ尿や便をため、その後くみ取り式で回収すると説明した。</p>
+<p>水上議員は、貯留槽の規模や下水へ流す経路と貯留する経路の関係にも触れ、具体的な内容が分かった段階で知らせてほしいと求めた。貯留槽の規模や経路について、本文に答弁は記録されていない。</p>
+<h3>安田議員（トイレの面積と公園のユニバーサルデザイン）</h3>
+<p>安田議員は、新旧トイレの面積と、同様の仕様が市内の公園に順次広がる見通しを質問した。緑と公園係長は、既存が約2.7平方メートル、新設予定が約6.5平方メートルと答弁した。環境政策課長は、公園施設の建ぺい率は原則2％以下で、その範囲内で設計すると説明。ぐみの木公園は約14.9平方メートルまで建築可能だが、防災倉庫を差し引くとトイレ整備の限度は約9.4平方メートルとした。</p>
+<p>市内での整備の見通しを再度尋ねる発言（発言者不明）に対し、環境政策課長は、ユニバーサルベッドは当事者から求められており、設置可能な公園には順次設置したいと答弁した。安田議員は、障害のある子もない子も共に遊べる遊具とトイレを整え、誰もが遊べる公園にしてほしいと要望した。</p>
+<h3>委員長（ユニバーサルデザインの確認と閉会後の連絡）</h3>
+<p>委員長は、質問のユニバーサルデザインと答弁のユニバーサルベッドの違いを確認した。環境政策課長は、車椅子使用者、高齢者、妊婦、乳幼児連れ、異性の介助・同伴が必要な人、トランスジェンダーなど男女別トイレを使いにくい人にも最大限配慮し、ユニバーサルデザインに配慮したトイレ整備を考えていると答弁した。</p>
+<p>閉会後、委員長は、1月の議会報告会を模造紙によるパネル展・オープンハウス形式とし、委員会からの一方的な報告やグループ討議は行わないと説明した。テーマを2つ以上選び、横型の模造紙にテーマ、部会での議論、現状、今後についての4項目を書くと連絡し、テーマ数や選定方法、作業分担について意見を求めた。行政視察をテーマに含める案にも言及したが、本文にはテーマや分担を決定した記録はない。</p>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/keMtBhhZ1XU" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
+  </section>
+
+<div class="turn chair reveal" id="t0">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=111s" data-timestamp="111"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:51</a>　じゃ、始めます。おはようございます。</div>
+</div>
+
+<div class="turn voice reveal" id="t1">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">おはようございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t2">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">それでは、建設環境委員会の協議会を、から始めてまいります。本日の進行予定についてです。委員会審査予定表の順序で本日審査を行うことについて、審査案件は所管事務調査2件の計2件、あと行政報告が2件。</div><div class="say">所管事務調査については、ご覧のとおりとなっておりますので、よろしくお願いいたします。所管事項については、何かありますでしょうか。</div><div class="say">◯（呼ぶ声）<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=137s" data-timestamp="137"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:17</a>　なしで。</div>
+</div>
+
+<div class="turn chair reveal" id="t3">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、かしこまりました。そのほか何かありますでしょうか。はい、なければ、では、お願いします。おはようございます。ただいまから建設環境委員会の会議を開きます。直ちに本日の議事に入ります。当委員会に付託されております案件は、所管事務調査2件です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=175s" data-timestamp="175"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:55</a>　以上2件につき、建設環境委員会審査予定表の順序で行うことといたします。初めに、所管事務調査「循環型社会の形成及び温室効果ガス削減に関する調査」を議題といたします。部局から発言がありましたら、これを求めます。</div><div class="say">特に、なし。はい、これから質疑を行います。なしでよろしいですか。</div>
+</div>
+
+<div class="turn voice reveal" id="t4">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">はい。</div>
+</div>
+
+<div class="turn chair reveal" id="t5">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=203s" data-timestamp="203"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:23</a>　さんね。以上で本件に対する現時点での質疑を終了することにご異議ありませんか。ご異議なしと認め、本件に対する現時点での質疑を終了いたします。お諮りいたします。本件は引き続き調査する必要があると認め、継続調査といたします。</div><div class="say">これにご異議ありませんか。ご異議なしと認め、本件は継続調査と決定いたしました。次に、所管事務調査「都市計画道路に関する調査」を議題といたします。本日、部局から資料が提出されておりますので、初めに資料の説明を求めます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=253s" data-timestamp="253"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:13</a>　都市計画課長。</div>
+</div>
+
+<div class="turn reveal" id="t6">
+  <div class="meta"><span class="name">都市計画課長</span></div>
+  <div class="say">はい。都市整備部都市計画課提出資料、竹の道、ハケの道等に、ハケの道等に面する建物棟数についてでございます。詳細は資料をご覧ください。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t7">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。これから質疑を行います。はい、渡辺さん。</div>
+</div>
+
+<div class="turn reveal" id="t8">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say">はい。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=283s" data-timestamp="283"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:43</a>　本日、提出していただきました「ハケの道等に面する建物棟数について」という資料で、作成お願いしましたところですね、大変行き届いた資料を作っていただきまして、誠にありがとうございました。この資料も少し、もとにですね、若干質疑をさせていただきたいというふうに思っております。</div><div class="say">この資料、お願いした背景はですね、都市計画道路3・4・11号線の必要性ということに関して、この間ですね、市の方で行われた検証などの中で、一方通行の、今現在が東町この5丁目が一方通行状態にあってですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=326s" data-timestamp="326"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:26</a>　これを解消していく必要があると、こういったことが述べられていたので、どのように解消されるのかされないのかということに関してですね、あまり言葉だけ、字面だけ見ているとよく分からないので、地図などできちんと検証しておく必要があるかと思って作っていただいた資料となります。この資料を見れば明らかなとおりでありますけれども。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=345s" data-timestamp="345"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:45</a>　要するに、現在は、この3・4・11号線に関してはですね、河岸段丘のところに関しては、橋脚方式で築造しようということが前提になっておりますので、この橋脚は、橋脚から直接ハケの道に降りるような道路というのは作らないものですから、つまりハケの道のは、要するにこの橋脚から見ると、アンダーパスというか、で、下を通るだけということになるということになります。</div><div class="say">その結果としてですね、このハケの道沿いにあります住宅がありますが、これらの住宅に関しては、この橋脚方式の3・4・11号線の築造がなされた場合においては、ハケの道にはこの橋脚の道路からは車、降りてきませんので、ここは相変わらず一方通行ということで、そのままこのエリアに関しては取り残されるということであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=396s" data-timestamp="396"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:36</a>　あともう一つがですね、二枚橋の坂のところをちょっとご覧いただきたいんですが、この二枚橋の坂のところの、ちょうど坂のところの両側、西側と東側には相当数の戸数の建物があるんですけれども、これに関してもですね。ですね。実はこの橋脚方式で、橋脚が橋脚から道路に入って来れる道路を見てみると、ここの三枚橋の坂の東側と西側に関しては、これも一方通行の解消にはならないということなんですね。</div><div class="say">つまり、北側から入ってきた緊急車両しかここには入ってこれないので、南側からの一方通行の解消にはならないということが、この地図からも明らかであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=436s" data-timestamp="436"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:16</a>　その棟数がどのぐらいの棟数かというと、この資料にも書かれておりますとおり、3・4・11号線が橋脚方式で築造された場合でも、一方通行が解消されないのは、東、その地図にもあるとおり、東町5丁目6番の一部で4棟、5丁目5番で4棟、5丁目4番で6棟、5丁目3番で15棟、それから5丁目の12番で27棟、それから5丁目の11番で44棟ということで、100棟を超える建物が、結局この3・4・11号線というものが橋脚方式でできても、一方通行は解消されないと。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=479s" data-timestamp="479"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:59</a>　こういうことが明らかだというふうに思っております。ではですね、翻って、私が以前から提案させていただいております、野川のですね、部分の北側のところに、トンネルが、西武線、鉄道の下の今井橋の坂からダイレクトに今抜けてるトンネルではなくて、河川に隣接しているこのトンネルに関しては、消防車両やですね、救急車が通れることは、もう証明済みでございますけれども。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=503s" data-timestamp="503"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:23</a>　ここからもしこのトンネルを活用して、もう今現在でも緊急車両を通そうと思えば通せるだけの大きさのトンネルになっておりますので、ここを抜いた場合はどうなるのかと。。</div><div class="say">そうすると東橋、東八道路の方からちょうどですね、もともとの、野川の、くり、二枚橋焼却場があった、この野川クリーンセンターのところですね、ここを北上してきて、その野川のところのトンネルを抜けてくると、すぐにこの二枚橋の坂の下のところにですね、そのまま出てくることができますので。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=533s" data-timestamp="533"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:53</a>　そうすると、そのことによって解消される一方通行というのは、さっき申し上げたこのハケの道沿いの住宅地、ここに関しては一方通行が全て解消されるのみならず、二枚橋の坂のですね、東側と西側の住居、東側についても、全て解消されます。</div><div class="say">今井橋の坂の西側に関しては、その1本ですね、西側にある道路、ここ入ってきたところの、ざっと数えると1、2、3、4、5、6、7、十数棟ありますかね。ここはですね、相変わらずこれでも解消されないんですけれども、少なくとも8割方はこの街区だけでも解消されるということで、全体としては恐らく90件、90軒ぐらいの90棟ぐらいの建物がですね、この野川のところのトンネル活用方式であれば、一方通行が解消されるということかというふうに思っているわけでありますね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=585s" data-timestamp="585"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:45</a>　だから、こういう資料などをもとに分析をしていくと、これまではですね、連光寺通りの方からしか緊急車両が入れないと。東八道路の方から入れない状況を何とかしなければいけないから3・4・11号線は必要だと、こういう論理立てが行政側からなされていたのかなというふうに思ってるんですけど、やっぱりこうして客観的な資料を見てみるとですね、既存のトンネルを活用するプランの方が、よりですね、一方通行の解消ということには寄与するのではない、ではないかと、このように思われるわけであり。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=623s" data-timestamp="623"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:23</a>　この間ですね、様々な検証の中で、突然、一方通行なる概念が持ち出され、何かそれが非常にその一方通行の解消に、この〇〇線が役立つかのような形で説明が市民にも議会にもなされてきてるんですけれども、こういうものから見ると相当実態は乖離があるんじゃないかなというふうに思っておりまして。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=645s" data-timestamp="645"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:45</a>　こういう観点からですね、きちんともう一度検証し直してですね、本当にこんな巨大な橋脚を作ってですね、一方通行が解消されないところが100棟の建物が残ると、コストパフォーマンスを考えてもですね、非常に割に合わない計画になっているんじゃないのかなというふうに思われるんですけれども、その点ですね、この間検証であえて一方通行という概念を持ち出されているけれどどうなのかということについては、改めて見解を問うと同時に、こういったやっぱり客観的な資料に基づいた再検証ということはきちっと行っていくべきではないかと思っているんですが、その辺りの見解を伺いたいと。。</div><div class="say">あと、前々から問題になってる東町1丁目の方ですね。この東町1丁目の方の一方通行に関しては、これはもう皆様もご存じのとおり、これは、3・4・11号線を通そうが通すまいが、東町1丁目の一方通行は解消されないんですね。なぜかというと、もうご存じのとおり西武線がありまして、3・4・11号線が通っても、結局連雀通りまで行かないと、東町1丁目の方に回り込むことはできないんですね、現状は。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=707s" data-timestamp="707"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:47</a>　となると、東町1丁目の一方通行に関しては、もう3・4・11号線は何ら寄与しないわけなんですね。なので、今日は東町5丁目の部分のことについて、クローズアップして伺っているわけなんですけれども、この辺りのことについてですね、どういうふうな見解を求め、持たれているかということです。。</div><div class="say">それで私が申し上げたいのは、道路というものに関しては、何て言ったらいいんでしょうかね、比較衡量問題だということを前から申し上げているんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=736s" data-timestamp="736"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:16</a>　例えば、小金井市内にあっても、小金井市の外にあっても、例えば私よく例で挙げるのは東八道路を挙げるんですが、東八道路は前、三鷹市内のところは開通していなかったので、狭い住宅地の中をですね、狭い道路を分けていって、カーブがうねくぐしてるとこ行っていたんですね。ようやく高井戸の方にそれで出られたというのが、東八道路が完成したことによって、小金井の東八道路からも、高井戸の首都高速道路の入り口まではですね、東八道路で抜けることができるようになって、こういう道路っていうのはですね、公益性も非常に高いし、必然性も高いというふうに思っているんですね。</div><div class="say">なので、道路全般をこう見渡していくと、こういう公益性や必要性が極めて高い道路と、さほど高くない道路はあるというふうに思っていて。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=782s" data-timestamp="782"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:02</a>　あと比較衡量すべきなのは、1つには、てなんですね。自然、このまさに3・4・11号線がそうですが、犠牲になる環境、自然、こういったものとのやっぱり比較衡量ということは当然必須であると思いますし、あともう1つはコストパフォーマンスなんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=801s" data-timestamp="801"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:21</a>　さっきも申し上げたとおり、一方通行の解消が問題だと、防災性の向上だと言うんだったならば、野川の北側に隣接しているトンネルの活用で、極めて安く、なぜかと言うと、武蔵野公園の中に30メートルちょっと程度の取り付けの道路をつけるだけなんですよ。ただそれだけでも、この一方通行が、この3・4・11を通しても解消されないところまで含めて、大きく解消されるわけですよね。</div><div class="say">そう考えると、今、既存の住宅をぶち抜いて、ハケや野川や武蔵野公園を巨大な橋脚で貫くような道路に莫大なお金をかけるというのが、いかにコストパフォーマンスからも良くないかということは、経済効率から考えても良くないということは、お分かりいただけてる、お分かりいただけるんじゃないかというふうに思うんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=841s" data-timestamp="841"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:01</a>　ですから、改めて見解を伺いたいんですけれども、その際にはですね、一方通行の解消について、こういう客観的な地図とか資料、出てこなかったですよね。。</div><div class="say">こうして改めて見てみるとですね、どちらのやり方がじゃあ優れているのかと。より多くのエリアで、東町5丁目のより多くのエリアで一方通行を解消するのは、どちらのやり方が優れているのか、もう一目瞭然だというふうに思うんですけれども、市施工じゃないからね、お金を払うのは東京都だから、市が払うわけじゃないからということなのかもしれませんけれども、やっぱり私はもしこれね、市施工だったらこんな事業をやらないと思うんですよ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=877s" data-timestamp="877"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:37</a>　この3・4・11号線みたいなものは、東京都施工だから今みたいなこんな流れになってるわけであって、市施工だったらこんなものはやらないと、着手もしないだろうし、検討の俎上にすら上らないだろうと、私思っておりましてね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=890s" data-timestamp="890"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:50</a>　そういう点から考えると、今こうして改めて一方通行というものを客観的に分析をしていった場合に、前々から私が言っている野川の既存の、野川北側の既存トンネルの活用案、こういうようなものをですね、きちんと市としてもブラッシュアップして東京都に対してですね、こういう方が優れているんじゃないかと、こういう今日示されたような資料も東京都に提出しましてね。そう言って、きちっと論理立ててね。</div><div class="say">私は前から白井市長がちょうど4年前に初めて当選された直後に申し上げましたよね。きちんとこの反対だということを、東京都に中止してくれと伝えるにしても、やっぱり理論武装がいるんじゃないかということは申し上げて、最初のところも4年前から申し上げていたんですけど、やっぱりこういうような客観的な資料とか、客観的なデータとかね、やっぱりこういうものをやっぱりもとにして、やっぱり東京都に対しては改めてきちんと事業の見直し、中止、こういうものをやっぱり求めていくべきだというふうに思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=946s" data-timestamp="946"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:46</a>　その点に関してはですね、この建設環境委員会が開かれるのは、市長選前としては、これが最後ということになろうかと思いますけれども、こういう客観的なデータも今回出していただきましたので、こういうものをもとにして、市長の考え方、担当の考え方、改めて問うておきたいと思います。。以上、質問です。</div>
+</div>
+
+<div class="turn chair reveal" id="t9">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、都市計画課長。</div>
+</div>
+
+<div class="turn reveal" id="t10">
+  <div class="meta"><span class="name">都市計画課長</span></div>
+  <div class="say">ご指摘のありました野川の北側のトンネル部分でございますが、おっしゃるとおり、車止めがなければ車両を通行できる、その物理的な空間があるというふうに認識しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=968s" data-timestamp="968"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:08</a>　しかし現在、車止めがあるという状況でございます。また、その公園内が物理的に通行できたとしても、管理上の車止めの設置は必要になってくると想定されます。消防関係者のヒアリングにおいても、可動式であっても車止めによって閉鎖された道路は選ばないとの回答を得ているというところでございます。</div><div class="say">それから東町1丁目につきましては、おっしゃるとおり3・4・11号線が整備されても、一方通行という課題はまだ残っている。課題としてはあるというふうに思っております。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t11">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1019s" data-timestamp="1019"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:59</a>　はい、渡辺さん。</div>
+</div>
+
+<div class="turn reveal" id="t12">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say">ご答弁いただいたところです。ということで、今の答弁からも明らかなのは、前々からこの件、やり取りしてますけれども、結局、今の野川の北側のトンネルを活用すれば、そういう緊急車両は通れるという認識は持ってらっしゃるということで、ただ車止めがあると。この車止めがあると、要は緊急車両は通らないという見解を持ってるということだというふうに思うんですが、この車止めのあり方に関しても、いろんなやり方があるということは、この間研究して分かってきていて。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1044s" data-timestamp="1044"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:24</a>　例えば、何て言ったらいいですかね、可動式と言えどもですね、こういちいち、堅牢なものですよね、強固なもの、こういうものでがちがちに何重にも柵をすればですね、それをいちいち外してると大変ですから、それでもいざ緊急の場合には使うこともあると思うんですけど。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1061s" data-timestamp="1061"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:41</a>　今現在のあそこの車止めが、あれがですね、非常に、何て言ったらいいのかな、あそこに置く車止めとか車をあそこに入ってこないようにさせるための、注意喚起のためのポールとしては非常にね、何て、過剰な形の整備になってるというふうに私思うんですね。</div><div class="say">もっと言うと、例えば、いざという場合には、よくある、何て言うんですか、完全に金属製のポールにしちゃうと、当然それ抜くなり、ずらさなきゃ通れないんですけれども、単なるそこから先、車を入らせないための表示っていうものは、こうオレンジ色のね、ラバーの。つまり車両で押し倒すことができるようなものも、もう当然あちらこちらで実用化してて使われてるわけですよ。じゃ、そういうものに置き換えるだけでも構わないだろうと。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1104s" data-timestamp="1104"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:24</a>　つまり今の私が言ってるのは、あそこを日常的に車両を通せばいいってことを言ってるわけじゃなくて、日常的な車両は、その北側の従来の内間木橋の坂を下りてきたとこのトンネルを使えばいいわけですから。今私が申し上げてるのは、緊急時のことを申し上げていて、その場合に、野川の北側に隣接しているトンネルを使えるようなしつらいにさえしておけばいいわけですよね。</div><div class="say">そんなことがですね、私に言わせるとですね、人類が宇宙に行くような時代にそんなこともできないのかということなんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1133s" data-timestamp="1133"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:53</a>　そういうことになると、まさにこれはですね、何か大きな道路を作ったり大きな橋脚を大量のコンクリートを持ってきて作ったりとかいうこと自体が自己目的化してるんじゃないかと、前々から言ってるとおり。ねえ、だから、命の道路じゃなくて、道路が命な人がいるんじゃないかと言わざるを得ないんですよね。その点から考えると、私はここの野川北側トンネルのところの改良ですね。</div><div class="say">あそこの車止めのありようとかですね、こういうもの、あと、取り付け道路に関しても、やや工夫がいるというふうに思って。なぜかというと、トンネルを越えてすぐ西側のところは、実は階段になってるんですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1166s" data-timestamp="1166"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:26</a>　あそこの階段のままだと、当然車両は上がって行けないので、そこをもし緊急時に車両を通そうと思ったらば、あそこの階段のところを緩やかなスロープに、こういうふうにしつらえを変えなきゃ〇〇。ただ、その程度で済むんですよ。わずかあれですよ。</div><div class="say">そうすると、二枚橋の坂を下りてきたところが今、柵になってるでしょ。そこからトンネルのところの柵のところ、こっから抜けてきた、トンネルを抜けたところまでどのぐらいの距離か。直線で30メートル。少々カーブを付けて擦り付けても、3、35メートルぐらいだと思うんですよね。</div><div class="say">今の3・4・11号線っていうのは、住宅地をぶち抜いて、ハケや野川や武蔵野公園をぶち抜いて、830メートルぐらいの築造計画になってるんですよ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1201s" data-timestamp="1201"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:01</a>　30メートルちょっとの取付け道路で、あと簡単、柵のところの改良でできることをですね、830メートルもの道路を、橋脚まで使ってぶち抜くようなことがいかに非合理的か、経済効率上よく合わないかということに関してはですね、やっぱりきちっと小金井市としては、あらゆる知見を、それこそ専門家の知見を活用しながらですね、きちんと全体的に話を論理的に整理をして、東京都に改めてぶつけていく必要はあるだろうというふうに、私は思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1233s" data-timestamp="1233"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:33</a>　このテーマに関しては、間もなく行われる市長選挙におきましても、いくつかある重要な争点の中の1つになるんだろうというふうには思っているわけでありますけれども、まだですね、多くの市民が、そもそも野川の北側のトンネルの存在も知らない市民も多いと思いますし、そこが緊急車両が通れる状態だということも知らない市民が多いだろうというふうに思っておりますので、今いかにですね、そういうことが市民にきちんと知らされないまま、無謀な巨大な道路計画が押し通されようとしているのか、こういうことに関しては、きちんと情報公開も進めながらですね、市民の皆さんの審判を仰ぐ必要があるのかなと思っております。</div><div class="say">最後に、意見だけ申し述べますと、やはり一度失ってしまったらですね、取り戻すことはなかなかできないと思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1279s" data-timestamp="1279"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:19</a>　まさにですね、保全は死闘ですが、破壊は一瞬だということでありますので、その点から考えれば、この小金井市の先人が残してくださった豊かな環境、自然、文化、こういったものがですね、不要な道路によって踏みにじられないように、壊されることのないような賢明な判断を行政には求めておきたいし、そのための理論武装をきちんと行っていただきたいということだけ申し述べて、締めくくっての意見ということにさせていただきたいと。以上であります。</div>
+</div>
+
+<div class="turn chair reveal" id="t13">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1315s" data-timestamp="1315"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:55</a>　他にありますでしょうか。はい。では、なければ、ん？　〇〇、はい。</div>
+</div>
+
+<div class="turn reveal" id="t14">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">今日の建設環境委員会が、市長任期最後の建設環境委員会になると。前回ちょっとね、早とちりして申し訳なかったんですが。ということで、ちょっと確認も含めて質問したいんですが、今、質疑があった一方通行の件なんですが、この内容についてはね、この間も私も質疑してきたので、繰り返すつもりはないんですが。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1350s" data-timestamp="1350"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:30</a>　ただ、都市計画道路3・4・11号線に関しては、この〇〇が課題だと。その解消がやっぱり必要なんだって話の中で出てきた問題だと思うんですね。地域防災計画の中には位置付けはないと。</div><div class="say">私も改めて見ましたけれども、道路に関しては、都市間のネットワークを作るっていう必要性については書いてあるんですけど、防火対策含めてですね、一方通行っていう概念については、特に地域防災計画には記述がないと思うんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1388s" data-timestamp="1388"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:08</a>　ですから、この辺ですね、実際あるんだったら、一方通行っていう課題が地域防災計画のどこに明記されているのか、ちょっと示してもらいたいのと、この、要するに課題を、それだけ大きな課題なんだってことであれば、地域防災計画との関係で、何らかやっぱり総務等との関係になるので、建設環境委員会の担当外ではあるとは思うんですが、都市整備部からですね、何らかこの点の具体化を図っていくっていうことが必要だと思うんですが。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1425s" data-timestamp="1425"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:45</a>　この地域防災計画との整合性みたいなところ、これがどうなっているのか、今後、何か対応していくことになるのかどうか、この点ちょっと確認しておきたいと思うんですが、まずいかがでしょうか。</div><div class="say">あとは、いわゆるこの自然環境の調査の問題なんですが、結局、庁内で連携して調査を行うっていうことになってたと思うんですが。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1456s" data-timestamp="1456"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:16</a>　現在の進捗状況ってどうなってるんでしょうか。何らかの会議体が立ち上がっているのか、いつまでどういうふうにしていくっていうふうに今、現状を考えているのかどうか、それちょっと確認しておきたいと思うんです。</div><div class="say">結局、令和8年度、2026年度予算に自然環境の調査の予算が計上されたものが、結局削除されるということになって。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1484s" data-timestamp="1484"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:44</a>　当初の、要するに市長の考えは、確か3月末までにその調査を終えるというようなスケジュール感だったかなと思うんですね。だとすれば、今年3月末までに、遅くとも何らかの、やっぱり調査なり結果を出していく必要があると思うんですが、現状、その進捗状況については、ちょっとどういうふうになってるのか。以上、質問をさせていただきます。</div><div class="say">いかがでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t15">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">都市計画課長。</div>
+</div>
+
+<div class="turn reveal" id="t16">
+  <div class="meta"><span class="name">都市計画課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1516s" data-timestamp="1516"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:16</a>　地域防災計画におきましては、一方通行という言葉はございませんが、防災ネットワークの形成という中で、都市計画道路や幹線道路の整備の必要性というのは記述されてるところでございます。それからあとですね、庁内における検討についての今の状況ということでございます。東京都の概略設計が出てきた段階で、市内の庁内、市の庁内での調査研究ということになりますので、現段階で今、具体的に何かが動いてるということはないということでございます。</div><div class="say">以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t17">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t18">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1557s" data-timestamp="1557"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:57</a>　一方通行の件なんですが、結局、防災ネットワークっていう形で、だから道路整備の関係で、この地域防災計画の中では位置付けられてるってことですよね。</div><div class="say">一方通行ってことであれば、都市整備部は道路のことでやってるわけだから、道路を作って、へんし、一方通行を解消するんだということなんだろうと思いますけど、私はちょっとそれは違うと思ってはいるんですが、道路ができるまでの間、それやっぱり一定期間かかることは明らかだと思うんですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1593s" data-timestamp="1593"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:33</a>　これが10年、20年、どれぐらいかかるのか分かりませんけど、現道がないところに道路を作っていくっていうことになるので、一定のやっぱり時間がかかることは明らかだと思うんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1607s" data-timestamp="1607"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:47</a>　そういうことから考えるとですね、地域防災計画の中に、その一方通行の解消について、渡辺大三さんからは、道路を要するに改良すればできると。また、今、緊急車両しか通れないっていうような位置付けになっている道路が活用できるように何とかできないかっていうことも質疑をしてきましたけれども、そういうことについてはですね、何らその計画の中にはないっていうことなので、この辺についてはやっぱり、一方通行が課題だっていうことであれば、その問題についてやっぱり、道路を作るという以前にですね、その問題そのものをやっぱり具体的にどうするのかという検討が必要になってくると思うのですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1659s" data-timestamp="1659"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:39</a>　都市整備部は道路なんで、防災関係の、と、総務部って形になるから、そこまで都市整備部は関与できないんだっていう話になるかもしれないけど、これだけ一方通行っていう問題が出てきてるわけだから、ぜひその解消についてはですね、道路建設に限らずですね、どういうふうに対応していくのか、いろんな案が出てきましたけれども、そういうことについては検討していかないと。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1688s" data-timestamp="1688"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:08</a>　道路ができてから解消できるんだってような話だけではですね、納得しないと思いますので、ちょっとその点はですね、都市整備部として総務部と連携して何らか考えていくっていう提案なりですね、協議をする必要があると思うんですが、ちょっと改めて、その点についてどう考えているのか伺いたいということですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1715s" data-timestamp="1715"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:35</a>　あと、自然環境の調査は、概略設計が出てきた段階で、要するに、を、これから考えるんだって話なんですけど、それだとちょっと遅くないですか。そもそも当初予算に一応予算として計上した、削除されました、削除することになりましたけど、調査のための予算というのは、3月末までっていうような形のものだったんじゃなかったかなと思ってるんですけど、そういう形で調査しようという当初の予定だったんではないのかなと思うんですが、これちょっと確認しておきたいと思うんですけど。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1755s" data-timestamp="1755"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:15</a>　どうだったんでしょうか。</div><div class="say">概略設計ができてから、概略設計が延びたっていうことはね、当然あるから、ちょっとスケジュール感がずれてるのかもしれないですけど、やっぱり出てから考えるっていうよりも、今の段階から自然環境の課題っていうのは、はっきりしてると思うんですね、ある程度。東京都も調査やってるし、調査の結果も発表されてますよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1782s" data-timestamp="1782"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:42</a>　だから、ある程度の調査結果は出てるわけだから、市としてやっぱり、ある程度やっぱり検討するっていうことをやっておかないと、概略設計が出てから、そこから検討していったときに、果たして大きな影響があった場合に、何度も言っている、東京都に要望した設計施工の見直しなんかも含めて、ぜひ検討してくれっていうふうなことまで言っているわけだから、そういうことはなかなか実現できないんじゃないかなと思ってるんですけど。その点、ちょっとスケジュール感としては非常に遅いんではないかなっていうふうに思ってるんですが、その点、ちょっとどういうふうに考えてるのか、当初の考えとちょっと整合が取れなくなってきてるんではないでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t19">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">都市計画課長。</div>
+</div>
+
+<div class="turn reveal" id="t20">
+  <div class="meta"><span class="name">都市計画課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1840s" data-timestamp="1840"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:40</a>　一方通行につきましては、現在、都市整備部としては、都市計画道路の整備によって一定の解決が図られるというふうに思っているというところでございます。概略設計につきましては、東京都が5月下旬に完成するということで、それから庁内で検討していく予定でございましたが、いまだに出てきていないという状況ですので、現在はなかなか検討できていないということでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1864s" data-timestamp="1864"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:04</a>　おっしゃるとおりですね、いろいろ環境に関する調査結果は出ておりますので、そういったものについては私どもとしても現在見ていると。見て、いろいろ文献等を調べているということはございます。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t21">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t22">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">一方通行については、結局、何ていうか、縦割りでやってる関係があって、道路は道路、防災は防災という形で、ちょっと考えてるんだろうと思うんですけれども。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1880s" data-timestamp="1880"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:20</a>　一方通行の問題ということで、やっぱり課題であるということであれば、道路を作る以前にもですね、何らか対応ができないのか。</div><div class="say">議会でもいろんな提案もされていますし、質疑もしてきた関係もあって、そういうことも含めて、解消を本来は考えていくべきだと思うんですね。これはちょっと防災の関係になってくると思うので、これ以上質問しませんけれども、本来そういう形で、全てが道路で解決するということにはならないと思うんです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1929s" data-timestamp="1929"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:09</a>　今日の資料でも解消しない部分もね、一定数あるっていうような状況になってきてますし、緊急車両が入らない地域ではないということ、はっきりしてるわけですよね。救急、救急車や、あと消防車も、この地域は中に入れるわけだから、全く何か中に入れず、消火活動ができないっていうところではないので、この道路だけで解決できるっていうことにはならないというふうに考えてますので、ぜひ、この一方通行解消の問題は、道路整備以前の対策が何らかできないのか、ぜひご検討いただきたいと。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=1972s" data-timestamp="1972"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:52</a>　道路を作れば何か全てが解決するみたいな、そういう形にはね、ならないというふうに思いますので、その点は何度もこの間も繰り返し質問してきましたので、この点については、そういうこととして述べておきたいと思います。</div><div class="say">あと、自然環境の調査なんですけれども、概略設計が出てからっていうことなんですが、大体の、要するにこの間の整備イメージっていうのは、橋脚でやった場合のものは出てると思うんですよ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2008s" data-timestamp="2008"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:28</a>　だから、具体的に橋脚がどこにどうやって付くのかっていうようなこともあるのかもしれませんけれども、でも今の段階で、例えば絶滅危惧種がどこにあるのか、キンランっていうのは、その移植すると、移植できないっていう専門家の話もあって、この間も質疑してきましたけど、担当の方は、移植しても大丈夫だっていう学説もあるという話になってるんだけど。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2039s" data-timestamp="2039"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:59</a>　やっぱり絶滅危惧種への影響っていうことを考えたときに、例えば言えば、オオタカなんかも、補足エリアになってるわけですよね、あそこが。あそこに橋脚ができれば、別に概略設計が出る以前に、大きな影響が出てくるっていうことは明らかになってると思うんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2057s" data-timestamp="2057"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:17</a>　この間、住民説明会の中でも、市民の方がいろんな調査をしていく中で、開発したところに、一旦その開発で来なくなった野鳥が、その〇〇、結局来なくなってしまったというような事例も発言されておりましたけれども、そういうこともあるわけだから、ある程度、橋脚で作ったときの予想っていうのはできると思うんですよ。今からその概略設計の準備をしておかないといけないんじゃないかなと思ってるんですけど、資料収集含めて。要するに、やるし、必要はないっていうふうに考えてるのか、概略設計ができてからどれぐらいのスケジュール感で調査研究をしていくっていうふうに考えてるのか。</div><div class="say">この点はちょっと伺っておきたいと思うんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2114s" data-timestamp="2114"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:14</a>　市長が、結局、消極的賛成っていう立場を伝えたということになってるんですが、前回の建設環境委員会で、その消極的っていう部分が東京都には十分伝わってないんじゃないかっていうふうに僕は質問しましたけれども、東京都はね、要するに受け止めてくれてるはずだっていう話だったんですが。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2137s" data-timestamp="2137"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:37</a>　もう少しやっぱり、その消極的とか、性急な進捗は望まないということであれば、そういうブレーキをかけるところは、多分、自然環境の問題なんだろうと思うんですね。この点についてはですね、今回、予算が付けられずに、庁内で、要するに専門家の意見を聴取するっていうような形ではなく調査しなければいけないってことになってるわけなので、それなりのやっぱり準備が必要だというふうに思うし、市長がやっぱり自然環境は何とか守るんだって話をね、されてますけれども、それをやっぱりしっかりと担保していく上でも、自然環境についての調査研究っていうのは直ちに始める必要があると思ってるんですが。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2188s" data-timestamp="2188"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:28</a>　市長選挙、これから行われます。都市計画道路の問題も当然ね、問われてくると思うんですが、自然環境をやっぱり守っていくっていうことについて、道路整備を認めた上でというような市長の主張だとすれば、もっとやっぱりこの環境についてはですね、調査研究するとか、していく必要があるんじゃないかと思ってるんですが。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2214s" data-timestamp="2214"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:54</a>　この調査研究について、必要性は、もう要するに資料がそろってるっていうことになってるのか、それとも概略設計が出た後、どれぐらいのスケジュール感で出すのかっていうことについては確認しておきたいということなんですが、その点について、3問目ですが、ちょっと質問しておきたいと思います。</div><div class="say">いずれにしても、自然環境っていうことがね、1つ大きな、市長としても宝だというふうに言ってるわけだから、それにふさわしい対応をぜひね、少なくとも行うべきだというふうに考えてるんですが。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2252s" data-timestamp="2252"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:32</a>　今のままで言うと、何ていうか、絵に描いた餅みたいな形にならざるを得ないんではないかなという危惧を持ちますので、その点はいかがでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t23">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">都市計画課長。</div>
+</div>
+
+<div class="turn reveal" id="t24">
+  <div class="meta"><span class="name">都市計画課長</span></div>
+  <div class="say">調査研究についてですね、なるべく早く始めた方がいいんじゃないかというご意見でございました。今日ご意見いただきましたので、今後そういったことについても検討していきたいというふうに思っております。</div>
+</div>
+
+<div class="turn chair reveal" id="t25">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。次の方いらっしゃいますか。岸田さん。</div>
+</div>
+
+<div class="turn reveal" id="t26">
+  <div class="meta"><span class="name">岸田正義</span></div>
+  <div class="say">はい。自民の3問目については、実は前回の委員会で私、資料要求をさせていただいていたんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2298s" data-timestamp="2298"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:18</a>　2つで資料要求をしてました。</div><div class="say">前回の委員会のところで皆さんも覚えていらっしゃると思うんですが、市長の言葉の発言がぐらぐらとして、発言の修正、撤回、最後どうなったのか、ちょっとはっきりしていませんけれども、必要性は否めないから消極的な賛成に変わり、それが容認に変わったということが前回あったかなというふうに思っておりまして、じゃあ一体何が行政の中で決められているんですか、同一のことなんですかということを。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2338s" data-timestamp="2338"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:58</a>　あらゆる庁議記録、理事者会議、部長会議の記録を出してくださいと。何をもって12月、10月22日の東京都との会談の発言に及ばれたのかということで、その資料を出してくださいというのがまず1点。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2350s" data-timestamp="2350"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:10</a>　2点目が、先ほどお話にあった、今後庁内において自然環境に対する調査のプロセスについて、市長、第1副市長からの具体的な指示があったのかも含めて、いつから始まって、何をどのように検討していくのか、そのプロセスとスキームは明らかにしてくださいという資料を要求させていただきました。が、いずれも今回出ないということです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2374s" data-timestamp="2374"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:34</a>　というのが、その1点目については、その庁議記録については、市長報告に及ぶ庁議、9月10、令和7年の9月17日の庁議で決定をした、3・4・11号線の必要性は否めないということのみを確認していて、それ以降何かを確認したということはないということなので、そういう記録だったらもう結構ですということで、今回出ていないということですね。</div><div class="say">ということは、現状、行政で決められていることは必要性は否めないだけなんですよ。ということが今回分かったんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2412s" data-timestamp="2412"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:12</a>　その中で10月22日に、市長が「消極的な賛成と考えているが、本日の要望事項について特段の配慮をお願いしたい」と、令和7年10月22日に東京都の道路監始め皆様におっしゃったということで、これについては市長がこれまでの経緯、自分での考え方や思いを乗せたものであるということで、市長の個人的な勝手な発言であるということで、それは別に行政で確認されているものではないという理解でよろしいでしょうかというのが1点目。</div><div class="say">そして市長の中では、道路の必要性は否めないということと、消極的な賛成ということと、容認するということと、どれが一番建設に対して前向きな言葉なのかどうか。その順番っていうんですかね。位置付け。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2462s" data-timestamp="2462"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:02</a>　言葉の理解として、市長の中でどういう判断でその言葉遣いがされているのかということについて、順番をお伺いしたいというふうに思っています。</div><div class="say">はい、そして2点目。こちらの方が重大ですよね。今後庁内において自然環境に対する調査のプロセスについて明らかにしてくださいということで、これ、現時点で何もないということであったので資料が提出できないということなので、先ほど今後という答弁だったというふうに思っています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2488s" data-timestamp="2488"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:28</a>　前回も申し上げたとおり、元々は、私はやるべきではないと言いましたが、市の独自検証において予算もかけずに、市長が個人的にお伺いされたが、専門家の知見を引用方法を誤ったがために、市長報告の撤回ということになりました。</div><div class="say">そこから6か月間に及び、じゃあ、総合的判断をするに当たって欠くことの要素、欠くことができない要素であるとした自然環境の専門家の知見をどうするんですかということを、ずっと建設環境委員会でも問うてきましたが、検討中である、検討中である、検討中であるということがずっと繰り返された挙げ句、結局何もないまま市長報告に及ばれた。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2530s" data-timestamp="2530"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:10</a>　結局、総合的判断を欠くことができない要素とされたものが欠いたまま市長報告が行われたということが明白であります。</div><div class="say">その市長報告の中で、今後そのことについてはしっかりと予算をかけてやっていくんだということで、今年の当初予算の審議のときに突如その予算が入ってきた。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2556s" data-timestamp="2556"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:36</a>　その間6か月ぐらいあったので、いかようにでも議会にも報告、相談できたはずのところ、一切そういうこともなく予算に示され、様々な質疑が行われ、結局、これについては妥当な答弁がなかったがために、議会の方から、この項目を削除した組替え動議が可決されたという顛末かなというふうに思っています。</div><div class="say">その中で、じゃあ、一体その欠くことができないとする要素をどうやって補填するんですかという中で、これからはじゃあ、庁内でできることをやっていくんですということで、じゃあそれをどうです、どうやってやるんですかってことを教えてくださいというプロセスの資料を求めたけれども、現段階では何もないってことなんです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2600s" data-timestamp="2600"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:20</a>　市長、第1副市長はどのような指示をされたんですか。いまだに何もないというこの現状について、どのようにお考えなのか。市長、副市長が具体的な指示を与えていないのか、それの指示を受けているけれども庁内の中でまとめきれていないのか、どういう状況なんでしょうか。</div><div class="say">やるつもりがないってことなんですか、そもそも。この年度内にということを教えてください。</div><div class="say">それと、この当初予算の審議に当たって、市が出した「都市計画道路に関わる調査研究について」ということでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2642s" data-timestamp="2642"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:02</a>　これについては、市長は、〇〇、前回の〇〇で、それだと乗り越えることができないんだというようなお話があったかと思いますが、私が再三ずっと部局にも申し上げてきたのは、当時の課長、今、部長になられていますけれども、3人の専門家の意見を聞かれるっていうことだったんですよ。</div><div class="say">でも、合議制ではなく個別に御意見を聞かれて、コンサルも含めて市の中で判断されるというのが、そのときの調査研究だったんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2671s" data-timestamp="2671"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:31</a>　だったら3人の中のお1人に、以前御相談をされた、この他市独自の懸念点や改善点、そういったことも含めた専門家の御意見を聞くことがよろしいのではないですかということを申し上げたんですけど、それができないっていうことだったんですよね。</div><div class="say">果たしてそれができない、乗り越えられないことなのかどうか、なぜそれができないのかどうか、ちょっと改めてお聞かせをいただきたい。と思うんですよ。私、そんな難しい話じゃないと思っていて、むしろ最初に声をかけなきゃいけないんじゃないかなというぐらいに思っているんですよ。うん。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2706s" data-timestamp="2706"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:06</a>　でも、おそらく今までの答弁からすると、いや、もう市としては必要不可欠だと、必要性は否めないというふうに判断をしたから、その立場の中でどういったことができるかっていう答弁が出ている。ということは、逆に言うと道路の反対側の専門的意見は取り入れませんよということをおっしゃっているっていうことですかね。</div><div class="say">そうじゃないんじゃないですかね。その立ち位置の反対とか賛成とかじゃなくて、小金井市の自然環境、そこの該当の自然環境をどう守っていくかということについては、それは賛成、道路の賛否関係なく御意見をいただいた上で、じゃあそれをどうしていくかっていう話だと私は思っているんですよ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2746s" data-timestamp="2746"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:46</a>　前段の必要性が否めないという立場を取ったから、そこには行けないんですよという御説明をいただいたように私は感じているんですが、違うとするならば、そこをもう一回クリアに説明していただきたい。</div><div class="say">なぜ、元々お伺いされた専門的知見をお持ちの方にもう一度お尋ねをすることはできなかった、お尋ねした結果、先方がもう勘弁してくださいって言ったら、それはしょうがない話だと思っているんですけども、そもそもお伺いも立てていないというふうに伺っているので、それが果たして乗り越えられないことなのかどうかということについてお伺いしたいと思います。</div><div class="say">以上です。どうぞ。</div>
+</div>
+
+<div class="turn chair reveal" id="t27">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2791s" data-timestamp="2791"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:31</a>　うん。都市計画課長。</div>
+</div>
+
+<div class="turn reveal" id="t28">
+  <div class="meta"><span class="name">都市計画課長</span></div>
+  <div class="say">環境の専門家の意見についてでございますが、今年度、事業を前提とした上で、環境の専門家の御意見を伺う予算がかなわなかった経緯もございますので、環境の専門家の御意見を伺うということはなかなか難しいというふうに思っております。</div><div class="say">都が行っている事業でございますので、私どもの方で、おっしゃるような専門家の御意見を伺うというのはなかなか難しいというふうに思っております。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t29">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2827s" data-timestamp="2827"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:07</a>　はい、市長。</div>
+</div>
+
+<div class="turn reveal" id="t30">
+  <div class="meta"><span class="name">不明</span></div>
+  <div class="say">〇〇。</div>
+</div>
+
+<div class="turn reveal" id="t31">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">はい。ちょっと言葉遣いには気を付けたいと思います。まず1つ目、消極的な賛成っていうのは市長の勝手な発言なのかと、こういうお問い合わせもいただきました。</div><div class="say">前回も確かお答えしたと思うんですけども、申し訳ありませんが、一つ一つの言葉に対して、例えば庁議で確認を取っているわけではないということなんです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2855s" data-timestamp="2855"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:35</a>　さっき〇〇さんが引用されたように、庁議では、まず市長報告の内容については審議いただいて、〇〇をいただきました。それに基づいた内容で、東京都へ要望するという形になったわけであります。</div><div class="say">確かに、消極的な賛成という言葉はどこにも使っていないし、議会でも使っていなかったのも事実です。</div><div class="say">これは、その前後のいろんなやり取りの中でも私、お答えした記憶はあるんですけども、今回のその3・4・11号線につきましては、その整備の、道路整備の必要性は否めないということ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2890s" data-timestamp="2890"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:10</a>　やり取りの中で私、議会で答弁した覚えはありますけども、この道路が要らないということは私は言えませんという話もしたつもりです。</div><div class="say">ということは、否めないっていうことは、うん、反対できない。ただ気持ちとして、これも、そんなの言い訳だって言われていましたけども、自然環境についてはできる限り守っていきたいっていう私の思いがあることから、推進というような言葉は当てはまりませんよということとか、もしくは、消極、消極的という言葉をどこかで使ったか分かりませんけども、そういう思いであるっていうことも含めて、ただ、反対できないっていうこと、反対しないっていうことは、いわゆる消極的な賛成であるという、そういう考えを私は述べたわけであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2939s" data-timestamp="2939"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:59</a>　東京都とのやり取り、あくまで議事概要ですのでね、一つ一つの議事録ではありませんが、そのメモの中には、東京都の方から、この整備を進めることについてどう考えているのかということを聞かれたことに対して、特段の配慮をお願いしたいんだと。ただ、その前段として、いわゆる消極的な賛成と考えてはいると。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=2963s" data-timestamp="2963"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:23</a>　こういうふうに私は述べましたので、それが何か特別な言葉として使ったというよりは、その市長報告、もしくは、その市長報告をする上での私の考え方を述べたことを、ここでもそういった言葉で使わせていただいて、といった説明したということでございます。</div><div class="say">次に、容認という言葉を前回委員会で使ったことに対して、私の方から訂正をさせていただきました。これについては大変申し訳ありません。</div><div class="say">否めないっていうことは反対ができないっていうこと、それは消極的な賛成であるということ、私が今答弁できるのは以上でございます。</div><div class="say">どのような指示をしたのかっていうことでございましたが、まず、予算に当たっては、残念ながら先ほど引用された結果となりました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3009s" data-timestamp="3009"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:09</a>　その後、どういうふうにやっていくかっていうことについては、私の方からもいろいろ、例えばこういうことできないのっていう話はしていますが、例えばそれについて今何かをお示しできるような状況ではないということで、今、市役所の中でできることをやっていこうということでございますので、ちょっと具体的に、その事細かくどういう指示をしたかということは申し上げられませんが、別に、もう何もやらなくていいって、そんなつもりもなくて、できることについては担当とも相談しながら協議をしてきたというところでございます。</div><div class="say">最後、環境の専門家のところのお話がありました。重ねて、当時は本当に大変、その専門家の方に失礼なことをさせて、してしまいました。申し訳ございませんでした。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3062s" data-timestamp="3062"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:02</a>　まず、欠くことのできないっていう引用もされましたけども、あれは令和7年1月に最初にやった、撤回した市長報告の中で、市長報告の中において、その専門家の意見というのは欠くことができないという位置付けであるということを説明したつもりです。</div><div class="say">ですので、結果的に令和7年9月にさせていただきました市長報告の中では、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3092s" data-timestamp="3092"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:32</a>　撤回したその総合的判断としては、環境の面から当該道路整備に対する厳しい御意見をいただいてもなお、結果的に私は当該路線について整備の必要性は否めないという判断をしたところであります。</div><div class="say">ですので、一定の環境への影響があったとしても、その影響、軽減して、できる限りこの貴重な自然を守る、都市機能の向上と自然環境の保全の両立を目指すべきだと考えましたということも含めて述べさせていただきました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3115s" data-timestamp="3115"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:55</a>　ですので、そういう経過があって、昨年の9月の〇〇があったということでございます。</div><div class="say">ただ、なお、その上でも、結論を出した上でも、できる限り自然環境の影響を低減できるように、引き続きどのように関わっていけるか検討してまいりますということも、その市長報告の中で述べました。</div><div class="say">ですので、昨年の9月以降、どういうことができるかっていうことを考えてきたわけであります。その環境の専門家の方には、以前、大変な失礼なことをいたしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3151s" data-timestamp="3151"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:31</a>　今回私は、そういった御意見も依然ありながらも、この道路の必要性は否めない、道路整備の必要性は否めないという判断をしたところ。</div><div class="say">予算は修正動議によって結果的には削除することになりましたが、今、東京都が概略設計をやっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3173s" data-timestamp="3173"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:53</a>　それは施工方法を含めて具体的に出されてくるわけでございますので、それを前提として、私としては、その上での自然環境への影響をどう低減できるかっていうことを考える、そのための知見を活用したいと、こう考えましたので、その当該の専門家の方に対しては、意見を聞くということは考えていないというところでございます。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t32">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、岸田さん。</div>
+</div>
+
+<div class="turn reveal" id="t33">
+  <div class="meta"><span class="name">岸田正義</span></div>
+  <div class="say">はい。正面から答えていただいていないなというのは、正直な感想かなと思いますので、他の議員の皆様はどのように受け取られるかということは、この後受け取っていただければなというふうに思っています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3225s" data-timestamp="3225"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:45</a>　先ほど申し上げたように、一応、必要性は否めないということと、消極的賛成だということと、容認であるということのレベル感については御答弁いただいていないというふうに認識しておりますので、再度お伺いしておきます。</div><div class="say">はい。結局だから、今も答弁が微妙に変わったなというふうに私、認識したんですけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3251s" data-timestamp="3251"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:11</a>　市長報告の中における総合的判断については欠くことのできない要素であった、専門家の知見はってことですよね。それが、その専門家の知見について誤った引用したがために白紙撤回になったってことですよね。</div><div class="say">そこから6か月間ぐらい、前任期の建設環境委員会で、じゃあ、どうやってやるんですかということについて、検討中、検討中ということで全く答えなかったんですよ。全く。</div><div class="say">市長就任してからね、1年以上、東京都に中止を見直しを要望するんだって言って、検討中です、協議中ですって言って、1年以上やっていたのと一緒ですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3291s" data-timestamp="3291"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:51</a>　市長報告が示された。そのときには専門的の、環境の専門家の専門的知見はないわけですよ。でも、その独自の検証結果によって必要性は否めないんだというふうに、今、すり替わったんですよね、話が。</div><div class="say">もう欠いたままやっているのは明白ですよね。欠くことができない。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3312s" data-timestamp="3312"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:12</a>　それは〇〇の中の総合的判断に限って、〇〇だったってことですかね。それを埋めるだけの何かが、市長報告を行うに当たってあったんですか。科学的根拠はあったんですか。あったとすれば、どなたにどういうお話を聞かれて、そういう結論に至ったんですか。</div><div class="say">御答弁いただきたいと思いま。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3342s" data-timestamp="3342"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:42</a>　その「都市計画道路にかかる調査研究について」ということで、どのような指示を出したんですかということというと、それについても何ら具体的なお話は今なかったということで、結局ずっとやるって言っていて、やっていないんですよ。だから聞いているんですよ。</div><div class="say">でも、残りあと何か月なんですか、今年。5か月ぐらいですか。ですよね。この予算が削除されてから、もう半年ですよね。何にもやっていないんですよ。何の指示も出ていないんですよ。だから何の資料も出せないんですよ、職員も。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3390s" data-timestamp="3390"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:30</a>　精神論でやります、やりますって、議会には言う。でも中身が伴っていない。何やっているんだって職員が責められる。こういう構図がずっと続いているじゃないですか。違いますかね。だから第1副市長と副市長は具体的にどういう指示を出したんだと聞いているんですよ。</div><div class="say">それが進んでないんだったらね、第1副市長がしっかりリーディングしなきゃいけないんじゃないですか。あなたにそのつもりがないんじゃないですか、そもそも。だから何も物事進んでないんじゃないですか、この時期においても。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3424s" data-timestamp="3424"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:04</a>　概略設計が出るまでは何もしないんですか、じゃあ。その予算の組み替え動議に対して、市長を支える小金井をおもしろくする会の反対討論では、東京都に対して意見を届けるのであれば、報告書を見てから事業構築し、補正予算を組んで対応したのでは意見を言うタイミングを逸してしまう恐れがある。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3455s" data-timestamp="3455"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:35</a>　というふうに言ってるんですね。さらには、地元自治体である小金井市が地域の視点で東京都に対して意見を示すためには、根拠となる材料が必要です。何らの科学的根拠もなく意見を言うだけでは、東京都に対して説得的なものとはなり得ません。</div><div class="say">昨年夏に市が開催した説明会において寄せられた市民の声、疑問を解消するためにも調査は必須だと言って、市長を支える会派の皆さんが反対討論されたんです。結局何にもできてないじゃないですか、それ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3490s" data-timestamp="3490"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:10</a>　どうやって自然守るんですか。先ほど、自然環境をできる限り守っていきたいという私の思いを乗せたんだというお話でしたけれども、1つ1つの言葉については、そんな庁議で確認してないんだということであれば、庁議で決まっている、行政の中で共有できているのは必要性は否めないだけであって、それはもう市長が勝手に載せた言葉なんですよ。だとすれば、それを守らなきゃいけないじゃないですか。</div><div class="say">そのために何するんですかってことが、現状何もできてないじゃないですか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3521s" data-timestamp="3521"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:41</a>　これが今の現状なんですよ。概略設計ができてから、できるまで何もしないんですか。第2副市長、ね。庁内でできると思ってないんですよ、私。東京都がそれだけの人脈と期間とお金をかけて作ったものに対して、市が、いや、それは違うでしょって言うためには、科学的根拠が必要になるわけですよね。</div><div class="say">それを庁内で作れるとは、私は思ってないんです。だからどうやって作るんですかってことを何回もお伺いをしてるけれども、資料としても出せません。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3558s" data-timestamp="3558"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:18</a>　答弁としても今後ですっていう話が先ほど出たわけですね。これについてどのようにお考えなんですか、第1副市長。間に合うんですか。意見を言うタイミングを逸してしまう恐れがあるから反対なんだと、声を大にする方、おっしゃってましたけれども、今の状況で意見を一致してしまうタイミング、恐れはないんですか。</div><div class="say">具体的にこの令和8年度内にどのようにこれを解決するのか、第1副市長からご答弁いただきたいと思います。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t34">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3604s" data-timestamp="3604"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:04</a>　18番、〇〇議員。はい、都市計画課長。</div>
+</div>
+
+<div class="turn reveal" id="t35">
+  <div class="meta"><span class="name">都市計画課長</span></div>
+  <div class="say">今、基本的に東京都が5月下旬に概略設計が出てくる前提で、今年度中に予算も上程して、今年度中に一定の我々としての考えをお示しする予定でございましたが、東京都からの概略設計が出てきていない段階でございますので、現在何もできていないという状況でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3631s" data-timestamp="3631"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:31</a>　また、予算も持っておりませんので、コンサルタントが持っている客観的、科学的、技術的な根拠に基づく知見は活用できないため、調査研究の深度化はなかなか難しい面があると思っております。私ども職員の持っている知見の範囲内で、概略設計が出てきた段階で検討していきたいというように思っております。</div>
+</div>
+
+<div class="turn chair reveal" id="t36">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、市長。</div>
+</div>
+
+<div class="turn reveal" id="t37">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">はい。すいません。先ほど、明確に答弁してなかったっていう点を指摘いただきました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3659s" data-timestamp="3659"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:59</a>　否めないっていうことと、消極的な賛成っていうことと容認、それの温度感というか、強弱というか、それについてどう考えるのかという質問でございました。否めないっていうのは、先ほど、そこは答弁したつもりだったんですけど、消極的な賛成ということと、意味合いとしては私は変わらないと考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3684s" data-timestamp="3684"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:24</a>　ただ、容認という言葉については、良しと認めるというか、そのままでいいと認めるというか、許すというか、そういう意味合い、言葉のね、意味合いっていうことを考えると、逆に、もう、何ていうか、何もしないというか、もうただ認めるだけっていう意味合いを持つというふうに捉えますと、ちょっと、否めないや消極的な賛成っていうこととはちょっと違うのかなと思います。ですので、前回、容認という言葉を使った時に、ご指摘をいただきまして、すいません、それは訂正をさせていただいたところであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3719s" data-timestamp="3719"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:59</a>　書くことができないについて、また、〇〇さんからちょっと見解を述べられましたけども、ごめんなさい、昨年の9月のところで、での質疑のやり取りもありました。そこでも私、説明をさせていただいたんですけども、書くことができない専門家の意見っていうところについては、この書くことができないっていうのは、前回の市政報告を構成するに当たって書くことができないということでしたと。</div><div class="say">それは、前回の〇〇報告は、整備に当たっての対策のところまで触れていました。今回、昨年の9月の〇〇報告では、そこまでいってませんと。その整備に当たっての対策を記載する上で、根拠としての専門家の意見として、そういう構成上、〇〇報告の構成上、専門家の意見を書くことができなかったということでありました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3766s" data-timestamp="3766"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:46</a>　その引用手続きが誤っていたため、そこだけを削除して〇〇報告書として成立できるわけではありませんので、撤回をさせていただきました。昨年の〇〇報告については、整備に当たっての対策のところまでは触れておりません。今回は活用しないということについても書いておりますので、改めてそこはご覧いただければと思います。</div><div class="say">私からは以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t38">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。はい、副市長。</div>
+</div>
+
+<div class="turn reveal" id="t39">
+  <div class="meta"><span class="name">副市長</span></div>
+  <div class="say">庁内検討体制についてでございます。委託ができなくなったという状況がございました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3810s" data-timestamp="3810"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:30</a>　庁内でどういうふうな対応ができるかということについては、3月以降、何度か担当部局と話し合いを進めてきたところでございます。概略設計が年度内に出される予定でしたので、その概略設計がこちらに届いたところから速やかにその検討作業に入れるようにということで、話し合いを進めてきたところでありましたけれども、概略設計の納期が延びるということになりましたので、一旦その体制づくりというのは止まっているというのが現状でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3847s" data-timestamp="3847"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:07</a>　いずれにしても、都市整備部だけでその検討ができるっていうことではないというふうに考えておりますので、都市整備部、環境部、その他関係部にも参加していただくような庁内検討体制を整えて、私どものできる資源を生かして、その東京都が示す内容について検討を進めていくというようなことを現在考えているところでございます。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t40">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3878s" data-timestamp="3878"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:38</a>　まだ大丈夫。答弁出てないとこ、大丈夫ですか。</div>
+</div>
+
+<div class="turn reveal" id="t41">
+  <div class="meta"><span class="name">不明</span></div>
+  <div class="say">大丈夫。</div>
+</div>
+
+<div class="turn chair reveal" id="t42">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">大丈夫ですか。いい、大丈夫なら大丈夫で。</div>
+</div>
+
+<div class="turn reveal" id="t43">
+  <div class="meta"><span class="name">不明</span></div>
+  <div class="say">意見を言う〇〇してしまうんではないかっていう全体的な見解を。</div>
+</div>
+
+<div class="turn chair reveal" id="t44">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">副市長。</div>
+</div>
+
+<div class="turn reveal" id="t45">
+  <div class="meta"><span class="name">副市長</span></div>
+  <div class="say">意見を言うタイミングでございますけれども、東京都が、昨年の10月22日に要望書を提出した際にも、粉じん対策については検討するということを先方が発言されております。私どもはこれが概略設計の中で一定の対応策というのが示されるというふうに考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3919s" data-timestamp="3919"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:19</a>　その対応策を、この概略設計の中身を見て、私どもの小金井市の考え方をまとめる必要があるというふうに考えておりますので、それが示されてから速やかに検討し、期を逸しないように本市の考え方をお伝えするというふうに今考えているところでございます。以上です。</div>
+</div>
+
+<div class="turn reveal" id="t46">
+  <div class="meta"><span class="name">不明</span></div>
+  <div class="say">議長さん。</div>
+</div>
+
+<div class="turn chair reveal" id="t47">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。</div>
+</div>
+
+<div class="turn reveal" id="t48">
+  <div class="meta"><span class="name">岸田正義</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3946s" data-timestamp="3946"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:46</a>　あくまで、白紙撤回になった市長報告の総合的判断においては、のみについて、その専門的意見については、知見については確保ができないということであるということで、また言葉遊びが出てきたなと思った次第でございます。私はそういったことも含めて、それをやってないのは明らかであるから、これはもう市長の政治的判断ですよね、ということをお話をして、市長報告の時に政治的判断であることは否めないと。覚悟をしてみたいな話だったと思いますけどね。</div><div class="say">ってお答えになられてるんですよね。結果的には、それらも含めて政治的判断ということは、私としても覚悟して今回この市長報告に基づいて東京都へ要望していきたいと考えておりますと。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=3993s" data-timestamp="3993"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:33</a>　こういうふうにご答弁されているということなんですね。これ以上は申し上げません。残念ですとだけお伝えをしておきます。第1副市長ね、じゃあいつ出てくるんですか。もう、何月に出てくるって確証があるんですか。</div><div class="say">それは3月なんですか。ねえ。何で止まってるんですか。何で出てこないと動けないんですか。じゃあ、先ほどの小金井をおもしろくする会さんの討論は間違ってるってことですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4027s" data-timestamp="4027"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:07</a>　ねえ、報告書を見てから事業構築し、補正予算を組んで対応したのでは意見を言うタイミングを逃してしまうということで反対討論をされているんですよ。止まる必要がないじゃないですか。スキームを作ってればいいじゃないですか。</div><div class="say">そこにものが出てきて動けばいいじゃないですか。何でそれが何もできてないんですか、現段階で。予算終わってから半年以上たってて、数回打ち合わせをしたとおっしゃってました。数回だけですよ。数回だから数十回ではないですよね。</div><div class="say">十数回ではないということですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4058s" data-timestamp="4058"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:38</a>　日本的、日本語で考えれば、ひと桁ですよね。何なら5回以内ぐらいですよね。っていう僕の日本語の感覚はそういうとこなんですよね。何でそこで立ち止まっちゃうんですかね。</div><div class="say">責任者として第1副市長、副責任者として都市整備部長及び環境部長、構成員として都市計画課長、道路管理課長、環境政策課長、生涯学習課長及びコミュニティ文化課長を想定しているというのが、予算提案時のプロジェクトチームの構成員なんですよ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4094s" data-timestamp="4094"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:14</a>　これが、そこにお金をかけて専門的知見や、ね、コンサルは入れられないんですよ。でも、東京都が出してくる概略設計に対して、自然環境をできる限り守っていくという市長の思いを乗せて作んなきゃいけないんですよね。ということは、ハードルもっと高くなってるじゃないですか、予算提案時より。</div><div class="say">なのに止まってるんでしょう。3月まで概略設計が出てこないって確証があるんですか。延ばしてるだけで。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4128s" data-timestamp="4128"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:48</a>　市長選挙終わって様子を見て、東京都がこの後12月にポーンって出してきたらどうするんですか。そっから作るんですか。次期構築。間に合わないじゃないですか、それじゃ。</div><div class="say">タイミング失しちゃうじゃないですか。3月まで出さないっていう約束があるんですか。状況が整っ、だからゆっくりしてるんですか。そういう話があるんじゃないですか、実は。あまりに重くないですかね、軽くないですかね。</div><div class="say">できる限り自然環境を守っていきたい。ずっとその言葉を聞いてますよ。じゃあそのために何するんですかってことが、ずっと一切出てきてないんですよ。全く。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4168s" data-timestamp="4168"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:28</a>　だからその言葉は信用できないっていうことを言ってるわけです。何かあればご答弁ください。</div>
+</div>
+
+<div class="turn reveal" id="t49">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">はい。〇〇さんから厳しいご意見をいただいております。独自検証の時にも厳しいご指摘もいただいて、この間、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4184s" data-timestamp="4184"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:44</a>　例えば、場合によっては外部の力を借りて、予算をかけてやるべきだというようなことなんかもいただいてまいりました。ということもあったので、我々としては外部の知見をいただく、そういった予算を考えて、ご提案をさせていただいたところでございました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4221s" data-timestamp="4221"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:21</a>　ただ、それについては詳しくは申し上げませんが、予算の修正動議が可決という形になりましたので、我々として、それは削除をさせていただいて、予算をかけてその知見を得るっていうことがかなわなかったわけであります。そうすると、庁内でどうやってできるかっていうことを考えなければなりませんし、ただ、もともとそれでできるんだったら最初から予算は出さないわけであります。ですので、我々としては予算が必要だと思ったので、予算を提案させていただいた経過がありました。</div><div class="say">こういう結果になりましたので、できる範囲で当然、私たちはやるつもりでありますが、そこには限界があるということは、この間も、確かそういったことも申し上げてきたつもりです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4271s" data-timestamp="4271"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:11</a>　ただ、市役所の、市役所としての知見を活用しながら、東京都の概略設計に対して、それが出てきた段階で、しっかり市として意見が出せるように準備はしたいなと思いますが、さっき課長の方から答弁ありましたように、既に頭として、ある材料のものはありますので、そういったものをしっかり確認をしながら、概略設計が出てくるタイミングにおいて、しっかりタイミングを逸しないようにしていきたいと思いますが、してば、そういう経過がありますので、どこまでできるかっていうことについては明確にはお示しはできません。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t50">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4325s" data-timestamp="4325"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:05</a>　他にある方。〇〇さん。</div>
+</div>
+
+<div class="turn reveal" id="t51">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say">はい。今期、今期市長の任期最後ということで、市長にお伺いしたいと思います。3・4・11号線についての整備についてですけれども、今、国分寺崖線というか、野川、すごく水量が多いですよね。9月にたくさん雨が降ったので、今、本当にあらゆる所から水がどんどん湧いていて、80階段の所とか、いろんなとこから水が湧いていて、こうやってハケっていうのは形成されていくんだなっていうのがすごく見てわかるんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4355s" data-timestamp="4355"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:35</a>　多摩川が削り取った段丘を、さらにそこに水が湧くことによってえぐられて、窪みができていく。それをハケというふうに呼んだということが、今の周辺を見ているとすごくわかります。野川、たくさん水があって、瀬枯れすることもあるような野川なんですけども、水が豊かで、本当に鳥もたくさんいて、たくさんの方が歩いたり、お散歩したり、犬の散歩したりとか、という感じで過ごされているような状況があります。</div><div class="say">私は近所なので本当によく行くんですけども。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4395s" data-timestamp="4395"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:15</a>　市長に、市長もですね、よく走っているということを聞いておりますし、そういった時にこの環境が、ああ、壊されちゃうんだって、私はいつも本当に寂しくというか、もちろんそういうふうになってほしくないというふうに思っていますけれども、やっぱりそういう思いがもう絶対に拭えないです。命に資する道路ということで位置づけられております、市長におかれては。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4430s" data-timestamp="4430"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:50</a>　なんですけども、その道路が魔法のようにぱっと一瞬でぱっと現れれば、皆さんの命を救う道路として今、そういう機能も果たせるのかもしれませんけれども、多分その整備に当たっては何十年もかかるだろうというふうに予測しますし、また、武蔵野公園の予定地の環境については、多分、工事の間中、もう、すごくひどいことになるんじゃないかっていう。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4468s" data-timestamp="4468"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:28</a>　何年も、環境というか、今の環境ではない、たくさんの車両が通って、木も切られるっていうことが何年も続くっていうことですね。このことがちょっと皆さんというか、この道路の問題を考える時に、時間的なことってあまり考えられてないのかなというふうに思っていて、今すぐにできるかのような、ね、だけどその経過っていうのはすごく長くかかるわけで。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4494s" data-timestamp="4494"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:54</a>　住んでる方にとっては用地買収だとかもありますし、近所の風景が変わっていく、用地がどんどん買収されていってみたいな、囲いができてコンクリートで固められる。そして公園の方に行けば、柵ができて多分、立ち入り禁止の区域ができますよね。そこに資材なんかも運ばれてっていうようなことが予想されます。</div><div class="say">〇〇ですね。市長も職員の方と一緒に出ております。私も毎年参加させていただいたんですけれども、このコースにね、当たっているじゃないですか。〇〇のコースに。この道路のところ。できなくなりますよね、コースが。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4542s" data-timestamp="4542"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:42</a>　そういったことをどう考えて、市長、市長ですよ。市長の気持ちを私は聞きたい。そこにいて、いろいろ道路ができる、必要だっていうことはね、検証でもう出てきておりますし、一方通行の解消とか、いろんなそれらしいことが並べられますけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4567s" data-timestamp="4567"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:07</a>　でもあそこに行ってね、深呼吸して、ってなって、たらそこ、この環境は、まも、壊しちゃいけないんだよねって思う、そういう感性が私は〇〇市長に、〇〇さんにあると思って、それでその公約を貫いてくれると私は信じて、〇〇さんを応援しました。そういう感覚どうですか、市長。走っていて。</div><div class="say">ああ、ここ壊されちゃうんだなとか思わないんですかね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4599s" data-timestamp="4599"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:39</a>　自分のせいでというか、自分が駒を進めてしまったという責任、感じないでしょうか。そこ、ちょっと確認したいです。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t52">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">2、市長。</div>
+</div>
+
+<div class="turn reveal" id="t53">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">はい。あそこの〇〇の環境について、改めてどういう感覚を持っているのかというご質問だったと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4634s" data-timestamp="4634"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:14</a>　最近、ちょっと走れていないんですが、以前からよくあそこは走るコースであります。すごく気持ちいいですね。野川公園をぐるっと走ったりとか、それも全部含めてなんですけど、やっぱりあそこの自然環境豊かな状況の中で、早朝は特に空気もきれいですし、冬なんかも非常にピリッとした空気の中で、霧が出たりとか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4663s" data-timestamp="4663"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:43</a>　非常に、何と言いますかね、緑の匂いというか、その自然の木々の匂いなんかも当然感じられる。夏はやっぱりちょっと涼しいんですね、朝。その路面を走っているよりは、公園に行った方がやっぱり涼しかったりというのは、朝から感じるところです。</div><div class="say">こういう自然環境というのは非常に重要であり、私自身が何度も申し上げていますけれども、東町5丁目に住んでおりましたのは、そしてまた小金井を気に入った要素の1つとして、坂を下りたところに、あれだけの自然環境が広がっているということに感動を覚えたということ、これも事実です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4706s" data-timestamp="4706"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:26</a>　市長自らそれを壊すことになる、これについてはどう思っているのかということでありますが、壊すということが適切な表現なのかどうかというのはありますけれども、市長報告の中でも私、申し上げたと思いますが、少なからず自然環境への影響はあるということは認めながら、それでもこの道路整備の必要性というのは否めないという判断を私はしました。先ほど〇〇さんの方から、最終的には政治的判断なんだねという確認をされて、私は「最終的には私の政治判断です」という話もしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4742s" data-timestamp="4742"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:02</a>　ですので、私自身が様々なことを踏まえて、小金井市全体のことを考えて、この道路の必要性について否定できないということを判断したわけでありまして、今、私が述べられるのは以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t54">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、安田さん。</div>
+</div>
+
+<div class="turn reveal" id="t55">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say">はい。市長もよく走っていて、この場所は気持ちいいという、そして、階段を下りたらこんな自然が広がっていたんだということを、こちらに東小金井に越してこられて、そういうことを実感したというお話でした。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4767s" data-timestamp="4767"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:27</a>　私も本当に全く同じであります。その必要性は否めないの、やっぱりその防災という観点で、市長は命を守る道路というふうに続けられているわけなんですけれども、今、命を守っているんですよ、あそこは、と私、すごく感じています。やっぱり日常的にあそこに、あの環境に、散歩だとか、いろんな、本当に毎日毎日皆さん、本当にたくさんの方が歩いたりしていますが、あの環境に助けられている、命が助けられていると言っても、私は過言ではないなというふうに感じています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4815s" data-timestamp="4815"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:15</a>　ちょっと私も病気などをしまして、ちょっと落ち込むこともあるんですけど、のも、そういうときは坂を下りて、野川にジャブジャブ入ったりとか、ちょっと歩き回ったりとかして、本当にリフレッシュできる、こんなに近いところにあるということをすごく実感するわけなんです。防災という観点で必要性は否めないという判断というふうになったんですけれども、必要性は否めない。けれど、もっと大事なものがあると。</div><div class="say">命を守っている、そういう私たちが受けているこの自然の恵みというもの、それは数値化できるものではないです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4853s" data-timestamp="4853"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:53</a>　やっぱりこういった議会の場では、エビデンスだとかいろいろ求められて、私も求めたりもしますけれども、そうやって、市民の方、いろんな方を説得しなきゃいけないというのも分かりますけれども、やはりここには、必要性があったとしても、そしてそれが、たくさんの課題がある、一方通行とか、防災の課題がある、そういったことは一つ一つクリアしていけば、道路を造る必要は、私は本当にないと思っていますし、そういった感覚を私は白井さんも持っていると、まだ持っているのではないかというふうに感じています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4889s" data-timestamp="4889"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:29</a>　今度、市長選がありますのでね。白井市長、白井さんのホームページを見ますと、書いてありますよ。この公約が、公約について、この水と、緑と水を未来へ、環境気候変動のところにですね、都に求めますとして、「東京都が計画する都市計画道路3・4・11号線整備で課題となる国分寺崖線や野川の自然環境への影響をできるだけ小さくするよう、都に求めていきます」というふうに書いてあります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4920s" data-timestamp="4920"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:00</a>　もう何か、ちょっとその4年前と、4年前は中止を要望するとしていたわけですよ。それが、こんなになっちゃうのって、私は経過を知っているのであれですけれども、何かあまりにも違うというか、あれを造ることが前提になって、〇〇という、何かもう、本当によくこんなことを掲げられるなって、ちょっと私、呆れるというか、ちょっと呆然とするというか、実際こういうことを言ってきたから、別に不思議ではないんですけど、何かこんなに変わっちゃっていいのっていう。前はだって、四つの重要課題の一つだったんですよ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4965s" data-timestamp="4965"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:45</a>　〇〇さん、四つあって重要課題だったのに、それが何かこう、ヒューって小さくなって、環境気候変動のところに、水と緑を、緑と水を未来へというところに位置付けたと。何か、公約って軽いなって、すごいまた思いました。やっぱり公約を軽んじる人は、ちょっと私としては信じられないなというふうに、残念ながら思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=4990s" data-timestamp="4990"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:10</a>　しかし、白井さんが、白井市長が、この道路、本当に命を守る防災としての道路で必要だと思っているのであれば、この環境気候変動のところに入れるのではなく、都市整備とか、そっちの方に防災、防犯とかね。そっちの方に入れるのが筋というか、いうふうな流れなのかなというふうに思うんですけれども。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5020s" data-timestamp="5020"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:40</a>　ここで水と緑を未来へというところに、この都市計画道路のことを書いているということは、やっぱり先ほども、消極的賛成だとか必要性は否めないというのは言えるけれども、容認とは言いたくないと言った白井市長の思いが表れているのかなと、こういうふうに思います。なので、いろんな候補者がいますけれども、白井さんは推進ではないと、市長は推進ではないということを、もう一度表明していただければと思います。そういうお気持ちがあるならば。</div><div class="say">以上です。</div>
+</div>
+
+<div class="turn reveal" id="t56">
+  <div class="meta"><span class="name">不明</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5080s" data-timestamp="5080"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:40</a>　というか、全然分からん。4時までですか。</div>
+</div>
+
+<div class="turn chair reveal" id="t57">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">市長。</div>
+</div>
+
+<div class="turn reveal" id="t58">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">先ほどちょっと述べましたが、過去にも発言したと思いますが、推進という気持ちにはなりませんという話はしてきました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5083s" data-timestamp="5083"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:43</a>　あくまで道路整備の必要性は防災等の観点から否めないと、このように考えているところです。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t59">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">〇〇さん。</div>
+</div>
+
+<div class="turn reveal" id="t60">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say">はい。否めないで、そして様々な課題があるということが分かっております。特に防災の関係では、この道路整備によらない解決策が皆さんからも出ておりますし、市民からも出ております。そういったことをもうちょっと重要視して、やっぱりこの必要性は否めないと言いながらも、その一つ一つの検証。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5125s" data-timestamp="5125"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:25</a>　今ある課題を、だから何十年か先に、道路整備によって解消されるということは、ことに頼るのではなく、一つ一つ解消していただきたい。そして、自然環境の影響をできるだけ小さくするよう都に求めていきます、に関しては、先ほど〇〇さんからもいろいろありましたけれども、現在、何か部局として積極的に動いているということは全くないんだなと、先ほどの質疑で本当に私も感じましたので、本当に守る気があるのかなというのは、やっぱりちょっと思うところです。本当にこの市長選が終わったら、概略設計、ぽんと、もうできているでしょうからね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5163s" data-timestamp="5163"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:03</a>　多分、市長選の具合を見てというか、て、その東京都は持っているものをいつ出そうかみたいな状況なんじゃないかなというふうに思うので、受け身ではなく、本当に自然を守りたい、あの環境を守りたいというなら、具体的に市として。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5185s" data-timestamp="5185"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:25</a>　本当に今、みんなの命を支えています、あの場所が、と私は本当に実感するので、本当に心からお願いしたいと思います。意見で終わります。</div>
+</div>
+
+<div class="turn chair reveal" id="t61">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">ほかにありませんでしょうか。ないようでしたら、坂井さん。</div>
+</div>
+
+<div class="turn reveal" id="t62">
+  <div class="meta"><span class="name">坂井えつ子</span></div>
+  <div class="say">はい。白井市長、今期最後の建設環境委員会なので、ちょっと1点だけ、今の答弁もやり取りも含めて、1点だけ市長に確認をしておきたいと思いました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5225s" data-timestamp="5225"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:05</a>　私も市長報告は認めていない立場で、環境の専門家の意見を欠いたままやったということは認められないということは申し上げてきました。環境に対する影響の調査をやっていきたいということの提案で当初予算が出されましたので、私はそれに賛成する立場でしたが、議会は認めなかったということを踏まえて、現在、なかなか検討が難しいなということは分かったんですけれども、市長が答弁の中で、今日ですよ、環境のことについて、こういうことはできないかみたいなことは言っていて、細かいことはちょっと言えないけれども、担当と協議をしながら、みたいな答弁をされていたんですが。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5260s" data-timestamp="5260"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:40</a>　ここでいう、〇〇市長がいう担当というのは、どなたと協議をしているのかということについて聞かせてください。</div>
+</div>
+
+<div class="turn chair reveal" id="t63">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">市長。</div>
+</div>
+
+<div class="turn reveal" id="t64">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">先ほど私が述べた件については、都市整備部であります。以上。</div>
+</div>
+
+<div class="turn chair reveal" id="t65">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。はい、坂井さん。</div>
+</div>
+
+<div class="turn reveal" id="t66">
+  <div class="meta"><span class="name">坂井えつ子</span></div>
+  <div class="say">はい。都市整備部ということで、今日も環境に対する影響調査という質疑をやり取りしているんですけれども、答弁されているのは都市計画課長ですよね。都市計画課長は、都市計画課長として調べられることは調べるとおっしゃっていました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5300s" data-timestamp="5300"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:20</a>　予算が現状、なかなか難しい、議会、市長がやりたいと思いがあっても、議会がなかなか納得できない、ぎっこり、合意できないという中で、新市長は今後どういう庁内の体制でやっていくのかということが、ちょっと見えないんですよね。ずっと都市計画課だけでやろうと思っておられるのかと思いきや、他方、第1副市長の答弁で、都市整備部だけではできないので、関係部にも参加していただいて整えていくことを考えていると、ご答弁されていて。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5333s" data-timestamp="5333"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:53</a>　聞き間違いでなければ考えているとおっしゃっていて、予算がない中においても、その環境部、いや、生涯学習部にも知見を借りながらやろうと思っているのか、今、思っている段階、まず思っているかいないのか。そして、思っているのであれば、それをちゃんと各部に伝えているのか。私のメモですと第1副市長は考えているということをおっしゃっていたので、考えているだけなのか、そういった横断的な体制が必要と考えて、それをちゃんと動かしているのかいないのかということについて、市長の答弁をいただきたいと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t67">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5381s" data-timestamp="5381"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:29:41</a>　はい、市長。</div>
+</div>
+
+<div class="turn reveal" id="t68">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">ほかの部門と連携を取ることを前提に考えています。ほかの部署と連携を取って検討するようにということを、私としては指示を出しております。以上です。</div>
+</div>
+
+<div class="turn reveal" id="t69">
+  <div class="meta"><span class="name">不明</span></div>
+  <div class="say">置いておいで。</div>
+</div>
+
+<div class="turn chair reveal" id="t70">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、坂井さん。</div>
+</div>
+
+<div class="turn reveal" id="t71">
+  <div class="meta"><span class="name">坂井えつ子</span></div>
+  <div class="say">指示は出しているという答弁が出ましたよね。指示を出すで。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5411s" data-timestamp="5411"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:30:11</a>　指示を出されて、すみません、いきなり、指示を出されているであろう環境部長はその指示を受けているのか。指示を出していて動いているのかということの、ちょっと整理ができていないので、私、今の答弁では。具体的なことは何も動いていないみたいな答弁も今まで出ていたので、そこの今までの答弁と今のご答弁の間にもちょっと乖離を感じるので、丁寧にここは答弁をしていただきたいと思います。</div><div class="say">責任ある方にと思いますけれども、私は。</div>
+</div>
+
+<div class="turn chair reveal" id="t72">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。3問目は無理でございます。都市整備部長。</div>
+</div>
+
+<div class="turn reveal" id="t73">
+  <div class="meta"><span class="name">都市整備部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5446s" data-timestamp="5446"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:30:46</a>　はい。現状についてご説明をさせていただきます。先ほど、どのような庁内体制でというご質問があったので、その体制について、市長の方から指示をしているというふうにご答弁されたんだと思いますけれども、実際どのような状況かと申しますと、具体的に3月以前は、ほかの部と連携するような庁内体制について協議をさせていただきまして。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5481s" data-timestamp="5481"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:21</a>　そのような指示も受けて、検討を進めてまいりました。その後、4月以降につきましても、他部との連携について具体的に協議をしたり、ご指示をいただいたりということがございました。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t74">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">ちょっと確認したいんですけれども、資料要求の調整の中で、どういう岸田委員と調整があったのか、もう一回ここで述べていただきたいんですけど。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5511s" data-timestamp="5511"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:51</a>　調整員の中では、具体的なものが動いていないということが、出せるものがないから資料がないというふうに、私も正副で聞いているんですよ。そういうと、今、答弁が全く違うので、これはちょっと見過ごせないんですけど。</div>
+</div>
+
+<div class="turn chair reveal" id="t75">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">じゃあ、また答弁していただいて、今の追加の。</div>
+</div>
+
+<div class="turn reveal" id="t76">
+  <div class="meta"><span class="name">不明</span></div>
+  <div class="say">いいよ。</div>
+</div>
+
+<div class="turn chair reveal" id="t77">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、どうぞ。</div>
+</div>
+
+<div class="turn reveal" id="t78">
+  <div class="meta"><span class="name">不明</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5536s" data-timestamp="5536"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:16</a>　具体的なその環境に関する調査研究という意味では、先ほど課長から答弁させていただいたとおり、これまで東京都が調査してまいりました植物、動植物についての調査結果について確認をしているところでございます。具体的に概略設計がまだ出てまいりませんので、具体的なその調査研究というところでは進んではおりません。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5567s" data-timestamp="5567"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:47</a>　ですが、その体制というところについては、先ほど、どのような庁内体制でというご質問がございましたので、先ほど市長からご説明したような発言になったのかなということでございます。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t79">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">いや、ごめんなさい。資料要求をしている中で、どういう指示があったのかという資料が出て、求められていましたよね、前回の委員会で。それで、どういう調整で出せないということになったのかというのが、正副の中では違う説明でしたよね。</div>
+</div>
+
+<div class="turn chair reveal" id="t80">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">都市計画課長。</div>
+</div>
+
+<div class="turn reveal" id="t81">
+  <div class="meta"><span class="name">都市計画課長</span></div>
+  <div class="say">はい。市長、副市長と、環境部長、環境政策課長も含めて、情報共有ということでお話をしたことは何度かございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5616s" data-timestamp="5616"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:36</a>　ただ、その調査研究までには至っていないということで、岸田議員がご請求されているような内容を充足しているものではないということで、資料には至っていないということでございます。情報共有等はしているということでございます。今の現状ですね、概略設計がどうなっているのか、今、東京都がやっているということにつきましては、市長、副市長、環境部長、都市整備部長と私ども等で、お話はさせていただいております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5648s" data-timestamp="5648"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:08</a>　その件については、岸田議員にもお話をさせていただきましたが、調査・研究というところ、それから今後の見通し、そういったものについては、今のところはないということでございます。以上です。</div>
+</div>
+
+<div class="turn reveal" id="t82">
+  <div class="meta"><span class="name">不明</span></div>
+  <div class="say">どうぞどうぞ。終わりでいいの？　もう下がるの？　あったあった。</div>
+</div>
+
+<div class="turn chair reveal" id="t83">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">じゃあ、以上でよろしいですか。</div>
+</div>
+
+<div class="turn voice reveal" id="t84">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">はい。</div>
+</div>
+
+<div class="turn chair reveal" id="t85">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">以上で本件に対する現時点での質疑を終了することにご異議ありませんか。</div>
+</div>
+
+<div class="turn voice reveal" id="t86">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">異議なし。</div>
+</div>
+
+<div class="turn chair reveal" id="t87">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">ご異議なしと認め、本件に対する現時点での質疑を終了いたします。お諮りいたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5682s" data-timestamp="5682"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:42</a>　本件は引き続き調査する必要があると認め、継続調査といたしたいと思いますが、これにご異議ありませんか。ご異議なしと認め、本件は継続調査と決定いたしました。次に、行政報告を行います。</div><div class="say">初めに、行政報告1、ぐみの木公園のトイレ整備概要についてを行います。部局の説明を求めます。名乗ってください。職名を名乗っていただいていいですか。</div>
+</div>
+
+<div class="turn reveal" id="t88">
+  <div class="meta"><span class="name">緑と公園係長</span></div>
+  <div class="say">すみません、失礼しました。緑と公園係長でございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t89">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">緑と公園係長。</div>
+</div>
+
+<div class="turn reveal" id="t90">
+  <div class="meta"><span class="name">緑と公園係長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5721s" data-timestamp="5721"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:21</a>　失礼いたしました。それでは、環境政策課から、ぐみの木公園のトイレ整備概要についてご報告いたします。ぐみの木公園にある既存トイレは平成12年度に設置したもので、経年劣化による様々な不具合が生じており、その解消に当たり、設備交換を含む改修事業に取り組む必要がある状況でございます。</div><div class="say">今年度、トイレの設計委託により改修整備の内容を整理するに当たり、設備及び衛生面の改善と併せ、男女を問わず誰もが安全で快適にトイレを利用でき、災害時にも安心して利用できるトイレの実現を図るため、検討を進めてまいりました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5761s" data-timestamp="5761"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:01</a>　令和9年度に新設予定のトイレの設置場所は、既存トイレの場所と同じ場所とし、トイレ設備につきましては、既存トイレは和式、和便器1基のみでございますが、新設予定のトイレは平面図のとおり、ユニバーサルベッド、災害対応トイレ、オストメイト対応のバリアフリートイレを予定しております。整備期間といたしましては、契約手続きに3か月、トイレの納期に4か月、その後、整備工事に2か月程度、合計9か月程度要する見込みでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5794s" data-timestamp="5794"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:34</a>　なお、ぐみの木公園に接続する近隣道路は、拡幅が非常に狭小でございまして、運搬車両が限定されることから、これ以上の大きなトイレを運搬することは難しく、トイレの面積を増やしたり、例えば便器数を増やすということはできない状況でございます。今後は資料の平面図のとおり、建築確認申請の手続きを進めていくことを予定しております。</div><div class="say">また、工事費用につきましては現在算定を進めており、今後予算編成の中で工事費用を調整していくところです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5831s" data-timestamp="5831"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:11</a>　ですが、中期財政計画では事業費として約4,000万円を見込んでいるところでございます。詳細は資料をご確認いただければと思います。報告は以上でございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t91">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">これから質疑を行います。はい、水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t92">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">一つ伺いたいのは、災害対応トイレっていうことになってると思うんですが、災害対応トイレっていうことで言うと、災害時だけ使えるっていうトイレもあると思うんですが。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5850s" data-timestamp="5850"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:30</a>　このトイレは、日常的に皆さん使えるわけですよね。災害時に限らず使えるわけで、この災害対応トイレっていうふうに言われている、その具体的な、何ていうか、中身がどういうことなんでしょうか。その辺、ちょっとご説明いただけますでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t93">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">環境政策課長。</div>
+</div>
+
+<div class="turn reveal" id="t94">
+  <div class="meta"><span class="name">環境政策課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5880s" data-timestamp="5880"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:00</a>　災害用対応トイレにつきまして、こちら、災害時、水が止まった場合にですね、床の下部分に尿や便をためるスペースを確保しております。それを災害用対応トイレという形で呼ばせていただいております。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t95">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t96">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">要するに水を流さなくても使えるっていうこと？　要するに、その辺がよく分かんなかったんで、一旦その、何ていうか、ためとくような貯留、貯留槽みたいなものが、トイレの下にあるっていうことなんでしょうか？</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5928s" data-timestamp="5928"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:48</a>　昨日、防災フェスタがあって、ちょうどテント水でですね、公園なんかのトイレの、要するに、水を浄化して、いろんなその、きれい、だけど飲めるような水じゃないと思うんですけど、排出するっていうような設備の展示があったんですね。そういうものではなく、一旦貯留しておいて、水が流れるようになったら流れるっていうような、そういう仕組みになってるっていう理解でいいんですか。その水洗トイレとして使えなくても使用できるっていうことなのかどうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=5967s" data-timestamp="5967"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:39:27</a>　その辺、ちょっとよく分からなかったので、もう少し具体的にご説明いただけますでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t97">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">環境政策課長。</div>
+</div>
+
+<div class="turn reveal" id="t98">
+  <div class="meta"><span class="name">環境政策課長</span></div>
+  <div class="say">水が流れなくなったときに、まずは貯留槽みたいなところにため込みまして、その後、その処理については、くみ取り式で回収するという形で対応するというとおりになっております。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t99">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=6002s" data-timestamp="6002"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:02</a>　はい。水上さん。</div>
+</div>
+
+<div class="turn reveal" id="t100">
+  <div class="meta"><span class="name">水上洋志</span></div>
+  <div class="say">何となく分かりました。とにかく、だから、一旦その水を水洗とい、水洗で、でなくてもためておけるっていうような、災害時に使えるというような仕様になっていると。それで災害対応トイレという形、自由になってるってことで、貯留槽としては、一定大きな規模のものが、要するに、作られるってことでいいのかどうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=6030s" data-timestamp="6030"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:30</a>　何かよく、この水洗で下水に流すわけですよね。そのルートとためとくルートって2つあるっていうことなのか、ちょっとよく分かんなかったんですけど、とにかく、状況はちょっと分かりましたので、また具体的な内容が分かったら教えていただければと思います。とりあえず以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t101">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">他にありますでしょうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=6062s" data-timestamp="6062"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:41:02</a>　安田さん。</div>
+</div>
+
+<div class="turn reveal" id="t102">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say">はい。このトイレの面積っていうのは、今あるものと同じぐらいの大きさなのかっていうことを、ちょっと確認させてください。</div><div class="say">あとですね、このユニバーサルベッドや、オストメイトの対応していて、ユニバーサルデザインのトイレになっているかと思うんですけども、こういった仕様のトイレに、市内の公園、これからこういった仕様に順次なっていくのかなっていう、そういう見通しっていうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=6095s" data-timestamp="6095"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:41:35</a>　それぞれの公園で今いろいろありますけれども、こういったユニバーサル、ユニバーサルトイレが、市内のトイレのスタンダードになっていくっていう、どうなるのかなっていう、その辺をちょっと見通しなんかありましたら教えていただければと思います。</div>
+</div>
+
+<div class="turn reveal" id="t103">
+  <div class="meta"><span class="name">緑と公園係長</span></div>
+  <div class="say">はい。緑と公園係長でございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t104">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">緑と公園係長。</div>
+</div>
+
+<div class="turn reveal" id="t105">
+  <div class="meta"><span class="name">緑と公園係長</span></div>
+  <div class="say">はい。緑と公園係長でございます。トイレの面積でございますけれども、現在のトイレは約2.7平方メートルの、和、和便器一つの、2.7平方メートルのトイレが設置されてございます。今後、新しく設置するトイレの大きさはですね、6、約6.5平方メートルのものを予定してございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=6144s" data-timestamp="6144"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:24</a>　以上でございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t106">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">環境政策課長。</div>
+</div>
+
+<div class="turn reveal" id="t107">
+  <div class="meta"><span class="name">環境政策課長</span></div>
+  <div class="say">今後のトイレ整備につきましてご質問いただきましたので、答弁させていただきます。まず、都市公園法に基づきまして、公園施設の建ぺい率は原則として2％以下という規定がございます。ですので、まずはその建ぺい率の範囲内で建てられるトイレを設計するという考え方で考えておりまして。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=6173s" data-timestamp="6173"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:53</a>　今回、ぐみの木公園に関しましては、約ですね、14.9平米までは建築可能となっておりますが、自主防災会の防災倉庫もございまして、それを差し引くと約9.4平米のトイレの整備が限度というふうになっていますので、今回はこのような形で整備させていただいているところです。以上です。</div>
+</div>
+
+<div class="turn reveal" id="t108">
+  <div class="meta"><span class="name">不明</span></div>
+  <div class="say">市内の進行ですか、すいません。今後、市内は順次こういったユニバーサルトイレになっていく見通しなのかどうかっていうことをお聞きしたいんですけど。</div>
+</div>
+
+<div class="turn chair reveal" id="t109">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=6213s" data-timestamp="6213"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:43:33</a>　環境政策課長。</div>
+</div>
+
+<div class="turn reveal" id="t110">
+  <div class="meta"><span class="name">環境政策課長</span></div>
+  <div class="say">すいません。失礼いたしました。今後につきましても、先ほど説明したとおり、まずはトイレの大きさについて2％以下で設計を考えておりまして、ユニバーサルベッドは非常に当事者の方から求められているものですので、順次ユニバーサルベッドの設置を、可能な、設置できる公園に関しては設置していきたいというふうには考えております。</div><div class="say">以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t111">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=6250s" data-timestamp="6250"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:10</a>　はい、安田さん。</div>
+</div>
+
+<div class="turn reveal" id="t112">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say">ご答弁ありがとうございます。順次、このユニバーサルデザインっていうのが、全ての公園に行き渡るようになるという、そういうね、考え方が示されたのかなと思います。遊具に関しても、そしたら何かこう、ちぐはぐになるというか、やっぱりその障害のある子もない子も共に遊べるような遊具が設置されて、そしてトイレも整備される。</div><div class="say">誰もが過ごせるような公園になるっていう、そういった方向性になっていくのかなっていうふうに感じました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=6275s" data-timestamp="6275"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:35</a>　そういうユニバーサルデザインや、何だっけ、障害がある子もない子も共に、何だっけ、何て言うんでしたっけ。度忘れしちゃったんですけど、公園。</div>
+</div>
+
+<div class="turn reveal" id="t113">
+  <div class="meta"><span class="name">不明</span></div>
+  <div class="say">インクルーシブ。</div>
+</div>
+
+<div class="turn reveal" id="t114">
+  <div class="meta"><span class="name">安田けいこ</span></div>
+  <div class="say">インクルーシブ公園。すいません、ありがとうございます。インクルーシブ公園に順次なっていくという、そういう考え、スタンダードになっていくような予感をちょっと感じました。はい。誰もが遊べるような公園をこれからも整備していっていただきたいということで、はい、終わります。</div>
+</div>
+
+<div class="turn chair reveal" id="t115">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">今、ユニバーサルデザインとユニバ、ユニバーサルベッドが何か混同してるように見えたんですけど、それも含めてユニバーサルデザインで進めていくっていうことでいいんですか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=6321s" data-timestamp="6321"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:21</a>　答弁はユニバーサルベッドって言って、質問はユニバーサルデザインとかユニバーサル仕様って言ってんですけど。</div>
+</div>
+
+<div class="turn chair reveal" id="t116">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">環境政策課長。</div>
+</div>
+
+<div class="turn reveal" id="t117">
+  <div class="meta"><span class="name">環境政策課長</span></div>
+  <div class="say">今後のトイレ整備の考え方なんですが、車椅子使用者、また、高齢者、妊婦、乳幼児連れ、異性による介助、同伴を必要とするような方やトランスジェンダーなどで男女別のトイレが使いにくい方にも最大限配慮した形の、ユニバーサルデザインに配慮したトイレの整備を考えていきたい、考えております。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t118">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=6350s" data-timestamp="6350"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:50</a>　はい。他にありますでしょうか。なければ進めますね。以上で本件に対する質疑を終了することにご異議ありませんか。ご異議なしと認めます。従って、本件に対する質疑を終了いたします。</div><div class="say">以上で行政報告を終了いたします。違う。失礼しました。終わりません。いいですか。終わらな、訂正しなくて大丈夫ですか。</div>
+</div>
+
+<div class="turn reveal" id="t119">
+  <div class="meta"><span class="name">不明</span></div>
+  <div class="say">はい。</div>
+</div>
+
+<div class="turn chair reveal" id="t120">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=6381s" data-timestamp="6381"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:46:21</a>　はい。では、撤回をいたしまして、次に、行政報告2、ひがこ日和におけるCoCoバス回数券販売の終了について、を行います。事務局の発言と説明を求めます。はい、交通対策課長。</div>
+</div>
+
+<div class="turn reveal" id="t121">
+  <div class="meta"><span class="name">交通対策課長</span></div>
+  <div class="say">交通対策課から、令和8年10月30日で〇〇でのCoCoバス回数券の販売を終了することについて報告します。令和5年4月のCoCoバス再編以降、回数券はバス車内での販売を廃止し、運行事業者及び運行事業者の委託店舗において販売していましたが、このうち東小金井駅南口にあるひがこ日和から販売終了の意向が、令和8年4月に示されました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=6423s" data-timestamp="6423"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:47:03</a>　市としては利用者の利便性を考慮し、東小金井駅付近での販売場所を確保するため、主に2つの対応を行ってきました。1つ目は複数の店舗等に直接依頼に伺い、新たな販売店の開拓を行うこと、2つ目は〇〇で販売期間をできるだけ延長していただけるよう話し合いを重ねてきたことです。しかし、本業への負担及び対応人員の不足等の理由から、新たな販売先を見つけることができませんでした。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=6455s" data-timestamp="6455"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:47:35</a>　また、交通ネットワーク再編事業において、CoCoバス回数券の販売を令和9年3月で終了することとなっており、東小金井日和において同月まで販売してもらいたいと考えましたが、回数券の販売に係る店舗の負担及び店舗と運行事業者との協議の結果、令和8年10月30日で終了することとなりました。今後は他の販売箇所であるふじかわフォトサービス、つくば観光交通本社及び京王バス府中営業所にて、CoCoバス回数券を購入していただくことになります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=6490s" data-timestamp="6490"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:10</a>　利用者の方々にはご不便をおかけすることになりますが、ひがこ日和での販売終了の周知と併せて、市報10月15日号、ホームページ、公式X、公式LINE及びCoCoバス車内ポスターを通して案内していきます。報告は、となります。</div>
+</div>
+
+<div class="turn chair reveal" id="t122">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">これから質疑を行います。よろしいですかね。はい、じゃあ、以上で本件に対する質疑を終了することにご異議ありませんか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=6524s" data-timestamp="6524"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:44</a>　ご異議なしと認めます。従って、本件に対する質疑を終了いたします。以上で行政報告を終了いたします。以上で本件、以上で本日、本日の日程は全部終了いたしました。本日は以上で建設環境境委員会を閉会いたします。お疲れ様でした。</div><div class="say">協議会は特にないんですけれども、委員の皆さんにだけ1点だけ、1月に行政、違う違う、議会報告会がございまして。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=6549s" data-timestamp="6549"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:09</a>　そのときに、もしかしたら広報に、広報広聴に出ている会派の方から聞いてるかと思うんですけども、今回は模造紙で、いわゆるパネル展というかオープンハウス形式を行いまして、議会、委員会から報告を一方的に行う、また、グループ討議っていうのはなくなった形になりまして、パネル、オープンハウス形式をとっております。これも逐次実行委員会の皆さんから広報広聴でご報告をいただいていて。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=6584s" data-timestamp="6584"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:44</a>　委員会へのこのお願いというのが、いわゆるテーマを2つ以上ですね。書いてくださいということで、模造紙を横型にして、1つずつですね、タイトルとか、今考えていることとか、そういうことを4つに分けて、ごめんなさい、テーマ、部会での議論、そして現状、今後についてっていうことを4つに分けて書くわけなんですけども、まずはテーマ選定かなと思いまして。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=6619s" data-timestamp="6619"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:19</a>　この最終的な提出期限が1月の9日とかだったので、1月の8日金曜日までなので、まずテーマをちょっと決めなきゃいけないなと思っています。どうでしょう。4つ、2つ以上4つぐらいなんですけども、大体何個ぐらいあったらいいですかね。</div><div class="say">あと実行委、ここ実行委員会の皆さんもいるので、私の補足があれば。テーマ選定は、例えばこっちに一任だとか、それともこれだけは入れといた方がいいとか、あと作業分担していただけるとか、いろいろあると思うんですけども、テーマは行政視察は入れてもいいのかなと。</div>
+</div>
+
+<div class="turn reveal" id="t123">
+  <div class="meta"><span class="name">不明</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=keMtBhhZ1XU&t=6653s" data-timestamp="6653"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:53</a>　いらない、いってらっしゃい。だって、あの。</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
+<button class="to-top" type="button" aria-label="ページ上部へ戻る" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>(function(){var b=document.querySelector('.to-top');if(!b)return;function u(){b.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>300);}window.addEventListener('scroll',u,{passive:true});u();})();</script>
+<script id="anchor-js">
+(function(){
+  try{
+    var turns=[].slice.call(document.querySelectorAll('.turn[id]'));
+    if(!turns.length) return;
+    var firstBy={};
+    turns.forEach(function(t){
+      var nm=t.querySelector('.name'); if(!nm) return;
+      var key=(nm.textContent||'').trim(); if(!key||key==='—') return;
+      if(!firstBy[key]) firstBy[key]=t.id;
+    });
+    var toast;
+    function showToast(){
+      if(!toast){ toast=document.createElement('div'); toast.className='copy-toast'; toast.textContent='この発言へのリンクをコピーしました'; document.body.appendChild(toast); }
+      toast.classList.add('show'); clearTimeout(toast._t); toast._t=setTimeout(function(){toast.classList.remove('show');},1800);
+    }
+    function hl(el){ turns.forEach(function(x){x.classList.remove('turn-hl');}); if(el) el.classList.add('turn-hl'); }
+    // ② 発言パーマリンク
+    turns.forEach(function(t){
+      var meta=t.querySelector('.meta'); if(!meta) return;
+      var a=document.createElement('a');
+      a.className='turn-link'; a.href='#'+t.id; a.title='この発言へのリンクをコピー'; a.setAttribute('aria-label','この発言へのリンクをコピー');
+      a.textContent='🔗';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault();
+        var url=location.origin+location.pathname+'#'+t.id;
+        try{ history.replaceState(null,'','#'+t.id); }catch(e){}
+        if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(showToast).catch(function(){ location.hash=t.id; }); }
+        else { location.hash=t.id; showToast(); }
+        hl(t);
+      });
+      meta.appendChild(a);
+    });
+    // ① 要約中の発言者名(太字)→本文へ
+    [].slice.call(document.querySelectorAll('.sum strong')).forEach(function(st){
+      var txt=(st.textContent||'').trim(); if(!txt||txt.length<2) return;
+      var id=null;
+      for(var k in firstBy){ if(k.indexOf(txt)>=0 || txt.indexOf(k)>=0){ id=firstBy[k]; break; } }
+      if(!id) return;
+      var a=document.createElement('a');
+      a.className='sum-jump'; a.href='#'+id; a.textContent=st.textContent; a.title='本文の発言へ';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault(); var el=document.getElementById(id);
+        if(el){ hl(el); el.scrollIntoView({block:'center',behavior:'smooth'}); try{history.replaceState(null,'','#'+id);}catch(e){} }
+      });
+      st.parentNode.replaceChild(a, st);
+    });
+    // 直リンクで #tN が指定されていたらハイライト
+    if(location.hash){ var el0=document.getElementById(location.hash.slice(1)); if(el0&&el0.classList&&el0.classList.contains('turn')) el0.classList.add('turn-hl'); }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
