@@ -67,6 +67,13 @@ header.h a.back:hover{text-decoration:underline;}
 .footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.74rem;line-height:1.8;}
 .footer a{color:var(--navy);font-weight:700;}
 @media(max-width:560px){header.h h1{font-size:1.25rem;} .card .ttl{font-size:.9rem;}}
+@media(max-width:640px){
+  .searchbox.has-q .hint,.searchbox.has-q .ai-examples{display:none;}
+  .facets{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:8px 0 0;padding-bottom:2px;
+    -webkit-mask-image:linear-gradient(to right,#000 88%,transparent);mask-image:linear-gradient(to right,#000 88%,transparent);}
+  .facets::-webkit-scrollbar{display:none;}
+  .facets .facet{flex:0 0 auto;white-space:nowrap;}
+}
 
 /* AI質問(2026-09-17: search.htmlとqa.htmlを統合。全文検索はこれまで通りサーバー非依存・無料のまま、
    疑問文を入力したときだけ任意でAIの回答(HF Space API)も呼べるようにする) */
@@ -407,13 +414,32 @@ header.h a.back:hover{text-decoration:underline;}
   }
   aiGo.addEventListener('click', function(){ askAi(); });
   [].forEach.call(document.querySelectorAll('.ai-ex'), function(b){
-    b.addEventListener('click', function(){ q.value=b.textContent; render(); updateAiRow(); askAi(b.textContent); });
+    b.addEventListener('click', function(){ q.value=b.textContent; syncQ(); render(); updateAiRow(); askAi(b.textContent); });
   });
 
-  q.addEventListener('input',function(){ clearTimeout(q._t); q._t=setTimeout(render,120); clearTimeout(q._lt); q._lt=setTimeout(logSearch,1500); updateAiRow(); });
+  var sbox=document.querySelector('.searchbox');
+  function syncQ(){ if(sbox) sbox.classList.toggle('has-q', q.value.trim()!==''); }
+  // ④ スマホ幅ではメニュー(.sitenav)も上部に固定されるので、検索欄はその下に固定する（同じ top:0 だと入力欄がメニューの下に潜る）
+  function stickTop(){ if(!sbox) return; var nav=document.querySelector('.sitenav'); var mob=window.matchMedia && window.matchMedia('(max-width:640px)').matches;
+    var p=nav?getComputedStyle(nav).position:''; sbox.style.top=(mob && nav && (p==='sticky'||p==='fixed'))? nav.offsetHeight+'px' : ''; }
+  stickTop(); window.addEventListener('resize', stickTop);
+  // ③ スマホ幅で Enter を押したら、キーボードを閉じて結果の位置へ送る（日本語変換の確定Enterは isComposing/229 で除く）
+  q.addEventListener('keydown',function(e){
+    if(e.key!=='Enter' || e.isComposing || e.keyCode===229) return;
+    if(!window.matchMedia || !window.matchMedia('(max-width:640px)').matches) return;
+    e.preventDefault(); clearTimeout(q._t); render(); updateAiRow(); syncQ(); q.blur();
+    var aiRow=document.getElementById('aiRow');
+    var tgt=(aiRow && !aiRow.classList.contains('hidden')) ? aiRow : status;
+    setTimeout(function(){
+      var y=tgt.getBoundingClientRect().top+window.pageYOffset-(sbox?sbox.offsetHeight+(parseFloat(sbox.style.top)||0):0)-8;
+      var smooth=!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+      if(y>window.pageYOffset) window.scrollTo({top:y,behavior:smooth?'smooth':'auto'});
+    },60);
+  });
+  q.addEventListener('input',function(){ syncQ(); clearTimeout(q._t); q._t=setTimeout(render,120); clearTimeout(q._lt); q._lt=setTimeout(logSearch,1500); updateAiRow(); });
 
   fetch('search_index.json').then(function(r){return r.json();}).then(function(d){
-    DATA=d; loading.style.display='none'; var _q=''; try{_q=new URLSearchParams(location.search).get('q')||''; if(_q){q.value=_q;}}catch(e){} buildCatFacets(); render(); updateAiRow(); if(_q){setTimeout(logSearch,1200);}
+    DATA=d; loading.style.display='none'; var _q=''; try{_q=new URLSearchParams(location.search).get('q')||''; if(_q){q.value=_q;}}catch(e){} buildCatFacets(); render(); updateAiRow(); syncQ(); if(_q){setTimeout(logSearch,1200);}
   }).catch(function(e){
     loading.style.display='none';
     status.textContent='インデックスの読み込みに失敗しました: '+e;
